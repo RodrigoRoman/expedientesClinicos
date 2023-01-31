@@ -36,6 +36,27 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
+  kt_dart: ^1.0.0
+  image_picker: ^0.8.6
+  freezed_annotation: ^2.1.0
+  json_annotation: ^4.6.0
+  path_provider: ^2.0.11
+  dartz: ^0.10.1
+  uuid: ^3.0.6
+  flutter_bloc: ^8.1.1
+  cloud_firestore: ^4.1.0
+  firebase_auth: ^4.1.4
+  firebase_storage: ^11.0.6
+  injectable: ^2.0.1
+  google_sign_in: ^5.4.2
+  firebase_core: ^2.3.0
+  get_it: ^7.2.0
+  lottie: ^2.0.0
+  font_awesome_flutter: ^10.2.1
+  auto_route: ^5.0.2
+  rxdart: ^0.27.7
+  faker: ^2.1.0
+  unsplash_client: ^2.1.0+3
 
 dev_dependencies:
   flutter_test:
@@ -47,6 +68,11 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^2.0.0
+  build_runner: ^2.2.0
+  freezed: ^2.0.4
+  injectable_generator: ^2.0.1
+  json_serializable: ^6.3.1
+  auto_route_generator: ^5.0.2
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -58,6 +84,9 @@ flutter:
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
+  assets:
+    - assets/json/
+    - assets/images/
 
   # To add assets to your application, add an assets section, like this:
   # assets:
