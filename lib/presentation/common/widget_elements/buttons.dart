@@ -1,5 +1,5 @@
-import 'package:cafe_luna/presentation/resources/color_manager.dart';
-import 'package:cafe_luna/presentation/resources/constant_size_values.dart';
+import 'package:expedientes_clinicos/presentation/resources/color_manager.dart';
+import 'package:expedientes_clinicos/presentation/resources/constant_size_values.dart';
 import 'package:flutter/material.dart';
 
 class RetryButton extends StatelessWidget {

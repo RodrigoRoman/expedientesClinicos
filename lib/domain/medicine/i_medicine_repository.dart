@@ -3,7 +3,7 @@ import 'package:dartz/dartz.dart';
 import 'package:expedientes_clinicos/domain/medicine/medicine_failures.dart';
 import 'package:kt_dart/collection.dart';
 
-abstract class IIngredientsCoreRepository {
+abstract class IMedicineRepository {
   Stream<Either<MedicineFailures, KtList<Medicine>>> watchAll();
   Stream<Either<MedicineFailures, KtList<Medicine>>> watchFiltered(String name);
   Future<Either<MedicineFailures, Unit>> create(Medicine medicine);
