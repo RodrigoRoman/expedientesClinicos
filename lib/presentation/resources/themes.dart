@@ -9,6 +9,8 @@ class CustomTheme {
     //1
     return ThemeData(
       //2
+      hintColor: LightThemeColors.accent,
+      primaryColor: LightThemeColors.primary,
       colorScheme: ColorScheme(
           brightness: Brightness.light,
           primary: LightThemeColors.primary,
@@ -37,21 +39,20 @@ class CustomTheme {
         foregroundColor: LightThemeColors.tertiary,
       )),
       textTheme: TextTheme(
-        headline1: BoldTextStyle(color: ColorManager.black, size: AppSize.s22),
-        headline2:
+        titleLarge: BoldTextStyle(color: ColorManager.black, size: AppSize.s22),
+        titleMedium:
             SemiBoldTextStyle(color: ColorManager.black, size: AppSize.s20),
-        headline3:
+        titleSmall:
             RegularTextStyle(color: ColorManager.black, size: AppSize.s20),
-        headline4: LightTextStyle(color: ColorManager.grey, size: AppSize.s20),
-        subtitle1:
+        headlineLarge:
             SemiBoldTextStyle(color: ColorManager.black, size: AppSize.s18),
-        subtitle2:
+        headlineMedium:
             RegularTextStyle(color: ColorManager.grey, size: AppSize.s18),
-        bodyText1:
+        bodyLarge:
             SemiBoldTextStyle(color: ColorManager.black, size: AppSize.s14),
-        bodyText2:
+        bodyMedium:
             SemiBoldTextStyle(color: ColorManager.black, size: AppSize.s16),
-        caption: LightTextStyle(color: ColorManager.black, size: AppSize.s12),
+        bodySmall: LightTextStyle(color: ColorManager.black, size: AppSize.s12),
       ),
       inputDecorationTheme: InputDecorationTheme(
           contentPadding: const EdgeInsets.all(AppSize.s8),
@@ -88,6 +89,8 @@ class CustomTheme {
     //1
     return ThemeData(
       //2
+      hintColor: DarkThemeColors.accent,
+      primaryColor: DarkThemeColors.primary,
       colorScheme: ColorScheme(
           brightness: Brightness.light,
           primary: DarkThemeColors.primary,
@@ -116,21 +119,20 @@ class CustomTheme {
         foregroundColor: DarkThemeColors.tertiary,
       )),
       textTheme: TextTheme(
-        headline1: BoldTextStyle(color: ColorManager.black, size: AppSize.s22),
-        headline2:
+        titleLarge: BoldTextStyle(color: ColorManager.black, size: AppSize.s22),
+        titleMedium:
             SemiBoldTextStyle(color: ColorManager.black, size: AppSize.s20),
-        headline3:
+        titleSmall:
             RegularTextStyle(color: ColorManager.black, size: AppSize.s20),
-        headline4: LightTextStyle(color: ColorManager.grey, size: AppSize.s20),
-        subtitle1:
+        headlineLarge:
             SemiBoldTextStyle(color: ColorManager.black, size: AppSize.s18),
-        subtitle2:
+        headlineMedium:
             RegularTextStyle(color: ColorManager.grey, size: AppSize.s18),
-        bodyText1:
+        bodyLarge:
             SemiBoldTextStyle(color: ColorManager.black, size: AppSize.s14),
-        bodyText2:
+        bodyMedium:
             SemiBoldTextStyle(color: ColorManager.black, size: AppSize.s16),
-        caption: LightTextStyle(color: ColorManager.black, size: AppSize.s12),
+        bodySmall: LightTextStyle(color: ColorManager.black, size: AppSize.s12),
       ),
       inputDecorationTheme: InputDecorationTheme(
           contentPadding: const EdgeInsets.all(AppSize.s8),
