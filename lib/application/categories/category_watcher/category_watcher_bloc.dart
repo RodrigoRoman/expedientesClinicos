@@ -2,9 +2,9 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
+import 'package:expedientes_clinicos/domain/core/categories/category.dart';
+import 'package:expedientes_clinicos/domain/core/categories/category_failures.dart';
 import 'package:expedientes_clinicos/domain/core/categories/i_category_repository.dart';
-import 'package:expedientes_clinicos/domain/medicine/categories/category.dart';
-import 'package:expedientes_clinicos/domain/medicine/categories/category_failures.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:kt_dart/collection.dart';

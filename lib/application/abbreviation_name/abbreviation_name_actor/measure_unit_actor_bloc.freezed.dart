@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'category_actor_bloc.dart';
+part of 'measure_unit_actor_bloc.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,61 +15,63 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-mixin _$CategoryActorEvent {
-  Category get category => throw _privateConstructorUsedError;
+mixin _$AbbreviationNameActorEvent {
+  NameAbbreviation get abbreviationName => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Category category) deleted,
+    required TResult Function(NameAbbreviation abbreviationName) deleted,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Category category)? deleted,
+    TResult? Function(NameAbbreviation abbreviationName)? deleted,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Category category)? deleted,
+    TResult Function(NameAbbreviation abbreviationName)? deleted,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_DeleteCategory value) deleted,
+    required TResult Function(_Deleted value) deleted,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_DeleteCategory value)? deleted,
+    TResult? Function(_Deleted value)? deleted,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_DeleteCategory value)? deleted,
+    TResult Function(_Deleted value)? deleted,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $CategoryActorEventCopyWith<CategoryActorEvent> get copyWith =>
-      throw _privateConstructorUsedError;
+  $AbbreviationNameActorEventCopyWith<AbbreviationNameActorEvent>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $CategoryActorEventCopyWith<$Res> {
-  factory $CategoryActorEventCopyWith(
-          CategoryActorEvent value, $Res Function(CategoryActorEvent) then) =
-      _$CategoryActorEventCopyWithImpl<$Res, CategoryActorEvent>;
+abstract class $AbbreviationNameActorEventCopyWith<$Res> {
+  factory $AbbreviationNameActorEventCopyWith(AbbreviationNameActorEvent value,
+          $Res Function(AbbreviationNameActorEvent) then) =
+      _$AbbreviationNameActorEventCopyWithImpl<$Res,
+          AbbreviationNameActorEvent>;
   @useResult
-  $Res call({Category category});
+  $Res call({NameAbbreviation abbreviationName});
 
-  $CategoryCopyWith<$Res> get category;
+  $NameAbbreviationCopyWith<$Res> get abbreviationName;
 }
 
 /// @nodoc
-class _$CategoryActorEventCopyWithImpl<$Res, $Val extends CategoryActorEvent>
-    implements $CategoryActorEventCopyWith<$Res> {
-  _$CategoryActorEventCopyWithImpl(this._value, this._then);
+class _$AbbreviationNameActorEventCopyWithImpl<$Res,
+        $Val extends AbbreviationNameActorEvent>
+    implements $AbbreviationNameActorEventCopyWith<$Res> {
+  _$AbbreviationNameActorEventCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -79,126 +81,115 @@ class _$CategoryActorEventCopyWithImpl<$Res, $Val extends CategoryActorEvent>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? category = null,
+    Object? abbreviationName = null,
   }) {
     return _then(_value.copyWith(
-      category: null == category
-          ? _value.category
-          : category // ignore: cast_nullable_to_non_nullable
-              as Category,
+      abbreviationName: null == abbreviationName
+          ? _value.abbreviationName
+          : abbreviationName // ignore: cast_nullable_to_non_nullable
+              as NameAbbreviation,
     ) as $Val);
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $CategoryCopyWith<$Res> get category {
-    return $CategoryCopyWith<$Res>(_value.category, (value) {
-      return _then(_value.copyWith(category: value) as $Val);
+  $NameAbbreviationCopyWith<$Res> get abbreviationName {
+    return $NameAbbreviationCopyWith<$Res>(_value.abbreviationName, (value) {
+      return _then(_value.copyWith(abbreviationName: value) as $Val);
     });
   }
 }
 
 /// @nodoc
-abstract class _$$_DeleteCategoryCopyWith<$Res>
-    implements $CategoryActorEventCopyWith<$Res> {
-  factory _$$_DeleteCategoryCopyWith(
-          _$_DeleteCategory value, $Res Function(_$_DeleteCategory) then) =
-      __$$_DeleteCategoryCopyWithImpl<$Res>;
+abstract class _$$_DeletedCopyWith<$Res>
+    implements $AbbreviationNameActorEventCopyWith<$Res> {
+  factory _$$_DeletedCopyWith(
+          _$_Deleted value, $Res Function(_$_Deleted) then) =
+      __$$_DeletedCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Category category});
+  $Res call({NameAbbreviation abbreviationName});
 
   @override
-  $CategoryCopyWith<$Res> get category;
+  $NameAbbreviationCopyWith<$Res> get abbreviationName;
 }
 
 /// @nodoc
-class __$$_DeleteCategoryCopyWithImpl<$Res>
-    extends _$CategoryActorEventCopyWithImpl<$Res, _$_DeleteCategory>
-    implements _$$_DeleteCategoryCopyWith<$Res> {
-  __$$_DeleteCategoryCopyWithImpl(
-      _$_DeleteCategory _value, $Res Function(_$_DeleteCategory) _then)
+class __$$_DeletedCopyWithImpl<$Res>
+    extends _$AbbreviationNameActorEventCopyWithImpl<$Res, _$_Deleted>
+    implements _$$_DeletedCopyWith<$Res> {
+  __$$_DeletedCopyWithImpl(_$_Deleted _value, $Res Function(_$_Deleted) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? category = null,
+    Object? abbreviationName = null,
   }) {
-    return _then(_$_DeleteCategory(
-      null == category
-          ? _value.category
-          : category // ignore: cast_nullable_to_non_nullable
-              as Category,
+    return _then(_$_Deleted(
+      null == abbreviationName
+          ? _value.abbreviationName
+          : abbreviationName // ignore: cast_nullable_to_non_nullable
+              as NameAbbreviation,
     ));
   }
 }
 
 /// @nodoc
 
-class _$_DeleteCategory
-    with DiagnosticableTreeMixin
-    implements _DeleteCategory {
-  const _$_DeleteCategory(this.category);
+class _$_Deleted implements _Deleted {
+  const _$_Deleted(this.abbreviationName);
 
   @override
-  final Category category;
+  final NameAbbreviation abbreviationName;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'CategoryActorEvent.deleted(category: $category)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'CategoryActorEvent.deleted'))
-      ..add(DiagnosticsProperty('category', category));
+  String toString() {
+    return 'AbbreviationNameActorEvent.deleted(abbreviationName: $abbreviationName)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_DeleteCategory &&
-            (identical(other.category, category) ||
-                other.category == category));
+            other is _$_Deleted &&
+            (identical(other.abbreviationName, abbreviationName) ||
+                other.abbreviationName == abbreviationName));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, category);
+  int get hashCode => Object.hash(runtimeType, abbreviationName);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DeleteCategoryCopyWith<_$_DeleteCategory> get copyWith =>
-      __$$_DeleteCategoryCopyWithImpl<_$_DeleteCategory>(this, _$identity);
+  _$$_DeletedCopyWith<_$_Deleted> get copyWith =>
+      __$$_DeletedCopyWithImpl<_$_Deleted>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Category category) deleted,
+    required TResult Function(NameAbbreviation abbreviationName) deleted,
   }) {
-    return deleted(category);
+    return deleted(abbreviationName);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Category category)? deleted,
+    TResult? Function(NameAbbreviation abbreviationName)? deleted,
   }) {
-    return deleted?.call(category);
+    return deleted?.call(abbreviationName);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Category category)? deleted,
+    TResult Function(NameAbbreviation abbreviationName)? deleted,
     required TResult orElse(),
   }) {
     if (deleted != null) {
-      return deleted(category);
+      return deleted(abbreviationName);
     }
     return orElse();
   }
@@ -206,7 +197,7 @@ class _$_DeleteCategory
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_DeleteCategory value) deleted,
+    required TResult Function(_Deleted value) deleted,
   }) {
     return deleted(this);
   }
@@ -214,7 +205,7 @@ class _$_DeleteCategory
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_DeleteCategory value)? deleted,
+    TResult? Function(_Deleted value)? deleted,
   }) {
     return deleted?.call(this);
   }
@@ -222,7 +213,7 @@ class _$_DeleteCategory
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_DeleteCategory value)? deleted,
+    TResult Function(_Deleted value)? deleted,
     required TResult orElse(),
   }) {
     if (deleted != null) {
@@ -232,24 +223,25 @@ class _$_DeleteCategory
   }
 }
 
-abstract class _DeleteCategory implements CategoryActorEvent {
-  const factory _DeleteCategory(final Category category) = _$_DeleteCategory;
+abstract class _Deleted implements AbbreviationNameActorEvent {
+  const factory _Deleted(final NameAbbreviation abbreviationName) = _$_Deleted;
 
   @override
-  Category get category;
+  NameAbbreviation get abbreviationName;
   @override
   @JsonKey(ignore: true)
-  _$$_DeleteCategoryCopyWith<_$_DeleteCategory> get copyWith =>
+  _$$_DeletedCopyWith<_$_Deleted> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-mixin _$CategoryActorState {
+mixin _$AbbreviationNameActorState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() actionInProgress,
-    required TResult Function(CategoryFailures categoryFailure) deleteFailure,
+    required TResult Function(NameAbbreviationFailure nameAbbreviationFailure)
+        deleteFailure,
     required TResult Function() deleteSuccess,
   }) =>
       throw _privateConstructorUsedError;
@@ -257,7 +249,8 @@ mixin _$CategoryActorState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? actionInProgress,
-    TResult? Function(CategoryFailures categoryFailure)? deleteFailure,
+    TResult? Function(NameAbbreviationFailure nameAbbreviationFailure)?
+        deleteFailure,
     TResult? Function()? deleteSuccess,
   }) =>
       throw _privateConstructorUsedError;
@@ -265,7 +258,8 @@ mixin _$CategoryActorState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? actionInProgress,
-    TResult Function(CategoryFailures categoryFailure)? deleteFailure,
+    TResult Function(NameAbbreviationFailure nameAbbreviationFailure)?
+        deleteFailure,
     TResult Function()? deleteSuccess,
     required TResult orElse(),
   }) =>
@@ -274,7 +268,7 @@ mixin _$CategoryActorState {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_ActionInProgress value) actionInProgress,
-    required TResult Function(_DeleteFailure value) deleteFailure,
+    required TResult Function(_DeleteFalure value) deleteFailure,
     required TResult Function(_DeleteSuccess value) deleteSuccess,
   }) =>
       throw _privateConstructorUsedError;
@@ -282,7 +276,7 @@ mixin _$CategoryActorState {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_ActionInProgress value)? actionInProgress,
-    TResult? Function(_DeleteFailure value)? deleteFailure,
+    TResult? Function(_DeleteFalure value)? deleteFailure,
     TResult? Function(_DeleteSuccess value)? deleteSuccess,
   }) =>
       throw _privateConstructorUsedError;
@@ -290,7 +284,7 @@ mixin _$CategoryActorState {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_ActionInProgress value)? actionInProgress,
-    TResult Function(_DeleteFailure value)? deleteFailure,
+    TResult Function(_DeleteFalure value)? deleteFailure,
     TResult Function(_DeleteSuccess value)? deleteSuccess,
     required TResult orElse(),
   }) =>
@@ -298,16 +292,18 @@ mixin _$CategoryActorState {
 }
 
 /// @nodoc
-abstract class $CategoryActorStateCopyWith<$Res> {
-  factory $CategoryActorStateCopyWith(
-          CategoryActorState value, $Res Function(CategoryActorState) then) =
-      _$CategoryActorStateCopyWithImpl<$Res, CategoryActorState>;
+abstract class $AbbreviationNameActorStateCopyWith<$Res> {
+  factory $AbbreviationNameActorStateCopyWith(AbbreviationNameActorState value,
+          $Res Function(AbbreviationNameActorState) then) =
+      _$AbbreviationNameActorStateCopyWithImpl<$Res,
+          AbbreviationNameActorState>;
 }
 
 /// @nodoc
-class _$CategoryActorStateCopyWithImpl<$Res, $Val extends CategoryActorState>
-    implements $CategoryActorStateCopyWith<$Res> {
-  _$CategoryActorStateCopyWithImpl(this._value, this._then);
+class _$AbbreviationNameActorStateCopyWithImpl<$Res,
+        $Val extends AbbreviationNameActorState>
+    implements $AbbreviationNameActorStateCopyWith<$Res> {
+  _$AbbreviationNameActorStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -324,7 +320,7 @@ abstract class _$$_InitialCopyWith<$Res> {
 
 /// @nodoc
 class __$$_InitialCopyWithImpl<$Res>
-    extends _$CategoryActorStateCopyWithImpl<$Res, _$_Initial>
+    extends _$AbbreviationNameActorStateCopyWithImpl<$Res, _$_Initial>
     implements _$$_InitialCopyWith<$Res> {
   __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
       : super(_value, _then);
@@ -332,18 +328,12 @@ class __$$_InitialCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Initial with DiagnosticableTreeMixin implements _Initial {
+class _$_Initial implements _Initial {
   const _$_Initial();
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'CategoryActorState.initial()';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty('type', 'CategoryActorState.initial'));
+  String toString() {
+    return 'AbbreviationNameActorState.initial()';
   }
 
   @override
@@ -360,7 +350,8 @@ class _$_Initial with DiagnosticableTreeMixin implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() actionInProgress,
-    required TResult Function(CategoryFailures categoryFailure) deleteFailure,
+    required TResult Function(NameAbbreviationFailure nameAbbreviationFailure)
+        deleteFailure,
     required TResult Function() deleteSuccess,
   }) {
     return initial();
@@ -371,7 +362,8 @@ class _$_Initial with DiagnosticableTreeMixin implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? actionInProgress,
-    TResult? Function(CategoryFailures categoryFailure)? deleteFailure,
+    TResult? Function(NameAbbreviationFailure nameAbbreviationFailure)?
+        deleteFailure,
     TResult? Function()? deleteSuccess,
   }) {
     return initial?.call();
@@ -382,7 +374,8 @@ class _$_Initial with DiagnosticableTreeMixin implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? actionInProgress,
-    TResult Function(CategoryFailures categoryFailure)? deleteFailure,
+    TResult Function(NameAbbreviationFailure nameAbbreviationFailure)?
+        deleteFailure,
     TResult Function()? deleteSuccess,
     required TResult orElse(),
   }) {
@@ -397,7 +390,7 @@ class _$_Initial with DiagnosticableTreeMixin implements _Initial {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_ActionInProgress value) actionInProgress,
-    required TResult Function(_DeleteFailure value) deleteFailure,
+    required TResult Function(_DeleteFalure value) deleteFailure,
     required TResult Function(_DeleteSuccess value) deleteSuccess,
   }) {
     return initial(this);
@@ -408,7 +401,7 @@ class _$_Initial with DiagnosticableTreeMixin implements _Initial {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_ActionInProgress value)? actionInProgress,
-    TResult? Function(_DeleteFailure value)? deleteFailure,
+    TResult? Function(_DeleteFalure value)? deleteFailure,
     TResult? Function(_DeleteSuccess value)? deleteSuccess,
   }) {
     return initial?.call(this);
@@ -419,7 +412,7 @@ class _$_Initial with DiagnosticableTreeMixin implements _Initial {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_ActionInProgress value)? actionInProgress,
-    TResult Function(_DeleteFailure value)? deleteFailure,
+    TResult Function(_DeleteFalure value)? deleteFailure,
     TResult Function(_DeleteSuccess value)? deleteSuccess,
     required TResult orElse(),
   }) {
@@ -430,7 +423,7 @@ class _$_Initial with DiagnosticableTreeMixin implements _Initial {
   }
 }
 
-abstract class _Initial implements CategoryActorState {
+abstract class _Initial implements AbbreviationNameActorState {
   const factory _Initial() = _$_Initial;
 }
 
@@ -443,7 +436,7 @@ abstract class _$$_ActionInProgressCopyWith<$Res> {
 
 /// @nodoc
 class __$$_ActionInProgressCopyWithImpl<$Res>
-    extends _$CategoryActorStateCopyWithImpl<$Res, _$_ActionInProgress>
+    extends _$AbbreviationNameActorStateCopyWithImpl<$Res, _$_ActionInProgress>
     implements _$$_ActionInProgressCopyWith<$Res> {
   __$$_ActionInProgressCopyWithImpl(
       _$_ActionInProgress _value, $Res Function(_$_ActionInProgress) _then)
@@ -452,21 +445,12 @@ class __$$_ActionInProgressCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ActionInProgress
-    with DiagnosticableTreeMixin
-    implements _ActionInProgress {
+class _$_ActionInProgress implements _ActionInProgress {
   const _$_ActionInProgress();
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'CategoryActorState.actionInProgress()';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties.add(
-        DiagnosticsProperty('type', 'CategoryActorState.actionInProgress'));
+  String toString() {
+    return 'AbbreviationNameActorState.actionInProgress()';
   }
 
   @override
@@ -483,7 +467,8 @@ class _$_ActionInProgress
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() actionInProgress,
-    required TResult Function(CategoryFailures categoryFailure) deleteFailure,
+    required TResult Function(NameAbbreviationFailure nameAbbreviationFailure)
+        deleteFailure,
     required TResult Function() deleteSuccess,
   }) {
     return actionInProgress();
@@ -494,7 +479,8 @@ class _$_ActionInProgress
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? actionInProgress,
-    TResult? Function(CategoryFailures categoryFailure)? deleteFailure,
+    TResult? Function(NameAbbreviationFailure nameAbbreviationFailure)?
+        deleteFailure,
     TResult? Function()? deleteSuccess,
   }) {
     return actionInProgress?.call();
@@ -505,7 +491,8 @@ class _$_ActionInProgress
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? actionInProgress,
-    TResult Function(CategoryFailures categoryFailure)? deleteFailure,
+    TResult Function(NameAbbreviationFailure nameAbbreviationFailure)?
+        deleteFailure,
     TResult Function()? deleteSuccess,
     required TResult orElse(),
   }) {
@@ -520,7 +507,7 @@ class _$_ActionInProgress
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_ActionInProgress value) actionInProgress,
-    required TResult Function(_DeleteFailure value) deleteFailure,
+    required TResult Function(_DeleteFalure value) deleteFailure,
     required TResult Function(_DeleteSuccess value) deleteSuccess,
   }) {
     return actionInProgress(this);
@@ -531,7 +518,7 @@ class _$_ActionInProgress
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_ActionInProgress value)? actionInProgress,
-    TResult? Function(_DeleteFailure value)? deleteFailure,
+    TResult? Function(_DeleteFalure value)? deleteFailure,
     TResult? Function(_DeleteSuccess value)? deleteSuccess,
   }) {
     return actionInProgress?.call(this);
@@ -542,7 +529,7 @@ class _$_ActionInProgress
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_ActionInProgress value)? actionInProgress,
-    TResult Function(_DeleteFailure value)? deleteFailure,
+    TResult Function(_DeleteFalure value)? deleteFailure,
     TResult Function(_DeleteSuccess value)? deleteSuccess,
     required TResult orElse(),
   }) {
@@ -553,99 +540,94 @@ class _$_ActionInProgress
   }
 }
 
-abstract class _ActionInProgress implements CategoryActorState {
+abstract class _ActionInProgress implements AbbreviationNameActorState {
   const factory _ActionInProgress() = _$_ActionInProgress;
 }
 
 /// @nodoc
-abstract class _$$_DeleteFailureCopyWith<$Res> {
-  factory _$$_DeleteFailureCopyWith(
-          _$_DeleteFailure value, $Res Function(_$_DeleteFailure) then) =
-      __$$_DeleteFailureCopyWithImpl<$Res>;
+abstract class _$$_DeleteFalureCopyWith<$Res> {
+  factory _$$_DeleteFalureCopyWith(
+          _$_DeleteFalure value, $Res Function(_$_DeleteFalure) then) =
+      __$$_DeleteFalureCopyWithImpl<$Res>;
   @useResult
-  $Res call({CategoryFailures categoryFailure});
+  $Res call({NameAbbreviationFailure nameAbbreviationFailure});
 
-  $CategoryFailuresCopyWith<$Res> get categoryFailure;
+  $NameAbbreviationFailureCopyWith<$Res> get nameAbbreviationFailure;
 }
 
 /// @nodoc
-class __$$_DeleteFailureCopyWithImpl<$Res>
-    extends _$CategoryActorStateCopyWithImpl<$Res, _$_DeleteFailure>
-    implements _$$_DeleteFailureCopyWith<$Res> {
-  __$$_DeleteFailureCopyWithImpl(
-      _$_DeleteFailure _value, $Res Function(_$_DeleteFailure) _then)
+class __$$_DeleteFalureCopyWithImpl<$Res>
+    extends _$AbbreviationNameActorStateCopyWithImpl<$Res, _$_DeleteFalure>
+    implements _$$_DeleteFalureCopyWith<$Res> {
+  __$$_DeleteFalureCopyWithImpl(
+      _$_DeleteFalure _value, $Res Function(_$_DeleteFalure) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? categoryFailure = null,
+    Object? nameAbbreviationFailure = null,
   }) {
-    return _then(_$_DeleteFailure(
-      null == categoryFailure
-          ? _value.categoryFailure
-          : categoryFailure // ignore: cast_nullable_to_non_nullable
-              as CategoryFailures,
+    return _then(_$_DeleteFalure(
+      null == nameAbbreviationFailure
+          ? _value.nameAbbreviationFailure
+          : nameAbbreviationFailure // ignore: cast_nullable_to_non_nullable
+              as NameAbbreviationFailure,
     ));
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $CategoryFailuresCopyWith<$Res> get categoryFailure {
-    return $CategoryFailuresCopyWith<$Res>(_value.categoryFailure, (value) {
-      return _then(_value.copyWith(categoryFailure: value));
+  $NameAbbreviationFailureCopyWith<$Res> get nameAbbreviationFailure {
+    return $NameAbbreviationFailureCopyWith<$Res>(
+        _value.nameAbbreviationFailure, (value) {
+      return _then(_value.copyWith(nameAbbreviationFailure: value));
     });
   }
 }
 
 /// @nodoc
 
-class _$_DeleteFailure with DiagnosticableTreeMixin implements _DeleteFailure {
-  const _$_DeleteFailure(this.categoryFailure);
+class _$_DeleteFalure implements _DeleteFalure {
+  const _$_DeleteFalure(this.nameAbbreviationFailure);
 
   @override
-  final CategoryFailures categoryFailure;
+  final NameAbbreviationFailure nameAbbreviationFailure;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'CategoryActorState.deleteFailure(categoryFailure: $categoryFailure)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'CategoryActorState.deleteFailure'))
-      ..add(DiagnosticsProperty('categoryFailure', categoryFailure));
+  String toString() {
+    return 'AbbreviationNameActorState.deleteFailure(nameAbbreviationFailure: $nameAbbreviationFailure)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_DeleteFailure &&
-            (identical(other.categoryFailure, categoryFailure) ||
-                other.categoryFailure == categoryFailure));
+            other is _$_DeleteFalure &&
+            (identical(
+                    other.nameAbbreviationFailure, nameAbbreviationFailure) ||
+                other.nameAbbreviationFailure == nameAbbreviationFailure));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, categoryFailure);
+  int get hashCode => Object.hash(runtimeType, nameAbbreviationFailure);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DeleteFailureCopyWith<_$_DeleteFailure> get copyWith =>
-      __$$_DeleteFailureCopyWithImpl<_$_DeleteFailure>(this, _$identity);
+  _$$_DeleteFalureCopyWith<_$_DeleteFalure> get copyWith =>
+      __$$_DeleteFalureCopyWithImpl<_$_DeleteFalure>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() actionInProgress,
-    required TResult Function(CategoryFailures categoryFailure) deleteFailure,
+    required TResult Function(NameAbbreviationFailure nameAbbreviationFailure)
+        deleteFailure,
     required TResult Function() deleteSuccess,
   }) {
-    return deleteFailure(categoryFailure);
+    return deleteFailure(nameAbbreviationFailure);
   }
 
   @override
@@ -653,10 +635,11 @@ class _$_DeleteFailure with DiagnosticableTreeMixin implements _DeleteFailure {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? actionInProgress,
-    TResult? Function(CategoryFailures categoryFailure)? deleteFailure,
+    TResult? Function(NameAbbreviationFailure nameAbbreviationFailure)?
+        deleteFailure,
     TResult? Function()? deleteSuccess,
   }) {
-    return deleteFailure?.call(categoryFailure);
+    return deleteFailure?.call(nameAbbreviationFailure);
   }
 
   @override
@@ -664,12 +647,13 @@ class _$_DeleteFailure with DiagnosticableTreeMixin implements _DeleteFailure {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? actionInProgress,
-    TResult Function(CategoryFailures categoryFailure)? deleteFailure,
+    TResult Function(NameAbbreviationFailure nameAbbreviationFailure)?
+        deleteFailure,
     TResult Function()? deleteSuccess,
     required TResult orElse(),
   }) {
     if (deleteFailure != null) {
-      return deleteFailure(categoryFailure);
+      return deleteFailure(nameAbbreviationFailure);
     }
     return orElse();
   }
@@ -679,7 +663,7 @@ class _$_DeleteFailure with DiagnosticableTreeMixin implements _DeleteFailure {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_ActionInProgress value) actionInProgress,
-    required TResult Function(_DeleteFailure value) deleteFailure,
+    required TResult Function(_DeleteFalure value) deleteFailure,
     required TResult Function(_DeleteSuccess value) deleteSuccess,
   }) {
     return deleteFailure(this);
@@ -690,7 +674,7 @@ class _$_DeleteFailure with DiagnosticableTreeMixin implements _DeleteFailure {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_ActionInProgress value)? actionInProgress,
-    TResult? Function(_DeleteFailure value)? deleteFailure,
+    TResult? Function(_DeleteFalure value)? deleteFailure,
     TResult? Function(_DeleteSuccess value)? deleteSuccess,
   }) {
     return deleteFailure?.call(this);
@@ -701,7 +685,7 @@ class _$_DeleteFailure with DiagnosticableTreeMixin implements _DeleteFailure {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_ActionInProgress value)? actionInProgress,
-    TResult Function(_DeleteFailure value)? deleteFailure,
+    TResult Function(_DeleteFalure value)? deleteFailure,
     TResult Function(_DeleteSuccess value)? deleteSuccess,
     required TResult orElse(),
   }) {
@@ -712,13 +696,13 @@ class _$_DeleteFailure with DiagnosticableTreeMixin implements _DeleteFailure {
   }
 }
 
-abstract class _DeleteFailure implements CategoryActorState {
-  const factory _DeleteFailure(final CategoryFailures categoryFailure) =
-      _$_DeleteFailure;
+abstract class _DeleteFalure implements AbbreviationNameActorState {
+  const factory _DeleteFalure(
+      final NameAbbreviationFailure nameAbbreviationFailure) = _$_DeleteFalure;
 
-  CategoryFailures get categoryFailure;
+  NameAbbreviationFailure get nameAbbreviationFailure;
   @JsonKey(ignore: true)
-  _$$_DeleteFailureCopyWith<_$_DeleteFailure> get copyWith =>
+  _$$_DeleteFalureCopyWith<_$_DeleteFalure> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -731,7 +715,7 @@ abstract class _$$_DeleteSuccessCopyWith<$Res> {
 
 /// @nodoc
 class __$$_DeleteSuccessCopyWithImpl<$Res>
-    extends _$CategoryActorStateCopyWithImpl<$Res, _$_DeleteSuccess>
+    extends _$AbbreviationNameActorStateCopyWithImpl<$Res, _$_DeleteSuccess>
     implements _$$_DeleteSuccessCopyWith<$Res> {
   __$$_DeleteSuccessCopyWithImpl(
       _$_DeleteSuccess _value, $Res Function(_$_DeleteSuccess) _then)
@@ -740,19 +724,12 @@ class __$$_DeleteSuccessCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_DeleteSuccess with DiagnosticableTreeMixin implements _DeleteSuccess {
+class _$_DeleteSuccess implements _DeleteSuccess {
   const _$_DeleteSuccess();
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'CategoryActorState.deleteSuccess()';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-        .add(DiagnosticsProperty('type', 'CategoryActorState.deleteSuccess'));
+  String toString() {
+    return 'AbbreviationNameActorState.deleteSuccess()';
   }
 
   @override
@@ -769,7 +746,8 @@ class _$_DeleteSuccess with DiagnosticableTreeMixin implements _DeleteSuccess {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() actionInProgress,
-    required TResult Function(CategoryFailures categoryFailure) deleteFailure,
+    required TResult Function(NameAbbreviationFailure nameAbbreviationFailure)
+        deleteFailure,
     required TResult Function() deleteSuccess,
   }) {
     return deleteSuccess();
@@ -780,7 +758,8 @@ class _$_DeleteSuccess with DiagnosticableTreeMixin implements _DeleteSuccess {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? actionInProgress,
-    TResult? Function(CategoryFailures categoryFailure)? deleteFailure,
+    TResult? Function(NameAbbreviationFailure nameAbbreviationFailure)?
+        deleteFailure,
     TResult? Function()? deleteSuccess,
   }) {
     return deleteSuccess?.call();
@@ -791,7 +770,8 @@ class _$_DeleteSuccess with DiagnosticableTreeMixin implements _DeleteSuccess {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? actionInProgress,
-    TResult Function(CategoryFailures categoryFailure)? deleteFailure,
+    TResult Function(NameAbbreviationFailure nameAbbreviationFailure)?
+        deleteFailure,
     TResult Function()? deleteSuccess,
     required TResult orElse(),
   }) {
@@ -806,7 +786,7 @@ class _$_DeleteSuccess with DiagnosticableTreeMixin implements _DeleteSuccess {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_ActionInProgress value) actionInProgress,
-    required TResult Function(_DeleteFailure value) deleteFailure,
+    required TResult Function(_DeleteFalure value) deleteFailure,
     required TResult Function(_DeleteSuccess value) deleteSuccess,
   }) {
     return deleteSuccess(this);
@@ -817,7 +797,7 @@ class _$_DeleteSuccess with DiagnosticableTreeMixin implements _DeleteSuccess {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_ActionInProgress value)? actionInProgress,
-    TResult? Function(_DeleteFailure value)? deleteFailure,
+    TResult? Function(_DeleteFalure value)? deleteFailure,
     TResult? Function(_DeleteSuccess value)? deleteSuccess,
   }) {
     return deleteSuccess?.call(this);
@@ -828,7 +808,7 @@ class _$_DeleteSuccess with DiagnosticableTreeMixin implements _DeleteSuccess {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_ActionInProgress value)? actionInProgress,
-    TResult Function(_DeleteFailure value)? deleteFailure,
+    TResult Function(_DeleteFalure value)? deleteFailure,
     TResult Function(_DeleteSuccess value)? deleteSuccess,
     required TResult orElse(),
   }) {
@@ -839,6 +819,6 @@ class _$_DeleteSuccess with DiagnosticableTreeMixin implements _DeleteSuccess {
   }
 }
 
-abstract class _DeleteSuccess implements CategoryActorState {
+abstract class _DeleteSuccess implements AbbreviationNameActorState {
   const factory _DeleteSuccess() = _$_DeleteSuccess;
 }

@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
-import 'package:expedientes_clinicos/domain/categories/category_failures.dart';
-import 'package:expedientes_clinicos/domain/categories/category.dart';
-import 'package:expedientes_clinicos/domain/categories/i_category_repository.dart';
+import 'package:expedientes_clinicos/domain/core/categories/category.dart';
+import 'package:expedientes_clinicos/domain/core/categories/category_failures.dart';
+import 'package:expedientes_clinicos/domain/core/categories/i_category_repository.dart';
 import 'package:flutter/foundation.dart' hide Category;
 import 'package:freezed_annotation/freezed_annotation.dart';
 

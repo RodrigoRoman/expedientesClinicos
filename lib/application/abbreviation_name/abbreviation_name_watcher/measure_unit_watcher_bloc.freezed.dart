@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'category_watcher_bloc.dart';
+part of 'measure_unit_watcher_bloc.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,14 +15,15 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-mixin _$CategoryWatcherEvent {
+mixin _$AbbreviationNameWatcherEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() watchAllStarted,
     required TResult Function(String keyword) watchFilteredStarted,
     required TResult Function(
-            Either<CategoryFailures, KtList<Category>> failureOrCategories)
-        categoriesReceived,
+            Either<NameAbbreviationFailure, KtList<NameAbbreviation>>
+                failureOrUnit)
+        measureUnitsReceived,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -30,8 +31,9 @@ mixin _$CategoryWatcherEvent {
     TResult? Function()? watchAllStarted,
     TResult? Function(String keyword)? watchFilteredStarted,
     TResult? Function(
-            Either<CategoryFailures, KtList<Category>> failureOrCategories)?
-        categoriesReceived,
+            Either<NameAbbreviationFailure, KtList<NameAbbreviation>>
+                failureOrUnit)?
+        measureUnitsReceived,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -39,8 +41,9 @@ mixin _$CategoryWatcherEvent {
     TResult Function()? watchAllStarted,
     TResult Function(String keyword)? watchFilteredStarted,
     TResult Function(
-            Either<CategoryFailures, KtList<Category>> failureOrCategories)?
-        categoriesReceived,
+            Either<NameAbbreviationFailure, KtList<NameAbbreviation>>
+                failureOrUnit)?
+        measureUnitsReceived,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -48,38 +51,41 @@ mixin _$CategoryWatcherEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_WatchAllStarted value) watchAllStarted,
     required TResult Function(_WatchFilteredStarted value) watchFilteredStarted,
-    required TResult Function(_CategoriesReceived value) categoriesReceived,
+    required TResult Function(_AbbreviationNameReceived value)
+        measureUnitsReceived,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_WatchAllStarted value)? watchAllStarted,
     TResult? Function(_WatchFilteredStarted value)? watchFilteredStarted,
-    TResult? Function(_CategoriesReceived value)? categoriesReceived,
+    TResult? Function(_AbbreviationNameReceived value)? measureUnitsReceived,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_WatchAllStarted value)? watchAllStarted,
     TResult Function(_WatchFilteredStarted value)? watchFilteredStarted,
-    TResult Function(_CategoriesReceived value)? categoriesReceived,
+    TResult Function(_AbbreviationNameReceived value)? measureUnitsReceived,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $CategoryWatcherEventCopyWith<$Res> {
-  factory $CategoryWatcherEventCopyWith(CategoryWatcherEvent value,
-          $Res Function(CategoryWatcherEvent) then) =
-      _$CategoryWatcherEventCopyWithImpl<$Res, CategoryWatcherEvent>;
+abstract class $AbbreviationNameWatcherEventCopyWith<$Res> {
+  factory $AbbreviationNameWatcherEventCopyWith(
+          AbbreviationNameWatcherEvent value,
+          $Res Function(AbbreviationNameWatcherEvent) then) =
+      _$AbbreviationNameWatcherEventCopyWithImpl<$Res,
+          AbbreviationNameWatcherEvent>;
 }
 
 /// @nodoc
-class _$CategoryWatcherEventCopyWithImpl<$Res,
-        $Val extends CategoryWatcherEvent>
-    implements $CategoryWatcherEventCopyWith<$Res> {
-  _$CategoryWatcherEventCopyWithImpl(this._value, this._then);
+class _$AbbreviationNameWatcherEventCopyWithImpl<$Res,
+        $Val extends AbbreviationNameWatcherEvent>
+    implements $AbbreviationNameWatcherEventCopyWith<$Res> {
+  _$AbbreviationNameWatcherEventCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -96,7 +102,7 @@ abstract class _$$_WatchAllStartedCopyWith<$Res> {
 
 /// @nodoc
 class __$$_WatchAllStartedCopyWithImpl<$Res>
-    extends _$CategoryWatcherEventCopyWithImpl<$Res, _$_WatchAllStarted>
+    extends _$AbbreviationNameWatcherEventCopyWithImpl<$Res, _$_WatchAllStarted>
     implements _$$_WatchAllStartedCopyWith<$Res> {
   __$$_WatchAllStartedCopyWithImpl(
       _$_WatchAllStarted _value, $Res Function(_$_WatchAllStarted) _then)
@@ -110,7 +116,7 @@ class _$_WatchAllStarted implements _WatchAllStarted {
 
   @override
   String toString() {
-    return 'CategoryWatcherEvent.watchAllStarted()';
+    return 'AbbreviationNameWatcherEvent.watchAllStarted()';
   }
 
   @override
@@ -128,8 +134,9 @@ class _$_WatchAllStarted implements _WatchAllStarted {
     required TResult Function() watchAllStarted,
     required TResult Function(String keyword) watchFilteredStarted,
     required TResult Function(
-            Either<CategoryFailures, KtList<Category>> failureOrCategories)
-        categoriesReceived,
+            Either<NameAbbreviationFailure, KtList<NameAbbreviation>>
+                failureOrUnit)
+        measureUnitsReceived,
   }) {
     return watchAllStarted();
   }
@@ -140,8 +147,9 @@ class _$_WatchAllStarted implements _WatchAllStarted {
     TResult? Function()? watchAllStarted,
     TResult? Function(String keyword)? watchFilteredStarted,
     TResult? Function(
-            Either<CategoryFailures, KtList<Category>> failureOrCategories)?
-        categoriesReceived,
+            Either<NameAbbreviationFailure, KtList<NameAbbreviation>>
+                failureOrUnit)?
+        measureUnitsReceived,
   }) {
     return watchAllStarted?.call();
   }
@@ -152,8 +160,9 @@ class _$_WatchAllStarted implements _WatchAllStarted {
     TResult Function()? watchAllStarted,
     TResult Function(String keyword)? watchFilteredStarted,
     TResult Function(
-            Either<CategoryFailures, KtList<Category>> failureOrCategories)?
-        categoriesReceived,
+            Either<NameAbbreviationFailure, KtList<NameAbbreviation>>
+                failureOrUnit)?
+        measureUnitsReceived,
     required TResult orElse(),
   }) {
     if (watchAllStarted != null) {
@@ -167,7 +176,8 @@ class _$_WatchAllStarted implements _WatchAllStarted {
   TResult map<TResult extends Object?>({
     required TResult Function(_WatchAllStarted value) watchAllStarted,
     required TResult Function(_WatchFilteredStarted value) watchFilteredStarted,
-    required TResult Function(_CategoriesReceived value) categoriesReceived,
+    required TResult Function(_AbbreviationNameReceived value)
+        measureUnitsReceived,
   }) {
     return watchAllStarted(this);
   }
@@ -177,7 +187,7 @@ class _$_WatchAllStarted implements _WatchAllStarted {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_WatchAllStarted value)? watchAllStarted,
     TResult? Function(_WatchFilteredStarted value)? watchFilteredStarted,
-    TResult? Function(_CategoriesReceived value)? categoriesReceived,
+    TResult? Function(_AbbreviationNameReceived value)? measureUnitsReceived,
   }) {
     return watchAllStarted?.call(this);
   }
@@ -187,7 +197,7 @@ class _$_WatchAllStarted implements _WatchAllStarted {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_WatchAllStarted value)? watchAllStarted,
     TResult Function(_WatchFilteredStarted value)? watchFilteredStarted,
-    TResult Function(_CategoriesReceived value)? categoriesReceived,
+    TResult Function(_AbbreviationNameReceived value)? measureUnitsReceived,
     required TResult orElse(),
   }) {
     if (watchAllStarted != null) {
@@ -197,7 +207,7 @@ class _$_WatchAllStarted implements _WatchAllStarted {
   }
 }
 
-abstract class _WatchAllStarted implements CategoryWatcherEvent {
+abstract class _WatchAllStarted implements AbbreviationNameWatcherEvent {
   const factory _WatchAllStarted() = _$_WatchAllStarted;
 }
 
@@ -212,7 +222,8 @@ abstract class _$$_WatchFilteredStartedCopyWith<$Res> {
 
 /// @nodoc
 class __$$_WatchFilteredStartedCopyWithImpl<$Res>
-    extends _$CategoryWatcherEventCopyWithImpl<$Res, _$_WatchFilteredStarted>
+    extends _$AbbreviationNameWatcherEventCopyWithImpl<$Res,
+        _$_WatchFilteredStarted>
     implements _$$_WatchFilteredStartedCopyWith<$Res> {
   __$$_WatchFilteredStartedCopyWithImpl(_$_WatchFilteredStarted _value,
       $Res Function(_$_WatchFilteredStarted) _then)
@@ -242,7 +253,7 @@ class _$_WatchFilteredStarted implements _WatchFilteredStarted {
 
   @override
   String toString() {
-    return 'CategoryWatcherEvent.watchFilteredStarted(keyword: $keyword)';
+    return 'AbbreviationNameWatcherEvent.watchFilteredStarted(keyword: $keyword)';
   }
 
   @override
@@ -269,8 +280,9 @@ class _$_WatchFilteredStarted implements _WatchFilteredStarted {
     required TResult Function() watchAllStarted,
     required TResult Function(String keyword) watchFilteredStarted,
     required TResult Function(
-            Either<CategoryFailures, KtList<Category>> failureOrCategories)
-        categoriesReceived,
+            Either<NameAbbreviationFailure, KtList<NameAbbreviation>>
+                failureOrUnit)
+        measureUnitsReceived,
   }) {
     return watchFilteredStarted(keyword);
   }
@@ -281,8 +293,9 @@ class _$_WatchFilteredStarted implements _WatchFilteredStarted {
     TResult? Function()? watchAllStarted,
     TResult? Function(String keyword)? watchFilteredStarted,
     TResult? Function(
-            Either<CategoryFailures, KtList<Category>> failureOrCategories)?
-        categoriesReceived,
+            Either<NameAbbreviationFailure, KtList<NameAbbreviation>>
+                failureOrUnit)?
+        measureUnitsReceived,
   }) {
     return watchFilteredStarted?.call(keyword);
   }
@@ -293,8 +306,9 @@ class _$_WatchFilteredStarted implements _WatchFilteredStarted {
     TResult Function()? watchAllStarted,
     TResult Function(String keyword)? watchFilteredStarted,
     TResult Function(
-            Either<CategoryFailures, KtList<Category>> failureOrCategories)?
-        categoriesReceived,
+            Either<NameAbbreviationFailure, KtList<NameAbbreviation>>
+                failureOrUnit)?
+        measureUnitsReceived,
     required TResult orElse(),
   }) {
     if (watchFilteredStarted != null) {
@@ -308,7 +322,8 @@ class _$_WatchFilteredStarted implements _WatchFilteredStarted {
   TResult map<TResult extends Object?>({
     required TResult Function(_WatchAllStarted value) watchAllStarted,
     required TResult Function(_WatchFilteredStarted value) watchFilteredStarted,
-    required TResult Function(_CategoriesReceived value) categoriesReceived,
+    required TResult Function(_AbbreviationNameReceived value)
+        measureUnitsReceived,
   }) {
     return watchFilteredStarted(this);
   }
@@ -318,7 +333,7 @@ class _$_WatchFilteredStarted implements _WatchFilteredStarted {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_WatchAllStarted value)? watchAllStarted,
     TResult? Function(_WatchFilteredStarted value)? watchFilteredStarted,
-    TResult? Function(_CategoriesReceived value)? categoriesReceived,
+    TResult? Function(_AbbreviationNameReceived value)? measureUnitsReceived,
   }) {
     return watchFilteredStarted?.call(this);
   }
@@ -328,7 +343,7 @@ class _$_WatchFilteredStarted implements _WatchFilteredStarted {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_WatchAllStarted value)? watchAllStarted,
     TResult Function(_WatchFilteredStarted value)? watchFilteredStarted,
-    TResult Function(_CategoriesReceived value)? categoriesReceived,
+    TResult Function(_AbbreviationNameReceived value)? measureUnitsReceived,
     required TResult orElse(),
   }) {
     if (watchFilteredStarted != null) {
@@ -338,7 +353,7 @@ class _$_WatchFilteredStarted implements _WatchFilteredStarted {
   }
 }
 
-abstract class _WatchFilteredStarted implements CategoryWatcherEvent {
+abstract class _WatchFilteredStarted implements AbbreviationNameWatcherEvent {
   const factory _WatchFilteredStarted(final String keyword) =
       _$_WatchFilteredStarted;
 
@@ -349,67 +364,71 @@ abstract class _WatchFilteredStarted implements CategoryWatcherEvent {
 }
 
 /// @nodoc
-abstract class _$$_CategoriesReceivedCopyWith<$Res> {
-  factory _$$_CategoriesReceivedCopyWith(_$_CategoriesReceived value,
-          $Res Function(_$_CategoriesReceived) then) =
-      __$$_CategoriesReceivedCopyWithImpl<$Res>;
+abstract class _$$_AbbreviationNameReceivedCopyWith<$Res> {
+  factory _$$_AbbreviationNameReceivedCopyWith(
+          _$_AbbreviationNameReceived value,
+          $Res Function(_$_AbbreviationNameReceived) then) =
+      __$$_AbbreviationNameReceivedCopyWithImpl<$Res>;
   @useResult
-  $Res call({Either<CategoryFailures, KtList<Category>> failureOrCategories});
+  $Res call(
+      {Either<NameAbbreviationFailure, KtList<NameAbbreviation>>
+          failureOrUnit});
 }
 
 /// @nodoc
-class __$$_CategoriesReceivedCopyWithImpl<$Res>
-    extends _$CategoryWatcherEventCopyWithImpl<$Res, _$_CategoriesReceived>
-    implements _$$_CategoriesReceivedCopyWith<$Res> {
-  __$$_CategoriesReceivedCopyWithImpl(
-      _$_CategoriesReceived _value, $Res Function(_$_CategoriesReceived) _then)
+class __$$_AbbreviationNameReceivedCopyWithImpl<$Res>
+    extends _$AbbreviationNameWatcherEventCopyWithImpl<$Res,
+        _$_AbbreviationNameReceived>
+    implements _$$_AbbreviationNameReceivedCopyWith<$Res> {
+  __$$_AbbreviationNameReceivedCopyWithImpl(_$_AbbreviationNameReceived _value,
+      $Res Function(_$_AbbreviationNameReceived) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? failureOrCategories = null,
+    Object? failureOrUnit = null,
   }) {
-    return _then(_$_CategoriesReceived(
-      null == failureOrCategories
-          ? _value.failureOrCategories
-          : failureOrCategories // ignore: cast_nullable_to_non_nullable
-              as Either<CategoryFailures, KtList<Category>>,
+    return _then(_$_AbbreviationNameReceived(
+      null == failureOrUnit
+          ? _value.failureOrUnit
+          : failureOrUnit // ignore: cast_nullable_to_non_nullable
+              as Either<NameAbbreviationFailure, KtList<NameAbbreviation>>,
     ));
   }
 }
 
 /// @nodoc
 
-class _$_CategoriesReceived implements _CategoriesReceived {
-  const _$_CategoriesReceived(this.failureOrCategories);
+class _$_AbbreviationNameReceived implements _AbbreviationNameReceived {
+  const _$_AbbreviationNameReceived(this.failureOrUnit);
 
   @override
-  final Either<CategoryFailures, KtList<Category>> failureOrCategories;
+  final Either<NameAbbreviationFailure, KtList<NameAbbreviation>> failureOrUnit;
 
   @override
   String toString() {
-    return 'CategoryWatcherEvent.categoriesReceived(failureOrCategories: $failureOrCategories)';
+    return 'AbbreviationNameWatcherEvent.measureUnitsReceived(failureOrUnit: $failureOrUnit)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_CategoriesReceived &&
-            (identical(other.failureOrCategories, failureOrCategories) ||
-                other.failureOrCategories == failureOrCategories));
+            other is _$_AbbreviationNameReceived &&
+            (identical(other.failureOrUnit, failureOrUnit) ||
+                other.failureOrUnit == failureOrUnit));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, failureOrCategories);
+  int get hashCode => Object.hash(runtimeType, failureOrUnit);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_CategoriesReceivedCopyWith<_$_CategoriesReceived> get copyWith =>
-      __$$_CategoriesReceivedCopyWithImpl<_$_CategoriesReceived>(
-          this, _$identity);
+  _$$_AbbreviationNameReceivedCopyWith<_$_AbbreviationNameReceived>
+      get copyWith => __$$_AbbreviationNameReceivedCopyWithImpl<
+          _$_AbbreviationNameReceived>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -417,10 +436,11 @@ class _$_CategoriesReceived implements _CategoriesReceived {
     required TResult Function() watchAllStarted,
     required TResult Function(String keyword) watchFilteredStarted,
     required TResult Function(
-            Either<CategoryFailures, KtList<Category>> failureOrCategories)
-        categoriesReceived,
+            Either<NameAbbreviationFailure, KtList<NameAbbreviation>>
+                failureOrUnit)
+        measureUnitsReceived,
   }) {
-    return categoriesReceived(failureOrCategories);
+    return measureUnitsReceived(failureOrUnit);
   }
 
   @override
@@ -429,10 +449,11 @@ class _$_CategoriesReceived implements _CategoriesReceived {
     TResult? Function()? watchAllStarted,
     TResult? Function(String keyword)? watchFilteredStarted,
     TResult? Function(
-            Either<CategoryFailures, KtList<Category>> failureOrCategories)?
-        categoriesReceived,
+            Either<NameAbbreviationFailure, KtList<NameAbbreviation>>
+                failureOrUnit)?
+        measureUnitsReceived,
   }) {
-    return categoriesReceived?.call(failureOrCategories);
+    return measureUnitsReceived?.call(failureOrUnit);
   }
 
   @override
@@ -441,12 +462,13 @@ class _$_CategoriesReceived implements _CategoriesReceived {
     TResult Function()? watchAllStarted,
     TResult Function(String keyword)? watchFilteredStarted,
     TResult Function(
-            Either<CategoryFailures, KtList<Category>> failureOrCategories)?
-        categoriesReceived,
+            Either<NameAbbreviationFailure, KtList<NameAbbreviation>>
+                failureOrUnit)?
+        measureUnitsReceived,
     required TResult orElse(),
   }) {
-    if (categoriesReceived != null) {
-      return categoriesReceived(failureOrCategories);
+    if (measureUnitsReceived != null) {
+      return measureUnitsReceived(failureOrUnit);
     }
     return orElse();
   }
@@ -456,9 +478,10 @@ class _$_CategoriesReceived implements _CategoriesReceived {
   TResult map<TResult extends Object?>({
     required TResult Function(_WatchAllStarted value) watchAllStarted,
     required TResult Function(_WatchFilteredStarted value) watchFilteredStarted,
-    required TResult Function(_CategoriesReceived value) categoriesReceived,
+    required TResult Function(_AbbreviationNameReceived value)
+        measureUnitsReceived,
   }) {
-    return categoriesReceived(this);
+    return measureUnitsReceived(this);
   }
 
   @override
@@ -466,9 +489,9 @@ class _$_CategoriesReceived implements _CategoriesReceived {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_WatchAllStarted value)? watchAllStarted,
     TResult? Function(_WatchFilteredStarted value)? watchFilteredStarted,
-    TResult? Function(_CategoriesReceived value)? categoriesReceived,
+    TResult? Function(_AbbreviationNameReceived value)? measureUnitsReceived,
   }) {
-    return categoriesReceived?.call(this);
+    return measureUnitsReceived?.call(this);
   }
 
   @override
@@ -476,51 +499,56 @@ class _$_CategoriesReceived implements _CategoriesReceived {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_WatchAllStarted value)? watchAllStarted,
     TResult Function(_WatchFilteredStarted value)? watchFilteredStarted,
-    TResult Function(_CategoriesReceived value)? categoriesReceived,
+    TResult Function(_AbbreviationNameReceived value)? measureUnitsReceived,
     required TResult orElse(),
   }) {
-    if (categoriesReceived != null) {
-      return categoriesReceived(this);
+    if (measureUnitsReceived != null) {
+      return measureUnitsReceived(this);
     }
     return orElse();
   }
 }
 
-abstract class _CategoriesReceived implements CategoryWatcherEvent {
-  const factory _CategoriesReceived(
-      final Either<CategoryFailures, KtList<Category>>
-          failureOrCategories) = _$_CategoriesReceived;
+abstract class _AbbreviationNameReceived
+    implements AbbreviationNameWatcherEvent {
+  const factory _AbbreviationNameReceived(
+      final Either<NameAbbreviationFailure, KtList<NameAbbreviation>>
+          failureOrUnit) = _$_AbbreviationNameReceived;
 
-  Either<CategoryFailures, KtList<Category>> get failureOrCategories;
+  Either<NameAbbreviationFailure, KtList<NameAbbreviation>> get failureOrUnit;
   @JsonKey(ignore: true)
-  _$$_CategoriesReceivedCopyWith<_$_CategoriesReceived> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$_AbbreviationNameReceivedCopyWith<_$_AbbreviationNameReceived>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-mixin _$CategoryWatcherState {
+mixin _$AbbreviationNameWatcherState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loadInProgress,
-    required TResult Function(KtList<Category> categories) loadSuccess,
-    required TResult Function(CategoryFailures categoryFailure) loadFailure,
+    required TResult Function(KtList<NameAbbreviation> abbreviationName)
+        loadSuccess,
+    required TResult Function(NameAbbreviationFailure abbreviationNameFailure)
+        loadFailure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loadInProgress,
-    TResult? Function(KtList<Category> categories)? loadSuccess,
-    TResult? Function(CategoryFailures categoryFailure)? loadFailure,
+    TResult? Function(KtList<NameAbbreviation> abbreviationName)? loadSuccess,
+    TResult? Function(NameAbbreviationFailure abbreviationNameFailure)?
+        loadFailure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadInProgress,
-    TResult Function(KtList<Category> categories)? loadSuccess,
-    TResult Function(CategoryFailures categoryFailure)? loadFailure,
+    TResult Function(KtList<NameAbbreviation> abbreviationName)? loadSuccess,
+    TResult Function(NameAbbreviationFailure abbreviationNameFailure)?
+        loadFailure,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -529,7 +557,7 @@ mixin _$CategoryWatcherState {
     required TResult Function(_Initial value) initial,
     required TResult Function(_LoadInProgress value) loadInProgress,
     required TResult Function(_LoadSuccess value) loadSuccess,
-    required TResult Function(_CategoryFailure value) loadFailure,
+    required TResult Function(_LoadFailure value) loadFailure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -537,7 +565,7 @@ mixin _$CategoryWatcherState {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_LoadInProgress value)? loadInProgress,
     TResult? Function(_LoadSuccess value)? loadSuccess,
-    TResult? Function(_CategoryFailure value)? loadFailure,
+    TResult? Function(_LoadFailure value)? loadFailure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -545,24 +573,26 @@ mixin _$CategoryWatcherState {
     TResult Function(_Initial value)? initial,
     TResult Function(_LoadInProgress value)? loadInProgress,
     TResult Function(_LoadSuccess value)? loadSuccess,
-    TResult Function(_CategoryFailure value)? loadFailure,
+    TResult Function(_LoadFailure value)? loadFailure,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $CategoryWatcherStateCopyWith<$Res> {
-  factory $CategoryWatcherStateCopyWith(CategoryWatcherState value,
-          $Res Function(CategoryWatcherState) then) =
-      _$CategoryWatcherStateCopyWithImpl<$Res, CategoryWatcherState>;
+abstract class $AbbreviationNameWatcherStateCopyWith<$Res> {
+  factory $AbbreviationNameWatcherStateCopyWith(
+          AbbreviationNameWatcherState value,
+          $Res Function(AbbreviationNameWatcherState) then) =
+      _$AbbreviationNameWatcherStateCopyWithImpl<$Res,
+          AbbreviationNameWatcherState>;
 }
 
 /// @nodoc
-class _$CategoryWatcherStateCopyWithImpl<$Res,
-        $Val extends CategoryWatcherState>
-    implements $CategoryWatcherStateCopyWith<$Res> {
-  _$CategoryWatcherStateCopyWithImpl(this._value, this._then);
+class _$AbbreviationNameWatcherStateCopyWithImpl<$Res,
+        $Val extends AbbreviationNameWatcherState>
+    implements $AbbreviationNameWatcherStateCopyWith<$Res> {
+  _$AbbreviationNameWatcherStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -579,7 +609,7 @@ abstract class _$$_InitialCopyWith<$Res> {
 
 /// @nodoc
 class __$$_InitialCopyWithImpl<$Res>
-    extends _$CategoryWatcherStateCopyWithImpl<$Res, _$_Initial>
+    extends _$AbbreviationNameWatcherStateCopyWithImpl<$Res, _$_Initial>
     implements _$$_InitialCopyWith<$Res> {
   __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
       : super(_value, _then);
@@ -592,7 +622,7 @@ class _$_Initial implements _Initial {
 
   @override
   String toString() {
-    return 'CategoryWatcherState.initial()';
+    return 'AbbreviationNameWatcherState.initial()';
   }
 
   @override
@@ -609,8 +639,10 @@ class _$_Initial implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loadInProgress,
-    required TResult Function(KtList<Category> categories) loadSuccess,
-    required TResult Function(CategoryFailures categoryFailure) loadFailure,
+    required TResult Function(KtList<NameAbbreviation> abbreviationName)
+        loadSuccess,
+    required TResult Function(NameAbbreviationFailure abbreviationNameFailure)
+        loadFailure,
   }) {
     return initial();
   }
@@ -620,8 +652,9 @@ class _$_Initial implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loadInProgress,
-    TResult? Function(KtList<Category> categories)? loadSuccess,
-    TResult? Function(CategoryFailures categoryFailure)? loadFailure,
+    TResult? Function(KtList<NameAbbreviation> abbreviationName)? loadSuccess,
+    TResult? Function(NameAbbreviationFailure abbreviationNameFailure)?
+        loadFailure,
   }) {
     return initial?.call();
   }
@@ -631,8 +664,9 @@ class _$_Initial implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadInProgress,
-    TResult Function(KtList<Category> categories)? loadSuccess,
-    TResult Function(CategoryFailures categoryFailure)? loadFailure,
+    TResult Function(KtList<NameAbbreviation> abbreviationName)? loadSuccess,
+    TResult Function(NameAbbreviationFailure abbreviationNameFailure)?
+        loadFailure,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -647,7 +681,7 @@ class _$_Initial implements _Initial {
     required TResult Function(_Initial value) initial,
     required TResult Function(_LoadInProgress value) loadInProgress,
     required TResult Function(_LoadSuccess value) loadSuccess,
-    required TResult Function(_CategoryFailure value) loadFailure,
+    required TResult Function(_LoadFailure value) loadFailure,
   }) {
     return initial(this);
   }
@@ -658,7 +692,7 @@ class _$_Initial implements _Initial {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_LoadInProgress value)? loadInProgress,
     TResult? Function(_LoadSuccess value)? loadSuccess,
-    TResult? Function(_CategoryFailure value)? loadFailure,
+    TResult? Function(_LoadFailure value)? loadFailure,
   }) {
     return initial?.call(this);
   }
@@ -669,7 +703,7 @@ class _$_Initial implements _Initial {
     TResult Function(_Initial value)? initial,
     TResult Function(_LoadInProgress value)? loadInProgress,
     TResult Function(_LoadSuccess value)? loadSuccess,
-    TResult Function(_CategoryFailure value)? loadFailure,
+    TResult Function(_LoadFailure value)? loadFailure,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -679,7 +713,7 @@ class _$_Initial implements _Initial {
   }
 }
 
-abstract class _Initial implements CategoryWatcherState {
+abstract class _Initial implements AbbreviationNameWatcherState {
   const factory _Initial() = _$_Initial;
 }
 
@@ -692,7 +726,7 @@ abstract class _$$_LoadInProgressCopyWith<$Res> {
 
 /// @nodoc
 class __$$_LoadInProgressCopyWithImpl<$Res>
-    extends _$CategoryWatcherStateCopyWithImpl<$Res, _$_LoadInProgress>
+    extends _$AbbreviationNameWatcherStateCopyWithImpl<$Res, _$_LoadInProgress>
     implements _$$_LoadInProgressCopyWith<$Res> {
   __$$_LoadInProgressCopyWithImpl(
       _$_LoadInProgress _value, $Res Function(_$_LoadInProgress) _then)
@@ -706,7 +740,7 @@ class _$_LoadInProgress implements _LoadInProgress {
 
   @override
   String toString() {
-    return 'CategoryWatcherState.loadInProgress()';
+    return 'AbbreviationNameWatcherState.loadInProgress()';
   }
 
   @override
@@ -723,8 +757,10 @@ class _$_LoadInProgress implements _LoadInProgress {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loadInProgress,
-    required TResult Function(KtList<Category> categories) loadSuccess,
-    required TResult Function(CategoryFailures categoryFailure) loadFailure,
+    required TResult Function(KtList<NameAbbreviation> abbreviationName)
+        loadSuccess,
+    required TResult Function(NameAbbreviationFailure abbreviationNameFailure)
+        loadFailure,
   }) {
     return loadInProgress();
   }
@@ -734,8 +770,9 @@ class _$_LoadInProgress implements _LoadInProgress {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loadInProgress,
-    TResult? Function(KtList<Category> categories)? loadSuccess,
-    TResult? Function(CategoryFailures categoryFailure)? loadFailure,
+    TResult? Function(KtList<NameAbbreviation> abbreviationName)? loadSuccess,
+    TResult? Function(NameAbbreviationFailure abbreviationNameFailure)?
+        loadFailure,
   }) {
     return loadInProgress?.call();
   }
@@ -745,8 +782,9 @@ class _$_LoadInProgress implements _LoadInProgress {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadInProgress,
-    TResult Function(KtList<Category> categories)? loadSuccess,
-    TResult Function(CategoryFailures categoryFailure)? loadFailure,
+    TResult Function(KtList<NameAbbreviation> abbreviationName)? loadSuccess,
+    TResult Function(NameAbbreviationFailure abbreviationNameFailure)?
+        loadFailure,
     required TResult orElse(),
   }) {
     if (loadInProgress != null) {
@@ -761,7 +799,7 @@ class _$_LoadInProgress implements _LoadInProgress {
     required TResult Function(_Initial value) initial,
     required TResult Function(_LoadInProgress value) loadInProgress,
     required TResult Function(_LoadSuccess value) loadSuccess,
-    required TResult Function(_CategoryFailure value) loadFailure,
+    required TResult Function(_LoadFailure value) loadFailure,
   }) {
     return loadInProgress(this);
   }
@@ -772,7 +810,7 @@ class _$_LoadInProgress implements _LoadInProgress {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_LoadInProgress value)? loadInProgress,
     TResult? Function(_LoadSuccess value)? loadSuccess,
-    TResult? Function(_CategoryFailure value)? loadFailure,
+    TResult? Function(_LoadFailure value)? loadFailure,
   }) {
     return loadInProgress?.call(this);
   }
@@ -783,7 +821,7 @@ class _$_LoadInProgress implements _LoadInProgress {
     TResult Function(_Initial value)? initial,
     TResult Function(_LoadInProgress value)? loadInProgress,
     TResult Function(_LoadSuccess value)? loadSuccess,
-    TResult Function(_CategoryFailure value)? loadFailure,
+    TResult Function(_LoadFailure value)? loadFailure,
     required TResult orElse(),
   }) {
     if (loadInProgress != null) {
@@ -793,7 +831,7 @@ class _$_LoadInProgress implements _LoadInProgress {
   }
 }
 
-abstract class _LoadInProgress implements CategoryWatcherState {
+abstract class _LoadInProgress implements AbbreviationNameWatcherState {
   const factory _LoadInProgress() = _$_LoadInProgress;
 }
 
@@ -803,12 +841,12 @@ abstract class _$$_LoadSuccessCopyWith<$Res> {
           _$_LoadSuccess value, $Res Function(_$_LoadSuccess) then) =
       __$$_LoadSuccessCopyWithImpl<$Res>;
   @useResult
-  $Res call({KtList<Category> categories});
+  $Res call({KtList<NameAbbreviation> abbreviationName});
 }
 
 /// @nodoc
 class __$$_LoadSuccessCopyWithImpl<$Res>
-    extends _$CategoryWatcherStateCopyWithImpl<$Res, _$_LoadSuccess>
+    extends _$AbbreviationNameWatcherStateCopyWithImpl<$Res, _$_LoadSuccess>
     implements _$$_LoadSuccessCopyWith<$Res> {
   __$$_LoadSuccessCopyWithImpl(
       _$_LoadSuccess _value, $Res Function(_$_LoadSuccess) _then)
@@ -817,13 +855,13 @@ class __$$_LoadSuccessCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? categories = null,
+    Object? abbreviationName = null,
   }) {
     return _then(_$_LoadSuccess(
-      null == categories
-          ? _value.categories
-          : categories // ignore: cast_nullable_to_non_nullable
-              as KtList<Category>,
+      null == abbreviationName
+          ? _value.abbreviationName
+          : abbreviationName // ignore: cast_nullable_to_non_nullable
+              as KtList<NameAbbreviation>,
     ));
   }
 }
@@ -831,14 +869,14 @@ class __$$_LoadSuccessCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_LoadSuccess implements _LoadSuccess {
-  const _$_LoadSuccess(this.categories);
+  const _$_LoadSuccess(this.abbreviationName);
 
   @override
-  final KtList<Category> categories;
+  final KtList<NameAbbreviation> abbreviationName;
 
   @override
   String toString() {
-    return 'CategoryWatcherState.loadSuccess(categories: $categories)';
+    return 'AbbreviationNameWatcherState.loadSuccess(abbreviationName: $abbreviationName)';
   }
 
   @override
@@ -846,12 +884,12 @@ class _$_LoadSuccess implements _LoadSuccess {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_LoadSuccess &&
-            (identical(other.categories, categories) ||
-                other.categories == categories));
+            (identical(other.abbreviationName, abbreviationName) ||
+                other.abbreviationName == abbreviationName));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, categories);
+  int get hashCode => Object.hash(runtimeType, abbreviationName);
 
   @JsonKey(ignore: true)
   @override
@@ -864,10 +902,12 @@ class _$_LoadSuccess implements _LoadSuccess {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loadInProgress,
-    required TResult Function(KtList<Category> categories) loadSuccess,
-    required TResult Function(CategoryFailures categoryFailure) loadFailure,
+    required TResult Function(KtList<NameAbbreviation> abbreviationName)
+        loadSuccess,
+    required TResult Function(NameAbbreviationFailure abbreviationNameFailure)
+        loadFailure,
   }) {
-    return loadSuccess(categories);
+    return loadSuccess(abbreviationName);
   }
 
   @override
@@ -875,10 +915,11 @@ class _$_LoadSuccess implements _LoadSuccess {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loadInProgress,
-    TResult? Function(KtList<Category> categories)? loadSuccess,
-    TResult? Function(CategoryFailures categoryFailure)? loadFailure,
+    TResult? Function(KtList<NameAbbreviation> abbreviationName)? loadSuccess,
+    TResult? Function(NameAbbreviationFailure abbreviationNameFailure)?
+        loadFailure,
   }) {
-    return loadSuccess?.call(categories);
+    return loadSuccess?.call(abbreviationName);
   }
 
   @override
@@ -886,12 +927,13 @@ class _$_LoadSuccess implements _LoadSuccess {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadInProgress,
-    TResult Function(KtList<Category> categories)? loadSuccess,
-    TResult Function(CategoryFailures categoryFailure)? loadFailure,
+    TResult Function(KtList<NameAbbreviation> abbreviationName)? loadSuccess,
+    TResult Function(NameAbbreviationFailure abbreviationNameFailure)?
+        loadFailure,
     required TResult orElse(),
   }) {
     if (loadSuccess != null) {
-      return loadSuccess(categories);
+      return loadSuccess(abbreviationName);
     }
     return orElse();
   }
@@ -902,7 +944,7 @@ class _$_LoadSuccess implements _LoadSuccess {
     required TResult Function(_Initial value) initial,
     required TResult Function(_LoadInProgress value) loadInProgress,
     required TResult Function(_LoadSuccess value) loadSuccess,
-    required TResult Function(_CategoryFailure value) loadFailure,
+    required TResult Function(_LoadFailure value) loadFailure,
   }) {
     return loadSuccess(this);
   }
@@ -913,7 +955,7 @@ class _$_LoadSuccess implements _LoadSuccess {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_LoadInProgress value)? loadInProgress,
     TResult? Function(_LoadSuccess value)? loadSuccess,
-    TResult? Function(_CategoryFailure value)? loadFailure,
+    TResult? Function(_LoadFailure value)? loadFailure,
   }) {
     return loadSuccess?.call(this);
   }
@@ -924,7 +966,7 @@ class _$_LoadSuccess implements _LoadSuccess {
     TResult Function(_Initial value)? initial,
     TResult Function(_LoadInProgress value)? loadInProgress,
     TResult Function(_LoadSuccess value)? loadSuccess,
-    TResult Function(_CategoryFailure value)? loadFailure,
+    TResult Function(_LoadFailure value)? loadFailure,
     required TResult orElse(),
   }) {
     if (loadSuccess != null) {
@@ -934,97 +976,101 @@ class _$_LoadSuccess implements _LoadSuccess {
   }
 }
 
-abstract class _LoadSuccess implements CategoryWatcherState {
-  const factory _LoadSuccess(final KtList<Category> categories) =
+abstract class _LoadSuccess implements AbbreviationNameWatcherState {
+  const factory _LoadSuccess(final KtList<NameAbbreviation> abbreviationName) =
       _$_LoadSuccess;
 
-  KtList<Category> get categories;
+  KtList<NameAbbreviation> get abbreviationName;
   @JsonKey(ignore: true)
   _$$_LoadSuccessCopyWith<_$_LoadSuccess> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_CategoryFailureCopyWith<$Res> {
-  factory _$$_CategoryFailureCopyWith(
-          _$_CategoryFailure value, $Res Function(_$_CategoryFailure) then) =
-      __$$_CategoryFailureCopyWithImpl<$Res>;
+abstract class _$$_LoadFailureCopyWith<$Res> {
+  factory _$$_LoadFailureCopyWith(
+          _$_LoadFailure value, $Res Function(_$_LoadFailure) then) =
+      __$$_LoadFailureCopyWithImpl<$Res>;
   @useResult
-  $Res call({CategoryFailures categoryFailure});
+  $Res call({NameAbbreviationFailure abbreviationNameFailure});
 
-  $CategoryFailuresCopyWith<$Res> get categoryFailure;
+  $NameAbbreviationFailureCopyWith<$Res> get abbreviationNameFailure;
 }
 
 /// @nodoc
-class __$$_CategoryFailureCopyWithImpl<$Res>
-    extends _$CategoryWatcherStateCopyWithImpl<$Res, _$_CategoryFailure>
-    implements _$$_CategoryFailureCopyWith<$Res> {
-  __$$_CategoryFailureCopyWithImpl(
-      _$_CategoryFailure _value, $Res Function(_$_CategoryFailure) _then)
+class __$$_LoadFailureCopyWithImpl<$Res>
+    extends _$AbbreviationNameWatcherStateCopyWithImpl<$Res, _$_LoadFailure>
+    implements _$$_LoadFailureCopyWith<$Res> {
+  __$$_LoadFailureCopyWithImpl(
+      _$_LoadFailure _value, $Res Function(_$_LoadFailure) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? categoryFailure = null,
+    Object? abbreviationNameFailure = null,
   }) {
-    return _then(_$_CategoryFailure(
-      null == categoryFailure
-          ? _value.categoryFailure
-          : categoryFailure // ignore: cast_nullable_to_non_nullable
-              as CategoryFailures,
+    return _then(_$_LoadFailure(
+      null == abbreviationNameFailure
+          ? _value.abbreviationNameFailure
+          : abbreviationNameFailure // ignore: cast_nullable_to_non_nullable
+              as NameAbbreviationFailure,
     ));
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $CategoryFailuresCopyWith<$Res> get categoryFailure {
-    return $CategoryFailuresCopyWith<$Res>(_value.categoryFailure, (value) {
-      return _then(_value.copyWith(categoryFailure: value));
+  $NameAbbreviationFailureCopyWith<$Res> get abbreviationNameFailure {
+    return $NameAbbreviationFailureCopyWith<$Res>(
+        _value.abbreviationNameFailure, (value) {
+      return _then(_value.copyWith(abbreviationNameFailure: value));
     });
   }
 }
 
 /// @nodoc
 
-class _$_CategoryFailure implements _CategoryFailure {
-  const _$_CategoryFailure(this.categoryFailure);
+class _$_LoadFailure implements _LoadFailure {
+  const _$_LoadFailure(this.abbreviationNameFailure);
 
   @override
-  final CategoryFailures categoryFailure;
+  final NameAbbreviationFailure abbreviationNameFailure;
 
   @override
   String toString() {
-    return 'CategoryWatcherState.loadFailure(categoryFailure: $categoryFailure)';
+    return 'AbbreviationNameWatcherState.loadFailure(abbreviationNameFailure: $abbreviationNameFailure)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_CategoryFailure &&
-            (identical(other.categoryFailure, categoryFailure) ||
-                other.categoryFailure == categoryFailure));
+            other is _$_LoadFailure &&
+            (identical(
+                    other.abbreviationNameFailure, abbreviationNameFailure) ||
+                other.abbreviationNameFailure == abbreviationNameFailure));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, categoryFailure);
+  int get hashCode => Object.hash(runtimeType, abbreviationNameFailure);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_CategoryFailureCopyWith<_$_CategoryFailure> get copyWith =>
-      __$$_CategoryFailureCopyWithImpl<_$_CategoryFailure>(this, _$identity);
+  _$$_LoadFailureCopyWith<_$_LoadFailure> get copyWith =>
+      __$$_LoadFailureCopyWithImpl<_$_LoadFailure>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loadInProgress,
-    required TResult Function(KtList<Category> categories) loadSuccess,
-    required TResult Function(CategoryFailures categoryFailure) loadFailure,
+    required TResult Function(KtList<NameAbbreviation> abbreviationName)
+        loadSuccess,
+    required TResult Function(NameAbbreviationFailure abbreviationNameFailure)
+        loadFailure,
   }) {
-    return loadFailure(categoryFailure);
+    return loadFailure(abbreviationNameFailure);
   }
 
   @override
@@ -1032,10 +1078,11 @@ class _$_CategoryFailure implements _CategoryFailure {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loadInProgress,
-    TResult? Function(KtList<Category> categories)? loadSuccess,
-    TResult? Function(CategoryFailures categoryFailure)? loadFailure,
+    TResult? Function(KtList<NameAbbreviation> abbreviationName)? loadSuccess,
+    TResult? Function(NameAbbreviationFailure abbreviationNameFailure)?
+        loadFailure,
   }) {
-    return loadFailure?.call(categoryFailure);
+    return loadFailure?.call(abbreviationNameFailure);
   }
 
   @override
@@ -1043,12 +1090,13 @@ class _$_CategoryFailure implements _CategoryFailure {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadInProgress,
-    TResult Function(KtList<Category> categories)? loadSuccess,
-    TResult Function(CategoryFailures categoryFailure)? loadFailure,
+    TResult Function(KtList<NameAbbreviation> abbreviationName)? loadSuccess,
+    TResult Function(NameAbbreviationFailure abbreviationNameFailure)?
+        loadFailure,
     required TResult orElse(),
   }) {
     if (loadFailure != null) {
-      return loadFailure(categoryFailure);
+      return loadFailure(abbreviationNameFailure);
     }
     return orElse();
   }
@@ -1059,7 +1107,7 @@ class _$_CategoryFailure implements _CategoryFailure {
     required TResult Function(_Initial value) initial,
     required TResult Function(_LoadInProgress value) loadInProgress,
     required TResult Function(_LoadSuccess value) loadSuccess,
-    required TResult Function(_CategoryFailure value) loadFailure,
+    required TResult Function(_LoadFailure value) loadFailure,
   }) {
     return loadFailure(this);
   }
@@ -1070,7 +1118,7 @@ class _$_CategoryFailure implements _CategoryFailure {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_LoadInProgress value)? loadInProgress,
     TResult? Function(_LoadSuccess value)? loadSuccess,
-    TResult? Function(_CategoryFailure value)? loadFailure,
+    TResult? Function(_LoadFailure value)? loadFailure,
   }) {
     return loadFailure?.call(this);
   }
@@ -1081,7 +1129,7 @@ class _$_CategoryFailure implements _CategoryFailure {
     TResult Function(_Initial value)? initial,
     TResult Function(_LoadInProgress value)? loadInProgress,
     TResult Function(_LoadSuccess value)? loadSuccess,
-    TResult Function(_CategoryFailure value)? loadFailure,
+    TResult Function(_LoadFailure value)? loadFailure,
     required TResult orElse(),
   }) {
     if (loadFailure != null) {
@@ -1091,12 +1139,12 @@ class _$_CategoryFailure implements _CategoryFailure {
   }
 }
 
-abstract class _CategoryFailure implements CategoryWatcherState {
-  const factory _CategoryFailure(final CategoryFailures categoryFailure) =
-      _$_CategoryFailure;
+abstract class _LoadFailure implements AbbreviationNameWatcherState {
+  const factory _LoadFailure(
+      final NameAbbreviationFailure abbreviationNameFailure) = _$_LoadFailure;
 
-  CategoryFailures get categoryFailure;
+  NameAbbreviationFailure get abbreviationNameFailure;
   @JsonKey(ignore: true)
-  _$$_CategoryFailureCopyWith<_$_CategoryFailure> get copyWith =>
+  _$$_LoadFailureCopyWith<_$_LoadFailure> get copyWith =>
       throw _privateConstructorUsedError;
 }
