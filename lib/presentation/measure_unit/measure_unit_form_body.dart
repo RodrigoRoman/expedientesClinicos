@@ -1,10 +1,12 @@
 import 'dart:io';
 
+import 'package:expedientes_clinicos/application/abbreviation_name/abbreviation_name_form/measure_unit_form_bloc.dart';
+import 'package:expedientes_clinicos/presentation/resources/string_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class MeasureUnitFormBody extends StatefulWidget {
-  final MeasureUnitFormState state;
+  final AbbreviationNameFormState state;
   const MeasureUnitFormBody({required this.state, super.key});
 
   @override
@@ -76,7 +78,7 @@ class _MeasureUnitFormBodyState extends State<MeasureUnitFormBody> {
                                       offset: measureUnitNameController
                                           .text.length));
                               context.read<MeasureUnitFormBloc>().add(
-                                  MeasureUnitFormEvent.nameChanged(
+                                  AbbreviationNameFormEvent.nameChanged(
                                       measureUnitNameController.text));
                             },
                             textInputAction: TextInputAction.next,
@@ -107,8 +109,7 @@ class _MeasureUnitFormBodyState extends State<MeasureUnitFormBody> {
                             style: Theme.of(context)
                                 .textTheme
                                 .bodyMedium!
-                                .copyWith(
-                                    color: Theme.of(context).backgroundColor),
+                                .copyWith(color: Theme.of(context).canvasColor),
                             textAlign: TextAlign.center,
                             decoration: InputDecoration(
                                 border: InputBorder.none,
@@ -117,8 +118,7 @@ class _MeasureUnitFormBodyState extends State<MeasureUnitFormBody> {
                                     .textTheme
                                     .bodySmall!
                                     .copyWith(
-                                        color:
-                                            Theme.of(context).backgroundColor)),
+                                        color: Theme.of(context).canvasColor)),
                             keyboardType: TextInputType.text,
                             textCapitalization: TextCapitalization.words,
                             onChanged: (value) {
@@ -128,7 +128,7 @@ class _MeasureUnitFormBodyState extends State<MeasureUnitFormBody> {
                                       offset:
                                           abreviationController.text.length));
                               context.read<MeasureUnitFormBloc>().add(
-                                  MeasureUnitFormEvent.abreviationChanged(
+                                  AbbreviationNameFormEvent.abreviationChanged(
                                       abreviationController.text));
                             },
                             textInputAction: TextInputAction.next,
@@ -139,7 +139,7 @@ class _MeasureUnitFormBodyState extends State<MeasureUnitFormBody> {
                       if (_key.currentState!.validate()) {
                         context
                             .read<MeasureUnitFormBloc>()
-                            .add(const MeasureUnitFormEvent.saved());
+                            .add(const AbbreviationNameFormEvent.saved());
                       }
                     },
                     child: const Text(AppStrings.create))

@@ -37,7 +37,9 @@ class AppStrings {
   static const String cost = 'Precio de compra';
   static const String sellPrice = 'Precio de venta';
   static const String observations = 'Observaciones';
-  static const String name = 'Nombre';
+  static const String comercialName = 'Nombre comercial';
+  static const String genericName = 'Nombre generico';
+
   static const String abr = 'Alias';
   static const String supplier = 'Proveedor';
 

@@ -8,11 +8,13 @@ import 'package:expedientes_clinicos/domain/medicine/medicine.dart';
 import 'package:expedientes_clinicos/domain/medicine/medicine_failures.dart';
 import 'package:flutter/foundation.dart' hide Category;
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:injectable/injectable.dart';
 
 part 'medicine_form_event.dart';
 part 'medicine_form_state.dart';
 part 'medicine_form_bloc.freezed.dart';
 
+@injectable
 class MedicineFormBloc extends Bloc<MedicineFormEvent, MedicineFormState> {
   final IMedicineRepository _medicineRepository;
   MedicineFormBloc(this._medicineRepository)

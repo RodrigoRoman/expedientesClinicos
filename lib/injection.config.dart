@@ -11,11 +11,15 @@ import 'package:expedientes_clinicos/application/abbreviation_name/abbreviation_
 import 'package:expedientes_clinicos/application/abbreviation_name/abbreviation_name_watcher/measure_unit_watcher_bloc.dart'
     as _i12;
 import 'package:expedientes_clinicos/application/categories/category_form/category_form_bloc.dart'
-    as _i14;
+    as _i16;
 import 'package:expedientes_clinicos/application/categories/category_watcher/category_watcher_bloc.dart'
-    as _i15;
-import 'package:expedientes_clinicos/application/state_render/state_renderer_bloc.dart'
+    as _i17;
+import 'package:expedientes_clinicos/application/medicine/medicine_form/medicine_form_bloc.dart'
     as _i13;
+import 'package:expedientes_clinicos/application/medicine/medicine_watcher/medicine_watcher_bloc.dart'
+    as _i14;
+import 'package:expedientes_clinicos/application/state_render/state_renderer_bloc.dart'
+    as _i15;
 import 'package:expedientes_clinicos/domain/core/categories/i_category_repository.dart'
     as _i4;
 import 'package:expedientes_clinicos/domain/medicine/i_measure_unit_repository.dart'
@@ -28,7 +32,7 @@ import 'package:expedientes_clinicos/infraestructure/medicine/medicine_category/
     as _i5;
 import 'package:expedientes_clinicos/infraestructure/medicine/medicine_repository.dart'
     as _i10;
-import 'package:expedientes_clinicos/injectable_modules.dart' as _i16;
+import 'package:expedientes_clinicos/injectable_modules.dart' as _i18;
 import 'package:expedientes_clinicos/presentation/routes/router.gr.dart' as _i3;
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
@@ -58,13 +62,17 @@ extension GetItInjectableX on _i1.GetIt {
         () => _i11.MeasureUnitFormBloc(gh<_i7.IMeasureUnitRepository>()));
     gh.factory<_i12.MeasureUnitWatcherBloc>(
         () => _i12.MeasureUnitWatcherBloc(gh<_i7.IMeasureUnitRepository>()));
-    gh.factory<_i13.StateRendererBloc>(() => _i13.StateRendererBloc());
-    gh.factory<_i14.CategoryFormBloc>(
-        () => _i14.CategoryFormBloc(gh<_i4.ICategoryRepository>()));
-    gh.factory<_i15.CategoryWatcherBloc>(
-        () => _i15.CategoryWatcherBloc(gh<_i4.ICategoryRepository>()));
+    gh.factory<_i13.MedicineFormBloc>(
+        () => _i13.MedicineFormBloc(gh<_i9.IMedicineRepository>()));
+    gh.factory<_i14.MedicineWatcherBloc>(
+        () => _i14.MedicineWatcherBloc(gh<_i9.IMedicineRepository>()));
+    gh.factory<_i15.StateRendererBloc>(() => _i15.StateRendererBloc());
+    gh.factory<_i16.CategoryFormBloc>(
+        () => _i16.CategoryFormBloc(gh<_i4.ICategoryRepository>()));
+    gh.factory<_i17.CategoryWatcherBloc>(
+        () => _i17.CategoryWatcherBloc(gh<_i4.ICategoryRepository>()));
     return this;
   }
 }
 
-class _$InjectableModule extends _i16.InjectableModule {}
+class _$InjectableModule extends _i18.InjectableModule {}

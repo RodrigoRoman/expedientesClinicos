@@ -1,21 +1,21 @@
-import 'package:expedientes_clinicos/application/abbreviation_name/abbreviation_name_form/measure_unit_form_bloc.dart';
+import 'package:expedientes_clinicos/application/categories/category_form/category_form_bloc.dart';
 import 'package:expedientes_clinicos/application/state_render/state_renderer_bloc.dart';
-import 'package:expedientes_clinicos/presentation/measure_unit/measure_unit_form_body.dart';
+import 'package:expedientes_clinicos/presentation/category/widgets/category_form_body.dart';
 import 'package:expedientes_clinicos/presentation/resources/string_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class MeasureUnitForm extends StatefulWidget {
-  const MeasureUnitForm({super.key});
+class CategoryForm extends StatefulWidget {
+  CategoryForm({super.key});
 
   @override
-  State<MeasureUnitForm> createState() => _MeasureUnitFormState();
+  State<CategoryForm> createState() => _CategoryFormState();
 }
 
-class _MeasureUnitFormState extends State<MeasureUnitForm> {
+class _CategoryFormState extends State<CategoryForm> {
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<MeasureUnitFormBloc, AbbreviationNameFormState>(
+    return BlocConsumer<CategoryFormBloc, CategoryFormState>(
       listener: (context, state) {
         state.saveFailureOrSuccessOption.fold(() {
           if (state.isSaving) {
@@ -27,6 +27,13 @@ class _MeasureUnitFormState extends State<MeasureUnitForm> {
             (either) => either.fold(
                     (failure) => failure.maybeMap(
                           unexpected: (e) {
+                            context.read<StateRendererBloc>().add(
+                                const StateRendererEvent.popUpError(
+                                    AppStrings.couldNotSaveImage,
+                                    AppStrings.somethingWentWrong,
+                                    true));
+                          },
+                          unableToUploadImage: (e) {
                             context.read<StateRendererBloc>().add(
                                 const StateRendererEvent.popUpError(
                                     AppStrings.couldNotSaveImage,
@@ -61,7 +68,7 @@ class _MeasureUnitFormState extends State<MeasureUnitForm> {
                 }));
       },
       builder: (context, state) {
-        return MeasureUnitFormBody(state: state);
+        return CategoryFormBody(state: state);
       },
     );
   }

@@ -1,7 +1,9 @@
 import 'package:expedientes_clinicos/application/abbreviation_name/abbreviation_name_watcher/measure_unit_watcher_bloc.dart';
+import 'package:expedientes_clinicos/application/medicine/medicine_form/medicine_form_bloc.dart';
 import 'package:expedientes_clinicos/application/state_render/state_renderer_bloc.dart';
 import 'package:expedientes_clinicos/domain/core/name_abbreviation/name_abbr.dart';
 import 'package:expedientes_clinicos/presentation/resources/constant_size_values.dart';
+import 'package:expedientes_clinicos/presentation/resources/font_manager.dart';
 import 'package:expedientes_clinicos/presentation/resources/string_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -98,18 +100,16 @@ class _DropdownSearchMeasureUnitState extends State<DropdownSearchMeasureUnit> {
                                 (e) => Container(
                                   margin: const EdgeInsets.all(AppSize.s2_5),
                                   decoration: BoxDecoration(
-                                    color:
-                                        //  (context
-                                        //             .read<IngredientCoreFormBloc>()
-                                        //             .state
-                                        //             .ingredientCore
-                                        //             .measureUnit ==
-                                        //         e)
-                                        //     ? Theme.of(context)
-                                        //         .colorScheme
-                                        //         .secondary
-                                        //     :
-                                        Colors.white70,
+                                    color: (context
+                                                .read<MedicineFormBloc>()
+                                                .state
+                                                .medicine
+                                                .measureUnit ==
+                                            e)
+                                        ? Theme.of(context)
+                                            .colorScheme
+                                            .secondary
+                                        : Colors.white70,
                                     borderRadius: BorderRadius.circular(10),
                                     border: Border.all(
                                       color: Theme.of(context)
@@ -120,9 +120,9 @@ class _DropdownSearchMeasureUnitState extends State<DropdownSearchMeasureUnit> {
                                   ),
                                   child: ListTile(
                                     selected: context
-                                            .read<IngredientCoreFormBloc>()
+                                            .read<MedicineFormBloc>()
                                             .state
-                                            .ingredientCore
+                                            .medicine
                                             .measureUnit ==
                                         e,
                                     leading: Text(e.abr.value.fold(
@@ -130,10 +130,9 @@ class _DropdownSearchMeasureUnitState extends State<DropdownSearchMeasureUnit> {
                                     title: Text(e.name.value.fold(
                                         (l) => AppStrings.isEmpty, (r) => r)),
                                     onTap: () {
-                                      context
-                                          .read<IngredientCoreFormBloc>()
-                                          .add(IngredientCoreFormEvent
-                                              .measureUnitChanged(e));
+                                      context.read<MedicineFormBloc>().add(
+                                          MedicineFormEvent.measureUnitChanged(
+                                              e));
                                       widget.textController.text = e.name.value
                                           .fold((l) => AppStrings.isEmpty,
                                               (r) => r);
@@ -182,15 +181,14 @@ class _DropdownSearchMeasureUnitState extends State<DropdownSearchMeasureUnit> {
                 flex: 9,
                 child: CompositedTransformTarget(
                   link: _layerLink,
-                  child: BlocConsumer<IngredientCoreFormBloc,
-                      IngredientCoreFormState>(
+                  child: BlocConsumer<MedicineFormBloc, MedicineFormState>(
                     listener: (context, state) {},
                     builder: (context, state) {
-                      MeasureUnit selectedMeasureUnit =
-                          state.ingredientCore.measureUnit;
+                      NameAbbreviation selectedMeasureUnit =
+                          state.medicine.measureUnit;
 
-                      return ((state.ingredientCore.measureUnit !=
-                                  MeasureUnit.empty()) &
+                      return ((state.medicine.measureUnit !=
+                                  NameAbbreviation.empty()) &
                               !_focusNode.hasFocus)
                           ? ListTile(
                               onTap: () {
@@ -232,11 +230,11 @@ class _DropdownSearchMeasureUnitState extends State<DropdownSearchMeasureUnit> {
                                             widget.textController.text.length));
                                 if (value.isEmpty) {
                                   context.read<MeasureUnitWatcherBloc>().add(
-                                      const MeasureUnitWatcherEvent
+                                      const AbbreviationNameWatcherEvent
                                           .watchAllStarted());
                                 } else {
                                   context.read<MeasureUnitWatcherBloc>().add(
-                                      MeasureUnitWatcherEvent
+                                      AbbreviationNameWatcherEvent
                                           .watchFilteredStarted(
                                               widget.textController.text));
                                 }

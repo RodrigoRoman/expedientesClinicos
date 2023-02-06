@@ -1,115 +1,86 @@
+import 'package:auto_route/auto_route.dart';
+import 'package:expedientes_clinicos/application/abbreviation_name/abbreviation_name_form/measure_unit_form_bloc.dart';
+import 'package:expedientes_clinicos/application/categories/category_form/category_form_bloc.dart';
+import 'package:expedientes_clinicos/application/medicine/medicine_form/medicine_form_bloc.dart';
+import 'package:expedientes_clinicos/application/state_render/state_renderer_bloc.dart';
+import 'package:expedientes_clinicos/injection.dart';
+import 'package:expedientes_clinicos/presentation/routes/router.gr.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:injectable/injectable.dart';
 
-void main() {
-  runApp(const MyApp());
+import 'presentation/common/state_renderer/app_state_renderer.dart';
+import 'presentation/common/widget_elements/popup_dialog.dart';
+import 'presentation/resources/const_values.dart';
+import 'presentation/resources/themes.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await configureInjection(Environment.prod);
+  await Firebase.initializeApp();
+  runApp(AppRoot());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  // This widget is the root of your application.
+class AppRoot extends StatelessWidget {
+  AppRoot({Key? key}) : super(key: key);
+  final appRouter = getIt<AppRouter>();
+  // This widget is the root of the application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
-        primarySwatch: Colors.blue,
-      ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
+    return MultiBlocProvider(
+        providers: [
+          BlocProvider<StateRendererBloc>(
+            create: (context) => getIt<StateRendererBloc>(),
+          ),
+          BlocProvider<CategoryFormBloc>(
+              create: (context) => getIt<CategoryFormBloc>()),
+          BlocProvider<MeasureUnitFormBloc>(
+              create: (context) => getIt<MeasureUnitFormBloc>()),
+          BlocProvider<MedicineFormBloc>(
+              create: (context) => getIt<MedicineFormBloc>())
+        ],
+        child: BlocConsumer<StateRendererBloc, StateRendererState>(
+            buildWhen: (previous, current) =>
+                previous.stateRender != current.stateRender,
+            listener: (context, state) async {
+              var ctx = appRouter.navigatorKey.currentContext;
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
-    return Scaffold(
-      appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
-      ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Invoke "debug painting" (press "p" in the console, choose the
-          // "Toggle Debug Paint" action from the Flutter Inspector in Android
-          // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
-          // to see the wireframe for each widget.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
-    );
+              if (popStateRender.contains(state.stateRender)) {
+                //The current context of the navigator screen present
+                if (ctx != null) {
+                  //Check if there is a dialog before showing another one
+                  if (appRouter.canPop() & state.popPrevioues == true) {
+                    appRouter.popUntil((route) => route.isFirst);
+                  }
+                  await showPopUp(ctx, state.stateRender, () async {
+                    await appRouter.pop();
+                  }, state.message, state.body, title: state.title);
+                } else {
+                  appRouter.push(FullScreenState(
+                      content: StateRenderer(
+                    stateRendererType:
+                        StateRendererType.FULL_SCREEN_ERROR_STATE,
+                    message: 'Error Inesperado!',
+                    retryActionFunction: state.retryAction,
+                  )));
+                }
+              } else {
+                appRouter.push(FullScreenState(
+                    content: StateRenderer(
+                  stateRendererType: state.stateRender,
+                  message: state.message,
+                  retryActionFunction: state.retryAction,
+                )));
+              }
+            },
+            builder: (context, state) {
+              return MaterialApp.router(
+                routerDelegate: appRouter.delegate(),
+                routeInformationParser: appRouter.defaultRouteParser(),
+                theme: CustomTheme.lightTheme,
+              );
+            }));
   }
 }
