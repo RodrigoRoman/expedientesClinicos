@@ -76,3 +76,11 @@ List<String> permutations(List<String> strings) {
 String removeSpecialCharacters(String word) {
   return word.toLowerCase().replaceAll(RegExp(r'[^\w\d]|\s'), '');
 }
+
+truncate(String str, int maxLength) {
+  if (str.length > maxLength) {
+    return str.substring(0, maxLength);
+  } else {
+    return str;
+  }
+}

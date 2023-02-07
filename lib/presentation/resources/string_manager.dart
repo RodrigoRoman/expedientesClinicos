@@ -39,6 +39,7 @@ class AppStrings {
   static const String observations = 'Observaciones';
   static const String comercialName = 'Nombre comercial';
   static const String genericName = 'Nombre generico';
+  static const String amountUnitMeasure = 'Cantidad de unidades';
 
   static const String abr = 'Alias';
   static const String supplier = 'Proveedor';
@@ -57,6 +58,8 @@ class AppStrings {
 
   //Names
   static const String existence = 'Existencias';
+  static const String controlled = 'Controlado';
+  static const String freeSale = 'Libre';
   static const String all = 'Todo';
   static const String carritoDeCompra = 'Carrito de compra';
 

@@ -7,8 +7,7 @@ abstract class ICategoryRepository {
   Stream<Either<CategoryFailures, KtList<Category>>> watchAll();
   Stream<Either<CategoryFailures, KtList<Category>>> watchFiltered(String name);
   Future<Either<CategoryFailures, Unit>> create(Category category);
-  Future<Either<CategoryFailures, Unit>> createFake(Category category);
-
+  Future<Either<CategoryFailures, Unit>> createFake();
   Future<Either<CategoryFailures, Unit>> update(Category category);
   Future<Either<CategoryFailures, Unit>> delete(Category category);
 }

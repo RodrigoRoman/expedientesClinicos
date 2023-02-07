@@ -15,7 +15,6 @@ class AppAssetNames {
   static const imagePlaceholder = "$JSON_PATH/image_placeholder.json";
 
   //image names
-  static const ingredientCore = "$IMG_PATH/ingredients/ingredients_core.png";
-  static const ingredientVersion =
-      "$IMG_PATH/ingredients/ingredients_version.png";
+  static const controlledImage = "$IMG_PATH/medicine/controlled.png";
+  static const freeSaleImage = "$IMG_PATH/medicine/freeSale.png";
 }

@@ -1,7 +1,9 @@
+import 'package:expedientes_clinicos/application/categories/category_actor/category_actor_bloc.dart';
 import 'package:expedientes_clinicos/application/categories/category_watcher/category_watcher_bloc.dart';
 import 'package:expedientes_clinicos/application/medicine/medicine_form/medicine_form_bloc.dart';
 import 'package:expedientes_clinicos/application/state_render/state_renderer_bloc.dart';
 import 'package:expedientes_clinicos/domain/core/categories/category.dart';
+import 'package:expedientes_clinicos/injection.dart';
 import 'package:expedientes_clinicos/presentation/resources/constant_size_values.dart';
 import 'package:expedientes_clinicos/presentation/resources/font_manager.dart';
 import 'package:expedientes_clinicos/presentation/resources/string_manager.dart';
@@ -142,8 +144,10 @@ class _DropdownSearchCategoriesState extends State<DropdownSearchCategories> {
                                   ),
                                 ),
                               ),
-                              title: Text(e.name.value
-                                  .fold((l) => AppStrings.isEmpty, (r) => r)),
+                              title: FittedBox(
+                                child: Text(e.name.value
+                                    .fold((l) => AppStrings.isEmpty, (r) => r)),
+                              ),
                               onTap: () {
                                 context
                                     .read<MedicineFormBloc>()
@@ -222,8 +226,7 @@ class _DropdownSearchCategoriesState extends State<DropdownSearchCategories> {
                             trailing: Text(
                                 selectedCategory.name.value
                                     .fold((l) => AppStrings.isEmpty, (r) => r),
-                                style:
-                                    Theme.of(context).textTheme.displaySmall),
+                                style: Theme.of(context).textTheme.labelMedium),
                           )
                         : TextFormField(
                             controller: widget.textController,
@@ -282,6 +285,39 @@ class _DropdownSearchCategoriesState extends State<DropdownSearchCategories> {
                 },
               ),
             ),
+            //FAKER BUTTON (TO BE COMMENTED)
+            // Expanded(
+            //   flex: 3,
+            //   child: LayoutBuilder(
+            //     builder: (context, buttonConstraints) {
+            //       return BlocProvider(
+            //         create: (context) => getIt<CategoryActorBloc>(),
+            //         child: BlocConsumer<CategoryActorBloc, CategoryActorState>(
+            //           listener: (context, state) {},
+            //           builder: (context, state) {
+            //             return ElevatedButton(
+            //                 style: ElevatedButton.styleFrom(
+            //                     fixedSize: Size(buttonConstraints.maxWidth / 4,
+            //                         buttonConstraints.maxHeight / 4),
+            //                     shape: const CircleBorder(),
+            //                     padding: const EdgeInsets.all(2)),
+            //                 child: Icon(
+            //                   Icons.all_inbox,
+            //                   size: (buttonConstraints.maxHeight +
+            //                           buttonConstraints.maxWidth) *
+            //                       0.13,
+            //                 ),
+            //                 onPressed: () {
+            //                   context
+            //                       .read<CategoryActorBloc>()
+            //                       .add(CategoryActorEvent.faker());
+            //                 });
+            //           },
+            //         ),
+            //       );
+            //     },
+            //   ),
+            // ),
             const Spacer(),
           ],
         );

@@ -56,6 +56,8 @@ class DoubleInputBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print('double');
+    print(textController.text.length);
     return Row(
       mainAxisSize: MainAxisSize.min,
       children: [
@@ -83,7 +85,7 @@ class DoubleInputBody extends StatelessWidget {
           ),
         ),
         Expanded(
-          flex: 2,
+          flex: 3,
           child: TextField(
             controller: textController,
             keyboardType: const TextInputType.numberWithOptions(decimal: true),
@@ -94,7 +96,8 @@ class DoubleInputBody extends StatelessWidget {
             decoration: const InputDecoration(
               border: OutlineInputBorder(),
             ),
-
+            style:
+                Theme.of(context).textTheme.bodyMedium!.copyWith(fontSize: 11),
             onChanged: (value) {
               double newValue = 0;
               if (textController.text.isNotEmpty) {

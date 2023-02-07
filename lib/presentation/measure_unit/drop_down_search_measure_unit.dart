@@ -127,8 +127,10 @@ class _DropdownSearchMeasureUnitState extends State<DropdownSearchMeasureUnit> {
                                         e,
                                     leading: Text(e.abr.value.fold(
                                         (l) => AppStrings.isEmpty, (r) => r)),
-                                    title: Text(e.name.value.fold(
-                                        (l) => AppStrings.isEmpty, (r) => r)),
+                                    title: FittedBox(
+                                      child: Text(e.name.value.fold(
+                                          (l) => AppStrings.isEmpty, (r) => r)),
+                                    ),
                                     onTap: () {
                                       context.read<MedicineFormBloc>().add(
                                           MedicineFormEvent.measureUnitChanged(
@@ -173,12 +175,12 @@ class _DropdownSearchMeasureUnitState extends State<DropdownSearchMeasureUnit> {
       builder: (context, state) {
         return LayoutBuilder(builder: (context, constraints) {
           return Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
               const Spacer(),
               Expanded(
-                flex: 9,
+                flex: 15,
                 child: CompositedTransformTarget(
                   link: _layerLink,
                   child: BlocConsumer<MedicineFormBloc, MedicineFormState>(
@@ -191,23 +193,27 @@ class _DropdownSearchMeasureUnitState extends State<DropdownSearchMeasureUnit> {
                                   NameAbbreviation.empty()) &
                               !_focusNode.hasFocus)
                           ? ListTile(
+                              // tileColor: Colors.red,
                               onTap: () {
                                 FocusScope.of(context).requestFocus(_focusNode);
                               },
-                              leading: SizedBox(
-                                width: constraints.maxWidth / 10,
-                              ),
-                              title: Text(
-                                selectedMeasureUnit.abr.value
-                                    .fold((l) => AppStrings.isEmpty, (r) => r),
-                                style:
-                                    Theme.of(context).textTheme.displayMedium,
-                              ),
-                              trailing: Text(
-                                  selectedMeasureUnit.name.value.fold(
+                              // leading: SizedBox(
+                              //   width: constraints.maxWidth / 20,
+                              // ),
+                              title: FittedBox(
+                                child: Text(
+                                  selectedMeasureUnit.abr.value.fold(
                                       (l) => AppStrings.isEmpty, (r) => r),
-                                  style:
-                                      Theme.of(context).textTheme.displaySmall),
+                                  style: Theme.of(context).textTheme.bodyMedium,
+                                ),
+                              ),
+                              trailing: FittedBox(
+                                child: Text(
+                                    selectedMeasureUnit.name.value.fold(
+                                        (l) => AppStrings.isEmpty, (r) => r),
+                                    style:
+                                        Theme.of(context).textTheme.bodySmall),
+                              ),
                             )
                           : TextFormField(
                               controller: widget.textController,
@@ -246,7 +252,7 @@ class _DropdownSearchMeasureUnitState extends State<DropdownSearchMeasureUnit> {
               ),
               const Spacer(),
               Expanded(
-                flex: 3,
+                flex: 5,
                 child: LayoutBuilder(
                   builder: (context, buttonConstraints) {
                     return ElevatedButton(
@@ -267,7 +273,9 @@ class _DropdownSearchMeasureUnitState extends State<DropdownSearchMeasureUnit> {
                   },
                 ),
               ),
-              const Spacer(),
+              const Spacer(
+                flex: 2,
+              ),
             ],
           );
         });

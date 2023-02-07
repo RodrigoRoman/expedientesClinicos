@@ -17,9 +17,6 @@ import 'package:rxdart/rxdart.dart';
 class MedicineRepository implements IMedicineRepository {
   final FirebaseFirestore _firestore;
   MedicineRepository(this._firestore);
-  DocumentSnapshot? continueFrom;
-  int limitPaginatedDocuments = 20;
-
   @override
   Future<Either<MedicineFailures, Unit>> create(Medicine medicine) async {
     try {

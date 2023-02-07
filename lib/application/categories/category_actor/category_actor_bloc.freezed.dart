@@ -16,42 +16,43 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$CategoryActorEvent {
-  Category get category => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(Category category) deleted,
+    required TResult Function() faker,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(Category category)? deleted,
+    TResult? Function()? faker,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Category category)? deleted,
+    TResult Function()? faker,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_DeleteCategory value) deleted,
+    required TResult Function(_FakeCategory value) faker,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_DeleteCategory value)? deleted,
+    TResult? Function(_FakeCategory value)? faker,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_DeleteCategory value)? deleted,
+    TResult Function(_FakeCategory value)? faker,
     required TResult orElse(),
   }) =>
-      throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $CategoryActorEventCopyWith<CategoryActorEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -60,10 +61,6 @@ abstract class $CategoryActorEventCopyWith<$Res> {
   factory $CategoryActorEventCopyWith(
           CategoryActorEvent value, $Res Function(CategoryActorEvent) then) =
       _$CategoryActorEventCopyWithImpl<$Res, CategoryActorEvent>;
-  @useResult
-  $Res call({Category category});
-
-  $CategoryCopyWith<$Res> get category;
 }
 
 /// @nodoc
@@ -75,40 +72,16 @@ class _$CategoryActorEventCopyWithImpl<$Res, $Val extends CategoryActorEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? category = null,
-  }) {
-    return _then(_value.copyWith(
-      category: null == category
-          ? _value.category
-          : category // ignore: cast_nullable_to_non_nullable
-              as Category,
-    ) as $Val);
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $CategoryCopyWith<$Res> get category {
-    return $CategoryCopyWith<$Res>(_value.category, (value) {
-      return _then(_value.copyWith(category: value) as $Val);
-    });
-  }
 }
 
 /// @nodoc
-abstract class _$$_DeleteCategoryCopyWith<$Res>
-    implements $CategoryActorEventCopyWith<$Res> {
+abstract class _$$_DeleteCategoryCopyWith<$Res> {
   factory _$$_DeleteCategoryCopyWith(
           _$_DeleteCategory value, $Res Function(_$_DeleteCategory) then) =
       __$$_DeleteCategoryCopyWithImpl<$Res>;
-  @override
   @useResult
   $Res call({Category category});
 
-  @override
   $CategoryCopyWith<$Res> get category;
 }
 
@@ -131,6 +104,14 @@ class __$$_DeleteCategoryCopyWithImpl<$Res>
           : category // ignore: cast_nullable_to_non_nullable
               as Category,
     ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $CategoryCopyWith<$Res> get category {
+    return $CategoryCopyWith<$Res>(_value.category, (value) {
+      return _then(_value.copyWith(category: value));
+    });
   }
 }
 
@@ -179,6 +160,7 @@ class _$_DeleteCategory
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(Category category) deleted,
+    required TResult Function() faker,
   }) {
     return deleted(category);
   }
@@ -187,6 +169,7 @@ class _$_DeleteCategory
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(Category category)? deleted,
+    TResult? Function()? faker,
   }) {
     return deleted?.call(category);
   }
@@ -195,6 +178,7 @@ class _$_DeleteCategory
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Category category)? deleted,
+    TResult Function()? faker,
     required TResult orElse(),
   }) {
     if (deleted != null) {
@@ -207,6 +191,7 @@ class _$_DeleteCategory
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_DeleteCategory value) deleted,
+    required TResult Function(_FakeCategory value) faker,
   }) {
     return deleted(this);
   }
@@ -215,6 +200,7 @@ class _$_DeleteCategory
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_DeleteCategory value)? deleted,
+    TResult? Function(_FakeCategory value)? faker,
   }) {
     return deleted?.call(this);
   }
@@ -223,6 +209,7 @@ class _$_DeleteCategory
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_DeleteCategory value)? deleted,
+    TResult Function(_FakeCategory value)? faker,
     required TResult orElse(),
   }) {
     if (deleted != null) {
@@ -235,12 +222,118 @@ class _$_DeleteCategory
 abstract class _DeleteCategory implements CategoryActorEvent {
   const factory _DeleteCategory(final Category category) = _$_DeleteCategory;
 
-  @override
   Category get category;
-  @override
   @JsonKey(ignore: true)
   _$$_DeleteCategoryCopyWith<_$_DeleteCategory> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_FakeCategoryCopyWith<$Res> {
+  factory _$$_FakeCategoryCopyWith(
+          _$_FakeCategory value, $Res Function(_$_FakeCategory) then) =
+      __$$_FakeCategoryCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_FakeCategoryCopyWithImpl<$Res>
+    extends _$CategoryActorEventCopyWithImpl<$Res, _$_FakeCategory>
+    implements _$$_FakeCategoryCopyWith<$Res> {
+  __$$_FakeCategoryCopyWithImpl(
+      _$_FakeCategory _value, $Res Function(_$_FakeCategory) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_FakeCategory with DiagnosticableTreeMixin implements _FakeCategory {
+  const _$_FakeCategory();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'CategoryActorEvent.faker()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty('type', 'CategoryActorEvent.faker'));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_FakeCategory);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Category category) deleted,
+    required TResult Function() faker,
+  }) {
+    return faker();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(Category category)? deleted,
+    TResult? Function()? faker,
+  }) {
+    return faker?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Category category)? deleted,
+    TResult Function()? faker,
+    required TResult orElse(),
+  }) {
+    if (faker != null) {
+      return faker();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_DeleteCategory value) deleted,
+    required TResult Function(_FakeCategory value) faker,
+  }) {
+    return faker(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_DeleteCategory value)? deleted,
+    TResult? Function(_FakeCategory value)? faker,
+  }) {
+    return faker?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_DeleteCategory value)? deleted,
+    TResult Function(_FakeCategory value)? faker,
+    required TResult orElse(),
+  }) {
+    if (faker != null) {
+      return faker(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _FakeCategory implements CategoryActorEvent {
+  const factory _FakeCategory() = _$_FakeCategory;
 }
 
 /// @nodoc
@@ -250,7 +343,9 @@ mixin _$CategoryActorState {
     required TResult Function() initial,
     required TResult Function() actionInProgress,
     required TResult Function(CategoryFailures categoryFailure) deleteFailure,
+    required TResult Function(CategoryFailures categoryFailure) fakeFailure,
     required TResult Function() deleteSuccess,
+    required TResult Function() fakeSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -258,7 +353,9 @@ mixin _$CategoryActorState {
     TResult? Function()? initial,
     TResult? Function()? actionInProgress,
     TResult? Function(CategoryFailures categoryFailure)? deleteFailure,
+    TResult? Function(CategoryFailures categoryFailure)? fakeFailure,
     TResult? Function()? deleteSuccess,
+    TResult? Function()? fakeSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -266,7 +363,9 @@ mixin _$CategoryActorState {
     TResult Function()? initial,
     TResult Function()? actionInProgress,
     TResult Function(CategoryFailures categoryFailure)? deleteFailure,
+    TResult Function(CategoryFailures categoryFailure)? fakeFailure,
     TResult Function()? deleteSuccess,
+    TResult Function()? fakeSuccess,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -275,7 +374,9 @@ mixin _$CategoryActorState {
     required TResult Function(_Initial value) initial,
     required TResult Function(_ActionInProgress value) actionInProgress,
     required TResult Function(_DeleteFailure value) deleteFailure,
+    required TResult Function(_FakeFailure value) fakeFailure,
     required TResult Function(_DeleteSuccess value) deleteSuccess,
+    required TResult Function(_FakeSuccess value) fakeSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -283,7 +384,9 @@ mixin _$CategoryActorState {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_ActionInProgress value)? actionInProgress,
     TResult? Function(_DeleteFailure value)? deleteFailure,
+    TResult? Function(_FakeFailure value)? fakeFailure,
     TResult? Function(_DeleteSuccess value)? deleteSuccess,
+    TResult? Function(_FakeSuccess value)? fakeSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -291,7 +394,9 @@ mixin _$CategoryActorState {
     TResult Function(_Initial value)? initial,
     TResult Function(_ActionInProgress value)? actionInProgress,
     TResult Function(_DeleteFailure value)? deleteFailure,
+    TResult Function(_FakeFailure value)? fakeFailure,
     TResult Function(_DeleteSuccess value)? deleteSuccess,
+    TResult Function(_FakeSuccess value)? fakeSuccess,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -361,7 +466,9 @@ class _$_Initial with DiagnosticableTreeMixin implements _Initial {
     required TResult Function() initial,
     required TResult Function() actionInProgress,
     required TResult Function(CategoryFailures categoryFailure) deleteFailure,
+    required TResult Function(CategoryFailures categoryFailure) fakeFailure,
     required TResult Function() deleteSuccess,
+    required TResult Function() fakeSuccess,
   }) {
     return initial();
   }
@@ -372,7 +479,9 @@ class _$_Initial with DiagnosticableTreeMixin implements _Initial {
     TResult? Function()? initial,
     TResult? Function()? actionInProgress,
     TResult? Function(CategoryFailures categoryFailure)? deleteFailure,
+    TResult? Function(CategoryFailures categoryFailure)? fakeFailure,
     TResult? Function()? deleteSuccess,
+    TResult? Function()? fakeSuccess,
   }) {
     return initial?.call();
   }
@@ -383,7 +492,9 @@ class _$_Initial with DiagnosticableTreeMixin implements _Initial {
     TResult Function()? initial,
     TResult Function()? actionInProgress,
     TResult Function(CategoryFailures categoryFailure)? deleteFailure,
+    TResult Function(CategoryFailures categoryFailure)? fakeFailure,
     TResult Function()? deleteSuccess,
+    TResult Function()? fakeSuccess,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -398,7 +509,9 @@ class _$_Initial with DiagnosticableTreeMixin implements _Initial {
     required TResult Function(_Initial value) initial,
     required TResult Function(_ActionInProgress value) actionInProgress,
     required TResult Function(_DeleteFailure value) deleteFailure,
+    required TResult Function(_FakeFailure value) fakeFailure,
     required TResult Function(_DeleteSuccess value) deleteSuccess,
+    required TResult Function(_FakeSuccess value) fakeSuccess,
   }) {
     return initial(this);
   }
@@ -409,7 +522,9 @@ class _$_Initial with DiagnosticableTreeMixin implements _Initial {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_ActionInProgress value)? actionInProgress,
     TResult? Function(_DeleteFailure value)? deleteFailure,
+    TResult? Function(_FakeFailure value)? fakeFailure,
     TResult? Function(_DeleteSuccess value)? deleteSuccess,
+    TResult? Function(_FakeSuccess value)? fakeSuccess,
   }) {
     return initial?.call(this);
   }
@@ -420,7 +535,9 @@ class _$_Initial with DiagnosticableTreeMixin implements _Initial {
     TResult Function(_Initial value)? initial,
     TResult Function(_ActionInProgress value)? actionInProgress,
     TResult Function(_DeleteFailure value)? deleteFailure,
+    TResult Function(_FakeFailure value)? fakeFailure,
     TResult Function(_DeleteSuccess value)? deleteSuccess,
+    TResult Function(_FakeSuccess value)? fakeSuccess,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -484,7 +601,9 @@ class _$_ActionInProgress
     required TResult Function() initial,
     required TResult Function() actionInProgress,
     required TResult Function(CategoryFailures categoryFailure) deleteFailure,
+    required TResult Function(CategoryFailures categoryFailure) fakeFailure,
     required TResult Function() deleteSuccess,
+    required TResult Function() fakeSuccess,
   }) {
     return actionInProgress();
   }
@@ -495,7 +614,9 @@ class _$_ActionInProgress
     TResult? Function()? initial,
     TResult? Function()? actionInProgress,
     TResult? Function(CategoryFailures categoryFailure)? deleteFailure,
+    TResult? Function(CategoryFailures categoryFailure)? fakeFailure,
     TResult? Function()? deleteSuccess,
+    TResult? Function()? fakeSuccess,
   }) {
     return actionInProgress?.call();
   }
@@ -506,7 +627,9 @@ class _$_ActionInProgress
     TResult Function()? initial,
     TResult Function()? actionInProgress,
     TResult Function(CategoryFailures categoryFailure)? deleteFailure,
+    TResult Function(CategoryFailures categoryFailure)? fakeFailure,
     TResult Function()? deleteSuccess,
+    TResult Function()? fakeSuccess,
     required TResult orElse(),
   }) {
     if (actionInProgress != null) {
@@ -521,7 +644,9 @@ class _$_ActionInProgress
     required TResult Function(_Initial value) initial,
     required TResult Function(_ActionInProgress value) actionInProgress,
     required TResult Function(_DeleteFailure value) deleteFailure,
+    required TResult Function(_FakeFailure value) fakeFailure,
     required TResult Function(_DeleteSuccess value) deleteSuccess,
+    required TResult Function(_FakeSuccess value) fakeSuccess,
   }) {
     return actionInProgress(this);
   }
@@ -532,7 +657,9 @@ class _$_ActionInProgress
     TResult? Function(_Initial value)? initial,
     TResult? Function(_ActionInProgress value)? actionInProgress,
     TResult? Function(_DeleteFailure value)? deleteFailure,
+    TResult? Function(_FakeFailure value)? fakeFailure,
     TResult? Function(_DeleteSuccess value)? deleteSuccess,
+    TResult? Function(_FakeSuccess value)? fakeSuccess,
   }) {
     return actionInProgress?.call(this);
   }
@@ -543,7 +670,9 @@ class _$_ActionInProgress
     TResult Function(_Initial value)? initial,
     TResult Function(_ActionInProgress value)? actionInProgress,
     TResult Function(_DeleteFailure value)? deleteFailure,
+    TResult Function(_FakeFailure value)? fakeFailure,
     TResult Function(_DeleteSuccess value)? deleteSuccess,
+    TResult Function(_FakeSuccess value)? fakeSuccess,
     required TResult orElse(),
   }) {
     if (actionInProgress != null) {
@@ -643,7 +772,9 @@ class _$_DeleteFailure with DiagnosticableTreeMixin implements _DeleteFailure {
     required TResult Function() initial,
     required TResult Function() actionInProgress,
     required TResult Function(CategoryFailures categoryFailure) deleteFailure,
+    required TResult Function(CategoryFailures categoryFailure) fakeFailure,
     required TResult Function() deleteSuccess,
+    required TResult Function() fakeSuccess,
   }) {
     return deleteFailure(categoryFailure);
   }
@@ -654,7 +785,9 @@ class _$_DeleteFailure with DiagnosticableTreeMixin implements _DeleteFailure {
     TResult? Function()? initial,
     TResult? Function()? actionInProgress,
     TResult? Function(CategoryFailures categoryFailure)? deleteFailure,
+    TResult? Function(CategoryFailures categoryFailure)? fakeFailure,
     TResult? Function()? deleteSuccess,
+    TResult? Function()? fakeSuccess,
   }) {
     return deleteFailure?.call(categoryFailure);
   }
@@ -665,7 +798,9 @@ class _$_DeleteFailure with DiagnosticableTreeMixin implements _DeleteFailure {
     TResult Function()? initial,
     TResult Function()? actionInProgress,
     TResult Function(CategoryFailures categoryFailure)? deleteFailure,
+    TResult Function(CategoryFailures categoryFailure)? fakeFailure,
     TResult Function()? deleteSuccess,
+    TResult Function()? fakeSuccess,
     required TResult orElse(),
   }) {
     if (deleteFailure != null) {
@@ -680,7 +815,9 @@ class _$_DeleteFailure with DiagnosticableTreeMixin implements _DeleteFailure {
     required TResult Function(_Initial value) initial,
     required TResult Function(_ActionInProgress value) actionInProgress,
     required TResult Function(_DeleteFailure value) deleteFailure,
+    required TResult Function(_FakeFailure value) fakeFailure,
     required TResult Function(_DeleteSuccess value) deleteSuccess,
+    required TResult Function(_FakeSuccess value) fakeSuccess,
   }) {
     return deleteFailure(this);
   }
@@ -691,7 +828,9 @@ class _$_DeleteFailure with DiagnosticableTreeMixin implements _DeleteFailure {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_ActionInProgress value)? actionInProgress,
     TResult? Function(_DeleteFailure value)? deleteFailure,
+    TResult? Function(_FakeFailure value)? fakeFailure,
     TResult? Function(_DeleteSuccess value)? deleteSuccess,
+    TResult? Function(_FakeSuccess value)? fakeSuccess,
   }) {
     return deleteFailure?.call(this);
   }
@@ -702,7 +841,9 @@ class _$_DeleteFailure with DiagnosticableTreeMixin implements _DeleteFailure {
     TResult Function(_Initial value)? initial,
     TResult Function(_ActionInProgress value)? actionInProgress,
     TResult Function(_DeleteFailure value)? deleteFailure,
+    TResult Function(_FakeFailure value)? fakeFailure,
     TResult Function(_DeleteSuccess value)? deleteSuccess,
+    TResult Function(_FakeSuccess value)? fakeSuccess,
     required TResult orElse(),
   }) {
     if (deleteFailure != null) {
@@ -719,6 +860,183 @@ abstract class _DeleteFailure implements CategoryActorState {
   CategoryFailures get categoryFailure;
   @JsonKey(ignore: true)
   _$$_DeleteFailureCopyWith<_$_DeleteFailure> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_FakeFailureCopyWith<$Res> {
+  factory _$$_FakeFailureCopyWith(
+          _$_FakeFailure value, $Res Function(_$_FakeFailure) then) =
+      __$$_FakeFailureCopyWithImpl<$Res>;
+  @useResult
+  $Res call({CategoryFailures categoryFailure});
+
+  $CategoryFailuresCopyWith<$Res> get categoryFailure;
+}
+
+/// @nodoc
+class __$$_FakeFailureCopyWithImpl<$Res>
+    extends _$CategoryActorStateCopyWithImpl<$Res, _$_FakeFailure>
+    implements _$$_FakeFailureCopyWith<$Res> {
+  __$$_FakeFailureCopyWithImpl(
+      _$_FakeFailure _value, $Res Function(_$_FakeFailure) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? categoryFailure = null,
+  }) {
+    return _then(_$_FakeFailure(
+      null == categoryFailure
+          ? _value.categoryFailure
+          : categoryFailure // ignore: cast_nullable_to_non_nullable
+              as CategoryFailures,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $CategoryFailuresCopyWith<$Res> get categoryFailure {
+    return $CategoryFailuresCopyWith<$Res>(_value.categoryFailure, (value) {
+      return _then(_value.copyWith(categoryFailure: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$_FakeFailure with DiagnosticableTreeMixin implements _FakeFailure {
+  const _$_FakeFailure(this.categoryFailure);
+
+  @override
+  final CategoryFailures categoryFailure;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'CategoryActorState.fakeFailure(categoryFailure: $categoryFailure)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'CategoryActorState.fakeFailure'))
+      ..add(DiagnosticsProperty('categoryFailure', categoryFailure));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_FakeFailure &&
+            (identical(other.categoryFailure, categoryFailure) ||
+                other.categoryFailure == categoryFailure));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, categoryFailure);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_FakeFailureCopyWith<_$_FakeFailure> get copyWith =>
+      __$$_FakeFailureCopyWithImpl<_$_FakeFailure>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() actionInProgress,
+    required TResult Function(CategoryFailures categoryFailure) deleteFailure,
+    required TResult Function(CategoryFailures categoryFailure) fakeFailure,
+    required TResult Function() deleteSuccess,
+    required TResult Function() fakeSuccess,
+  }) {
+    return fakeFailure(categoryFailure);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? actionInProgress,
+    TResult? Function(CategoryFailures categoryFailure)? deleteFailure,
+    TResult? Function(CategoryFailures categoryFailure)? fakeFailure,
+    TResult? Function()? deleteSuccess,
+    TResult? Function()? fakeSuccess,
+  }) {
+    return fakeFailure?.call(categoryFailure);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? actionInProgress,
+    TResult Function(CategoryFailures categoryFailure)? deleteFailure,
+    TResult Function(CategoryFailures categoryFailure)? fakeFailure,
+    TResult Function()? deleteSuccess,
+    TResult Function()? fakeSuccess,
+    required TResult orElse(),
+  }) {
+    if (fakeFailure != null) {
+      return fakeFailure(categoryFailure);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_ActionInProgress value) actionInProgress,
+    required TResult Function(_DeleteFailure value) deleteFailure,
+    required TResult Function(_FakeFailure value) fakeFailure,
+    required TResult Function(_DeleteSuccess value) deleteSuccess,
+    required TResult Function(_FakeSuccess value) fakeSuccess,
+  }) {
+    return fakeFailure(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_ActionInProgress value)? actionInProgress,
+    TResult? Function(_DeleteFailure value)? deleteFailure,
+    TResult? Function(_FakeFailure value)? fakeFailure,
+    TResult? Function(_DeleteSuccess value)? deleteSuccess,
+    TResult? Function(_FakeSuccess value)? fakeSuccess,
+  }) {
+    return fakeFailure?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_ActionInProgress value)? actionInProgress,
+    TResult Function(_DeleteFailure value)? deleteFailure,
+    TResult Function(_FakeFailure value)? fakeFailure,
+    TResult Function(_DeleteSuccess value)? deleteSuccess,
+    TResult Function(_FakeSuccess value)? fakeSuccess,
+    required TResult orElse(),
+  }) {
+    if (fakeFailure != null) {
+      return fakeFailure(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _FakeFailure implements CategoryActorState {
+  const factory _FakeFailure(final CategoryFailures categoryFailure) =
+      _$_FakeFailure;
+
+  CategoryFailures get categoryFailure;
+  @JsonKey(ignore: true)
+  _$$_FakeFailureCopyWith<_$_FakeFailure> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -770,7 +1088,9 @@ class _$_DeleteSuccess with DiagnosticableTreeMixin implements _DeleteSuccess {
     required TResult Function() initial,
     required TResult Function() actionInProgress,
     required TResult Function(CategoryFailures categoryFailure) deleteFailure,
+    required TResult Function(CategoryFailures categoryFailure) fakeFailure,
     required TResult Function() deleteSuccess,
+    required TResult Function() fakeSuccess,
   }) {
     return deleteSuccess();
   }
@@ -781,7 +1101,9 @@ class _$_DeleteSuccess with DiagnosticableTreeMixin implements _DeleteSuccess {
     TResult? Function()? initial,
     TResult? Function()? actionInProgress,
     TResult? Function(CategoryFailures categoryFailure)? deleteFailure,
+    TResult? Function(CategoryFailures categoryFailure)? fakeFailure,
     TResult? Function()? deleteSuccess,
+    TResult? Function()? fakeSuccess,
   }) {
     return deleteSuccess?.call();
   }
@@ -792,7 +1114,9 @@ class _$_DeleteSuccess with DiagnosticableTreeMixin implements _DeleteSuccess {
     TResult Function()? initial,
     TResult Function()? actionInProgress,
     TResult Function(CategoryFailures categoryFailure)? deleteFailure,
+    TResult Function(CategoryFailures categoryFailure)? fakeFailure,
     TResult Function()? deleteSuccess,
+    TResult Function()? fakeSuccess,
     required TResult orElse(),
   }) {
     if (deleteSuccess != null) {
@@ -807,7 +1131,9 @@ class _$_DeleteSuccess with DiagnosticableTreeMixin implements _DeleteSuccess {
     required TResult Function(_Initial value) initial,
     required TResult Function(_ActionInProgress value) actionInProgress,
     required TResult Function(_DeleteFailure value) deleteFailure,
+    required TResult Function(_FakeFailure value) fakeFailure,
     required TResult Function(_DeleteSuccess value) deleteSuccess,
+    required TResult Function(_FakeSuccess value) fakeSuccess,
   }) {
     return deleteSuccess(this);
   }
@@ -818,7 +1144,9 @@ class _$_DeleteSuccess with DiagnosticableTreeMixin implements _DeleteSuccess {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_ActionInProgress value)? actionInProgress,
     TResult? Function(_DeleteFailure value)? deleteFailure,
+    TResult? Function(_FakeFailure value)? fakeFailure,
     TResult? Function(_DeleteSuccess value)? deleteSuccess,
+    TResult? Function(_FakeSuccess value)? fakeSuccess,
   }) {
     return deleteSuccess?.call(this);
   }
@@ -829,7 +1157,9 @@ class _$_DeleteSuccess with DiagnosticableTreeMixin implements _DeleteSuccess {
     TResult Function(_Initial value)? initial,
     TResult Function(_ActionInProgress value)? actionInProgress,
     TResult Function(_DeleteFailure value)? deleteFailure,
+    TResult Function(_FakeFailure value)? fakeFailure,
     TResult Function(_DeleteSuccess value)? deleteSuccess,
+    TResult Function(_FakeSuccess value)? fakeSuccess,
     required TResult orElse(),
   }) {
     if (deleteSuccess != null) {
@@ -841,4 +1171,137 @@ class _$_DeleteSuccess with DiagnosticableTreeMixin implements _DeleteSuccess {
 
 abstract class _DeleteSuccess implements CategoryActorState {
   const factory _DeleteSuccess() = _$_DeleteSuccess;
+}
+
+/// @nodoc
+abstract class _$$_FakeSuccessCopyWith<$Res> {
+  factory _$$_FakeSuccessCopyWith(
+          _$_FakeSuccess value, $Res Function(_$_FakeSuccess) then) =
+      __$$_FakeSuccessCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_FakeSuccessCopyWithImpl<$Res>
+    extends _$CategoryActorStateCopyWithImpl<$Res, _$_FakeSuccess>
+    implements _$$_FakeSuccessCopyWith<$Res> {
+  __$$_FakeSuccessCopyWithImpl(
+      _$_FakeSuccess _value, $Res Function(_$_FakeSuccess) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_FakeSuccess with DiagnosticableTreeMixin implements _FakeSuccess {
+  const _$_FakeSuccess();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'CategoryActorState.fakeSuccess()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+        .add(DiagnosticsProperty('type', 'CategoryActorState.fakeSuccess'));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_FakeSuccess);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() actionInProgress,
+    required TResult Function(CategoryFailures categoryFailure) deleteFailure,
+    required TResult Function(CategoryFailures categoryFailure) fakeFailure,
+    required TResult Function() deleteSuccess,
+    required TResult Function() fakeSuccess,
+  }) {
+    return fakeSuccess();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? actionInProgress,
+    TResult? Function(CategoryFailures categoryFailure)? deleteFailure,
+    TResult? Function(CategoryFailures categoryFailure)? fakeFailure,
+    TResult? Function()? deleteSuccess,
+    TResult? Function()? fakeSuccess,
+  }) {
+    return fakeSuccess?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? actionInProgress,
+    TResult Function(CategoryFailures categoryFailure)? deleteFailure,
+    TResult Function(CategoryFailures categoryFailure)? fakeFailure,
+    TResult Function()? deleteSuccess,
+    TResult Function()? fakeSuccess,
+    required TResult orElse(),
+  }) {
+    if (fakeSuccess != null) {
+      return fakeSuccess();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_ActionInProgress value) actionInProgress,
+    required TResult Function(_DeleteFailure value) deleteFailure,
+    required TResult Function(_FakeFailure value) fakeFailure,
+    required TResult Function(_DeleteSuccess value) deleteSuccess,
+    required TResult Function(_FakeSuccess value) fakeSuccess,
+  }) {
+    return fakeSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_ActionInProgress value)? actionInProgress,
+    TResult? Function(_DeleteFailure value)? deleteFailure,
+    TResult? Function(_FakeFailure value)? fakeFailure,
+    TResult? Function(_DeleteSuccess value)? deleteSuccess,
+    TResult? Function(_FakeSuccess value)? fakeSuccess,
+  }) {
+    return fakeSuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_ActionInProgress value)? actionInProgress,
+    TResult Function(_DeleteFailure value)? deleteFailure,
+    TResult Function(_FakeFailure value)? fakeFailure,
+    TResult Function(_DeleteSuccess value)? deleteSuccess,
+    TResult Function(_FakeSuccess value)? fakeSuccess,
+    required TResult orElse(),
+  }) {
+    if (fakeSuccess != null) {
+      return fakeSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _FakeSuccess implements CategoryActorState {
+  const factory _FakeSuccess() = _$_FakeSuccess;
 }
