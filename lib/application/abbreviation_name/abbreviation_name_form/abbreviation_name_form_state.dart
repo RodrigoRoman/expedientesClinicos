@@ -1,10 +1,9 @@
-
-part of 'measure_unit_form_bloc.dart';
+part of 'abbreviation_name_form_abstract_bloc.dart';
 
 @freezed
 abstract class AbbreviationNameFormState with _$AbbreviationNameFormState {
   const factory AbbreviationNameFormState(
-      {required NameAbbreviation measureUnit,
+      {required NameAbbreviation abbreviation,
       required bool showErrorMessages,
       required bool isUpdating,
       required bool isSaving,
@@ -12,7 +11,7 @@ abstract class AbbreviationNameFormState with _$AbbreviationNameFormState {
           saveFailureOrSuccessOption}) = _AbbreviationNameFormState;
 
   factory AbbreviationNameFormState.initial() => AbbreviationNameFormState(
-      measureUnit: NameAbbreviation.empty(),
+      abbreviation: NameAbbreviation.empty(),
       showErrorMessages: false,
       isUpdating: false,
       isSaving: false,

@@ -5,13 +5,13 @@ import 'package:expedientes_clinicos/domain/core/name_abbreviation/name_abbr.dar
 import 'package:expedientes_clinicos/domain/core/name_abbreviation/name_abbr_failure.dart';
 import 'package:expedientes_clinicos/domain/core/value_objects.dart';
 import 'package:expedientes_clinicos/domain/core/name_abbreviation/i_name_abbreviation_repository.dart';
-import 'package:expedientes_clinicos/domain/medicine/i_measure_unit_repository.dart';
+import 'package:expedientes_clinicos/domain/medicine/i_administration_route_repository.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
 @injectable
-class MeasureUnitFormBloc extends AbbreviationNameFormBloc {
-  final IMeasureUnitRepository _iAdministrationRouteRepository;
-  MeasureUnitFormBloc(this._iAdministrationRouteRepository)
+class AdministrationRouteFormBloc extends AbbreviationNameFormBloc {
+  final IAdministrationRouteRepository _iAdministrationRouteRepository;
+  AdministrationRouteFormBloc(this._iAdministrationRouteRepository)
       : super(_iAdministrationRouteRepository) {}
 }

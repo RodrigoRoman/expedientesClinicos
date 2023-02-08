@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:expedientes_clinicos/domain/core/name_abbreviation/i_name_abbreviation_repository.dart';
 import 'package:expedientes_clinicos/domain/core/name_abbreviation/name_abbr.dart';
 import 'package:expedientes_clinicos/domain/core/name_abbreviation/name_abbr_failure.dart';
+import 'package:expedientes_clinicos/domain/medicine/i_measure_unit_repository.dart';
 import 'package:expedientes_clinicos/infraestructure/helper_functions/string_manipulation.dart';
 import 'package:expedientes_clinicos/infraestructure/name_abbreviation/name_abbreviation_dtos.dart';
 import 'package:flutter/services.dart';
@@ -10,8 +10,8 @@ import 'package:kt_dart/collection.dart';
 import 'package:dartz/dartz.dart';
 import 'package:rxdart/rxdart.dart';
 
-@LazySingleton(as: INameAbbreviationRepository)
-class MeasureUnitRepository implements INameAbbreviationRepository {
+@LazySingleton(as: IMeasureUnitRepository)
+class MeasureUnitRepository implements IMeasureUnitRepository {
   final FirebaseFirestore _firestore;
   MeasureUnitRepository(this._firestore);
 
@@ -23,7 +23,7 @@ class MeasureUnitRepository implements INameAbbreviationRepository {
       final measureUnitDto = NameAbbreviationDto.fromDomain(measureUnit);
       Map<String, dynamic> data = measureUnitDto.toJson();
       data['keyWords'] =
-          generateKeywords(measureUnitDto.name + measureUnitDto.abr);
+          generateKeywords(measureUnitDto.name + measureUnitDto.abbr);
       //We keep the id that comes from ingredientDto and avoid autogeneration
       await measureUnits.doc(measureUnitDto.id).set(data);
       return right(unit);

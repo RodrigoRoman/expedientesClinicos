@@ -13,21 +13,21 @@ abstract class NameAbbreviationDto implements _$NameAbbreviationDto {
   const factory NameAbbreviationDto({
     required String id,
     required String name,
-    required String abr,
+    required String abbr,
   }) = _NameAbbreviationDto;
 
   factory NameAbbreviationDto.fromDomain(NameAbbreviation nameAbbreviation) {
     return NameAbbreviationDto(
         id: nameAbbreviation.id.getOrCrash(),
         name: nameAbbreviation.name.getOrCrash(),
-        abr: nameAbbreviation.abr.getOrCrash());
+        abbr: nameAbbreviation.abbr.getOrCrash());
   }
 
   NameAbbreviation toDomain() {
     return NameAbbreviation(
         id: UniqueId.fromUniqueString(id),
         name: AbbrName(name),
-        abr: AbbrName(abr));
+        abbr: AbbrName(abbr));
   }
 
   factory NameAbbreviationDto.fromJson(Map<String, dynamic> json) =>

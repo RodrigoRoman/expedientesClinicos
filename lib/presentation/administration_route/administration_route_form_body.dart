@@ -5,17 +5,19 @@ import 'package:expedientes_clinicos/presentation/resources/string_manager.dart'
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class MeasureUnitFormBody extends StatefulWidget {
+class AdministrationRouteFormBody extends StatefulWidget {
   final AbbreviationNameFormState state;
-  const MeasureUnitFormBody({required this.state, super.key});
+  const AdministrationRouteFormBody({required this.state, super.key});
 
   @override
-  State<MeasureUnitFormBody> createState() => _MeasureUnitFormBodyState();
+  State<AdministrationRouteFormBody> createState() =>
+      _AdministrationRouteFormBodyState();
 }
 
-class _MeasureUnitFormBodyState extends State<MeasureUnitFormBody> {
+class _AdministrationRouteFormBodyState
+    extends State<AdministrationRouteFormBody> {
   final _key = GlobalKey<FormState>();
-  final TextEditingController measureUnitNameController =
+  final TextEditingController administrationRouteNameController =
       TextEditingController();
   final TextEditingController abreviationController = TextEditingController();
 
@@ -40,7 +42,7 @@ class _MeasureUnitFormBodyState extends State<MeasureUnitFormBody> {
                           width: constraints.maxWidth / 1.5,
                           height: constraints.maxHeight,
                           child: TextFormField(
-                            controller: measureUnitNameController,
+                            controller: administrationRouteNameController,
                             validator: (_) => context
                                 .read<MeasureUnitFormBloc>()
                                 .state
@@ -72,14 +74,14 @@ class _MeasureUnitFormBodyState extends State<MeasureUnitFormBody> {
                             keyboardType: TextInputType.text,
                             textCapitalization: TextCapitalization.words,
                             onChanged: (value) {
-                              measureUnitNameController.text = value;
-                              measureUnitNameController.selection =
+                              administrationRouteNameController.text = value;
+                              administrationRouteNameController.selection =
                                   TextSelection.fromPosition(TextPosition(
-                                      offset: measureUnitNameController
+                                      offset: administrationRouteNameController
                                           .text.length));
                               context.read<MeasureUnitFormBloc>().add(
                                   AbbreviationNameFormEvent.nameChanged(
-                                      measureUnitNameController.text));
+                                      administrationRouteNameController.text));
                             },
                             textInputAction: TextInputAction.next,
                           ));
@@ -97,7 +99,7 @@ class _MeasureUnitFormBodyState extends State<MeasureUnitFormBody> {
                                 .read<MeasureUnitFormBloc>()
                                 .state
                                 .measureUnit
-                                .abbr
+                                .abr
                                 .value
                                 .fold(
                                     (f) => f.maybeMap(

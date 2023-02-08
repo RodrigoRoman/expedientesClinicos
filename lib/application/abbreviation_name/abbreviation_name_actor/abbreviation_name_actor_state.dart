@@ -1,4 +1,4 @@
-part of 'measure_unit_actor_bloc.dart';
+part of 'abbreviation_name_actor_bloc.dart';
 
 @freezed
 class AbbreviationNameActorState with _$AbbreviationNameActorState {

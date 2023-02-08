@@ -11,17 +11,19 @@ abstract class NameAbbreviation implements _$NameAbbreviation {
   const factory NameAbbreviation({
     required UniqueId id,
     required AbbrName name,
-    required AbbrName abr,
+    required AbbrName abbr,
   }) = _NameAbbreviation;
 
   factory NameAbbreviation.empty() =>
-      NameAbbreviation(id: UniqueId(), name: AbbrName(''), abr: AbbrName(''));
+      NameAbbreviation(id: UniqueId(), name: AbbrName(''), abbr: AbbrName(''));
   Option<ValueFailure<dynamic>> get failureOption {
     return name.value.fold((f) => some(f), (_) => none());
   }
 
   @override
   bool operator ==(Object other) {
-    return other is NameAbbreviation && other.name == name && other.abr == abr;
+    return other is NameAbbreviation &&
+        other.name == name &&
+        other.abbr == abbr;
   }
 }

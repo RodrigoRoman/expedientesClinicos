@@ -6,7 +6,7 @@ class AbbreviationNameWatcherEvent with _$AbbreviationNameWatcherEvent {
       _WatchAllStarted;
   const factory AbbreviationNameWatcherEvent.watchFilteredStarted(
       String keyword) = _WatchFilteredStarted;
-  const factory AbbreviationNameWatcherEvent.measureUnitsReceived(
+  const factory AbbreviationNameWatcherEvent.abbreviationNamesReceived(
       Either<NameAbbreviationFailure, KtList<NameAbbreviation>>
           failureOrUnit) = _AbbreviationNameReceived;
 }

@@ -125,7 +125,7 @@ class _DropdownSearchMeasureUnitState extends State<DropdownSearchMeasureUnit> {
                                             .medicine
                                             .measureUnit ==
                                         e,
-                                    leading: Text(e.abbr.value.fold(
+                                    leading: Text(e.abr.value.fold(
                                         (l) => AppStrings.isEmpty, (r) => r)),
                                     title: FittedBox(
                                       child: Text(e.name.value.fold(
@@ -202,7 +202,7 @@ class _DropdownSearchMeasureUnitState extends State<DropdownSearchMeasureUnit> {
                               // ),
                               title: FittedBox(
                                 child: Text(
-                                  selectedMeasureUnit.abbr.value.fold(
+                                  selectedMeasureUnit.abr.value.fold(
                                       (l) => AppStrings.isEmpty, (r) => r),
                                   style: Theme.of(context).textTheme.bodyMedium,
                                 ),

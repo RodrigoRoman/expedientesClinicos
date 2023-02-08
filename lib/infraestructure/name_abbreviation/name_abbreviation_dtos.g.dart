@@ -11,7 +11,7 @@ _$_NameAbbreviationDto _$$_NameAbbreviationDtoFromJson(
     _$_NameAbbreviationDto(
       id: json['id'] as String,
       name: json['name'] as String,
-      abr: json['abr'] as String,
+      abbr: json['abbr'] as String,
     );
 
 Map<String, dynamic> _$$_NameAbbreviationDtoToJson(
@@ -19,5 +19,5 @@ Map<String, dynamic> _$$_NameAbbreviationDtoToJson(
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
-      'abr': instance.abr,
+      'abbr': instance.abbr,
     };

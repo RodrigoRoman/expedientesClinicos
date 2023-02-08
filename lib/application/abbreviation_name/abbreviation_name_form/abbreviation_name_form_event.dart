@@ -1,9 +1,9 @@
-part of 'measure_unit_form_bloc.dart';
+part of 'abbreviation_name_form_abstract_bloc.dart';
 
 @freezed
 class AbbreviationNameFormEvent with _$AbbreviationNameFormEvent {
   const factory AbbreviationNameFormEvent.initialized(
-      Option<NameAbbreviation> initialMeasureUnitOption) = _Initialized;
+      Option<NameAbbreviation> initiaAbbreviationNameOption) = _Initialized;
   const factory AbbreviationNameFormEvent.nameChanged(String name) =
       _NameChanged;
   const factory AbbreviationNameFormEvent.abreviationChanged(

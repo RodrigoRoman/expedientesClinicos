@@ -22,7 +22,7 @@ NameAbbreviationDto _$NameAbbreviationDtoFromJson(Map<String, dynamic> json) {
 mixin _$NameAbbreviationDto {
   String get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
-  String get abr => throw _privateConstructorUsedError;
+  String get abbr => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -36,7 +36,7 @@ abstract class $NameAbbreviationDtoCopyWith<$Res> {
           NameAbbreviationDto value, $Res Function(NameAbbreviationDto) then) =
       _$NameAbbreviationDtoCopyWithImpl<$Res, NameAbbreviationDto>;
   @useResult
-  $Res call({String id, String name, String abr});
+  $Res call({String id, String name, String abbr});
 }
 
 /// @nodoc
@@ -54,7 +54,7 @@ class _$NameAbbreviationDtoCopyWithImpl<$Res, $Val extends NameAbbreviationDto>
   $Res call({
     Object? id = null,
     Object? name = null,
-    Object? abr = null,
+    Object? abbr = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -65,9 +65,9 @@ class _$NameAbbreviationDtoCopyWithImpl<$Res, $Val extends NameAbbreviationDto>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      abr: null == abr
-          ? _value.abr
-          : abr // ignore: cast_nullable_to_non_nullable
+      abbr: null == abbr
+          ? _value.abbr
+          : abbr // ignore: cast_nullable_to_non_nullable
               as String,
     ) as $Val);
   }
@@ -81,7 +81,7 @@ abstract class _$$_NameAbbreviationDtoCopyWith<$Res>
       __$$_NameAbbreviationDtoCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String id, String name, String abr});
+  $Res call({String id, String name, String abbr});
 }
 
 /// @nodoc
@@ -97,7 +97,7 @@ class __$$_NameAbbreviationDtoCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
     Object? name = null,
-    Object? abr = null,
+    Object? abbr = null,
   }) {
     return _then(_$_NameAbbreviationDto(
       id: null == id
@@ -108,9 +108,9 @@ class __$$_NameAbbreviationDtoCopyWithImpl<$Res>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      abr: null == abr
-          ? _value.abr
-          : abr // ignore: cast_nullable_to_non_nullable
+      abbr: null == abbr
+          ? _value.abbr
+          : abbr // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -120,7 +120,7 @@ class __$$_NameAbbreviationDtoCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_NameAbbreviationDto extends _NameAbbreviationDto {
   const _$_NameAbbreviationDto(
-      {required this.id, required this.name, required this.abr})
+      {required this.id, required this.name, required this.abbr})
       : super._();
 
   factory _$_NameAbbreviationDto.fromJson(Map<String, dynamic> json) =>
@@ -131,11 +131,11 @@ class _$_NameAbbreviationDto extends _NameAbbreviationDto {
   @override
   final String name;
   @override
-  final String abr;
+  final String abbr;
 
   @override
   String toString() {
-    return 'NameAbbreviationDto(id: $id, name: $name, abr: $abr)';
+    return 'NameAbbreviationDto(id: $id, name: $name, abbr: $abbr)';
   }
 
   @override
@@ -145,12 +145,12 @@ class _$_NameAbbreviationDto extends _NameAbbreviationDto {
             other is _$_NameAbbreviationDto &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
-            (identical(other.abr, abr) || other.abr == abr));
+            (identical(other.abbr, abbr) || other.abbr == abbr));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, name, abr);
+  int get hashCode => Object.hash(runtimeType, id, name, abbr);
 
   @JsonKey(ignore: true)
   @override
@@ -171,7 +171,7 @@ abstract class _NameAbbreviationDto extends NameAbbreviationDto {
   const factory _NameAbbreviationDto(
       {required final String id,
       required final String name,
-      required final String abr}) = _$_NameAbbreviationDto;
+      required final String abbr}) = _$_NameAbbreviationDto;
   const _NameAbbreviationDto._() : super._();
 
   factory _NameAbbreviationDto.fromJson(Map<String, dynamic> json) =
@@ -182,7 +182,7 @@ abstract class _NameAbbreviationDto extends NameAbbreviationDto {
   @override
   String get name;
   @override
-  String get abr;
+  String get abbr;
   @override
   @JsonKey(ignore: true)
   _$$_NameAbbreviationDtoCopyWith<_$_NameAbbreviationDto> get copyWith =>

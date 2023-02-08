@@ -745,7 +745,7 @@ class _MedicineFormPageState extends State<MedicineFormPage> {
                                                                     .state
                                                                     .medicine
                                                                     .measureUnit
-                                                                    .abr
+                                                                    .abbr
                                                                     .value
                                                                     .fold(
                                                                         (l) =>

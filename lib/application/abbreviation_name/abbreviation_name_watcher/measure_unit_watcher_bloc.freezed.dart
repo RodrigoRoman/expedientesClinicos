@@ -23,7 +23,7 @@ mixin _$AbbreviationNameWatcherEvent {
     required TResult Function(
             Either<NameAbbreviationFailure, KtList<NameAbbreviation>>
                 failureOrUnit)
-        measureUnitsReceived,
+        abbreviationNamesReceived,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -33,7 +33,7 @@ mixin _$AbbreviationNameWatcherEvent {
     TResult? Function(
             Either<NameAbbreviationFailure, KtList<NameAbbreviation>>
                 failureOrUnit)?
-        measureUnitsReceived,
+        abbreviationNamesReceived,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -43,7 +43,7 @@ mixin _$AbbreviationNameWatcherEvent {
     TResult Function(
             Either<NameAbbreviationFailure, KtList<NameAbbreviation>>
                 failureOrUnit)?
-        measureUnitsReceived,
+        abbreviationNamesReceived,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -52,21 +52,23 @@ mixin _$AbbreviationNameWatcherEvent {
     required TResult Function(_WatchAllStarted value) watchAllStarted,
     required TResult Function(_WatchFilteredStarted value) watchFilteredStarted,
     required TResult Function(_AbbreviationNameReceived value)
-        measureUnitsReceived,
+        abbreviationNamesReceived,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_WatchAllStarted value)? watchAllStarted,
     TResult? Function(_WatchFilteredStarted value)? watchFilteredStarted,
-    TResult? Function(_AbbreviationNameReceived value)? measureUnitsReceived,
+    TResult? Function(_AbbreviationNameReceived value)?
+        abbreviationNamesReceived,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_WatchAllStarted value)? watchAllStarted,
     TResult Function(_WatchFilteredStarted value)? watchFilteredStarted,
-    TResult Function(_AbbreviationNameReceived value)? measureUnitsReceived,
+    TResult Function(_AbbreviationNameReceived value)?
+        abbreviationNamesReceived,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -136,7 +138,7 @@ class _$_WatchAllStarted implements _WatchAllStarted {
     required TResult Function(
             Either<NameAbbreviationFailure, KtList<NameAbbreviation>>
                 failureOrUnit)
-        measureUnitsReceived,
+        abbreviationNamesReceived,
   }) {
     return watchAllStarted();
   }
@@ -149,7 +151,7 @@ class _$_WatchAllStarted implements _WatchAllStarted {
     TResult? Function(
             Either<NameAbbreviationFailure, KtList<NameAbbreviation>>
                 failureOrUnit)?
-        measureUnitsReceived,
+        abbreviationNamesReceived,
   }) {
     return watchAllStarted?.call();
   }
@@ -162,7 +164,7 @@ class _$_WatchAllStarted implements _WatchAllStarted {
     TResult Function(
             Either<NameAbbreviationFailure, KtList<NameAbbreviation>>
                 failureOrUnit)?
-        measureUnitsReceived,
+        abbreviationNamesReceived,
     required TResult orElse(),
   }) {
     if (watchAllStarted != null) {
@@ -177,7 +179,7 @@ class _$_WatchAllStarted implements _WatchAllStarted {
     required TResult Function(_WatchAllStarted value) watchAllStarted,
     required TResult Function(_WatchFilteredStarted value) watchFilteredStarted,
     required TResult Function(_AbbreviationNameReceived value)
-        measureUnitsReceived,
+        abbreviationNamesReceived,
   }) {
     return watchAllStarted(this);
   }
@@ -187,7 +189,8 @@ class _$_WatchAllStarted implements _WatchAllStarted {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_WatchAllStarted value)? watchAllStarted,
     TResult? Function(_WatchFilteredStarted value)? watchFilteredStarted,
-    TResult? Function(_AbbreviationNameReceived value)? measureUnitsReceived,
+    TResult? Function(_AbbreviationNameReceived value)?
+        abbreviationNamesReceived,
   }) {
     return watchAllStarted?.call(this);
   }
@@ -197,7 +200,8 @@ class _$_WatchAllStarted implements _WatchAllStarted {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_WatchAllStarted value)? watchAllStarted,
     TResult Function(_WatchFilteredStarted value)? watchFilteredStarted,
-    TResult Function(_AbbreviationNameReceived value)? measureUnitsReceived,
+    TResult Function(_AbbreviationNameReceived value)?
+        abbreviationNamesReceived,
     required TResult orElse(),
   }) {
     if (watchAllStarted != null) {
@@ -282,7 +286,7 @@ class _$_WatchFilteredStarted implements _WatchFilteredStarted {
     required TResult Function(
             Either<NameAbbreviationFailure, KtList<NameAbbreviation>>
                 failureOrUnit)
-        measureUnitsReceived,
+        abbreviationNamesReceived,
   }) {
     return watchFilteredStarted(keyword);
   }
@@ -295,7 +299,7 @@ class _$_WatchFilteredStarted implements _WatchFilteredStarted {
     TResult? Function(
             Either<NameAbbreviationFailure, KtList<NameAbbreviation>>
                 failureOrUnit)?
-        measureUnitsReceived,
+        abbreviationNamesReceived,
   }) {
     return watchFilteredStarted?.call(keyword);
   }
@@ -308,7 +312,7 @@ class _$_WatchFilteredStarted implements _WatchFilteredStarted {
     TResult Function(
             Either<NameAbbreviationFailure, KtList<NameAbbreviation>>
                 failureOrUnit)?
-        measureUnitsReceived,
+        abbreviationNamesReceived,
     required TResult orElse(),
   }) {
     if (watchFilteredStarted != null) {
@@ -323,7 +327,7 @@ class _$_WatchFilteredStarted implements _WatchFilteredStarted {
     required TResult Function(_WatchAllStarted value) watchAllStarted,
     required TResult Function(_WatchFilteredStarted value) watchFilteredStarted,
     required TResult Function(_AbbreviationNameReceived value)
-        measureUnitsReceived,
+        abbreviationNamesReceived,
   }) {
     return watchFilteredStarted(this);
   }
@@ -333,7 +337,8 @@ class _$_WatchFilteredStarted implements _WatchFilteredStarted {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_WatchAllStarted value)? watchAllStarted,
     TResult? Function(_WatchFilteredStarted value)? watchFilteredStarted,
-    TResult? Function(_AbbreviationNameReceived value)? measureUnitsReceived,
+    TResult? Function(_AbbreviationNameReceived value)?
+        abbreviationNamesReceived,
   }) {
     return watchFilteredStarted?.call(this);
   }
@@ -343,7 +348,8 @@ class _$_WatchFilteredStarted implements _WatchFilteredStarted {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_WatchAllStarted value)? watchAllStarted,
     TResult Function(_WatchFilteredStarted value)? watchFilteredStarted,
-    TResult Function(_AbbreviationNameReceived value)? measureUnitsReceived,
+    TResult Function(_AbbreviationNameReceived value)?
+        abbreviationNamesReceived,
     required TResult orElse(),
   }) {
     if (watchFilteredStarted != null) {
@@ -408,7 +414,7 @@ class _$_AbbreviationNameReceived implements _AbbreviationNameReceived {
 
   @override
   String toString() {
-    return 'AbbreviationNameWatcherEvent.measureUnitsReceived(failureOrUnit: $failureOrUnit)';
+    return 'AbbreviationNameWatcherEvent.abbreviationNamesReceived(failureOrUnit: $failureOrUnit)';
   }
 
   @override
@@ -438,9 +444,9 @@ class _$_AbbreviationNameReceived implements _AbbreviationNameReceived {
     required TResult Function(
             Either<NameAbbreviationFailure, KtList<NameAbbreviation>>
                 failureOrUnit)
-        measureUnitsReceived,
+        abbreviationNamesReceived,
   }) {
-    return measureUnitsReceived(failureOrUnit);
+    return abbreviationNamesReceived(failureOrUnit);
   }
 
   @override
@@ -451,9 +457,9 @@ class _$_AbbreviationNameReceived implements _AbbreviationNameReceived {
     TResult? Function(
             Either<NameAbbreviationFailure, KtList<NameAbbreviation>>
                 failureOrUnit)?
-        measureUnitsReceived,
+        abbreviationNamesReceived,
   }) {
-    return measureUnitsReceived?.call(failureOrUnit);
+    return abbreviationNamesReceived?.call(failureOrUnit);
   }
 
   @override
@@ -464,11 +470,11 @@ class _$_AbbreviationNameReceived implements _AbbreviationNameReceived {
     TResult Function(
             Either<NameAbbreviationFailure, KtList<NameAbbreviation>>
                 failureOrUnit)?
-        measureUnitsReceived,
+        abbreviationNamesReceived,
     required TResult orElse(),
   }) {
-    if (measureUnitsReceived != null) {
-      return measureUnitsReceived(failureOrUnit);
+    if (abbreviationNamesReceived != null) {
+      return abbreviationNamesReceived(failureOrUnit);
     }
     return orElse();
   }
@@ -479,9 +485,9 @@ class _$_AbbreviationNameReceived implements _AbbreviationNameReceived {
     required TResult Function(_WatchAllStarted value) watchAllStarted,
     required TResult Function(_WatchFilteredStarted value) watchFilteredStarted,
     required TResult Function(_AbbreviationNameReceived value)
-        measureUnitsReceived,
+        abbreviationNamesReceived,
   }) {
-    return measureUnitsReceived(this);
+    return abbreviationNamesReceived(this);
   }
 
   @override
@@ -489,9 +495,10 @@ class _$_AbbreviationNameReceived implements _AbbreviationNameReceived {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_WatchAllStarted value)? watchAllStarted,
     TResult? Function(_WatchFilteredStarted value)? watchFilteredStarted,
-    TResult? Function(_AbbreviationNameReceived value)? measureUnitsReceived,
+    TResult? Function(_AbbreviationNameReceived value)?
+        abbreviationNamesReceived,
   }) {
-    return measureUnitsReceived?.call(this);
+    return abbreviationNamesReceived?.call(this);
   }
 
   @override
@@ -499,11 +506,12 @@ class _$_AbbreviationNameReceived implements _AbbreviationNameReceived {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_WatchAllStarted value)? watchAllStarted,
     TResult Function(_WatchFilteredStarted value)? watchFilteredStarted,
-    TResult Function(_AbbreviationNameReceived value)? measureUnitsReceived,
+    TResult Function(_AbbreviationNameReceived value)?
+        abbreviationNamesReceived,
     required TResult orElse(),
   }) {
-    if (measureUnitsReceived != null) {
-      return measureUnitsReceived(this);
+    if (abbreviationNamesReceived != null) {
+      return abbreviationNamesReceived(this);
     }
     return orElse();
   }
@@ -519,632 +527,4 @@ abstract class _AbbreviationNameReceived
   @JsonKey(ignore: true)
   _$$_AbbreviationNameReceivedCopyWith<_$_AbbreviationNameReceived>
       get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-mixin _$AbbreviationNameWatcherState {
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() loadInProgress,
-    required TResult Function(KtList<NameAbbreviation> abbreviationName)
-        loadSuccess,
-    required TResult Function(NameAbbreviationFailure abbreviationNameFailure)
-        loadFailure,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? loadInProgress,
-    TResult? Function(KtList<NameAbbreviation> abbreviationName)? loadSuccess,
-    TResult? Function(NameAbbreviationFailure abbreviationNameFailure)?
-        loadFailure,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loadInProgress,
-    TResult Function(KtList<NameAbbreviation> abbreviationName)? loadSuccess,
-    TResult Function(NameAbbreviationFailure abbreviationNameFailure)?
-        loadFailure,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_LoadInProgress value) loadInProgress,
-    required TResult Function(_LoadSuccess value) loadSuccess,
-    required TResult Function(_LoadFailure value) loadFailure,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(_LoadInProgress value)? loadInProgress,
-    TResult? Function(_LoadSuccess value)? loadSuccess,
-    TResult? Function(_LoadFailure value)? loadFailure,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_LoadInProgress value)? loadInProgress,
-    TResult Function(_LoadSuccess value)? loadSuccess,
-    TResult Function(_LoadFailure value)? loadFailure,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $AbbreviationNameWatcherStateCopyWith<$Res> {
-  factory $AbbreviationNameWatcherStateCopyWith(
-          AbbreviationNameWatcherState value,
-          $Res Function(AbbreviationNameWatcherState) then) =
-      _$AbbreviationNameWatcherStateCopyWithImpl<$Res,
-          AbbreviationNameWatcherState>;
-}
-
-/// @nodoc
-class _$AbbreviationNameWatcherStateCopyWithImpl<$Res,
-        $Val extends AbbreviationNameWatcherState>
-    implements $AbbreviationNameWatcherStateCopyWith<$Res> {
-  _$AbbreviationNameWatcherStateCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-}
-
-/// @nodoc
-abstract class _$$_InitialCopyWith<$Res> {
-  factory _$$_InitialCopyWith(
-          _$_Initial value, $Res Function(_$_Initial) then) =
-      __$$_InitialCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$_InitialCopyWithImpl<$Res>
-    extends _$AbbreviationNameWatcherStateCopyWithImpl<$Res, _$_Initial>
-    implements _$$_InitialCopyWith<$Res> {
-  __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$_Initial implements _Initial {
-  const _$_Initial();
-
-  @override
-  String toString() {
-    return 'AbbreviationNameWatcherState.initial()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Initial);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() loadInProgress,
-    required TResult Function(KtList<NameAbbreviation> abbreviationName)
-        loadSuccess,
-    required TResult Function(NameAbbreviationFailure abbreviationNameFailure)
-        loadFailure,
-  }) {
-    return initial();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? loadInProgress,
-    TResult? Function(KtList<NameAbbreviation> abbreviationName)? loadSuccess,
-    TResult? Function(NameAbbreviationFailure abbreviationNameFailure)?
-        loadFailure,
-  }) {
-    return initial?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loadInProgress,
-    TResult Function(KtList<NameAbbreviation> abbreviationName)? loadSuccess,
-    TResult Function(NameAbbreviationFailure abbreviationNameFailure)?
-        loadFailure,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_LoadInProgress value) loadInProgress,
-    required TResult Function(_LoadSuccess value) loadSuccess,
-    required TResult Function(_LoadFailure value) loadFailure,
-  }) {
-    return initial(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(_LoadInProgress value)? loadInProgress,
-    TResult? Function(_LoadSuccess value)? loadSuccess,
-    TResult? Function(_LoadFailure value)? loadFailure,
-  }) {
-    return initial?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_LoadInProgress value)? loadInProgress,
-    TResult Function(_LoadSuccess value)? loadSuccess,
-    TResult Function(_LoadFailure value)? loadFailure,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _Initial implements AbbreviationNameWatcherState {
-  const factory _Initial() = _$_Initial;
-}
-
-/// @nodoc
-abstract class _$$_LoadInProgressCopyWith<$Res> {
-  factory _$$_LoadInProgressCopyWith(
-          _$_LoadInProgress value, $Res Function(_$_LoadInProgress) then) =
-      __$$_LoadInProgressCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$_LoadInProgressCopyWithImpl<$Res>
-    extends _$AbbreviationNameWatcherStateCopyWithImpl<$Res, _$_LoadInProgress>
-    implements _$$_LoadInProgressCopyWith<$Res> {
-  __$$_LoadInProgressCopyWithImpl(
-      _$_LoadInProgress _value, $Res Function(_$_LoadInProgress) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$_LoadInProgress implements _LoadInProgress {
-  const _$_LoadInProgress();
-
-  @override
-  String toString() {
-    return 'AbbreviationNameWatcherState.loadInProgress()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_LoadInProgress);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() loadInProgress,
-    required TResult Function(KtList<NameAbbreviation> abbreviationName)
-        loadSuccess,
-    required TResult Function(NameAbbreviationFailure abbreviationNameFailure)
-        loadFailure,
-  }) {
-    return loadInProgress();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? loadInProgress,
-    TResult? Function(KtList<NameAbbreviation> abbreviationName)? loadSuccess,
-    TResult? Function(NameAbbreviationFailure abbreviationNameFailure)?
-        loadFailure,
-  }) {
-    return loadInProgress?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loadInProgress,
-    TResult Function(KtList<NameAbbreviation> abbreviationName)? loadSuccess,
-    TResult Function(NameAbbreviationFailure abbreviationNameFailure)?
-        loadFailure,
-    required TResult orElse(),
-  }) {
-    if (loadInProgress != null) {
-      return loadInProgress();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_LoadInProgress value) loadInProgress,
-    required TResult Function(_LoadSuccess value) loadSuccess,
-    required TResult Function(_LoadFailure value) loadFailure,
-  }) {
-    return loadInProgress(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(_LoadInProgress value)? loadInProgress,
-    TResult? Function(_LoadSuccess value)? loadSuccess,
-    TResult? Function(_LoadFailure value)? loadFailure,
-  }) {
-    return loadInProgress?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_LoadInProgress value)? loadInProgress,
-    TResult Function(_LoadSuccess value)? loadSuccess,
-    TResult Function(_LoadFailure value)? loadFailure,
-    required TResult orElse(),
-  }) {
-    if (loadInProgress != null) {
-      return loadInProgress(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _LoadInProgress implements AbbreviationNameWatcherState {
-  const factory _LoadInProgress() = _$_LoadInProgress;
-}
-
-/// @nodoc
-abstract class _$$_LoadSuccessCopyWith<$Res> {
-  factory _$$_LoadSuccessCopyWith(
-          _$_LoadSuccess value, $Res Function(_$_LoadSuccess) then) =
-      __$$_LoadSuccessCopyWithImpl<$Res>;
-  @useResult
-  $Res call({KtList<NameAbbreviation> abbreviationName});
-}
-
-/// @nodoc
-class __$$_LoadSuccessCopyWithImpl<$Res>
-    extends _$AbbreviationNameWatcherStateCopyWithImpl<$Res, _$_LoadSuccess>
-    implements _$$_LoadSuccessCopyWith<$Res> {
-  __$$_LoadSuccessCopyWithImpl(
-      _$_LoadSuccess _value, $Res Function(_$_LoadSuccess) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? abbreviationName = null,
-  }) {
-    return _then(_$_LoadSuccess(
-      null == abbreviationName
-          ? _value.abbreviationName
-          : abbreviationName // ignore: cast_nullable_to_non_nullable
-              as KtList<NameAbbreviation>,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$_LoadSuccess implements _LoadSuccess {
-  const _$_LoadSuccess(this.abbreviationName);
-
-  @override
-  final KtList<NameAbbreviation> abbreviationName;
-
-  @override
-  String toString() {
-    return 'AbbreviationNameWatcherState.loadSuccess(abbreviationName: $abbreviationName)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_LoadSuccess &&
-            (identical(other.abbreviationName, abbreviationName) ||
-                other.abbreviationName == abbreviationName));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, abbreviationName);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$_LoadSuccessCopyWith<_$_LoadSuccess> get copyWith =>
-      __$$_LoadSuccessCopyWithImpl<_$_LoadSuccess>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() loadInProgress,
-    required TResult Function(KtList<NameAbbreviation> abbreviationName)
-        loadSuccess,
-    required TResult Function(NameAbbreviationFailure abbreviationNameFailure)
-        loadFailure,
-  }) {
-    return loadSuccess(abbreviationName);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? loadInProgress,
-    TResult? Function(KtList<NameAbbreviation> abbreviationName)? loadSuccess,
-    TResult? Function(NameAbbreviationFailure abbreviationNameFailure)?
-        loadFailure,
-  }) {
-    return loadSuccess?.call(abbreviationName);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loadInProgress,
-    TResult Function(KtList<NameAbbreviation> abbreviationName)? loadSuccess,
-    TResult Function(NameAbbreviationFailure abbreviationNameFailure)?
-        loadFailure,
-    required TResult orElse(),
-  }) {
-    if (loadSuccess != null) {
-      return loadSuccess(abbreviationName);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_LoadInProgress value) loadInProgress,
-    required TResult Function(_LoadSuccess value) loadSuccess,
-    required TResult Function(_LoadFailure value) loadFailure,
-  }) {
-    return loadSuccess(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(_LoadInProgress value)? loadInProgress,
-    TResult? Function(_LoadSuccess value)? loadSuccess,
-    TResult? Function(_LoadFailure value)? loadFailure,
-  }) {
-    return loadSuccess?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_LoadInProgress value)? loadInProgress,
-    TResult Function(_LoadSuccess value)? loadSuccess,
-    TResult Function(_LoadFailure value)? loadFailure,
-    required TResult orElse(),
-  }) {
-    if (loadSuccess != null) {
-      return loadSuccess(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _LoadSuccess implements AbbreviationNameWatcherState {
-  const factory _LoadSuccess(final KtList<NameAbbreviation> abbreviationName) =
-      _$_LoadSuccess;
-
-  KtList<NameAbbreviation> get abbreviationName;
-  @JsonKey(ignore: true)
-  _$$_LoadSuccessCopyWith<_$_LoadSuccess> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$_LoadFailureCopyWith<$Res> {
-  factory _$$_LoadFailureCopyWith(
-          _$_LoadFailure value, $Res Function(_$_LoadFailure) then) =
-      __$$_LoadFailureCopyWithImpl<$Res>;
-  @useResult
-  $Res call({NameAbbreviationFailure abbreviationNameFailure});
-
-  $NameAbbreviationFailureCopyWith<$Res> get abbreviationNameFailure;
-}
-
-/// @nodoc
-class __$$_LoadFailureCopyWithImpl<$Res>
-    extends _$AbbreviationNameWatcherStateCopyWithImpl<$Res, _$_LoadFailure>
-    implements _$$_LoadFailureCopyWith<$Res> {
-  __$$_LoadFailureCopyWithImpl(
-      _$_LoadFailure _value, $Res Function(_$_LoadFailure) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? abbreviationNameFailure = null,
-  }) {
-    return _then(_$_LoadFailure(
-      null == abbreviationNameFailure
-          ? _value.abbreviationNameFailure
-          : abbreviationNameFailure // ignore: cast_nullable_to_non_nullable
-              as NameAbbreviationFailure,
-    ));
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $NameAbbreviationFailureCopyWith<$Res> get abbreviationNameFailure {
-    return $NameAbbreviationFailureCopyWith<$Res>(
-        _value.abbreviationNameFailure, (value) {
-      return _then(_value.copyWith(abbreviationNameFailure: value));
-    });
-  }
-}
-
-/// @nodoc
-
-class _$_LoadFailure implements _LoadFailure {
-  const _$_LoadFailure(this.abbreviationNameFailure);
-
-  @override
-  final NameAbbreviationFailure abbreviationNameFailure;
-
-  @override
-  String toString() {
-    return 'AbbreviationNameWatcherState.loadFailure(abbreviationNameFailure: $abbreviationNameFailure)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_LoadFailure &&
-            (identical(
-                    other.abbreviationNameFailure, abbreviationNameFailure) ||
-                other.abbreviationNameFailure == abbreviationNameFailure));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, abbreviationNameFailure);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$_LoadFailureCopyWith<_$_LoadFailure> get copyWith =>
-      __$$_LoadFailureCopyWithImpl<_$_LoadFailure>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() loadInProgress,
-    required TResult Function(KtList<NameAbbreviation> abbreviationName)
-        loadSuccess,
-    required TResult Function(NameAbbreviationFailure abbreviationNameFailure)
-        loadFailure,
-  }) {
-    return loadFailure(abbreviationNameFailure);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? loadInProgress,
-    TResult? Function(KtList<NameAbbreviation> abbreviationName)? loadSuccess,
-    TResult? Function(NameAbbreviationFailure abbreviationNameFailure)?
-        loadFailure,
-  }) {
-    return loadFailure?.call(abbreviationNameFailure);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loadInProgress,
-    TResult Function(KtList<NameAbbreviation> abbreviationName)? loadSuccess,
-    TResult Function(NameAbbreviationFailure abbreviationNameFailure)?
-        loadFailure,
-    required TResult orElse(),
-  }) {
-    if (loadFailure != null) {
-      return loadFailure(abbreviationNameFailure);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_LoadInProgress value) loadInProgress,
-    required TResult Function(_LoadSuccess value) loadSuccess,
-    required TResult Function(_LoadFailure value) loadFailure,
-  }) {
-    return loadFailure(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(_LoadInProgress value)? loadInProgress,
-    TResult? Function(_LoadSuccess value)? loadSuccess,
-    TResult? Function(_LoadFailure value)? loadFailure,
-  }) {
-    return loadFailure?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_LoadInProgress value)? loadInProgress,
-    TResult Function(_LoadSuccess value)? loadSuccess,
-    TResult Function(_LoadFailure value)? loadFailure,
-    required TResult orElse(),
-  }) {
-    if (loadFailure != null) {
-      return loadFailure(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _LoadFailure implements AbbreviationNameWatcherState {
-  const factory _LoadFailure(
-      final NameAbbreviationFailure abbreviationNameFailure) = _$_LoadFailure;
-
-  NameAbbreviationFailure get abbreviationNameFailure;
-  @JsonKey(ignore: true)
-  _$$_LoadFailureCopyWith<_$_LoadFailure> get copyWith =>
-      throw _privateConstructorUsedError;
 }
