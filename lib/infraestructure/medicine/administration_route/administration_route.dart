@@ -11,21 +11,22 @@ import 'package:dartz/dartz.dart';
 import 'package:rxdart/rxdart.dart';
 
 @LazySingleton(as: INameAbbreviationRepository)
-class MeasureUnitRepository implements INameAbbreviationRepository {
+class AdministrationRouteRepository implements INameAbbreviationRepository {
   final FirebaseFirestore _firestore;
-  MeasureUnitRepository(this._firestore);
+  AdministrationRouteRepository(this._firestore);
 
   @override
   Future<Either<NameAbbreviationFailure, Unit>> create(
       NameAbbreviation measureUnit) async {
-    final measureUnits = _firestore.collection('measureUnits');
+    final administrationRoutes = _firestore.collection('administrationRoutes');
     try {
-      final measureUnitDto = NameAbbreviationDto.fromDomain(measureUnit);
-      Map<String, dynamic> data = measureUnitDto.toJson();
-      data['keyWords'] =
-          generateKeywords(measureUnitDto.name + measureUnitDto.abr);
+      final administrationRoutesDto =
+          NameAbbreviationDto.fromDomain(measureUnit);
+      Map<String, dynamic> data = administrationRoutesDto.toJson();
+      data['keyWords'] = generateKeywords(
+          administrationRoutesDto.name + administrationRoutesDto.abr);
       //We keep the id that comes from ingredientDto and avoid autogeneration
-      await measureUnits.doc(measureUnitDto.id).set(data);
+      await administrationRoutes.doc(administrationRoutesDto.id).set(data);
       return right(unit);
     } on PlatformException catch (e) {
       // These error codes and messages aren't in the documentation AFAIK, experiment in the debugger to find out about them.
@@ -40,10 +41,11 @@ class MeasureUnitRepository implements INameAbbreviationRepository {
   @override
   Future<Either<NameAbbreviationFailure, Unit>> delete(
       NameAbbreviation measureUnit) async {
-    final measureUnits = _firestore.collection('measureUnits');
+    final administrationRoutes = _firestore.collection('administrationRoutes');
     try {
-      final measureUnitDto = NameAbbreviationDto.fromDomain(measureUnit);
-      await measureUnits.doc(measureUnitDto.id).delete();
+      final administrationRoutesDto =
+          NameAbbreviationDto.fromDomain(measureUnit);
+      await administrationRoutes.doc(administrationRoutesDto.id).delete();
       return right(unit);
     } on PlatformException catch (e) {
       // These error codes and messages aren't in the documentation AFAIK, experiment in the debugger to find out about them.
@@ -58,11 +60,14 @@ class MeasureUnitRepository implements INameAbbreviationRepository {
   @override
   Future<Either<NameAbbreviationFailure, Unit>> update(
       NameAbbreviation measureUnit) async {
-    final measureUnits = _firestore.collection('measureUnits');
+    final administrationRoutes = _firestore.collection('administrationRoutes');
     try {
-      final measureUnitDto = NameAbbreviationDto.fromDomain(measureUnit);
+      final administrationRoutesDto =
+          NameAbbreviationDto.fromDomain(measureUnit);
 
-      await measureUnits.doc(measureUnitDto.id).update(measureUnitDto.toJson());
+      await administrationRoutes
+          .doc(administrationRoutesDto.id)
+          .update(administrationRoutesDto.toJson());
       return right(unit);
     } on PlatformException catch (e) {
       // These error codes and messages aren't in the documentation AFAIK, experiment in the debugger to find out about them.
@@ -77,8 +82,8 @@ class MeasureUnitRepository implements INameAbbreviationRepository {
   @override
   Stream<Either<NameAbbreviationFailure, KtList<NameAbbreviation>>>
       watchAll() async* {
-    final measureUnits = _firestore.collection('measureUnits');
-    yield* measureUnits
+    final administrationRoutes = _firestore.collection('administrationRoutes');
+    yield* administrationRoutes
         .snapshots()
         .map(
           (snapshot) =>
@@ -102,8 +107,8 @@ class MeasureUnitRepository implements INameAbbreviationRepository {
   @override
   Stream<Either<NameAbbreviationFailure, KtList<NameAbbreviation>>>
       watchFiltered(String name) async* {
-    final measureUnits = _firestore.collection('measureUnits');
-    yield* measureUnits
+    final administrationRoutes = _firestore.collection('administrationRoutes');
+    yield* administrationRoutes
         .where('keyWords', arrayContains: removeSpecialCharacters(name))
         .snapshots()
         .map(

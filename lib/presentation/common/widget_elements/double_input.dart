@@ -46,7 +46,7 @@ class _DoubleInputBoxState extends State<DoubleInputBox> {
   }
 }
 
-class DoubleInputBody extends StatelessWidget {
+class DoubleInputBody extends StatefulWidget {
   const DoubleInputBody({
     Key? key,
     required this.textController,
@@ -55,9 +55,15 @@ class DoubleInputBody extends StatelessWidget {
   final TextEditingController textController;
 
   @override
+  State<DoubleInputBody> createState() => _DoubleInputBodyState();
+}
+
+class _DoubleInputBodyState extends State<DoubleInputBody> {
+  int inputLength = 4;
+  @override
   Widget build(BuildContext context) {
     print('double');
-    print(textController.text.length);
+    print(widget.textController.text.length);
     return Row(
       mainAxisSize: MainAxisSize.min,
       children: [
@@ -79,6 +85,9 @@ class DoubleInputBody extends StatelessWidget {
                   context
                       .read<DoubleCounterBloc>()
                       .add(const DoubleCounterEvent.amountDecreased());
+                  setState(() {
+                    inputLength = widget.textController.text.length;
+                  });
                 },
               );
             },
@@ -87,7 +96,7 @@ class DoubleInputBody extends StatelessWidget {
         Expanded(
           flex: 3,
           child: TextField(
-            controller: textController,
+            controller: widget.textController,
             keyboardType: const TextInputType.numberWithOptions(decimal: true),
             inputFormatters: <TextInputFormatter>[
               FilteringTextInputFormatter.digitsOnly
@@ -96,12 +105,14 @@ class DoubleInputBody extends StatelessWidget {
             decoration: const InputDecoration(
               border: OutlineInputBorder(),
             ),
-            style:
-                Theme.of(context).textTheme.bodyMedium!.copyWith(fontSize: 11),
+            style: Theme.of(context)
+                .textTheme
+                .bodyMedium!
+                .copyWith(fontSize: 80 / ((inputLength + 1) * 1.4)),
             onChanged: (value) {
               double newValue = 0;
-              if (textController.text.isNotEmpty) {
-                newValue = double.parse(textController.text);
+              if (widget.textController.text.isNotEmpty) {
+                newValue = double.parse(widget.textController.text);
                 context
                     .read<DoubleCounterBloc>()
                     .add(DoubleCounterEvent.amountUpdated(newValue));
@@ -110,6 +121,9 @@ class DoubleInputBody extends StatelessWidget {
                     .read<DoubleCounterBloc>()
                     .add(DoubleCounterEvent.amountUpdated(newValue));
               }
+              setState(() {
+                inputLength = widget.textController.text.length;
+              });
             },
             // initialValue: _value.toString(),
           ),
@@ -132,6 +146,9 @@ class DoubleInputBody extends StatelessWidget {
                   context
                       .read<DoubleCounterBloc>()
                       .add(const DoubleCounterEvent.amountIncreased());
+                  setState(() {
+                    inputLength = widget.textController.text.length + 1;
+                  });
                 },
               );
             },

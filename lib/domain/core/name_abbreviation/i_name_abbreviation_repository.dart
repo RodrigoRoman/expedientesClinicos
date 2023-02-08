@@ -3,7 +3,7 @@ import 'package:expedientes_clinicos/domain/core/name_abbreviation/name_abbr.dar
 import 'package:expedientes_clinicos/domain/core/name_abbreviation/name_abbr_failure.dart';
 import 'package:kt_dart/collection.dart';
 
-abstract class IMeasureUnitRepository {
+abstract class INameAbbreviationRepository {
   Stream<Either<NameAbbreviationFailure, KtList<NameAbbreviation>>> watchAll();
   Stream<Either<NameAbbreviationFailure, KtList<NameAbbreviation>>>
       watchFiltered(String name);

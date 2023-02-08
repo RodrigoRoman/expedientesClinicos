@@ -4,7 +4,7 @@ import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:expedientes_clinicos/domain/core/name_abbreviation/name_abbr.dart';
 import 'package:expedientes_clinicos/domain/core/name_abbreviation/name_abbr_failure.dart';
-import 'package:expedientes_clinicos/domain/medicine/i_measure_unit_repository.dart';
+import 'package:expedientes_clinicos/domain/core/name_abbreviation/i_name_abbreviation_repository.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:kt_dart/collection.dart';
@@ -16,7 +16,7 @@ part 'measure_unit_watcher_bloc.freezed.dart';
 @injectable
 class MeasureUnitWatcherBloc
     extends Bloc<AbbreviationNameWatcherEvent, AbbreviationNameWatcherState> {
-  final IMeasureUnitRepository _iMeasureUnitRepository;
+  final INameAbbreviationRepository _iMeasureUnitRepository;
   MeasureUnitWatcherBloc(this._iMeasureUnitRepository)
       : super(const AbbreviationNameWatcherState.initial()) {
     StreamSubscription<
