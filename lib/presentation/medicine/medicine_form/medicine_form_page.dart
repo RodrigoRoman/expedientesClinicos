@@ -1,5 +1,7 @@
 import 'dart:io';
 
+import 'package:expedientes_clinicos/application/abbreviation_name/abbreviation_name_watcher/abbreviation_name_watcher_bloc.dart';
+import 'package:expedientes_clinicos/application/abbreviation_name/abbreviation_name_watcher/administration_route_watcher_bloc_.dart';
 import 'package:expedientes_clinicos/application/abbreviation_name/abbreviation_name_watcher/measure_unit_watcher_bloc.dart';
 import 'package:expedientes_clinicos/application/categories/category_watcher/category_watcher_bloc.dart';
 import 'package:expedientes_clinicos/application/medicine/medicine_form/medicine_form_bloc.dart';
@@ -7,6 +9,8 @@ import 'package:expedientes_clinicos/application/state_render/state_renderer_blo
 import 'package:expedientes_clinicos/domain/core/categories/category.dart';
 import 'package:expedientes_clinicos/domain/core/name_abbreviation/name_abbr.dart';
 import 'package:expedientes_clinicos/injection.dart';
+import 'package:expedientes_clinicos/presentation/administration_route/drop_down_search_administration_route.dart';
+import 'package:expedientes_clinicos/presentation/administration_route/pop_up_administration_route_form.dart';
 import 'package:expedientes_clinicos/presentation/category/widgets/drop_down_search_categories.dart';
 import 'package:expedientes_clinicos/presentation/category/widgets/pop_up_category_form.dart';
 import 'package:expedientes_clinicos/presentation/common/widget_elements/description.dart';
@@ -39,6 +43,8 @@ class _MedicineFormPageState extends State<MedicineFormPage> {
       TextEditingController();
 
   final TextEditingController measureUnitText = TextEditingController();
+
+  final TextEditingController adminRouteText = TextEditingController();
 
   final TextEditingController description = TextEditingController();
 
@@ -771,6 +777,59 @@ class _MedicineFormPageState extends State<MedicineFormPage> {
                                 SizedBox(
                                   height: heightUnit / 2,
                                 ),
+                                //ADMINISTRATION ROUTE
+                                SizedBox(
+                                    height: heightUnit * 1.5,
+                                    child: Row(
+                                      children: [
+                                        Expanded(
+                                          flex: 6,
+                                          child: Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceAround,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.center,
+                                            children: [
+                                              Expanded(
+                                                child: Text(
+                                                  AppStrings
+                                                      .administrationRoute,
+                                                  style: Theme.of(context)
+                                                      .textTheme
+                                                      .titleSmall,
+                                                ),
+                                              ),
+                                              Expanded(
+                                                child: BlocProvider(
+                                                  create: (context) => getIt<
+                                                      AdministrationRouteWatcherBloc>()
+                                                    ..add(
+                                                        const AbbreviationNameWatcherEvent
+                                                            .watchAllStarted()),
+                                                  child:
+                                                      DropdownSearchAdministrationRoute(
+                                                    textController:
+                                                        adminRouteText,
+                                                    hintText:
+                                                        AppStrings.chooseUnit,
+                                                    newFunction: () {
+                                                      context
+                                                          .read<
+                                                              StateRendererBloc>()
+                                                          .add(const StateRendererEvent
+                                                                  .popUpForm(
+                                                              'Crear Via de administracion',
+                                                              AdministrationRouteForm(),
+                                                              false));
+                                                    },
+                                                  ),
+                                                ),
+                                              )
+                                            ],
+                                          ),
+                                        ),
+                                      ],
+                                    )),
                                 SizedBox(
                                     height: heightUnit * 3,
                                     width: constraint.maxWidth / 1.3,

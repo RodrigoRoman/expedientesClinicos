@@ -9,7 +9,7 @@ import 'package:injectable/injectable.dart';
 
 part 'abbreviation_name_form_event.dart';
 part 'abbreviation_name_form_state.dart';
-part 'abbreviation_name_form_bloc.freezed.dart';
+part 'abbreviation_name_form_abstract_bloc.freezed.dart';
 
 @injectable
 class AbbreviationNameFormBloc

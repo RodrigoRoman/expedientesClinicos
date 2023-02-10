@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:expedientes_clinicos/domain/core/name_abbreviation/i_name_abbreviation_repository.dart';
 import 'package:expedientes_clinicos/domain/core/name_abbreviation/name_abbr.dart';
 import 'package:expedientes_clinicos/domain/core/name_abbreviation/name_abbr_failure.dart';
 import 'package:expedientes_clinicos/domain/medicine/i_measure_unit_repository.dart';
@@ -14,7 +15,6 @@ import 'package:rxdart/rxdart.dart';
 class MeasureUnitRepository implements IMeasureUnitRepository {
   final FirebaseFirestore _firestore;
   MeasureUnitRepository(this._firestore);
-
   @override
   Future<Either<NameAbbreviationFailure, Unit>> create(
       NameAbbreviation measureUnit) async {
@@ -77,6 +77,7 @@ class MeasureUnitRepository implements IMeasureUnitRepository {
   @override
   Stream<Either<NameAbbreviationFailure, KtList<NameAbbreviation>>>
       watchAll() async* {
+    print('watch all called');
     final measureUnits = _firestore.collection('measureUnits');
     yield* measureUnits
         .snapshots()
@@ -95,13 +96,12 @@ class MeasureUnitRepository implements IMeasureUnitRepository {
         return left(const NameAbbreviationFailure.unexpected());
       }
     });
-
-    // ingredientVersionCollection();
   }
 
   @override
   Stream<Either<NameAbbreviationFailure, KtList<NameAbbreviation>>>
       watchFiltered(String name) async* {
+    print('filtered what is wrong?');
     final measureUnits = _firestore.collection('measureUnits');
     yield* measureUnits
         .where('keyWords', arrayContains: removeSpecialCharacters(name))
@@ -109,9 +109,9 @@ class MeasureUnitRepository implements IMeasureUnitRepository {
         .map(
           (snapshot) =>
               right<NameAbbreviationFailure, KtList<NameAbbreviation>>(
-            snapshot.docs
-                .map((doc) => NameAbbreviationDto.fromFirestore(doc).toDomain())
-                .toImmutableList(),
+            snapshot.docs.map((doc) {
+              return NameAbbreviationDto.fromFirestore(doc).toDomain();
+            }).toImmutableList(),
           ),
         )
         .onErrorReturnWith((e, _) {

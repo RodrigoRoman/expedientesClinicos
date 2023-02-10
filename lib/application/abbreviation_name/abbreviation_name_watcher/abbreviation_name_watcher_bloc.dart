@@ -2,9 +2,9 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
+import 'package:expedientes_clinicos/domain/core/name_abbreviation/i_name_abbreviation_repository.dart';
 import 'package:expedientes_clinicos/domain/core/name_abbreviation/name_abbr.dart';
 import 'package:expedientes_clinicos/domain/core/name_abbreviation/name_abbr_failure.dart';
-import 'package:expedientes_clinicos/domain/core/name_abbreviation/i_name_abbreviation_repository.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:kt_dart/collection.dart';
@@ -27,16 +27,18 @@ class AbbreviationNameWatcherBloc
       _abreviationNameStreamSubscription = _iAbbreviationNameRepository
           .watchAll()
           .listen((failureOrMeasureUnits) {
-        add(AbbreviationNameWatcherEvent.measureUnitsReceived(
+        add(AbbreviationNameWatcherEvent.abbreviationNamesReceived(
             failureOrMeasureUnits));
       });
     });
     on<_WatchFilteredStarted>((event, emit) {
+      print('watch filtered bloc');
+      print(event.keyword);
       _abreviationNameStreamSubscription?.cancel;
       _abreviationNameStreamSubscription = _iAbbreviationNameRepository
           .watchFiltered(event.keyword)
           .listen((failureOrMeasureUnits) {
-        add(AbbreviationNameWatcherEvent.measureUnitsReceived(
+        add(AbbreviationNameWatcherEvent.abbreviationNamesReceived(
             failureOrMeasureUnits));
       });
     });

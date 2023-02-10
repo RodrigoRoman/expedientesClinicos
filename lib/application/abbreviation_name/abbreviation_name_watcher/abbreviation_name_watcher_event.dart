@@ -1,4 +1,4 @@
-part of 'measure_unit_watcher_bloc.dart';
+part of 'abbreviation_name_watcher_bloc.dart';
 
 @freezed
 class AbbreviationNameWatcherEvent with _$AbbreviationNameWatcherEvent {

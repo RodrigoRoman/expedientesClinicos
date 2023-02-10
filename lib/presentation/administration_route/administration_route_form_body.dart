@@ -1,5 +1,7 @@
 import 'dart:io';
 
+import 'package:expedientes_clinicos/application/abbreviation_name/abbreviation_name_form/abbreviation_name_form_abstract_bloc.dart';
+import 'package:expedientes_clinicos/application/abbreviation_name/abbreviation_name_form/administration_route_form_bloc.dart';
 import 'package:expedientes_clinicos/application/abbreviation_name/abbreviation_name_form/measure_unit_form_bloc.dart';
 import 'package:expedientes_clinicos/presentation/resources/string_manager.dart';
 import 'package:flutter/material.dart';
@@ -44,9 +46,9 @@ class _AdministrationRouteFormBodyState
                           child: TextFormField(
                             controller: administrationRouteNameController,
                             validator: (_) => context
-                                .read<MeasureUnitFormBloc>()
+                                .read<AdministrationRouteFormBloc>()
                                 .state
-                                .measureUnit
+                                .abbreviation
                                 .name
                                 .value
                                 .fold(
@@ -64,7 +66,7 @@ class _AdministrationRouteFormBodyState
                             textAlign: TextAlign.center,
                             decoration: InputDecoration(
                                 border: InputBorder.none,
-                                hintText: AppStrings.measureUnit,
+                                hintText: AppStrings.administrationRoute,
                                 hintStyle: Theme.of(context)
                                     .textTheme
                                     .bodySmall!
@@ -79,7 +81,7 @@ class _AdministrationRouteFormBodyState
                                   TextSelection.fromPosition(TextPosition(
                                       offset: administrationRouteNameController
                                           .text.length));
-                              context.read<MeasureUnitFormBloc>().add(
+                              context.read<AdministrationRouteFormBloc>().add(
                                   AbbreviationNameFormEvent.nameChanged(
                                       administrationRouteNameController.text));
                             },
@@ -96,10 +98,10 @@ class _AdministrationRouteFormBodyState
                           child: TextFormField(
                             controller: abreviationController,
                             validator: (_) => context
-                                .read<MeasureUnitFormBloc>()
+                                .read<AdministrationRouteFormBloc>()
                                 .state
-                                .measureUnit
-                                .abr
+                                .abbreviation
+                                .abbr
                                 .value
                                 .fold(
                                     (f) => f.maybeMap(
@@ -115,7 +117,7 @@ class _AdministrationRouteFormBodyState
                             textAlign: TextAlign.center,
                             decoration: InputDecoration(
                                 border: InputBorder.none,
-                                hintText: AppStrings.measureUnitAbreviation,
+                                hintText: AppStrings.adminRouteAbbreviation,
                                 hintStyle: Theme.of(context)
                                     .textTheme
                                     .bodySmall!
@@ -129,7 +131,7 @@ class _AdministrationRouteFormBodyState
                                   TextSelection.fromPosition(TextPosition(
                                       offset:
                                           abreviationController.text.length));
-                              context.read<MeasureUnitFormBloc>().add(
+                              context.read<AdministrationRouteFormBloc>().add(
                                   AbbreviationNameFormEvent.abreviationChanged(
                                       abreviationController.text));
                             },
@@ -140,7 +142,7 @@ class _AdministrationRouteFormBodyState
                     onPressed: () {
                       if (_key.currentState!.validate()) {
                         context
-                            .read<MeasureUnitFormBloc>()
+                            .read<AdministrationRouteFormBloc>()
                             .add(const AbbreviationNameFormEvent.saved());
                       }
                     },

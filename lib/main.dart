@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:expedientes_clinicos/application/abbreviation_name/abbreviation_name_form/administration_route_form_bloc.dart';
 import 'package:expedientes_clinicos/application/abbreviation_name/abbreviation_name_form/measure_unit_form_bloc.dart';
 import 'package:expedientes_clinicos/application/categories/category_form/category_form_bloc.dart';
 import 'package:expedientes_clinicos/application/medicine/medicine_form/medicine_form_bloc.dart';
@@ -38,6 +39,8 @@ class AppRoot extends StatelessWidget {
               create: (context) => getIt<CategoryFormBloc>()),
           BlocProvider<MeasureUnitFormBloc>(
               create: (context) => getIt<MeasureUnitFormBloc>()),
+          BlocProvider<AdministrationRouteFormBloc>(
+              create: (context) => getIt<AdministrationRouteFormBloc>()),
           BlocProvider<MedicineFormBloc>(
               create: (context) => getIt<MedicineFormBloc>())
         ],

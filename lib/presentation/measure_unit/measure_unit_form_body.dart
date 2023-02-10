@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:expedientes_clinicos/application/abbreviation_name/abbreviation_name_form/abbreviation_name_form_abstract_bloc.dart';
 import 'package:expedientes_clinicos/application/abbreviation_name/abbreviation_name_form/measure_unit_form_bloc.dart';
 import 'package:expedientes_clinicos/presentation/resources/string_manager.dart';
 import 'package:flutter/material.dart';
@@ -44,7 +45,7 @@ class _MeasureUnitFormBodyState extends State<MeasureUnitFormBody> {
                             validator: (_) => context
                                 .read<MeasureUnitFormBloc>()
                                 .state
-                                .measureUnit
+                                .abbreviation
                                 .name
                                 .value
                                 .fold(
@@ -96,7 +97,7 @@ class _MeasureUnitFormBodyState extends State<MeasureUnitFormBody> {
                             validator: (_) => context
                                 .read<MeasureUnitFormBloc>()
                                 .state
-                                .measureUnit
+                                .abbreviation
                                 .abbr
                                 .value
                                 .fold(

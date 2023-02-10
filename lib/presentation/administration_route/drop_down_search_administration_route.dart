@@ -1,3 +1,5 @@
+import 'package:expedientes_clinicos/application/abbreviation_name/abbreviation_name_watcher/abbreviation_name_watcher_bloc.dart';
+import 'package:expedientes_clinicos/application/abbreviation_name/abbreviation_name_watcher/administration_route_watcher_bloc_.dart';
 import 'package:expedientes_clinicos/application/abbreviation_name/abbreviation_name_watcher/measure_unit_watcher_bloc.dart';
 import 'package:expedientes_clinicos/application/medicine/medicine_form/medicine_form_bloc.dart';
 import 'package:expedientes_clinicos/application/state_render/state_renderer_bloc.dart';
@@ -8,26 +10,27 @@ import 'package:expedientes_clinicos/presentation/resources/string_manager.dart'
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class DropdownSearchMeasureUnit extends StatefulWidget {
+class DropdownSearchAdministrationRoute extends StatefulWidget {
   final TextEditingController textController;
   final String hintText;
   final Function newFunction;
-  const DropdownSearchMeasureUnit(
+  const DropdownSearchAdministrationRoute(
       {super.key,
       required this.textController,
       required this.hintText,
       required this.newFunction});
   @override
-  _DropdownSearchMeasureUnitState createState() =>
-      _DropdownSearchMeasureUnitState();
+  _DropdownSearchAdministrationRouteState createState() =>
+      _DropdownSearchAdministrationRouteState();
 }
 
-class _DropdownSearchMeasureUnitState extends State<DropdownSearchMeasureUnit> {
+class _DropdownSearchAdministrationRouteState
+    extends State<DropdownSearchAdministrationRoute> {
   final FocusNode _focusNode = FocusNode();
   OverlayEntry? _overlayEntry;
   GlobalKey globalKey = GlobalKey();
   final LayerLink _layerLink = LayerLink();
-  List<NameAbbreviation> measureUnitList = [];
+  List<NameAbbreviation> administrationRouteList = [];
 
   @override
   void initState() {
@@ -95,7 +98,7 @@ class _DropdownSearchMeasureUnitState extends State<DropdownSearchMeasureUnit> {
                     height: size.height * 3,
                     child: SingleChildScrollView(
                       child: Column(
-                          children: measureUnitList
+                          children: administrationRouteList
                               .map(
                                 (e) => Container(
                                   margin: const EdgeInsets.all(AppSize.s2_5),
@@ -104,7 +107,7 @@ class _DropdownSearchMeasureUnitState extends State<DropdownSearchMeasureUnit> {
                                                 .read<MedicineFormBloc>()
                                                 .state
                                                 .medicine
-                                                .measureUnit ==
+                                                .administrationRoute ==
                                             e)
                                         ? Theme.of(context)
                                             .colorScheme
@@ -123,9 +126,9 @@ class _DropdownSearchMeasureUnitState extends State<DropdownSearchMeasureUnit> {
                                             .read<MedicineFormBloc>()
                                             .state
                                             .medicine
-                                            .measureUnit ==
+                                            .administrationRoute ==
                                         e,
-                                    leading: Text(e.abr.value.fold(
+                                    leading: Text(e.abbr.value.fold(
                                         (l) => AppStrings.isEmpty, (r) => r)),
                                     title: FittedBox(
                                       child: Text(e.name.value.fold(
@@ -133,8 +136,8 @@ class _DropdownSearchMeasureUnitState extends State<DropdownSearchMeasureUnit> {
                                     ),
                                     onTap: () {
                                       context.read<MedicineFormBloc>().add(
-                                          MedicineFormEvent.measureUnitChanged(
-                                              e));
+                                          MedicineFormEvent
+                                              .administrationRouteChanged(e));
                                       widget.textController.text = e.name.value
                                           .fold((l) => AppStrings.isEmpty,
                                               (r) => r);
@@ -153,17 +156,18 @@ class _DropdownSearchMeasureUnitState extends State<DropdownSearchMeasureUnit> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<MeasureUnitWatcherBloc, AbbreviationNameWatcherState>(
+    return BlocConsumer<AdministrationRouteWatcherBloc,
+        AbbreviationNameWatcherState>(
       listener: (context, state) {
         state.map(
             initial: (value) {
-              measureUnitList = [];
+              administrationRouteList = [];
             },
             loadInProgress: ((value) => context.read<StateRendererBloc>().add(
                 const StateRendererEvent.popUpLoading(AppStrings.saving,
                     AppStrings.actionInProgressExplain, false))),
             loadSuccess: ((value) {
-              measureUnitList = value.abbreviationName.asList();
+              administrationRouteList = value.abbreviationName.asList();
               rebuildOverlay();
             }),
             loadFailure: ((value) => context.read<StateRendererBloc>().add(
@@ -186,10 +190,10 @@ class _DropdownSearchMeasureUnitState extends State<DropdownSearchMeasureUnit> {
                   child: BlocConsumer<MedicineFormBloc, MedicineFormState>(
                     listener: (context, state) {},
                     builder: (context, state) {
-                      NameAbbreviation selectedMeasureUnit =
-                          state.medicine.measureUnit;
+                      NameAbbreviation selectedAdministrationRoute =
+                          state.medicine.administrationRoute;
 
-                      return ((state.medicine.measureUnit !=
+                      return ((state.medicine.administrationRoute !=
                                   NameAbbreviation.empty()) &
                               !_focusNode.hasFocus)
                           ? ListTile(
@@ -202,14 +206,14 @@ class _DropdownSearchMeasureUnitState extends State<DropdownSearchMeasureUnit> {
                               // ),
                               title: FittedBox(
                                 child: Text(
-                                  selectedMeasureUnit.abr.value.fold(
+                                  selectedAdministrationRoute.abbr.value.fold(
                                       (l) => AppStrings.isEmpty, (r) => r),
                                   style: Theme.of(context).textTheme.bodyMedium,
                                 ),
                               ),
                               trailing: FittedBox(
                                 child: Text(
-                                    selectedMeasureUnit.name.value.fold(
+                                    selectedAdministrationRoute.name.value.fold(
                                         (l) => AppStrings.isEmpty, (r) => r),
                                     style:
                                         Theme.of(context).textTheme.bodySmall),
@@ -235,12 +239,14 @@ class _DropdownSearchMeasureUnitState extends State<DropdownSearchMeasureUnit> {
                                         offset:
                                             widget.textController.text.length));
                                 if (value.isEmpty) {
-                                  context.read<MeasureUnitWatcherBloc>().add(
-                                      const AbbreviationNameWatcherEvent
+                                  context
+                                      .read<AdministrationRouteWatcherBloc>()
+                                      .add(const AbbreviationNameWatcherEvent
                                           .watchAllStarted());
                                 } else {
-                                  context.read<MeasureUnitWatcherBloc>().add(
-                                      AbbreviationNameWatcherEvent
+                                  context
+                                      .read<AdministrationRouteWatcherBloc>()
+                                      .add(AbbreviationNameWatcherEvent
                                           .watchFilteredStarted(
                                               widget.textController.text));
                                 }

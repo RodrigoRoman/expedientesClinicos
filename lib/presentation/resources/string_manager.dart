@@ -17,8 +17,12 @@ class AppStrings {
   static const String loginMode = 'Ingresar con una cuenta';
   static const String registerMode = 'Crear una cuenta';
   static const String measureUnit = 'Unidad de medida';
+  static const String administrationRoute = 'Via de administracion';
+  static const String adminRouteAbbreviation = 'Via de administracion';
+
   static const String measureUnitAbreviation = 'Abreviatura';
   static const String chooseUnit = 'Elige unidad de medida';
+  static const String chooseAdminRoute = 'Elige via de administracion';
   static const String chooseCategory = 'Elige categoria';
   static const String dateSelectPromt = 'Elige una fecha';
   static const String newSupplier = 'Nuevo proveedor';
