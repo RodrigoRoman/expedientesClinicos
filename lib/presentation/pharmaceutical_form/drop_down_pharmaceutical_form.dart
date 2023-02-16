@@ -1,50 +1,50 @@
 import 'package:expedientes_clinicos/application/abbreviation_name/abbreviation_name_form/abbreviation_name_form_abstract_bloc.dart';
-import 'package:expedientes_clinicos/application/abbreviation_name/abbreviation_name_form/administration_route_form_bloc.dart';
+import 'package:expedientes_clinicos/application/abbreviation_name/abbreviation_name_form/measure_unit_form_bloc.dart';
 import 'package:expedientes_clinicos/application/abbreviation_name/abbreviation_name_watcher/abbreviation_name_watcher_bloc.dart';
-import 'package:expedientes_clinicos/application/abbreviation_name/abbreviation_name_watcher/administration_route_watcher_bloc_.dart';
+import 'package:expedientes_clinicos/application/abbreviation_name/abbreviation_name_watcher/pharmaceutical_form_watcher_bloc.dart';
 import 'package:expedientes_clinicos/application/medicine/medicine_form/medicine_form_bloc.dart';
 import 'package:expedientes_clinicos/application/state_render/state_renderer_bloc.dart';
 import 'package:expedientes_clinicos/domain/core/name_abbreviation/name_abbr.dart';
 import 'package:expedientes_clinicos/injection.dart';
-import 'package:expedientes_clinicos/presentation/administration_route/pop_up_administration_route_form.dart';
 import 'package:expedientes_clinicos/presentation/common/widget_elements/abbreviation_name_component/drop_down_search_administration_route.dart';
+import 'package:expedientes_clinicos/presentation/measure_unit/pop_up_measure_unit_form.dart';
 import 'package:expedientes_clinicos/presentation/resources/string_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class DropdownSearchAdministrationRoute extends StatefulWidget {
+class DropdownSearchPharmaceuticalForm extends StatefulWidget {
   //optional for the case of editing
-  const DropdownSearchAdministrationRoute({
+  const DropdownSearchPharmaceuticalForm({
     super.key,
   });
   @override
-  _DropdownSearchAdministrationRouteState createState() =>
-      _DropdownSearchAdministrationRouteState();
+  _DropdownSearchPharmaceuticalFormState createState() =>
+      _DropdownSearchPharmaceuticalFormState();
 }
 
-class _DropdownSearchAdministrationRouteState
-    extends State<DropdownSearchAdministrationRoute> {
+class _DropdownSearchPharmaceuticalFormState
+    extends State<DropdownSearchPharmaceuticalForm> {
   GlobalKey globalKey = GlobalKey();
-  List<NameAbbreviation> administrationRouteList = [];
+  List<NameAbbreviation> pharmaceuticalFormList = [];
   TextEditingController searchFieldController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-        create: (context) => getIt<AdministrationRouteWatcherBloc>()
+        create: (context) => getIt<PharmaceuticalFormWatcherBloc>()
           ..add(const AbbreviationNameWatcherEvent.watchAllStarted()),
-        child: BlocConsumer<AdministrationRouteWatcherBloc,
+        child: BlocConsumer<PharmaceuticalFormWatcherBloc,
             AbbreviationNameWatcherState>(listener: (context, state) {
           state.map(
               initial: (value) {
-                administrationRouteList = [];
+                pharmaceuticalFormList = [];
               },
               loadInProgress: ((value) => context.read<StateRendererBloc>().add(
                   const StateRendererEvent.popUpLoading(AppStrings.saving,
                       AppStrings.actionInProgressExplain, false))),
               loadSuccess: ((value) {
                 setState(() {
-                  administrationRouteList = value.abbreviationName.asList();
+                  pharmaceuticalFormList = value.abbreviationName.asList();
                 });
               }),
               loadFailure: ((value) => context.read<StateRendererBloc>().add(
@@ -58,45 +58,44 @@ class _DropdownSearchAdministrationRouteState
                 .read<MedicineFormBloc>()
                 .state
                 .medicine
-                .administrationRoute,
+                .pharmaceuticalForm,
             searchFieldController: searchFieldController,
             onSelected: (nameAbbr) {
               context
                   .read<MedicineFormBloc>()
-                  .add(MedicineFormEvent.administrationRouteChanged(nameAbbr));
-              setState(() {});
+                  .add(MedicineFormEvent.pharmaceuticalFormChanged(nameAbbr));
             },
             onSearchWithKey: (key) {
               context
-                  .read<AdministrationRouteWatcherBloc>()
+                  .read<PharmaceuticalFormWatcherBloc>()
                   .add(AbbreviationNameWatcherEvent.watchFilteredStarted(key));
             },
             onSearchAll: () {
               context
-                  .read<AdministrationRouteWatcherBloc>()
+                  .read<PharmaceuticalFormWatcherBloc>()
                   .add(const AbbreviationNameWatcherEvent.watchAllStarted());
             },
-            abbreviationNameList: administrationRouteList,
-            hintText: AppStrings.administrationRoute,
+            abbreviationNameList: pharmaceuticalFormList,
+            hintText: AppStrings.pharmaceuticalForm,
             newFunction: () {
               context
                   .read<StateRendererBloc>()
                   .add(StateRendererEvent.popUpForm(
-                      AppStrings.createAdminRoute,
-                      AdministrationRouteForm(
+                      'Crear ${AppStrings.pharmaceuticalForm}',
+                      MeasureUnitForm(
                         nameAbbreviation: NameAbbreviation.empty(),
                         onAbbreviationChanged: (newAbbr) {
-                          context.read<AdministrationRouteFormBloc>().add(
+                          context.read<MeasureUnitFormBloc>().add(
                               AbbreviationNameFormEvent.abreviationChanged(
                                   newAbbr));
                         },
                         onNameChanged: (newName) {
-                          context.read<AdministrationRouteFormBloc>().add(
+                          context.read<MeasureUnitFormBloc>().add(
                               AbbreviationNameFormEvent.nameChanged(newName));
                         },
                         onSubmit: () {
                           context
-                              .read<AdministrationRouteFormBloc>()
+                              .read<MeasureUnitFormBloc>()
                               .add(const AbbreviationNameFormEvent.saved());
                         },
                       ),

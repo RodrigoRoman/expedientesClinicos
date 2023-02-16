@@ -1,14 +1,23 @@
 import 'package:expedientes_clinicos/application/abbreviation_name/abbreviation_name_form/abbreviation_name_form_abstract_bloc.dart';
 import 'package:expedientes_clinicos/application/abbreviation_name/abbreviation_name_form/measure_unit_form_bloc.dart';
 import 'package:expedientes_clinicos/application/state_render/state_renderer_bloc.dart';
-import 'package:expedientes_clinicos/presentation/measure_unit/measure_unit_form_body.dart';
+import 'package:expedientes_clinicos/domain/core/name_abbreviation/name_abbr.dart';
+import 'package:expedientes_clinicos/presentation/common/widget_elements/abbreviation_name_component/pop_up_administration_route_form.dart';
 import 'package:expedientes_clinicos/presentation/resources/string_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class MeasureUnitForm extends StatefulWidget {
-  const MeasureUnitForm({super.key});
-
+  final NameAbbreviation? nameAbbreviation;
+  final Function onNameChanged;
+  final Function onAbbreviationChanged;
+  final Function onSubmit;
+  const MeasureUnitForm(
+      {required this.nameAbbreviation,
+      required this.onAbbreviationChanged,
+      required this.onNameChanged,
+      required this.onSubmit,
+      super.key});
   @override
   State<MeasureUnitForm> createState() => _MeasureUnitFormState();
 }
@@ -62,7 +71,26 @@ class _MeasureUnitFormState extends State<MeasureUnitForm> {
                 }));
       },
       builder: (context, state) {
-        return MeasureUnitFormBody(state: state);
+        NameAbbreviation abbrName =
+            widget.nameAbbreviation ?? NameAbbreviation.empty();
+        return AbbreviationNameForm(
+          nameAbbreviation: abbrName,
+          onAbbreviationChanged: (newAbbr) {
+            context
+                .read<MeasureUnitFormBloc>()
+                .add(AbbreviationNameFormEvent.abreviationChanged(newAbbr));
+          },
+          onNameChanged: (newName) {
+            context
+                .read<MeasureUnitFormBloc>()
+                .add(AbbreviationNameFormEvent.nameChanged(newName));
+          },
+          onSubmit: () {
+            context
+                .read<MeasureUnitFormBloc>()
+                .add(const AbbreviationNameFormEvent.saved());
+          },
+        );
       },
     );
   }

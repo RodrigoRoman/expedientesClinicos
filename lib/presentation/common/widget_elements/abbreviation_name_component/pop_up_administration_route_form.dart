@@ -1,70 +1,134 @@
-import 'package:expedientes_clinicos/application/abbreviation_name/abbreviation_name_form/abbreviation_name_form_abstract_bloc.dart';
-import 'package:expedientes_clinicos/application/abbreviation_name/abbreviation_name_form/administration_route_form_bloc.dart';
-import 'package:expedientes_clinicos/application/state_render/state_renderer_bloc.dart';
-import 'package:expedientes_clinicos/presentation/administration_route/administration_route_form_body.dart';
+import 'package:expedientes_clinicos/domain/core/name_abbreviation/name_abbr.dart';
 import 'package:expedientes_clinicos/presentation/resources/string_manager.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
-class AdministrationRouteForm extends StatefulWidget {
-  const AdministrationRouteForm({super.key});
+class AbbreviationNameForm extends StatefulWidget {
+  final NameAbbreviation nameAbbreviation;
+  final Function onNameChanged;
+  final Function onAbbreviationChanged;
+  final Function onSubmit;
+  final Function validName;
+  final Function validAbbreviation;
+  const AbbreviationNameForm(
+      {required this.nameAbbreviation,
+      required this.onAbbreviationChanged,
+      required this.validName,
+      required this.validAbbreviation,
+      required this.onNameChanged,
+      required this.onSubmit,
+      super.key});
 
   @override
-  State<AdministrationRouteForm> createState() =>
-      _AdministrationRouteFormState();
+  State<AbbreviationNameForm> createState() => _AbbreviationNameFormState();
 }
 
-class _AdministrationRouteFormState extends State<AdministrationRouteForm> {
+class _AbbreviationNameFormState extends State<AbbreviationNameForm> {
+  final _key = GlobalKey<FormState>();
+  final TextEditingController nameController = TextEditingController();
+  final TextEditingController abbreviationController = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<AdministrationRouteFormBloc, AbbreviationNameFormState>(
-      listener: (context, state) {
-        state.saveFailureOrSuccessOption.fold(() {
-          if (state.isSaving) {
-            context.read<StateRendererBloc>().add(
-                const StateRendererEvent.popUpLoading(AppStrings.saving,
-                    AppStrings.actionInProgressExplain, false));
-          }
-        },
-            (either) => either.fold(
-                    (failure) => failure.maybeMap(
-                          unexpected: (e) {
-                            context.read<StateRendererBloc>().add(
-                                const StateRendererEvent.popUpError(
-                                    AppStrings.couldNotSaveImage,
-                                    AppStrings.somethingWentWrong,
-                                    true));
-                          },
-                          insufficientPermissions: (e) {
-                            context.read<StateRendererBloc>().add(
-                                const StateRendererEvent.popUpError(
-                                    AppStrings.insuficcientPermissions,
-                                    AppStrings.insuficcientPermissionsExplain,
-                                    true));
-                          },
-                          unableToCreate: (e) {
-                            context.read<StateRendererBloc>().add(
-                                const StateRendererEvent.popUpError(
-                                    AppStrings.unableToCreate,
-                                    AppStrings.unableToCreateExplain,
-                                    true));
-                          },
-                          orElse: () {
-                            context.read<StateRendererBloc>().add(
-                                const StateRendererEvent.popUpError(
-                                    AppStrings.genericError,
-                                    AppStrings.genericErrorExplain,
-                                    true));
-                          },
-                        ), (r) {
-                  context.read<StateRendererBloc>().add(
-                      const StateRendererEvent.popUpSuccess(AppStrings.success,
-                          AppStrings.successfullyCreated, true));
-                }));
-      },
-      builder: (context, state) {
-        return AdministrationRouteFormBody(state: state);
-      },
-    );
+    return LayoutBuilder(builder: (context, constraints) {
+      return SizedBox(
+        width: constraints.maxWidth,
+        height: constraints.maxHeight,
+        child: Form(
+          key: _key,
+          autovalidateMode: AutovalidateMode.disabled,
+          child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                const Spacer(),
+                Expanded(
+                    flex: 3,
+                    child: LayoutBuilder(builder: (context, constraints) {
+                      return SizedBox(
+                          width: constraints.maxWidth / 1.5,
+                          height: constraints.maxHeight,
+                          child: TextFormField(
+                            controller: nameController,
+                            validator: (_) => widget.validName(),
+                            style: Theme.of(context)
+                                .textTheme
+                                .bodyMedium!
+                                .copyWith(color: Theme.of(context).canvasColor),
+                            textAlign: TextAlign.center,
+                            decoration: InputDecoration(
+                                border: InputBorder.none,
+                                hintText: AppStrings.administrationRoute,
+                                hintStyle: Theme.of(context)
+                                    .textTheme
+                                    .bodySmall!
+                                    .copyWith(
+                                        color: Theme.of(context).canvasColor)),
+                            keyboardType: TextInputType.text,
+                            textCapitalization: TextCapitalization.words,
+                            onChanged: (value) {
+                              nameController.text = value;
+                              nameController.selection =
+                                  TextSelection.fromPosition(TextPosition(
+                                      offset: nameController.text.length));
+                              widget.onNameChanged(nameController.text);
+                            },
+                            textInputAction: TextInputAction.next,
+                          ));
+                    })),
+                const Spacer(),
+                Expanded(
+                    flex: 3,
+                    child: LayoutBuilder(builder: (context, constraints) {
+                      return SizedBox(
+                          width: constraints.maxWidth / 1.5,
+                          height: constraints.maxHeight,
+                          child: TextFormField(
+                            controller: abbreviationController,
+                            validator: (_) => widget.validAbbreviation(),
+
+                            // validator: (_) => widget.nameAbbreviation.abbr.value
+                            //     .fold(
+                            //         (f) => f.maybeMap(
+                            //             exceedingLength: (value) =>
+                            //                 AppStrings.tooLong,
+                            //             empty: (value) => AppStrings.isEmpty,
+                            //             orElse: () => AppStrings.empty),
+                            //         (_) => null),
+                            style: Theme.of(context)
+                                .textTheme
+                                .bodyMedium!
+                                .copyWith(color: Theme.of(context).canvasColor),
+                            textAlign: TextAlign.center,
+                            decoration: InputDecoration(
+                                border: InputBorder.none,
+                                hintText: AppStrings.adminRouteAbbreviation,
+                                hintStyle: Theme.of(context)
+                                    .textTheme
+                                    .bodySmall!
+                                    .copyWith(
+                                        color: Theme.of(context).canvasColor)),
+                            keyboardType: TextInputType.text,
+                            textCapitalization: TextCapitalization.words,
+                            onChanged: (value) {
+                              abbreviationController.text = value;
+                              abbreviationController.selection =
+                                  TextSelection.fromPosition(TextPosition(
+                                      offset:
+                                          abbreviationController.text.length));
+                              widget.onAbbreviationChanged();
+                            },
+                            textInputAction: TextInputAction.next,
+                          ));
+                    })),
+                ElevatedButton(
+                    onPressed: () {
+                      if (_key.currentState!.validate()) {
+                        widget.onSubmit();
+                      }
+                    },
+                    child: const Text(AppStrings.create))
+              ]),
+        ),
+      );
+    });
   }
 }

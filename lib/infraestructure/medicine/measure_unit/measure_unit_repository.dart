@@ -102,6 +102,7 @@ class MeasureUnitRepository implements IMeasureUnitRepository {
   Stream<Either<NameAbbreviationFailure, KtList<NameAbbreviation>>>
       watchFiltered(String name) async* {
     print('filtered what is wrong?');
+    print('MeasureUnit filter');
     final measureUnits = _firestore.collection('measureUnits');
     yield* measureUnits
         .where('keyWords', arrayContains: removeSpecialCharacters(name))
@@ -118,6 +119,7 @@ class MeasureUnitRepository implements IMeasureUnitRepository {
       if (e is PlatformException && e.message!.contains('PERMISSION_DENIED')) {
         return left(const NameAbbreviationFailure.insufficientPermissions());
       } else {
+        print('inside error');
         return left(const NameAbbreviationFailure.unexpected());
       }
     });

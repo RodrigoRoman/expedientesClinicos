@@ -1,3 +1,5 @@
+import 'package:expedientes_clinicos/application/abbreviation_name/abbreviation_name_form/abbreviation_name_form_abstract_bloc.dart';
+import 'package:expedientes_clinicos/application/abbreviation_name/abbreviation_name_form/measure_unit_form_bloc.dart';
 import 'package:expedientes_clinicos/application/abbreviation_name/abbreviation_name_watcher/abbreviation_name_watcher_bloc.dart';
 import 'package:expedientes_clinicos/application/abbreviation_name/abbreviation_name_watcher/measure_unit_watcher_bloc.dart';
 import 'package:expedientes_clinicos/application/medicine/medicine_form/medicine_form_bloc.dart';
@@ -5,6 +7,7 @@ import 'package:expedientes_clinicos/application/state_render/state_renderer_blo
 import 'package:expedientes_clinicos/domain/core/name_abbreviation/name_abbr.dart';
 import 'package:expedientes_clinicos/injection.dart';
 import 'package:expedientes_clinicos/presentation/common/widget_elements/abbreviation_name_component/drop_down_search_administration_route.dart';
+import 'package:expedientes_clinicos/presentation/common/widget_elements/abbreviation_name_component/pop_up_administration_route_form.dart';
 import 'package:expedientes_clinicos/presentation/measure_unit/pop_up_measure_unit_form.dart';
 import 'package:expedientes_clinicos/presentation/resources/constant_size_values.dart';
 import 'package:expedientes_clinicos/presentation/resources/font_manager.dart';
@@ -14,10 +17,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class DropdownSearchMeasureUnit extends StatefulWidget {
   //optional for the case of editing
-  final NameAbbreviation? abbreviationName;
   const DropdownSearchMeasureUnit({
     super.key,
-    this.abbreviationName,
   });
   @override
   _DropdownSearchMeasureUnitState createState() =>
@@ -31,11 +32,9 @@ class _DropdownSearchMeasureUnitState extends State<DropdownSearchMeasureUnit> {
 
   @override
   Widget build(BuildContext context) {
-    NameAbbreviation abbrName =
-        widget.abbreviationName ?? NameAbbreviation.empty();
-    List<NameAbbreviation> abbreviationNameList = [];
     return BlocProvider(
-        create: (context) => getIt<MeasureUnitWatcherBloc>(),
+        create: (context) => getIt<MeasureUnitWatcherBloc>()
+          ..add(const AbbreviationNameWatcherEvent.watchAllStarted()),
         child:
             BlocConsumer<MeasureUnitWatcherBloc, AbbreviationNameWatcherState>(
                 listener: (context, state) {
@@ -47,7 +46,9 @@ class _DropdownSearchMeasureUnitState extends State<DropdownSearchMeasureUnit> {
                   const StateRendererEvent.popUpLoading(AppStrings.saving,
                       AppStrings.actionInProgressExplain, false))),
               loadSuccess: ((value) {
-                measureUnitList = value.abbreviationName.asList();
+                setState(() {
+                  measureUnitList = value.abbreviationName.asList();
+                });
               }),
               loadFailure: ((value) => context.read<StateRendererBloc>().add(
                   const StateRendererEvent.popUpError(
@@ -56,12 +57,15 @@ class _DropdownSearchMeasureUnitState extends State<DropdownSearchMeasureUnit> {
                       false))));
         }, builder: (context, state) {
           return DropdownSearchAbbreviationNameRoute(
-            abbreviationName: abbrName,
+            abbreviationName:
+                context.read<MedicineFormBloc>().state.medicine.measureUnit,
             searchFieldController: searchFieldController,
-            onSelected: (nameAbbr) {
+            onSelected: (NameAbbreviation nameAbbr) {
+              // searchFieldController.text =
+              //     nameAbbr.name.value.fold((l) => '', (r) => r);
               context
                   .read<MedicineFormBloc>()
-                  .add(MedicineFormEvent.administrationRouteChanged(nameAbbr));
+                  .add(MedicineFormEvent.measureUnitChanged(nameAbbr));
             },
             onSearchWithKey: (key) {
               context
@@ -71,14 +75,33 @@ class _DropdownSearchMeasureUnitState extends State<DropdownSearchMeasureUnit> {
             onSearchAll: () {
               context
                   .read<MeasureUnitWatcherBloc>()
-                  .add(AbbreviationNameWatcherEvent.watchAllStarted());
+                  .add(const AbbreviationNameWatcherEvent.watchAllStarted());
             },
-            abbreviationNameList: abbreviationNameList,
+            abbreviationNameList: measureUnitList,
             hintText: AppStrings.measureUnit,
             newFunction: () {
-              context.read<StateRendererBloc>().add(
-                  const StateRendererEvent.popUpForm(
-                      'Crear Unidad de Medida', MeasureUnitForm(), false));
+              context
+                  .read<StateRendererBloc>()
+                  .add(StateRendererEvent.popUpForm(
+                      'Crear Unidad de Medida',
+                      MeasureUnitForm(
+                        nameAbbreviation: NameAbbreviation.empty(),
+                        onAbbreviationChanged: (newAbbr) {
+                          context.read<MeasureUnitFormBloc>().add(
+                              AbbreviationNameFormEvent.abreviationChanged(
+                                  newAbbr));
+                        },
+                        onNameChanged: (newName) {
+                          context.read<MeasureUnitFormBloc>().add(
+                              AbbreviationNameFormEvent.nameChanged(newName));
+                        },
+                        onSubmit: () {
+                          context
+                              .read<MeasureUnitFormBloc>()
+                              .add(const AbbreviationNameFormEvent.saved());
+                        },
+                      ),
+                      false));
             },
           );
         }));

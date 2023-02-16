@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:expedientes_clinicos/application/abbreviation_name/abbreviation_name_watcher/abbreviation_name_watcher_bloc.dart';
 import 'package:expedientes_clinicos/application/abbreviation_name/abbreviation_name_watcher/administration_route_watcher_bloc_.dart';
 import 'package:expedientes_clinicos/application/abbreviation_name/abbreviation_name_watcher/measure_unit_watcher_bloc.dart';
+import 'package:expedientes_clinicos/application/abbreviation_name/abbreviation_name_watcher/pharmaceutical_form_watcher_bloc.dart';
 import 'package:expedientes_clinicos/application/categories/category_watcher/category_watcher_bloc.dart';
 import 'package:expedientes_clinicos/application/medicine/medicine_form/medicine_form_bloc.dart';
 import 'package:expedientes_clinicos/application/state_render/state_renderer_bloc.dart';
@@ -19,6 +20,7 @@ import 'package:expedientes_clinicos/presentation/common/widget_elements/image_c
 import 'package:expedientes_clinicos/presentation/common/widget_elements/integer_input.dart';
 import 'package:expedientes_clinicos/presentation/measure_unit/drop_down_search_measure_unit.dart';
 import 'package:expedientes_clinicos/presentation/measure_unit/pop_up_measure_unit_form.dart';
+import 'package:expedientes_clinicos/presentation/pharmaceutical_form/drop_down_pharmaceutical_form.dart';
 import 'package:expedientes_clinicos/presentation/resources/asset_names.dart';
 import 'package:expedientes_clinicos/presentation/resources/constant_size_values.dart';
 import 'package:expedientes_clinicos/presentation/resources/string_manager.dart';
@@ -677,22 +679,7 @@ class _MedicineFormPageState extends State<MedicineFormPage> {
                                                         const AbbreviationNameWatcherEvent
                                                             .watchAllStarted()),
                                                   child:
-                                                      DropdownSearchMeasureUnit(
-                                                    textController:
-                                                        measureUnitText,
-                                                    hintText:
-                                                        AppStrings.chooseUnit,
-                                                    newFunction: () {
-                                                      context
-                                                          .read<
-                                                              StateRendererBloc>()
-                                                          .add(const StateRendererEvent
-                                                                  .popUpForm(
-                                                              'Crear Unidad de Medida',
-                                                              MeasureUnitForm(),
-                                                              false));
-                                                    },
-                                                  ),
+                                                      DropdownSearchMeasureUnit(),
                                                 ),
                                               )
                                             ],
@@ -807,22 +794,7 @@ class _MedicineFormPageState extends State<MedicineFormPage> {
                                                         const AbbreviationNameWatcherEvent
                                                             .watchAllStarted()),
                                                   child:
-                                                      DropdownSearchAdministrationRoute(
-                                                    textController:
-                                                        adminRouteText,
-                                                    hintText:
-                                                        AppStrings.chooseUnit,
-                                                    newFunction: () {
-                                                      context
-                                                          .read<
-                                                              StateRendererBloc>()
-                                                          .add(const StateRendererEvent
-                                                                  .popUpForm(
-                                                              'Crear Via de administracion',
-                                                              AdministrationRouteForm(),
-                                                              false));
-                                                    },
-                                                  ),
+                                                      const DropdownSearchAdministrationRoute(),
                                                 ),
                                               )
                                             ],
@@ -830,6 +802,47 @@ class _MedicineFormPageState extends State<MedicineFormPage> {
                                         ),
                                       ],
                                     )),
+                                SizedBox(
+                                  height: heightUnit / 2,
+                                ),
+                                //PHARMACEUTICAL FORM
+                                SizedBox(
+                                    height: heightUnit * 1.5,
+                                    child: Row(
+                                      children: [
+                                        Expanded(
+                                          flex: 6,
+                                          child: Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceAround,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.center,
+                                            children: [
+                                              Expanded(
+                                                child: Text(
+                                                  AppStrings.pharmaceuticalForm,
+                                                  style: Theme.of(context)
+                                                      .textTheme
+                                                      .titleSmall,
+                                                ),
+                                              ),
+                                              Expanded(
+                                                child: BlocProvider(
+                                                  create: (context) => getIt<
+                                                      PharmaceuticalFormWatcherBloc>()
+                                                    ..add(
+                                                        const AbbreviationNameWatcherEvent
+                                                            .watchAllStarted()),
+                                                  child:
+                                                      const DropdownSearchPharmaceuticalForm(),
+                                                ),
+                                              )
+                                            ],
+                                          ),
+                                        ),
+                                      ],
+                                    )),
+
                                 SizedBox(
                                     height: heightUnit * 3,
                                     width: constraint.maxWidth / 1.3,

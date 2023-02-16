@@ -1,8 +1,4 @@
-import 'package:expedientes_clinicos/application/abbreviation_name/abbreviation_name_watcher/abbreviation_name_watcher_bloc.dart';
-import 'package:expedientes_clinicos/application/abbreviation_name/abbreviation_name_watcher/administration_route_watcher_bloc_.dart';
-import 'package:expedientes_clinicos/application/abbreviation_name/abbreviation_name_watcher/measure_unit_watcher_bloc.dart';
 import 'package:expedientes_clinicos/application/medicine/medicine_form/medicine_form_bloc.dart';
-import 'package:expedientes_clinicos/application/state_render/state_renderer_bloc.dart';
 import 'package:expedientes_clinicos/domain/core/name_abbreviation/name_abbr.dart';
 import 'package:expedientes_clinicos/presentation/resources/constant_size_values.dart';
 import 'package:expedientes_clinicos/presentation/resources/font_manager.dart';
@@ -89,6 +85,8 @@ class _DropdownSearchAbbreviationNameRouteState
   }
 
   OverlayEntry _createOverlay() {
+    print('inputed object');
+    print(widget.abbreviationName);
     RenderBox renderBox = context.findRenderObject() as RenderBox;
     var size = renderBox.size;
     return OverlayEntry(
@@ -158,30 +156,10 @@ class _DropdownSearchAbbreviationNameRouteState
 
   @override
   Widget build(BuildContext context) {
-    return
-        // BlocConsumer<AdministrationRouteWatcherBloc,
-        //     AbbreviationNameWatcherState>(
-        // listener: (context, state) {
-        //   state.map(
-        //       initial: (value) {
-        //         administrationRouteList = [];
-        //       },
-        //       loadInProgress: ((value) => context.read<StateRendererBloc>().add(
-        //           const StateRendererEvent.popUpLoading(AppStrings.saving,
-        //               AppStrings.actionInProgressExplain, false))),
-        //       loadSuccess: ((value) {
-        //         administrationRouteList = value.abbreviationName.asList();
-        //         rebuildOverlay();
-        //       }),
-        //       loadFailure: ((value) => context.read<StateRendererBloc>().add(
-        //           const StateRendererEvent.popUpError(
-        //               AppStrings.unableToReadError,
-        //               AppStrings.unableToReadErrorExplain,
-        //               false))));
-        // },
-        // builder: (context, state) {
-        // return
-        LayoutBuilder(builder: (context, constraints) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      rebuildOverlay();
+    });
+    return LayoutBuilder(builder: (context, constraints) {
       return Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.start,
@@ -223,6 +201,8 @@ class _DropdownSearchAbbreviationNameRouteState
                           ),
                         )
                       : TextFormField(
+                          // autofocus: true,
+                          key: globalKey,
                           controller: widget.searchFieldController,
                           textAlign: TextAlign.center,
                           decoration: InputDecoration(

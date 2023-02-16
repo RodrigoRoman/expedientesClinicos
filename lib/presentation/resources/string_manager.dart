@@ -19,7 +19,6 @@ class AppStrings {
   static const String measureUnit = 'Unidad de medida';
   static const String administrationRoute = 'Via de administracion';
   static const String adminRouteAbbreviation = 'Via de administracion';
-
   static const String measureUnitAbreviation = 'Abreviatura';
   static const String chooseUnit = 'Elige unidad de medida';
   static const String chooseAdminRoute = 'Elige via de administracion';
@@ -27,7 +26,9 @@ class AppStrings {
   static const String dateSelectPromt = 'Elige una fecha';
   static const String newSupplier = 'Nuevo proveedor';
   static const String address = 'Direccion';
+  static const String createAdminRoute = 'Crear via de administracion';
   static const String description = 'Escribe una descripcion';
+  static const String pharmaceuticalForm = 'Forma farmaceutica';
 
   //Field hints
   static const String username = 'username_hint';
