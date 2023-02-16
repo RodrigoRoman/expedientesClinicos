@@ -6,11 +6,8 @@ import 'package:expedientes_clinicos/application/medicine/medicine_form/medicine
 import 'package:expedientes_clinicos/application/state_render/state_renderer_bloc.dart';
 import 'package:expedientes_clinicos/domain/core/name_abbreviation/name_abbr.dart';
 import 'package:expedientes_clinicos/injection.dart';
-import 'package:expedientes_clinicos/presentation/common/widget_elements/abbreviation_name_component/drop_down_search_administration_route.dart';
-import 'package:expedientes_clinicos/presentation/common/widget_elements/abbreviation_name_component/pop_up_administration_route_form.dart';
+import 'package:expedientes_clinicos/presentation/common/widget_elements/abbreviation_name_component/drop_down_search_abbreviation_name.dart';
 import 'package:expedientes_clinicos/presentation/measure_unit/pop_up_measure_unit_form.dart';
-import 'package:expedientes_clinicos/presentation/resources/constant_size_values.dart';
-import 'package:expedientes_clinicos/presentation/resources/font_manager.dart';
 import 'package:expedientes_clinicos/presentation/resources/string_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -61,8 +58,6 @@ class _DropdownSearchMeasureUnitState extends State<DropdownSearchMeasureUnit> {
                 context.read<MedicineFormBloc>().state.medicine.measureUnit,
             searchFieldController: searchFieldController,
             onSelected: (NameAbbreviation nameAbbr) {
-              // searchFieldController.text =
-              //     nameAbbr.name.value.fold((l) => '', (r) => r);
               context
                   .read<MedicineFormBloc>()
                   .add(MedicineFormEvent.measureUnitChanged(nameAbbr));

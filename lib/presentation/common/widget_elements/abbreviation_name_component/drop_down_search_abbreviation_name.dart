@@ -85,8 +85,6 @@ class _DropdownSearchAbbreviationNameRouteState
   }
 
   OverlayEntry _createOverlay() {
-    print('inputed object');
-    print(widget.abbreviationName);
     RenderBox renderBox = context.findRenderObject() as RenderBox;
     var size = renderBox.size;
     return OverlayEntry(

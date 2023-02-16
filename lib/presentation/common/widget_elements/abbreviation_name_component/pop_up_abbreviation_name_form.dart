@@ -85,7 +85,7 @@ class _AbbreviationNameFormState extends State<AbbreviationNameForm> {
                             controller: abbreviationController,
                             validator: (_) => widget.validAbbreviation(),
 
-                            // validator: (_) => widget.nameAbbreviation.abbr.value
+                            // validator: (_) => nameController.text
                             //     .fold(
                             //         (f) => f.maybeMap(
                             //             exceedingLength: (value) =>
@@ -114,7 +114,8 @@ class _AbbreviationNameFormState extends State<AbbreviationNameForm> {
                                   TextSelection.fromPosition(TextPosition(
                                       offset:
                                           abbreviationController.text.length));
-                              widget.onAbbreviationChanged();
+                              widget.onAbbreviationChanged(
+                                  abbreviationController.text);
                             },
                             textInputAction: TextInputAction.next,
                           ));
@@ -122,7 +123,9 @@ class _AbbreviationNameFormState extends State<AbbreviationNameForm> {
                 ElevatedButton(
                     onPressed: () {
                       if (_key.currentState!.validate()) {
+                        print('about to validate');
                         widget.onSubmit();
+                        print('passed validate');
                       }
                     },
                     child: const Text(AppStrings.create))

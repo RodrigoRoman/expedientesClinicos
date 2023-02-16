@@ -17,6 +17,7 @@ class PharmaceuticalFormRepository implements IPharmaceuticalFormRepository {
   @override
   Future<Either<NameAbbreviationFailure, Unit>> create(
       NameAbbreviation pharmaceuticalForm) async {
+    print('called create pharmaceutical form');
     final pharmaceuticalForms = _firestore.collection('pharmaceuticalForms');
     try {
       final PharmaceuticalFormDto =

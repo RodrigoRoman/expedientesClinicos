@@ -1,13 +1,13 @@
 import 'package:expedientes_clinicos/application/abbreviation_name/abbreviation_name_form/abbreviation_name_form_abstract_bloc.dart';
-import 'package:expedientes_clinicos/application/abbreviation_name/abbreviation_name_form/measure_unit_form_bloc.dart';
+import 'package:expedientes_clinicos/application/abbreviation_name/abbreviation_name_form/pharmaceutical_form_form_bloc.dart';
 import 'package:expedientes_clinicos/application/abbreviation_name/abbreviation_name_watcher/abbreviation_name_watcher_bloc.dart';
 import 'package:expedientes_clinicos/application/abbreviation_name/abbreviation_name_watcher/pharmaceutical_form_watcher_bloc.dart';
 import 'package:expedientes_clinicos/application/medicine/medicine_form/medicine_form_bloc.dart';
 import 'package:expedientes_clinicos/application/state_render/state_renderer_bloc.dart';
 import 'package:expedientes_clinicos/domain/core/name_abbreviation/name_abbr.dart';
 import 'package:expedientes_clinicos/injection.dart';
-import 'package:expedientes_clinicos/presentation/common/widget_elements/abbreviation_name_component/drop_down_search_administration_route.dart';
-import 'package:expedientes_clinicos/presentation/measure_unit/pop_up_measure_unit_form.dart';
+import 'package:expedientes_clinicos/presentation/common/widget_elements/abbreviation_name_component/drop_down_search_abbreviation_name.dart';
+import 'package:expedientes_clinicos/presentation/pharmaceutical_form/pop_up_pharmaceutical_form.dart';
 import 'package:expedientes_clinicos/presentation/resources/string_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -82,20 +82,20 @@ class _DropdownSearchPharmaceuticalFormState
                   .read<StateRendererBloc>()
                   .add(StateRendererEvent.popUpForm(
                       'Crear ${AppStrings.pharmaceuticalForm}',
-                      MeasureUnitForm(
+                      PharmaceuticalFormForm(
                         nameAbbreviation: NameAbbreviation.empty(),
                         onAbbreviationChanged: (newAbbr) {
-                          context.read<MeasureUnitFormBloc>().add(
+                          context.read<PharmaceuticalFormFormBloc>().add(
                               AbbreviationNameFormEvent.abreviationChanged(
                                   newAbbr));
                         },
                         onNameChanged: (newName) {
-                          context.read<MeasureUnitFormBloc>().add(
+                          context.read<PharmaceuticalFormFormBloc>().add(
                               AbbreviationNameFormEvent.nameChanged(newName));
                         },
                         onSubmit: () {
                           context
-                              .read<MeasureUnitFormBloc>()
+                              .read<PharmaceuticalFormFormBloc>()
                               .add(const AbbreviationNameFormEvent.saved());
                         },
                       ),

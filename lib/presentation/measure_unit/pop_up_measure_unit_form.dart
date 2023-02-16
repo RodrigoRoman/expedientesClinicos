@@ -75,6 +75,34 @@ class _MeasureUnitFormState extends State<MeasureUnitForm> {
             widget.nameAbbreviation ?? NameAbbreviation.empty();
         return AbbreviationNameForm(
           nameAbbreviation: abbrName,
+          validAbbreviation: () {
+            context
+                .read<MeasureUnitFormBloc>()
+                .state
+                .abbreviation
+                .abbr
+                .value
+                .fold(
+                    (f) => f.maybeMap(
+                        exceedingLength: (value) => AppStrings.tooLong,
+                        empty: (value) => AppStrings.isEmpty,
+                        orElse: () => AppStrings.empty),
+                    (_) => null);
+          },
+          validName: () {
+            context
+                .read<MeasureUnitFormBloc>()
+                .state
+                .abbreviation
+                .abbr
+                .value
+                .fold(
+                    (f) => f.maybeMap(
+                        exceedingLength: (value) => AppStrings.tooLong,
+                        empty: (value) => AppStrings.isEmpty,
+                        orElse: () => AppStrings.empty),
+                    (_) => null);
+          },
           onAbbreviationChanged: (newAbbr) {
             context
                 .read<MeasureUnitFormBloc>()
