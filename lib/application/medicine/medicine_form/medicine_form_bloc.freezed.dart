@@ -21,7 +21,7 @@ mixin _$MedicineFormEvent {
     required TResult Function() started,
     required TResult Function(Option<Medicine> intialMedicineOption) intial,
     required TResult Function(String comercialName) comercialNameChanged,
-    required TResult Function(String genericName) genericName,
+    required TResult Function(String genericName) genericNameChanged,
     required TResult Function(NameAbbreviation measureUnit) measureUnitChanged,
     required TResult Function(double amountMeasure) amountMeasureChanged,
     required TResult Function(NameAbbreviation administrationRoute)
@@ -40,7 +40,7 @@ mixin _$MedicineFormEvent {
     TResult? Function()? started,
     TResult? Function(Option<Medicine> intialMedicineOption)? intial,
     TResult? Function(String comercialName)? comercialNameChanged,
-    TResult? Function(String genericName)? genericName,
+    TResult? Function(String genericName)? genericNameChanged,
     TResult? Function(NameAbbreviation measureUnit)? measureUnitChanged,
     TResult? Function(double amountMeasure)? amountMeasureChanged,
     TResult? Function(NameAbbreviation administrationRoute)?
@@ -59,7 +59,7 @@ mixin _$MedicineFormEvent {
     TResult Function()? started,
     TResult Function(Option<Medicine> intialMedicineOption)? intial,
     TResult Function(String comercialName)? comercialNameChanged,
-    TResult Function(String genericName)? genericName,
+    TResult Function(String genericName)? genericNameChanged,
     TResult Function(NameAbbreviation measureUnit)? measureUnitChanged,
     TResult Function(double amountMeasure)? amountMeasureChanged,
     TResult Function(NameAbbreviation administrationRoute)?
@@ -79,7 +79,7 @@ mixin _$MedicineFormEvent {
     required TResult Function(_Started value) started,
     required TResult Function(_Initialized value) intial,
     required TResult Function(_ComercialNameChanged value) comercialNameChanged,
-    required TResult Function(_GenericNameChanged value) genericName,
+    required TResult Function(_GenericNameChanged value) genericNameChanged,
     required TResult Function(_MeasureUnitChanged value) measureUnitChanged,
     required TResult Function(_AmountMeasureChanged value) amountMeasureChanged,
     required TResult Function(_AdministrationRouteChanged value)
@@ -99,7 +99,7 @@ mixin _$MedicineFormEvent {
     TResult? Function(_Started value)? started,
     TResult? Function(_Initialized value)? intial,
     TResult? Function(_ComercialNameChanged value)? comercialNameChanged,
-    TResult? Function(_GenericNameChanged value)? genericName,
+    TResult? Function(_GenericNameChanged value)? genericNameChanged,
     TResult? Function(_MeasureUnitChanged value)? measureUnitChanged,
     TResult? Function(_AmountMeasureChanged value)? amountMeasureChanged,
     TResult? Function(_AdministrationRouteChanged value)?
@@ -118,7 +118,7 @@ mixin _$MedicineFormEvent {
     TResult Function(_Started value)? started,
     TResult Function(_Initialized value)? intial,
     TResult Function(_ComercialNameChanged value)? comercialNameChanged,
-    TResult Function(_GenericNameChanged value)? genericName,
+    TResult Function(_GenericNameChanged value)? genericNameChanged,
     TResult Function(_MeasureUnitChanged value)? measureUnitChanged,
     TResult Function(_AmountMeasureChanged value)? amountMeasureChanged,
     TResult Function(_AdministrationRouteChanged value)?
@@ -199,7 +199,7 @@ class _$_Started with DiagnosticableTreeMixin implements _Started {
     required TResult Function() started,
     required TResult Function(Option<Medicine> intialMedicineOption) intial,
     required TResult Function(String comercialName) comercialNameChanged,
-    required TResult Function(String genericName) genericName,
+    required TResult Function(String genericName) genericNameChanged,
     required TResult Function(NameAbbreviation measureUnit) measureUnitChanged,
     required TResult Function(double amountMeasure) amountMeasureChanged,
     required TResult Function(NameAbbreviation administrationRoute)
@@ -221,7 +221,7 @@ class _$_Started with DiagnosticableTreeMixin implements _Started {
     TResult? Function()? started,
     TResult? Function(Option<Medicine> intialMedicineOption)? intial,
     TResult? Function(String comercialName)? comercialNameChanged,
-    TResult? Function(String genericName)? genericName,
+    TResult? Function(String genericName)? genericNameChanged,
     TResult? Function(NameAbbreviation measureUnit)? measureUnitChanged,
     TResult? Function(double amountMeasure)? amountMeasureChanged,
     TResult? Function(NameAbbreviation administrationRoute)?
@@ -243,7 +243,7 @@ class _$_Started with DiagnosticableTreeMixin implements _Started {
     TResult Function()? started,
     TResult Function(Option<Medicine> intialMedicineOption)? intial,
     TResult Function(String comercialName)? comercialNameChanged,
-    TResult Function(String genericName)? genericName,
+    TResult Function(String genericName)? genericNameChanged,
     TResult Function(NameAbbreviation measureUnit)? measureUnitChanged,
     TResult Function(double amountMeasure)? amountMeasureChanged,
     TResult Function(NameAbbreviation administrationRoute)?
@@ -269,7 +269,7 @@ class _$_Started with DiagnosticableTreeMixin implements _Started {
     required TResult Function(_Started value) started,
     required TResult Function(_Initialized value) intial,
     required TResult Function(_ComercialNameChanged value) comercialNameChanged,
-    required TResult Function(_GenericNameChanged value) genericName,
+    required TResult Function(_GenericNameChanged value) genericNameChanged,
     required TResult Function(_MeasureUnitChanged value) measureUnitChanged,
     required TResult Function(_AmountMeasureChanged value) amountMeasureChanged,
     required TResult Function(_AdministrationRouteChanged value)
@@ -292,7 +292,7 @@ class _$_Started with DiagnosticableTreeMixin implements _Started {
     TResult? Function(_Started value)? started,
     TResult? Function(_Initialized value)? intial,
     TResult? Function(_ComercialNameChanged value)? comercialNameChanged,
-    TResult? Function(_GenericNameChanged value)? genericName,
+    TResult? Function(_GenericNameChanged value)? genericNameChanged,
     TResult? Function(_MeasureUnitChanged value)? measureUnitChanged,
     TResult? Function(_AmountMeasureChanged value)? amountMeasureChanged,
     TResult? Function(_AdministrationRouteChanged value)?
@@ -314,7 +314,7 @@ class _$_Started with DiagnosticableTreeMixin implements _Started {
     TResult Function(_Started value)? started,
     TResult Function(_Initialized value)? intial,
     TResult Function(_ComercialNameChanged value)? comercialNameChanged,
-    TResult Function(_GenericNameChanged value)? genericName,
+    TResult Function(_GenericNameChanged value)? genericNameChanged,
     TResult Function(_MeasureUnitChanged value)? measureUnitChanged,
     TResult Function(_AmountMeasureChanged value)? amountMeasureChanged,
     TResult Function(_AdministrationRouteChanged value)?
@@ -415,7 +415,7 @@ class _$_Initialized with DiagnosticableTreeMixin implements _Initialized {
     required TResult Function() started,
     required TResult Function(Option<Medicine> intialMedicineOption) intial,
     required TResult Function(String comercialName) comercialNameChanged,
-    required TResult Function(String genericName) genericName,
+    required TResult Function(String genericName) genericNameChanged,
     required TResult Function(NameAbbreviation measureUnit) measureUnitChanged,
     required TResult Function(double amountMeasure) amountMeasureChanged,
     required TResult Function(NameAbbreviation administrationRoute)
@@ -437,7 +437,7 @@ class _$_Initialized with DiagnosticableTreeMixin implements _Initialized {
     TResult? Function()? started,
     TResult? Function(Option<Medicine> intialMedicineOption)? intial,
     TResult? Function(String comercialName)? comercialNameChanged,
-    TResult? Function(String genericName)? genericName,
+    TResult? Function(String genericName)? genericNameChanged,
     TResult? Function(NameAbbreviation measureUnit)? measureUnitChanged,
     TResult? Function(double amountMeasure)? amountMeasureChanged,
     TResult? Function(NameAbbreviation administrationRoute)?
@@ -459,7 +459,7 @@ class _$_Initialized with DiagnosticableTreeMixin implements _Initialized {
     TResult Function()? started,
     TResult Function(Option<Medicine> intialMedicineOption)? intial,
     TResult Function(String comercialName)? comercialNameChanged,
-    TResult Function(String genericName)? genericName,
+    TResult Function(String genericName)? genericNameChanged,
     TResult Function(NameAbbreviation measureUnit)? measureUnitChanged,
     TResult Function(double amountMeasure)? amountMeasureChanged,
     TResult Function(NameAbbreviation administrationRoute)?
@@ -485,7 +485,7 @@ class _$_Initialized with DiagnosticableTreeMixin implements _Initialized {
     required TResult Function(_Started value) started,
     required TResult Function(_Initialized value) intial,
     required TResult Function(_ComercialNameChanged value) comercialNameChanged,
-    required TResult Function(_GenericNameChanged value) genericName,
+    required TResult Function(_GenericNameChanged value) genericNameChanged,
     required TResult Function(_MeasureUnitChanged value) measureUnitChanged,
     required TResult Function(_AmountMeasureChanged value) amountMeasureChanged,
     required TResult Function(_AdministrationRouteChanged value)
@@ -508,7 +508,7 @@ class _$_Initialized with DiagnosticableTreeMixin implements _Initialized {
     TResult? Function(_Started value)? started,
     TResult? Function(_Initialized value)? intial,
     TResult? Function(_ComercialNameChanged value)? comercialNameChanged,
-    TResult? Function(_GenericNameChanged value)? genericName,
+    TResult? Function(_GenericNameChanged value)? genericNameChanged,
     TResult? Function(_MeasureUnitChanged value)? measureUnitChanged,
     TResult? Function(_AmountMeasureChanged value)? amountMeasureChanged,
     TResult? Function(_AdministrationRouteChanged value)?
@@ -530,7 +530,7 @@ class _$_Initialized with DiagnosticableTreeMixin implements _Initialized {
     TResult Function(_Started value)? started,
     TResult Function(_Initialized value)? intial,
     TResult Function(_ComercialNameChanged value)? comercialNameChanged,
-    TResult Function(_GenericNameChanged value)? genericName,
+    TResult Function(_GenericNameChanged value)? genericNameChanged,
     TResult Function(_MeasureUnitChanged value)? measureUnitChanged,
     TResult Function(_AmountMeasureChanged value)? amountMeasureChanged,
     TResult Function(_AdministrationRouteChanged value)?
@@ -641,7 +641,7 @@ class _$_ComercialNameChanged
     required TResult Function() started,
     required TResult Function(Option<Medicine> intialMedicineOption) intial,
     required TResult Function(String comercialName) comercialNameChanged,
-    required TResult Function(String genericName) genericName,
+    required TResult Function(String genericName) genericNameChanged,
     required TResult Function(NameAbbreviation measureUnit) measureUnitChanged,
     required TResult Function(double amountMeasure) amountMeasureChanged,
     required TResult Function(NameAbbreviation administrationRoute)
@@ -663,7 +663,7 @@ class _$_ComercialNameChanged
     TResult? Function()? started,
     TResult? Function(Option<Medicine> intialMedicineOption)? intial,
     TResult? Function(String comercialName)? comercialNameChanged,
-    TResult? Function(String genericName)? genericName,
+    TResult? Function(String genericName)? genericNameChanged,
     TResult? Function(NameAbbreviation measureUnit)? measureUnitChanged,
     TResult? Function(double amountMeasure)? amountMeasureChanged,
     TResult? Function(NameAbbreviation administrationRoute)?
@@ -685,7 +685,7 @@ class _$_ComercialNameChanged
     TResult Function()? started,
     TResult Function(Option<Medicine> intialMedicineOption)? intial,
     TResult Function(String comercialName)? comercialNameChanged,
-    TResult Function(String genericName)? genericName,
+    TResult Function(String genericName)? genericNameChanged,
     TResult Function(NameAbbreviation measureUnit)? measureUnitChanged,
     TResult Function(double amountMeasure)? amountMeasureChanged,
     TResult Function(NameAbbreviation administrationRoute)?
@@ -711,7 +711,7 @@ class _$_ComercialNameChanged
     required TResult Function(_Started value) started,
     required TResult Function(_Initialized value) intial,
     required TResult Function(_ComercialNameChanged value) comercialNameChanged,
-    required TResult Function(_GenericNameChanged value) genericName,
+    required TResult Function(_GenericNameChanged value) genericNameChanged,
     required TResult Function(_MeasureUnitChanged value) measureUnitChanged,
     required TResult Function(_AmountMeasureChanged value) amountMeasureChanged,
     required TResult Function(_AdministrationRouteChanged value)
@@ -734,7 +734,7 @@ class _$_ComercialNameChanged
     TResult? Function(_Started value)? started,
     TResult? Function(_Initialized value)? intial,
     TResult? Function(_ComercialNameChanged value)? comercialNameChanged,
-    TResult? Function(_GenericNameChanged value)? genericName,
+    TResult? Function(_GenericNameChanged value)? genericNameChanged,
     TResult? Function(_MeasureUnitChanged value)? measureUnitChanged,
     TResult? Function(_AmountMeasureChanged value)? amountMeasureChanged,
     TResult? Function(_AdministrationRouteChanged value)?
@@ -756,7 +756,7 @@ class _$_ComercialNameChanged
     TResult Function(_Started value)? started,
     TResult Function(_Initialized value)? intial,
     TResult Function(_ComercialNameChanged value)? comercialNameChanged,
-    TResult Function(_GenericNameChanged value)? genericName,
+    TResult Function(_GenericNameChanged value)? genericNameChanged,
     TResult Function(_MeasureUnitChanged value)? measureUnitChanged,
     TResult Function(_AmountMeasureChanged value)? amountMeasureChanged,
     TResult Function(_AdministrationRouteChanged value)?
@@ -830,14 +830,14 @@ class _$_GenericNameChanged
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'MedicineFormEvent.genericName(genericName: $genericName)';
+    return 'MedicineFormEvent.genericNameChanged(genericName: $genericName)';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty('type', 'MedicineFormEvent.genericName'))
+      ..add(DiagnosticsProperty('type', 'MedicineFormEvent.genericNameChanged'))
       ..add(DiagnosticsProperty('genericName', genericName));
   }
 
@@ -866,7 +866,7 @@ class _$_GenericNameChanged
     required TResult Function() started,
     required TResult Function(Option<Medicine> intialMedicineOption) intial,
     required TResult Function(String comercialName) comercialNameChanged,
-    required TResult Function(String genericName) genericName,
+    required TResult Function(String genericName) genericNameChanged,
     required TResult Function(NameAbbreviation measureUnit) measureUnitChanged,
     required TResult Function(double amountMeasure) amountMeasureChanged,
     required TResult Function(NameAbbreviation administrationRoute)
@@ -879,7 +879,7 @@ class _$_GenericNameChanged
     required TResult Function(bool controlled) controlledChanged,
     required TResult Function() saved,
   }) {
-    return genericName(this.genericName);
+    return genericNameChanged(genericName);
   }
 
   @override
@@ -888,7 +888,7 @@ class _$_GenericNameChanged
     TResult? Function()? started,
     TResult? Function(Option<Medicine> intialMedicineOption)? intial,
     TResult? Function(String comercialName)? comercialNameChanged,
-    TResult? Function(String genericName)? genericName,
+    TResult? Function(String genericName)? genericNameChanged,
     TResult? Function(NameAbbreviation measureUnit)? measureUnitChanged,
     TResult? Function(double amountMeasure)? amountMeasureChanged,
     TResult? Function(NameAbbreviation administrationRoute)?
@@ -901,7 +901,7 @@ class _$_GenericNameChanged
     TResult? Function(bool controlled)? controlledChanged,
     TResult? Function()? saved,
   }) {
-    return genericName?.call(this.genericName);
+    return genericNameChanged?.call(genericName);
   }
 
   @override
@@ -910,7 +910,7 @@ class _$_GenericNameChanged
     TResult Function()? started,
     TResult Function(Option<Medicine> intialMedicineOption)? intial,
     TResult Function(String comercialName)? comercialNameChanged,
-    TResult Function(String genericName)? genericName,
+    TResult Function(String genericName)? genericNameChanged,
     TResult Function(NameAbbreviation measureUnit)? measureUnitChanged,
     TResult Function(double amountMeasure)? amountMeasureChanged,
     TResult Function(NameAbbreviation administrationRoute)?
@@ -924,8 +924,8 @@ class _$_GenericNameChanged
     TResult Function()? saved,
     required TResult orElse(),
   }) {
-    if (genericName != null) {
-      return genericName(this.genericName);
+    if (genericNameChanged != null) {
+      return genericNameChanged(genericName);
     }
     return orElse();
   }
@@ -936,7 +936,7 @@ class _$_GenericNameChanged
     required TResult Function(_Started value) started,
     required TResult Function(_Initialized value) intial,
     required TResult Function(_ComercialNameChanged value) comercialNameChanged,
-    required TResult Function(_GenericNameChanged value) genericName,
+    required TResult Function(_GenericNameChanged value) genericNameChanged,
     required TResult Function(_MeasureUnitChanged value) measureUnitChanged,
     required TResult Function(_AmountMeasureChanged value) amountMeasureChanged,
     required TResult Function(_AdministrationRouteChanged value)
@@ -950,7 +950,7 @@ class _$_GenericNameChanged
     required TResult Function(_ControlledChanged value) controlledChanged,
     required TResult Function(_Saved value) saved,
   }) {
-    return genericName(this);
+    return genericNameChanged(this);
   }
 
   @override
@@ -959,7 +959,7 @@ class _$_GenericNameChanged
     TResult? Function(_Started value)? started,
     TResult? Function(_Initialized value)? intial,
     TResult? Function(_ComercialNameChanged value)? comercialNameChanged,
-    TResult? Function(_GenericNameChanged value)? genericName,
+    TResult? Function(_GenericNameChanged value)? genericNameChanged,
     TResult? Function(_MeasureUnitChanged value)? measureUnitChanged,
     TResult? Function(_AmountMeasureChanged value)? amountMeasureChanged,
     TResult? Function(_AdministrationRouteChanged value)?
@@ -972,7 +972,7 @@ class _$_GenericNameChanged
     TResult? Function(_ControlledChanged value)? controlledChanged,
     TResult? Function(_Saved value)? saved,
   }) {
-    return genericName?.call(this);
+    return genericNameChanged?.call(this);
   }
 
   @override
@@ -981,7 +981,7 @@ class _$_GenericNameChanged
     TResult Function(_Started value)? started,
     TResult Function(_Initialized value)? intial,
     TResult Function(_ComercialNameChanged value)? comercialNameChanged,
-    TResult Function(_GenericNameChanged value)? genericName,
+    TResult Function(_GenericNameChanged value)? genericNameChanged,
     TResult Function(_MeasureUnitChanged value)? measureUnitChanged,
     TResult Function(_AmountMeasureChanged value)? amountMeasureChanged,
     TResult Function(_AdministrationRouteChanged value)?
@@ -995,8 +995,8 @@ class _$_GenericNameChanged
     TResult Function(_Saved value)? saved,
     required TResult orElse(),
   }) {
-    if (genericName != null) {
-      return genericName(this);
+    if (genericNameChanged != null) {
+      return genericNameChanged(this);
     }
     return orElse();
   }
@@ -1101,7 +1101,7 @@ class _$_MeasureUnitChanged
     required TResult Function() started,
     required TResult Function(Option<Medicine> intialMedicineOption) intial,
     required TResult Function(String comercialName) comercialNameChanged,
-    required TResult Function(String genericName) genericName,
+    required TResult Function(String genericName) genericNameChanged,
     required TResult Function(NameAbbreviation measureUnit) measureUnitChanged,
     required TResult Function(double amountMeasure) amountMeasureChanged,
     required TResult Function(NameAbbreviation administrationRoute)
@@ -1123,7 +1123,7 @@ class _$_MeasureUnitChanged
     TResult? Function()? started,
     TResult? Function(Option<Medicine> intialMedicineOption)? intial,
     TResult? Function(String comercialName)? comercialNameChanged,
-    TResult? Function(String genericName)? genericName,
+    TResult? Function(String genericName)? genericNameChanged,
     TResult? Function(NameAbbreviation measureUnit)? measureUnitChanged,
     TResult? Function(double amountMeasure)? amountMeasureChanged,
     TResult? Function(NameAbbreviation administrationRoute)?
@@ -1145,7 +1145,7 @@ class _$_MeasureUnitChanged
     TResult Function()? started,
     TResult Function(Option<Medicine> intialMedicineOption)? intial,
     TResult Function(String comercialName)? comercialNameChanged,
-    TResult Function(String genericName)? genericName,
+    TResult Function(String genericName)? genericNameChanged,
     TResult Function(NameAbbreviation measureUnit)? measureUnitChanged,
     TResult Function(double amountMeasure)? amountMeasureChanged,
     TResult Function(NameAbbreviation administrationRoute)?
@@ -1171,7 +1171,7 @@ class _$_MeasureUnitChanged
     required TResult Function(_Started value) started,
     required TResult Function(_Initialized value) intial,
     required TResult Function(_ComercialNameChanged value) comercialNameChanged,
-    required TResult Function(_GenericNameChanged value) genericName,
+    required TResult Function(_GenericNameChanged value) genericNameChanged,
     required TResult Function(_MeasureUnitChanged value) measureUnitChanged,
     required TResult Function(_AmountMeasureChanged value) amountMeasureChanged,
     required TResult Function(_AdministrationRouteChanged value)
@@ -1194,7 +1194,7 @@ class _$_MeasureUnitChanged
     TResult? Function(_Started value)? started,
     TResult? Function(_Initialized value)? intial,
     TResult? Function(_ComercialNameChanged value)? comercialNameChanged,
-    TResult? Function(_GenericNameChanged value)? genericName,
+    TResult? Function(_GenericNameChanged value)? genericNameChanged,
     TResult? Function(_MeasureUnitChanged value)? measureUnitChanged,
     TResult? Function(_AmountMeasureChanged value)? amountMeasureChanged,
     TResult? Function(_AdministrationRouteChanged value)?
@@ -1216,7 +1216,7 @@ class _$_MeasureUnitChanged
     TResult Function(_Started value)? started,
     TResult Function(_Initialized value)? intial,
     TResult Function(_ComercialNameChanged value)? comercialNameChanged,
-    TResult Function(_GenericNameChanged value)? genericName,
+    TResult Function(_GenericNameChanged value)? genericNameChanged,
     TResult Function(_MeasureUnitChanged value)? measureUnitChanged,
     TResult Function(_AmountMeasureChanged value)? amountMeasureChanged,
     TResult Function(_AdministrationRouteChanged value)?
@@ -1327,7 +1327,7 @@ class _$_AmountMeasureChanged
     required TResult Function() started,
     required TResult Function(Option<Medicine> intialMedicineOption) intial,
     required TResult Function(String comercialName) comercialNameChanged,
-    required TResult Function(String genericName) genericName,
+    required TResult Function(String genericName) genericNameChanged,
     required TResult Function(NameAbbreviation measureUnit) measureUnitChanged,
     required TResult Function(double amountMeasure) amountMeasureChanged,
     required TResult Function(NameAbbreviation administrationRoute)
@@ -1349,7 +1349,7 @@ class _$_AmountMeasureChanged
     TResult? Function()? started,
     TResult? Function(Option<Medicine> intialMedicineOption)? intial,
     TResult? Function(String comercialName)? comercialNameChanged,
-    TResult? Function(String genericName)? genericName,
+    TResult? Function(String genericName)? genericNameChanged,
     TResult? Function(NameAbbreviation measureUnit)? measureUnitChanged,
     TResult? Function(double amountMeasure)? amountMeasureChanged,
     TResult? Function(NameAbbreviation administrationRoute)?
@@ -1371,7 +1371,7 @@ class _$_AmountMeasureChanged
     TResult Function()? started,
     TResult Function(Option<Medicine> intialMedicineOption)? intial,
     TResult Function(String comercialName)? comercialNameChanged,
-    TResult Function(String genericName)? genericName,
+    TResult Function(String genericName)? genericNameChanged,
     TResult Function(NameAbbreviation measureUnit)? measureUnitChanged,
     TResult Function(double amountMeasure)? amountMeasureChanged,
     TResult Function(NameAbbreviation administrationRoute)?
@@ -1397,7 +1397,7 @@ class _$_AmountMeasureChanged
     required TResult Function(_Started value) started,
     required TResult Function(_Initialized value) intial,
     required TResult Function(_ComercialNameChanged value) comercialNameChanged,
-    required TResult Function(_GenericNameChanged value) genericName,
+    required TResult Function(_GenericNameChanged value) genericNameChanged,
     required TResult Function(_MeasureUnitChanged value) measureUnitChanged,
     required TResult Function(_AmountMeasureChanged value) amountMeasureChanged,
     required TResult Function(_AdministrationRouteChanged value)
@@ -1420,7 +1420,7 @@ class _$_AmountMeasureChanged
     TResult? Function(_Started value)? started,
     TResult? Function(_Initialized value)? intial,
     TResult? Function(_ComercialNameChanged value)? comercialNameChanged,
-    TResult? Function(_GenericNameChanged value)? genericName,
+    TResult? Function(_GenericNameChanged value)? genericNameChanged,
     TResult? Function(_MeasureUnitChanged value)? measureUnitChanged,
     TResult? Function(_AmountMeasureChanged value)? amountMeasureChanged,
     TResult? Function(_AdministrationRouteChanged value)?
@@ -1442,7 +1442,7 @@ class _$_AmountMeasureChanged
     TResult Function(_Started value)? started,
     TResult Function(_Initialized value)? intial,
     TResult Function(_ComercialNameChanged value)? comercialNameChanged,
-    TResult Function(_GenericNameChanged value)? genericName,
+    TResult Function(_GenericNameChanged value)? genericNameChanged,
     TResult Function(_MeasureUnitChanged value)? measureUnitChanged,
     TResult Function(_AmountMeasureChanged value)? amountMeasureChanged,
     TResult Function(_AdministrationRouteChanged value)?
@@ -1565,7 +1565,7 @@ class _$_AdministrationRouteChanged
     required TResult Function() started,
     required TResult Function(Option<Medicine> intialMedicineOption) intial,
     required TResult Function(String comercialName) comercialNameChanged,
-    required TResult Function(String genericName) genericName,
+    required TResult Function(String genericName) genericNameChanged,
     required TResult Function(NameAbbreviation measureUnit) measureUnitChanged,
     required TResult Function(double amountMeasure) amountMeasureChanged,
     required TResult Function(NameAbbreviation administrationRoute)
@@ -1587,7 +1587,7 @@ class _$_AdministrationRouteChanged
     TResult? Function()? started,
     TResult? Function(Option<Medicine> intialMedicineOption)? intial,
     TResult? Function(String comercialName)? comercialNameChanged,
-    TResult? Function(String genericName)? genericName,
+    TResult? Function(String genericName)? genericNameChanged,
     TResult? Function(NameAbbreviation measureUnit)? measureUnitChanged,
     TResult? Function(double amountMeasure)? amountMeasureChanged,
     TResult? Function(NameAbbreviation administrationRoute)?
@@ -1609,7 +1609,7 @@ class _$_AdministrationRouteChanged
     TResult Function()? started,
     TResult Function(Option<Medicine> intialMedicineOption)? intial,
     TResult Function(String comercialName)? comercialNameChanged,
-    TResult Function(String genericName)? genericName,
+    TResult Function(String genericName)? genericNameChanged,
     TResult Function(NameAbbreviation measureUnit)? measureUnitChanged,
     TResult Function(double amountMeasure)? amountMeasureChanged,
     TResult Function(NameAbbreviation administrationRoute)?
@@ -1635,7 +1635,7 @@ class _$_AdministrationRouteChanged
     required TResult Function(_Started value) started,
     required TResult Function(_Initialized value) intial,
     required TResult Function(_ComercialNameChanged value) comercialNameChanged,
-    required TResult Function(_GenericNameChanged value) genericName,
+    required TResult Function(_GenericNameChanged value) genericNameChanged,
     required TResult Function(_MeasureUnitChanged value) measureUnitChanged,
     required TResult Function(_AmountMeasureChanged value) amountMeasureChanged,
     required TResult Function(_AdministrationRouteChanged value)
@@ -1658,7 +1658,7 @@ class _$_AdministrationRouteChanged
     TResult? Function(_Started value)? started,
     TResult? Function(_Initialized value)? intial,
     TResult? Function(_ComercialNameChanged value)? comercialNameChanged,
-    TResult? Function(_GenericNameChanged value)? genericName,
+    TResult? Function(_GenericNameChanged value)? genericNameChanged,
     TResult? Function(_MeasureUnitChanged value)? measureUnitChanged,
     TResult? Function(_AmountMeasureChanged value)? amountMeasureChanged,
     TResult? Function(_AdministrationRouteChanged value)?
@@ -1680,7 +1680,7 @@ class _$_AdministrationRouteChanged
     TResult Function(_Started value)? started,
     TResult Function(_Initialized value)? intial,
     TResult Function(_ComercialNameChanged value)? comercialNameChanged,
-    TResult Function(_GenericNameChanged value)? genericName,
+    TResult Function(_GenericNameChanged value)? genericNameChanged,
     TResult Function(_MeasureUnitChanged value)? measureUnitChanged,
     TResult Function(_AmountMeasureChanged value)? amountMeasureChanged,
     TResult Function(_AdministrationRouteChanged value)?
@@ -1804,7 +1804,7 @@ class _$_PharmaceuticalFormChanged
     required TResult Function() started,
     required TResult Function(Option<Medicine> intialMedicineOption) intial,
     required TResult Function(String comercialName) comercialNameChanged,
-    required TResult Function(String genericName) genericName,
+    required TResult Function(String genericName) genericNameChanged,
     required TResult Function(NameAbbreviation measureUnit) measureUnitChanged,
     required TResult Function(double amountMeasure) amountMeasureChanged,
     required TResult Function(NameAbbreviation administrationRoute)
@@ -1826,7 +1826,7 @@ class _$_PharmaceuticalFormChanged
     TResult? Function()? started,
     TResult? Function(Option<Medicine> intialMedicineOption)? intial,
     TResult? Function(String comercialName)? comercialNameChanged,
-    TResult? Function(String genericName)? genericName,
+    TResult? Function(String genericName)? genericNameChanged,
     TResult? Function(NameAbbreviation measureUnit)? measureUnitChanged,
     TResult? Function(double amountMeasure)? amountMeasureChanged,
     TResult? Function(NameAbbreviation administrationRoute)?
@@ -1848,7 +1848,7 @@ class _$_PharmaceuticalFormChanged
     TResult Function()? started,
     TResult Function(Option<Medicine> intialMedicineOption)? intial,
     TResult Function(String comercialName)? comercialNameChanged,
-    TResult Function(String genericName)? genericName,
+    TResult Function(String genericName)? genericNameChanged,
     TResult Function(NameAbbreviation measureUnit)? measureUnitChanged,
     TResult Function(double amountMeasure)? amountMeasureChanged,
     TResult Function(NameAbbreviation administrationRoute)?
@@ -1874,7 +1874,7 @@ class _$_PharmaceuticalFormChanged
     required TResult Function(_Started value) started,
     required TResult Function(_Initialized value) intial,
     required TResult Function(_ComercialNameChanged value) comercialNameChanged,
-    required TResult Function(_GenericNameChanged value) genericName,
+    required TResult Function(_GenericNameChanged value) genericNameChanged,
     required TResult Function(_MeasureUnitChanged value) measureUnitChanged,
     required TResult Function(_AmountMeasureChanged value) amountMeasureChanged,
     required TResult Function(_AdministrationRouteChanged value)
@@ -1897,7 +1897,7 @@ class _$_PharmaceuticalFormChanged
     TResult? Function(_Started value)? started,
     TResult? Function(_Initialized value)? intial,
     TResult? Function(_ComercialNameChanged value)? comercialNameChanged,
-    TResult? Function(_GenericNameChanged value)? genericName,
+    TResult? Function(_GenericNameChanged value)? genericNameChanged,
     TResult? Function(_MeasureUnitChanged value)? measureUnitChanged,
     TResult? Function(_AmountMeasureChanged value)? amountMeasureChanged,
     TResult? Function(_AdministrationRouteChanged value)?
@@ -1919,7 +1919,7 @@ class _$_PharmaceuticalFormChanged
     TResult Function(_Started value)? started,
     TResult Function(_Initialized value)? intial,
     TResult Function(_ComercialNameChanged value)? comercialNameChanged,
-    TResult Function(_GenericNameChanged value)? genericName,
+    TResult Function(_GenericNameChanged value)? genericNameChanged,
     TResult Function(_MeasureUnitChanged value)? measureUnitChanged,
     TResult Function(_AmountMeasureChanged value)? amountMeasureChanged,
     TResult Function(_AdministrationRouteChanged value)?
@@ -2031,7 +2031,7 @@ class _$_AmountPerPackageChanged
     required TResult Function() started,
     required TResult Function(Option<Medicine> intialMedicineOption) intial,
     required TResult Function(String comercialName) comercialNameChanged,
-    required TResult Function(String genericName) genericName,
+    required TResult Function(String genericName) genericNameChanged,
     required TResult Function(NameAbbreviation measureUnit) measureUnitChanged,
     required TResult Function(double amountMeasure) amountMeasureChanged,
     required TResult Function(NameAbbreviation administrationRoute)
@@ -2053,7 +2053,7 @@ class _$_AmountPerPackageChanged
     TResult? Function()? started,
     TResult? Function(Option<Medicine> intialMedicineOption)? intial,
     TResult? Function(String comercialName)? comercialNameChanged,
-    TResult? Function(String genericName)? genericName,
+    TResult? Function(String genericName)? genericNameChanged,
     TResult? Function(NameAbbreviation measureUnit)? measureUnitChanged,
     TResult? Function(double amountMeasure)? amountMeasureChanged,
     TResult? Function(NameAbbreviation administrationRoute)?
@@ -2075,7 +2075,7 @@ class _$_AmountPerPackageChanged
     TResult Function()? started,
     TResult Function(Option<Medicine> intialMedicineOption)? intial,
     TResult Function(String comercialName)? comercialNameChanged,
-    TResult Function(String genericName)? genericName,
+    TResult Function(String genericName)? genericNameChanged,
     TResult Function(NameAbbreviation measureUnit)? measureUnitChanged,
     TResult Function(double amountMeasure)? amountMeasureChanged,
     TResult Function(NameAbbreviation administrationRoute)?
@@ -2101,7 +2101,7 @@ class _$_AmountPerPackageChanged
     required TResult Function(_Started value) started,
     required TResult Function(_Initialized value) intial,
     required TResult Function(_ComercialNameChanged value) comercialNameChanged,
-    required TResult Function(_GenericNameChanged value) genericName,
+    required TResult Function(_GenericNameChanged value) genericNameChanged,
     required TResult Function(_MeasureUnitChanged value) measureUnitChanged,
     required TResult Function(_AmountMeasureChanged value) amountMeasureChanged,
     required TResult Function(_AdministrationRouteChanged value)
@@ -2124,7 +2124,7 @@ class _$_AmountPerPackageChanged
     TResult? Function(_Started value)? started,
     TResult? Function(_Initialized value)? intial,
     TResult? Function(_ComercialNameChanged value)? comercialNameChanged,
-    TResult? Function(_GenericNameChanged value)? genericName,
+    TResult? Function(_GenericNameChanged value)? genericNameChanged,
     TResult? Function(_MeasureUnitChanged value)? measureUnitChanged,
     TResult? Function(_AmountMeasureChanged value)? amountMeasureChanged,
     TResult? Function(_AdministrationRouteChanged value)?
@@ -2146,7 +2146,7 @@ class _$_AmountPerPackageChanged
     TResult Function(_Started value)? started,
     TResult Function(_Initialized value)? intial,
     TResult Function(_ComercialNameChanged value)? comercialNameChanged,
-    TResult Function(_GenericNameChanged value)? genericName,
+    TResult Function(_GenericNameChanged value)? genericNameChanged,
     TResult Function(_MeasureUnitChanged value)? measureUnitChanged,
     TResult Function(_AmountMeasureChanged value)? amountMeasureChanged,
     TResult Function(_AdministrationRouteChanged value)?
@@ -2265,7 +2265,7 @@ class _$_CategoryChanged
     required TResult Function() started,
     required TResult Function(Option<Medicine> intialMedicineOption) intial,
     required TResult Function(String comercialName) comercialNameChanged,
-    required TResult Function(String genericName) genericName,
+    required TResult Function(String genericName) genericNameChanged,
     required TResult Function(NameAbbreviation measureUnit) measureUnitChanged,
     required TResult Function(double amountMeasure) amountMeasureChanged,
     required TResult Function(NameAbbreviation administrationRoute)
@@ -2287,7 +2287,7 @@ class _$_CategoryChanged
     TResult? Function()? started,
     TResult? Function(Option<Medicine> intialMedicineOption)? intial,
     TResult? Function(String comercialName)? comercialNameChanged,
-    TResult? Function(String genericName)? genericName,
+    TResult? Function(String genericName)? genericNameChanged,
     TResult? Function(NameAbbreviation measureUnit)? measureUnitChanged,
     TResult? Function(double amountMeasure)? amountMeasureChanged,
     TResult? Function(NameAbbreviation administrationRoute)?
@@ -2309,7 +2309,7 @@ class _$_CategoryChanged
     TResult Function()? started,
     TResult Function(Option<Medicine> intialMedicineOption)? intial,
     TResult Function(String comercialName)? comercialNameChanged,
-    TResult Function(String genericName)? genericName,
+    TResult Function(String genericName)? genericNameChanged,
     TResult Function(NameAbbreviation measureUnit)? measureUnitChanged,
     TResult Function(double amountMeasure)? amountMeasureChanged,
     TResult Function(NameAbbreviation administrationRoute)?
@@ -2335,7 +2335,7 @@ class _$_CategoryChanged
     required TResult Function(_Started value) started,
     required TResult Function(_Initialized value) intial,
     required TResult Function(_ComercialNameChanged value) comercialNameChanged,
-    required TResult Function(_GenericNameChanged value) genericName,
+    required TResult Function(_GenericNameChanged value) genericNameChanged,
     required TResult Function(_MeasureUnitChanged value) measureUnitChanged,
     required TResult Function(_AmountMeasureChanged value) amountMeasureChanged,
     required TResult Function(_AdministrationRouteChanged value)
@@ -2358,7 +2358,7 @@ class _$_CategoryChanged
     TResult? Function(_Started value)? started,
     TResult? Function(_Initialized value)? intial,
     TResult? Function(_ComercialNameChanged value)? comercialNameChanged,
-    TResult? Function(_GenericNameChanged value)? genericName,
+    TResult? Function(_GenericNameChanged value)? genericNameChanged,
     TResult? Function(_MeasureUnitChanged value)? measureUnitChanged,
     TResult? Function(_AmountMeasureChanged value)? amountMeasureChanged,
     TResult? Function(_AdministrationRouteChanged value)?
@@ -2380,7 +2380,7 @@ class _$_CategoryChanged
     TResult Function(_Started value)? started,
     TResult Function(_Initialized value)? intial,
     TResult Function(_ComercialNameChanged value)? comercialNameChanged,
-    TResult Function(_GenericNameChanged value)? genericName,
+    TResult Function(_GenericNameChanged value)? genericNameChanged,
     TResult Function(_MeasureUnitChanged value)? measureUnitChanged,
     TResult Function(_AmountMeasureChanged value)? amountMeasureChanged,
     TResult Function(_AdministrationRouteChanged value)?
@@ -2488,7 +2488,7 @@ class _$_ImageUrlChanged
     required TResult Function() started,
     required TResult Function(Option<Medicine> intialMedicineOption) intial,
     required TResult Function(String comercialName) comercialNameChanged,
-    required TResult Function(String genericName) genericName,
+    required TResult Function(String genericName) genericNameChanged,
     required TResult Function(NameAbbreviation measureUnit) measureUnitChanged,
     required TResult Function(double amountMeasure) amountMeasureChanged,
     required TResult Function(NameAbbreviation administrationRoute)
@@ -2510,7 +2510,7 @@ class _$_ImageUrlChanged
     TResult? Function()? started,
     TResult? Function(Option<Medicine> intialMedicineOption)? intial,
     TResult? Function(String comercialName)? comercialNameChanged,
-    TResult? Function(String genericName)? genericName,
+    TResult? Function(String genericName)? genericNameChanged,
     TResult? Function(NameAbbreviation measureUnit)? measureUnitChanged,
     TResult? Function(double amountMeasure)? amountMeasureChanged,
     TResult? Function(NameAbbreviation administrationRoute)?
@@ -2532,7 +2532,7 @@ class _$_ImageUrlChanged
     TResult Function()? started,
     TResult Function(Option<Medicine> intialMedicineOption)? intial,
     TResult Function(String comercialName)? comercialNameChanged,
-    TResult Function(String genericName)? genericName,
+    TResult Function(String genericName)? genericNameChanged,
     TResult Function(NameAbbreviation measureUnit)? measureUnitChanged,
     TResult Function(double amountMeasure)? amountMeasureChanged,
     TResult Function(NameAbbreviation administrationRoute)?
@@ -2558,7 +2558,7 @@ class _$_ImageUrlChanged
     required TResult Function(_Started value) started,
     required TResult Function(_Initialized value) intial,
     required TResult Function(_ComercialNameChanged value) comercialNameChanged,
-    required TResult Function(_GenericNameChanged value) genericName,
+    required TResult Function(_GenericNameChanged value) genericNameChanged,
     required TResult Function(_MeasureUnitChanged value) measureUnitChanged,
     required TResult Function(_AmountMeasureChanged value) amountMeasureChanged,
     required TResult Function(_AdministrationRouteChanged value)
@@ -2581,7 +2581,7 @@ class _$_ImageUrlChanged
     TResult? Function(_Started value)? started,
     TResult? Function(_Initialized value)? intial,
     TResult? Function(_ComercialNameChanged value)? comercialNameChanged,
-    TResult? Function(_GenericNameChanged value)? genericName,
+    TResult? Function(_GenericNameChanged value)? genericNameChanged,
     TResult? Function(_MeasureUnitChanged value)? measureUnitChanged,
     TResult? Function(_AmountMeasureChanged value)? amountMeasureChanged,
     TResult? Function(_AdministrationRouteChanged value)?
@@ -2603,7 +2603,7 @@ class _$_ImageUrlChanged
     TResult Function(_Started value)? started,
     TResult Function(_Initialized value)? intial,
     TResult Function(_ComercialNameChanged value)? comercialNameChanged,
-    TResult Function(_GenericNameChanged value)? genericName,
+    TResult Function(_GenericNameChanged value)? genericNameChanged,
     TResult Function(_MeasureUnitChanged value)? measureUnitChanged,
     TResult Function(_AmountMeasureChanged value)? amountMeasureChanged,
     TResult Function(_AdministrationRouteChanged value)?
@@ -2712,7 +2712,7 @@ class _$_ControlledChanged
     required TResult Function() started,
     required TResult Function(Option<Medicine> intialMedicineOption) intial,
     required TResult Function(String comercialName) comercialNameChanged,
-    required TResult Function(String genericName) genericName,
+    required TResult Function(String genericName) genericNameChanged,
     required TResult Function(NameAbbreviation measureUnit) measureUnitChanged,
     required TResult Function(double amountMeasure) amountMeasureChanged,
     required TResult Function(NameAbbreviation administrationRoute)
@@ -2734,7 +2734,7 @@ class _$_ControlledChanged
     TResult? Function()? started,
     TResult? Function(Option<Medicine> intialMedicineOption)? intial,
     TResult? Function(String comercialName)? comercialNameChanged,
-    TResult? Function(String genericName)? genericName,
+    TResult? Function(String genericName)? genericNameChanged,
     TResult? Function(NameAbbreviation measureUnit)? measureUnitChanged,
     TResult? Function(double amountMeasure)? amountMeasureChanged,
     TResult? Function(NameAbbreviation administrationRoute)?
@@ -2756,7 +2756,7 @@ class _$_ControlledChanged
     TResult Function()? started,
     TResult Function(Option<Medicine> intialMedicineOption)? intial,
     TResult Function(String comercialName)? comercialNameChanged,
-    TResult Function(String genericName)? genericName,
+    TResult Function(String genericName)? genericNameChanged,
     TResult Function(NameAbbreviation measureUnit)? measureUnitChanged,
     TResult Function(double amountMeasure)? amountMeasureChanged,
     TResult Function(NameAbbreviation administrationRoute)?
@@ -2782,7 +2782,7 @@ class _$_ControlledChanged
     required TResult Function(_Started value) started,
     required TResult Function(_Initialized value) intial,
     required TResult Function(_ComercialNameChanged value) comercialNameChanged,
-    required TResult Function(_GenericNameChanged value) genericName,
+    required TResult Function(_GenericNameChanged value) genericNameChanged,
     required TResult Function(_MeasureUnitChanged value) measureUnitChanged,
     required TResult Function(_AmountMeasureChanged value) amountMeasureChanged,
     required TResult Function(_AdministrationRouteChanged value)
@@ -2805,7 +2805,7 @@ class _$_ControlledChanged
     TResult? Function(_Started value)? started,
     TResult? Function(_Initialized value)? intial,
     TResult? Function(_ComercialNameChanged value)? comercialNameChanged,
-    TResult? Function(_GenericNameChanged value)? genericName,
+    TResult? Function(_GenericNameChanged value)? genericNameChanged,
     TResult? Function(_MeasureUnitChanged value)? measureUnitChanged,
     TResult? Function(_AmountMeasureChanged value)? amountMeasureChanged,
     TResult? Function(_AdministrationRouteChanged value)?
@@ -2827,7 +2827,7 @@ class _$_ControlledChanged
     TResult Function(_Started value)? started,
     TResult Function(_Initialized value)? intial,
     TResult Function(_ComercialNameChanged value)? comercialNameChanged,
-    TResult Function(_GenericNameChanged value)? genericName,
+    TResult Function(_GenericNameChanged value)? genericNameChanged,
     TResult Function(_MeasureUnitChanged value)? measureUnitChanged,
     TResult Function(_AmountMeasureChanged value)? amountMeasureChanged,
     TResult Function(_AdministrationRouteChanged value)?
@@ -2903,7 +2903,7 @@ class _$_Saved with DiagnosticableTreeMixin implements _Saved {
     required TResult Function() started,
     required TResult Function(Option<Medicine> intialMedicineOption) intial,
     required TResult Function(String comercialName) comercialNameChanged,
-    required TResult Function(String genericName) genericName,
+    required TResult Function(String genericName) genericNameChanged,
     required TResult Function(NameAbbreviation measureUnit) measureUnitChanged,
     required TResult Function(double amountMeasure) amountMeasureChanged,
     required TResult Function(NameAbbreviation administrationRoute)
@@ -2925,7 +2925,7 @@ class _$_Saved with DiagnosticableTreeMixin implements _Saved {
     TResult? Function()? started,
     TResult? Function(Option<Medicine> intialMedicineOption)? intial,
     TResult? Function(String comercialName)? comercialNameChanged,
-    TResult? Function(String genericName)? genericName,
+    TResult? Function(String genericName)? genericNameChanged,
     TResult? Function(NameAbbreviation measureUnit)? measureUnitChanged,
     TResult? Function(double amountMeasure)? amountMeasureChanged,
     TResult? Function(NameAbbreviation administrationRoute)?
@@ -2947,7 +2947,7 @@ class _$_Saved with DiagnosticableTreeMixin implements _Saved {
     TResult Function()? started,
     TResult Function(Option<Medicine> intialMedicineOption)? intial,
     TResult Function(String comercialName)? comercialNameChanged,
-    TResult Function(String genericName)? genericName,
+    TResult Function(String genericName)? genericNameChanged,
     TResult Function(NameAbbreviation measureUnit)? measureUnitChanged,
     TResult Function(double amountMeasure)? amountMeasureChanged,
     TResult Function(NameAbbreviation administrationRoute)?
@@ -2973,7 +2973,7 @@ class _$_Saved with DiagnosticableTreeMixin implements _Saved {
     required TResult Function(_Started value) started,
     required TResult Function(_Initialized value) intial,
     required TResult Function(_ComercialNameChanged value) comercialNameChanged,
-    required TResult Function(_GenericNameChanged value) genericName,
+    required TResult Function(_GenericNameChanged value) genericNameChanged,
     required TResult Function(_MeasureUnitChanged value) measureUnitChanged,
     required TResult Function(_AmountMeasureChanged value) amountMeasureChanged,
     required TResult Function(_AdministrationRouteChanged value)
@@ -2996,7 +2996,7 @@ class _$_Saved with DiagnosticableTreeMixin implements _Saved {
     TResult? Function(_Started value)? started,
     TResult? Function(_Initialized value)? intial,
     TResult? Function(_ComercialNameChanged value)? comercialNameChanged,
-    TResult? Function(_GenericNameChanged value)? genericName,
+    TResult? Function(_GenericNameChanged value)? genericNameChanged,
     TResult? Function(_MeasureUnitChanged value)? measureUnitChanged,
     TResult? Function(_AmountMeasureChanged value)? amountMeasureChanged,
     TResult? Function(_AdministrationRouteChanged value)?
@@ -3018,7 +3018,7 @@ class _$_Saved with DiagnosticableTreeMixin implements _Saved {
     TResult Function(_Started value)? started,
     TResult Function(_Initialized value)? intial,
     TResult Function(_ComercialNameChanged value)? comercialNameChanged,
-    TResult Function(_GenericNameChanged value)? genericName,
+    TResult Function(_GenericNameChanged value)? genericNameChanged,
     TResult Function(_MeasureUnitChanged value)? measureUnitChanged,
     TResult Function(_AmountMeasureChanged value)? amountMeasureChanged,
     TResult Function(_AdministrationRouteChanged value)?

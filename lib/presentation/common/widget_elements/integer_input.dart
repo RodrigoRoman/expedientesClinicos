@@ -46,13 +46,19 @@ class _IntegerInputBoxState extends State<IntegerInputBox> {
   }
 }
 
-class IntInputBody extends StatelessWidget {
+class IntInputBody extends StatefulWidget {
   const IntInputBody({
     Key? key,
     required this.textController,
   }) : super(key: key);
-
   final TextEditingController textController;
+
+  @override
+  State<IntInputBody> createState() => _IntInputBodyState();
+}
+
+class _IntInputBodyState extends State<IntInputBody> {
+  int inputLength = 1;
 
   @override
   Widget build(BuildContext context) {
@@ -77,6 +83,11 @@ class IntInputBody extends StatelessWidget {
                   context
                       .read<IntCounterBloc>()
                       .add(const IntCounterEvent.amountDecreased());
+                  setState(() {
+                    inputLength = (int.parse(widget.textController.text) - 1)
+                        .toString()
+                        .length;
+                  });
                 },
               );
             },
@@ -85,7 +96,7 @@ class IntInputBody extends StatelessWidget {
         Expanded(
           flex: 2,
           child: TextField(
-            controller: textController,
+            controller: widget.textController,
             keyboardType: TextInputType.number,
             inputFormatters: <TextInputFormatter>[
               FilteringTextInputFormatter.digitsOnly
@@ -94,11 +105,18 @@ class IntInputBody extends StatelessWidget {
             decoration: const InputDecoration(
               border: OutlineInputBorder(),
             ),
-
+            style: Theme.of(context)
+                .textTheme
+                .bodyMedium!
+                .copyWith(fontSize: 40 / ((inputLength + 1) * 0.7)),
             onChanged: (value) {
               int newValue = 0;
               if (value.isNotEmpty) {
                 newValue = int.parse(value);
+                setState(() {
+                  inputLength =
+                      (int.parse(widget.textController.text)).toString().length;
+                });
               }
               context
                   .read<IntCounterBloc>()
@@ -125,6 +143,11 @@ class IntInputBody extends StatelessWidget {
                   context
                       .read<IntCounterBloc>()
                       .add(const IntCounterEvent.amountIncreased());
+                  setState(() {
+                    inputLength = (int.parse(widget.textController.text) + 1)
+                        .toString()
+                        .length;
+                  });
                 },
               );
             },

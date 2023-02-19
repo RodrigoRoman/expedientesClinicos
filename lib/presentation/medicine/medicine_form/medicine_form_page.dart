@@ -11,15 +11,12 @@ import 'package:expedientes_clinicos/domain/core/categories/category.dart';
 import 'package:expedientes_clinicos/domain/core/name_abbreviation/name_abbr.dart';
 import 'package:expedientes_clinicos/injection.dart';
 import 'package:expedientes_clinicos/presentation/administration_route/drop_down_search_administration_route.dart';
-import 'package:expedientes_clinicos/presentation/administration_route/pop_up_administration_route_form.dart';
 import 'package:expedientes_clinicos/presentation/category/widgets/drop_down_search_categories.dart';
 import 'package:expedientes_clinicos/presentation/category/widgets/pop_up_category_form.dart';
-import 'package:expedientes_clinicos/presentation/common/widget_elements/description.dart';
 import 'package:expedientes_clinicos/presentation/common/widget_elements/double_input.dart';
 import 'package:expedientes_clinicos/presentation/common/widget_elements/image_container.dart';
 import 'package:expedientes_clinicos/presentation/common/widget_elements/integer_input.dart';
 import 'package:expedientes_clinicos/presentation/measure_unit/drop_down_search_measure_unit.dart';
-import 'package:expedientes_clinicos/presentation/measure_unit/pop_up_measure_unit_form.dart';
 import 'package:expedientes_clinicos/presentation/pharmaceutical_form/drop_down_pharmaceutical_form.dart';
 import 'package:expedientes_clinicos/presentation/resources/asset_names.dart';
 import 'package:expedientes_clinicos/presentation/resources/constant_size_values.dart';
@@ -84,8 +81,6 @@ class _MedicineFormPageState extends State<MedicineFormPage> {
 
   @override
   Widget build(BuildContext context) {
-    print('imagenes');
-    print(AppAssetNames.controlledImage);
     final double keyboardHeight = MediaQuery.of(context).viewInsets.bottom;
     WidgetsBinding.instance.addPostFrameCallback((_) async =>
         scrollController.animateTo(keyboardHeight / 2,
@@ -396,41 +391,6 @@ class _MedicineFormPageState extends State<MedicineFormPage> {
                                       const Spacer(
                                         flex: 1,
                                       ),
-                                      //OPTIMUM
-                                      // Expanded(
-                                      //   flex: 3,
-                                      //   child: Column(
-                                      //     mainAxisAlignment:
-                                      //         MainAxisAlignment.spaceAround,
-                                      //     crossAxisAlignment:
-                                      //         CrossAxisAlignment.center,
-                                      //     children: [
-                                      //       Expanded(
-                                      //         flex: 1,
-                                      //         child: Text(AppStrings.optimum,
-                                      //             style: Theme.of(context)
-                                      //                 .textTheme
-                                      //                 .titleSmall),
-                                      //       ),
-                                      //       Expanded(
-                                      //         child: IntegerInputBox(
-                                      //             initialValue: 0,
-                                      //             minValue: 0,
-                                      //             maxValue: 10,
-                                      //             onChanged: (i) {
-                                      //               context
-                                      //                   .read<
-                                      //                       MedicineFormBloc>()
-                                      //                   .add(MedicineFormEvent
-                                      //                       .optimum(i));
-                                      //             }),
-                                      //       ),
-                                      //     ],
-                                      //   ),
-                                      // ),
-                                      const Spacer(
-                                        flex: 1,
-                                      ),
                                     ],
                                   ),
                                 ),
@@ -520,16 +480,13 @@ class _MedicineFormPageState extends State<MedicineFormPage> {
                                                         .read<
                                                             MedicineFormBloc>()
                                                         .add(MedicineFormEvent
-                                                            .comercialNameChanged(
+                                                            .genericNameChanged(
                                                                 medicineGenericController
                                                                     .text));
                                                   },
                                                 )),
                                           ],
                                         ),
-                                      ),
-                                      const Spacer(
-                                        flex: 1,
                                       ),
                                       const Spacer(
                                         flex: 1,
@@ -548,7 +505,7 @@ class _MedicineFormPageState extends State<MedicineFormPage> {
                                           MainAxisAlignment.spaceAround,
                                       children: [
                                         Expanded(
-                                          flex: 5,
+                                          flex: 7,
                                           child: Column(
                                             mainAxisAlignment:
                                                 MainAxisAlignment.spaceAround,
@@ -628,7 +585,12 @@ class _MedicineFormPageState extends State<MedicineFormPage> {
                                               ),
                                               Expanded(
                                                 child: Switch.adaptive(
-                                                    value: true,
+                                                    value: context
+                                                        .read<
+                                                            MedicineFormBloc>()
+                                                        .state
+                                                        .medicine
+                                                        .controlled,
                                                     activeThumbImage:
                                                         const AssetImage(
                                                             AppAssetNames
@@ -637,7 +599,18 @@ class _MedicineFormPageState extends State<MedicineFormPage> {
                                                         const AssetImage(
                                                             AppAssetNames
                                                                 .freeSaleImage),
-                                                    onChanged: (_) {}),
+                                                    onChanged: (_) {
+                                                      context
+                                                          .read<
+                                                              MedicineFormBloc>()
+                                                          .add(MedicineFormEvent
+                                                              .controlledChanged(!context
+                                                                  .read<
+                                                                      MedicineFormBloc>()
+                                                                  .state
+                                                                  .medicine
+                                                                  .controlled));
+                                                    }),
                                               ),
                                             ],
                                           ),
@@ -692,7 +665,7 @@ class _MedicineFormPageState extends State<MedicineFormPage> {
                                                     .measureUnit !=
                                                 NameAbbreviation.empty()
                                             ? Expanded(
-                                                flex: 3,
+                                                flex: 4,
                                                 child: Row(
                                                   children: [
                                                     Expanded(
@@ -718,7 +691,14 @@ class _MedicineFormPageState extends State<MedicineFormPage> {
                                                                     0.0,
                                                                 minValue: 1.0,
                                                                 onChanged:
-                                                                    () {},
+                                                                    (amountMeasure) {
+                                                                  context
+                                                                      .read<
+                                                                          MedicineFormBloc>()
+                                                                      .add(MedicineFormEvent
+                                                                          .amountMeasureChanged(
+                                                                              amountMeasure));
+                                                                },
                                                               )),
                                                         ],
                                                       ),
@@ -738,6 +718,124 @@ class _MedicineFormPageState extends State<MedicineFormPage> {
                                                                     .state
                                                                     .medicine
                                                                     .measureUnit
+                                                                    .abbr
+                                                                    .value
+                                                                    .fold(
+                                                                        (l) =>
+                                                                            '',
+                                                                        (r) =>
+                                                                            r),
+                                                                style: Theme.of(
+                                                                        context)
+                                                                    .textTheme
+                                                                    .titleSmall,
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    ),
+                                                    const Spacer()
+                                                  ],
+                                                ))
+                                            : const SizedBox.shrink()
+                                      ],
+                                    )),
+                                SizedBox(
+                                  height: heightUnit / 2,
+                                ),
+                                //PHARMACEUTICAL FORM
+                                SizedBox(
+                                    height: heightUnit * 1.5,
+                                    child: Row(
+                                      children: [
+                                        Expanded(
+                                          flex: 6,
+                                          child: Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceAround,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.center,
+                                            children: [
+                                              Expanded(
+                                                child: Text(
+                                                  AppStrings.pharmaceuticalForm,
+                                                  style: Theme.of(context)
+                                                      .textTheme
+                                                      .titleSmall,
+                                                ),
+                                              ),
+                                              Expanded(
+                                                child: BlocProvider(
+                                                  create: (context) => getIt<
+                                                      PharmaceuticalFormWatcherBloc>()
+                                                    ..add(
+                                                        const AbbreviationNameWatcherEvent
+                                                            .watchAllStarted()),
+                                                  child:
+                                                      const DropdownSearchPharmaceuticalForm(),
+                                                ),
+                                              )
+                                            ],
+                                          ),
+                                        ),
+                                        context
+                                                    .read<MedicineFormBloc>()
+                                                    .state
+                                                    .medicine
+                                                    .pharmaceuticalForm !=
+                                                NameAbbreviation.empty()
+                                            ? Expanded(
+                                                flex: 4,
+                                                child: Row(
+                                                  children: [
+                                                    Expanded(
+                                                      flex: 8,
+                                                      child: Column(
+                                                        children: [
+                                                          Expanded(
+                                                              child: FittedBox(
+                                                            child: Text(
+                                                              AppStrings
+                                                                  .amountUnitMeasure,
+                                                              style: Theme.of(
+                                                                      context)
+                                                                  .textTheme
+                                                                  .bodyMedium,
+                                                            ),
+                                                          )),
+                                                          Expanded(
+                                                              flex: 2,
+                                                              child:
+                                                                  IntegerInputBox(
+                                                                      initialValue:
+                                                                          0,
+                                                                      minValue:
+                                                                          1,
+                                                                      onChanged:
+                                                                          (amountPackage) {
+                                                                        context
+                                                                            .read<MedicineFormBloc>()
+                                                                            .add(MedicineFormEvent.amountPerPackageChanged(amountPackage));
+                                                                      })),
+                                                        ],
+                                                      ),
+                                                    ),
+                                                    Spacer(),
+                                                    Expanded(
+                                                      flex: 2,
+                                                      child: Column(
+                                                        children: [
+                                                          Spacer(),
+                                                          Expanded(
+                                                            child: FittedBox(
+                                                              child: Text(
+                                                                context
+                                                                    .read<
+                                                                        MedicineFormBloc>()
+                                                                    .state
+                                                                    .medicine
+                                                                    .pharmaceuticalForm
                                                                     .abbr
                                                                     .value
                                                                     .fold(
@@ -805,62 +903,7 @@ class _MedicineFormPageState extends State<MedicineFormPage> {
                                 SizedBox(
                                   height: heightUnit / 2,
                                 ),
-                                //PHARMACEUTICAL FORM
-                                SizedBox(
-                                    height: heightUnit * 1.5,
-                                    child: Row(
-                                      children: [
-                                        Expanded(
-                                          flex: 6,
-                                          child: Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.spaceAround,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.center,
-                                            children: [
-                                              Expanded(
-                                                child: Text(
-                                                  AppStrings.pharmaceuticalForm,
-                                                  style: Theme.of(context)
-                                                      .textTheme
-                                                      .titleSmall,
-                                                ),
-                                              ),
-                                              Expanded(
-                                                child: BlocProvider(
-                                                  create: (context) => getIt<
-                                                      PharmaceuticalFormWatcherBloc>()
-                                                    ..add(
-                                                        const AbbreviationNameWatcherEvent
-                                                            .watchAllStarted()),
-                                                  child:
-                                                      const DropdownSearchPharmaceuticalForm(),
-                                                ),
-                                              )
-                                            ],
-                                          ),
-                                        ),
-                                      ],
-                                    )),
 
-                                SizedBox(
-                                    height: heightUnit * 3,
-                                    width: constraint.maxWidth / 1.3,
-                                    child: Column(
-                                      children: [
-                                        Expanded(
-                                            child: Text(
-                                          AppStrings.observations,
-                                          style: Theme.of(context)
-                                              .textTheme
-                                              .titleSmall,
-                                        )),
-                                        Expanded(
-                                            flex: 3,
-                                            child: Description(
-                                                textController: description)),
-                                      ],
-                                    )),
                                 SizedBox(
                                   height: heightUnit / 2,
                                 ),
@@ -869,10 +912,15 @@ class _MedicineFormPageState extends State<MedicineFormPage> {
                                     width: constraint.maxWidth / 3,
                                     child: ElevatedButton(
                                       onPressed: () {
-                                        if (_key.currentState!.validate()) {
-                                          context.read<MedicineFormBloc>().add(
-                                              const MedicineFormEvent.saved());
-                                        }
+                                        print('the medicine object');
+                                        print(context
+                                            .read<MedicineFormBloc>()
+                                            .state
+                                            .medicine);
+                                        // if (_key.currentState!.validate()) {
+                                        context.read<MedicineFormBloc>().add(
+                                            const MedicineFormEvent.saved());
+                                        // }
                                       },
                                       child: const Text(AppStrings.create),
                                     )),

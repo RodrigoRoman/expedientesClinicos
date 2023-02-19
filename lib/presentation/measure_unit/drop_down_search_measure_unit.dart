@@ -57,7 +57,7 @@ class _DropdownSearchMeasureUnitState extends State<DropdownSearchMeasureUnit> {
             abbreviationName:
                 context.read<MedicineFormBloc>().state.medicine.measureUnit,
             searchFieldController: searchFieldController,
-            onSelected: (NameAbbreviation nameAbbr) {
+            onSelected: (nameAbbr) {
               context
                   .read<MedicineFormBloc>()
                   .add(MedicineFormEvent.measureUnitChanged(nameAbbr));

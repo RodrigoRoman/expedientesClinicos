@@ -64,6 +64,7 @@ class _DropdownSearchPharmaceuticalFormState
               context
                   .read<MedicineFormBloc>()
                   .add(MedicineFormEvent.pharmaceuticalFormChanged(nameAbbr));
+              setState(() {});
             },
             onSearchWithKey: (key) {
               context

@@ -1,5 +1,4 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:expedientes_clinicos/domain/core/name_abbreviation/name_abbr.dart';
 import 'package:expedientes_clinicos/domain/core/value_objects.dart';
 import 'package:expedientes_clinicos/domain/medicine/medicine.dart';
 import 'package:expedientes_clinicos/infraestructure/category/category_dtos.dart';

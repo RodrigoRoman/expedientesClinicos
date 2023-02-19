@@ -50,8 +50,6 @@ class MedicineFormBloc extends Bloc<MedicineFormEvent, MedicineFormState> {
               .copyWith(amountMeasureUnit: NonNegDouble(event.amountMeasure))));
     });
     on<_AdministrationRouteChanged>((event, emit) {
-      print('administration route changed');
-      print(event.administrationRoute);
       emit(state.copyWith(
           medicine: state.medicine
               .copyWith(administrationRoute: event.administrationRoute)));

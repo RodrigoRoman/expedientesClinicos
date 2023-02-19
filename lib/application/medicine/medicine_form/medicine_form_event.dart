@@ -7,7 +7,7 @@ class MedicineFormEvent with _$MedicineFormEvent {
       Option<Medicine> intialMedicineOption) = _Initialized;
   const factory MedicineFormEvent.comercialNameChanged(String comercialName) =
       _ComercialNameChanged;
-  const factory MedicineFormEvent.genericName(String genericName) =
+  const factory MedicineFormEvent.genericNameChanged(String genericName) =
       _GenericNameChanged;
   const factory MedicineFormEvent.measureUnitChanged(
       NameAbbreviation measureUnit) = _MeasureUnitChanged;

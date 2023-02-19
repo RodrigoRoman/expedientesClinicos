@@ -59,11 +59,9 @@ class DoubleInputBody extends StatefulWidget {
 }
 
 class _DoubleInputBodyState extends State<DoubleInputBody> {
-  int inputLength = 4;
+  int inputLength = 3;
   @override
   Widget build(BuildContext context) {
-    print('double');
-    print(widget.textController.text.length);
     return Row(
       mainAxisSize: MainAxisSize.min,
       children: [
@@ -86,7 +84,9 @@ class _DoubleInputBodyState extends State<DoubleInputBody> {
                       .read<DoubleCounterBloc>()
                       .add(const DoubleCounterEvent.amountDecreased());
                   setState(() {
-                    inputLength = widget.textController.text.length;
+                    (double.parse(widget.textController.text) - 1)
+                        .toString()
+                        .length;
                   });
                 },
               );
@@ -99,7 +99,7 @@ class _DoubleInputBodyState extends State<DoubleInputBody> {
             controller: widget.textController,
             keyboardType: const TextInputType.numberWithOptions(decimal: true),
             inputFormatters: <TextInputFormatter>[
-              FilteringTextInputFormatter.digitsOnly
+              FilteringTextInputFormatter.allow(RegExp(r'^\d+\.?\d{0,2}')),
             ],
             textAlign: TextAlign.center,
             decoration: const InputDecoration(
@@ -110,20 +110,18 @@ class _DoubleInputBodyState extends State<DoubleInputBody> {
                 .bodyMedium!
                 .copyWith(fontSize: 80 / ((inputLength + 1) * 1.4)),
             onChanged: (value) {
+              print('value');
+              print(value);
               double newValue = 0;
-              if (widget.textController.text.isNotEmpty) {
-                newValue = double.parse(widget.textController.text);
-                context
-                    .read<DoubleCounterBloc>()
-                    .add(DoubleCounterEvent.amountUpdated(newValue));
-              } else {
-                context
-                    .read<DoubleCounterBloc>()
-                    .add(DoubleCounterEvent.amountUpdated(newValue));
+              if (value.isNotEmpty) {
+                newValue = double.parse(value);
+                setState(() {
+                  inputLength = value.length;
+                });
               }
-              setState(() {
-                inputLength = widget.textController.text.length;
-              });
+              context
+                  .read<DoubleCounterBloc>()
+                  .add(DoubleCounterEvent.amountUpdated(newValue));
             },
             // initialValue: _value.toString(),
           ),
@@ -147,7 +145,9 @@ class _DoubleInputBodyState extends State<DoubleInputBody> {
                       .read<DoubleCounterBloc>()
                       .add(const DoubleCounterEvent.amountIncreased());
                   setState(() {
-                    inputLength = widget.textController.text.length + 1;
+                    inputLength = (double.parse(widget.textController.text) + 1)
+                        .toString()
+                        .length;
                   });
                 },
               );

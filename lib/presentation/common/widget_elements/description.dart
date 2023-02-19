@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 
 class Description extends StatelessWidget {
   final TextEditingController textController;
-  const Description({required this.textController, super.key});
+  final Function onChanged;
+  const Description(
+      {required this.onChanged, required this.textController, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -13,6 +15,7 @@ class Description extends StatelessWidget {
       keyboardType: TextInputType.text,
       textCapitalization: TextCapitalization.words,
       textInputAction: TextInputAction.next,
+      onChanged: (value) => onChanged(value),
     );
   }
 }

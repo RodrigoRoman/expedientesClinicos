@@ -2,7 +2,7 @@ import 'package:expedientes_clinicos/application/abbreviation_name/abbreviation_
 import 'package:expedientes_clinicos/application/abbreviation_name/abbreviation_name_form/measure_unit_form_bloc.dart';
 import 'package:expedientes_clinicos/application/state_render/state_renderer_bloc.dart';
 import 'package:expedientes_clinicos/domain/core/name_abbreviation/name_abbr.dart';
-import 'package:expedientes_clinicos/presentation/common/widget_elements/abbreviation_name_component/pop_up_administration_route_form.dart';
+import 'package:expedientes_clinicos/presentation/common/widget_elements/abbreviation_name_component/pop_up_abbreviation_name_form.dart';
 import 'package:expedientes_clinicos/presentation/resources/string_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

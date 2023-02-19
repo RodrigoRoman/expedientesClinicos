@@ -19,6 +19,7 @@ class MedicineRepository implements IMedicineRepository {
   MedicineRepository(this._firestore);
   @override
   Future<Either<MedicineFailures, Unit>> create(Medicine medicine) async {
+    print('Inside medicine repo');
     try {
       MedicineDto medicineDto = MedicineDto.fromDomain(medicine);
 
@@ -45,7 +46,7 @@ class MedicineRepository implements IMedicineRepository {
 
       //We keep the id that comes from medicineDto and avoid autogeneration
       await medicines.doc(medicineDto.id).set(data);
-
+      print('Was created');
       return right(unit);
     } on PlatformException catch (e) {
       // These error codes and messages aren't in the documentation AFAIK, experiment in the debugger to find out about them.
@@ -57,6 +58,8 @@ class MedicineRepository implements IMedicineRepository {
     } on FirebaseException catch (e) {
       return left(const MedicineFailures.unableToUploadImage());
     } catch (e) {
+      print('ERROR INSIDE FIREBASE');
+      print(e);
       return left(const MedicineFailures.unexpected());
     }
   }
