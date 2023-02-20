@@ -15,7 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 MedicineDto _$MedicineDtoFromJson(Map<String, dynamic> json) {
-  return _IngredientVersionDto.fromJson(json);
+  return _MedicineDto.fromJson(json);
 }
 
 /// @nodoc
@@ -32,6 +32,7 @@ mixin _$MedicineDto {
   int get amountPerPackage => throw _privateConstructorUsedError;
   CategoryDto get category => throw _privateConstructorUsedError;
   String get imageURL => throw _privateConstructorUsedError;
+  int get counter => throw _privateConstructorUsedError;
   bool get controlled => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -57,6 +58,7 @@ abstract class $MedicineDtoCopyWith<$Res> {
       int amountPerPackage,
       CategoryDto category,
       String imageURL,
+      int counter,
       bool controlled});
 
   $NameAbbreviationDtoCopyWith<$Res> get measureUnit;
@@ -88,6 +90,7 @@ class _$MedicineDtoCopyWithImpl<$Res, $Val extends MedicineDto>
     Object? amountPerPackage = null,
     Object? category = null,
     Object? imageURL = null,
+    Object? counter = null,
     Object? controlled = null,
   }) {
     return _then(_value.copyWith(
@@ -131,6 +134,10 @@ class _$MedicineDtoCopyWithImpl<$Res, $Val extends MedicineDto>
           ? _value.imageURL
           : imageURL // ignore: cast_nullable_to_non_nullable
               as String,
+      counter: null == counter
+          ? _value.counter
+          : counter // ignore: cast_nullable_to_non_nullable
+              as int,
       controlled: null == controlled
           ? _value.controlled
           : controlled // ignore: cast_nullable_to_non_nullable
@@ -174,11 +181,11 @@ class _$MedicineDtoCopyWithImpl<$Res, $Val extends MedicineDto>
 }
 
 /// @nodoc
-abstract class _$$_IngredientVersionDtoCopyWith<$Res>
+abstract class _$$_MedicineDtoCopyWith<$Res>
     implements $MedicineDtoCopyWith<$Res> {
-  factory _$$_IngredientVersionDtoCopyWith(_$_IngredientVersionDto value,
-          $Res Function(_$_IngredientVersionDto) then) =
-      __$$_IngredientVersionDtoCopyWithImpl<$Res>;
+  factory _$$_MedicineDtoCopyWith(
+          _$_MedicineDto value, $Res Function(_$_MedicineDto) then) =
+      __$$_MedicineDtoCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -192,6 +199,7 @@ abstract class _$$_IngredientVersionDtoCopyWith<$Res>
       int amountPerPackage,
       CategoryDto category,
       String imageURL,
+      int counter,
       bool controlled});
 
   @override
@@ -205,11 +213,11 @@ abstract class _$$_IngredientVersionDtoCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_IngredientVersionDtoCopyWithImpl<$Res>
-    extends _$MedicineDtoCopyWithImpl<$Res, _$_IngredientVersionDto>
-    implements _$$_IngredientVersionDtoCopyWith<$Res> {
-  __$$_IngredientVersionDtoCopyWithImpl(_$_IngredientVersionDto _value,
-      $Res Function(_$_IngredientVersionDto) _then)
+class __$$_MedicineDtoCopyWithImpl<$Res>
+    extends _$MedicineDtoCopyWithImpl<$Res, _$_MedicineDto>
+    implements _$$_MedicineDtoCopyWith<$Res> {
+  __$$_MedicineDtoCopyWithImpl(
+      _$_MedicineDto _value, $Res Function(_$_MedicineDto) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -225,9 +233,10 @@ class __$$_IngredientVersionDtoCopyWithImpl<$Res>
     Object? amountPerPackage = null,
     Object? category = null,
     Object? imageURL = null,
+    Object? counter = null,
     Object? controlled = null,
   }) {
-    return _then(_$_IngredientVersionDto(
+    return _then(_$_MedicineDto(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -268,6 +277,10 @@ class __$$_IngredientVersionDtoCopyWithImpl<$Res>
           ? _value.imageURL
           : imageURL // ignore: cast_nullable_to_non_nullable
               as String,
+      counter: null == counter
+          ? _value.counter
+          : counter // ignore: cast_nullable_to_non_nullable
+              as int,
       controlled: null == controlled
           ? _value.controlled
           : controlled // ignore: cast_nullable_to_non_nullable
@@ -278,8 +291,8 @@ class __$$_IngredientVersionDtoCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_IngredientVersionDto extends _IngredientVersionDto {
-  const _$_IngredientVersionDto(
+class _$_MedicineDto extends _MedicineDto {
+  const _$_MedicineDto(
       {required this.id,
       required this.comercialName,
       required this.genericName,
@@ -290,11 +303,12 @@ class _$_IngredientVersionDto extends _IngredientVersionDto {
       required this.amountPerPackage,
       required this.category,
       required this.imageURL,
+      required this.counter,
       required this.controlled})
       : super._();
 
-  factory _$_IngredientVersionDto.fromJson(Map<String, dynamic> json) =>
-      _$$_IngredientVersionDtoFromJson(json);
+  factory _$_MedicineDto.fromJson(Map<String, dynamic> json) =>
+      _$$_MedicineDtoFromJson(json);
 
   @override
   final String id;
@@ -317,18 +331,20 @@ class _$_IngredientVersionDto extends _IngredientVersionDto {
   @override
   final String imageURL;
   @override
+  final int counter;
+  @override
   final bool controlled;
 
   @override
   String toString() {
-    return 'MedicineDto(id: $id, comercialName: $comercialName, genericName: $genericName, measureUnit: $measureUnit, amountMeasureUnit: $amountMeasureUnit, administrationRoute: $administrationRoute, pharmaceuticalForm: $pharmaceuticalForm, amountPerPackage: $amountPerPackage, category: $category, imageURL: $imageURL, controlled: $controlled)';
+    return 'MedicineDto(id: $id, comercialName: $comercialName, genericName: $genericName, measureUnit: $measureUnit, amountMeasureUnit: $amountMeasureUnit, administrationRoute: $administrationRoute, pharmaceuticalForm: $pharmaceuticalForm, amountPerPackage: $amountPerPackage, category: $category, imageURL: $imageURL, counter: $counter, controlled: $controlled)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_IngredientVersionDto &&
+            other is _$_MedicineDto &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.comercialName, comercialName) ||
                 other.comercialName == comercialName) &&
@@ -348,6 +364,7 @@ class _$_IngredientVersionDto extends _IngredientVersionDto {
                 other.category == category) &&
             (identical(other.imageURL, imageURL) ||
                 other.imageURL == imageURL) &&
+            (identical(other.counter, counter) || other.counter == counter) &&
             (identical(other.controlled, controlled) ||
                 other.controlled == controlled));
   }
@@ -366,25 +383,25 @@ class _$_IngredientVersionDto extends _IngredientVersionDto {
       amountPerPackage,
       category,
       imageURL,
+      counter,
       controlled);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_IngredientVersionDtoCopyWith<_$_IngredientVersionDto> get copyWith =>
-      __$$_IngredientVersionDtoCopyWithImpl<_$_IngredientVersionDto>(
-          this, _$identity);
+  _$$_MedicineDtoCopyWith<_$_MedicineDto> get copyWith =>
+      __$$_MedicineDtoCopyWithImpl<_$_MedicineDto>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_IngredientVersionDtoToJson(
+    return _$$_MedicineDtoToJson(
       this,
     );
   }
 }
 
-abstract class _IngredientVersionDto extends MedicineDto {
-  const factory _IngredientVersionDto(
+abstract class _MedicineDto extends MedicineDto {
+  const factory _MedicineDto(
       {required final String id,
       required final String comercialName,
       required final String genericName,
@@ -395,11 +412,12 @@ abstract class _IngredientVersionDto extends MedicineDto {
       required final int amountPerPackage,
       required final CategoryDto category,
       required final String imageURL,
-      required final bool controlled}) = _$_IngredientVersionDto;
-  const _IngredientVersionDto._() : super._();
+      required final int counter,
+      required final bool controlled}) = _$_MedicineDto;
+  const _MedicineDto._() : super._();
 
-  factory _IngredientVersionDto.fromJson(Map<String, dynamic> json) =
-      _$_IngredientVersionDto.fromJson;
+  factory _MedicineDto.fromJson(Map<String, dynamic> json) =
+      _$_MedicineDto.fromJson;
 
   @override
   String get id;
@@ -422,9 +440,11 @@ abstract class _IngredientVersionDto extends MedicineDto {
   @override
   String get imageURL;
   @override
+  int get counter;
+  @override
   bool get controlled;
   @override
   @JsonKey(ignore: true)
-  _$$_IngredientVersionDtoCopyWith<_$_IngredientVersionDto> get copyWith =>
+  _$$_MedicineDtoCopyWith<_$_MedicineDto> get copyWith =>
       throw _privateConstructorUsedError;
 }

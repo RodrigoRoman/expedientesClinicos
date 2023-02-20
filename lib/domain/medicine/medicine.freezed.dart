@@ -28,6 +28,7 @@ mixin _$Medicine {
   Category get category => throw _privateConstructorUsedError;
   ImageURL get imageURL => throw _privateConstructorUsedError;
   bool get controlled => throw _privateConstructorUsedError;
+  NonNegInt get counter => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $MedicineCopyWith<Medicine> get copyWith =>
@@ -50,7 +51,8 @@ abstract class $MedicineCopyWith<$Res> {
       NonNegInt amountPerPackage,
       Category category,
       ImageURL imageURL,
-      bool controlled});
+      bool controlled,
+      NonNegInt counter});
 
   $NameAbbreviationCopyWith<$Res> get measureUnit;
   $NameAbbreviationCopyWith<$Res> get administrationRoute;
@@ -82,6 +84,7 @@ class _$MedicineCopyWithImpl<$Res, $Val extends Medicine>
     Object? category = null,
     Object? imageURL = null,
     Object? controlled = null,
+    Object? counter = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -128,6 +131,10 @@ class _$MedicineCopyWithImpl<$Res, $Val extends Medicine>
           ? _value.controlled
           : controlled // ignore: cast_nullable_to_non_nullable
               as bool,
+      counter: null == counter
+          ? _value.counter
+          : counter // ignore: cast_nullable_to_non_nullable
+              as NonNegInt,
     ) as $Val);
   }
 
@@ -182,7 +189,8 @@ abstract class _$$_MedicineCopyWith<$Res> implements $MedicineCopyWith<$Res> {
       NonNegInt amountPerPackage,
       Category category,
       ImageURL imageURL,
-      bool controlled});
+      bool controlled,
+      NonNegInt counter});
 
   @override
   $NameAbbreviationCopyWith<$Res> get measureUnit;
@@ -216,6 +224,7 @@ class __$$_MedicineCopyWithImpl<$Res>
     Object? category = null,
     Object? imageURL = null,
     Object? controlled = null,
+    Object? counter = null,
   }) {
     return _then(_$_Medicine(
       id: null == id
@@ -262,6 +271,10 @@ class __$$_MedicineCopyWithImpl<$Res>
           ? _value.controlled
           : controlled // ignore: cast_nullable_to_non_nullable
               as bool,
+      counter: null == counter
+          ? _value.counter
+          : counter // ignore: cast_nullable_to_non_nullable
+              as NonNegInt,
     ));
   }
 }
@@ -280,7 +293,8 @@ class _$_Medicine extends _Medicine {
       required this.amountPerPackage,
       required this.category,
       required this.imageURL,
-      required this.controlled})
+      required this.controlled,
+      required this.counter})
       : super._();
 
   @override
@@ -305,10 +319,12 @@ class _$_Medicine extends _Medicine {
   final ImageURL imageURL;
   @override
   final bool controlled;
+  @override
+  final NonNegInt counter;
 
   @override
   String toString() {
-    return 'Medicine(id: $id, comercialName: $comercialName, genericName: $genericName, measureUnit: $measureUnit, amountMeasureUnit: $amountMeasureUnit, administrationRoute: $administrationRoute, pharmaceuticalForm: $pharmaceuticalForm, amountPerPackage: $amountPerPackage, category: $category, imageURL: $imageURL, controlled: $controlled)';
+    return 'Medicine(id: $id, comercialName: $comercialName, genericName: $genericName, measureUnit: $measureUnit, amountMeasureUnit: $amountMeasureUnit, administrationRoute: $administrationRoute, pharmaceuticalForm: $pharmaceuticalForm, amountPerPackage: $amountPerPackage, category: $category, imageURL: $imageURL, controlled: $controlled, counter: $counter)';
   }
 
   @override
@@ -336,7 +352,8 @@ class _$_Medicine extends _Medicine {
             (identical(other.imageURL, imageURL) ||
                 other.imageURL == imageURL) &&
             (identical(other.controlled, controlled) ||
-                other.controlled == controlled));
+                other.controlled == controlled) &&
+            (identical(other.counter, counter) || other.counter == counter));
   }
 
   @override
@@ -352,7 +369,8 @@ class _$_Medicine extends _Medicine {
       amountPerPackage,
       category,
       imageURL,
-      controlled);
+      controlled,
+      counter);
 
   @JsonKey(ignore: true)
   @override
@@ -373,7 +391,8 @@ abstract class _Medicine extends Medicine {
       required final NonNegInt amountPerPackage,
       required final Category category,
       required final ImageURL imageURL,
-      required final bool controlled}) = _$_Medicine;
+      required final bool controlled,
+      required final NonNegInt counter}) = _$_Medicine;
   const _Medicine._() : super._();
 
   @override
@@ -398,6 +417,8 @@ abstract class _Medicine extends Medicine {
   ImageURL get imageURL;
   @override
   bool get controlled;
+  @override
+  NonNegInt get counter;
   @override
   @JsonKey(ignore: true)
   _$$_MedicineCopyWith<_$_Medicine> get copyWith =>

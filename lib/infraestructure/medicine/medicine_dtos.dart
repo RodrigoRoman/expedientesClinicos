@@ -23,8 +23,9 @@ abstract class MedicineDto implements _$MedicineDto {
     required int amountPerPackage,
     required CategoryDto category,
     required String imageURL,
+    required int counter,
     required bool controlled,
-  }) = _IngredientVersionDto;
+  }) = _MedicineDto;
 
   factory MedicineDto.fromDomain(Medicine medicine) {
     return MedicineDto(
@@ -40,23 +41,24 @@ abstract class MedicineDto implements _$MedicineDto {
         amountPerPackage: medicine.amountPerPackage.getOrCrash(),
         category: CategoryDto.fromDomain(medicine.category),
         imageURL: medicine.imageURL.getOrCrash(),
+        counter: medicine.counter.getOrCrash(),
         controlled: medicine.controlled);
   }
 
   Medicine toDomain() {
     return Medicine(
-      id: UniqueId.fromUniqueString(id),
-      comercialName: FullName(comercialName),
-      genericName: FullName(genericName),
-      measureUnit: measureUnit.toDomain(),
-      amountMeasureUnit: NonNegDouble(amountMeasureUnit),
-      administrationRoute: administrationRoute.toDomain(),
-      pharmaceuticalForm: pharmaceuticalForm.toDomain(),
-      amountPerPackage: NonNegInt(amountPerPackage),
-      category: category.toDomain(),
-      imageURL: ImageURL(imageURL),
-      controlled: controlled,
-    );
+        id: UniqueId.fromUniqueString(id),
+        comercialName: FullName(comercialName),
+        genericName: FullName(genericName),
+        measureUnit: measureUnit.toDomain(),
+        amountMeasureUnit: NonNegDouble(amountMeasureUnit),
+        administrationRoute: administrationRoute.toDomain(),
+        pharmaceuticalForm: pharmaceuticalForm.toDomain(),
+        amountPerPackage: NonNegInt(amountPerPackage),
+        category: category.toDomain(),
+        imageURL: ImageURL(imageURL),
+        controlled: controlled,
+        counter: NonNegInt(counter));
   }
 
   factory MedicineDto.fromJson(Map<String, dynamic> json) =>

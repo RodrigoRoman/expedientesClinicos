@@ -48,7 +48,7 @@ class _DropdownSearchAbbreviationNameRouteState
     _focusNode.addListener(() {
       if (_focusNode.hasFocus) {
         _overlayEntry = _createOverlay();
-        overlayState!.insert(_overlayEntry!);
+        overlayState.insert(_overlayEntry!);
       } else {
         if (_overlayEntry != null) {
           _overlayEntry!.remove();
@@ -75,7 +75,7 @@ class _DropdownSearchAbbreviationNameRouteState
 
     if (_focusNode.hasFocus) {
       _overlayEntry = _createOverlay();
-      overlayState!.insert(_overlayEntry!);
+      overlayState.insert(_overlayEntry!);
     } else {
       if (_overlayEntry != null) {
         _overlayEntry!.remove();

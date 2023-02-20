@@ -7,4 +7,7 @@ class MedicineActorState with _$MedicineActorState {
   const factory MedicineActorState.deleteFailure(
       MedicineFailures medicineFailure) = _DeleteFailure;
   const factory MedicineActorState.deleteSuccess() = _DeleteSuccess;
+  const factory MedicineActorState.fakeFailure(
+      MedicineFailures categoryFailure) = _FakeFailure;
+  const factory MedicineActorState.fakeSuccess() = _FakeSuccess;
 }

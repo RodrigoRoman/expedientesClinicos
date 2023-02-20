@@ -5,6 +5,7 @@ import 'package:expedientes_clinicos/application/abbreviation_name/abbreviation_
 import 'package:expedientes_clinicos/application/abbreviation_name/abbreviation_name_watcher/measure_unit_watcher_bloc.dart';
 import 'package:expedientes_clinicos/application/abbreviation_name/abbreviation_name_watcher/pharmaceutical_form_watcher_bloc.dart';
 import 'package:expedientes_clinicos/application/categories/category_watcher/category_watcher_bloc.dart';
+import 'package:expedientes_clinicos/application/medicine/medicine_actor/medicine_actor_bloc.dart';
 import 'package:expedientes_clinicos/application/medicine/medicine_form/medicine_form_bloc.dart';
 import 'package:expedientes_clinicos/application/state_render/state_renderer_bloc.dart';
 import 'package:expedientes_clinicos/domain/core/categories/category.dart';
@@ -340,8 +341,6 @@ class _MedicineFormPageState extends State<MedicineFormPage> {
                                                               Theme.of(context)
                                                                   .colorScheme
                                                                   .error,
-                                                          // width:
-                                                          //     LayoutConstants.dimen_1,
                                                           style:
                                                               BorderStyle.solid,
                                                         ),
@@ -375,7 +374,6 @@ class _MedicineFormPageState extends State<MedicineFormPage> {
                                                                     medicineComercialController
                                                                         .text
                                                                         .length));
-
                                                     context
                                                         .read<
                                                             MedicineFormBloc>()
@@ -450,7 +448,7 @@ class _MedicineFormPageState extends State<MedicineFormPage> {
                                                       medicineGenericController,
                                                   validator: (value) {
                                                     return state.medicine
-                                                        .comercialName.value
+                                                        .genericName.value
                                                         .fold(
                                                             (l) => l.maybeMap(
                                                                 exceedingLength:
@@ -903,10 +901,6 @@ class _MedicineFormPageState extends State<MedicineFormPage> {
                                 SizedBox(
                                   height: heightUnit / 2,
                                 ),
-
-                                SizedBox(
-                                  height: heightUnit / 2,
-                                ),
                                 SizedBox(
                                     height: heightUnit,
                                     width: constraint.maxWidth / 3,
@@ -924,6 +918,42 @@ class _MedicineFormPageState extends State<MedicineFormPage> {
                                       },
                                       child: const Text(AppStrings.create),
                                     )),
+                                SizedBox(
+                                  height: heightUnit / 2,
+                                ),
+
+                                //FAKER BUTTON - TO BE COMMENTED
+                                SizedBox(
+                                  height: heightUnit,
+                                  width: constraint.maxWidth / 3,
+                                  child: BlocProvider(
+                                    create: (context) =>
+                                        getIt<MedicineActorBloc>(),
+                                    child: Container(
+                                      child: BlocConsumer<MedicineActorBloc,
+                                          MedicineActorState>(
+                                        listener: (context, state) {
+                                          // TODO: implement listener
+                                        },
+                                        builder: (context, state) {
+                                          return ElevatedButton(
+                                            onPressed: () {
+                                              context
+                                                  .read<MedicineActorBloc>()
+                                                  .add(MedicineActorEvent
+                                                      .faker());
+                                            },
+                                            child: const Text(
+                                                AppStrings.createFake),
+                                          );
+                                        },
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: heightUnit / 2,
+                                ),
                               ],
                             ),
                           );

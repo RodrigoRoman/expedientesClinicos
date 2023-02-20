@@ -23,6 +23,7 @@ abstract class Medicine implements _$Medicine {
     required Category category,
     required ImageURL imageURL,
     required bool controlled,
+    required NonNegInt counter,
   }) = _Medicine;
   factory Medicine.empty() => Medicine(
       id: UniqueId(),
@@ -34,6 +35,7 @@ abstract class Medicine implements _$Medicine {
       pharmaceuticalForm: NameAbbreviation.empty(),
       amountPerPackage: NonNegInt(EmptyFormValues.emptyAmount),
       category: Category.empty(),
+      counter: NonNegInt(EmptyFormValues.emptyAmount),
       imageURL: ImageURL(EmptyFormValues.medicineURLImage),
       controlled: false);
 
@@ -42,6 +44,7 @@ abstract class Medicine implements _$Medicine {
         .andThen(genericName.failureOrUnit)
         .andThen(amountMeasureUnit.failureOrUnit)
         .andThen(imageURL.failureOrUnit)
+        .andThen(counter.failureOrUnit)
         .andThen(amountPerPackage.failureOrUnit)
         .andThen(category.failureOption.fold(() => right(unit), (f) => left(f)))
         .andThen(pharmaceuticalForm.failureOption

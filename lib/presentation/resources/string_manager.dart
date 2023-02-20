@@ -11,6 +11,7 @@ class AppStrings {
   static const String search = 'Buscar';
   static const String complete = 'Completar';
   static const String create = 'Crear';
+  static const String createFake = 'Crear Datos';
   static const String edit = 'Editar';
 
   //Prompts

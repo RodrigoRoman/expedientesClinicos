@@ -6,9 +6,8 @@ part of 'medicine_dtos.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_IngredientVersionDto _$$_IngredientVersionDtoFromJson(
-        Map<String, dynamic> json) =>
-    _$_IngredientVersionDto(
+_$_MedicineDto _$$_MedicineDtoFromJson(Map<String, dynamic> json) =>
+    _$_MedicineDto(
       id: json['id'] as String,
       comercialName: json['comercialName'] as String,
       genericName: json['genericName'] as String,
@@ -22,21 +21,22 @@ _$_IngredientVersionDto _$$_IngredientVersionDtoFromJson(
       amountPerPackage: json['amountPerPackage'] as int,
       category: CategoryDto.fromJson(json['category'] as Map<String, dynamic>),
       imageURL: json['imageURL'] as String,
+      counter: json['counter'] as int,
       controlled: json['controlled'] as bool,
     );
 
-Map<String, dynamic> _$$_IngredientVersionDtoToJson(
-        _$_IngredientVersionDto instance) =>
+Map<String, dynamic> _$$_MedicineDtoToJson(_$_MedicineDto instance) =>
     <String, dynamic>{
       'id': instance.id,
       'comercialName': instance.comercialName,
       'genericName': instance.genericName,
-      'measureUnit': instance.measureUnit,
+      'measureUnit': instance.measureUnit.toJson(),
       'amountMeasureUnit': instance.amountMeasureUnit,
-      'administrationRoute': instance.administrationRoute,
-      'pharmaceuticalForm': instance.pharmaceuticalForm,
+      'administrationRoute': instance.administrationRoute.toJson(),
+      'pharmaceuticalForm': instance.pharmaceuticalForm.toJson(),
       'amountPerPackage': instance.amountPerPackage,
-      'category': instance.category,
+      'category': instance.category.toJson(),
       'imageURL': instance.imageURL,
+      'counter': instance.counter,
       'controlled': instance.controlled,
     };
