@@ -7,7 +7,14 @@ import 'package:flutter/material.dart';
 
 class PopUpDialog extends StatelessWidget {
   final List<Widget> children;
-  const PopUpDialog({required this.children, Key? key}) : super(key: key);
+  final double dialogHeight;
+  final double dialogWidth;
+  const PopUpDialog(
+      {required this.children,
+      required this.dialogHeight,
+      required this.dialogWidth,
+      Key? key})
+      : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Dialog(
@@ -16,6 +23,8 @@ class PopUpDialog extends StatelessWidget {
       elevation: AppSize.s1_5,
       backgroundColor: Colors.transparent,
       child: Container(
+        height: dialogHeight,
+        width: dialogWidth,
         decoration: BoxDecoration(
             color: Colors.transparent,
             shape: BoxShape.rectangle,
@@ -27,7 +36,10 @@ class PopUpDialog extends StatelessWidget {
                   spreadRadius: AppSize.s8,
                   offset: Offset(AppSize.s0, AppSize.s0))
             ]),
-        child: DialogContent(children: children),
+        child: Container(
+            height: dialogHeight,
+            width: dialogWidth,
+            child: DialogContent(children: children)),
       ),
     );
   }
@@ -59,8 +71,14 @@ _isThereCurrentDialogShowing(BuildContext context) =>
     ModalRoute.of(context)?.isCurrent != true;
 
 //Triger PopUp
-Future showPopUp(BuildContext context, StateRendererType stateRendererType,
-    Function retryActionFunction, String message, Widget? bodyWidget,
+Future showPopUp(
+    BuildContext context,
+    StateRendererType stateRendererType,
+    Function retryActionFunction,
+    String message,
+    double width,
+    double height,
+    Widget? bodyWidget,
     {String title = AppStrings.empty}) async {
   // WidgetsBinding.instance.addPostFrameCallback((_) async =>
   return await showDialog(
@@ -69,6 +87,8 @@ Future showPopUp(BuildContext context, StateRendererType stateRendererType,
         stateRendererType: stateRendererType,
         message: message,
         title: title,
+        dialogHeight: height,
+        dialogWidth: width,
         bodyWidget: bodyWidget,
         retryActionFunction: retryActionFunction),
   );

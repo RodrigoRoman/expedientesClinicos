@@ -20,8 +20,8 @@ class CustomTheme {
           error: ColorManager.red,
           onError: LightThemeColors.tertiary,
           background: LightThemeColors.background,
-          onBackground: LightThemeColors.tertiary,
-          surface: LightThemeColors.tertiary,
+          onBackground: LightThemeColors.accent,
+          surface: LightThemeColors.accent,
           onSurface: LightThemeColors.secondary),
       scaffoldBackgroundColor: LightThemeColors.background,
       fontFamily: FontConstants.fontFamily,
@@ -29,14 +29,14 @@ class CustomTheme {
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(18.0)),
           disabledColor: ColorManager.grey,
-          buttonColor: LightThemeColors.tertiary,
+          buttonColor: LightThemeColors.accent,
           splashColor: LightThemeColors.secondary),
       elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
         textStyle:
             RegularTextStyle(color: ColorManager.black, size: AppSize.s16),
         backgroundColor: LightThemeColors.secondary,
-        foregroundColor: LightThemeColors.tertiary,
+        foregroundColor: LightThemeColors.accent,
       )),
       textTheme: TextTheme(
         titleLarge: BoldTextStyle(color: ColorManager.black, size: AppSize.s22),
@@ -57,19 +57,19 @@ class CustomTheme {
       inputDecorationTheme: InputDecorationTheme(
           contentPadding: const EdgeInsets.all(AppSize.s8),
           labelStyle: RegularTextStyle(
-              color: LightThemeColors.tertiary, size: AppSize.s14),
+              color: LightThemeColors.accent, size: AppSize.s14),
           hintStyle:
               RegularTextStyle(color: ColorManager.grey, size: AppSize.s14),
           errorStyle:
               RegularTextStyle(color: ColorManager.red, size: AppSize.s14),
           enabledBorder: OutlineInputBorder(
-              borderSide: BorderSide(
-                  color: LightThemeColors.tertiary, width: AppSize.s2),
+              borderSide:
+                  BorderSide(color: LightThemeColors.accent, width: AppSize.s2),
               borderRadius:
                   const BorderRadius.all(Radius.circular(AppSize.s8))),
           focusedBorder: OutlineInputBorder(
-              borderSide: BorderSide(
-                  color: LightThemeColors.tertiary, width: AppSize.s2),
+              borderSide:
+                  BorderSide(color: LightThemeColors.accent, width: AppSize.s2),
               borderRadius:
                   const BorderRadius.all(Radius.circular(AppSize.s8))),
           errorBorder: OutlineInputBorder(

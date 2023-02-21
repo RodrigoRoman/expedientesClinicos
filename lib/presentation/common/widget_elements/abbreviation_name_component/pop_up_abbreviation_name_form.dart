@@ -29,6 +29,8 @@ class _AbbreviationNameFormState extends State<AbbreviationNameForm> {
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(builder: (context, constraints) {
+      print('constraints');
+      print(constraints);
       return SizedBox(
         width: constraints.maxWidth,
         height: constraints.maxHeight,
@@ -56,7 +58,7 @@ class _AbbreviationNameFormState extends State<AbbreviationNameForm> {
                             textAlign: TextAlign.center,
                             decoration: InputDecoration(
                                 border: InputBorder.none,
-                                hintText: AppStrings.administrationRoute,
+                                hintText: AppStrings.fullName,
                                 hintStyle: Theme.of(context)
                                     .textTheme
                                     .bodySmall!
@@ -100,7 +102,7 @@ class _AbbreviationNameFormState extends State<AbbreviationNameForm> {
                             textAlign: TextAlign.center,
                             decoration: InputDecoration(
                                 border: InputBorder.none,
-                                hintText: AppStrings.adminRouteAbbreviation,
+                                hintText: AppStrings.abbreviationName,
                                 hintStyle: Theme.of(context)
                                     .textTheme
                                     .bodySmall!

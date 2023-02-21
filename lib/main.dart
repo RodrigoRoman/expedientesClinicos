@@ -62,7 +62,8 @@ class AppRoot extends StatelessWidget {
                   }
                   await showPopUp(ctx, state.stateRender, () async {
                     await appRouter.pop();
-                  }, state.message, state.body, title: state.title);
+                  }, state.message, state.width, state.height, state.body,
+                      title: state.title);
                 } else {
                   appRouter.push(FullScreenState(
                       content: StateRenderer(

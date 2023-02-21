@@ -36,6 +36,9 @@ class AppStrings {
   static const String email = 'Email';
   static const String password = 'Contraseña';
   static const String mobileNumber = 'mobile_number_hint';
+  static const String fullName = 'Nombre completo';
+  static const String abbreviationName = 'Abreviatura';
+
   static const String categoryName = 'Nombre de Categoria';
   static const String providerName = 'Nombre del proveedor';
   static const String existenceAmount = 'Cantidad en existencias';

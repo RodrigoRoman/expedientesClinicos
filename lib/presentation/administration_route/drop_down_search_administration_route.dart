@@ -100,6 +100,8 @@ class _DropdownSearchAdministrationRouteState
                               .add(const AbbreviationNameFormEvent.saved());
                         },
                       ),
+                      300,
+                      300,
                       false));
             },
           );

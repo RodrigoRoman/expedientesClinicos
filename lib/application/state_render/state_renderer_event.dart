@@ -10,8 +10,8 @@ abstract class StateRendererEvent with _$StateRendererEvent {
       String title, String message) = PopUpServerError;
   const factory StateRendererEvent.popUpLoading(
       String title, String message, bool popPrevioues) = PopUpLoading;
-  const factory StateRendererEvent.popUpForm(
-      String title, Widget bodyWidget, bool popPrevioues) = PopUpForm;
+  const factory StateRendererEvent.popUpForm(String title, Widget bodyWidget,
+      double? width, double? height, bool popPrevioues) = PopUpForm;
   const factory StateRendererEvent.fullErrorSreen(
       String title, String message, bool popPrevioues) = FullErrorSreen;
   const factory StateRendererEvent.contentScreen() = ContentScreen;

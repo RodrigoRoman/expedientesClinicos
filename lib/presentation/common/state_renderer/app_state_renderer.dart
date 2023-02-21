@@ -12,16 +12,22 @@ class StateRenderer extends StatelessWidget {
   final String? title;
   final Function retryActionFunction;
   final Widget? bodyWidget;
+  final double dialogHeight;
+  final double dialogWidth;
   final StateRendererType stateRendererType;
   const StateRenderer(
       {required this.stateRendererType,
       String? message,
       String? title,
       Widget? bodyWidget,
+      dialogHeight,
+      dialogWidth,
       required this.retryActionFunction,
       Key? key})
       : message = message ?? AppStrings.loading,
         title = title ?? AppStrings.empty,
+        dialogHeight = dialogHeight ?? 300,
+        dialogWidth = dialogWidth ?? 300,
         bodyWidget = bodyWidget ?? const SizedBox(),
         super(key: key);
   @override
@@ -29,6 +35,8 @@ class StateRenderer extends StatelessWidget {
     return StateAppWidget(
         stateRendererType: stateRendererType,
         title: title,
+        dialogHeight: dialogHeight,
+        dialogWidth: dialogWidth,
         bodyWidget: bodyWidget,
         message: message,
         retryActionFunction: retryActionFunction);
@@ -39,6 +47,8 @@ class StateAppWidget extends StatelessWidget {
   final StateRendererType stateRendererType;
   final String message;
   final String? title;
+  final double dialogHeight;
+  final double dialogWidth;
   final Widget? bodyWidget;
   final Function retryActionFunction;
   const StateAppWidget(
@@ -46,6 +56,8 @@ class StateAppWidget extends StatelessWidget {
       required this.title,
       required this.bodyWidget,
       required this.retryActionFunction,
+      required this.dialogHeight,
+      required this.dialogWidth,
       message,
       Key? key})
       : message = message ?? AppStrings.empty,
@@ -56,26 +68,37 @@ class StateAppWidget extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
     switch (stateRendererType) {
       case StateRendererType.POPUP_LOADING_STATE:
-        return const PopUpDialog(
-            children: [AnimatedImage(animationName: AppAssetNames.loading)]);
+        return PopUpDialog(
+          children: [AnimatedImage(animationName: AppAssetNames.loading)],
+          dialogHeight: dialogHeight,
+          dialogWidth: dialogWidth,
+        );
       case StateRendererType.POPUP_ERROR_STATE:
-        return PopUpDialog(children: [
-          const AnimatedImage(animationName: AppAssetNames.error),
-          StateMessage(message: message),
-          RetryButton(
-            buttonTitle: AppStrings.ok,
-            retryAction: retryActionFunction,
-          )
-        ]);
+        return PopUpDialog(
+          children: [
+            const AnimatedImage(animationName: AppAssetNames.error),
+            StateMessage(message: message),
+            RetryButton(
+              buttonTitle: AppStrings.ok,
+              retryAction: retryActionFunction,
+            )
+          ],
+          dialogHeight: dialogHeight,
+          dialogWidth: dialogWidth,
+        );
       case StateRendererType.POPUP_SERVER_ERROR_STATE:
-        return PopUpDialog(children: [
-          const AnimatedImage(animationName: AppAssetNames.lost),
-          StateMessage(message: message),
-          RetryButton(
-            buttonTitle: AppStrings.ok,
-            retryAction: retryActionFunction,
-          )
-        ]);
+        return PopUpDialog(
+          children: [
+            const AnimatedImage(animationName: AppAssetNames.lost),
+            StateMessage(message: message),
+            RetryButton(
+              buttonTitle: AppStrings.ok,
+              retryAction: retryActionFunction,
+            )
+          ],
+          dialogHeight: dialogHeight,
+          dialogWidth: dialogWidth,
+        );
       case StateRendererType.POPUP_SUCCESS:
         return PopUpDialog(children: [
           const AnimatedImage(animationName: AppAssetNames.success),
@@ -84,23 +107,27 @@ class StateAppWidget extends StatelessWidget {
             buttonTitle: AppStrings.ok,
             retryAction: retryActionFunction,
           )
-        ]);
+        ], dialogHeight: dialogHeight, dialogWidth: dialogWidth);
       case StateRendererType.POPUP_FORM:
-        return PopUpDialog(children: [
-          FittedBox(
-            child: Text(
-              title ?? '',
-              style: Theme.of(context)
-                  .textTheme
-                  .displayLarge!
-                  .copyWith(color: Theme.of(context).colorScheme.background),
+        return PopUpDialog(
+          children: [
+            FittedBox(
+              child: Text(
+                title ?? '',
+                style: Theme.of(context)
+                    .textTheme
+                    .displayLarge!
+                    .copyWith(color: Theme.of(context).colorScheme.background),
+              ),
             ),
-          ),
-          SizedBox(
-              width: size.width / 1.2,
-              height: size.height / 2.2,
-              child: bodyWidget),
-        ]);
+            SizedBox(
+                width: dialogWidth,
+                height: dialogHeight / 1.2,
+                child: bodyWidget),
+          ],
+          dialogHeight: dialogHeight,
+          dialogWidth: dialogWidth,
+        );
       case StateRendererType.FULL_SCREEN_LOADING_STATE:
         return ItemInColumn(children: [
           const AnimatedImage(animationName: AppAssetNames.loading),
@@ -121,8 +148,11 @@ class StateAppWidget extends StatelessWidget {
         return const ItemInColumn(
             children: [AnimatedImage(animationName: AppAssetNames.lost)]);
       default:
-        return const PopUpDialog(
-            children: [AnimatedImage(animationName: AppAssetNames.lost)]);
+        return PopUpDialog(
+          children: [AnimatedImage(animationName: AppAssetNames.lost)],
+          dialogHeight: dialogHeight,
+          dialogWidth: dialogWidth,
+        );
     }
   }
 }

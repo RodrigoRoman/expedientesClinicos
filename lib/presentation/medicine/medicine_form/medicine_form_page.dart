@@ -50,6 +50,8 @@ class _MedicineFormPageState extends State<MedicineFormPage> {
 
   final ScrollController scrollController = ScrollController();
 
+  bool requestedSubmition = false;
+
   final _key = GlobalKey<FormState>();
 
   List<Category> categoriesList = [];
@@ -497,61 +499,69 @@ class _MedicineFormPageState extends State<MedicineFormPage> {
                                 ),
                                 //CATEGORY
                                 SizedBox(
-                                    height: heightUnit * 1.5,
-                                    child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceAround,
-                                      children: [
-                                        Expanded(
-                                          flex: 7,
-                                          child: Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.spaceAround,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.center,
-                                            children: [
-                                              Expanded(
-                                                child: Text(
-                                                  AppStrings.category,
-                                                  style: Theme.of(context)
-                                                      .textTheme
-                                                      .titleSmall,
-                                                ),
-                                              ),
-                                              Expanded(
-                                                child: BlocProvider(
-                                                    create: (context) => getIt<
-                                                        CategoryWatcherBloc>()
-                                                      ..add(const CategoryWatcherEvent
-                                                          .watchAllStarted()),
-                                                    child:
-                                                        DropdownSearchCategories(
-                                                      textController:
-                                                          categoryText,
-                                                      listElements:
-                                                          categoriesList,
-                                                      hintText: AppStrings
-                                                          .chooseCategory,
-                                                      newFunction: () {
-                                                        context
-                                                            .read<
-                                                                StateRendererBloc>()
-                                                            .add(StateRendererEvent
-                                                                .popUpForm(
-                                                                    'Crear categoria',
-                                                                    CategoryForm(),
-                                                                    false));
-                                                      },
-                                                    )),
-                                              ),
-                                            ],
-                                          ),
+                                  height: heightUnit * 1.5,
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceAround,
+                                    children: [
+                                      Expanded(
+                                        flex: 7,
+                                        child: Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceAround,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.center,
+                                          children: [
+                                            Expanded(
+                                              child: TitleValidated(
+                                                  title: AppStrings.category,
+                                                  condition: (requestedSubmition &
+                                                      (context
+                                                              .read<
+                                                                  MedicineFormBloc>()
+                                                              .state
+                                                              .medicine
+                                                              .category ==
+                                                          Category.empty()))),
+                                            ),
+                                            Expanded(
+                                              child: BlocProvider(
+                                                  create: (context) => getIt<
+                                                      CategoryWatcherBloc>()
+                                                    ..add(
+                                                        const CategoryWatcherEvent
+                                                            .watchAllStarted()),
+                                                  child:
+                                                      DropdownSearchCategories(
+                                                    textController:
+                                                        categoryText,
+                                                    listElements:
+                                                        categoriesList,
+                                                    hintText: AppStrings
+                                                        .chooseCategory,
+                                                    newFunction: () {
+                                                      context
+                                                          .read<
+                                                              StateRendererBloc>()
+                                                          .add(StateRendererEvent
+                                                              .popUpForm(
+                                                                  'Crear categoria',
+                                                                  CategoryForm(),
+                                                                  400,
+                                                                  500,
+                                                                  false));
+                                                    },
+                                                  )),
+                                            ),
+                                          ],
                                         ),
-                                        Expanded(
-                                          flex: 2,
-                                          child: Column(
-                                            children: [
-                                              Expanded(
+                                      ),
+                                      Expanded(
+                                        flex: 2,
+                                        child: Column(
+                                          children: [
+                                            Expanded(
+                                              child: Container(
                                                 child: Row(
                                                   children: [
                                                     Expanded(
@@ -581,43 +591,45 @@ class _MedicineFormPageState extends State<MedicineFormPage> {
                                                   ],
                                                 ),
                                               ),
-                                              Expanded(
-                                                child: Switch.adaptive(
-                                                    value: context
+                                            ),
+                                            Expanded(
+                                              child: Switch.adaptive(
+                                                  value: context
+                                                      .read<MedicineFormBloc>()
+                                                      .state
+                                                      .medicine
+                                                      .controlled,
+                                                  activeThumbImage:
+                                                      const AssetImage(
+                                                          AppAssetNames
+                                                              .controlledImage),
+                                                  inactiveThumbImage:
+                                                      const AssetImage(
+                                                          AppAssetNames
+                                                              .freeSaleImage),
+                                                  onChanged: (_) {
+                                                    context
                                                         .read<
                                                             MedicineFormBloc>()
-                                                        .state
-                                                        .medicine
-                                                        .controlled,
-                                                    activeThumbImage:
-                                                        const AssetImage(
-                                                            AppAssetNames
-                                                                .controlledImage),
-                                                    inactiveThumbImage:
-                                                        const AssetImage(
-                                                            AppAssetNames
-                                                                .freeSaleImage),
-                                                    onChanged: (_) {
-                                                      context
-                                                          .read<
-                                                              MedicineFormBloc>()
-                                                          .add(MedicineFormEvent
-                                                              .controlledChanged(!context
-                                                                  .read<
-                                                                      MedicineFormBloc>()
-                                                                  .state
-                                                                  .medicine
-                                                                  .controlled));
-                                                    }),
-                                              ),
-                                            ],
-                                          ),
+                                                        .add(MedicineFormEvent
+                                                            .controlledChanged(
+                                                                !context
+                                                                    .read<
+                                                                        MedicineFormBloc>()
+                                                                    .state
+                                                                    .medicine
+                                                                    .controlled));
+                                                  }),
+                                            ),
+                                          ],
                                         ),
-                                        Spacer(
-                                          flex: 1,
-                                        )
-                                      ],
-                                    )),
+                                      ),
+                                      Spacer(
+                                        flex: 1,
+                                      )
+                                    ],
+                                  ),
+                                ),
                                 SizedBox(
                                   height: heightUnit / 2,
                                 ),
@@ -635,12 +647,18 @@ class _MedicineFormPageState extends State<MedicineFormPage> {
                                                 CrossAxisAlignment.center,
                                             children: [
                                               Expanded(
-                                                child: Text(
-                                                  AppStrings.measureUnit,
-                                                  style: Theme.of(context)
-                                                      .textTheme
-                                                      .titleSmall,
-                                                ),
+                                                child: TitleValidated(
+                                                    title:
+                                                        AppStrings.measureUnit,
+                                                    condition: (requestedSubmition &
+                                                        (context
+                                                                .read<
+                                                                    MedicineFormBloc>()
+                                                                .state
+                                                                .medicine
+                                                                .measureUnit ==
+                                                            NameAbbreviation
+                                                                .empty()))),
                                               ),
                                               Expanded(
                                                 child: BlocProvider(
@@ -756,12 +774,18 @@ class _MedicineFormPageState extends State<MedicineFormPage> {
                                                 CrossAxisAlignment.center,
                                             children: [
                                               Expanded(
-                                                child: Text(
-                                                  AppStrings.pharmaceuticalForm,
-                                                  style: Theme.of(context)
-                                                      .textTheme
-                                                      .titleSmall,
-                                                ),
+                                                child: TitleValidated(
+                                                    title: AppStrings
+                                                        .pharmaceuticalForm,
+                                                    condition: (requestedSubmition &
+                                                        (context
+                                                                .read<
+                                                                    MedicineFormBloc>()
+                                                                .state
+                                                                .medicine
+                                                                .pharmaceuticalForm ==
+                                                            NameAbbreviation
+                                                                .empty()))),
                                               ),
                                               Expanded(
                                                 child: BlocProvider(
@@ -874,13 +898,18 @@ class _MedicineFormPageState extends State<MedicineFormPage> {
                                                 CrossAxisAlignment.center,
                                             children: [
                                               Expanded(
-                                                child: Text(
-                                                  AppStrings
-                                                      .administrationRoute,
-                                                  style: Theme.of(context)
-                                                      .textTheme
-                                                      .titleSmall,
-                                                ),
+                                                child: TitleValidated(
+                                                    title: AppStrings
+                                                        .adminRouteAbbreviation,
+                                                    condition: (requestedSubmition &
+                                                        (context
+                                                                .read<
+                                                                    MedicineFormBloc>()
+                                                                .state
+                                                                .medicine
+                                                                .administrationRoute ==
+                                                            NameAbbreviation
+                                                                .empty()))),
                                               ),
                                               Expanded(
                                                 child: BlocProvider(
@@ -906,15 +935,17 @@ class _MedicineFormPageState extends State<MedicineFormPage> {
                                     width: constraint.maxWidth / 3,
                                     child: ElevatedButton(
                                       onPressed: () {
-                                        print('the medicine object');
-                                        print(context
-                                            .read<MedicineFormBloc>()
-                                            .state
-                                            .medicine);
-                                        // if (_key.currentState!.validate()) {
-                                        context.read<MedicineFormBloc>().add(
-                                            const MedicineFormEvent.saved());
-                                        // }
+                                        print('current state');
+                                        // print(_key.currentState.);
+
+                                        if (_key.currentState!.validate()) {
+                                          context.read<MedicineFormBloc>().add(
+                                              const MedicineFormEvent.saved());
+                                        } else {
+                                          setState(() {
+                                            requestedSubmition = true;
+                                          });
+                                        }
                                       },
                                       child: const Text(AppStrings.create),
                                     )),
@@ -923,34 +954,34 @@ class _MedicineFormPageState extends State<MedicineFormPage> {
                                 ),
 
                                 //FAKER BUTTON - TO BE COMMENTED
-                                SizedBox(
-                                  height: heightUnit,
-                                  width: constraint.maxWidth / 3,
-                                  child: BlocProvider(
-                                    create: (context) =>
-                                        getIt<MedicineActorBloc>(),
-                                    child: Container(
-                                      child: BlocConsumer<MedicineActorBloc,
-                                          MedicineActorState>(
-                                        listener: (context, state) {
-                                          // TODO: implement listener
-                                        },
-                                        builder: (context, state) {
-                                          return ElevatedButton(
-                                            onPressed: () {
-                                              context
-                                                  .read<MedicineActorBloc>()
-                                                  .add(MedicineActorEvent
-                                                      .faker());
-                                            },
-                                            child: const Text(
-                                                AppStrings.createFake),
-                                          );
-                                        },
-                                      ),
-                                    ),
-                                  ),
-                                ),
+                                // SizedBox(
+                                //   height: heightUnit,
+                                //   width: constraint.maxWidth / 3,
+                                //   child: BlocProvider(
+                                //     create: (context) =>
+                                //         getIt<MedicineActorBloc>(),
+                                //     child: Container(
+                                //       child: BlocConsumer<MedicineActorBloc,
+                                //           MedicineActorState>(
+                                //         listener: (context, state) {
+                                //           // TODO: implement listener
+                                //         },
+                                //         builder: (context, state) {
+                                //           return ElevatedButton(
+                                //             onPressed: () {
+                                //               context
+                                //                   .read<MedicineActorBloc>()
+                                //                   .add(MedicineActorEvent
+                                //                       .faker());
+                                //             },
+                                //             child: const Text(
+                                //                 AppStrings.createFake),
+                                //           );
+                                //         },
+                                //       ),
+                                //     ),
+                                //   ),
+                                // ),
                                 SizedBox(
                                   height: heightUnit / 2,
                                 ),
@@ -964,5 +995,61 @@ class _MedicineFormPageState extends State<MedicineFormPage> {
         );
       },
     ));
+  }
+}
+
+class TitleValidated extends StatelessWidget {
+  const TitleValidated({
+    super.key,
+    required this.title,
+    required this.condition,
+  });
+  final String title;
+  final bool condition;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Expanded(
+          flex: 4,
+          child: Text(
+            title,
+            style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                color: condition
+                    // (requestedSubmition &
+                    //         (context
+                    //                 .read<MedicineFormBloc>()
+                    //                 .state
+                    //                 .medicine
+                    //                 .category ==
+                    //             Category.empty()))
+                    ? Theme.of(context).colorScheme.error
+                    : Colors.black),
+          ),
+        ),
+        condition
+            ? Expanded(
+                flex: 3,
+                child: Column(
+                  children: [
+                    Expanded(
+                      child: FittedBox(
+                        child: Text(AppStrings.isEmpty,
+                            style: Theme.of(context)
+                                .textTheme
+                                .bodySmall!
+                                .copyWith(
+                                    color:
+                                        Theme.of(context).colorScheme.error)),
+                      ),
+                    ),
+                    Spacer(),
+                  ],
+                ),
+              )
+            : SizedBox.shrink()
+      ],
+    );
   }
 }

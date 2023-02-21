@@ -25,8 +25,8 @@ mixin _$StateRendererEvent {
     required TResult Function(String title, String message) popUpServerError,
     required TResult Function(String title, String message, bool popPrevioues)
         popUpLoading,
-    required TResult Function(
-            String title, Widget bodyWidget, bool popPrevioues)
+    required TResult Function(String title, Widget bodyWidget, double? width,
+            double? height, bool popPrevioues)
         popUpForm,
     required TResult Function(String title, String message, bool popPrevioues)
         fullErrorSreen,
@@ -43,7 +43,8 @@ mixin _$StateRendererEvent {
     TResult? Function(String title, String message)? popUpServerError,
     TResult? Function(String title, String message, bool popPrevioues)?
         popUpLoading,
-    TResult? Function(String title, Widget bodyWidget, bool popPrevioues)?
+    TResult? Function(String title, Widget bodyWidget, double? width,
+            double? height, bool popPrevioues)?
         popUpForm,
     TResult? Function(String title, String message, bool popPrevioues)?
         fullErrorSreen,
@@ -60,7 +61,8 @@ mixin _$StateRendererEvent {
     TResult Function(String title, String message)? popUpServerError,
     TResult Function(String title, String message, bool popPrevioues)?
         popUpLoading,
-    TResult Function(String title, Widget bodyWidget, bool popPrevioues)?
+    TResult Function(String title, Widget bodyWidget, double? width,
+            double? height, bool popPrevioues)?
         popUpForm,
     TResult Function(String title, String message, bool popPrevioues)?
         fullErrorSreen,
@@ -214,8 +216,8 @@ class _$PopUpSuccess implements PopUpSuccess {
     required TResult Function(String title, String message) popUpServerError,
     required TResult Function(String title, String message, bool popPrevioues)
         popUpLoading,
-    required TResult Function(
-            String title, Widget bodyWidget, bool popPrevioues)
+    required TResult Function(String title, Widget bodyWidget, double? width,
+            double? height, bool popPrevioues)
         popUpForm,
     required TResult Function(String title, String message, bool popPrevioues)
         fullErrorSreen,
@@ -235,7 +237,8 @@ class _$PopUpSuccess implements PopUpSuccess {
     TResult? Function(String title, String message)? popUpServerError,
     TResult? Function(String title, String message, bool popPrevioues)?
         popUpLoading,
-    TResult? Function(String title, Widget bodyWidget, bool popPrevioues)?
+    TResult? Function(String title, Widget bodyWidget, double? width,
+            double? height, bool popPrevioues)?
         popUpForm,
     TResult? Function(String title, String message, bool popPrevioues)?
         fullErrorSreen,
@@ -255,7 +258,8 @@ class _$PopUpSuccess implements PopUpSuccess {
     TResult Function(String title, String message)? popUpServerError,
     TResult Function(String title, String message, bool popPrevioues)?
         popUpLoading,
-    TResult Function(String title, Widget bodyWidget, bool popPrevioues)?
+    TResult Function(String title, Widget bodyWidget, double? width,
+            double? height, bool popPrevioues)?
         popUpForm,
     TResult Function(String title, String message, bool popPrevioues)?
         fullErrorSreen,
@@ -420,8 +424,8 @@ class _$PopUpError implements PopUpError {
     required TResult Function(String title, String message) popUpServerError,
     required TResult Function(String title, String message, bool popPrevioues)
         popUpLoading,
-    required TResult Function(
-            String title, Widget bodyWidget, bool popPrevioues)
+    required TResult Function(String title, Widget bodyWidget, double? width,
+            double? height, bool popPrevioues)
         popUpForm,
     required TResult Function(String title, String message, bool popPrevioues)
         fullErrorSreen,
@@ -441,7 +445,8 @@ class _$PopUpError implements PopUpError {
     TResult? Function(String title, String message)? popUpServerError,
     TResult? Function(String title, String message, bool popPrevioues)?
         popUpLoading,
-    TResult? Function(String title, Widget bodyWidget, bool popPrevioues)?
+    TResult? Function(String title, Widget bodyWidget, double? width,
+            double? height, bool popPrevioues)?
         popUpForm,
     TResult? Function(String title, String message, bool popPrevioues)?
         fullErrorSreen,
@@ -461,7 +466,8 @@ class _$PopUpError implements PopUpError {
     TResult Function(String title, String message)? popUpServerError,
     TResult Function(String title, String message, bool popPrevioues)?
         popUpLoading,
-    TResult Function(String title, Widget bodyWidget, bool popPrevioues)?
+    TResult Function(String title, Widget bodyWidget, double? width,
+            double? height, bool popPrevioues)?
         popUpForm,
     TResult Function(String title, String message, bool popPrevioues)?
         fullErrorSreen,
@@ -617,8 +623,8 @@ class _$PopUpServerError implements PopUpServerError {
     required TResult Function(String title, String message) popUpServerError,
     required TResult Function(String title, String message, bool popPrevioues)
         popUpLoading,
-    required TResult Function(
-            String title, Widget bodyWidget, bool popPrevioues)
+    required TResult Function(String title, Widget bodyWidget, double? width,
+            double? height, bool popPrevioues)
         popUpForm,
     required TResult Function(String title, String message, bool popPrevioues)
         fullErrorSreen,
@@ -638,7 +644,8 @@ class _$PopUpServerError implements PopUpServerError {
     TResult? Function(String title, String message)? popUpServerError,
     TResult? Function(String title, String message, bool popPrevioues)?
         popUpLoading,
-    TResult? Function(String title, Widget bodyWidget, bool popPrevioues)?
+    TResult? Function(String title, Widget bodyWidget, double? width,
+            double? height, bool popPrevioues)?
         popUpForm,
     TResult? Function(String title, String message, bool popPrevioues)?
         fullErrorSreen,
@@ -658,7 +665,8 @@ class _$PopUpServerError implements PopUpServerError {
     TResult Function(String title, String message)? popUpServerError,
     TResult Function(String title, String message, bool popPrevioues)?
         popUpLoading,
-    TResult Function(String title, Widget bodyWidget, bool popPrevioues)?
+    TResult Function(String title, Widget bodyWidget, double? width,
+            double? height, bool popPrevioues)?
         popUpForm,
     TResult Function(String title, String message, bool popPrevioues)?
         fullErrorSreen,
@@ -821,8 +829,8 @@ class _$PopUpLoading implements PopUpLoading {
     required TResult Function(String title, String message) popUpServerError,
     required TResult Function(String title, String message, bool popPrevioues)
         popUpLoading,
-    required TResult Function(
-            String title, Widget bodyWidget, bool popPrevioues)
+    required TResult Function(String title, Widget bodyWidget, double? width,
+            double? height, bool popPrevioues)
         popUpForm,
     required TResult Function(String title, String message, bool popPrevioues)
         fullErrorSreen,
@@ -842,7 +850,8 @@ class _$PopUpLoading implements PopUpLoading {
     TResult? Function(String title, String message)? popUpServerError,
     TResult? Function(String title, String message, bool popPrevioues)?
         popUpLoading,
-    TResult? Function(String title, Widget bodyWidget, bool popPrevioues)?
+    TResult? Function(String title, Widget bodyWidget, double? width,
+            double? height, bool popPrevioues)?
         popUpForm,
     TResult? Function(String title, String message, bool popPrevioues)?
         fullErrorSreen,
@@ -862,7 +871,8 @@ class _$PopUpLoading implements PopUpLoading {
     TResult Function(String title, String message)? popUpServerError,
     TResult Function(String title, String message, bool popPrevioues)?
         popUpLoading,
-    TResult Function(String title, Widget bodyWidget, bool popPrevioues)?
+    TResult Function(String title, Widget bodyWidget, double? width,
+            double? height, bool popPrevioues)?
         popUpForm,
     TResult Function(String title, String message, bool popPrevioues)?
         fullErrorSreen,
@@ -945,7 +955,12 @@ abstract class _$$PopUpFormCopyWith<$Res> {
           _$PopUpForm value, $Res Function(_$PopUpForm) then) =
       __$$PopUpFormCopyWithImpl<$Res>;
   @useResult
-  $Res call({String title, Widget bodyWidget, bool popPrevioues});
+  $Res call(
+      {String title,
+      Widget bodyWidget,
+      double? width,
+      double? height,
+      bool popPrevioues});
 }
 
 /// @nodoc
@@ -961,6 +976,8 @@ class __$$PopUpFormCopyWithImpl<$Res>
   $Res call({
     Object? title = null,
     Object? bodyWidget = null,
+    Object? width = freezed,
+    Object? height = freezed,
     Object? popPrevioues = null,
   }) {
     return _then(_$PopUpForm(
@@ -972,6 +989,14 @@ class __$$PopUpFormCopyWithImpl<$Res>
           ? _value.bodyWidget
           : bodyWidget // ignore: cast_nullable_to_non_nullable
               as Widget,
+      freezed == width
+          ? _value.width
+          : width // ignore: cast_nullable_to_non_nullable
+              as double?,
+      freezed == height
+          ? _value.height
+          : height // ignore: cast_nullable_to_non_nullable
+              as double?,
       null == popPrevioues
           ? _value.popPrevioues
           : popPrevioues // ignore: cast_nullable_to_non_nullable
@@ -983,18 +1008,23 @@ class __$$PopUpFormCopyWithImpl<$Res>
 /// @nodoc
 
 class _$PopUpForm implements PopUpForm {
-  const _$PopUpForm(this.title, this.bodyWidget, this.popPrevioues);
+  const _$PopUpForm(
+      this.title, this.bodyWidget, this.width, this.height, this.popPrevioues);
 
   @override
   final String title;
   @override
   final Widget bodyWidget;
   @override
+  final double? width;
+  @override
+  final double? height;
+  @override
   final bool popPrevioues;
 
   @override
   String toString() {
-    return 'StateRendererEvent.popUpForm(title: $title, bodyWidget: $bodyWidget, popPrevioues: $popPrevioues)';
+    return 'StateRendererEvent.popUpForm(title: $title, bodyWidget: $bodyWidget, width: $width, height: $height, popPrevioues: $popPrevioues)';
   }
 
   @override
@@ -1005,12 +1035,15 @@ class _$PopUpForm implements PopUpForm {
             (identical(other.title, title) || other.title == title) &&
             (identical(other.bodyWidget, bodyWidget) ||
                 other.bodyWidget == bodyWidget) &&
+            (identical(other.width, width) || other.width == width) &&
+            (identical(other.height, height) || other.height == height) &&
             (identical(other.popPrevioues, popPrevioues) ||
                 other.popPrevioues == popPrevioues));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, title, bodyWidget, popPrevioues);
+  int get hashCode =>
+      Object.hash(runtimeType, title, bodyWidget, width, height, popPrevioues);
 
   @JsonKey(ignore: true)
   @override
@@ -1028,15 +1061,15 @@ class _$PopUpForm implements PopUpForm {
     required TResult Function(String title, String message) popUpServerError,
     required TResult Function(String title, String message, bool popPrevioues)
         popUpLoading,
-    required TResult Function(
-            String title, Widget bodyWidget, bool popPrevioues)
+    required TResult Function(String title, Widget bodyWidget, double? width,
+            double? height, bool popPrevioues)
         popUpForm,
     required TResult Function(String title, String message, bool popPrevioues)
         fullErrorSreen,
     required TResult Function() contentScreen,
     required TResult Function() empty,
   }) {
-    return popUpForm(title, bodyWidget, popPrevioues);
+    return popUpForm(title, bodyWidget, width, height, popPrevioues);
   }
 
   @override
@@ -1049,14 +1082,15 @@ class _$PopUpForm implements PopUpForm {
     TResult? Function(String title, String message)? popUpServerError,
     TResult? Function(String title, String message, bool popPrevioues)?
         popUpLoading,
-    TResult? Function(String title, Widget bodyWidget, bool popPrevioues)?
+    TResult? Function(String title, Widget bodyWidget, double? width,
+            double? height, bool popPrevioues)?
         popUpForm,
     TResult? Function(String title, String message, bool popPrevioues)?
         fullErrorSreen,
     TResult? Function()? contentScreen,
     TResult? Function()? empty,
   }) {
-    return popUpForm?.call(title, bodyWidget, popPrevioues);
+    return popUpForm?.call(title, bodyWidget, width, height, popPrevioues);
   }
 
   @override
@@ -1069,7 +1103,8 @@ class _$PopUpForm implements PopUpForm {
     TResult Function(String title, String message)? popUpServerError,
     TResult Function(String title, String message, bool popPrevioues)?
         popUpLoading,
-    TResult Function(String title, Widget bodyWidget, bool popPrevioues)?
+    TResult Function(String title, Widget bodyWidget, double? width,
+            double? height, bool popPrevioues)?
         popUpForm,
     TResult Function(String title, String message, bool popPrevioues)?
         fullErrorSreen,
@@ -1078,7 +1113,7 @@ class _$PopUpForm implements PopUpForm {
     required TResult orElse(),
   }) {
     if (popUpForm != null) {
-      return popUpForm(title, bodyWidget, popPrevioues);
+      return popUpForm(title, bodyWidget, width, height, popPrevioues);
     }
     return orElse();
   }
@@ -1134,11 +1169,17 @@ class _$PopUpForm implements PopUpForm {
 }
 
 abstract class PopUpForm implements StateRendererEvent {
-  const factory PopUpForm(final String title, final Widget bodyWidget,
+  const factory PopUpForm(
+      final String title,
+      final Widget bodyWidget,
+      final double? width,
+      final double? height,
       final bool popPrevioues) = _$PopUpForm;
 
   String get title;
   Widget get bodyWidget;
+  double? get width;
+  double? get height;
   bool get popPrevioues;
   @JsonKey(ignore: true)
   _$$PopUpFormCopyWith<_$PopUpForm> get copyWith =>
@@ -1233,8 +1274,8 @@ class _$FullErrorSreen implements FullErrorSreen {
     required TResult Function(String title, String message) popUpServerError,
     required TResult Function(String title, String message, bool popPrevioues)
         popUpLoading,
-    required TResult Function(
-            String title, Widget bodyWidget, bool popPrevioues)
+    required TResult Function(String title, Widget bodyWidget, double? width,
+            double? height, bool popPrevioues)
         popUpForm,
     required TResult Function(String title, String message, bool popPrevioues)
         fullErrorSreen,
@@ -1254,7 +1295,8 @@ class _$FullErrorSreen implements FullErrorSreen {
     TResult? Function(String title, String message)? popUpServerError,
     TResult? Function(String title, String message, bool popPrevioues)?
         popUpLoading,
-    TResult? Function(String title, Widget bodyWidget, bool popPrevioues)?
+    TResult? Function(String title, Widget bodyWidget, double? width,
+            double? height, bool popPrevioues)?
         popUpForm,
     TResult? Function(String title, String message, bool popPrevioues)?
         fullErrorSreen,
@@ -1274,7 +1316,8 @@ class _$FullErrorSreen implements FullErrorSreen {
     TResult Function(String title, String message)? popUpServerError,
     TResult Function(String title, String message, bool popPrevioues)?
         popUpLoading,
-    TResult Function(String title, Widget bodyWidget, bool popPrevioues)?
+    TResult Function(String title, Widget bodyWidget, double? width,
+            double? height, bool popPrevioues)?
         popUpForm,
     TResult Function(String title, String message, bool popPrevioues)?
         fullErrorSreen,
@@ -1396,8 +1439,8 @@ class _$ContentScreen implements ContentScreen {
     required TResult Function(String title, String message) popUpServerError,
     required TResult Function(String title, String message, bool popPrevioues)
         popUpLoading,
-    required TResult Function(
-            String title, Widget bodyWidget, bool popPrevioues)
+    required TResult Function(String title, Widget bodyWidget, double? width,
+            double? height, bool popPrevioues)
         popUpForm,
     required TResult Function(String title, String message, bool popPrevioues)
         fullErrorSreen,
@@ -1417,7 +1460,8 @@ class _$ContentScreen implements ContentScreen {
     TResult? Function(String title, String message)? popUpServerError,
     TResult? Function(String title, String message, bool popPrevioues)?
         popUpLoading,
-    TResult? Function(String title, Widget bodyWidget, bool popPrevioues)?
+    TResult? Function(String title, Widget bodyWidget, double? width,
+            double? height, bool popPrevioues)?
         popUpForm,
     TResult? Function(String title, String message, bool popPrevioues)?
         fullErrorSreen,
@@ -1437,7 +1481,8 @@ class _$ContentScreen implements ContentScreen {
     TResult Function(String title, String message)? popUpServerError,
     TResult Function(String title, String message, bool popPrevioues)?
         popUpLoading,
-    TResult Function(String title, Widget bodyWidget, bool popPrevioues)?
+    TResult Function(String title, Widget bodyWidget, double? width,
+            double? height, bool popPrevioues)?
         popUpForm,
     TResult Function(String title, String message, bool popPrevioues)?
         fullErrorSreen,
@@ -1550,8 +1595,8 @@ class _$EmptySreen implements EmptySreen {
     required TResult Function(String title, String message) popUpServerError,
     required TResult Function(String title, String message, bool popPrevioues)
         popUpLoading,
-    required TResult Function(
-            String title, Widget bodyWidget, bool popPrevioues)
+    required TResult Function(String title, Widget bodyWidget, double? width,
+            double? height, bool popPrevioues)
         popUpForm,
     required TResult Function(String title, String message, bool popPrevioues)
         fullErrorSreen,
@@ -1571,7 +1616,8 @@ class _$EmptySreen implements EmptySreen {
     TResult? Function(String title, String message)? popUpServerError,
     TResult? Function(String title, String message, bool popPrevioues)?
         popUpLoading,
-    TResult? Function(String title, Widget bodyWidget, bool popPrevioues)?
+    TResult? Function(String title, Widget bodyWidget, double? width,
+            double? height, bool popPrevioues)?
         popUpForm,
     TResult? Function(String title, String message, bool popPrevioues)?
         fullErrorSreen,
@@ -1591,7 +1637,8 @@ class _$EmptySreen implements EmptySreen {
     TResult Function(String title, String message)? popUpServerError,
     TResult Function(String title, String message, bool popPrevioues)?
         popUpLoading,
-    TResult Function(String title, Widget bodyWidget, bool popPrevioues)?
+    TResult Function(String title, Widget bodyWidget, double? width,
+            double? height, bool popPrevioues)?
         popUpForm,
     TResult Function(String title, String message, bool popPrevioues)?
         fullErrorSreen,
@@ -1665,6 +1712,8 @@ mixin _$StateRendererState {
   Function get retryAction => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
   bool get popPrevioues => throw _privateConstructorUsedError;
+  double get width => throw _privateConstructorUsedError;
+  double get height => throw _privateConstructorUsedError;
   Widget? get body => throw _privateConstructorUsedError;
   StateRendererType get stateRender => throw _privateConstructorUsedError;
 
@@ -1684,6 +1733,8 @@ abstract class $StateRendererStateCopyWith<$Res> {
       Function retryAction,
       String title,
       bool popPrevioues,
+      double width,
+      double height,
       Widget? body,
       StateRendererType stateRender});
 }
@@ -1705,6 +1756,8 @@ class _$StateRendererStateCopyWithImpl<$Res, $Val extends StateRendererState>
     Object? retryAction = null,
     Object? title = null,
     Object? popPrevioues = null,
+    Object? width = null,
+    Object? height = null,
     Object? body = freezed,
     Object? stateRender = null,
   }) {
@@ -1725,6 +1778,14 @@ class _$StateRendererStateCopyWithImpl<$Res, $Val extends StateRendererState>
           ? _value.popPrevioues
           : popPrevioues // ignore: cast_nullable_to_non_nullable
               as bool,
+      width: null == width
+          ? _value.width
+          : width // ignore: cast_nullable_to_non_nullable
+              as double,
+      height: null == height
+          ? _value.height
+          : height // ignore: cast_nullable_to_non_nullable
+              as double,
       body: freezed == body
           ? _value.body
           : body // ignore: cast_nullable_to_non_nullable
@@ -1750,6 +1811,8 @@ abstract class _$$_StateRendererStateCopyWith<$Res>
       Function retryAction,
       String title,
       bool popPrevioues,
+      double width,
+      double height,
       Widget? body,
       StateRendererType stateRender});
 }
@@ -1769,6 +1832,8 @@ class __$$_StateRendererStateCopyWithImpl<$Res>
     Object? retryAction = null,
     Object? title = null,
     Object? popPrevioues = null,
+    Object? width = null,
+    Object? height = null,
     Object? body = freezed,
     Object? stateRender = null,
   }) {
@@ -1789,6 +1854,14 @@ class __$$_StateRendererStateCopyWithImpl<$Res>
           ? _value.popPrevioues
           : popPrevioues // ignore: cast_nullable_to_non_nullable
               as bool,
+      width: null == width
+          ? _value.width
+          : width // ignore: cast_nullable_to_non_nullable
+              as double,
+      height: null == height
+          ? _value.height
+          : height // ignore: cast_nullable_to_non_nullable
+              as double,
       body: freezed == body
           ? _value.body
           : body // ignore: cast_nullable_to_non_nullable
@@ -1809,6 +1882,8 @@ class _$_StateRendererState implements _StateRendererState {
       required this.retryAction,
       required this.title,
       required this.popPrevioues,
+      required this.width,
+      required this.height,
       this.body,
       required this.stateRender});
 
@@ -1821,13 +1896,17 @@ class _$_StateRendererState implements _StateRendererState {
   @override
   final bool popPrevioues;
   @override
+  final double width;
+  @override
+  final double height;
+  @override
   final Widget? body;
   @override
   final StateRendererType stateRender;
 
   @override
   String toString() {
-    return 'StateRendererState(message: $message, retryAction: $retryAction, title: $title, popPrevioues: $popPrevioues, body: $body, stateRender: $stateRender)';
+    return 'StateRendererState(message: $message, retryAction: $retryAction, title: $title, popPrevioues: $popPrevioues, width: $width, height: $height, body: $body, stateRender: $stateRender)';
   }
 
   @override
@@ -1841,6 +1920,8 @@ class _$_StateRendererState implements _StateRendererState {
             (identical(other.title, title) || other.title == title) &&
             (identical(other.popPrevioues, popPrevioues) ||
                 other.popPrevioues == popPrevioues) &&
+            (identical(other.width, width) || other.width == width) &&
+            (identical(other.height, height) || other.height == height) &&
             (identical(other.body, body) || other.body == body) &&
             (identical(other.stateRender, stateRender) ||
                 other.stateRender == stateRender));
@@ -1848,7 +1929,7 @@ class _$_StateRendererState implements _StateRendererState {
 
   @override
   int get hashCode => Object.hash(runtimeType, message, retryAction, title,
-      popPrevioues, body, stateRender);
+      popPrevioues, width, height, body, stateRender);
 
   @JsonKey(ignore: true)
   @override
@@ -1864,6 +1945,8 @@ abstract class _StateRendererState implements StateRendererState {
       required final Function retryAction,
       required final String title,
       required final bool popPrevioues,
+      required final double width,
+      required final double height,
       final Widget? body,
       required final StateRendererType stateRender}) = _$_StateRendererState;
 
@@ -1875,6 +1958,10 @@ abstract class _StateRendererState implements StateRendererState {
   String get title;
   @override
   bool get popPrevioues;
+  @override
+  double get width;
+  @override
+  double get height;
   @override
   Widget? get body;
   @override

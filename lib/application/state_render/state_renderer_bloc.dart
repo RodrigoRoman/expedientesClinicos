@@ -45,6 +45,8 @@ class StateRendererBloc extends Bloc<StateRendererEvent, StateRendererState> {
     on<PopUpForm>((event, emit) {
       emit(state.copyWith(
           title: event.title,
+          width: event.width ?? state.width,
+          height: event.height ?? state.height,
           popPrevioues: event.popPrevioues,
           retryAction: () => print('clicked'),
           body: event.bodyWidget,
