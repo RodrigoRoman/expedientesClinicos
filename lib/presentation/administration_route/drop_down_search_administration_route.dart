@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:expedientes_clinicos/application/abbreviation_name/abbreviation_name_form/abbreviation_name_form_abstract_bloc.dart';
 import 'package:expedientes_clinicos/application/abbreviation_name/abbreviation_name_form/administration_route_form_bloc.dart';
 import 'package:expedientes_clinicos/application/abbreviation_name/abbreviation_name_watcher/abbreviation_name_watcher_bloc.dart';
@@ -40,18 +41,16 @@ class _DropdownSearchAdministrationRouteState
                 administrationRouteList = [];
               },
               loadInProgress: ((value) => context.read<StateRendererBloc>().add(
-                  const StateRendererEvent.popUpLoading(AppStrings.saving,
-                      AppStrings.actionInProgressExplain, false))),
+                  StateRendererEvent.popUpLoading(AppStrings.saving,
+                      AppStrings.actionInProgressExplain, null, 300, 500))),
               loadSuccess: ((value) {
                 setState(() {
                   administrationRouteList = value.abbreviationName.asList();
                 });
               }),
               loadFailure: ((value) => context.read<StateRendererBloc>().add(
-                  const StateRendererEvent.popUpError(
-                      AppStrings.unableToReadError,
-                      AppStrings.unableToReadErrorExplain,
-                      false))));
+                  StateRendererEvent.popUpError(AppStrings.unableToReadError,
+                      AppStrings.unableToReadErrorExplain, null, 300, 500))));
         }, builder: (context, state) {
           return DropdownSearchAbbreviationNameRoute(
             abbreviationName: context
@@ -101,8 +100,8 @@ class _DropdownSearchAdministrationRouteState
                         },
                       ),
                       300,
-                      300,
-                      false));
+                      500,
+                      null));
             },
           );
         }));

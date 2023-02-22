@@ -6,7 +6,7 @@ class StateRendererState with _$StateRendererState {
       {required String message,
       required Function retryAction,
       required String title,
-      required bool popPrevioues,
+      required String? until,
       required double width,
       required double height,
       Widget? body,
@@ -16,7 +16,7 @@ class StateRendererState with _$StateRendererState {
       retryAction: () => print(''),
       title: '',
       width: 300,
-      height: 300,
-      popPrevioues: true,
+      height: 500,
+      until: null,
       stateRender: StateRendererType.CONTENT_SCREEN_STATE);
 }

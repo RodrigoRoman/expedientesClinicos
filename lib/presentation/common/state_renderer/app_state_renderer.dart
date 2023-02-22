@@ -26,7 +26,7 @@ class StateRenderer extends StatelessWidget {
       Key? key})
       : message = message ?? AppStrings.loading,
         title = title ?? AppStrings.empty,
-        dialogHeight = dialogHeight ?? 300,
+        dialogHeight = dialogHeight ?? 500,
         dialogWidth = dialogWidth ?? 300,
         bodyWidget = bodyWidget ?? const SizedBox(),
         super(key: key);
@@ -101,11 +101,16 @@ class StateAppWidget extends StatelessWidget {
         );
       case StateRendererType.POPUP_SUCCESS:
         return PopUpDialog(children: [
-          const AnimatedImage(animationName: AppAssetNames.success),
-          StateMessage(message: message),
-          RetryButton(
-            buttonTitle: AppStrings.ok,
-            retryAction: retryActionFunction,
+          Expanded(
+              flex: 1,
+              child: const AnimatedImage(animationName: AppAssetNames.success)),
+          Expanded(flex: 2, child: StateMessage(message: message)),
+          Expanded(
+            flex: 1,
+            child: RetryButton(
+              buttonTitle: AppStrings.ok,
+              retryAction: retryActionFunction,
+            ),
           )
         ], dialogHeight: dialogHeight, dialogWidth: dialogWidth);
       case StateRendererType.POPUP_FORM:
@@ -165,13 +170,15 @@ class StateMessage extends StatelessWidget {
     return Center(
         child: Padding(
       padding: const EdgeInsets.all(AppSize.s18),
-      child: Text(
-        message,
-        textAlign: TextAlign.center,
-        style: Theme.of(context)
-            .textTheme
-            .headline3!
-            .copyWith(color: Theme.of(context).backgroundColor),
+      child: FittedBox(
+        child: Text(
+          message,
+          textAlign: TextAlign.center,
+          style: Theme.of(context)
+              .textTheme
+              .headline3!
+              .copyWith(color: Theme.of(context).backgroundColor),
+        ),
       ),
     ));
   }

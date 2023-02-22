@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:expedientes_clinicos/application/abbreviation_name/abbreviation_name_watcher/abbreviation_name_watcher_bloc.dart';
 import 'package:expedientes_clinicos/application/abbreviation_name/abbreviation_name_watcher/administration_route_watcher_bloc_.dart';
 import 'package:expedientes_clinicos/application/categories/category_watcher/category_watcher_bloc.dart';
@@ -176,8 +177,7 @@ class _MedicineFormBodyState extends State<MedicineFormBody> {
                       Expanded(
                         child: BlocProvider(
                             create: (context) => getIt<CategoryWatcherBloc>()
-                              ..add(
-                                  const CategoryWatcherEvent.watchAllStarted()),
+                              ..add(CategoryWatcherEvent.watchAllStarted()),
                             child: DropdownSearchCategories(
                               textController: categoryText,
                               listElements: categoriesList,
@@ -189,7 +189,7 @@ class _MedicineFormBodyState extends State<MedicineFormBody> {
                                         CategoryForm(),
                                         400,
                                         500,
-                                        false));
+                                        null));
                               },
                             )),
                       ),

@@ -15,7 +15,9 @@ class StateRendererBloc extends Bloc<StateRendererEvent, StateRendererState> {
       emit(state.copyWith(
           title: event.title,
           message: event.message,
-          popPrevioues: event.popPrevioues,
+          until: event.until,
+          width: event.width ?? state.width,
+          height: event.height ?? state.height,
           retryAction: () => print('clicked'),
           stateRender: StateRendererType.POPUP_SUCCESS));
     });
@@ -23,7 +25,9 @@ class StateRendererBloc extends Bloc<StateRendererEvent, StateRendererState> {
       emit(state.copyWith(
           title: event.title,
           message: event.message,
-          popPrevioues: event.popPrevioues,
+          until: event.until,
+          width: event.width ?? state.width,
+          height: event.height ?? state.height,
           retryAction: () => print('clicked'),
           stateRender: StateRendererType.POPUP_ERROR_STATE));
     });
@@ -38,7 +42,9 @@ class StateRendererBloc extends Bloc<StateRendererEvent, StateRendererState> {
       emit(state.copyWith(
           title: event.title,
           message: event.message,
-          popPrevioues: event.popPrevioues,
+          until: event.until,
+          width: event.width ?? state.width,
+          height: event.height ?? state.height,
           retryAction: () => print('clicked'),
           stateRender: StateRendererType.POPUP_LOADING_STATE));
     });
@@ -47,7 +53,7 @@ class StateRendererBloc extends Bloc<StateRendererEvent, StateRendererState> {
           title: event.title,
           width: event.width ?? state.width,
           height: event.height ?? state.height,
-          popPrevioues: event.popPrevioues,
+          until: event.until,
           retryAction: () => print('clicked'),
           body: event.bodyWidget,
           stateRender: StateRendererType.POPUP_FORM));

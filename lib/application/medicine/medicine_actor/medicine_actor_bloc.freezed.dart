@@ -328,7 +328,7 @@ mixin _$MedicineActorState {
     required TResult Function() actionInProgress,
     required TResult Function(MedicineFailures medicineFailure) deleteFailure,
     required TResult Function() deleteSuccess,
-    required TResult Function(MedicineFailures categoryFailure) fakeFailure,
+    required TResult Function(MedicineFailures medicineFailure) fakeFailure,
     required TResult Function() fakeSuccess,
   }) =>
       throw _privateConstructorUsedError;
@@ -338,7 +338,7 @@ mixin _$MedicineActorState {
     TResult? Function()? actionInProgress,
     TResult? Function(MedicineFailures medicineFailure)? deleteFailure,
     TResult? Function()? deleteSuccess,
-    TResult? Function(MedicineFailures categoryFailure)? fakeFailure,
+    TResult? Function(MedicineFailures medicineFailure)? fakeFailure,
     TResult? Function()? fakeSuccess,
   }) =>
       throw _privateConstructorUsedError;
@@ -348,7 +348,7 @@ mixin _$MedicineActorState {
     TResult Function()? actionInProgress,
     TResult Function(MedicineFailures medicineFailure)? deleteFailure,
     TResult Function()? deleteSuccess,
-    TResult Function(MedicineFailures categoryFailure)? fakeFailure,
+    TResult Function(MedicineFailures medicineFailure)? fakeFailure,
     TResult Function()? fakeSuccess,
     required TResult orElse(),
   }) =>
@@ -445,7 +445,7 @@ class _$_Initial implements _Initial {
     required TResult Function() actionInProgress,
     required TResult Function(MedicineFailures medicineFailure) deleteFailure,
     required TResult Function() deleteSuccess,
-    required TResult Function(MedicineFailures categoryFailure) fakeFailure,
+    required TResult Function(MedicineFailures medicineFailure) fakeFailure,
     required TResult Function() fakeSuccess,
   }) {
     return initial();
@@ -458,7 +458,7 @@ class _$_Initial implements _Initial {
     TResult? Function()? actionInProgress,
     TResult? Function(MedicineFailures medicineFailure)? deleteFailure,
     TResult? Function()? deleteSuccess,
-    TResult? Function(MedicineFailures categoryFailure)? fakeFailure,
+    TResult? Function(MedicineFailures medicineFailure)? fakeFailure,
     TResult? Function()? fakeSuccess,
   }) {
     return initial?.call();
@@ -471,7 +471,7 @@ class _$_Initial implements _Initial {
     TResult Function()? actionInProgress,
     TResult Function(MedicineFailures medicineFailure)? deleteFailure,
     TResult Function()? deleteSuccess,
-    TResult Function(MedicineFailures categoryFailure)? fakeFailure,
+    TResult Function(MedicineFailures medicineFailure)? fakeFailure,
     TResult Function()? fakeSuccess,
     required TResult orElse(),
   }) {
@@ -571,7 +571,7 @@ class _$_ActionInProgress implements _ActionInProgress {
     required TResult Function() actionInProgress,
     required TResult Function(MedicineFailures medicineFailure) deleteFailure,
     required TResult Function() deleteSuccess,
-    required TResult Function(MedicineFailures categoryFailure) fakeFailure,
+    required TResult Function(MedicineFailures medicineFailure) fakeFailure,
     required TResult Function() fakeSuccess,
   }) {
     return actionInProgress();
@@ -584,7 +584,7 @@ class _$_ActionInProgress implements _ActionInProgress {
     TResult? Function()? actionInProgress,
     TResult? Function(MedicineFailures medicineFailure)? deleteFailure,
     TResult? Function()? deleteSuccess,
-    TResult? Function(MedicineFailures categoryFailure)? fakeFailure,
+    TResult? Function(MedicineFailures medicineFailure)? fakeFailure,
     TResult? Function()? fakeSuccess,
   }) {
     return actionInProgress?.call();
@@ -597,7 +597,7 @@ class _$_ActionInProgress implements _ActionInProgress {
     TResult Function()? actionInProgress,
     TResult Function(MedicineFailures medicineFailure)? deleteFailure,
     TResult Function()? deleteSuccess,
-    TResult Function(MedicineFailures categoryFailure)? fakeFailure,
+    TResult Function(MedicineFailures medicineFailure)? fakeFailure,
     TResult Function()? fakeSuccess,
     required TResult orElse(),
   }) {
@@ -734,7 +734,7 @@ class _$_DeleteFailure implements _DeleteFailure {
     required TResult Function() actionInProgress,
     required TResult Function(MedicineFailures medicineFailure) deleteFailure,
     required TResult Function() deleteSuccess,
-    required TResult Function(MedicineFailures categoryFailure) fakeFailure,
+    required TResult Function(MedicineFailures medicineFailure) fakeFailure,
     required TResult Function() fakeSuccess,
   }) {
     return deleteFailure(medicineFailure);
@@ -747,7 +747,7 @@ class _$_DeleteFailure implements _DeleteFailure {
     TResult? Function()? actionInProgress,
     TResult? Function(MedicineFailures medicineFailure)? deleteFailure,
     TResult? Function()? deleteSuccess,
-    TResult? Function(MedicineFailures categoryFailure)? fakeFailure,
+    TResult? Function(MedicineFailures medicineFailure)? fakeFailure,
     TResult? Function()? fakeSuccess,
   }) {
     return deleteFailure?.call(medicineFailure);
@@ -760,7 +760,7 @@ class _$_DeleteFailure implements _DeleteFailure {
     TResult Function()? actionInProgress,
     TResult Function(MedicineFailures medicineFailure)? deleteFailure,
     TResult Function()? deleteSuccess,
-    TResult Function(MedicineFailures categoryFailure)? fakeFailure,
+    TResult Function(MedicineFailures medicineFailure)? fakeFailure,
     TResult Function()? fakeSuccess,
     required TResult orElse(),
   }) {
@@ -866,7 +866,7 @@ class _$_DeleteSuccess implements _DeleteSuccess {
     required TResult Function() actionInProgress,
     required TResult Function(MedicineFailures medicineFailure) deleteFailure,
     required TResult Function() deleteSuccess,
-    required TResult Function(MedicineFailures categoryFailure) fakeFailure,
+    required TResult Function(MedicineFailures medicineFailure) fakeFailure,
     required TResult Function() fakeSuccess,
   }) {
     return deleteSuccess();
@@ -879,7 +879,7 @@ class _$_DeleteSuccess implements _DeleteSuccess {
     TResult? Function()? actionInProgress,
     TResult? Function(MedicineFailures medicineFailure)? deleteFailure,
     TResult? Function()? deleteSuccess,
-    TResult? Function(MedicineFailures categoryFailure)? fakeFailure,
+    TResult? Function(MedicineFailures medicineFailure)? fakeFailure,
     TResult? Function()? fakeSuccess,
   }) {
     return deleteSuccess?.call();
@@ -892,7 +892,7 @@ class _$_DeleteSuccess implements _DeleteSuccess {
     TResult Function()? actionInProgress,
     TResult Function(MedicineFailures medicineFailure)? deleteFailure,
     TResult Function()? deleteSuccess,
-    TResult Function(MedicineFailures categoryFailure)? fakeFailure,
+    TResult Function(MedicineFailures medicineFailure)? fakeFailure,
     TResult Function()? fakeSuccess,
     required TResult orElse(),
   }) {
@@ -956,9 +956,9 @@ abstract class _$$_FakeFailureCopyWith<$Res> {
           _$_FakeFailure value, $Res Function(_$_FakeFailure) then) =
       __$$_FakeFailureCopyWithImpl<$Res>;
   @useResult
-  $Res call({MedicineFailures categoryFailure});
+  $Res call({MedicineFailures medicineFailure});
 
-  $MedicineFailuresCopyWith<$Res> get categoryFailure;
+  $MedicineFailuresCopyWith<$Res> get medicineFailure;
 }
 
 /// @nodoc
@@ -972,21 +972,21 @@ class __$$_FakeFailureCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? categoryFailure = null,
+    Object? medicineFailure = null,
   }) {
     return _then(_$_FakeFailure(
-      null == categoryFailure
-          ? _value.categoryFailure
-          : categoryFailure // ignore: cast_nullable_to_non_nullable
+      null == medicineFailure
+          ? _value.medicineFailure
+          : medicineFailure // ignore: cast_nullable_to_non_nullable
               as MedicineFailures,
     ));
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $MedicineFailuresCopyWith<$Res> get categoryFailure {
-    return $MedicineFailuresCopyWith<$Res>(_value.categoryFailure, (value) {
-      return _then(_value.copyWith(categoryFailure: value));
+  $MedicineFailuresCopyWith<$Res> get medicineFailure {
+    return $MedicineFailuresCopyWith<$Res>(_value.medicineFailure, (value) {
+      return _then(_value.copyWith(medicineFailure: value));
     });
   }
 }
@@ -994,14 +994,14 @@ class __$$_FakeFailureCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_FakeFailure implements _FakeFailure {
-  const _$_FakeFailure(this.categoryFailure);
+  const _$_FakeFailure(this.medicineFailure);
 
   @override
-  final MedicineFailures categoryFailure;
+  final MedicineFailures medicineFailure;
 
   @override
   String toString() {
-    return 'MedicineActorState.fakeFailure(categoryFailure: $categoryFailure)';
+    return 'MedicineActorState.fakeFailure(medicineFailure: $medicineFailure)';
   }
 
   @override
@@ -1009,12 +1009,12 @@ class _$_FakeFailure implements _FakeFailure {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_FakeFailure &&
-            (identical(other.categoryFailure, categoryFailure) ||
-                other.categoryFailure == categoryFailure));
+            (identical(other.medicineFailure, medicineFailure) ||
+                other.medicineFailure == medicineFailure));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, categoryFailure);
+  int get hashCode => Object.hash(runtimeType, medicineFailure);
 
   @JsonKey(ignore: true)
   @override
@@ -1029,10 +1029,10 @@ class _$_FakeFailure implements _FakeFailure {
     required TResult Function() actionInProgress,
     required TResult Function(MedicineFailures medicineFailure) deleteFailure,
     required TResult Function() deleteSuccess,
-    required TResult Function(MedicineFailures categoryFailure) fakeFailure,
+    required TResult Function(MedicineFailures medicineFailure) fakeFailure,
     required TResult Function() fakeSuccess,
   }) {
-    return fakeFailure(categoryFailure);
+    return fakeFailure(medicineFailure);
   }
 
   @override
@@ -1042,10 +1042,10 @@ class _$_FakeFailure implements _FakeFailure {
     TResult? Function()? actionInProgress,
     TResult? Function(MedicineFailures medicineFailure)? deleteFailure,
     TResult? Function()? deleteSuccess,
-    TResult? Function(MedicineFailures categoryFailure)? fakeFailure,
+    TResult? Function(MedicineFailures medicineFailure)? fakeFailure,
     TResult? Function()? fakeSuccess,
   }) {
-    return fakeFailure?.call(categoryFailure);
+    return fakeFailure?.call(medicineFailure);
   }
 
   @override
@@ -1055,12 +1055,12 @@ class _$_FakeFailure implements _FakeFailure {
     TResult Function()? actionInProgress,
     TResult Function(MedicineFailures medicineFailure)? deleteFailure,
     TResult Function()? deleteSuccess,
-    TResult Function(MedicineFailures categoryFailure)? fakeFailure,
+    TResult Function(MedicineFailures medicineFailure)? fakeFailure,
     TResult Function()? fakeSuccess,
     required TResult orElse(),
   }) {
     if (fakeFailure != null) {
-      return fakeFailure(categoryFailure);
+      return fakeFailure(medicineFailure);
     }
     return orElse();
   }
@@ -1110,10 +1110,10 @@ class _$_FakeFailure implements _FakeFailure {
 }
 
 abstract class _FakeFailure implements MedicineActorState {
-  const factory _FakeFailure(final MedicineFailures categoryFailure) =
+  const factory _FakeFailure(final MedicineFailures medicineFailure) =
       _$_FakeFailure;
 
-  MedicineFailures get categoryFailure;
+  MedicineFailures get medicineFailure;
   @JsonKey(ignore: true)
   _$$_FakeFailureCopyWith<_$_FakeFailure> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1161,7 +1161,7 @@ class _$_FakeSuccess implements _FakeSuccess {
     required TResult Function() actionInProgress,
     required TResult Function(MedicineFailures medicineFailure) deleteFailure,
     required TResult Function() deleteSuccess,
-    required TResult Function(MedicineFailures categoryFailure) fakeFailure,
+    required TResult Function(MedicineFailures medicineFailure) fakeFailure,
     required TResult Function() fakeSuccess,
   }) {
     return fakeSuccess();
@@ -1174,7 +1174,7 @@ class _$_FakeSuccess implements _FakeSuccess {
     TResult? Function()? actionInProgress,
     TResult? Function(MedicineFailures medicineFailure)? deleteFailure,
     TResult? Function()? deleteSuccess,
-    TResult? Function(MedicineFailures categoryFailure)? fakeFailure,
+    TResult? Function(MedicineFailures medicineFailure)? fakeFailure,
     TResult? Function()? fakeSuccess,
   }) {
     return fakeSuccess?.call();
@@ -1187,7 +1187,7 @@ class _$_FakeSuccess implements _FakeSuccess {
     TResult Function()? actionInProgress,
     TResult Function(MedicineFailures medicineFailure)? deleteFailure,
     TResult Function()? deleteSuccess,
-    TResult Function(MedicineFailures categoryFailure)? fakeFailure,
+    TResult Function(MedicineFailures medicineFailure)? fakeFailure,
     TResult Function()? fakeSuccess,
     required TResult orElse(),
   }) {

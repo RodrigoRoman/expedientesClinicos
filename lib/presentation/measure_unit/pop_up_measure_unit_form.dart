@@ -1,9 +1,11 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:expedientes_clinicos/application/abbreviation_name/abbreviation_name_form/abbreviation_name_form_abstract_bloc.dart';
 import 'package:expedientes_clinicos/application/abbreviation_name/abbreviation_name_form/measure_unit_form_bloc.dart';
 import 'package:expedientes_clinicos/application/state_render/state_renderer_bloc.dart';
 import 'package:expedientes_clinicos/domain/core/name_abbreviation/name_abbr.dart';
 import 'package:expedientes_clinicos/presentation/common/widget_elements/abbreviation_name_component/pop_up_abbreviation_name_form.dart';
 import 'package:expedientes_clinicos/presentation/resources/string_manager.dart';
+import 'package:expedientes_clinicos/presentation/routes/router.gr.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -30,44 +32,56 @@ class _MeasureUnitFormState extends State<MeasureUnitForm> {
         state.saveFailureOrSuccessOption.fold(() {
           if (state.isSaving) {
             context.read<StateRendererBloc>().add(
-                const StateRendererEvent.popUpLoading(AppStrings.saving,
-                    AppStrings.actionInProgressExplain, false));
+                StateRendererEvent.popUpLoading(AppStrings.saving,
+                    AppStrings.actionInProgressExplain, null, 300, 500));
           }
         },
             (either) => either.fold(
                     (failure) => failure.maybeMap(
                           unexpected: (e) {
                             context.read<StateRendererBloc>().add(
-                                const StateRendererEvent.popUpError(
+                                StateRendererEvent.popUpError(
                                     AppStrings.couldNotSaveImage,
                                     AppStrings.somethingWentWrong,
-                                    true));
+                                    MedicineFormRoute.name,
+                                    300,
+                                    500));
                           },
                           insufficientPermissions: (e) {
                             context.read<StateRendererBloc>().add(
-                                const StateRendererEvent.popUpError(
+                                StateRendererEvent.popUpError(
                                     AppStrings.insuficcientPermissions,
                                     AppStrings.insuficcientPermissionsExplain,
-                                    true));
+                                    MedicineFormRoute.name,
+                                    300,
+                                    500));
                           },
                           unableToCreate: (e) {
                             context.read<StateRendererBloc>().add(
-                                const StateRendererEvent.popUpError(
+                                StateRendererEvent.popUpError(
                                     AppStrings.unableToCreate,
                                     AppStrings.unableToCreateExplain,
-                                    true));
+                                    MedicineFormRoute.name,
+                                    300,
+                                    500));
                           },
                           orElse: () {
                             context.read<StateRendererBloc>().add(
-                                const StateRendererEvent.popUpError(
+                                StateRendererEvent.popUpError(
                                     AppStrings.genericError,
                                     AppStrings.genericErrorExplain,
-                                    true));
+                                    MedicineFormRoute.name,
+                                    300,
+                                    500));
                           },
                         ), (r) {
                   context.read<StateRendererBloc>().add(
-                      const StateRendererEvent.popUpSuccess(AppStrings.success,
-                          AppStrings.successfullyCreated, true));
+                      StateRendererEvent.popUpSuccess(
+                          AppStrings.success,
+                          AppStrings.successfullyCreated,
+                          MedicineFormRoute.name,
+                          300,
+                          300));
                 }));
       },
       builder: (context, state) {
@@ -75,34 +89,30 @@ class _MeasureUnitFormState extends State<MeasureUnitForm> {
             widget.nameAbbreviation ?? NameAbbreviation.empty();
         return AbbreviationNameForm(
           nameAbbreviation: abbrName,
-          validAbbreviation: () {
-            context
-                .read<MeasureUnitFormBloc>()
-                .state
-                .abbreviation
-                .abbr
-                .value
-                .fold(
-                    (f) => f.maybeMap(
-                        exceedingLength: (value) => AppStrings.tooLong,
-                        empty: (value) => AppStrings.isEmpty,
-                        orElse: () => AppStrings.empty),
-                    (_) => null);
-          },
-          validName: () {
-            context
-                .read<MeasureUnitFormBloc>()
-                .state
-                .abbreviation
-                .abbr
-                .value
-                .fold(
-                    (f) => f.maybeMap(
-                        exceedingLength: (value) => AppStrings.tooLong,
-                        empty: (value) => AppStrings.isEmpty,
-                        orElse: () => AppStrings.empty),
-                    (_) => null);
-          },
+          validAbbreviation: () => context
+              .read<MeasureUnitFormBloc>()
+              .state
+              .abbreviation
+              .abbr
+              .value
+              .fold(
+                  (f) => f.maybeMap(
+                      exceedingLength: (value) => AppStrings.tooLong,
+                      empty: (value) => AppStrings.isEmpty,
+                      orElse: () => AppStrings.error),
+                  (_) => null),
+          validName: () => context
+              .read<MeasureUnitFormBloc>()
+              .state
+              .abbreviation
+              .abbr
+              .value
+              .fold(
+                  (f) => f.maybeMap(
+                      exceedingLength: (value) => AppStrings.tooLong,
+                      empty: (value) => AppStrings.isEmpty,
+                      orElse: () => AppStrings.empty),
+                  (_) => null),
           onAbbreviationChanged: (newAbbr) {
             context
                 .read<MeasureUnitFormBloc>()

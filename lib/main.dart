@@ -57,11 +57,16 @@ class AppRoot extends StatelessWidget {
                 //The current context of the navigator screen present
                 if (ctx != null) {
                   //Check if there is a dialog before showing another one
-                  if (appRouter.canPop() & state.popPrevioues == true) {
-                    appRouter.popUntil((route) => route.isFirst);
+                  if (appRouter.canPop()) {
+                    if (state.until != null) {
+                      appRouter.popUntil(
+                          (route) => route.settings.name == state.until);
+                    } else {
+                      appRouter.pop();
+                    }
                   }
-                  await showPopUp(ctx, state.stateRender, () async {
-                    await appRouter.pop();
+                  await showPopUp(ctx, state.stateRender, () {
+                    appRouter.pop();
                   }, state.message, state.width, state.height, state.body,
                       title: state.title);
                 } else {

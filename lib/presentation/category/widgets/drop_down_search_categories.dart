@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:expedientes_clinicos/application/categories/category_actor/category_actor_bloc.dart';
 import 'package:expedientes_clinicos/application/categories/category_watcher/category_watcher_bloc.dart';
 import 'package:expedientes_clinicos/application/medicine/medicine_form/medicine_form_bloc.dart';
@@ -176,15 +177,15 @@ class _DropdownSearchCategoriesState extends State<DropdownSearchCategories> {
             categoriesList = [];
           },
           loadInProgress: ((value) => context.read<StateRendererBloc>().add(
-              const StateRendererEvent.popUpLoading(AppStrings.saving,
-                  AppStrings.actionInProgressExplain, false))),
+              StateRendererEvent.popUpLoading(AppStrings.saving,
+                  AppStrings.actionInProgressExplain, null, 300, 500))),
           loadSuccess: ((value) {
             categoriesList = value.categories.asList();
             rebuildOverlay();
           }),
           loadFailure: ((value) => context.read<StateRendererBloc>().add(
-              const StateRendererEvent.popUpError(AppStrings.unableToReadError,
-                  AppStrings.unableToReadErrorExplain, false))));
+              StateRendererEvent.popUpError(AppStrings.unableToReadError,
+                  AppStrings.unableToReadErrorExplain, null, 300, 500))));
     }, child: LayoutBuilder(
       builder: (context, constraints) {
         return Row(

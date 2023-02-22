@@ -113,7 +113,10 @@ class _AbbreviationNameFormState extends State<AbbreviationNameForm> {
                     })),
                 ElevatedButton(
                     onPressed: () {
+                      print('validate abbre');
+                      print(widget.validAbbreviation());
                       if (_key.currentState!.validate()) {
+                        print('PASSED VALIDATION');
                         widget.onSubmit();
                       }
                     },

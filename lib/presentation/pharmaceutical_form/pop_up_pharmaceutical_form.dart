@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:expedientes_clinicos/application/abbreviation_name/abbreviation_name_form/abbreviation_name_form_abstract_bloc.dart';
 import 'package:expedientes_clinicos/application/abbreviation_name/abbreviation_name_form/pharmaceutical_form_form_bloc.dart';
 import 'package:expedientes_clinicos/application/state_render/state_renderer_bloc.dart';
@@ -30,44 +31,52 @@ class _PharmaceuticalFormFormState extends State<PharmaceuticalFormForm> {
         state.saveFailureOrSuccessOption.fold(() {
           if (state.isSaving) {
             context.read<StateRendererBloc>().add(
-                const StateRendererEvent.popUpLoading(AppStrings.saving,
-                    AppStrings.actionInProgressExplain, false));
+                StateRendererEvent.popUpLoading(AppStrings.saving,
+                    AppStrings.actionInProgressExplain, null, 300, 500));
           }
         },
             (either) => either.fold(
                     (failure) => failure.maybeMap(
                           unexpected: (e) {
                             context.read<StateRendererBloc>().add(
-                                const StateRendererEvent.popUpError(
+                                StateRendererEvent.popUpError(
                                     AppStrings.couldNotSaveImage,
                                     AppStrings.somethingWentWrong,
-                                    true));
+                                    null,
+                                    300,
+                                    500));
                           },
                           insufficientPermissions: (e) {
                             context.read<StateRendererBloc>().add(
-                                const StateRendererEvent.popUpError(
+                                StateRendererEvent.popUpError(
                                     AppStrings.insuficcientPermissions,
                                     AppStrings.insuficcientPermissionsExplain,
-                                    true));
+                                    null,
+                                    300,
+                                    500));
                           },
                           unableToCreate: (e) {
                             context.read<StateRendererBloc>().add(
-                                const StateRendererEvent.popUpError(
+                                StateRendererEvent.popUpError(
                                     AppStrings.unableToCreate,
                                     AppStrings.unableToCreateExplain,
-                                    true));
+                                    null,
+                                    300,
+                                    500));
                           },
                           orElse: () {
                             context.read<StateRendererBloc>().add(
-                                const StateRendererEvent.popUpError(
+                                StateRendererEvent.popUpError(
                                     AppStrings.genericError,
                                     AppStrings.genericErrorExplain,
-                                    true));
+                                    null,
+                                    300,
+                                    500));
                           },
                         ), (r) {
                   context.read<StateRendererBloc>().add(
-                      const StateRendererEvent.popUpSuccess(AppStrings.success,
-                          AppStrings.successfullyCreated, true));
+                      StateRendererEvent.popUpSuccess(AppStrings.success,
+                          AppStrings.successfullyCreated, null, 300, 500));
                 }));
       },
       builder: (context, state) {

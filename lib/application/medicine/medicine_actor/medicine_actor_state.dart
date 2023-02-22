@@ -8,6 +8,6 @@ class MedicineActorState with _$MedicineActorState {
       MedicineFailures medicineFailure) = _DeleteFailure;
   const factory MedicineActorState.deleteSuccess() = _DeleteSuccess;
   const factory MedicineActorState.fakeFailure(
-      MedicineFailures categoryFailure) = _FakeFailure;
+      MedicineFailures medicineFailure) = _FakeFailure;
   const factory MedicineActorState.fakeSuccess() = _FakeSuccess;
 }

@@ -18,17 +18,20 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$StateRendererEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String title, String message, bool popPrevioues)
+    required TResult Function(String title, String message, String? until,
+            double? width, double? height)
         popUpSuccess,
-    required TResult Function(String title, String message, bool popPrevioues)
+    required TResult Function(String title, String message, String? until,
+            double? width, double? height)
         popUpError,
     required TResult Function(String title, String message) popUpServerError,
-    required TResult Function(String title, String message, bool popPrevioues)
+    required TResult Function(String title, String message, String? until,
+            double? width, double? height)
         popUpLoading,
     required TResult Function(String title, Widget bodyWidget, double? width,
-            double? height, bool popPrevioues)
+            double? height, String? until)
         popUpForm,
-    required TResult Function(String title, String message, bool popPrevioues)
+    required TResult Function(String title, String message, String? until)
         fullErrorSreen,
     required TResult Function() contentScreen,
     required TResult Function() empty,
@@ -36,17 +39,20 @@ mixin _$StateRendererEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String title, String message, bool popPrevioues)?
+    TResult? Function(String title, String message, String? until,
+            double? width, double? height)?
         popUpSuccess,
-    TResult? Function(String title, String message, bool popPrevioues)?
+    TResult? Function(String title, String message, String? until,
+            double? width, double? height)?
         popUpError,
     TResult? Function(String title, String message)? popUpServerError,
-    TResult? Function(String title, String message, bool popPrevioues)?
+    TResult? Function(String title, String message, String? until,
+            double? width, double? height)?
         popUpLoading,
     TResult? Function(String title, Widget bodyWidget, double? width,
-            double? height, bool popPrevioues)?
+            double? height, String? until)?
         popUpForm,
-    TResult? Function(String title, String message, bool popPrevioues)?
+    TResult? Function(String title, String message, String? until)?
         fullErrorSreen,
     TResult? Function()? contentScreen,
     TResult? Function()? empty,
@@ -54,17 +60,20 @@ mixin _$StateRendererEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String title, String message, bool popPrevioues)?
+    TResult Function(String title, String message, String? until, double? width,
+            double? height)?
         popUpSuccess,
-    TResult Function(String title, String message, bool popPrevioues)?
+    TResult Function(String title, String message, String? until, double? width,
+            double? height)?
         popUpError,
     TResult Function(String title, String message)? popUpServerError,
-    TResult Function(String title, String message, bool popPrevioues)?
+    TResult Function(String title, String message, String? until, double? width,
+            double? height)?
         popUpLoading,
     TResult Function(String title, Widget bodyWidget, double? width,
-            double? height, bool popPrevioues)?
+            double? height, String? until)?
         popUpForm,
-    TResult Function(String title, String message, bool popPrevioues)?
+    TResult Function(String title, String message, String? until)?
         fullErrorSreen,
     TResult Function()? contentScreen,
     TResult Function()? empty,
@@ -134,7 +143,12 @@ abstract class _$$PopUpSuccessCopyWith<$Res> {
           _$PopUpSuccess value, $Res Function(_$PopUpSuccess) then) =
       __$$PopUpSuccessCopyWithImpl<$Res>;
   @useResult
-  $Res call({String title, String message, bool popPrevioues});
+  $Res call(
+      {String title,
+      String message,
+      String? until,
+      double? width,
+      double? height});
 }
 
 /// @nodoc
@@ -150,7 +164,9 @@ class __$$PopUpSuccessCopyWithImpl<$Res>
   $Res call({
     Object? title = null,
     Object? message = null,
-    Object? popPrevioues = null,
+    Object? until = freezed,
+    Object? width = freezed,
+    Object? height = freezed,
   }) {
     return _then(_$PopUpSuccess(
       null == title
@@ -161,10 +177,18 @@ class __$$PopUpSuccessCopyWithImpl<$Res>
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String,
-      null == popPrevioues
-          ? _value.popPrevioues
-          : popPrevioues // ignore: cast_nullable_to_non_nullable
-              as bool,
+      freezed == until
+          ? _value.until
+          : until // ignore: cast_nullable_to_non_nullable
+              as String?,
+      freezed == width
+          ? _value.width
+          : width // ignore: cast_nullable_to_non_nullable
+              as double?,
+      freezed == height
+          ? _value.height
+          : height // ignore: cast_nullable_to_non_nullable
+              as double?,
     ));
   }
 }
@@ -172,18 +196,23 @@ class __$$PopUpSuccessCopyWithImpl<$Res>
 /// @nodoc
 
 class _$PopUpSuccess implements PopUpSuccess {
-  const _$PopUpSuccess(this.title, this.message, this.popPrevioues);
+  const _$PopUpSuccess(
+      this.title, this.message, this.until, this.width, this.height);
 
   @override
   final String title;
   @override
   final String message;
   @override
-  final bool popPrevioues;
+  final String? until;
+  @override
+  final double? width;
+  @override
+  final double? height;
 
   @override
   String toString() {
-    return 'StateRendererEvent.popUpSuccess(title: $title, message: $message, popPrevioues: $popPrevioues)';
+    return 'StateRendererEvent.popUpSuccess(title: $title, message: $message, until: $until, width: $width, height: $height)';
   }
 
   @override
@@ -193,12 +222,14 @@ class _$PopUpSuccess implements PopUpSuccess {
             other is _$PopUpSuccess &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.message, message) || other.message == message) &&
-            (identical(other.popPrevioues, popPrevioues) ||
-                other.popPrevioues == popPrevioues));
+            (identical(other.until, until) || other.until == until) &&
+            (identical(other.width, width) || other.width == width) &&
+            (identical(other.height, height) || other.height == height));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, title, message, popPrevioues);
+  int get hashCode =>
+      Object.hash(runtimeType, title, message, until, width, height);
 
   @JsonKey(ignore: true)
   @override
@@ -209,66 +240,75 @@ class _$PopUpSuccess implements PopUpSuccess {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String title, String message, bool popPrevioues)
+    required TResult Function(String title, String message, String? until,
+            double? width, double? height)
         popUpSuccess,
-    required TResult Function(String title, String message, bool popPrevioues)
+    required TResult Function(String title, String message, String? until,
+            double? width, double? height)
         popUpError,
     required TResult Function(String title, String message) popUpServerError,
-    required TResult Function(String title, String message, bool popPrevioues)
+    required TResult Function(String title, String message, String? until,
+            double? width, double? height)
         popUpLoading,
     required TResult Function(String title, Widget bodyWidget, double? width,
-            double? height, bool popPrevioues)
+            double? height, String? until)
         popUpForm,
-    required TResult Function(String title, String message, bool popPrevioues)
+    required TResult Function(String title, String message, String? until)
         fullErrorSreen,
     required TResult Function() contentScreen,
     required TResult Function() empty,
   }) {
-    return popUpSuccess(title, message, popPrevioues);
+    return popUpSuccess(title, message, until, width, height);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String title, String message, bool popPrevioues)?
+    TResult? Function(String title, String message, String? until,
+            double? width, double? height)?
         popUpSuccess,
-    TResult? Function(String title, String message, bool popPrevioues)?
+    TResult? Function(String title, String message, String? until,
+            double? width, double? height)?
         popUpError,
     TResult? Function(String title, String message)? popUpServerError,
-    TResult? Function(String title, String message, bool popPrevioues)?
+    TResult? Function(String title, String message, String? until,
+            double? width, double? height)?
         popUpLoading,
     TResult? Function(String title, Widget bodyWidget, double? width,
-            double? height, bool popPrevioues)?
+            double? height, String? until)?
         popUpForm,
-    TResult? Function(String title, String message, bool popPrevioues)?
+    TResult? Function(String title, String message, String? until)?
         fullErrorSreen,
     TResult? Function()? contentScreen,
     TResult? Function()? empty,
   }) {
-    return popUpSuccess?.call(title, message, popPrevioues);
+    return popUpSuccess?.call(title, message, until, width, height);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String title, String message, bool popPrevioues)?
+    TResult Function(String title, String message, String? until, double? width,
+            double? height)?
         popUpSuccess,
-    TResult Function(String title, String message, bool popPrevioues)?
+    TResult Function(String title, String message, String? until, double? width,
+            double? height)?
         popUpError,
     TResult Function(String title, String message)? popUpServerError,
-    TResult Function(String title, String message, bool popPrevioues)?
+    TResult Function(String title, String message, String? until, double? width,
+            double? height)?
         popUpLoading,
     TResult Function(String title, Widget bodyWidget, double? width,
-            double? height, bool popPrevioues)?
+            double? height, String? until)?
         popUpForm,
-    TResult Function(String title, String message, bool popPrevioues)?
+    TResult Function(String title, String message, String? until)?
         fullErrorSreen,
     TResult Function()? contentScreen,
     TResult Function()? empty,
     required TResult orElse(),
   }) {
     if (popUpSuccess != null) {
-      return popUpSuccess(title, message, popPrevioues);
+      return popUpSuccess(title, message, until, width, height);
     }
     return orElse();
   }
@@ -325,12 +365,17 @@ class _$PopUpSuccess implements PopUpSuccess {
 
 abstract class PopUpSuccess implements StateRendererEvent {
   const factory PopUpSuccess(
-          final String title, final String message, final bool popPrevioues) =
-      _$PopUpSuccess;
+      final String title,
+      final String message,
+      final String? until,
+      final double? width,
+      final double? height) = _$PopUpSuccess;
 
   String get title;
   String get message;
-  bool get popPrevioues;
+  String? get until;
+  double? get width;
+  double? get height;
   @JsonKey(ignore: true)
   _$$PopUpSuccessCopyWith<_$PopUpSuccess> get copyWith =>
       throw _privateConstructorUsedError;
@@ -342,7 +387,12 @@ abstract class _$$PopUpErrorCopyWith<$Res> {
           _$PopUpError value, $Res Function(_$PopUpError) then) =
       __$$PopUpErrorCopyWithImpl<$Res>;
   @useResult
-  $Res call({String title, String message, bool popPrevioues});
+  $Res call(
+      {String title,
+      String message,
+      String? until,
+      double? width,
+      double? height});
 }
 
 /// @nodoc
@@ -358,7 +408,9 @@ class __$$PopUpErrorCopyWithImpl<$Res>
   $Res call({
     Object? title = null,
     Object? message = null,
-    Object? popPrevioues = null,
+    Object? until = freezed,
+    Object? width = freezed,
+    Object? height = freezed,
   }) {
     return _then(_$PopUpError(
       null == title
@@ -369,10 +421,18 @@ class __$$PopUpErrorCopyWithImpl<$Res>
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String,
-      null == popPrevioues
-          ? _value.popPrevioues
-          : popPrevioues // ignore: cast_nullable_to_non_nullable
-              as bool,
+      freezed == until
+          ? _value.until
+          : until // ignore: cast_nullable_to_non_nullable
+              as String?,
+      freezed == width
+          ? _value.width
+          : width // ignore: cast_nullable_to_non_nullable
+              as double?,
+      freezed == height
+          ? _value.height
+          : height // ignore: cast_nullable_to_non_nullable
+              as double?,
     ));
   }
 }
@@ -380,18 +440,23 @@ class __$$PopUpErrorCopyWithImpl<$Res>
 /// @nodoc
 
 class _$PopUpError implements PopUpError {
-  const _$PopUpError(this.title, this.message, this.popPrevioues);
+  const _$PopUpError(
+      this.title, this.message, this.until, this.width, this.height);
 
   @override
   final String title;
   @override
   final String message;
   @override
-  final bool popPrevioues;
+  final String? until;
+  @override
+  final double? width;
+  @override
+  final double? height;
 
   @override
   String toString() {
-    return 'StateRendererEvent.popUpError(title: $title, message: $message, popPrevioues: $popPrevioues)';
+    return 'StateRendererEvent.popUpError(title: $title, message: $message, until: $until, width: $width, height: $height)';
   }
 
   @override
@@ -401,12 +466,14 @@ class _$PopUpError implements PopUpError {
             other is _$PopUpError &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.message, message) || other.message == message) &&
-            (identical(other.popPrevioues, popPrevioues) ||
-                other.popPrevioues == popPrevioues));
+            (identical(other.until, until) || other.until == until) &&
+            (identical(other.width, width) || other.width == width) &&
+            (identical(other.height, height) || other.height == height));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, title, message, popPrevioues);
+  int get hashCode =>
+      Object.hash(runtimeType, title, message, until, width, height);
 
   @JsonKey(ignore: true)
   @override
@@ -417,66 +484,75 @@ class _$PopUpError implements PopUpError {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String title, String message, bool popPrevioues)
+    required TResult Function(String title, String message, String? until,
+            double? width, double? height)
         popUpSuccess,
-    required TResult Function(String title, String message, bool popPrevioues)
+    required TResult Function(String title, String message, String? until,
+            double? width, double? height)
         popUpError,
     required TResult Function(String title, String message) popUpServerError,
-    required TResult Function(String title, String message, bool popPrevioues)
+    required TResult Function(String title, String message, String? until,
+            double? width, double? height)
         popUpLoading,
     required TResult Function(String title, Widget bodyWidget, double? width,
-            double? height, bool popPrevioues)
+            double? height, String? until)
         popUpForm,
-    required TResult Function(String title, String message, bool popPrevioues)
+    required TResult Function(String title, String message, String? until)
         fullErrorSreen,
     required TResult Function() contentScreen,
     required TResult Function() empty,
   }) {
-    return popUpError(title, message, popPrevioues);
+    return popUpError(title, message, until, width, height);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String title, String message, bool popPrevioues)?
+    TResult? Function(String title, String message, String? until,
+            double? width, double? height)?
         popUpSuccess,
-    TResult? Function(String title, String message, bool popPrevioues)?
+    TResult? Function(String title, String message, String? until,
+            double? width, double? height)?
         popUpError,
     TResult? Function(String title, String message)? popUpServerError,
-    TResult? Function(String title, String message, bool popPrevioues)?
+    TResult? Function(String title, String message, String? until,
+            double? width, double? height)?
         popUpLoading,
     TResult? Function(String title, Widget bodyWidget, double? width,
-            double? height, bool popPrevioues)?
+            double? height, String? until)?
         popUpForm,
-    TResult? Function(String title, String message, bool popPrevioues)?
+    TResult? Function(String title, String message, String? until)?
         fullErrorSreen,
     TResult? Function()? contentScreen,
     TResult? Function()? empty,
   }) {
-    return popUpError?.call(title, message, popPrevioues);
+    return popUpError?.call(title, message, until, width, height);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String title, String message, bool popPrevioues)?
+    TResult Function(String title, String message, String? until, double? width,
+            double? height)?
         popUpSuccess,
-    TResult Function(String title, String message, bool popPrevioues)?
+    TResult Function(String title, String message, String? until, double? width,
+            double? height)?
         popUpError,
     TResult Function(String title, String message)? popUpServerError,
-    TResult Function(String title, String message, bool popPrevioues)?
+    TResult Function(String title, String message, String? until, double? width,
+            double? height)?
         popUpLoading,
     TResult Function(String title, Widget bodyWidget, double? width,
-            double? height, bool popPrevioues)?
+            double? height, String? until)?
         popUpForm,
-    TResult Function(String title, String message, bool popPrevioues)?
+    TResult Function(String title, String message, String? until)?
         fullErrorSreen,
     TResult Function()? contentScreen,
     TResult Function()? empty,
     required TResult orElse(),
   }) {
     if (popUpError != null) {
-      return popUpError(title, message, popPrevioues);
+      return popUpError(title, message, until, width, height);
     }
     return orElse();
   }
@@ -533,12 +609,17 @@ class _$PopUpError implements PopUpError {
 
 abstract class PopUpError implements StateRendererEvent {
   const factory PopUpError(
-          final String title, final String message, final bool popPrevioues) =
-      _$PopUpError;
+      final String title,
+      final String message,
+      final String? until,
+      final double? width,
+      final double? height) = _$PopUpError;
 
   String get title;
   String get message;
-  bool get popPrevioues;
+  String? get until;
+  double? get width;
+  double? get height;
   @JsonKey(ignore: true)
   _$$PopUpErrorCopyWith<_$PopUpError> get copyWith =>
       throw _privateConstructorUsedError;
@@ -616,17 +697,20 @@ class _$PopUpServerError implements PopUpServerError {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String title, String message, bool popPrevioues)
+    required TResult Function(String title, String message, String? until,
+            double? width, double? height)
         popUpSuccess,
-    required TResult Function(String title, String message, bool popPrevioues)
+    required TResult Function(String title, String message, String? until,
+            double? width, double? height)
         popUpError,
     required TResult Function(String title, String message) popUpServerError,
-    required TResult Function(String title, String message, bool popPrevioues)
+    required TResult Function(String title, String message, String? until,
+            double? width, double? height)
         popUpLoading,
     required TResult Function(String title, Widget bodyWidget, double? width,
-            double? height, bool popPrevioues)
+            double? height, String? until)
         popUpForm,
-    required TResult Function(String title, String message, bool popPrevioues)
+    required TResult Function(String title, String message, String? until)
         fullErrorSreen,
     required TResult Function() contentScreen,
     required TResult Function() empty,
@@ -637,17 +721,20 @@ class _$PopUpServerError implements PopUpServerError {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String title, String message, bool popPrevioues)?
+    TResult? Function(String title, String message, String? until,
+            double? width, double? height)?
         popUpSuccess,
-    TResult? Function(String title, String message, bool popPrevioues)?
+    TResult? Function(String title, String message, String? until,
+            double? width, double? height)?
         popUpError,
     TResult? Function(String title, String message)? popUpServerError,
-    TResult? Function(String title, String message, bool popPrevioues)?
+    TResult? Function(String title, String message, String? until,
+            double? width, double? height)?
         popUpLoading,
     TResult? Function(String title, Widget bodyWidget, double? width,
-            double? height, bool popPrevioues)?
+            double? height, String? until)?
         popUpForm,
-    TResult? Function(String title, String message, bool popPrevioues)?
+    TResult? Function(String title, String message, String? until)?
         fullErrorSreen,
     TResult? Function()? contentScreen,
     TResult? Function()? empty,
@@ -658,17 +745,20 @@ class _$PopUpServerError implements PopUpServerError {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String title, String message, bool popPrevioues)?
+    TResult Function(String title, String message, String? until, double? width,
+            double? height)?
         popUpSuccess,
-    TResult Function(String title, String message, bool popPrevioues)?
+    TResult Function(String title, String message, String? until, double? width,
+            double? height)?
         popUpError,
     TResult Function(String title, String message)? popUpServerError,
-    TResult Function(String title, String message, bool popPrevioues)?
+    TResult Function(String title, String message, String? until, double? width,
+            double? height)?
         popUpLoading,
     TResult Function(String title, Widget bodyWidget, double? width,
-            double? height, bool popPrevioues)?
+            double? height, String? until)?
         popUpForm,
-    TResult Function(String title, String message, bool popPrevioues)?
+    TResult Function(String title, String message, String? until)?
         fullErrorSreen,
     TResult Function()? contentScreen,
     TResult Function()? empty,
@@ -747,7 +837,12 @@ abstract class _$$PopUpLoadingCopyWith<$Res> {
           _$PopUpLoading value, $Res Function(_$PopUpLoading) then) =
       __$$PopUpLoadingCopyWithImpl<$Res>;
   @useResult
-  $Res call({String title, String message, bool popPrevioues});
+  $Res call(
+      {String title,
+      String message,
+      String? until,
+      double? width,
+      double? height});
 }
 
 /// @nodoc
@@ -763,7 +858,9 @@ class __$$PopUpLoadingCopyWithImpl<$Res>
   $Res call({
     Object? title = null,
     Object? message = null,
-    Object? popPrevioues = null,
+    Object? until = freezed,
+    Object? width = freezed,
+    Object? height = freezed,
   }) {
     return _then(_$PopUpLoading(
       null == title
@@ -774,10 +871,18 @@ class __$$PopUpLoadingCopyWithImpl<$Res>
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String,
-      null == popPrevioues
-          ? _value.popPrevioues
-          : popPrevioues // ignore: cast_nullable_to_non_nullable
-              as bool,
+      freezed == until
+          ? _value.until
+          : until // ignore: cast_nullable_to_non_nullable
+              as String?,
+      freezed == width
+          ? _value.width
+          : width // ignore: cast_nullable_to_non_nullable
+              as double?,
+      freezed == height
+          ? _value.height
+          : height // ignore: cast_nullable_to_non_nullable
+              as double?,
     ));
   }
 }
@@ -785,18 +890,23 @@ class __$$PopUpLoadingCopyWithImpl<$Res>
 /// @nodoc
 
 class _$PopUpLoading implements PopUpLoading {
-  const _$PopUpLoading(this.title, this.message, this.popPrevioues);
+  const _$PopUpLoading(
+      this.title, this.message, this.until, this.width, this.height);
 
   @override
   final String title;
   @override
   final String message;
   @override
-  final bool popPrevioues;
+  final String? until;
+  @override
+  final double? width;
+  @override
+  final double? height;
 
   @override
   String toString() {
-    return 'StateRendererEvent.popUpLoading(title: $title, message: $message, popPrevioues: $popPrevioues)';
+    return 'StateRendererEvent.popUpLoading(title: $title, message: $message, until: $until, width: $width, height: $height)';
   }
 
   @override
@@ -806,12 +916,14 @@ class _$PopUpLoading implements PopUpLoading {
             other is _$PopUpLoading &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.message, message) || other.message == message) &&
-            (identical(other.popPrevioues, popPrevioues) ||
-                other.popPrevioues == popPrevioues));
+            (identical(other.until, until) || other.until == until) &&
+            (identical(other.width, width) || other.width == width) &&
+            (identical(other.height, height) || other.height == height));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, title, message, popPrevioues);
+  int get hashCode =>
+      Object.hash(runtimeType, title, message, until, width, height);
 
   @JsonKey(ignore: true)
   @override
@@ -822,66 +934,75 @@ class _$PopUpLoading implements PopUpLoading {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String title, String message, bool popPrevioues)
+    required TResult Function(String title, String message, String? until,
+            double? width, double? height)
         popUpSuccess,
-    required TResult Function(String title, String message, bool popPrevioues)
+    required TResult Function(String title, String message, String? until,
+            double? width, double? height)
         popUpError,
     required TResult Function(String title, String message) popUpServerError,
-    required TResult Function(String title, String message, bool popPrevioues)
+    required TResult Function(String title, String message, String? until,
+            double? width, double? height)
         popUpLoading,
     required TResult Function(String title, Widget bodyWidget, double? width,
-            double? height, bool popPrevioues)
+            double? height, String? until)
         popUpForm,
-    required TResult Function(String title, String message, bool popPrevioues)
+    required TResult Function(String title, String message, String? until)
         fullErrorSreen,
     required TResult Function() contentScreen,
     required TResult Function() empty,
   }) {
-    return popUpLoading(title, message, popPrevioues);
+    return popUpLoading(title, message, until, width, height);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String title, String message, bool popPrevioues)?
+    TResult? Function(String title, String message, String? until,
+            double? width, double? height)?
         popUpSuccess,
-    TResult? Function(String title, String message, bool popPrevioues)?
+    TResult? Function(String title, String message, String? until,
+            double? width, double? height)?
         popUpError,
     TResult? Function(String title, String message)? popUpServerError,
-    TResult? Function(String title, String message, bool popPrevioues)?
+    TResult? Function(String title, String message, String? until,
+            double? width, double? height)?
         popUpLoading,
     TResult? Function(String title, Widget bodyWidget, double? width,
-            double? height, bool popPrevioues)?
+            double? height, String? until)?
         popUpForm,
-    TResult? Function(String title, String message, bool popPrevioues)?
+    TResult? Function(String title, String message, String? until)?
         fullErrorSreen,
     TResult? Function()? contentScreen,
     TResult? Function()? empty,
   }) {
-    return popUpLoading?.call(title, message, popPrevioues);
+    return popUpLoading?.call(title, message, until, width, height);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String title, String message, bool popPrevioues)?
+    TResult Function(String title, String message, String? until, double? width,
+            double? height)?
         popUpSuccess,
-    TResult Function(String title, String message, bool popPrevioues)?
+    TResult Function(String title, String message, String? until, double? width,
+            double? height)?
         popUpError,
     TResult Function(String title, String message)? popUpServerError,
-    TResult Function(String title, String message, bool popPrevioues)?
+    TResult Function(String title, String message, String? until, double? width,
+            double? height)?
         popUpLoading,
     TResult Function(String title, Widget bodyWidget, double? width,
-            double? height, bool popPrevioues)?
+            double? height, String? until)?
         popUpForm,
-    TResult Function(String title, String message, bool popPrevioues)?
+    TResult Function(String title, String message, String? until)?
         fullErrorSreen,
     TResult Function()? contentScreen,
     TResult Function()? empty,
     required TResult orElse(),
   }) {
     if (popUpLoading != null) {
-      return popUpLoading(title, message, popPrevioues);
+      return popUpLoading(title, message, until, width, height);
     }
     return orElse();
   }
@@ -938,12 +1059,17 @@ class _$PopUpLoading implements PopUpLoading {
 
 abstract class PopUpLoading implements StateRendererEvent {
   const factory PopUpLoading(
-          final String title, final String message, final bool popPrevioues) =
-      _$PopUpLoading;
+      final String title,
+      final String message,
+      final String? until,
+      final double? width,
+      final double? height) = _$PopUpLoading;
 
   String get title;
   String get message;
-  bool get popPrevioues;
+  String? get until;
+  double? get width;
+  double? get height;
   @JsonKey(ignore: true)
   _$$PopUpLoadingCopyWith<_$PopUpLoading> get copyWith =>
       throw _privateConstructorUsedError;
@@ -960,7 +1086,7 @@ abstract class _$$PopUpFormCopyWith<$Res> {
       Widget bodyWidget,
       double? width,
       double? height,
-      bool popPrevioues});
+      String? until});
 }
 
 /// @nodoc
@@ -978,7 +1104,7 @@ class __$$PopUpFormCopyWithImpl<$Res>
     Object? bodyWidget = null,
     Object? width = freezed,
     Object? height = freezed,
-    Object? popPrevioues = null,
+    Object? until = freezed,
   }) {
     return _then(_$PopUpForm(
       null == title
@@ -997,10 +1123,10 @@ class __$$PopUpFormCopyWithImpl<$Res>
           ? _value.height
           : height // ignore: cast_nullable_to_non_nullable
               as double?,
-      null == popPrevioues
-          ? _value.popPrevioues
-          : popPrevioues // ignore: cast_nullable_to_non_nullable
-              as bool,
+      freezed == until
+          ? _value.until
+          : until // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -1009,7 +1135,7 @@ class __$$PopUpFormCopyWithImpl<$Res>
 
 class _$PopUpForm implements PopUpForm {
   const _$PopUpForm(
-      this.title, this.bodyWidget, this.width, this.height, this.popPrevioues);
+      this.title, this.bodyWidget, this.width, this.height, this.until);
 
   @override
   final String title;
@@ -1020,11 +1146,11 @@ class _$PopUpForm implements PopUpForm {
   @override
   final double? height;
   @override
-  final bool popPrevioues;
+  final String? until;
 
   @override
   String toString() {
-    return 'StateRendererEvent.popUpForm(title: $title, bodyWidget: $bodyWidget, width: $width, height: $height, popPrevioues: $popPrevioues)';
+    return 'StateRendererEvent.popUpForm(title: $title, bodyWidget: $bodyWidget, width: $width, height: $height, until: $until)';
   }
 
   @override
@@ -1037,13 +1163,12 @@ class _$PopUpForm implements PopUpForm {
                 other.bodyWidget == bodyWidget) &&
             (identical(other.width, width) || other.width == width) &&
             (identical(other.height, height) || other.height == height) &&
-            (identical(other.popPrevioues, popPrevioues) ||
-                other.popPrevioues == popPrevioues));
+            (identical(other.until, until) || other.until == until));
   }
 
   @override
   int get hashCode =>
-      Object.hash(runtimeType, title, bodyWidget, width, height, popPrevioues);
+      Object.hash(runtimeType, title, bodyWidget, width, height, until);
 
   @JsonKey(ignore: true)
   @override
@@ -1054,66 +1179,75 @@ class _$PopUpForm implements PopUpForm {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String title, String message, bool popPrevioues)
+    required TResult Function(String title, String message, String? until,
+            double? width, double? height)
         popUpSuccess,
-    required TResult Function(String title, String message, bool popPrevioues)
+    required TResult Function(String title, String message, String? until,
+            double? width, double? height)
         popUpError,
     required TResult Function(String title, String message) popUpServerError,
-    required TResult Function(String title, String message, bool popPrevioues)
+    required TResult Function(String title, String message, String? until,
+            double? width, double? height)
         popUpLoading,
     required TResult Function(String title, Widget bodyWidget, double? width,
-            double? height, bool popPrevioues)
+            double? height, String? until)
         popUpForm,
-    required TResult Function(String title, String message, bool popPrevioues)
+    required TResult Function(String title, String message, String? until)
         fullErrorSreen,
     required TResult Function() contentScreen,
     required TResult Function() empty,
   }) {
-    return popUpForm(title, bodyWidget, width, height, popPrevioues);
+    return popUpForm(title, bodyWidget, width, height, until);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String title, String message, bool popPrevioues)?
+    TResult? Function(String title, String message, String? until,
+            double? width, double? height)?
         popUpSuccess,
-    TResult? Function(String title, String message, bool popPrevioues)?
+    TResult? Function(String title, String message, String? until,
+            double? width, double? height)?
         popUpError,
     TResult? Function(String title, String message)? popUpServerError,
-    TResult? Function(String title, String message, bool popPrevioues)?
+    TResult? Function(String title, String message, String? until,
+            double? width, double? height)?
         popUpLoading,
     TResult? Function(String title, Widget bodyWidget, double? width,
-            double? height, bool popPrevioues)?
+            double? height, String? until)?
         popUpForm,
-    TResult? Function(String title, String message, bool popPrevioues)?
+    TResult? Function(String title, String message, String? until)?
         fullErrorSreen,
     TResult? Function()? contentScreen,
     TResult? Function()? empty,
   }) {
-    return popUpForm?.call(title, bodyWidget, width, height, popPrevioues);
+    return popUpForm?.call(title, bodyWidget, width, height, until);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String title, String message, bool popPrevioues)?
+    TResult Function(String title, String message, String? until, double? width,
+            double? height)?
         popUpSuccess,
-    TResult Function(String title, String message, bool popPrevioues)?
+    TResult Function(String title, String message, String? until, double? width,
+            double? height)?
         popUpError,
     TResult Function(String title, String message)? popUpServerError,
-    TResult Function(String title, String message, bool popPrevioues)?
+    TResult Function(String title, String message, String? until, double? width,
+            double? height)?
         popUpLoading,
     TResult Function(String title, Widget bodyWidget, double? width,
-            double? height, bool popPrevioues)?
+            double? height, String? until)?
         popUpForm,
-    TResult Function(String title, String message, bool popPrevioues)?
+    TResult Function(String title, String message, String? until)?
         fullErrorSreen,
     TResult Function()? contentScreen,
     TResult Function()? empty,
     required TResult orElse(),
   }) {
     if (popUpForm != null) {
-      return popUpForm(title, bodyWidget, width, height, popPrevioues);
+      return popUpForm(title, bodyWidget, width, height, until);
     }
     return orElse();
   }
@@ -1174,13 +1308,13 @@ abstract class PopUpForm implements StateRendererEvent {
       final Widget bodyWidget,
       final double? width,
       final double? height,
-      final bool popPrevioues) = _$PopUpForm;
+      final String? until) = _$PopUpForm;
 
   String get title;
   Widget get bodyWidget;
   double? get width;
   double? get height;
-  bool get popPrevioues;
+  String? get until;
   @JsonKey(ignore: true)
   _$$PopUpFormCopyWith<_$PopUpForm> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1192,7 +1326,7 @@ abstract class _$$FullErrorSreenCopyWith<$Res> {
           _$FullErrorSreen value, $Res Function(_$FullErrorSreen) then) =
       __$$FullErrorSreenCopyWithImpl<$Res>;
   @useResult
-  $Res call({String title, String message, bool popPrevioues});
+  $Res call({String title, String message, String? until});
 }
 
 /// @nodoc
@@ -1208,7 +1342,7 @@ class __$$FullErrorSreenCopyWithImpl<$Res>
   $Res call({
     Object? title = null,
     Object? message = null,
-    Object? popPrevioues = null,
+    Object? until = freezed,
   }) {
     return _then(_$FullErrorSreen(
       null == title
@@ -1219,10 +1353,10 @@ class __$$FullErrorSreenCopyWithImpl<$Res>
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String,
-      null == popPrevioues
-          ? _value.popPrevioues
-          : popPrevioues // ignore: cast_nullable_to_non_nullable
-              as bool,
+      freezed == until
+          ? _value.until
+          : until // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -1230,18 +1364,18 @@ class __$$FullErrorSreenCopyWithImpl<$Res>
 /// @nodoc
 
 class _$FullErrorSreen implements FullErrorSreen {
-  const _$FullErrorSreen(this.title, this.message, this.popPrevioues);
+  const _$FullErrorSreen(this.title, this.message, this.until);
 
   @override
   final String title;
   @override
   final String message;
   @override
-  final bool popPrevioues;
+  final String? until;
 
   @override
   String toString() {
-    return 'StateRendererEvent.fullErrorSreen(title: $title, message: $message, popPrevioues: $popPrevioues)';
+    return 'StateRendererEvent.fullErrorSreen(title: $title, message: $message, until: $until)';
   }
 
   @override
@@ -1251,12 +1385,11 @@ class _$FullErrorSreen implements FullErrorSreen {
             other is _$FullErrorSreen &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.message, message) || other.message == message) &&
-            (identical(other.popPrevioues, popPrevioues) ||
-                other.popPrevioues == popPrevioues));
+            (identical(other.until, until) || other.until == until));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, title, message, popPrevioues);
+  int get hashCode => Object.hash(runtimeType, title, message, until);
 
   @JsonKey(ignore: true)
   @override
@@ -1267,66 +1400,75 @@ class _$FullErrorSreen implements FullErrorSreen {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String title, String message, bool popPrevioues)
+    required TResult Function(String title, String message, String? until,
+            double? width, double? height)
         popUpSuccess,
-    required TResult Function(String title, String message, bool popPrevioues)
+    required TResult Function(String title, String message, String? until,
+            double? width, double? height)
         popUpError,
     required TResult Function(String title, String message) popUpServerError,
-    required TResult Function(String title, String message, bool popPrevioues)
+    required TResult Function(String title, String message, String? until,
+            double? width, double? height)
         popUpLoading,
     required TResult Function(String title, Widget bodyWidget, double? width,
-            double? height, bool popPrevioues)
+            double? height, String? until)
         popUpForm,
-    required TResult Function(String title, String message, bool popPrevioues)
+    required TResult Function(String title, String message, String? until)
         fullErrorSreen,
     required TResult Function() contentScreen,
     required TResult Function() empty,
   }) {
-    return fullErrorSreen(title, message, popPrevioues);
+    return fullErrorSreen(title, message, until);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String title, String message, bool popPrevioues)?
+    TResult? Function(String title, String message, String? until,
+            double? width, double? height)?
         popUpSuccess,
-    TResult? Function(String title, String message, bool popPrevioues)?
+    TResult? Function(String title, String message, String? until,
+            double? width, double? height)?
         popUpError,
     TResult? Function(String title, String message)? popUpServerError,
-    TResult? Function(String title, String message, bool popPrevioues)?
+    TResult? Function(String title, String message, String? until,
+            double? width, double? height)?
         popUpLoading,
     TResult? Function(String title, Widget bodyWidget, double? width,
-            double? height, bool popPrevioues)?
+            double? height, String? until)?
         popUpForm,
-    TResult? Function(String title, String message, bool popPrevioues)?
+    TResult? Function(String title, String message, String? until)?
         fullErrorSreen,
     TResult? Function()? contentScreen,
     TResult? Function()? empty,
   }) {
-    return fullErrorSreen?.call(title, message, popPrevioues);
+    return fullErrorSreen?.call(title, message, until);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String title, String message, bool popPrevioues)?
+    TResult Function(String title, String message, String? until, double? width,
+            double? height)?
         popUpSuccess,
-    TResult Function(String title, String message, bool popPrevioues)?
+    TResult Function(String title, String message, String? until, double? width,
+            double? height)?
         popUpError,
     TResult Function(String title, String message)? popUpServerError,
-    TResult Function(String title, String message, bool popPrevioues)?
+    TResult Function(String title, String message, String? until, double? width,
+            double? height)?
         popUpLoading,
     TResult Function(String title, Widget bodyWidget, double? width,
-            double? height, bool popPrevioues)?
+            double? height, String? until)?
         popUpForm,
-    TResult Function(String title, String message, bool popPrevioues)?
+    TResult Function(String title, String message, String? until)?
         fullErrorSreen,
     TResult Function()? contentScreen,
     TResult Function()? empty,
     required TResult orElse(),
   }) {
     if (fullErrorSreen != null) {
-      return fullErrorSreen(title, message, popPrevioues);
+      return fullErrorSreen(title, message, until);
     }
     return orElse();
   }
@@ -1383,12 +1525,12 @@ class _$FullErrorSreen implements FullErrorSreen {
 
 abstract class FullErrorSreen implements StateRendererEvent {
   const factory FullErrorSreen(
-          final String title, final String message, final bool popPrevioues) =
+          final String title, final String message, final String? until) =
       _$FullErrorSreen;
 
   String get title;
   String get message;
-  bool get popPrevioues;
+  String? get until;
   @JsonKey(ignore: true)
   _$$FullErrorSreenCopyWith<_$FullErrorSreen> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1432,17 +1574,20 @@ class _$ContentScreen implements ContentScreen {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String title, String message, bool popPrevioues)
+    required TResult Function(String title, String message, String? until,
+            double? width, double? height)
         popUpSuccess,
-    required TResult Function(String title, String message, bool popPrevioues)
+    required TResult Function(String title, String message, String? until,
+            double? width, double? height)
         popUpError,
     required TResult Function(String title, String message) popUpServerError,
-    required TResult Function(String title, String message, bool popPrevioues)
+    required TResult Function(String title, String message, String? until,
+            double? width, double? height)
         popUpLoading,
     required TResult Function(String title, Widget bodyWidget, double? width,
-            double? height, bool popPrevioues)
+            double? height, String? until)
         popUpForm,
-    required TResult Function(String title, String message, bool popPrevioues)
+    required TResult Function(String title, String message, String? until)
         fullErrorSreen,
     required TResult Function() contentScreen,
     required TResult Function() empty,
@@ -1453,17 +1598,20 @@ class _$ContentScreen implements ContentScreen {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String title, String message, bool popPrevioues)?
+    TResult? Function(String title, String message, String? until,
+            double? width, double? height)?
         popUpSuccess,
-    TResult? Function(String title, String message, bool popPrevioues)?
+    TResult? Function(String title, String message, String? until,
+            double? width, double? height)?
         popUpError,
     TResult? Function(String title, String message)? popUpServerError,
-    TResult? Function(String title, String message, bool popPrevioues)?
+    TResult? Function(String title, String message, String? until,
+            double? width, double? height)?
         popUpLoading,
     TResult? Function(String title, Widget bodyWidget, double? width,
-            double? height, bool popPrevioues)?
+            double? height, String? until)?
         popUpForm,
-    TResult? Function(String title, String message, bool popPrevioues)?
+    TResult? Function(String title, String message, String? until)?
         fullErrorSreen,
     TResult? Function()? contentScreen,
     TResult? Function()? empty,
@@ -1474,17 +1622,20 @@ class _$ContentScreen implements ContentScreen {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String title, String message, bool popPrevioues)?
+    TResult Function(String title, String message, String? until, double? width,
+            double? height)?
         popUpSuccess,
-    TResult Function(String title, String message, bool popPrevioues)?
+    TResult Function(String title, String message, String? until, double? width,
+            double? height)?
         popUpError,
     TResult Function(String title, String message)? popUpServerError,
-    TResult Function(String title, String message, bool popPrevioues)?
+    TResult Function(String title, String message, String? until, double? width,
+            double? height)?
         popUpLoading,
     TResult Function(String title, Widget bodyWidget, double? width,
-            double? height, bool popPrevioues)?
+            double? height, String? until)?
         popUpForm,
-    TResult Function(String title, String message, bool popPrevioues)?
+    TResult Function(String title, String message, String? until)?
         fullErrorSreen,
     TResult Function()? contentScreen,
     TResult Function()? empty,
@@ -1588,17 +1739,20 @@ class _$EmptySreen implements EmptySreen {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String title, String message, bool popPrevioues)
+    required TResult Function(String title, String message, String? until,
+            double? width, double? height)
         popUpSuccess,
-    required TResult Function(String title, String message, bool popPrevioues)
+    required TResult Function(String title, String message, String? until,
+            double? width, double? height)
         popUpError,
     required TResult Function(String title, String message) popUpServerError,
-    required TResult Function(String title, String message, bool popPrevioues)
+    required TResult Function(String title, String message, String? until,
+            double? width, double? height)
         popUpLoading,
     required TResult Function(String title, Widget bodyWidget, double? width,
-            double? height, bool popPrevioues)
+            double? height, String? until)
         popUpForm,
-    required TResult Function(String title, String message, bool popPrevioues)
+    required TResult Function(String title, String message, String? until)
         fullErrorSreen,
     required TResult Function() contentScreen,
     required TResult Function() empty,
@@ -1609,17 +1763,20 @@ class _$EmptySreen implements EmptySreen {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String title, String message, bool popPrevioues)?
+    TResult? Function(String title, String message, String? until,
+            double? width, double? height)?
         popUpSuccess,
-    TResult? Function(String title, String message, bool popPrevioues)?
+    TResult? Function(String title, String message, String? until,
+            double? width, double? height)?
         popUpError,
     TResult? Function(String title, String message)? popUpServerError,
-    TResult? Function(String title, String message, bool popPrevioues)?
+    TResult? Function(String title, String message, String? until,
+            double? width, double? height)?
         popUpLoading,
     TResult? Function(String title, Widget bodyWidget, double? width,
-            double? height, bool popPrevioues)?
+            double? height, String? until)?
         popUpForm,
-    TResult? Function(String title, String message, bool popPrevioues)?
+    TResult? Function(String title, String message, String? until)?
         fullErrorSreen,
     TResult? Function()? contentScreen,
     TResult? Function()? empty,
@@ -1630,17 +1787,20 @@ class _$EmptySreen implements EmptySreen {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String title, String message, bool popPrevioues)?
+    TResult Function(String title, String message, String? until, double? width,
+            double? height)?
         popUpSuccess,
-    TResult Function(String title, String message, bool popPrevioues)?
+    TResult Function(String title, String message, String? until, double? width,
+            double? height)?
         popUpError,
     TResult Function(String title, String message)? popUpServerError,
-    TResult Function(String title, String message, bool popPrevioues)?
+    TResult Function(String title, String message, String? until, double? width,
+            double? height)?
         popUpLoading,
     TResult Function(String title, Widget bodyWidget, double? width,
-            double? height, bool popPrevioues)?
+            double? height, String? until)?
         popUpForm,
-    TResult Function(String title, String message, bool popPrevioues)?
+    TResult Function(String title, String message, String? until)?
         fullErrorSreen,
     TResult Function()? contentScreen,
     TResult Function()? empty,
@@ -1711,7 +1871,7 @@ mixin _$StateRendererState {
   String get message => throw _privateConstructorUsedError;
   Function get retryAction => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
-  bool get popPrevioues => throw _privateConstructorUsedError;
+  String? get until => throw _privateConstructorUsedError;
   double get width => throw _privateConstructorUsedError;
   double get height => throw _privateConstructorUsedError;
   Widget? get body => throw _privateConstructorUsedError;
@@ -1732,7 +1892,7 @@ abstract class $StateRendererStateCopyWith<$Res> {
       {String message,
       Function retryAction,
       String title,
-      bool popPrevioues,
+      String? until,
       double width,
       double height,
       Widget? body,
@@ -1755,7 +1915,7 @@ class _$StateRendererStateCopyWithImpl<$Res, $Val extends StateRendererState>
     Object? message = null,
     Object? retryAction = null,
     Object? title = null,
-    Object? popPrevioues = null,
+    Object? until = freezed,
     Object? width = null,
     Object? height = null,
     Object? body = freezed,
@@ -1774,10 +1934,10 @@ class _$StateRendererStateCopyWithImpl<$Res, $Val extends StateRendererState>
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
-      popPrevioues: null == popPrevioues
-          ? _value.popPrevioues
-          : popPrevioues // ignore: cast_nullable_to_non_nullable
-              as bool,
+      until: freezed == until
+          ? _value.until
+          : until // ignore: cast_nullable_to_non_nullable
+              as String?,
       width: null == width
           ? _value.width
           : width // ignore: cast_nullable_to_non_nullable
@@ -1810,7 +1970,7 @@ abstract class _$$_StateRendererStateCopyWith<$Res>
       {String message,
       Function retryAction,
       String title,
-      bool popPrevioues,
+      String? until,
       double width,
       double height,
       Widget? body,
@@ -1831,7 +1991,7 @@ class __$$_StateRendererStateCopyWithImpl<$Res>
     Object? message = null,
     Object? retryAction = null,
     Object? title = null,
-    Object? popPrevioues = null,
+    Object? until = freezed,
     Object? width = null,
     Object? height = null,
     Object? body = freezed,
@@ -1850,10 +2010,10 @@ class __$$_StateRendererStateCopyWithImpl<$Res>
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
-      popPrevioues: null == popPrevioues
-          ? _value.popPrevioues
-          : popPrevioues // ignore: cast_nullable_to_non_nullable
-              as bool,
+      until: freezed == until
+          ? _value.until
+          : until // ignore: cast_nullable_to_non_nullable
+              as String?,
       width: null == width
           ? _value.width
           : width // ignore: cast_nullable_to_non_nullable
@@ -1881,7 +2041,7 @@ class _$_StateRendererState implements _StateRendererState {
       {required this.message,
       required this.retryAction,
       required this.title,
-      required this.popPrevioues,
+      required this.until,
       required this.width,
       required this.height,
       this.body,
@@ -1894,7 +2054,7 @@ class _$_StateRendererState implements _StateRendererState {
   @override
   final String title;
   @override
-  final bool popPrevioues;
+  final String? until;
   @override
   final double width;
   @override
@@ -1906,7 +2066,7 @@ class _$_StateRendererState implements _StateRendererState {
 
   @override
   String toString() {
-    return 'StateRendererState(message: $message, retryAction: $retryAction, title: $title, popPrevioues: $popPrevioues, width: $width, height: $height, body: $body, stateRender: $stateRender)';
+    return 'StateRendererState(message: $message, retryAction: $retryAction, title: $title, until: $until, width: $width, height: $height, body: $body, stateRender: $stateRender)';
   }
 
   @override
@@ -1918,8 +2078,7 @@ class _$_StateRendererState implements _StateRendererState {
             (identical(other.retryAction, retryAction) ||
                 other.retryAction == retryAction) &&
             (identical(other.title, title) || other.title == title) &&
-            (identical(other.popPrevioues, popPrevioues) ||
-                other.popPrevioues == popPrevioues) &&
+            (identical(other.until, until) || other.until == until) &&
             (identical(other.width, width) || other.width == width) &&
             (identical(other.height, height) || other.height == height) &&
             (identical(other.body, body) || other.body == body) &&
@@ -1929,7 +2088,7 @@ class _$_StateRendererState implements _StateRendererState {
 
   @override
   int get hashCode => Object.hash(runtimeType, message, retryAction, title,
-      popPrevioues, width, height, body, stateRender);
+      until, width, height, body, stateRender);
 
   @JsonKey(ignore: true)
   @override
@@ -1944,7 +2103,7 @@ abstract class _StateRendererState implements StateRendererState {
       {required final String message,
       required final Function retryAction,
       required final String title,
-      required final bool popPrevioues,
+      required final String? until,
       required final double width,
       required final double height,
       final Widget? body,
@@ -1957,7 +2116,7 @@ abstract class _StateRendererState implements StateRendererState {
   @override
   String get title;
   @override
-  bool get popPrevioues;
+  String? get until;
   @override
   double get width;
   @override
