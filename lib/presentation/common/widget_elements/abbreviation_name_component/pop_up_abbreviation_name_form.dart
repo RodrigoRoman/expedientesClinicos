@@ -29,8 +29,6 @@ class _AbbreviationNameFormState extends State<AbbreviationNameForm> {
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(builder: (context, constraints) {
-      print('constraints');
-      print(constraints);
       return SizedBox(
         width: constraints.maxWidth,
         height: constraints.maxHeight,
@@ -86,15 +84,6 @@ class _AbbreviationNameFormState extends State<AbbreviationNameForm> {
                           child: TextFormField(
                             controller: abbreviationController,
                             validator: (_) => widget.validAbbreviation(),
-
-                            // validator: (_) => nameController.text
-                            //     .fold(
-                            //         (f) => f.maybeMap(
-                            //             exceedingLength: (value) =>
-                            //                 AppStrings.tooLong,
-                            //             empty: (value) => AppStrings.isEmpty,
-                            //             orElse: () => AppStrings.empty),
-                            //         (_) => null),
                             style: Theme.of(context)
                                 .textTheme
                                 .bodyMedium!
@@ -125,9 +114,7 @@ class _AbbreviationNameFormState extends State<AbbreviationNameForm> {
                 ElevatedButton(
                     onPressed: () {
                       if (_key.currentState!.validate()) {
-                        print('about to validate');
                         widget.onSubmit();
-                        print('passed validate');
                       }
                     },
                     child: const Text(AppStrings.create))

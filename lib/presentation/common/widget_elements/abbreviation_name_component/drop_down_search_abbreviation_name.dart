@@ -132,9 +132,6 @@ class _DropdownSearchAbbreviationNameRouteState
                                     ),
                                     onTap: () {
                                       widget.onSelected(e);
-                                      // context.read<MedicineFormBloc>().add(
-                                      //     MedicineFormEvent
-                                      //         .administrationRouteChanged(e));
                                       widget.searchFieldController.text =
                                           e.name.value.fold(
                                               (l) => AppStrings.isEmpty,
@@ -170,20 +167,13 @@ class _DropdownSearchAbbreviationNameRouteState
               child: BlocConsumer<MedicineFormBloc, MedicineFormState>(
                 listener: (context, state) {},
                 builder: (context, state) {
-                  // NameAbbreviation selectedAdministrationRoute =
-                  //     state.medicine.administrationRoute;
-
                   return ((widget.abbreviationName !=
                               NameAbbreviation.empty()) &
                           !_focusNode.hasFocus)
                       ? ListTile(
-                          // tileColor: Colors.red,
                           onTap: () {
                             FocusScope.of(context).requestFocus(_focusNode);
                           },
-                          // leading: SizedBox(
-                          //   width: constraints.maxWidth / 20,
-                          // ),
                           title: FittedBox(
                             child: Text(
                               widget.abbreviationName.abbr.value
@@ -221,18 +211,9 @@ class _DropdownSearchAbbreviationNameRouteState
                                         .searchFieldController.text.length));
                             if (value.isEmpty) {
                               widget.onSearchAll();
-                              // context
-                              //     .read<AdministrationRouteWatcherBloc>()
-                              //     .add(const AbbreviationNameWatcherEvent
-                              //         .watchAllStarted());
                             } else {
                               widget.onSearchWithKey(
                                   widget.searchFieldController.text);
-                              // context
-                              //     .read<AdministrationRouteWatcherBloc>()
-                              //     .add(AbbreviationNameWatcherEvent
-                              //         .watchFilteredStarted(
-                              //             widget.searchFieldController.text));
                             }
                           },
                         );

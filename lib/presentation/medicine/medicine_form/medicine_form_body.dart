@@ -24,13 +24,11 @@ class MedicineFormBody extends StatefulWidget {
   const MedicineFormBody({
     super.key,
     required this.heightUnit,
-    required this.mounted,
     required this.constraints,
   });
 
   final BoxConstraints constraints;
   final double heightUnit;
-  final bool mounted;
 
   @override
   State<MedicineFormBody> createState() => _MedicineFormBodyState();
@@ -51,7 +49,7 @@ class _MedicineFormBodyState extends State<MedicineFormBody> {
 
   final TextEditingController adminRouteText = TextEditingController();
 
-  final bool requestedSubmition = false;
+  bool requestedSubmition = false;
   final List<Category> categoriesList = [];
   @override
   Widget build(BuildContext context) {
@@ -279,9 +277,9 @@ class _MedicineFormBodyState extends State<MedicineFormBody> {
                         .read<MedicineFormBloc>()
                         .add(const MedicineFormEvent.saved());
                   } else {
-                    // setState(() {
-                    //   requestedSubmition = true;
-                    // });
+                    setState(() {
+                      requestedSubmition = true;
+                    });
                   }
                 },
                 child: const Text(AppStrings.create),
