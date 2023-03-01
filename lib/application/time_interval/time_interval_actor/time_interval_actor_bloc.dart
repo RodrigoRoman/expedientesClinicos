@@ -1,0 +1,26 @@
+import 'package:bloc/bloc.dart';
+import 'package:expedientes_clinicos/domain/core/time_interval/i_time_interval_repository.dart';
+import 'package:expedientes_clinicos/domain/core/time_interval/time_interval.dart';
+import 'package:expedientes_clinicos/domain/core/time_interval/time_interval_failure.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
+
+part 'time_interval_actor_event.dart';
+part 'time_interval_actor_state.dart';
+part 'time_interval_actor_bloc.freezed.dart';
+
+class TimeIntervalActorBloc
+    extends Bloc<TimeIntervalActorEvent, TimeIntervalActorState> {
+  final ITimeIntervalRepository _iTimeIntervalRepository;
+  TimeIntervalActorBloc(this._iTimeIntervalRepository)
+      : super(const TimeIntervalActorState.initial()) {
+    on<_Deleted>((event, emit) async {
+      emit(const TimeIntervalActorState.actionInProgress());
+      final failureOrSuccessDeletion =
+          await _iTimeIntervalRepository.delete(event.timeInterval);
+      failureOrSuccessDeletion.fold(
+          (f) => TimeIntervalActorState.deleteFailure(f),
+          (_) => const TimeIntervalActorState.deleteSuccess());
+      _iTimeIntervalRepository.delete(event.timeInterval);
+    });
+  }
+}

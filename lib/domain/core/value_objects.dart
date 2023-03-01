@@ -150,6 +150,18 @@ class DateTimeStamp extends ValueObject<DateTime> {
   const DateTimeStamp._(this.value);
 }
 
+class TimeDuration extends ValueObject<Duration> {
+  @override
+  final Either<ValueFailure<Duration>, Duration> value;
+
+  factory TimeDuration(Duration input) {
+    assert(input != null);
+    return TimeDuration._(right(input));
+  }
+
+  const TimeDuration._(this.value);
+}
+
 class PhoneNumber extends ValueObject<String> {
   @override
   final Either<ValueFailure<String>, String> value;
