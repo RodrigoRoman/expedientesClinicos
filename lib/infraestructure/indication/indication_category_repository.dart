@@ -3,7 +3,7 @@ import 'dart:io';
 
 import 'package:expedientes_clinicos/domain/core/categories/category.dart';
 import 'package:expedientes_clinicos/domain/core/categories/category_failures.dart';
-import 'package:expedientes_clinicos/domain/core/categories/i_category_repository.dart';
+import 'package:expedientes_clinicos/domain/core/indication/indication_class/i_indication_class_repository.dart';
 import 'package:expedientes_clinicos/domain/core/value_objects.dart';
 import 'package:expedientes_clinicos/infraestructure/category/category_dtos.dart';
 import 'package:expedientes_clinicos/infraestructure/helper_functions/string_manipulation.dart';
@@ -18,10 +18,10 @@ import 'package:kt_dart/collection.dart';
 import 'package:dartz/dartz.dart';
 import 'package:rxdart/rxdart.dart';
 
-@LazySingleton(as: ICategoryRepository)
-class CategoryRepository implements ICategoryRepository {
+@LazySingleton(as: IIndicationCategoryRepository)
+class IndicationCategoryRepository implements IIndicationCategoryRepository {
   final FirebaseFirestore _firestore;
-  CategoryRepository(this._firestore);
+  IndicationCategoryRepository(this._firestore);
 
   @override
   Future<Either<CategoryFailures, Unit>> create(Category category) async {
@@ -29,15 +29,14 @@ class CategoryRepository implements ICategoryRepository {
       //Upload image to Firestorage
       CategoryDto categoryDto = CategoryDto.fromDomain(category);
 
-      final categoryReference = FirebaseStorage.instance
-          .ref()
-          .child('categories/${categoryDto.id + categoryDto.name}.jpg');
+      final categoryReference = FirebaseStorage.instance.ref().child(
+          'indicationCategories/${categoryDto.id + categoryDto.name}.jpg');
       File file = File(categoryDto.imageUrl);
 
       await categoryReference.putFile(file);
 
       //retrieving the download URL to save it as url for the category
-      final categories = _firestore.collection('categories');
+      final categories = _firestore.collection('indicationCategories');
 
       final imageUrl = await categoryReference.getDownloadURL();
 
@@ -67,11 +66,11 @@ class CategoryRepository implements ICategoryRepository {
   @override
   Future<Either<CategoryFailures, Unit>> createFake() async {
     try {
-      final cats = _firestore.collection('categories');
+      final cats = _firestore.collection('indicationCategories');
 
       //Load Unpslash credentials for getting random image urls
       final client = UnsplashClient(
-        settings: ClientSettings(
+        settings: const ClientSettings(
             credentials: AppCredentials(
           accessKey: 'Br9rj2Rhz-t_jt6fpkj49AHZxpmJ8A31ZAkVnyyZajQ',
           secretKey: 'da_ywoatyKz9HLzra_JCeXysfwep70vs5ACG7ImQihM',
@@ -133,10 +132,10 @@ class CategoryRepository implements ICategoryRepository {
 
   @override
   Future<Either<CategoryFailures, Unit>> delete(Category category) async {
-    final categories = _firestore.collection('categories');
+    final categories = _firestore.collection('indicationCategories');
     try {
-      final ingredientDto = CategoryDto.fromDomain(category);
-      await categories.doc(ingredientDto.id).delete();
+      final categoryDto = CategoryDto.fromDomain(category);
+      await categories.doc(categoryDto.id).delete();
       return right(unit);
     } on PlatformException catch (e) {
       // These error codes and messages aren't in the documentation AFAIK, experiment in the debugger to find out about them.
@@ -151,11 +150,27 @@ class CategoryRepository implements ICategoryRepository {
   //Needs to be modified for updating imageUrl and keywords
   @override
   Future<Either<CategoryFailures, Unit>> update(Category category) async {
-    final categories = _firestore.collection('categories');
     try {
-      final ingredientDto = CategoryDto.fromDomain(category);
+      CategoryDto categoryDto = CategoryDto.fromDomain(category);
 
-      await categories.doc(ingredientDto.id).update(ingredientDto.toJson());
+      final categoryReference = FirebaseStorage.instance.ref().child(
+          'indicationCategories/${categoryDto.id + categoryDto.name}.jpg');
+      File file = File(categoryDto.imageUrl);
+
+      await categoryReference.putFile(file);
+
+      //retrieving the download URL to save it as url for the category
+      final categories = _firestore.collection('indicationCategories');
+
+      final imageUrl = await categoryReference.getDownloadURL();
+
+      categoryDto = categoryDto.copyWith(imageUrl: imageUrl);
+
+      Map<String, dynamic> data = categoryDto.toJson();
+      data['keyWords'] = generateKeywords(categoryDto.name);
+
+      //We keep the id that comes from categoryDto and avoid autogeneration
+      await categories.doc(categoryDto.id).set(data);
       return right(unit);
     } on PlatformException catch (e) {
       // These error codes and messages aren't in the documentation AFAIK, experiment in the debugger to find out about them.
@@ -169,7 +184,7 @@ class CategoryRepository implements ICategoryRepository {
 
   @override
   Stream<Either<CategoryFailures, KtList<Category>>> watchAll() async* {
-    final category = _firestore.collection('categories');
+    final category = _firestore.collection('indicationCategories');
     yield* category
         .snapshots()
         .map(
@@ -191,7 +206,7 @@ class CategoryRepository implements ICategoryRepository {
   @override
   Stream<Either<CategoryFailures, KtList<Category>>> watchFiltered(
       String name) async* {
-    final category = _firestore.collection('categories');
+    final category = _firestore.collection('indicationCategories');
     yield* category
         .where('keyWords', arrayContains: removeSpecialCharacters(name))
         .snapshots()

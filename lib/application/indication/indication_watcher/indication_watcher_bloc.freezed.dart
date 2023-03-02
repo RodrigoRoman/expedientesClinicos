@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'time_interval_watcher_bloc.dart';
+part of 'indication_watcher_bloc.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,14 +15,14 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-mixin _$TimeIntervalWatcherEvent {
+mixin _$IndicationWatcherEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() watchAllStarted,
     required TResult Function(String keyword) watchFilteredStarted,
     required TResult Function(
-            Either<TimeIntervalFailure, KtList<TimeInterval>> failureOrUnit)
-        timeIntervalReceived,
+            Either<IndicationFailure, KtList<Indication>> failureOrUnit)
+        indicationReceived,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -30,8 +30,8 @@ mixin _$TimeIntervalWatcherEvent {
     TResult? Function()? watchAllStarted,
     TResult? Function(String keyword)? watchFilteredStarted,
     TResult? Function(
-            Either<TimeIntervalFailure, KtList<TimeInterval>> failureOrUnit)?
-        timeIntervalReceived,
+            Either<IndicationFailure, KtList<Indication>> failureOrUnit)?
+        indicationReceived,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -39,8 +39,8 @@ mixin _$TimeIntervalWatcherEvent {
     TResult Function()? watchAllStarted,
     TResult Function(String keyword)? watchFilteredStarted,
     TResult Function(
-            Either<TimeIntervalFailure, KtList<TimeInterval>> failureOrUnit)?
-        timeIntervalReceived,
+            Either<IndicationFailure, KtList<Indication>> failureOrUnit)?
+        indicationReceived,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -48,38 +48,38 @@ mixin _$TimeIntervalWatcherEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_WatchAllStarted value) watchAllStarted,
     required TResult Function(_WatchFilteredStarted value) watchFilteredStarted,
-    required TResult Function(_TimeIntervalReceived value) timeIntervalReceived,
+    required TResult Function(_IndicationReceived value) indicationReceived,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_WatchAllStarted value)? watchAllStarted,
     TResult? Function(_WatchFilteredStarted value)? watchFilteredStarted,
-    TResult? Function(_TimeIntervalReceived value)? timeIntervalReceived,
+    TResult? Function(_IndicationReceived value)? indicationReceived,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_WatchAllStarted value)? watchAllStarted,
     TResult Function(_WatchFilteredStarted value)? watchFilteredStarted,
-    TResult Function(_TimeIntervalReceived value)? timeIntervalReceived,
+    TResult Function(_IndicationReceived value)? indicationReceived,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $TimeIntervalWatcherEventCopyWith<$Res> {
-  factory $TimeIntervalWatcherEventCopyWith(TimeIntervalWatcherEvent value,
-          $Res Function(TimeIntervalWatcherEvent) then) =
-      _$TimeIntervalWatcherEventCopyWithImpl<$Res, TimeIntervalWatcherEvent>;
+abstract class $IndicationWatcherEventCopyWith<$Res> {
+  factory $IndicationWatcherEventCopyWith(IndicationWatcherEvent value,
+          $Res Function(IndicationWatcherEvent) then) =
+      _$IndicationWatcherEventCopyWithImpl<$Res, IndicationWatcherEvent>;
 }
 
 /// @nodoc
-class _$TimeIntervalWatcherEventCopyWithImpl<$Res,
-        $Val extends TimeIntervalWatcherEvent>
-    implements $TimeIntervalWatcherEventCopyWith<$Res> {
-  _$TimeIntervalWatcherEventCopyWithImpl(this._value, this._then);
+class _$IndicationWatcherEventCopyWithImpl<$Res,
+        $Val extends IndicationWatcherEvent>
+    implements $IndicationWatcherEventCopyWith<$Res> {
+  _$IndicationWatcherEventCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -96,7 +96,7 @@ abstract class _$$_WatchAllStartedCopyWith<$Res> {
 
 /// @nodoc
 class __$$_WatchAllStartedCopyWithImpl<$Res>
-    extends _$TimeIntervalWatcherEventCopyWithImpl<$Res, _$_WatchAllStarted>
+    extends _$IndicationWatcherEventCopyWithImpl<$Res, _$_WatchAllStarted>
     implements _$$_WatchAllStartedCopyWith<$Res> {
   __$$_WatchAllStartedCopyWithImpl(
       _$_WatchAllStarted _value, $Res Function(_$_WatchAllStarted) _then)
@@ -110,7 +110,7 @@ class _$_WatchAllStarted implements _WatchAllStarted {
 
   @override
   String toString() {
-    return 'TimeIntervalWatcherEvent.watchAllStarted()';
+    return 'IndicationWatcherEvent.watchAllStarted()';
   }
 
   @override
@@ -128,8 +128,8 @@ class _$_WatchAllStarted implements _WatchAllStarted {
     required TResult Function() watchAllStarted,
     required TResult Function(String keyword) watchFilteredStarted,
     required TResult Function(
-            Either<TimeIntervalFailure, KtList<TimeInterval>> failureOrUnit)
-        timeIntervalReceived,
+            Either<IndicationFailure, KtList<Indication>> failureOrUnit)
+        indicationReceived,
   }) {
     return watchAllStarted();
   }
@@ -140,8 +140,8 @@ class _$_WatchAllStarted implements _WatchAllStarted {
     TResult? Function()? watchAllStarted,
     TResult? Function(String keyword)? watchFilteredStarted,
     TResult? Function(
-            Either<TimeIntervalFailure, KtList<TimeInterval>> failureOrUnit)?
-        timeIntervalReceived,
+            Either<IndicationFailure, KtList<Indication>> failureOrUnit)?
+        indicationReceived,
   }) {
     return watchAllStarted?.call();
   }
@@ -152,8 +152,8 @@ class _$_WatchAllStarted implements _WatchAllStarted {
     TResult Function()? watchAllStarted,
     TResult Function(String keyword)? watchFilteredStarted,
     TResult Function(
-            Either<TimeIntervalFailure, KtList<TimeInterval>> failureOrUnit)?
-        timeIntervalReceived,
+            Either<IndicationFailure, KtList<Indication>> failureOrUnit)?
+        indicationReceived,
     required TResult orElse(),
   }) {
     if (watchAllStarted != null) {
@@ -167,7 +167,7 @@ class _$_WatchAllStarted implements _WatchAllStarted {
   TResult map<TResult extends Object?>({
     required TResult Function(_WatchAllStarted value) watchAllStarted,
     required TResult Function(_WatchFilteredStarted value) watchFilteredStarted,
-    required TResult Function(_TimeIntervalReceived value) timeIntervalReceived,
+    required TResult Function(_IndicationReceived value) indicationReceived,
   }) {
     return watchAllStarted(this);
   }
@@ -177,7 +177,7 @@ class _$_WatchAllStarted implements _WatchAllStarted {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_WatchAllStarted value)? watchAllStarted,
     TResult? Function(_WatchFilteredStarted value)? watchFilteredStarted,
-    TResult? Function(_TimeIntervalReceived value)? timeIntervalReceived,
+    TResult? Function(_IndicationReceived value)? indicationReceived,
   }) {
     return watchAllStarted?.call(this);
   }
@@ -187,7 +187,7 @@ class _$_WatchAllStarted implements _WatchAllStarted {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_WatchAllStarted value)? watchAllStarted,
     TResult Function(_WatchFilteredStarted value)? watchFilteredStarted,
-    TResult Function(_TimeIntervalReceived value)? timeIntervalReceived,
+    TResult Function(_IndicationReceived value)? indicationReceived,
     required TResult orElse(),
   }) {
     if (watchAllStarted != null) {
@@ -197,7 +197,7 @@ class _$_WatchAllStarted implements _WatchAllStarted {
   }
 }
 
-abstract class _WatchAllStarted implements TimeIntervalWatcherEvent {
+abstract class _WatchAllStarted implements IndicationWatcherEvent {
   const factory _WatchAllStarted() = _$_WatchAllStarted;
 }
 
@@ -212,8 +212,7 @@ abstract class _$$_WatchFilteredStartedCopyWith<$Res> {
 
 /// @nodoc
 class __$$_WatchFilteredStartedCopyWithImpl<$Res>
-    extends _$TimeIntervalWatcherEventCopyWithImpl<$Res,
-        _$_WatchFilteredStarted>
+    extends _$IndicationWatcherEventCopyWithImpl<$Res, _$_WatchFilteredStarted>
     implements _$$_WatchFilteredStartedCopyWith<$Res> {
   __$$_WatchFilteredStartedCopyWithImpl(_$_WatchFilteredStarted _value,
       $Res Function(_$_WatchFilteredStarted) _then)
@@ -243,7 +242,7 @@ class _$_WatchFilteredStarted implements _WatchFilteredStarted {
 
   @override
   String toString() {
-    return 'TimeIntervalWatcherEvent.watchFilteredStarted(keyword: $keyword)';
+    return 'IndicationWatcherEvent.watchFilteredStarted(keyword: $keyword)';
   }
 
   @override
@@ -270,8 +269,8 @@ class _$_WatchFilteredStarted implements _WatchFilteredStarted {
     required TResult Function() watchAllStarted,
     required TResult Function(String keyword) watchFilteredStarted,
     required TResult Function(
-            Either<TimeIntervalFailure, KtList<TimeInterval>> failureOrUnit)
-        timeIntervalReceived,
+            Either<IndicationFailure, KtList<Indication>> failureOrUnit)
+        indicationReceived,
   }) {
     return watchFilteredStarted(keyword);
   }
@@ -282,8 +281,8 @@ class _$_WatchFilteredStarted implements _WatchFilteredStarted {
     TResult? Function()? watchAllStarted,
     TResult? Function(String keyword)? watchFilteredStarted,
     TResult? Function(
-            Either<TimeIntervalFailure, KtList<TimeInterval>> failureOrUnit)?
-        timeIntervalReceived,
+            Either<IndicationFailure, KtList<Indication>> failureOrUnit)?
+        indicationReceived,
   }) {
     return watchFilteredStarted?.call(keyword);
   }
@@ -294,8 +293,8 @@ class _$_WatchFilteredStarted implements _WatchFilteredStarted {
     TResult Function()? watchAllStarted,
     TResult Function(String keyword)? watchFilteredStarted,
     TResult Function(
-            Either<TimeIntervalFailure, KtList<TimeInterval>> failureOrUnit)?
-        timeIntervalReceived,
+            Either<IndicationFailure, KtList<Indication>> failureOrUnit)?
+        indicationReceived,
     required TResult orElse(),
   }) {
     if (watchFilteredStarted != null) {
@@ -309,7 +308,7 @@ class _$_WatchFilteredStarted implements _WatchFilteredStarted {
   TResult map<TResult extends Object?>({
     required TResult Function(_WatchAllStarted value) watchAllStarted,
     required TResult Function(_WatchFilteredStarted value) watchFilteredStarted,
-    required TResult Function(_TimeIntervalReceived value) timeIntervalReceived,
+    required TResult Function(_IndicationReceived value) indicationReceived,
   }) {
     return watchFilteredStarted(this);
   }
@@ -319,7 +318,7 @@ class _$_WatchFilteredStarted implements _WatchFilteredStarted {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_WatchAllStarted value)? watchAllStarted,
     TResult? Function(_WatchFilteredStarted value)? watchFilteredStarted,
-    TResult? Function(_TimeIntervalReceived value)? timeIntervalReceived,
+    TResult? Function(_IndicationReceived value)? indicationReceived,
   }) {
     return watchFilteredStarted?.call(this);
   }
@@ -329,7 +328,7 @@ class _$_WatchFilteredStarted implements _WatchFilteredStarted {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_WatchAllStarted value)? watchAllStarted,
     TResult Function(_WatchFilteredStarted value)? watchFilteredStarted,
-    TResult Function(_TimeIntervalReceived value)? timeIntervalReceived,
+    TResult Function(_IndicationReceived value)? indicationReceived,
     required TResult orElse(),
   }) {
     if (watchFilteredStarted != null) {
@@ -339,7 +338,7 @@ class _$_WatchFilteredStarted implements _WatchFilteredStarted {
   }
 }
 
-abstract class _WatchFilteredStarted implements TimeIntervalWatcherEvent {
+abstract class _WatchFilteredStarted implements IndicationWatcherEvent {
   const factory _WatchFilteredStarted(final String keyword) =
       _$_WatchFilteredStarted;
 
@@ -350,21 +349,20 @@ abstract class _WatchFilteredStarted implements TimeIntervalWatcherEvent {
 }
 
 /// @nodoc
-abstract class _$$_TimeIntervalReceivedCopyWith<$Res> {
-  factory _$$_TimeIntervalReceivedCopyWith(_$_TimeIntervalReceived value,
-          $Res Function(_$_TimeIntervalReceived) then) =
-      __$$_TimeIntervalReceivedCopyWithImpl<$Res>;
+abstract class _$$_IndicationReceivedCopyWith<$Res> {
+  factory _$$_IndicationReceivedCopyWith(_$_IndicationReceived value,
+          $Res Function(_$_IndicationReceived) then) =
+      __$$_IndicationReceivedCopyWithImpl<$Res>;
   @useResult
-  $Res call({Either<TimeIntervalFailure, KtList<TimeInterval>> failureOrUnit});
+  $Res call({Either<IndicationFailure, KtList<Indication>> failureOrUnit});
 }
 
 /// @nodoc
-class __$$_TimeIntervalReceivedCopyWithImpl<$Res>
-    extends _$TimeIntervalWatcherEventCopyWithImpl<$Res,
-        _$_TimeIntervalReceived>
-    implements _$$_TimeIntervalReceivedCopyWith<$Res> {
-  __$$_TimeIntervalReceivedCopyWithImpl(_$_TimeIntervalReceived _value,
-      $Res Function(_$_TimeIntervalReceived) _then)
+class __$$_IndicationReceivedCopyWithImpl<$Res>
+    extends _$IndicationWatcherEventCopyWithImpl<$Res, _$_IndicationReceived>
+    implements _$$_IndicationReceivedCopyWith<$Res> {
+  __$$_IndicationReceivedCopyWithImpl(
+      _$_IndicationReceived _value, $Res Function(_$_IndicationReceived) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -372,33 +370,33 @@ class __$$_TimeIntervalReceivedCopyWithImpl<$Res>
   $Res call({
     Object? failureOrUnit = null,
   }) {
-    return _then(_$_TimeIntervalReceived(
+    return _then(_$_IndicationReceived(
       null == failureOrUnit
           ? _value.failureOrUnit
           : failureOrUnit // ignore: cast_nullable_to_non_nullable
-              as Either<TimeIntervalFailure, KtList<TimeInterval>>,
+              as Either<IndicationFailure, KtList<Indication>>,
     ));
   }
 }
 
 /// @nodoc
 
-class _$_TimeIntervalReceived implements _TimeIntervalReceived {
-  const _$_TimeIntervalReceived(this.failureOrUnit);
+class _$_IndicationReceived implements _IndicationReceived {
+  const _$_IndicationReceived(this.failureOrUnit);
 
   @override
-  final Either<TimeIntervalFailure, KtList<TimeInterval>> failureOrUnit;
+  final Either<IndicationFailure, KtList<Indication>> failureOrUnit;
 
   @override
   String toString() {
-    return 'TimeIntervalWatcherEvent.timeIntervalReceived(failureOrUnit: $failureOrUnit)';
+    return 'IndicationWatcherEvent.indicationReceived(failureOrUnit: $failureOrUnit)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_TimeIntervalReceived &&
+            other is _$_IndicationReceived &&
             (identical(other.failureOrUnit, failureOrUnit) ||
                 other.failureOrUnit == failureOrUnit));
   }
@@ -409,8 +407,8 @@ class _$_TimeIntervalReceived implements _TimeIntervalReceived {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_TimeIntervalReceivedCopyWith<_$_TimeIntervalReceived> get copyWith =>
-      __$$_TimeIntervalReceivedCopyWithImpl<_$_TimeIntervalReceived>(
+  _$$_IndicationReceivedCopyWith<_$_IndicationReceived> get copyWith =>
+      __$$_IndicationReceivedCopyWithImpl<_$_IndicationReceived>(
           this, _$identity);
 
   @override
@@ -419,10 +417,10 @@ class _$_TimeIntervalReceived implements _TimeIntervalReceived {
     required TResult Function() watchAllStarted,
     required TResult Function(String keyword) watchFilteredStarted,
     required TResult Function(
-            Either<TimeIntervalFailure, KtList<TimeInterval>> failureOrUnit)
-        timeIntervalReceived,
+            Either<IndicationFailure, KtList<Indication>> failureOrUnit)
+        indicationReceived,
   }) {
-    return timeIntervalReceived(failureOrUnit);
+    return indicationReceived(failureOrUnit);
   }
 
   @override
@@ -431,10 +429,10 @@ class _$_TimeIntervalReceived implements _TimeIntervalReceived {
     TResult? Function()? watchAllStarted,
     TResult? Function(String keyword)? watchFilteredStarted,
     TResult? Function(
-            Either<TimeIntervalFailure, KtList<TimeInterval>> failureOrUnit)?
-        timeIntervalReceived,
+            Either<IndicationFailure, KtList<Indication>> failureOrUnit)?
+        indicationReceived,
   }) {
-    return timeIntervalReceived?.call(failureOrUnit);
+    return indicationReceived?.call(failureOrUnit);
   }
 
   @override
@@ -443,12 +441,12 @@ class _$_TimeIntervalReceived implements _TimeIntervalReceived {
     TResult Function()? watchAllStarted,
     TResult Function(String keyword)? watchFilteredStarted,
     TResult Function(
-            Either<TimeIntervalFailure, KtList<TimeInterval>> failureOrUnit)?
-        timeIntervalReceived,
+            Either<IndicationFailure, KtList<Indication>> failureOrUnit)?
+        indicationReceived,
     required TResult orElse(),
   }) {
-    if (timeIntervalReceived != null) {
-      return timeIntervalReceived(failureOrUnit);
+    if (indicationReceived != null) {
+      return indicationReceived(failureOrUnit);
     }
     return orElse();
   }
@@ -458,9 +456,9 @@ class _$_TimeIntervalReceived implements _TimeIntervalReceived {
   TResult map<TResult extends Object?>({
     required TResult Function(_WatchAllStarted value) watchAllStarted,
     required TResult Function(_WatchFilteredStarted value) watchFilteredStarted,
-    required TResult Function(_TimeIntervalReceived value) timeIntervalReceived,
+    required TResult Function(_IndicationReceived value) indicationReceived,
   }) {
-    return timeIntervalReceived(this);
+    return indicationReceived(this);
   }
 
   @override
@@ -468,9 +466,9 @@ class _$_TimeIntervalReceived implements _TimeIntervalReceived {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_WatchAllStarted value)? watchAllStarted,
     TResult? Function(_WatchFilteredStarted value)? watchFilteredStarted,
-    TResult? Function(_TimeIntervalReceived value)? timeIntervalReceived,
+    TResult? Function(_IndicationReceived value)? indicationReceived,
   }) {
-    return timeIntervalReceived?.call(this);
+    return indicationReceived?.call(this);
   }
 
   @override
@@ -478,52 +476,51 @@ class _$_TimeIntervalReceived implements _TimeIntervalReceived {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_WatchAllStarted value)? watchAllStarted,
     TResult Function(_WatchFilteredStarted value)? watchFilteredStarted,
-    TResult Function(_TimeIntervalReceived value)? timeIntervalReceived,
+    TResult Function(_IndicationReceived value)? indicationReceived,
     required TResult orElse(),
   }) {
-    if (timeIntervalReceived != null) {
-      return timeIntervalReceived(this);
+    if (indicationReceived != null) {
+      return indicationReceived(this);
     }
     return orElse();
   }
 }
 
-abstract class _TimeIntervalReceived implements TimeIntervalWatcherEvent {
-  const factory _TimeIntervalReceived(
-      final Either<TimeIntervalFailure, KtList<TimeInterval>>
-          failureOrUnit) = _$_TimeIntervalReceived;
+abstract class _IndicationReceived implements IndicationWatcherEvent {
+  const factory _IndicationReceived(
+          final Either<IndicationFailure, KtList<Indication>> failureOrUnit) =
+      _$_IndicationReceived;
 
-  Either<TimeIntervalFailure, KtList<TimeInterval>> get failureOrUnit;
+  Either<IndicationFailure, KtList<Indication>> get failureOrUnit;
   @JsonKey(ignore: true)
-  _$$_TimeIntervalReceivedCopyWith<_$_TimeIntervalReceived> get copyWith =>
+  _$$_IndicationReceivedCopyWith<_$_IndicationReceived> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-mixin _$TimeIntervalWatcherState {
+mixin _$IndicationWatcherState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loadInProgress,
-    required TResult Function(KtList<TimeInterval> timeIntervals) loadSuccess,
-    required TResult Function(TimeIntervalFailure timeIntervalFailure)
-        loadFailure,
+    required TResult Function(KtList<Indication> indication) loadSuccess,
+    required TResult Function(IndicationFailure indicationFailure) loadFailure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loadInProgress,
-    TResult? Function(KtList<TimeInterval> timeIntervals)? loadSuccess,
-    TResult? Function(TimeIntervalFailure timeIntervalFailure)? loadFailure,
+    TResult? Function(KtList<Indication> indication)? loadSuccess,
+    TResult? Function(IndicationFailure indicationFailure)? loadFailure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadInProgress,
-    TResult Function(KtList<TimeInterval> timeIntervals)? loadSuccess,
-    TResult Function(TimeIntervalFailure timeIntervalFailure)? loadFailure,
+    TResult Function(KtList<Indication> indication)? loadSuccess,
+    TResult Function(IndicationFailure indicationFailure)? loadFailure,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -555,17 +552,17 @@ mixin _$TimeIntervalWatcherState {
 }
 
 /// @nodoc
-abstract class $TimeIntervalWatcherStateCopyWith<$Res> {
-  factory $TimeIntervalWatcherStateCopyWith(TimeIntervalWatcherState value,
-          $Res Function(TimeIntervalWatcherState) then) =
-      _$TimeIntervalWatcherStateCopyWithImpl<$Res, TimeIntervalWatcherState>;
+abstract class $IndicationWatcherStateCopyWith<$Res> {
+  factory $IndicationWatcherStateCopyWith(IndicationWatcherState value,
+          $Res Function(IndicationWatcherState) then) =
+      _$IndicationWatcherStateCopyWithImpl<$Res, IndicationWatcherState>;
 }
 
 /// @nodoc
-class _$TimeIntervalWatcherStateCopyWithImpl<$Res,
-        $Val extends TimeIntervalWatcherState>
-    implements $TimeIntervalWatcherStateCopyWith<$Res> {
-  _$TimeIntervalWatcherStateCopyWithImpl(this._value, this._then);
+class _$IndicationWatcherStateCopyWithImpl<$Res,
+        $Val extends IndicationWatcherState>
+    implements $IndicationWatcherStateCopyWith<$Res> {
+  _$IndicationWatcherStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -582,7 +579,7 @@ abstract class _$$_InitialCopyWith<$Res> {
 
 /// @nodoc
 class __$$_InitialCopyWithImpl<$Res>
-    extends _$TimeIntervalWatcherStateCopyWithImpl<$Res, _$_Initial>
+    extends _$IndicationWatcherStateCopyWithImpl<$Res, _$_Initial>
     implements _$$_InitialCopyWith<$Res> {
   __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
       : super(_value, _then);
@@ -595,7 +592,7 @@ class _$_Initial implements _Initial {
 
   @override
   String toString() {
-    return 'TimeIntervalWatcherState.initial()';
+    return 'IndicationWatcherState.initial()';
   }
 
   @override
@@ -612,9 +609,8 @@ class _$_Initial implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loadInProgress,
-    required TResult Function(KtList<TimeInterval> timeIntervals) loadSuccess,
-    required TResult Function(TimeIntervalFailure timeIntervalFailure)
-        loadFailure,
+    required TResult Function(KtList<Indication> indication) loadSuccess,
+    required TResult Function(IndicationFailure indicationFailure) loadFailure,
   }) {
     return initial();
   }
@@ -624,8 +620,8 @@ class _$_Initial implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loadInProgress,
-    TResult? Function(KtList<TimeInterval> timeIntervals)? loadSuccess,
-    TResult? Function(TimeIntervalFailure timeIntervalFailure)? loadFailure,
+    TResult? Function(KtList<Indication> indication)? loadSuccess,
+    TResult? Function(IndicationFailure indicationFailure)? loadFailure,
   }) {
     return initial?.call();
   }
@@ -635,8 +631,8 @@ class _$_Initial implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadInProgress,
-    TResult Function(KtList<TimeInterval> timeIntervals)? loadSuccess,
-    TResult Function(TimeIntervalFailure timeIntervalFailure)? loadFailure,
+    TResult Function(KtList<Indication> indication)? loadSuccess,
+    TResult Function(IndicationFailure indicationFailure)? loadFailure,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -683,7 +679,7 @@ class _$_Initial implements _Initial {
   }
 }
 
-abstract class _Initial implements TimeIntervalWatcherState {
+abstract class _Initial implements IndicationWatcherState {
   const factory _Initial() = _$_Initial;
 }
 
@@ -696,7 +692,7 @@ abstract class _$$_LoadInProgressCopyWith<$Res> {
 
 /// @nodoc
 class __$$_LoadInProgressCopyWithImpl<$Res>
-    extends _$TimeIntervalWatcherStateCopyWithImpl<$Res, _$_LoadInProgress>
+    extends _$IndicationWatcherStateCopyWithImpl<$Res, _$_LoadInProgress>
     implements _$$_LoadInProgressCopyWith<$Res> {
   __$$_LoadInProgressCopyWithImpl(
       _$_LoadInProgress _value, $Res Function(_$_LoadInProgress) _then)
@@ -710,7 +706,7 @@ class _$_LoadInProgress implements _LoadInProgress {
 
   @override
   String toString() {
-    return 'TimeIntervalWatcherState.loadInProgress()';
+    return 'IndicationWatcherState.loadInProgress()';
   }
 
   @override
@@ -727,9 +723,8 @@ class _$_LoadInProgress implements _LoadInProgress {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loadInProgress,
-    required TResult Function(KtList<TimeInterval> timeIntervals) loadSuccess,
-    required TResult Function(TimeIntervalFailure timeIntervalFailure)
-        loadFailure,
+    required TResult Function(KtList<Indication> indication) loadSuccess,
+    required TResult Function(IndicationFailure indicationFailure) loadFailure,
   }) {
     return loadInProgress();
   }
@@ -739,8 +734,8 @@ class _$_LoadInProgress implements _LoadInProgress {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loadInProgress,
-    TResult? Function(KtList<TimeInterval> timeIntervals)? loadSuccess,
-    TResult? Function(TimeIntervalFailure timeIntervalFailure)? loadFailure,
+    TResult? Function(KtList<Indication> indication)? loadSuccess,
+    TResult? Function(IndicationFailure indicationFailure)? loadFailure,
   }) {
     return loadInProgress?.call();
   }
@@ -750,8 +745,8 @@ class _$_LoadInProgress implements _LoadInProgress {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadInProgress,
-    TResult Function(KtList<TimeInterval> timeIntervals)? loadSuccess,
-    TResult Function(TimeIntervalFailure timeIntervalFailure)? loadFailure,
+    TResult Function(KtList<Indication> indication)? loadSuccess,
+    TResult Function(IndicationFailure indicationFailure)? loadFailure,
     required TResult orElse(),
   }) {
     if (loadInProgress != null) {
@@ -798,7 +793,7 @@ class _$_LoadInProgress implements _LoadInProgress {
   }
 }
 
-abstract class _LoadInProgress implements TimeIntervalWatcherState {
+abstract class _LoadInProgress implements IndicationWatcherState {
   const factory _LoadInProgress() = _$_LoadInProgress;
 }
 
@@ -808,12 +803,12 @@ abstract class _$$_LoadSuccessCopyWith<$Res> {
           _$_LoadSuccess value, $Res Function(_$_LoadSuccess) then) =
       __$$_LoadSuccessCopyWithImpl<$Res>;
   @useResult
-  $Res call({KtList<TimeInterval> timeIntervals});
+  $Res call({KtList<Indication> indication});
 }
 
 /// @nodoc
 class __$$_LoadSuccessCopyWithImpl<$Res>
-    extends _$TimeIntervalWatcherStateCopyWithImpl<$Res, _$_LoadSuccess>
+    extends _$IndicationWatcherStateCopyWithImpl<$Res, _$_LoadSuccess>
     implements _$$_LoadSuccessCopyWith<$Res> {
   __$$_LoadSuccessCopyWithImpl(
       _$_LoadSuccess _value, $Res Function(_$_LoadSuccess) _then)
@@ -822,13 +817,13 @@ class __$$_LoadSuccessCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? timeIntervals = null,
+    Object? indication = null,
   }) {
     return _then(_$_LoadSuccess(
-      null == timeIntervals
-          ? _value.timeIntervals
-          : timeIntervals // ignore: cast_nullable_to_non_nullable
-              as KtList<TimeInterval>,
+      null == indication
+          ? _value.indication
+          : indication // ignore: cast_nullable_to_non_nullable
+              as KtList<Indication>,
     ));
   }
 }
@@ -836,14 +831,14 @@ class __$$_LoadSuccessCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_LoadSuccess implements _LoadSuccess {
-  const _$_LoadSuccess(this.timeIntervals);
+  const _$_LoadSuccess(this.indication);
 
   @override
-  final KtList<TimeInterval> timeIntervals;
+  final KtList<Indication> indication;
 
   @override
   String toString() {
-    return 'TimeIntervalWatcherState.loadSuccess(timeIntervals: $timeIntervals)';
+    return 'IndicationWatcherState.loadSuccess(indication: $indication)';
   }
 
   @override
@@ -851,12 +846,12 @@ class _$_LoadSuccess implements _LoadSuccess {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_LoadSuccess &&
-            (identical(other.timeIntervals, timeIntervals) ||
-                other.timeIntervals == timeIntervals));
+            (identical(other.indication, indication) ||
+                other.indication == indication));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, timeIntervals);
+  int get hashCode => Object.hash(runtimeType, indication);
 
   @JsonKey(ignore: true)
   @override
@@ -869,11 +864,10 @@ class _$_LoadSuccess implements _LoadSuccess {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loadInProgress,
-    required TResult Function(KtList<TimeInterval> timeIntervals) loadSuccess,
-    required TResult Function(TimeIntervalFailure timeIntervalFailure)
-        loadFailure,
+    required TResult Function(KtList<Indication> indication) loadSuccess,
+    required TResult Function(IndicationFailure indicationFailure) loadFailure,
   }) {
-    return loadSuccess(timeIntervals);
+    return loadSuccess(indication);
   }
 
   @override
@@ -881,10 +875,10 @@ class _$_LoadSuccess implements _LoadSuccess {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loadInProgress,
-    TResult? Function(KtList<TimeInterval> timeIntervals)? loadSuccess,
-    TResult? Function(TimeIntervalFailure timeIntervalFailure)? loadFailure,
+    TResult? Function(KtList<Indication> indication)? loadSuccess,
+    TResult? Function(IndicationFailure indicationFailure)? loadFailure,
   }) {
-    return loadSuccess?.call(timeIntervals);
+    return loadSuccess?.call(indication);
   }
 
   @override
@@ -892,12 +886,12 @@ class _$_LoadSuccess implements _LoadSuccess {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadInProgress,
-    TResult Function(KtList<TimeInterval> timeIntervals)? loadSuccess,
-    TResult Function(TimeIntervalFailure timeIntervalFailure)? loadFailure,
+    TResult Function(KtList<Indication> indication)? loadSuccess,
+    TResult Function(IndicationFailure indicationFailure)? loadFailure,
     required TResult orElse(),
   }) {
     if (loadSuccess != null) {
-      return loadSuccess(timeIntervals);
+      return loadSuccess(indication);
     }
     return orElse();
   }
@@ -940,11 +934,11 @@ class _$_LoadSuccess implements _LoadSuccess {
   }
 }
 
-abstract class _LoadSuccess implements TimeIntervalWatcherState {
-  const factory _LoadSuccess(final KtList<TimeInterval> timeIntervals) =
+abstract class _LoadSuccess implements IndicationWatcherState {
+  const factory _LoadSuccess(final KtList<Indication> indication) =
       _$_LoadSuccess;
 
-  KtList<TimeInterval> get timeIntervals;
+  KtList<Indication> get indication;
   @JsonKey(ignore: true)
   _$$_LoadSuccessCopyWith<_$_LoadSuccess> get copyWith =>
       throw _privateConstructorUsedError;
@@ -956,14 +950,14 @@ abstract class _$$_LoadFailureCopyWith<$Res> {
           _$_LoadFailure value, $Res Function(_$_LoadFailure) then) =
       __$$_LoadFailureCopyWithImpl<$Res>;
   @useResult
-  $Res call({TimeIntervalFailure timeIntervalFailure});
+  $Res call({IndicationFailure indicationFailure});
 
-  $TimeIntervalFailureCopyWith<$Res> get timeIntervalFailure;
+  $IndicationFailureCopyWith<$Res> get indicationFailure;
 }
 
 /// @nodoc
 class __$$_LoadFailureCopyWithImpl<$Res>
-    extends _$TimeIntervalWatcherStateCopyWithImpl<$Res, _$_LoadFailure>
+    extends _$IndicationWatcherStateCopyWithImpl<$Res, _$_LoadFailure>
     implements _$$_LoadFailureCopyWith<$Res> {
   __$$_LoadFailureCopyWithImpl(
       _$_LoadFailure _value, $Res Function(_$_LoadFailure) _then)
@@ -972,22 +966,21 @@ class __$$_LoadFailureCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? timeIntervalFailure = null,
+    Object? indicationFailure = null,
   }) {
     return _then(_$_LoadFailure(
-      null == timeIntervalFailure
-          ? _value.timeIntervalFailure
-          : timeIntervalFailure // ignore: cast_nullable_to_non_nullable
-              as TimeIntervalFailure,
+      null == indicationFailure
+          ? _value.indicationFailure
+          : indicationFailure // ignore: cast_nullable_to_non_nullable
+              as IndicationFailure,
     ));
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $TimeIntervalFailureCopyWith<$Res> get timeIntervalFailure {
-    return $TimeIntervalFailureCopyWith<$Res>(_value.timeIntervalFailure,
-        (value) {
-      return _then(_value.copyWith(timeIntervalFailure: value));
+  $IndicationFailureCopyWith<$Res> get indicationFailure {
+    return $IndicationFailureCopyWith<$Res>(_value.indicationFailure, (value) {
+      return _then(_value.copyWith(indicationFailure: value));
     });
   }
 }
@@ -995,14 +988,14 @@ class __$$_LoadFailureCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_LoadFailure implements _LoadFailure {
-  const _$_LoadFailure(this.timeIntervalFailure);
+  const _$_LoadFailure(this.indicationFailure);
 
   @override
-  final TimeIntervalFailure timeIntervalFailure;
+  final IndicationFailure indicationFailure;
 
   @override
   String toString() {
-    return 'TimeIntervalWatcherState.loadFailure(timeIntervalFailure: $timeIntervalFailure)';
+    return 'IndicationWatcherState.loadFailure(indicationFailure: $indicationFailure)';
   }
 
   @override
@@ -1010,12 +1003,12 @@ class _$_LoadFailure implements _LoadFailure {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_LoadFailure &&
-            (identical(other.timeIntervalFailure, timeIntervalFailure) ||
-                other.timeIntervalFailure == timeIntervalFailure));
+            (identical(other.indicationFailure, indicationFailure) ||
+                other.indicationFailure == indicationFailure));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, timeIntervalFailure);
+  int get hashCode => Object.hash(runtimeType, indicationFailure);
 
   @JsonKey(ignore: true)
   @override
@@ -1028,11 +1021,10 @@ class _$_LoadFailure implements _LoadFailure {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loadInProgress,
-    required TResult Function(KtList<TimeInterval> timeIntervals) loadSuccess,
-    required TResult Function(TimeIntervalFailure timeIntervalFailure)
-        loadFailure,
+    required TResult Function(KtList<Indication> indication) loadSuccess,
+    required TResult Function(IndicationFailure indicationFailure) loadFailure,
   }) {
-    return loadFailure(timeIntervalFailure);
+    return loadFailure(indicationFailure);
   }
 
   @override
@@ -1040,10 +1032,10 @@ class _$_LoadFailure implements _LoadFailure {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loadInProgress,
-    TResult? Function(KtList<TimeInterval> timeIntervals)? loadSuccess,
-    TResult? Function(TimeIntervalFailure timeIntervalFailure)? loadFailure,
+    TResult? Function(KtList<Indication> indication)? loadSuccess,
+    TResult? Function(IndicationFailure indicationFailure)? loadFailure,
   }) {
-    return loadFailure?.call(timeIntervalFailure);
+    return loadFailure?.call(indicationFailure);
   }
 
   @override
@@ -1051,12 +1043,12 @@ class _$_LoadFailure implements _LoadFailure {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadInProgress,
-    TResult Function(KtList<TimeInterval> timeIntervals)? loadSuccess,
-    TResult Function(TimeIntervalFailure timeIntervalFailure)? loadFailure,
+    TResult Function(KtList<Indication> indication)? loadSuccess,
+    TResult Function(IndicationFailure indicationFailure)? loadFailure,
     required TResult orElse(),
   }) {
     if (loadFailure != null) {
-      return loadFailure(timeIntervalFailure);
+      return loadFailure(indicationFailure);
     }
     return orElse();
   }
@@ -1099,11 +1091,11 @@ class _$_LoadFailure implements _LoadFailure {
   }
 }
 
-abstract class _LoadFailure implements TimeIntervalWatcherState {
-  const factory _LoadFailure(final TimeIntervalFailure timeIntervalFailure) =
+abstract class _LoadFailure implements IndicationWatcherState {
+  const factory _LoadFailure(final IndicationFailure indicationFailure) =
       _$_LoadFailure;
 
-  TimeIntervalFailure get timeIntervalFailure;
+  IndicationFailure get indicationFailure;
   @JsonKey(ignore: true)
   _$$_LoadFailureCopyWith<_$_LoadFailure> get copyWith =>
       throw _privateConstructorUsedError;
