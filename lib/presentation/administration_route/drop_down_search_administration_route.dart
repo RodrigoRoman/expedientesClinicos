@@ -84,20 +84,20 @@ class _DropdownSearchAdministrationRouteState
                       AppStrings.createAdminRoute,
                       AdministrationRouteForm(
                         nameAbbreviation: NameAbbreviation.empty(),
-                        onAbbreviationChanged: (newAbbr) {
-                          context.read<AdministrationRouteFormBloc>().add(
-                              AbbreviationNameFormEvent.abreviationChanged(
-                                  newAbbr));
-                        },
-                        onNameChanged: (newName) {
-                          context.read<AdministrationRouteFormBloc>().add(
-                              AbbreviationNameFormEvent.nameChanged(newName));
-                        },
-                        onSubmit: () {
-                          context
-                              .read<AdministrationRouteFormBloc>()
-                              .add(const AbbreviationNameFormEvent.saved());
-                        },
+                        // onAbbreviationChanged: (newAbbr) {
+                        //   context.read<AdministrationRouteFormBloc>().add(
+                        //       AbbreviationNameFormEvent.abreviationChanged(
+                        //           newAbbr));
+                        // },
+                        // onNameChanged: (newName) {
+                        //   context.read<AdministrationRouteFormBloc>().add(
+                        //       AbbreviationNameFormEvent.nameChanged(newName));
+                        // },
+                        // onSubmit: () {
+                        //   context
+                        //       .read<AdministrationRouteFormBloc>()
+                        //       .add(const AbbreviationNameFormEvent.saved());
+                        // },
                       ),
                       300,
                       500,

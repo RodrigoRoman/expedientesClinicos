@@ -1,10 +1,5 @@
-import 'package:auto_route/auto_route.dart';
-import 'package:expedientes_clinicos/application/categories/category_actor/category_actor_bloc.dart';
-import 'package:expedientes_clinicos/application/categories/category_watcher/category_watcher_bloc.dart';
 import 'package:expedientes_clinicos/application/medicine/medicine_form/medicine_form_bloc.dart';
-import 'package:expedientes_clinicos/application/state_render/state_renderer_bloc.dart';
 import 'package:expedientes_clinicos/domain/core/categories/category.dart';
-import 'package:expedientes_clinicos/injection.dart';
 import 'package:expedientes_clinicos/presentation/resources/constant_size_values.dart';
 import 'package:expedientes_clinicos/presentation/resources/font_manager.dart';
 import 'package:expedientes_clinicos/presentation/resources/string_manager.dart';
@@ -12,14 +7,22 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class DropdownSearchCategories extends StatefulWidget {
-  final TextEditingController textController;
+  final TextEditingController searchFieldController;
   final List<Category> listElements;
   final String hintText;
   final Function newFunction;
+  final Function onSelected;
+  final Function onSearchWithKey;
+  final Function onSearchAll;
+  final Category category;
 
   const DropdownSearchCategories(
       {super.key,
-      required this.textController,
+      required this.category,
+      required this.searchFieldController,
+      required this.onSelected,
+      required this.onSearchWithKey,
+      required this.onSearchAll,
       required this.listElements,
       required this.hintText,
       required this.newFunction});
@@ -46,7 +49,7 @@ class _DropdownSearchCategoriesState extends State<DropdownSearchCategories> {
     _focusNode.addListener(() {
       if (_focusNode.hasFocus) {
         _overlayEntry = _createOverlay();
-        overlayState!.insert(_overlayEntry!);
+        overlayState.insert(_overlayEntry!);
       } else {
         if (_overlayEntry != null) {
           _overlayEntry!.remove();
@@ -73,7 +76,7 @@ class _DropdownSearchCategoriesState extends State<DropdownSearchCategories> {
 
     if (_focusNode.hasFocus) {
       _overlayEntry = _createOverlay();
-      overlayState!.insert(_overlayEntry!);
+      overlayState.insert(_overlayEntry!);
     } else {
       if (_overlayEntry != null) {
         _overlayEntry!.remove();
@@ -150,10 +153,11 @@ class _DropdownSearchCategoriesState extends State<DropdownSearchCategories> {
                                     .fold((l) => AppStrings.isEmpty, (r) => r)),
                               ),
                               onTap: () {
-                                context
-                                    .read<MedicineFormBloc>()
-                                    .add(MedicineFormEvent.categoryChanged(e));
-                                widget.textController.text = e.name.value
+                                // context
+                                //     .read<MedicineFormBloc>()
+                                //     .add(MedicineFormEvent.categoryChanged(e));
+                                widget.onSelected();
+                                widget.searchFieldController.text = e.name.value
                                     .fold((l) => AppStrings.isEmpty, (r) => r);
                                 _focusNode.unfocus();
                               },
@@ -170,23 +174,25 @@ class _DropdownSearchCategoriesState extends State<DropdownSearchCategories> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocListener<CategoryWatcherBloc, CategoryWatcherState>(
-        listener: (context, state) {
-      state.map(
-          initial: (value) {
-            categoriesList = [];
-          },
-          loadInProgress: ((value) => context.read<StateRendererBloc>().add(
-              StateRendererEvent.popUpLoading(AppStrings.saving,
-                  AppStrings.actionInProgressExplain, null, 300, 500))),
-          loadSuccess: ((value) {
-            categoriesList = value.categories.asList();
-            rebuildOverlay();
-          }),
-          loadFailure: ((value) => context.read<StateRendererBloc>().add(
-              StateRendererEvent.popUpError(AppStrings.unableToReadError,
-                  AppStrings.unableToReadErrorExplain, null, 300, 500))));
-    }, child: LayoutBuilder(
+    return
+        // BlocListener<MedicineCategoryWatcherBloc, CategoryWatcherState>(
+        //     listener: (context, state) {
+        //   state.map(
+        //       initial: (value) {
+        //         categoriesList = [];
+        //       },
+        //       loadInProgress: ((value) => context.read<StateRendererBloc>().add(
+        //           StateRendererEvent.popUpLoading(AppStrings.saving,
+        //               AppStrings.actionInProgressExplain, null, 300, 500))),
+        //       loadSuccess: ((value) {
+        //         categoriesList = value.categories.asList();
+        //         rebuildOverlay();
+        //       }),
+        //       loadFailure: ((value) => context.read<StateRendererBloc>().add(
+        //           StateRendererEvent.popUpError(AppStrings.unableToReadError,
+        //               AppStrings.unableToReadErrorExplain, null, 300, 500))));
+        // }, child:
+        LayoutBuilder(
       builder: (context, constraints) {
         return Row(
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -230,7 +236,7 @@ class _DropdownSearchCategoriesState extends State<DropdownSearchCategories> {
                                 style: Theme.of(context).textTheme.labelMedium),
                           )
                         : TextFormField(
-                            controller: widget.textController,
+                            controller: widget.searchFieldController,
                             textAlign: TextAlign.center,
                             decoration: InputDecoration(
                               icon: const Icon(Icons.search_rounded,
@@ -243,19 +249,22 @@ class _DropdownSearchCategoriesState extends State<DropdownSearchCategories> {
                             textCapitalization: TextCapitalization.words,
                             textInputAction: TextInputAction.next,
                             onChanged: (value) {
-                              widget.textController.text = value;
-                              widget.textController.selection =
+                              widget.searchFieldController.text = value;
+                              widget.searchFieldController.selection =
                                   TextSelection.fromPosition(TextPosition(
-                                      offset:
-                                          widget.textController.text.length));
+                                      offset: widget
+                                          .searchFieldController.text.length));
                               if (value.isEmpty) {
-                                context.read<CategoryWatcherBloc>().add(
-                                    const CategoryWatcherEvent
-                                        .watchAllStarted());
+                                widget.onSearchAll();
+                                // context.read<MedicineCategoryWatcherBloc>().add(
+                                //     const CategoryWatcherEvent
+                                //         .watchAllStarted());
                               } else {
-                                context.read<CategoryWatcherBloc>().add(
-                                    CategoryWatcherEvent.watchFilteredStarted(
-                                        widget.textController.text));
+                                widget.onSearchWithKey(
+                                    widget.searchFieldController.text);
+                                // context.read<MedicineCategoryWatcherBloc>().add(
+                                //     CategoryWatcherEvent.watchFilteredStarted(
+                                //         widget.searchFieldController.text));
                               }
                             },
                           );
@@ -323,6 +332,7 @@ class _DropdownSearchCategoriesState extends State<DropdownSearchCategories> {
           ],
         );
       },
-    ));
+    );
+    // );
   }
 }

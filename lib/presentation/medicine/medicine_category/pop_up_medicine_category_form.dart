@@ -1,27 +1,28 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:expedientes_clinicos/application/categories/category_form/category_form_bloc.dart';
+import 'package:expedientes_clinicos/application/categories/category_form/medicine_category_form_bloc.dart';
 import 'package:expedientes_clinicos/application/state_render/state_renderer_bloc.dart';
-import 'package:expedientes_clinicos/presentation/category/widgets/category_form_body.dart';
+import 'package:expedientes_clinicos/domain/core/categories/category.dart';
+import 'package:expedientes_clinicos/presentation/common/widget_elements/category/pop_up_category_form.dart';
 import 'package:expedientes_clinicos/presentation/resources/string_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class CategoryForm extends StatefulWidget {
-  CategoryForm({super.key});
-
+class MedicineCategoryForm extends StatefulWidget {
+  final Category category;
+  const MedicineCategoryForm({required this.category, super.key});
   @override
-  State<CategoryForm> createState() => _CategoryFormState();
+  State<MedicineCategoryForm> createState() => _MedicineCategoryFormState();
 }
 
-class _CategoryFormState extends State<CategoryForm> {
+class _MedicineCategoryFormState extends State<MedicineCategoryForm> {
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<CategoryFormBloc, CategoryFormState>(
+    return BlocConsumer<MedicineCategoryFormBloc, CategoryFormState>(
       listener: (context, state) {
         state.saveFailureOrSuccessOption.fold(() {
           if (state.isSaving) {
             context.read<StateRendererBloc>().add(
-                StateRendererEvent.popUpLoading(AppStrings.saving,
+                const StateRendererEvent.popUpLoading(AppStrings.saving,
                     AppStrings.actionInProgressExplain, null, 300, 500));
           }
         },
@@ -29,6 +30,7 @@ class _CategoryFormState extends State<CategoryForm> {
                     (failure) => failure.maybeMap(
                           unexpected: (e) {
                             context.read<StateRendererBloc>().add(
+                                // ignore: prefer_const_constructors
                                 StateRendererEvent.popUpError(
                                     AppStrings.couldNotSaveImage,
                                     AppStrings.somethingWentWrong,
@@ -79,7 +81,56 @@ class _CategoryFormState extends State<CategoryForm> {
                 }));
       },
       builder: (context, state) {
-        return CategoryFormBody(state: state);
+        return CategoryForm(
+          category: widget.category,
+          onNameChanged: () {
+            return context
+                .read<MedicineCategoryFormBloc>()
+                .state
+                .category
+                .name
+                .value
+                .fold(
+                    (f) => f.maybeMap(
+                        exceedingLength: (value) => AppStrings.tooLong,
+                        empty: (value) => AppStrings.isEmpty,
+                        orElse: () => AppStrings.empty),
+                    (_) => null);
+          },
+          onImageChanged: () {
+            return context
+                .read<MedicineCategoryFormBloc>()
+                .state
+                .category
+                .imageUrl
+                .value
+                .fold(
+                    (f) => f.maybeMap(
+                        urlMustBeValid: (value) => AppStrings.unableToReadError,
+                        empty: (value) => AppStrings.isEmpty,
+                        orElse: () => AppStrings.empty),
+                    (_) => null);
+          },
+          validName: () {
+            return context
+                .read<MedicineCategoryFormBloc>()
+                .state
+                .category
+                .name
+                .value
+                .fold(
+                    (f) => f.maybeMap(
+                        exceedingLength: (value) => AppStrings.tooLong,
+                        empty: (value) => AppStrings.isEmpty,
+                        orElse: () => AppStrings.empty),
+                    (_) => null);
+          },
+          onSubmit: () {
+            context
+                .read<MedicineCategoryFormBloc>()
+                .add(const CategoryFormEvent.saved());
+          },
+        );
       },
     );
   }

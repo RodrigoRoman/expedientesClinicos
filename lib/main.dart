@@ -3,6 +3,7 @@ import 'package:expedientes_clinicos/application/abbreviation_name/abbreviation_
 import 'package:expedientes_clinicos/application/abbreviation_name/abbreviation_name_form/measure_unit_form_bloc.dart';
 import 'package:expedientes_clinicos/application/abbreviation_name/abbreviation_name_form/pharmaceutical_form_form_bloc.dart';
 import 'package:expedientes_clinicos/application/categories/category_form/category_form_bloc.dart';
+import 'package:expedientes_clinicos/application/categories/category_form/medicine_category_form_bloc.dart';
 import 'package:expedientes_clinicos/application/medicine/medicine_form/medicine_form_bloc.dart';
 import 'package:expedientes_clinicos/application/state_render/state_renderer_bloc.dart';
 import 'package:expedientes_clinicos/injection.dart';
@@ -36,8 +37,8 @@ class AppRoot extends StatelessWidget {
           BlocProvider<StateRendererBloc>(
             create: (context) => getIt<StateRendererBloc>(),
           ),
-          BlocProvider<CategoryFormBloc>(
-              create: (context) => getIt<CategoryFormBloc>()),
+          BlocProvider<MedicineCategoryFormBloc>(
+              create: (context) => getIt<MedicineCategoryFormBloc>()),
           BlocProvider<MeasureUnitFormBloc>(
               create: (context) => getIt<MeasureUnitFormBloc>()),
           BlocProvider<AdministrationRouteFormBloc>(

@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:expedientes_clinicos/domain/core/time_interval/time_interval.dart';
 import 'package:expedientes_clinicos/domain/core/time_interval/time_interval_failure.dart';
-import 'package:expedientes_clinicos/domain/prescription/duration_interval/i_duration_interval.dart';
+import 'package:expedientes_clinicos/domain/prescription/medicine_indication/i_medicine_indication_repository.dart';
 import 'package:expedientes_clinicos/infraestructure/helper_functions/string_manipulation.dart';
 import 'package:expedientes_clinicos/infraestructure/time_interval/time_interval_dtos.dart';
 import 'package:flutter/services.dart';
@@ -10,10 +10,10 @@ import 'package:kt_dart/collection.dart';
 import 'package:dartz/dartz.dart';
 import 'package:rxdart/rxdart.dart' hide TimeInterval;
 
-@LazySingleton(as: IDurationIntervalRepository)
-class DurationIntervalRepository implements IDurationIntervalRepository {
+@LazySingleton(as: IFrequencyIntervalRepository)
+class FrequencyIntervalRepository implements IFrequencyIntervalRepository {
   final FirebaseFirestore _firestore;
-  DurationIntervalRepository(this._firestore);
+  FrequencyIntervalRepository(this._firestore);
   @override
   Future<Either<TimeIntervalFailure, Unit>> create(
       TimeInterval timeInterval) async {
