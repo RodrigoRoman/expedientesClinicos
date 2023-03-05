@@ -13,7 +13,8 @@ part 'category_actor_bloc.freezed.dart';
 @injectable
 class CategoryActorBloc extends Bloc<CategoryActorEvent, CategoryActorState> {
   final ICategoryRepository _categoryRepository;
-  CategoryActorBloc(this._categoryRepository)
+  final String _collectionName;
+  CategoryActorBloc(this._categoryRepository, this._collectionName)
       : super(const CategoryActorState.initial()) {
     on<_DeleteCategory>((event, emit) async {
       emit(const CategoryActorState.actionInProgress());

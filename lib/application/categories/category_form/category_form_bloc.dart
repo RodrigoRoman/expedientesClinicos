@@ -14,7 +14,8 @@ part 'category_form_bloc.freezed.dart';
 @injectable
 class CategoryFormBloc extends Bloc<CategoryFormEvent, CategoryFormState> {
   final ICategoryRepository _categoryRepository;
-  CategoryFormBloc(this._categoryRepository)
+  final String _collectionName;
+  CategoryFormBloc(this._categoryRepository, this._collectionName)
       : super(CategoryFormState.initial()) {
     on<_Initialized>((event, emit) {
       emit(event.intialCategoryOption.fold(

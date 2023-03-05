@@ -2,7 +2,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:expedientes_clinicos/domain/core/name_abbreviation/i_name_abbreviation_repository.dart';
 import 'package:expedientes_clinicos/domain/core/name_abbreviation/name_abbr.dart';
 import 'package:expedientes_clinicos/domain/core/name_abbreviation/name_abbr_failure.dart';
-import 'package:expedientes_clinicos/domain/medicine/i_measure_unit_repository.dart';
 import 'package:expedientes_clinicos/infraestructure/helper_functions/string_manipulation.dart';
 import 'package:expedientes_clinicos/infraestructure/name_abbreviation/name_abbreviation_dtos.dart';
 import 'package:flutter/services.dart';
@@ -11,14 +10,15 @@ import 'package:kt_dart/collection.dart';
 import 'package:dartz/dartz.dart';
 import 'package:rxdart/rxdart.dart';
 
-@LazySingleton(as: IMeasureUnitRepository)
-class MeasureUnitRepository implements IMeasureUnitRepository {
+@LazySingleton(as: INameAbbreviationRepository)
+class NameAbbreviationRepository implements INameAbbreviationRepository {
   final FirebaseFirestore _firestore;
-  MeasureUnitRepository(this._firestore);
+  final String _collectionName;
+  NameAbbreviationRepository(this._firestore, this._collectionName);
   @override
   Future<Either<NameAbbreviationFailure, Unit>> create(
       NameAbbreviation measureUnit) async {
-    final measureUnits = _firestore.collection('measureUnits');
+    final measureUnits = _firestore.collection(_collectionName);
     try {
       final measureUnitDto = NameAbbreviationDto.fromDomain(measureUnit);
       Map<String, dynamic> data = measureUnitDto.toJson();
@@ -40,7 +40,7 @@ class MeasureUnitRepository implements IMeasureUnitRepository {
   @override
   Future<Either<NameAbbreviationFailure, Unit>> delete(
       NameAbbreviation measureUnit) async {
-    final measureUnits = _firestore.collection('measureUnits');
+    final measureUnits = _firestore.collection(_collectionName);
     try {
       final measureUnitDto = NameAbbreviationDto.fromDomain(measureUnit);
       await measureUnits.doc(measureUnitDto.id).delete();
@@ -58,7 +58,7 @@ class MeasureUnitRepository implements IMeasureUnitRepository {
   @override
   Future<Either<NameAbbreviationFailure, Unit>> update(
       NameAbbreviation measureUnit) async {
-    final measureUnits = _firestore.collection('measureUnits');
+    final measureUnits = _firestore.collection(_collectionName);
     try {
       final measureUnitDto = NameAbbreviationDto.fromDomain(measureUnit);
 
@@ -78,7 +78,7 @@ class MeasureUnitRepository implements IMeasureUnitRepository {
   Stream<Either<NameAbbreviationFailure, KtList<NameAbbreviation>>>
       watchAll() async* {
     print('watch all called');
-    final measureUnits = _firestore.collection('measureUnits');
+    final measureUnits = _firestore.collection(_collectionName);
     yield* measureUnits
         .snapshots()
         .map(
@@ -103,7 +103,7 @@ class MeasureUnitRepository implements IMeasureUnitRepository {
       watchFiltered(String name) async* {
     print('filtered what is wrong?');
     print('MeasureUnit filter');
-    final measureUnits = _firestore.collection('measureUnits');
+    final measureUnits = _firestore.collection(_collectionName);
     yield* measureUnits
         .where('keyWords', arrayContains: removeSpecialCharacters(name))
         .snapshots()

@@ -17,7 +17,8 @@ part 'time_interval_watcher_bloc.freezed.dart';
 class TimeIntervalWatcherBloc
     extends Bloc<TimeIntervalWatcherEvent, TimeIntervalWatcherState> {
   final ITimeIntervalRepository _iTimeIntervalRepository;
-  TimeIntervalWatcherBloc(this._iTimeIntervalRepository)
+  String _collectionName;
+  TimeIntervalWatcherBloc(this._iTimeIntervalRepository, this._collectionName)
       : super(const TimeIntervalWatcherState.initial()) {
     StreamSubscription<Either<TimeIntervalFailure, KtList<TimeInterval>>>?
         _timeIntervalStreamSubscription;

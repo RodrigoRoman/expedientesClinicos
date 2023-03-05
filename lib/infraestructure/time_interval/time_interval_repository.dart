@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:expedientes_clinicos/domain/core/time_interval/i_time_interval_repository.dart';
 import 'package:expedientes_clinicos/domain/core/time_interval/time_interval.dart';
 import 'package:expedientes_clinicos/domain/core/time_interval/time_interval_failure.dart';
 import 'package:expedientes_clinicos/domain/prescription/medicine_indication/i_medicine_indication_repository.dart';
@@ -10,14 +11,15 @@ import 'package:kt_dart/collection.dart';
 import 'package:dartz/dartz.dart';
 import 'package:rxdart/rxdart.dart' hide TimeInterval;
 
-@LazySingleton(as: IFrequencyIntervalRepository)
-class FrequencyIntervalRepository implements IFrequencyIntervalRepository {
+@LazySingleton(as: ITimeIntervalRepository)
+class TimeIntervalRepository implements ITimeIntervalRepository {
   final FirebaseFirestore _firestore;
-  FrequencyIntervalRepository(this._firestore);
+  final String _collectionName;
+  TimeIntervalRepository(this._firestore, this._collectionName);
   @override
   Future<Either<TimeIntervalFailure, Unit>> create(
       TimeInterval timeInterval) async {
-    final timeIntervals = _firestore.collection('frequencyIntervals');
+    final timeIntervals = _firestore.collection(_collectionName);
     try {
       final timeIntervalDto = TimeIntervalDto.fromDomain(timeInterval);
       Map<String, dynamic> data = timeIntervalDto.toJson();
@@ -38,7 +40,7 @@ class FrequencyIntervalRepository implements IFrequencyIntervalRepository {
   @override
   Future<Either<TimeIntervalFailure, Unit>> delete(
       TimeInterval timeInterval) async {
-    final timeIntervals = _firestore.collection('frequencyIntervals');
+    final timeIntervals = _firestore.collection(_collectionName);
     try {
       final timeIntervalDto = TimeIntervalDto.fromDomain(timeInterval);
       await timeIntervals.doc(timeIntervalDto.id).delete();
@@ -56,7 +58,7 @@ class FrequencyIntervalRepository implements IFrequencyIntervalRepository {
   @override
   Future<Either<TimeIntervalFailure, Unit>> update(
       TimeInterval timeInterval) async {
-    final timeIntervals = _firestore.collection('frequencyIntervals');
+    final timeIntervals = _firestore.collection(_collectionName);
     try {
       final timeIntervalDto = TimeIntervalDto.fromDomain(timeInterval);
       Map<String, dynamic> data = timeIntervalDto.toJson();
@@ -75,7 +77,7 @@ class FrequencyIntervalRepository implements IFrequencyIntervalRepository {
 
   @override
   Stream<Either<TimeIntervalFailure, KtList<TimeInterval>>> watchAll() async* {
-    final timeIntervals = _firestore.collection('frequencyIntervals');
+    final timeIntervals = _firestore.collection(_collectionName);
     yield* timeIntervals
         .snapshots()
         .map(
@@ -97,7 +99,7 @@ class FrequencyIntervalRepository implements IFrequencyIntervalRepository {
   @override
   Stream<Either<TimeIntervalFailure, KtList<TimeInterval>>> watchFiltered(
       String name) async* {
-    final timeIntervals = _firestore.collection('frequencyIntervals');
+    final timeIntervals = _firestore.collection(_collectionName);
     yield* timeIntervals
         .where('keyWords', arrayContains: removeSpecialCharacters(name))
         .snapshots()
@@ -112,7 +114,6 @@ class FrequencyIntervalRepository implements IFrequencyIntervalRepository {
       if (e is PlatformException && e.message!.contains('PERMISSION_DENIED')) {
         return left(const TimeIntervalFailure.insufficientPermissions());
       } else {
-        print('inside error');
         return left(const TimeIntervalFailure.unexpected());
       }
     });

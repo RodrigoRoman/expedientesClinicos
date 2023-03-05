@@ -17,9 +17,10 @@ part 'category_watcher_bloc.freezed.dart';
 class CategoryWatcherBloc
     extends Bloc<CategoryWatcherEvent, CategoryWatcherState> {
   final ICategoryRepository _categoryRepository;
+  final String _collectionName;
   StreamSubscription<Either<CategoryFailures, KtList<Category>>>?
       _categoriesStreamSubscription;
-  CategoryWatcherBloc(this._categoryRepository)
+  CategoryWatcherBloc(this._categoryRepository, this._collectionName)
       : super(const CategoryWatcherState.initial()) {
     on<_WatchAllStarted>((event, emit) {
       _categoriesStreamSubscription?.cancel;

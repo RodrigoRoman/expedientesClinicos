@@ -1,7 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:expedientes_clinicos/domain/core/indication/indication.dart';
-import 'package:expedientes_clinicos/domain/core/time_interval/time_interval.dart';
 import 'package:expedientes_clinicos/domain/core/value_objects.dart';
 import 'package:expedientes_clinicos/domain/medicine/medicine.dart';
 import 'package:expedientes_clinicos/domain/prescription/i_prescription.dart';

@@ -13,7 +13,8 @@ part 'indication_actor_bloc.freezed.dart';
 class IndicationActorBloc
     extends Bloc<IndicationActorEvent, IndicationActorState> {
   final IIndicationRepository _iIndicationRepository;
-  IndicationActorBloc(this._iIndicationRepository)
+  final String _collectionName;
+  IndicationActorBloc(this._iIndicationRepository, this._collectionName)
       : super(const IndicationActorState.initial()) {
     on<_Deleted>((event, emit) async {
       emit(const IndicationActorState.actionInProgress());

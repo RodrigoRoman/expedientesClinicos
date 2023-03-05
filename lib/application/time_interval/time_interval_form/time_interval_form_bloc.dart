@@ -16,7 +16,8 @@ part 'time_interval_form_bloc.freezed.dart';
 class TimeIntervalFormBloc
     extends Bloc<TimeIntervalFormEvent, TimeIntervalFormState> {
   final ITimeIntervalRepository _iTimeIntervalRepository;
-  TimeIntervalFormBloc(this._iTimeIntervalRepository)
+  final String _collectionName;
+  TimeIntervalFormBloc(this._iTimeIntervalRepository, this._collectionName)
       : super(TimeIntervalFormState.initial()) {
     on<_Initialized>((event, emit) {
       emit(event.intitialTimeInterval.fold(
