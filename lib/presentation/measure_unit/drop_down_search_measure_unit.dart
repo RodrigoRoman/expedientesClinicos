@@ -1,6 +1,3 @@
-import 'package:auto_route/auto_route.dart';
-import 'package:expedientes_clinicos/application/abbreviation_name/abbreviation_name_form/abbreviation_name_form_abstract_bloc.dart';
-import 'package:expedientes_clinicos/application/abbreviation_name/abbreviation_name_form/measure_unit_form_bloc.dart';
 import 'package:expedientes_clinicos/application/abbreviation_name/abbreviation_name_watcher/abbreviation_name_watcher_bloc.dart';
 import 'package:expedientes_clinicos/application/abbreviation_name/abbreviation_name_watcher/measure_unit_watcher_bloc.dart';
 import 'package:expedientes_clinicos/application/medicine/medicine_form/medicine_form_bloc.dart';
@@ -80,20 +77,6 @@ class _DropdownSearchMeasureUnitState extends State<DropdownSearchMeasureUnit> {
                       'Crear Unidad de Medida',
                       MeasureUnitForm(
                         nameAbbreviation: NameAbbreviation.empty(),
-                        onAbbreviationChanged: (newAbbr) {
-                          context.read<MeasureUnitFormBloc>().add(
-                              AbbreviationNameFormEvent.abreviationChanged(
-                                  newAbbr));
-                        },
-                        onNameChanged: (newName) {
-                          context.read<MeasureUnitFormBloc>().add(
-                              AbbreviationNameFormEvent.nameChanged(newName));
-                        },
-                        onSubmit: () {
-                          context
-                              .read<MeasureUnitFormBloc>()
-                              .add(const AbbreviationNameFormEvent.saved());
-                        },
                       ),
                       300,
                       300,

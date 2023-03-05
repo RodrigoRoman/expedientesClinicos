@@ -11,15 +11,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class MeasureUnitForm extends StatefulWidget {
   final NameAbbreviation? nameAbbreviation;
-  final Function onNameChanged;
-  final Function onAbbreviationChanged;
-  final Function onSubmit;
-  const MeasureUnitForm(
-      {required this.nameAbbreviation,
-      required this.onAbbreviationChanged,
-      required this.onNameChanged,
-      required this.onSubmit,
-      super.key});
+  const MeasureUnitForm({required this.nameAbbreviation, super.key});
   @override
   State<MeasureUnitForm> createState() => _MeasureUnitFormState();
 }

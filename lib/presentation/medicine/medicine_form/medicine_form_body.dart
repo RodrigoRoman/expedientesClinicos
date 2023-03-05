@@ -9,10 +9,11 @@ import 'package:expedientes_clinicos/domain/core/categories/category.dart';
 import 'package:expedientes_clinicos/domain/core/name_abbreviation/name_abbr.dart';
 import 'package:expedientes_clinicos/injection.dart';
 import 'package:expedientes_clinicos/presentation/administration_route/drop_down_search_administration_route.dart';
-import 'package:expedientes_clinicos/presentation/common/widget_elements/category/widgets/drop_down_search_categories.dart';
+import 'package:expedientes_clinicos/presentation/common/widget_elements/category/drop_down_search_categories.dart';
 import 'package:expedientes_clinicos/presentation/common/widget_elements/image_picker_display.dart';
 import 'package:expedientes_clinicos/presentation/common/widget_elements/input_full_name.dart';
 import 'package:expedientes_clinicos/presentation/common/widget_elements/title_validated.dart';
+import 'package:expedientes_clinicos/presentation/medicine/medicine_category/drop_down_medicine_category.dart';
 import 'package:expedientes_clinicos/presentation/medicine/medicine_category/pop_up_medicine_category_form.dart';
 import 'package:expedientes_clinicos/presentation/medicine/medicine_form/widgets/controlled_bool.dart';
 import 'package:expedientes_clinicos/presentation/medicine/medicine_form/widgets/measure_unit_amount.dart';
@@ -179,25 +180,7 @@ class _MedicineFormBodyState extends State<MedicineFormBody> {
                             create: (context) =>
                                 getIt<MedicineCategoryWatcherBloc>()
                                   ..add(CategoryWatcherEvent.watchAllStarted()),
-                            child: DropdownSearchCategories(
-                              textController: categoryText,
-                              listElements: categoriesList,
-                              hintText: AppStrings.chooseCategory,
-                              newFunction: () {
-                                context.read<StateRendererBloc>().add(
-                                    StateRendererEvent.popUpForm(
-                                        'Crear categoria',
-                                        MedicineCategoryForm(
-                                            category: context
-                                                .read<MedicineFormBloc>()
-                                                .state
-                                                .medicine
-                                                .category),
-                                        400,
-                                        500,
-                                        null));
-                              },
-                            )),
+                            child: DropdownSearchMedicineCategory()),
                       ),
                     ],
                   ),

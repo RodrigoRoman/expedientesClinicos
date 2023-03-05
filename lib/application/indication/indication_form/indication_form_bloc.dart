@@ -16,7 +16,8 @@ part 'indication_form_bloc.freezed.dart';
 class IndicationFormBloc
     extends Bloc<IndicationFormEvent, IndicationFormState> {
   final IIndicationRepository _iIndicationRepository;
-  IndicationFormBloc(this._iIndicationRepository)
+  final String _collectionName;
+  IndicationFormBloc(this._iIndicationRepository, this._collectionName)
       : super(IndicationFormState.initial()) {
     on<_Initialized>((event, emit) {
       emit(event.intitialIndication.fold(

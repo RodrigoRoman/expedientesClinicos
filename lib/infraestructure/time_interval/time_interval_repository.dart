@@ -2,7 +2,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:expedientes_clinicos/domain/core/time_interval/i_time_interval_repository.dart';
 import 'package:expedientes_clinicos/domain/core/time_interval/time_interval.dart';
 import 'package:expedientes_clinicos/domain/core/time_interval/time_interval_failure.dart';
-import 'package:expedientes_clinicos/domain/prescription/medicine_indication/i_medicine_indication_repository.dart';
 import 'package:expedientes_clinicos/infraestructure/helper_functions/string_manipulation.dart';
 import 'package:expedientes_clinicos/infraestructure/time_interval/time_interval_dtos.dart';
 import 'package:flutter/services.dart';

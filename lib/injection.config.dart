@@ -171,10 +171,14 @@ extension GetItInjectableX on _i1.GetIt {
         () => _i19.IndicationCategoryFormBloc(gh<_i7.ICategoryRepository>()));
     gh.factory<_i20.IndicationCategoryWatcherBloc>(() =>
         _i20.IndicationCategoryWatcherBloc(gh<_i7.ICategoryRepository>()));
-    gh.factory<_i21.IndicationFormBloc>(
-        () => _i21.IndicationFormBloc(gh<_i9.IIndicationRepository>()));
-    gh.factory<_i22.IndicationWatcherBloc>(
-        () => _i22.IndicationWatcherBloc(gh<_i9.IIndicationRepository>()));
+    gh.factory<_i21.IndicationFormBloc>(() => _i21.IndicationFormBloc(
+          gh<_i9.IIndicationRepository>(),
+          gh<String>(),
+        ));
+    gh.factory<_i22.IndicationWatcherBloc>(() => _i22.IndicationWatcherBloc(
+          gh<_i9.IIndicationRepository>(),
+          gh<String>(),
+        ));
     gh.factory<_i23.MeasureUnitActorBloc>(() =>
         _i23.MeasureUnitActorBloc(gh<_i13.INameAbbreviationRepository>()));
     gh.factory<_i24.MeasureUnitFormBloc>(
@@ -194,9 +198,9 @@ extension GetItInjectableX on _i1.GetIt {
     gh.factory<_i31.MedicineIndicationActorBloc>(() =>
         _i31.MedicineIndicationActorBloc(gh<_i9.IIndicationRepository>()));
     gh.factory<_i32.MedicineIndicationFormBloc>(
-        () => _i32.MedicineIndicationFormBloc(gh<dynamic>()));
-    gh.factory<_i33.MedicineIndicationWatcherBloc>(
-        () => _i33.MedicineIndicationWatcherBloc(gh<dynamic>()));
+        () => _i32.MedicineIndicationFormBloc(gh<_i9.IIndicationRepository>()));
+    gh.factory<_i33.MedicineIndicationWatcherBloc>(() =>
+        _i33.MedicineIndicationWatcherBloc(gh<_i9.IIndicationRepository>()));
     gh.factory<_i34.MedicineWatcherBloc>(
         () => _i34.MedicineWatcherBloc(gh<_i11.IMedicineRepository>()));
     gh.factory<_i35.PharmaceuticalFormActorBloc>(() =>
