@@ -6,7 +6,7 @@ import 'package:injectable/injectable.dart';
 @injectable
 class MedicineCategoryActorBloc extends CategoryActorBloc {
   final ICategoryRepository _medicineCategoryRepository;
-  MedicineCategoryActorBloc(this._medicineCategoryRepository)
-      : super(_medicineCategoryRepository,
-            FirebaseCollectionCategories.medicineCategories);
+  MedicineCategoryActorBloc(
+      @Named('categoryMedicine') this._medicineCategoryRepository)
+      : super(_medicineCategoryRepository);
 }

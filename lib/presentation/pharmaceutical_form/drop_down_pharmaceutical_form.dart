@@ -3,7 +3,7 @@ import 'package:expedientes_clinicos/application/abbreviation_name/abbreviation_
 import 'package:expedientes_clinicos/application/abbreviation_name/abbreviation_name_form/pharmaceutical_form_form_bloc.dart';
 import 'package:expedientes_clinicos/application/abbreviation_name/abbreviation_name_watcher/abbreviation_name_watcher_bloc.dart';
 import 'package:expedientes_clinicos/application/abbreviation_name/abbreviation_name_watcher/pharmaceutical_form_watcher_bloc.dart';
-import 'package:expedientes_clinicos/application/medicine/medicine_form/medicine_form_bloc.dart';
+import 'package:expedientes_clinicos/application/medicine/generic_medicine/generic_medicine_form/generic_medicine_form_bloc.dart';
 import 'package:expedientes_clinicos/application/state_render/state_renderer_bloc.dart';
 import 'package:expedientes_clinicos/domain/core/name_abbreviation/name_abbr.dart';
 import 'package:expedientes_clinicos/injection.dart';
@@ -54,15 +54,14 @@ class _DropdownSearchPharmaceuticalFormState
         }, builder: (context, state) {
           return DropdownSearchAbbreviationNameRoute(
             abbreviationName: context
-                .read<MedicineFormBloc>()
+                .read<GenericMedicineFormBloc>()
                 .state
                 .medicine
                 .pharmaceuticalForm,
             searchFieldController: searchFieldController,
             onSelected: (nameAbbr) {
-              context
-                  .read<MedicineFormBloc>()
-                  .add(MedicineFormEvent.pharmaceuticalFormChanged(nameAbbr));
+              context.read<GenericMedicineFormBloc>().add(
+                  GenericMedicineFormEvent.pharmaceuticalFormChanged(nameAbbr));
               setState(() {});
             },
             onSearchWithKey: (key) {

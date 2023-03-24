@@ -6,7 +6,8 @@ import 'package:injectable/injectable.dart';
 @injectable
 class IndicationCategoryFormBloc extends CategoryFormBloc {
   final ICategoryRepository _indicationCategoryRepository;
-  IndicationCategoryFormBloc(this._indicationCategoryRepository)
-      : super(_indicationCategoryRepository,
-            FirebaseCollectionCategories.indicationCategories);
+  IndicationCategoryFormBloc(
+      @Named(FirebaseCollectionCategories.indicationCategories)
+          this._indicationCategoryRepository)
+      : super(_indicationCategoryRepository);
 }

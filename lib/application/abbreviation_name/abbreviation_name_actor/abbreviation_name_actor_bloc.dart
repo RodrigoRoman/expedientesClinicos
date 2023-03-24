@@ -11,9 +11,7 @@ part 'abbreviation_name_actor_bloc.freezed.dart';
 class AbbreviationNameActorBloc
     extends Bloc<AbbreviationNameActorEvent, AbbreviationNameActorState> {
   final INameAbbreviationRepository _iAbbreviationNameRepository;
-  final String _collectionName;
-  AbbreviationNameActorBloc(
-      this._iAbbreviationNameRepository, this._collectionName)
+  AbbreviationNameActorBloc(this._iAbbreviationNameRepository)
       : super(const AbbreviationNameActorState.initial()) {
     on<_Deleted>((event, emit) async {
       emit(const AbbreviationNameActorState.actionInProgress());

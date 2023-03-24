@@ -17,6 +17,9 @@ class AppStrings {
   //Prompts
   static const String loginMode = 'Ingresar con una cuenta';
   static const String registerMode = 'Crear una cuenta';
+  static const String createBrandedMedicine = 'Crear medicamento de patente';
+  static const String createGenericMedicine = 'Crear medicamento generico';
+
   static const String measureUnit = 'Unidad de medida';
   static const String administrationRoute = 'Via de administracion';
   static const String adminRouteAbbreviation = 'Via de administracion';

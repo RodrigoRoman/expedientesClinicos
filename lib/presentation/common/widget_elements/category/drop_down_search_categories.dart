@@ -1,4 +1,3 @@
-import 'package:expedientes_clinicos/application/medicine/medicine_form/medicine_form_bloc.dart';
 import 'package:expedientes_clinicos/domain/core/categories/category.dart';
 import 'package:expedientes_clinicos/presentation/resources/constant_size_values.dart';
 import 'package:expedientes_clinicos/presentation/resources/font_manager.dart';
@@ -35,8 +34,10 @@ class _DropdownSearchCategoriesState extends State<DropdownSearchCategories> {
   final FocusNode _focusNode = FocusNode();
   OverlayEntry? _overlayEntry;
   GlobalKey globalKey = GlobalKey();
+  List<Category> _oldListElements = [];
+
   final LayerLink _layerLink = LayerLink();
-  List<Category> categoriesList = [];
+  // List<Category> widget.list = [];
 
   @override
   void initState() {
@@ -57,6 +58,18 @@ class _DropdownSearchCategoriesState extends State<DropdownSearchCategories> {
         }
       }
     });
+  }
+
+  @override
+  void didUpdateWidget(DropdownSearchCategories oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (widget.listElements != _oldListElements) {
+      // do something because the listElements prop has changed
+      _oldListElements = widget.listElements;
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        rebuildOverlay();
+      });
+    }
   }
 
   @override
@@ -105,17 +118,12 @@ class _DropdownSearchCategoriesState extends State<DropdownSearchCategories> {
                     height: size.height * 3,
                     child: SingleChildScrollView(
                       child: Column(
-                          children: categoriesList.map(
+                          children: widget.listElements.map(
                         (e) {
                           return Container(
                             margin: const EdgeInsets.all(AppSize.s2_5),
                             decoration: BoxDecoration(
-                              color: (context
-                                          .read<MedicineFormBloc>()
-                                          .state
-                                          .medicine
-                                          .category ==
-                                      e)
+                              color: (widget.category == e)
                                   ? Theme.of(context).colorScheme.secondary
                                   : Colors.white70,
                               borderRadius: BorderRadius.circular(10),
@@ -125,12 +133,7 @@ class _DropdownSearchCategoriesState extends State<DropdownSearchCategories> {
                               ),
                             ),
                             child: ListTile(
-                              selected: context
-                                      .read<MedicineFormBloc>()
-                                      .state
-                                      .medicine
-                                      .category ==
-                                  e,
+                              selected: widget.category == e,
                               leading: e.imageUrl.value.fold(
                                 ((r) => const Icon(Icons.abc)),
                                 (r) => Container(
@@ -156,7 +159,7 @@ class _DropdownSearchCategoriesState extends State<DropdownSearchCategories> {
                                 // context
                                 //     .read<MedicineFormBloc>()
                                 //     .add(MedicineFormEvent.categoryChanged(e));
-                                widget.onSelected();
+                                widget.onSelected(e);
                                 widget.searchFieldController.text = e.name.value
                                     .fold((l) => AppStrings.isEmpty, (r) => r);
                                 _focusNode.unfocus();
@@ -202,75 +205,68 @@ class _DropdownSearchCategoriesState extends State<DropdownSearchCategories> {
             Expanded(
               flex: 9,
               child: CompositedTransformTarget(
-                link: _layerLink,
-                child: BlocConsumer<MedicineFormBloc, MedicineFormState>(
-                  listener: (context, state) {},
-                  builder: (context, state) {
-                    Category selectedCategory = state.medicine.category;
-                    return ((state.medicine.category != Category.empty()) &
-                            !_focusNode.hasFocus)
-                        ? ListTile(
-                            onTap: () {
-                              FocusScope.of(context).requestFocus(_focusNode);
-                            },
-                            title: selectedCategory.imageUrl.value.fold(
-                              ((r) => const Icon(Icons.abc)),
-                              (r) => Container(
-                                margin: const EdgeInsets.all(AppSize.s0),
-                                width: constraints.maxWidth / 8,
-                                height: constraints.maxWidth / 8,
-                                decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  image: DecorationImage(
-                                    fit: BoxFit.cover,
-                                    image: NetworkImage(
-                                      r,
-                                    ),
+                  link: _layerLink,
+                  child: ((widget.category != Category.empty()) &
+                          !_focusNode.hasFocus)
+                      ? ListTile(
+                          onTap: () {
+                            FocusScope.of(context).requestFocus(_focusNode);
+                          },
+                          title: widget.category.imageUrl.value.fold(
+                            ((r) => const Icon(Icons.abc)),
+                            (r) => Container(
+                              margin: const EdgeInsets.all(AppSize.s0),
+                              width: constraints.maxWidth / 8,
+                              height: constraints.maxWidth / 8,
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                image: DecorationImage(
+                                  fit: BoxFit.cover,
+                                  image: NetworkImage(
+                                    r,
                                   ),
                                 ),
                               ),
                             ),
-                            trailing: Text(
-                                selectedCategory.name.value
-                                    .fold((l) => AppStrings.isEmpty, (r) => r),
-                                style: Theme.of(context).textTheme.labelMedium),
-                          )
-                        : TextFormField(
-                            controller: widget.searchFieldController,
-                            textAlign: TextAlign.center,
-                            decoration: InputDecoration(
-                              icon: const Icon(Icons.search_rounded,
-                                  size: FontSize.s18),
-                              border: InputBorder.none,
-                              hintText: widget.hintText,
-                            ),
-                            focusNode: _focusNode,
-                            keyboardType: TextInputType.text,
-                            textCapitalization: TextCapitalization.words,
-                            textInputAction: TextInputAction.next,
-                            onChanged: (value) {
-                              widget.searchFieldController.text = value;
-                              widget.searchFieldController.selection =
-                                  TextSelection.fromPosition(TextPosition(
-                                      offset: widget
-                                          .searchFieldController.text.length));
-                              if (value.isEmpty) {
-                                widget.onSearchAll();
-                                // context.read<MedicineCategoryWatcherBloc>().add(
-                                //     const CategoryWatcherEvent
-                                //         .watchAllStarted());
-                              } else {
-                                widget.onSearchWithKey(
-                                    widget.searchFieldController.text);
-                                // context.read<MedicineCategoryWatcherBloc>().add(
-                                //     CategoryWatcherEvent.watchFilteredStarted(
-                                //         widget.searchFieldController.text));
-                              }
-                            },
-                          );
-                  },
-                ),
-              ),
+                          ),
+                          trailing: Text(
+                              widget.category.name.value
+                                  .fold((l) => AppStrings.isEmpty, (r) => r),
+                              style: Theme.of(context).textTheme.labelMedium),
+                        )
+                      : TextFormField(
+                          controller: widget.searchFieldController,
+                          textAlign: TextAlign.center,
+                          decoration: InputDecoration(
+                            icon: const Icon(Icons.search_rounded,
+                                size: FontSize.s18),
+                            border: InputBorder.none,
+                            hintText: widget.hintText,
+                          ),
+                          focusNode: _focusNode,
+                          keyboardType: TextInputType.text,
+                          textCapitalization: TextCapitalization.words,
+                          textInputAction: TextInputAction.next,
+                          onChanged: (value) {
+                            widget.searchFieldController.text = value;
+                            widget.searchFieldController.selection =
+                                TextSelection.fromPosition(TextPosition(
+                                    offset: widget
+                                        .searchFieldController.text.length));
+                            if (value.isEmpty) {
+                              widget.onSearchAll();
+                              // context.read<MedicineCategoryWatcherBloc>().add(
+                              //     const CategoryWatcherEvent
+                              //         .watchAllStarted());
+                            } else {
+                              widget.onSearchWithKey(
+                                  widget.searchFieldController.text);
+                              // context.read<MedicineCategoryWatcherBloc>().add(
+                              //     CategoryWatcherEvent.watchFilteredStarted(
+                              //         widget.searchFieldController.text));
+                            }
+                          },
+                        )),
             ),
             const Spacer(),
             Expanded(

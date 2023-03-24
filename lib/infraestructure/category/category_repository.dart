@@ -24,6 +24,9 @@ class CategoryRepository implements ICategoryRepository {
   final String _collectionName;
   CategoryRepository(this._firestore, this._collectionName);
   @override
+  String get collectionName => _collectionName;
+
+  @override
   Future<Either<CategoryFailures, Unit>> create(Category category) async {
     try {
       //Upload image to Firestorage
@@ -189,6 +192,8 @@ class CategoryRepository implements ICategoryRepository {
   @override
   Stream<Either<CategoryFailures, KtList<Category>>> watchAll() async* {
     final category = _firestore.collection(_collectionName);
+    print('inside repo');
+    print(_collectionName);
     yield* category
         .snapshots()
         .map(
@@ -200,8 +205,10 @@ class CategoryRepository implements ICategoryRepository {
         )
         .onErrorReturnWith((e, _) {
       if (e is PlatformException && e.message!.contains('PERMISSION_DENIED')) {
+        print('prob');
         return left(const CategoryFailures.insufficientPermissions());
       } else {
+        print('problm');
         return left(const CategoryFailures.unexpected());
       }
     });

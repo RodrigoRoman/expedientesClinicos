@@ -21,10 +21,8 @@ PrescriptionDto _$PrescriptionDtoFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$PrescriptionDto {
   String get id => throw _privateConstructorUsedError;
-  MedicineDto get medicine => throw _privateConstructorUsedError;
-  int get dose => throw _privateConstructorUsedError;
-  TimeIntervalDto get frequency => throw _privateConstructorUsedError;
-  TimeIntervalDto get duration => throw _privateConstructorUsedError;
+  BrandedMedicineDto get medicine => throw _privateConstructorUsedError;
+  DoseDto get dose => throw _privateConstructorUsedError;
   List<IndicationDto> get indications => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -41,15 +39,12 @@ abstract class $PrescriptionDtoCopyWith<$Res> {
   @useResult
   $Res call(
       {String id,
-      MedicineDto medicine,
-      int dose,
-      TimeIntervalDto frequency,
-      TimeIntervalDto duration,
+      BrandedMedicineDto medicine,
+      DoseDto dose,
       List<IndicationDto> indications});
 
-  $MedicineDtoCopyWith<$Res> get medicine;
-  $TimeIntervalDtoCopyWith<$Res> get frequency;
-  $TimeIntervalDtoCopyWith<$Res> get duration;
+  $BrandedMedicineDtoCopyWith<$Res> get medicine;
+  $DoseDtoCopyWith<$Res> get dose;
 }
 
 /// @nodoc
@@ -68,8 +63,6 @@ class _$PrescriptionDtoCopyWithImpl<$Res, $Val extends PrescriptionDto>
     Object? id = null,
     Object? medicine = null,
     Object? dose = null,
-    Object? frequency = null,
-    Object? duration = null,
     Object? indications = null,
   }) {
     return _then(_value.copyWith(
@@ -80,19 +73,11 @@ class _$PrescriptionDtoCopyWithImpl<$Res, $Val extends PrescriptionDto>
       medicine: null == medicine
           ? _value.medicine
           : medicine // ignore: cast_nullable_to_non_nullable
-              as MedicineDto,
+              as BrandedMedicineDto,
       dose: null == dose
           ? _value.dose
           : dose // ignore: cast_nullable_to_non_nullable
-              as int,
-      frequency: null == frequency
-          ? _value.frequency
-          : frequency // ignore: cast_nullable_to_non_nullable
-              as TimeIntervalDto,
-      duration: null == duration
-          ? _value.duration
-          : duration // ignore: cast_nullable_to_non_nullable
-              as TimeIntervalDto,
+              as DoseDto,
       indications: null == indications
           ? _value.indications
           : indications // ignore: cast_nullable_to_non_nullable
@@ -102,25 +87,17 @@ class _$PrescriptionDtoCopyWithImpl<$Res, $Val extends PrescriptionDto>
 
   @override
   @pragma('vm:prefer-inline')
-  $MedicineDtoCopyWith<$Res> get medicine {
-    return $MedicineDtoCopyWith<$Res>(_value.medicine, (value) {
+  $BrandedMedicineDtoCopyWith<$Res> get medicine {
+    return $BrandedMedicineDtoCopyWith<$Res>(_value.medicine, (value) {
       return _then(_value.copyWith(medicine: value) as $Val);
     });
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $TimeIntervalDtoCopyWith<$Res> get frequency {
-    return $TimeIntervalDtoCopyWith<$Res>(_value.frequency, (value) {
-      return _then(_value.copyWith(frequency: value) as $Val);
-    });
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $TimeIntervalDtoCopyWith<$Res> get duration {
-    return $TimeIntervalDtoCopyWith<$Res>(_value.duration, (value) {
-      return _then(_value.copyWith(duration: value) as $Val);
+  $DoseDtoCopyWith<$Res> get dose {
+    return $DoseDtoCopyWith<$Res>(_value.dose, (value) {
+      return _then(_value.copyWith(dose: value) as $Val);
     });
   }
 }
@@ -135,18 +112,14 @@ abstract class _$$_PrescriptionDtoCopyWith<$Res>
   @useResult
   $Res call(
       {String id,
-      MedicineDto medicine,
-      int dose,
-      TimeIntervalDto frequency,
-      TimeIntervalDto duration,
+      BrandedMedicineDto medicine,
+      DoseDto dose,
       List<IndicationDto> indications});
 
   @override
-  $MedicineDtoCopyWith<$Res> get medicine;
+  $BrandedMedicineDtoCopyWith<$Res> get medicine;
   @override
-  $TimeIntervalDtoCopyWith<$Res> get frequency;
-  @override
-  $TimeIntervalDtoCopyWith<$Res> get duration;
+  $DoseDtoCopyWith<$Res> get dose;
 }
 
 /// @nodoc
@@ -163,8 +136,6 @@ class __$$_PrescriptionDtoCopyWithImpl<$Res>
     Object? id = null,
     Object? medicine = null,
     Object? dose = null,
-    Object? frequency = null,
-    Object? duration = null,
     Object? indications = null,
   }) {
     return _then(_$_PrescriptionDto(
@@ -175,19 +146,11 @@ class __$$_PrescriptionDtoCopyWithImpl<$Res>
       medicine: null == medicine
           ? _value.medicine
           : medicine // ignore: cast_nullable_to_non_nullable
-              as MedicineDto,
+              as BrandedMedicineDto,
       dose: null == dose
           ? _value.dose
           : dose // ignore: cast_nullable_to_non_nullable
-              as int,
-      frequency: null == frequency
-          ? _value.frequency
-          : frequency // ignore: cast_nullable_to_non_nullable
-              as TimeIntervalDto,
-      duration: null == duration
-          ? _value.duration
-          : duration // ignore: cast_nullable_to_non_nullable
-              as TimeIntervalDto,
+              as DoseDto,
       indications: null == indications
           ? _value._indications
           : indications // ignore: cast_nullable_to_non_nullable
@@ -203,8 +166,6 @@ class _$_PrescriptionDto extends _PrescriptionDto {
       {required this.id,
       required this.medicine,
       required this.dose,
-      required this.frequency,
-      required this.duration,
       required final List<IndicationDto> indications})
       : _indications = indications,
         super._();
@@ -215,13 +176,9 @@ class _$_PrescriptionDto extends _PrescriptionDto {
   @override
   final String id;
   @override
-  final MedicineDto medicine;
+  final BrandedMedicineDto medicine;
   @override
-  final int dose;
-  @override
-  final TimeIntervalDto frequency;
-  @override
-  final TimeIntervalDto duration;
+  final DoseDto dose;
   final List<IndicationDto> _indications;
   @override
   List<IndicationDto> get indications {
@@ -232,7 +189,7 @@ class _$_PrescriptionDto extends _PrescriptionDto {
 
   @override
   String toString() {
-    return 'PrescriptionDto(id: $id, medicine: $medicine, dose: $dose, frequency: $frequency, duration: $duration, indications: $indications)';
+    return 'PrescriptionDto(id: $id, medicine: $medicine, dose: $dose, indications: $indications)';
   }
 
   @override
@@ -244,18 +201,14 @@ class _$_PrescriptionDto extends _PrescriptionDto {
             (identical(other.medicine, medicine) ||
                 other.medicine == medicine) &&
             (identical(other.dose, dose) || other.dose == dose) &&
-            (identical(other.frequency, frequency) ||
-                other.frequency == frequency) &&
-            (identical(other.duration, duration) ||
-                other.duration == duration) &&
             const DeepCollectionEquality()
                 .equals(other._indications, _indications));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, medicine, dose, frequency,
-      duration, const DeepCollectionEquality().hash(_indications));
+  int get hashCode => Object.hash(runtimeType, id, medicine, dose,
+      const DeepCollectionEquality().hash(_indications));
 
   @JsonKey(ignore: true)
   @override
@@ -274,10 +227,8 @@ class _$_PrescriptionDto extends _PrescriptionDto {
 abstract class _PrescriptionDto extends PrescriptionDto {
   const factory _PrescriptionDto(
       {required final String id,
-      required final MedicineDto medicine,
-      required final int dose,
-      required final TimeIntervalDto frequency,
-      required final TimeIntervalDto duration,
+      required final BrandedMedicineDto medicine,
+      required final DoseDto dose,
       required final List<IndicationDto> indications}) = _$_PrescriptionDto;
   const _PrescriptionDto._() : super._();
 
@@ -287,13 +238,9 @@ abstract class _PrescriptionDto extends PrescriptionDto {
   @override
   String get id;
   @override
-  MedicineDto get medicine;
+  BrandedMedicineDto get medicine;
   @override
-  int get dose;
-  @override
-  TimeIntervalDto get frequency;
-  @override
-  TimeIntervalDto get duration;
+  DoseDto get dose;
   @override
   List<IndicationDto> get indications;
   @override

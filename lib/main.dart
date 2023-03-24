@@ -4,7 +4,8 @@ import 'package:expedientes_clinicos/application/abbreviation_name/abbreviation_
 import 'package:expedientes_clinicos/application/abbreviation_name/abbreviation_name_form/pharmaceutical_form_form_bloc.dart';
 import 'package:expedientes_clinicos/application/categories/category_form/category_form_bloc.dart';
 import 'package:expedientes_clinicos/application/categories/category_form/medicine_category_form_bloc.dart';
-import 'package:expedientes_clinicos/application/medicine/medicine_form/medicine_form_bloc.dart';
+import 'package:expedientes_clinicos/application/medicine/branded_medicine/branded_medicine_form/branded_medicine_form_bloc.dart';
+import 'package:expedientes_clinicos/application/medicine/generic_medicine/generic_medicine_form/generic_medicine_form_bloc.dart';
 import 'package:expedientes_clinicos/application/state_render/state_renderer_bloc.dart';
 import 'package:expedientes_clinicos/injection.dart';
 import 'package:expedientes_clinicos/presentation/routes/router.gr.dart';
@@ -45,15 +46,16 @@ class AppRoot extends StatelessWidget {
               create: (context) => getIt<AdministrationRouteFormBloc>()),
           BlocProvider<PharmaceuticalFormFormBloc>(
               create: (context) => getIt<PharmaceuticalFormFormBloc>()),
-          BlocProvider<MedicineFormBloc>(
-              create: (context) => getIt<MedicineFormBloc>())
+          BlocProvider<GenericMedicineFormBloc>(
+              create: (context) => getIt<GenericMedicineFormBloc>()),
+          BlocProvider<BrandedMedicineFormBloc>(
+              create: (context) => getIt<BrandedMedicineFormBloc>())
         ],
         child: BlocConsumer<StateRendererBloc, StateRendererState>(
             buildWhen: (previous, current) =>
                 previous.stateRender != current.stateRender,
             listener: (context, state) async {
               var ctx = appRouter.navigatorKey.currentContext;
-
               if (popStateRender.contains(state.stateRender)) {
                 //The current context of the navigator screen present
                 if (ctx != null) {
@@ -80,8 +82,10 @@ class AppRoot extends StatelessWidget {
                   )));
                 }
               } else {
+                print('HERE!!!');
                 appRouter.push(FullScreenState(
                     content: StateRenderer(
+                  bodyWidget: state.body,
                   stateRendererType: state.stateRender,
                   message: state.message,
                   retryActionFunction: state.retryAction,

@@ -1,6 +1,6 @@
 import 'package:expedientes_clinicos/application/abbreviation_name/abbreviation_name_watcher/abbreviation_name_watcher_bloc.dart';
 import 'package:expedientes_clinicos/application/abbreviation_name/abbreviation_name_watcher/administration_route_watcher_bloc_.dart';
-import 'package:expedientes_clinicos/application/medicine/medicine_form/medicine_form_bloc.dart';
+import 'package:expedientes_clinicos/application/medicine/generic_medicine/generic_medicine_form/generic_medicine_form_bloc.dart';
 import 'package:expedientes_clinicos/application/state_render/state_renderer_bloc.dart';
 import 'package:expedientes_clinicos/domain/core/name_abbreviation/name_abbr.dart';
 import 'package:expedientes_clinicos/injection.dart';
@@ -51,15 +51,15 @@ class _DropdownSearchAdministrationRouteState
         }, builder: (context, state) {
           return DropdownSearchAbbreviationNameRoute(
             abbreviationName: context
-                .read<MedicineFormBloc>()
+                .read<GenericMedicineFormBloc>()
                 .state
                 .medicine
                 .administrationRoute,
             searchFieldController: searchFieldController,
             onSelected: (nameAbbr) {
-              context
-                  .read<MedicineFormBloc>()
-                  .add(MedicineFormEvent.administrationRouteChanged(nameAbbr));
+              context.read<GenericMedicineFormBloc>().add(
+                  GenericMedicineFormEvent.administrationRouteChanged(
+                      nameAbbr));
               setState(() {});
             },
             onSearchWithKey: (key) {

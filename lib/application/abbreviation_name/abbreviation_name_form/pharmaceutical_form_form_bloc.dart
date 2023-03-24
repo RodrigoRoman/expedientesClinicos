@@ -6,7 +6,8 @@ import 'package:injectable/injectable.dart';
 @injectable
 class PharmaceuticalFormFormBloc extends AbbreviationNameFormBloc {
   final INameAbbreviationRepository _pharmaceuticalFormRepository;
-  PharmaceuticalFormFormBloc(this._pharmaceuticalFormRepository)
-      : super(_pharmaceuticalFormRepository,
-            FirebaseCollectionNameAbbreviations.pharmaceuticalForms);
+  PharmaceuticalFormFormBloc(
+      @Named(FirebaseCollectionNameAbbreviations.pharmaceuticalForms)
+          this._pharmaceuticalFormRepository)
+      : super(_pharmaceuticalFormRepository);
 }

@@ -58,7 +58,15 @@ class StateRendererBloc extends Bloc<StateRendererEvent, StateRendererState> {
           body: event.bodyWidget,
           stateRender: StateRendererType.POPUP_FORM));
     });
-    on<FullErrorSreen>((event, emit) {
+    on<FullScreenForm>((event, emit) {
+      emit(state.copyWith(
+          title: event.title,
+          until: event.until,
+          retryAction: () => print('clicked'),
+          body: event.bodyWidget,
+          stateRender: StateRendererType.FULL_SCREEN_FORM_STATE));
+    });
+    on<FullErrorScreen>((event, emit) {
       emit(state.copyWith(
           title: event.title,
           message: event.message,

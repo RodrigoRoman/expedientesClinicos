@@ -10,4 +10,5 @@ abstract class ICategoryRepository {
   Future<Either<CategoryFailures, Unit>> createFake();
   Future<Either<CategoryFailures, Unit>> update(Category category);
   Future<Either<CategoryFailures, Unit>> delete(Category category);
+  String get collectionName;
 }

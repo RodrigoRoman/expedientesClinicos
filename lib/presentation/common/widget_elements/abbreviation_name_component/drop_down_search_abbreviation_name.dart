@@ -1,4 +1,3 @@
-import 'package:expedientes_clinicos/application/medicine/medicine_form/medicine_form_bloc.dart';
 import 'package:expedientes_clinicos/domain/core/name_abbreviation/name_abbr.dart';
 import 'package:expedientes_clinicos/presentation/resources/constant_size_values.dart';
 import 'package:expedientes_clinicos/presentation/resources/font_manager.dart';
@@ -163,63 +162,56 @@ class _DropdownSearchAbbreviationNameRouteState
           Expanded(
             flex: 15,
             child: CompositedTransformTarget(
-              link: _layerLink,
-              child: BlocConsumer<MedicineFormBloc, MedicineFormState>(
-                listener: (context, state) {},
-                builder: (context, state) {
-                  return ((widget.abbreviationName !=
-                              NameAbbreviation.empty()) &
-                          !_focusNode.hasFocus)
-                      ? ListTile(
-                          onTap: () {
-                            FocusScope.of(context).requestFocus(_focusNode);
-                          },
-                          title: FittedBox(
-                            child: Text(
-                              widget.abbreviationName.abbr.value
+                link: _layerLink,
+                child: ((widget.abbreviationName != NameAbbreviation.empty()) &
+                        !_focusNode.hasFocus)
+                    ? ListTile(
+                        onTap: () {
+                          FocusScope.of(context).requestFocus(_focusNode);
+                        },
+                        title: FittedBox(
+                          child: Text(
+                            widget.abbreviationName.abbr.value
+                                .fold((l) => AppStrings.isEmpty, (r) => r),
+                            style: Theme.of(context).textTheme.bodyMedium,
+                          ),
+                        ),
+                        trailing: FittedBox(
+                          child: Text(
+                              widget.abbreviationName.name.value
                                   .fold((l) => AppStrings.isEmpty, (r) => r),
-                              style: Theme.of(context).textTheme.bodyMedium,
-                            ),
-                          ),
-                          trailing: FittedBox(
-                            child: Text(
-                                widget.abbreviationName.name.value
-                                    .fold((l) => AppStrings.isEmpty, (r) => r),
-                                style: Theme.of(context).textTheme.bodySmall),
-                          ),
-                        )
-                      : TextFormField(
-                          // autofocus: true,
-                          key: globalKey,
-                          controller: widget.searchFieldController,
-                          textAlign: TextAlign.center,
-                          decoration: InputDecoration(
-                            icon: const Icon(Icons.search_rounded,
-                                size: FontSize.s18),
-                            border: InputBorder.none,
-                            hintText: widget.hintText,
-                          ),
-                          focusNode: _focusNode,
-                          keyboardType: TextInputType.text,
-                          textCapitalization: TextCapitalization.words,
-                          textInputAction: TextInputAction.next,
-                          onChanged: (value) {
-                            widget.searchFieldController.text = value;
-                            widget.searchFieldController.selection =
-                                TextSelection.fromPosition(TextPosition(
-                                    offset: widget
-                                        .searchFieldController.text.length));
-                            if (value.isEmpty) {
-                              widget.onSearchAll();
-                            } else {
-                              widget.onSearchWithKey(
-                                  widget.searchFieldController.text);
-                            }
-                          },
-                        );
-                },
-              ),
-            ),
+                              style: Theme.of(context).textTheme.bodySmall),
+                        ),
+                      )
+                    : TextFormField(
+                        // autofocus: true,
+                        key: globalKey,
+                        controller: widget.searchFieldController,
+                        textAlign: TextAlign.center,
+                        decoration: InputDecoration(
+                          icon: const Icon(Icons.search_rounded,
+                              size: FontSize.s18),
+                          border: InputBorder.none,
+                          hintText: widget.hintText,
+                        ),
+                        focusNode: _focusNode,
+                        keyboardType: TextInputType.text,
+                        textCapitalization: TextCapitalization.words,
+                        textInputAction: TextInputAction.next,
+                        onChanged: (value) {
+                          widget.searchFieldController.text = value;
+                          widget.searchFieldController.selection =
+                              TextSelection.fromPosition(TextPosition(
+                                  offset: widget
+                                      .searchFieldController.text.length));
+                          if (value.isEmpty) {
+                            widget.onSearchAll();
+                          } else {
+                            widget.onSearchWithKey(
+                                widget.searchFieldController.text);
+                          }
+                        },
+                      )),
           ),
           const Spacer(),
           Expanded(

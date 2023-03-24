@@ -7,7 +7,8 @@ import 'package:injectable/injectable.dart';
 @injectable
 class AdministrationRouteWatcherBloc extends AbbreviationNameWatcherBloc {
   final INameAbbreviationRepository _iAdministrationRouteRepository;
-  AdministrationRouteWatcherBloc(this._iAdministrationRouteRepository)
-      : super(_iAdministrationRouteRepository,
-            FirebaseCollectionNameAbbreviations.administrationRoutes);
+  AdministrationRouteWatcherBloc(
+      @Named(FirebaseCollectionNameAbbreviations.administrationRoutes)
+          this._iAdministrationRouteRepository)
+      : super(_iAdministrationRouteRepository);
 }

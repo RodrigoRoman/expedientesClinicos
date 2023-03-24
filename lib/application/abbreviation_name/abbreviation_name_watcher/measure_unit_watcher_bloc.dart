@@ -6,7 +6,8 @@ import 'package:injectable/injectable.dart';
 @injectable
 class MeasureUnitWatcherBloc extends AbbreviationNameWatcherBloc {
   final INameAbbreviationRepository _iMeasureUnitRepository;
-  MeasureUnitWatcherBloc(this._iMeasureUnitRepository)
-      : super(_iMeasureUnitRepository,
-            FirebaseCollectionNameAbbreviations.measureUnits);
+  MeasureUnitWatcherBloc(
+      @Named(FirebaseCollectionNameAbbreviations.measureUnits)
+          this._iMeasureUnitRepository)
+      : super(_iMeasureUnitRepository);
 }

@@ -35,7 +35,7 @@ class _MeasureUnitFormState extends State<MeasureUnitForm> {
                                 StateRendererEvent.popUpError(
                                     AppStrings.couldNotSaveImage,
                                     AppStrings.somethingWentWrong,
-                                    MedicineFormRoute.name,
+                                    GenericMedicineFormRoute.name,
                                     300,
                                     500));
                           },
@@ -44,7 +44,7 @@ class _MeasureUnitFormState extends State<MeasureUnitForm> {
                                 StateRendererEvent.popUpError(
                                     AppStrings.insuficcientPermissions,
                                     AppStrings.insuficcientPermissionsExplain,
-                                    MedicineFormRoute.name,
+                                    GenericMedicineFormRoute.name,
                                     300,
                                     500));
                           },
@@ -53,7 +53,7 @@ class _MeasureUnitFormState extends State<MeasureUnitForm> {
                                 StateRendererEvent.popUpError(
                                     AppStrings.unableToCreate,
                                     AppStrings.unableToCreateExplain,
-                                    MedicineFormRoute.name,
+                                    GenericMedicineFormRoute.name,
                                     300,
                                     500));
                           },
@@ -62,7 +62,7 @@ class _MeasureUnitFormState extends State<MeasureUnitForm> {
                                 StateRendererEvent.popUpError(
                                     AppStrings.genericError,
                                     AppStrings.genericErrorExplain,
-                                    MedicineFormRoute.name,
+                                    GenericMedicineFormRoute.name,
                                     300,
                                     500));
                           },
@@ -71,7 +71,7 @@ class _MeasureUnitFormState extends State<MeasureUnitForm> {
                       StateRendererEvent.popUpSuccess(
                           AppStrings.success,
                           AppStrings.successfullyCreated,
-                          MedicineFormRoute.name,
+                          GenericMedicineFormRoute.name,
                           300,
                           300));
                 }));

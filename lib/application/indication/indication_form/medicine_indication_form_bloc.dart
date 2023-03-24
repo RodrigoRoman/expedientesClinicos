@@ -6,7 +6,8 @@ import 'package:injectable/injectable.dart';
 @injectable
 class MedicineIndicationFormBloc extends IndicationFormBloc {
   final IIndicationRepository _medicineIndicationRepository;
-  MedicineIndicationFormBloc(this._medicineIndicationRepository)
-      : super(_medicineIndicationRepository,
-            FirebaseCollectionsIndication.medicineIndication);
+  MedicineIndicationFormBloc(
+      @Named(FirebaseCollectionsIndication.medicineIndication)
+          this._medicineIndicationRepository)
+      : super(_medicineIndicationRepository);
 }

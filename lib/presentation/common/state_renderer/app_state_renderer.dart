@@ -1,3 +1,5 @@
+import 'package:auto_route/auto_route.dart';
+import 'package:expedientes_clinicos/presentation/common/state_renderer/full_screen_state.dart';
 import 'package:expedientes_clinicos/presentation/common/widget_elements/buttons.dart';
 import 'package:expedientes_clinicos/presentation/common/widget_elements/image_container.dart';
 import 'package:expedientes_clinicos/presentation/common/widget_elements/popup_dialog.dart';
@@ -65,6 +67,7 @@ class StateAppWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print('STATE RENDER');
     Size size = MediaQuery.of(context).size;
     switch (stateRendererType) {
       case StateRendererType.POPUP_LOADING_STATE:
@@ -147,6 +150,8 @@ class StateAppWidget extends StatelessWidget {
             retryAction: () {},
           )
         ]);
+      case StateRendererType.FULL_SCREEN_FORM_STATE:
+        return bodyWidget ?? Container();
       case StateRendererType.CONTENT_SCREEN_STATE:
         return Container();
       case StateRendererType.EMPTY_SCREEN_STATE:

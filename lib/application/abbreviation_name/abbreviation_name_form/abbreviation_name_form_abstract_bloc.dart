@@ -15,9 +15,7 @@ part 'abbreviation_name_form_abstract_bloc.freezed.dart';
 class AbbreviationNameFormBloc
     extends Bloc<AbbreviationNameFormEvent, AbbreviationNameFormState> {
   final INameAbbreviationRepository _iNameAbbreviationRepository;
-  final String _collectionName;
-  AbbreviationNameFormBloc(
-      this._iNameAbbreviationRepository, this._collectionName)
+  AbbreviationNameFormBloc(this._iNameAbbreviationRepository)
       : super(AbbreviationNameFormState.initial()) {
     on<_Initialized>((event, emit) {
       emit(event.initiaAbbreviationNameOption.fold(

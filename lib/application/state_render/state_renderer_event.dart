@@ -12,8 +12,11 @@ abstract class StateRendererEvent with _$StateRendererEvent {
       String? until, double? width, double? height) = PopUpLoading;
   const factory StateRendererEvent.popUpForm(String title, Widget bodyWidget,
       double? width, double? height, String? until) = PopUpForm;
-  const factory StateRendererEvent.fullErrorSreen(
-      String title, String message, String? until) = FullErrorSreen;
+  const factory StateRendererEvent.fullErrorScreen(
+      String title, String message, String? until) = FullErrorScreen;
+  const factory StateRendererEvent.fullScreenForm(
+          String title, Widget bodyWidget, String message, String? until) =
+      FullScreenForm;
   const factory StateRendererEvent.contentScreen() = ContentScreen;
   const factory StateRendererEvent.empty() = EmptySreen;
 }

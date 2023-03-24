@@ -1,5 +1,5 @@
 import 'package:bloc/bloc.dart';
-import 'package:expedientes_clinicos/domain/prescription/i_prescription.dart';
+import 'package:expedientes_clinicos/domain/prescription/i_prescription_repository.dart';
 import 'package:expedientes_clinicos/domain/prescription/prescription.dart';
 import 'package:expedientes_clinicos/domain/prescription/prescription_failures.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';

@@ -6,7 +6,8 @@ import 'package:injectable/injectable.dart';
 @injectable
 class MeasureUnitFormBloc extends AbbreviationNameFormBloc {
   final INameAbbreviationRepository _iAdministrationRouteRepository;
-  MeasureUnitFormBloc(this._iAdministrationRouteRepository)
-      : super(_iAdministrationRouteRepository,
-            FirebaseCollectionNameAbbreviations.measureUnits);
+  MeasureUnitFormBloc(
+      @Named(FirebaseCollectionNameAbbreviations.measureUnits)
+          this._iAdministrationRouteRepository)
+      : super(_iAdministrationRouteRepository);
 }

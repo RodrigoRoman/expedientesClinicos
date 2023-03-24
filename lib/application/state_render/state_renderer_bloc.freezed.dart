@@ -32,7 +32,10 @@ mixin _$StateRendererEvent {
             double? height, String? until)
         popUpForm,
     required TResult Function(String title, String message, String? until)
-        fullErrorSreen,
+        fullErrorScreen,
+    required TResult Function(
+            String title, Widget bodyWidget, String message, String? until)
+        fullScreenForm,
     required TResult Function() contentScreen,
     required TResult Function() empty,
   }) =>
@@ -53,7 +56,10 @@ mixin _$StateRendererEvent {
             double? height, String? until)?
         popUpForm,
     TResult? Function(String title, String message, String? until)?
-        fullErrorSreen,
+        fullErrorScreen,
+    TResult? Function(
+            String title, Widget bodyWidget, String message, String? until)?
+        fullScreenForm,
     TResult? Function()? contentScreen,
     TResult? Function()? empty,
   }) =>
@@ -74,7 +80,10 @@ mixin _$StateRendererEvent {
             double? height, String? until)?
         popUpForm,
     TResult Function(String title, String message, String? until)?
-        fullErrorSreen,
+        fullErrorScreen,
+    TResult Function(
+            String title, Widget bodyWidget, String message, String? until)?
+        fullScreenForm,
     TResult Function()? contentScreen,
     TResult Function()? empty,
     required TResult orElse(),
@@ -87,7 +96,8 @@ mixin _$StateRendererEvent {
     required TResult Function(PopUpServerError value) popUpServerError,
     required TResult Function(PopUpLoading value) popUpLoading,
     required TResult Function(PopUpForm value) popUpForm,
-    required TResult Function(FullErrorSreen value) fullErrorSreen,
+    required TResult Function(FullErrorScreen value) fullErrorScreen,
+    required TResult Function(FullScreenForm value) fullScreenForm,
     required TResult Function(ContentScreen value) contentScreen,
     required TResult Function(EmptySreen value) empty,
   }) =>
@@ -99,7 +109,8 @@ mixin _$StateRendererEvent {
     TResult? Function(PopUpServerError value)? popUpServerError,
     TResult? Function(PopUpLoading value)? popUpLoading,
     TResult? Function(PopUpForm value)? popUpForm,
-    TResult? Function(FullErrorSreen value)? fullErrorSreen,
+    TResult? Function(FullErrorScreen value)? fullErrorScreen,
+    TResult? Function(FullScreenForm value)? fullScreenForm,
     TResult? Function(ContentScreen value)? contentScreen,
     TResult? Function(EmptySreen value)? empty,
   }) =>
@@ -111,7 +122,8 @@ mixin _$StateRendererEvent {
     TResult Function(PopUpServerError value)? popUpServerError,
     TResult Function(PopUpLoading value)? popUpLoading,
     TResult Function(PopUpForm value)? popUpForm,
-    TResult Function(FullErrorSreen value)? fullErrorSreen,
+    TResult Function(FullErrorScreen value)? fullErrorScreen,
+    TResult Function(FullScreenForm value)? fullScreenForm,
     TResult Function(ContentScreen value)? contentScreen,
     TResult Function(EmptySreen value)? empty,
     required TResult orElse(),
@@ -254,7 +266,10 @@ class _$PopUpSuccess implements PopUpSuccess {
             double? height, String? until)
         popUpForm,
     required TResult Function(String title, String message, String? until)
-        fullErrorSreen,
+        fullErrorScreen,
+    required TResult Function(
+            String title, Widget bodyWidget, String message, String? until)
+        fullScreenForm,
     required TResult Function() contentScreen,
     required TResult Function() empty,
   }) {
@@ -278,7 +293,10 @@ class _$PopUpSuccess implements PopUpSuccess {
             double? height, String? until)?
         popUpForm,
     TResult? Function(String title, String message, String? until)?
-        fullErrorSreen,
+        fullErrorScreen,
+    TResult? Function(
+            String title, Widget bodyWidget, String message, String? until)?
+        fullScreenForm,
     TResult? Function()? contentScreen,
     TResult? Function()? empty,
   }) {
@@ -302,7 +320,10 @@ class _$PopUpSuccess implements PopUpSuccess {
             double? height, String? until)?
         popUpForm,
     TResult Function(String title, String message, String? until)?
-        fullErrorSreen,
+        fullErrorScreen,
+    TResult Function(
+            String title, Widget bodyWidget, String message, String? until)?
+        fullScreenForm,
     TResult Function()? contentScreen,
     TResult Function()? empty,
     required TResult orElse(),
@@ -321,7 +342,8 @@ class _$PopUpSuccess implements PopUpSuccess {
     required TResult Function(PopUpServerError value) popUpServerError,
     required TResult Function(PopUpLoading value) popUpLoading,
     required TResult Function(PopUpForm value) popUpForm,
-    required TResult Function(FullErrorSreen value) fullErrorSreen,
+    required TResult Function(FullErrorScreen value) fullErrorScreen,
+    required TResult Function(FullScreenForm value) fullScreenForm,
     required TResult Function(ContentScreen value) contentScreen,
     required TResult Function(EmptySreen value) empty,
   }) {
@@ -336,7 +358,8 @@ class _$PopUpSuccess implements PopUpSuccess {
     TResult? Function(PopUpServerError value)? popUpServerError,
     TResult? Function(PopUpLoading value)? popUpLoading,
     TResult? Function(PopUpForm value)? popUpForm,
-    TResult? Function(FullErrorSreen value)? fullErrorSreen,
+    TResult? Function(FullErrorScreen value)? fullErrorScreen,
+    TResult? Function(FullScreenForm value)? fullScreenForm,
     TResult? Function(ContentScreen value)? contentScreen,
     TResult? Function(EmptySreen value)? empty,
   }) {
@@ -351,7 +374,8 @@ class _$PopUpSuccess implements PopUpSuccess {
     TResult Function(PopUpServerError value)? popUpServerError,
     TResult Function(PopUpLoading value)? popUpLoading,
     TResult Function(PopUpForm value)? popUpForm,
-    TResult Function(FullErrorSreen value)? fullErrorSreen,
+    TResult Function(FullErrorScreen value)? fullErrorScreen,
+    TResult Function(FullScreenForm value)? fullScreenForm,
     TResult Function(ContentScreen value)? contentScreen,
     TResult Function(EmptySreen value)? empty,
     required TResult orElse(),
@@ -498,7 +522,10 @@ class _$PopUpError implements PopUpError {
             double? height, String? until)
         popUpForm,
     required TResult Function(String title, String message, String? until)
-        fullErrorSreen,
+        fullErrorScreen,
+    required TResult Function(
+            String title, Widget bodyWidget, String message, String? until)
+        fullScreenForm,
     required TResult Function() contentScreen,
     required TResult Function() empty,
   }) {
@@ -522,7 +549,10 @@ class _$PopUpError implements PopUpError {
             double? height, String? until)?
         popUpForm,
     TResult? Function(String title, String message, String? until)?
-        fullErrorSreen,
+        fullErrorScreen,
+    TResult? Function(
+            String title, Widget bodyWidget, String message, String? until)?
+        fullScreenForm,
     TResult? Function()? contentScreen,
     TResult? Function()? empty,
   }) {
@@ -546,7 +576,10 @@ class _$PopUpError implements PopUpError {
             double? height, String? until)?
         popUpForm,
     TResult Function(String title, String message, String? until)?
-        fullErrorSreen,
+        fullErrorScreen,
+    TResult Function(
+            String title, Widget bodyWidget, String message, String? until)?
+        fullScreenForm,
     TResult Function()? contentScreen,
     TResult Function()? empty,
     required TResult orElse(),
@@ -565,7 +598,8 @@ class _$PopUpError implements PopUpError {
     required TResult Function(PopUpServerError value) popUpServerError,
     required TResult Function(PopUpLoading value) popUpLoading,
     required TResult Function(PopUpForm value) popUpForm,
-    required TResult Function(FullErrorSreen value) fullErrorSreen,
+    required TResult Function(FullErrorScreen value) fullErrorScreen,
+    required TResult Function(FullScreenForm value) fullScreenForm,
     required TResult Function(ContentScreen value) contentScreen,
     required TResult Function(EmptySreen value) empty,
   }) {
@@ -580,7 +614,8 @@ class _$PopUpError implements PopUpError {
     TResult? Function(PopUpServerError value)? popUpServerError,
     TResult? Function(PopUpLoading value)? popUpLoading,
     TResult? Function(PopUpForm value)? popUpForm,
-    TResult? Function(FullErrorSreen value)? fullErrorSreen,
+    TResult? Function(FullErrorScreen value)? fullErrorScreen,
+    TResult? Function(FullScreenForm value)? fullScreenForm,
     TResult? Function(ContentScreen value)? contentScreen,
     TResult? Function(EmptySreen value)? empty,
   }) {
@@ -595,7 +630,8 @@ class _$PopUpError implements PopUpError {
     TResult Function(PopUpServerError value)? popUpServerError,
     TResult Function(PopUpLoading value)? popUpLoading,
     TResult Function(PopUpForm value)? popUpForm,
-    TResult Function(FullErrorSreen value)? fullErrorSreen,
+    TResult Function(FullErrorScreen value)? fullErrorScreen,
+    TResult Function(FullScreenForm value)? fullScreenForm,
     TResult Function(ContentScreen value)? contentScreen,
     TResult Function(EmptySreen value)? empty,
     required TResult orElse(),
@@ -711,7 +747,10 @@ class _$PopUpServerError implements PopUpServerError {
             double? height, String? until)
         popUpForm,
     required TResult Function(String title, String message, String? until)
-        fullErrorSreen,
+        fullErrorScreen,
+    required TResult Function(
+            String title, Widget bodyWidget, String message, String? until)
+        fullScreenForm,
     required TResult Function() contentScreen,
     required TResult Function() empty,
   }) {
@@ -735,7 +774,10 @@ class _$PopUpServerError implements PopUpServerError {
             double? height, String? until)?
         popUpForm,
     TResult? Function(String title, String message, String? until)?
-        fullErrorSreen,
+        fullErrorScreen,
+    TResult? Function(
+            String title, Widget bodyWidget, String message, String? until)?
+        fullScreenForm,
     TResult? Function()? contentScreen,
     TResult? Function()? empty,
   }) {
@@ -759,7 +801,10 @@ class _$PopUpServerError implements PopUpServerError {
             double? height, String? until)?
         popUpForm,
     TResult Function(String title, String message, String? until)?
-        fullErrorSreen,
+        fullErrorScreen,
+    TResult Function(
+            String title, Widget bodyWidget, String message, String? until)?
+        fullScreenForm,
     TResult Function()? contentScreen,
     TResult Function()? empty,
     required TResult orElse(),
@@ -778,7 +823,8 @@ class _$PopUpServerError implements PopUpServerError {
     required TResult Function(PopUpServerError value) popUpServerError,
     required TResult Function(PopUpLoading value) popUpLoading,
     required TResult Function(PopUpForm value) popUpForm,
-    required TResult Function(FullErrorSreen value) fullErrorSreen,
+    required TResult Function(FullErrorScreen value) fullErrorScreen,
+    required TResult Function(FullScreenForm value) fullScreenForm,
     required TResult Function(ContentScreen value) contentScreen,
     required TResult Function(EmptySreen value) empty,
   }) {
@@ -793,7 +839,8 @@ class _$PopUpServerError implements PopUpServerError {
     TResult? Function(PopUpServerError value)? popUpServerError,
     TResult? Function(PopUpLoading value)? popUpLoading,
     TResult? Function(PopUpForm value)? popUpForm,
-    TResult? Function(FullErrorSreen value)? fullErrorSreen,
+    TResult? Function(FullErrorScreen value)? fullErrorScreen,
+    TResult? Function(FullScreenForm value)? fullScreenForm,
     TResult? Function(ContentScreen value)? contentScreen,
     TResult? Function(EmptySreen value)? empty,
   }) {
@@ -808,7 +855,8 @@ class _$PopUpServerError implements PopUpServerError {
     TResult Function(PopUpServerError value)? popUpServerError,
     TResult Function(PopUpLoading value)? popUpLoading,
     TResult Function(PopUpForm value)? popUpForm,
-    TResult Function(FullErrorSreen value)? fullErrorSreen,
+    TResult Function(FullErrorScreen value)? fullErrorScreen,
+    TResult Function(FullScreenForm value)? fullScreenForm,
     TResult Function(ContentScreen value)? contentScreen,
     TResult Function(EmptySreen value)? empty,
     required TResult orElse(),
@@ -948,7 +996,10 @@ class _$PopUpLoading implements PopUpLoading {
             double? height, String? until)
         popUpForm,
     required TResult Function(String title, String message, String? until)
-        fullErrorSreen,
+        fullErrorScreen,
+    required TResult Function(
+            String title, Widget bodyWidget, String message, String? until)
+        fullScreenForm,
     required TResult Function() contentScreen,
     required TResult Function() empty,
   }) {
@@ -972,7 +1023,10 @@ class _$PopUpLoading implements PopUpLoading {
             double? height, String? until)?
         popUpForm,
     TResult? Function(String title, String message, String? until)?
-        fullErrorSreen,
+        fullErrorScreen,
+    TResult? Function(
+            String title, Widget bodyWidget, String message, String? until)?
+        fullScreenForm,
     TResult? Function()? contentScreen,
     TResult? Function()? empty,
   }) {
@@ -996,7 +1050,10 @@ class _$PopUpLoading implements PopUpLoading {
             double? height, String? until)?
         popUpForm,
     TResult Function(String title, String message, String? until)?
-        fullErrorSreen,
+        fullErrorScreen,
+    TResult Function(
+            String title, Widget bodyWidget, String message, String? until)?
+        fullScreenForm,
     TResult Function()? contentScreen,
     TResult Function()? empty,
     required TResult orElse(),
@@ -1015,7 +1072,8 @@ class _$PopUpLoading implements PopUpLoading {
     required TResult Function(PopUpServerError value) popUpServerError,
     required TResult Function(PopUpLoading value) popUpLoading,
     required TResult Function(PopUpForm value) popUpForm,
-    required TResult Function(FullErrorSreen value) fullErrorSreen,
+    required TResult Function(FullErrorScreen value) fullErrorScreen,
+    required TResult Function(FullScreenForm value) fullScreenForm,
     required TResult Function(ContentScreen value) contentScreen,
     required TResult Function(EmptySreen value) empty,
   }) {
@@ -1030,7 +1088,8 @@ class _$PopUpLoading implements PopUpLoading {
     TResult? Function(PopUpServerError value)? popUpServerError,
     TResult? Function(PopUpLoading value)? popUpLoading,
     TResult? Function(PopUpForm value)? popUpForm,
-    TResult? Function(FullErrorSreen value)? fullErrorSreen,
+    TResult? Function(FullErrorScreen value)? fullErrorScreen,
+    TResult? Function(FullScreenForm value)? fullScreenForm,
     TResult? Function(ContentScreen value)? contentScreen,
     TResult? Function(EmptySreen value)? empty,
   }) {
@@ -1045,7 +1104,8 @@ class _$PopUpLoading implements PopUpLoading {
     TResult Function(PopUpServerError value)? popUpServerError,
     TResult Function(PopUpLoading value)? popUpLoading,
     TResult Function(PopUpForm value)? popUpForm,
-    TResult Function(FullErrorSreen value)? fullErrorSreen,
+    TResult Function(FullErrorScreen value)? fullErrorScreen,
+    TResult Function(FullScreenForm value)? fullScreenForm,
     TResult Function(ContentScreen value)? contentScreen,
     TResult Function(EmptySreen value)? empty,
     required TResult orElse(),
@@ -1193,7 +1253,10 @@ class _$PopUpForm implements PopUpForm {
             double? height, String? until)
         popUpForm,
     required TResult Function(String title, String message, String? until)
-        fullErrorSreen,
+        fullErrorScreen,
+    required TResult Function(
+            String title, Widget bodyWidget, String message, String? until)
+        fullScreenForm,
     required TResult Function() contentScreen,
     required TResult Function() empty,
   }) {
@@ -1217,7 +1280,10 @@ class _$PopUpForm implements PopUpForm {
             double? height, String? until)?
         popUpForm,
     TResult? Function(String title, String message, String? until)?
-        fullErrorSreen,
+        fullErrorScreen,
+    TResult? Function(
+            String title, Widget bodyWidget, String message, String? until)?
+        fullScreenForm,
     TResult? Function()? contentScreen,
     TResult? Function()? empty,
   }) {
@@ -1241,7 +1307,10 @@ class _$PopUpForm implements PopUpForm {
             double? height, String? until)?
         popUpForm,
     TResult Function(String title, String message, String? until)?
-        fullErrorSreen,
+        fullErrorScreen,
+    TResult Function(
+            String title, Widget bodyWidget, String message, String? until)?
+        fullScreenForm,
     TResult Function()? contentScreen,
     TResult Function()? empty,
     required TResult orElse(),
@@ -1260,7 +1329,8 @@ class _$PopUpForm implements PopUpForm {
     required TResult Function(PopUpServerError value) popUpServerError,
     required TResult Function(PopUpLoading value) popUpLoading,
     required TResult Function(PopUpForm value) popUpForm,
-    required TResult Function(FullErrorSreen value) fullErrorSreen,
+    required TResult Function(FullErrorScreen value) fullErrorScreen,
+    required TResult Function(FullScreenForm value) fullScreenForm,
     required TResult Function(ContentScreen value) contentScreen,
     required TResult Function(EmptySreen value) empty,
   }) {
@@ -1275,7 +1345,8 @@ class _$PopUpForm implements PopUpForm {
     TResult? Function(PopUpServerError value)? popUpServerError,
     TResult? Function(PopUpLoading value)? popUpLoading,
     TResult? Function(PopUpForm value)? popUpForm,
-    TResult? Function(FullErrorSreen value)? fullErrorSreen,
+    TResult? Function(FullErrorScreen value)? fullErrorScreen,
+    TResult? Function(FullScreenForm value)? fullScreenForm,
     TResult? Function(ContentScreen value)? contentScreen,
     TResult? Function(EmptySreen value)? empty,
   }) {
@@ -1290,7 +1361,8 @@ class _$PopUpForm implements PopUpForm {
     TResult Function(PopUpServerError value)? popUpServerError,
     TResult Function(PopUpLoading value)? popUpLoading,
     TResult Function(PopUpForm value)? popUpForm,
-    TResult Function(FullErrorSreen value)? fullErrorSreen,
+    TResult Function(FullErrorScreen value)? fullErrorScreen,
+    TResult Function(FullScreenForm value)? fullScreenForm,
     TResult Function(ContentScreen value)? contentScreen,
     TResult Function(EmptySreen value)? empty,
     required TResult orElse(),
@@ -1321,20 +1393,20 @@ abstract class PopUpForm implements StateRendererEvent {
 }
 
 /// @nodoc
-abstract class _$$FullErrorSreenCopyWith<$Res> {
-  factory _$$FullErrorSreenCopyWith(
-          _$FullErrorSreen value, $Res Function(_$FullErrorSreen) then) =
-      __$$FullErrorSreenCopyWithImpl<$Res>;
+abstract class _$$FullErrorScreenCopyWith<$Res> {
+  factory _$$FullErrorScreenCopyWith(
+          _$FullErrorScreen value, $Res Function(_$FullErrorScreen) then) =
+      __$$FullErrorScreenCopyWithImpl<$Res>;
   @useResult
   $Res call({String title, String message, String? until});
 }
 
 /// @nodoc
-class __$$FullErrorSreenCopyWithImpl<$Res>
-    extends _$StateRendererEventCopyWithImpl<$Res, _$FullErrorSreen>
-    implements _$$FullErrorSreenCopyWith<$Res> {
-  __$$FullErrorSreenCopyWithImpl(
-      _$FullErrorSreen _value, $Res Function(_$FullErrorSreen) _then)
+class __$$FullErrorScreenCopyWithImpl<$Res>
+    extends _$StateRendererEventCopyWithImpl<$Res, _$FullErrorScreen>
+    implements _$$FullErrorScreenCopyWith<$Res> {
+  __$$FullErrorScreenCopyWithImpl(
+      _$FullErrorScreen _value, $Res Function(_$FullErrorScreen) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1344,7 +1416,7 @@ class __$$FullErrorSreenCopyWithImpl<$Res>
     Object? message = null,
     Object? until = freezed,
   }) {
-    return _then(_$FullErrorSreen(
+    return _then(_$FullErrorScreen(
       null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -1363,8 +1435,8 @@ class __$$FullErrorSreenCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$FullErrorSreen implements FullErrorSreen {
-  const _$FullErrorSreen(this.title, this.message, this.until);
+class _$FullErrorScreen implements FullErrorScreen {
+  const _$FullErrorScreen(this.title, this.message, this.until);
 
   @override
   final String title;
@@ -1375,14 +1447,14 @@ class _$FullErrorSreen implements FullErrorSreen {
 
   @override
   String toString() {
-    return 'StateRendererEvent.fullErrorSreen(title: $title, message: $message, until: $until)';
+    return 'StateRendererEvent.fullErrorScreen(title: $title, message: $message, until: $until)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FullErrorSreen &&
+            other is _$FullErrorScreen &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.message, message) || other.message == message) &&
             (identical(other.until, until) || other.until == until));
@@ -1394,8 +1466,8 @@ class _$FullErrorSreen implements FullErrorSreen {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$FullErrorSreenCopyWith<_$FullErrorSreen> get copyWith =>
-      __$$FullErrorSreenCopyWithImpl<_$FullErrorSreen>(this, _$identity);
+  _$$FullErrorScreenCopyWith<_$FullErrorScreen> get copyWith =>
+      __$$FullErrorScreenCopyWithImpl<_$FullErrorScreen>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1414,11 +1486,14 @@ class _$FullErrorSreen implements FullErrorSreen {
             double? height, String? until)
         popUpForm,
     required TResult Function(String title, String message, String? until)
-        fullErrorSreen,
+        fullErrorScreen,
+    required TResult Function(
+            String title, Widget bodyWidget, String message, String? until)
+        fullScreenForm,
     required TResult Function() contentScreen,
     required TResult Function() empty,
   }) {
-    return fullErrorSreen(title, message, until);
+    return fullErrorScreen(title, message, until);
   }
 
   @override
@@ -1438,11 +1513,14 @@ class _$FullErrorSreen implements FullErrorSreen {
             double? height, String? until)?
         popUpForm,
     TResult? Function(String title, String message, String? until)?
-        fullErrorSreen,
+        fullErrorScreen,
+    TResult? Function(
+            String title, Widget bodyWidget, String message, String? until)?
+        fullScreenForm,
     TResult? Function()? contentScreen,
     TResult? Function()? empty,
   }) {
-    return fullErrorSreen?.call(title, message, until);
+    return fullErrorScreen?.call(title, message, until);
   }
 
   @override
@@ -1462,13 +1540,16 @@ class _$FullErrorSreen implements FullErrorSreen {
             double? height, String? until)?
         popUpForm,
     TResult Function(String title, String message, String? until)?
-        fullErrorSreen,
+        fullErrorScreen,
+    TResult Function(
+            String title, Widget bodyWidget, String message, String? until)?
+        fullScreenForm,
     TResult Function()? contentScreen,
     TResult Function()? empty,
     required TResult orElse(),
   }) {
-    if (fullErrorSreen != null) {
-      return fullErrorSreen(title, message, until);
+    if (fullErrorScreen != null) {
+      return fullErrorScreen(title, message, until);
     }
     return orElse();
   }
@@ -1481,11 +1562,12 @@ class _$FullErrorSreen implements FullErrorSreen {
     required TResult Function(PopUpServerError value) popUpServerError,
     required TResult Function(PopUpLoading value) popUpLoading,
     required TResult Function(PopUpForm value) popUpForm,
-    required TResult Function(FullErrorSreen value) fullErrorSreen,
+    required TResult Function(FullErrorScreen value) fullErrorScreen,
+    required TResult Function(FullScreenForm value) fullScreenForm,
     required TResult Function(ContentScreen value) contentScreen,
     required TResult Function(EmptySreen value) empty,
   }) {
-    return fullErrorSreen(this);
+    return fullErrorScreen(this);
   }
 
   @override
@@ -1496,11 +1578,12 @@ class _$FullErrorSreen implements FullErrorSreen {
     TResult? Function(PopUpServerError value)? popUpServerError,
     TResult? Function(PopUpLoading value)? popUpLoading,
     TResult? Function(PopUpForm value)? popUpForm,
-    TResult? Function(FullErrorSreen value)? fullErrorSreen,
+    TResult? Function(FullErrorScreen value)? fullErrorScreen,
+    TResult? Function(FullScreenForm value)? fullScreenForm,
     TResult? Function(ContentScreen value)? contentScreen,
     TResult? Function(EmptySreen value)? empty,
   }) {
-    return fullErrorSreen?.call(this);
+    return fullErrorScreen?.call(this);
   }
 
   @override
@@ -1511,28 +1594,267 @@ class _$FullErrorSreen implements FullErrorSreen {
     TResult Function(PopUpServerError value)? popUpServerError,
     TResult Function(PopUpLoading value)? popUpLoading,
     TResult Function(PopUpForm value)? popUpForm,
-    TResult Function(FullErrorSreen value)? fullErrorSreen,
+    TResult Function(FullErrorScreen value)? fullErrorScreen,
+    TResult Function(FullScreenForm value)? fullScreenForm,
     TResult Function(ContentScreen value)? contentScreen,
     TResult Function(EmptySreen value)? empty,
     required TResult orElse(),
   }) {
-    if (fullErrorSreen != null) {
-      return fullErrorSreen(this);
+    if (fullErrorScreen != null) {
+      return fullErrorScreen(this);
     }
     return orElse();
   }
 }
 
-abstract class FullErrorSreen implements StateRendererEvent {
-  const factory FullErrorSreen(
+abstract class FullErrorScreen implements StateRendererEvent {
+  const factory FullErrorScreen(
           final String title, final String message, final String? until) =
-      _$FullErrorSreen;
+      _$FullErrorScreen;
 
   String get title;
   String get message;
   String? get until;
   @JsonKey(ignore: true)
-  _$$FullErrorSreenCopyWith<_$FullErrorSreen> get copyWith =>
+  _$$FullErrorScreenCopyWith<_$FullErrorScreen> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$FullScreenFormCopyWith<$Res> {
+  factory _$$FullScreenFormCopyWith(
+          _$FullScreenForm value, $Res Function(_$FullScreenForm) then) =
+      __$$FullScreenFormCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String title, Widget bodyWidget, String message, String? until});
+}
+
+/// @nodoc
+class __$$FullScreenFormCopyWithImpl<$Res>
+    extends _$StateRendererEventCopyWithImpl<$Res, _$FullScreenForm>
+    implements _$$FullScreenFormCopyWith<$Res> {
+  __$$FullScreenFormCopyWithImpl(
+      _$FullScreenForm _value, $Res Function(_$FullScreenForm) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? title = null,
+    Object? bodyWidget = null,
+    Object? message = null,
+    Object? until = freezed,
+  }) {
+    return _then(_$FullScreenForm(
+      null == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String,
+      null == bodyWidget
+          ? _value.bodyWidget
+          : bodyWidget // ignore: cast_nullable_to_non_nullable
+              as Widget,
+      null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+      freezed == until
+          ? _value.until
+          : until // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$FullScreenForm implements FullScreenForm {
+  const _$FullScreenForm(this.title, this.bodyWidget, this.message, this.until);
+
+  @override
+  final String title;
+  @override
+  final Widget bodyWidget;
+  @override
+  final String message;
+  @override
+  final String? until;
+
+  @override
+  String toString() {
+    return 'StateRendererEvent.fullScreenForm(title: $title, bodyWidget: $bodyWidget, message: $message, until: $until)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$FullScreenForm &&
+            (identical(other.title, title) || other.title == title) &&
+            (identical(other.bodyWidget, bodyWidget) ||
+                other.bodyWidget == bodyWidget) &&
+            (identical(other.message, message) || other.message == message) &&
+            (identical(other.until, until) || other.until == until));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, title, bodyWidget, message, until);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$FullScreenFormCopyWith<_$FullScreenForm> get copyWith =>
+      __$$FullScreenFormCopyWithImpl<_$FullScreenForm>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String title, String message, String? until,
+            double? width, double? height)
+        popUpSuccess,
+    required TResult Function(String title, String message, String? until,
+            double? width, double? height)
+        popUpError,
+    required TResult Function(String title, String message) popUpServerError,
+    required TResult Function(String title, String message, String? until,
+            double? width, double? height)
+        popUpLoading,
+    required TResult Function(String title, Widget bodyWidget, double? width,
+            double? height, String? until)
+        popUpForm,
+    required TResult Function(String title, String message, String? until)
+        fullErrorScreen,
+    required TResult Function(
+            String title, Widget bodyWidget, String message, String? until)
+        fullScreenForm,
+    required TResult Function() contentScreen,
+    required TResult Function() empty,
+  }) {
+    return fullScreenForm(title, bodyWidget, message, until);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String title, String message, String? until,
+            double? width, double? height)?
+        popUpSuccess,
+    TResult? Function(String title, String message, String? until,
+            double? width, double? height)?
+        popUpError,
+    TResult? Function(String title, String message)? popUpServerError,
+    TResult? Function(String title, String message, String? until,
+            double? width, double? height)?
+        popUpLoading,
+    TResult? Function(String title, Widget bodyWidget, double? width,
+            double? height, String? until)?
+        popUpForm,
+    TResult? Function(String title, String message, String? until)?
+        fullErrorScreen,
+    TResult? Function(
+            String title, Widget bodyWidget, String message, String? until)?
+        fullScreenForm,
+    TResult? Function()? contentScreen,
+    TResult? Function()? empty,
+  }) {
+    return fullScreenForm?.call(title, bodyWidget, message, until);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String title, String message, String? until, double? width,
+            double? height)?
+        popUpSuccess,
+    TResult Function(String title, String message, String? until, double? width,
+            double? height)?
+        popUpError,
+    TResult Function(String title, String message)? popUpServerError,
+    TResult Function(String title, String message, String? until, double? width,
+            double? height)?
+        popUpLoading,
+    TResult Function(String title, Widget bodyWidget, double? width,
+            double? height, String? until)?
+        popUpForm,
+    TResult Function(String title, String message, String? until)?
+        fullErrorScreen,
+    TResult Function(
+            String title, Widget bodyWidget, String message, String? until)?
+        fullScreenForm,
+    TResult Function()? contentScreen,
+    TResult Function()? empty,
+    required TResult orElse(),
+  }) {
+    if (fullScreenForm != null) {
+      return fullScreenForm(title, bodyWidget, message, until);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(PopUpSuccess value) popUpSuccess,
+    required TResult Function(PopUpError value) popUpError,
+    required TResult Function(PopUpServerError value) popUpServerError,
+    required TResult Function(PopUpLoading value) popUpLoading,
+    required TResult Function(PopUpForm value) popUpForm,
+    required TResult Function(FullErrorScreen value) fullErrorScreen,
+    required TResult Function(FullScreenForm value) fullScreenForm,
+    required TResult Function(ContentScreen value) contentScreen,
+    required TResult Function(EmptySreen value) empty,
+  }) {
+    return fullScreenForm(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(PopUpSuccess value)? popUpSuccess,
+    TResult? Function(PopUpError value)? popUpError,
+    TResult? Function(PopUpServerError value)? popUpServerError,
+    TResult? Function(PopUpLoading value)? popUpLoading,
+    TResult? Function(PopUpForm value)? popUpForm,
+    TResult? Function(FullErrorScreen value)? fullErrorScreen,
+    TResult? Function(FullScreenForm value)? fullScreenForm,
+    TResult? Function(ContentScreen value)? contentScreen,
+    TResult? Function(EmptySreen value)? empty,
+  }) {
+    return fullScreenForm?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(PopUpSuccess value)? popUpSuccess,
+    TResult Function(PopUpError value)? popUpError,
+    TResult Function(PopUpServerError value)? popUpServerError,
+    TResult Function(PopUpLoading value)? popUpLoading,
+    TResult Function(PopUpForm value)? popUpForm,
+    TResult Function(FullErrorScreen value)? fullErrorScreen,
+    TResult Function(FullScreenForm value)? fullScreenForm,
+    TResult Function(ContentScreen value)? contentScreen,
+    TResult Function(EmptySreen value)? empty,
+    required TResult orElse(),
+  }) {
+    if (fullScreenForm != null) {
+      return fullScreenForm(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class FullScreenForm implements StateRendererEvent {
+  const factory FullScreenForm(final String title, final Widget bodyWidget,
+      final String message, final String? until) = _$FullScreenForm;
+
+  String get title;
+  Widget get bodyWidget;
+  String get message;
+  String? get until;
+  @JsonKey(ignore: true)
+  _$$FullScreenFormCopyWith<_$FullScreenForm> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1588,7 +1910,10 @@ class _$ContentScreen implements ContentScreen {
             double? height, String? until)
         popUpForm,
     required TResult Function(String title, String message, String? until)
-        fullErrorSreen,
+        fullErrorScreen,
+    required TResult Function(
+            String title, Widget bodyWidget, String message, String? until)
+        fullScreenForm,
     required TResult Function() contentScreen,
     required TResult Function() empty,
   }) {
@@ -1612,7 +1937,10 @@ class _$ContentScreen implements ContentScreen {
             double? height, String? until)?
         popUpForm,
     TResult? Function(String title, String message, String? until)?
-        fullErrorSreen,
+        fullErrorScreen,
+    TResult? Function(
+            String title, Widget bodyWidget, String message, String? until)?
+        fullScreenForm,
     TResult? Function()? contentScreen,
     TResult? Function()? empty,
   }) {
@@ -1636,7 +1964,10 @@ class _$ContentScreen implements ContentScreen {
             double? height, String? until)?
         popUpForm,
     TResult Function(String title, String message, String? until)?
-        fullErrorSreen,
+        fullErrorScreen,
+    TResult Function(
+            String title, Widget bodyWidget, String message, String? until)?
+        fullScreenForm,
     TResult Function()? contentScreen,
     TResult Function()? empty,
     required TResult orElse(),
@@ -1655,7 +1986,8 @@ class _$ContentScreen implements ContentScreen {
     required TResult Function(PopUpServerError value) popUpServerError,
     required TResult Function(PopUpLoading value) popUpLoading,
     required TResult Function(PopUpForm value) popUpForm,
-    required TResult Function(FullErrorSreen value) fullErrorSreen,
+    required TResult Function(FullErrorScreen value) fullErrorScreen,
+    required TResult Function(FullScreenForm value) fullScreenForm,
     required TResult Function(ContentScreen value) contentScreen,
     required TResult Function(EmptySreen value) empty,
   }) {
@@ -1670,7 +2002,8 @@ class _$ContentScreen implements ContentScreen {
     TResult? Function(PopUpServerError value)? popUpServerError,
     TResult? Function(PopUpLoading value)? popUpLoading,
     TResult? Function(PopUpForm value)? popUpForm,
-    TResult? Function(FullErrorSreen value)? fullErrorSreen,
+    TResult? Function(FullErrorScreen value)? fullErrorScreen,
+    TResult? Function(FullScreenForm value)? fullScreenForm,
     TResult? Function(ContentScreen value)? contentScreen,
     TResult? Function(EmptySreen value)? empty,
   }) {
@@ -1685,7 +2018,8 @@ class _$ContentScreen implements ContentScreen {
     TResult Function(PopUpServerError value)? popUpServerError,
     TResult Function(PopUpLoading value)? popUpLoading,
     TResult Function(PopUpForm value)? popUpForm,
-    TResult Function(FullErrorSreen value)? fullErrorSreen,
+    TResult Function(FullErrorScreen value)? fullErrorScreen,
+    TResult Function(FullScreenForm value)? fullScreenForm,
     TResult Function(ContentScreen value)? contentScreen,
     TResult Function(EmptySreen value)? empty,
     required TResult orElse(),
@@ -1753,7 +2087,10 @@ class _$EmptySreen implements EmptySreen {
             double? height, String? until)
         popUpForm,
     required TResult Function(String title, String message, String? until)
-        fullErrorSreen,
+        fullErrorScreen,
+    required TResult Function(
+            String title, Widget bodyWidget, String message, String? until)
+        fullScreenForm,
     required TResult Function() contentScreen,
     required TResult Function() empty,
   }) {
@@ -1777,7 +2114,10 @@ class _$EmptySreen implements EmptySreen {
             double? height, String? until)?
         popUpForm,
     TResult? Function(String title, String message, String? until)?
-        fullErrorSreen,
+        fullErrorScreen,
+    TResult? Function(
+            String title, Widget bodyWidget, String message, String? until)?
+        fullScreenForm,
     TResult? Function()? contentScreen,
     TResult? Function()? empty,
   }) {
@@ -1801,7 +2141,10 @@ class _$EmptySreen implements EmptySreen {
             double? height, String? until)?
         popUpForm,
     TResult Function(String title, String message, String? until)?
-        fullErrorSreen,
+        fullErrorScreen,
+    TResult Function(
+            String title, Widget bodyWidget, String message, String? until)?
+        fullScreenForm,
     TResult Function()? contentScreen,
     TResult Function()? empty,
     required TResult orElse(),
@@ -1820,7 +2163,8 @@ class _$EmptySreen implements EmptySreen {
     required TResult Function(PopUpServerError value) popUpServerError,
     required TResult Function(PopUpLoading value) popUpLoading,
     required TResult Function(PopUpForm value) popUpForm,
-    required TResult Function(FullErrorSreen value) fullErrorSreen,
+    required TResult Function(FullErrorScreen value) fullErrorScreen,
+    required TResult Function(FullScreenForm value) fullScreenForm,
     required TResult Function(ContentScreen value) contentScreen,
     required TResult Function(EmptySreen value) empty,
   }) {
@@ -1835,7 +2179,8 @@ class _$EmptySreen implements EmptySreen {
     TResult? Function(PopUpServerError value)? popUpServerError,
     TResult? Function(PopUpLoading value)? popUpLoading,
     TResult? Function(PopUpForm value)? popUpForm,
-    TResult? Function(FullErrorSreen value)? fullErrorSreen,
+    TResult? Function(FullErrorScreen value)? fullErrorScreen,
+    TResult? Function(FullScreenForm value)? fullScreenForm,
     TResult? Function(ContentScreen value)? contentScreen,
     TResult? Function(EmptySreen value)? empty,
   }) {
@@ -1850,7 +2195,8 @@ class _$EmptySreen implements EmptySreen {
     TResult Function(PopUpServerError value)? popUpServerError,
     TResult Function(PopUpLoading value)? popUpLoading,
     TResult Function(PopUpForm value)? popUpForm,
-    TResult Function(FullErrorSreen value)? fullErrorSreen,
+    TResult Function(FullErrorScreen value)? fullErrorScreen,
+    TResult Function(FullScreenForm value)? fullScreenForm,
     TResult Function(ContentScreen value)? contentScreen,
     TResult Function(EmptySreen value)? empty,
     required TResult orElse(),

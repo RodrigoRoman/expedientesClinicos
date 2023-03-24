@@ -17,12 +17,12 @@ part 'category_watcher_bloc.freezed.dart';
 class CategoryWatcherBloc
     extends Bloc<CategoryWatcherEvent, CategoryWatcherState> {
   final ICategoryRepository _categoryRepository;
-  final String _collectionName;
   StreamSubscription<Either<CategoryFailures, KtList<Category>>>?
       _categoriesStreamSubscription;
-  CategoryWatcherBloc(this._categoryRepository, this._collectionName)
+  CategoryWatcherBloc(this._categoryRepository)
       : super(const CategoryWatcherState.initial()) {
     on<_WatchAllStarted>((event, emit) {
+      print('inside watchall');
       _categoriesStreamSubscription?.cancel;
       _categoriesStreamSubscription =
           _categoryRepository.watchAll().listen((failureOrCategories) {
@@ -30,6 +30,7 @@ class CategoryWatcherBloc
       });
     });
     on<_WatchFilteredStarted>((event, emit) {
+      print('inside watch filtered');
       _categoriesStreamSubscription?.cancel;
       _categoriesStreamSubscription = _categoryRepository
           .watchFiltered(event.keyword)
@@ -39,11 +40,8 @@ class CategoryWatcherBloc
     });
     //Combine the two watchers above listening to the CategoriesReceived event that they emit
     on<_CategoriesReceived>((event, emit) async {
-      print('...... emitting new state .....');
-
       emit(event.failureOrCategories
           .fold((f) => CategoryWatcherState.loadFailure(f), (categories) {
-        print(categories.asList().length);
         return CategoryWatcherState.loadSuccess(categories);
       }));
     });

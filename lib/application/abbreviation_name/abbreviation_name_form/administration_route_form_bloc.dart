@@ -6,7 +6,8 @@ import 'package:injectable/injectable.dart';
 @injectable
 class AdministrationRouteFormBloc extends AbbreviationNameFormBloc {
   final INameAbbreviationRepository _iAdministrationRouteRepository;
-  AdministrationRouteFormBloc(this._iAdministrationRouteRepository)
-      : super(_iAdministrationRouteRepository,
-            FirebaseCollectionNameAbbreviations.administrationRoutes);
+  AdministrationRouteFormBloc(
+      @Named(FirebaseCollectionNameAbbreviations.administrationRoutes)
+          this._iAdministrationRouteRepository)
+      : super(_iAdministrationRouteRepository);
 }

@@ -1,6 +1,6 @@
 import 'package:expedientes_clinicos/application/abbreviation_name/abbreviation_name_watcher/abbreviation_name_watcher_bloc.dart';
 import 'package:expedientes_clinicos/application/abbreviation_name/abbreviation_name_watcher/measure_unit_watcher_bloc.dart';
-import 'package:expedientes_clinicos/application/medicine/medicine_form/medicine_form_bloc.dart';
+import 'package:expedientes_clinicos/application/medicine/generic_medicine/generic_medicine_form/generic_medicine_form_bloc.dart';
 import 'package:expedientes_clinicos/application/state_render/state_renderer_bloc.dart';
 import 'package:expedientes_clinicos/domain/core/name_abbreviation/name_abbr.dart';
 import 'package:expedientes_clinicos/injection.dart';
@@ -50,13 +50,16 @@ class _DropdownSearchMeasureUnitState extends State<DropdownSearchMeasureUnit> {
                       AppStrings.unableToReadErrorExplain, null, 300, 500))));
         }, builder: (context, state) {
           return DropdownSearchAbbreviationNameRoute(
-            abbreviationName:
-                context.read<MedicineFormBloc>().state.medicine.measureUnit,
+            abbreviationName: context
+                .read<GenericMedicineFormBloc>()
+                .state
+                .medicine
+                .measureUnit,
             searchFieldController: searchFieldController,
             onSelected: (nameAbbr) {
               context
-                  .read<MedicineFormBloc>()
-                  .add(MedicineFormEvent.measureUnitChanged(nameAbbr));
+                  .read<GenericMedicineFormBloc>()
+                  .add(GenericMedicineFormEvent.measureUnitChanged(nameAbbr));
             },
             onSearchWithKey: (key) {
               context

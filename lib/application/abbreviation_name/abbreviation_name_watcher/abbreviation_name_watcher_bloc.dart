@@ -17,9 +17,7 @@ part 'abbreviation_name_watcher_bloc.freezed.dart';
 class AbbreviationNameWatcherBloc
     extends Bloc<AbbreviationNameWatcherEvent, AbbreviationNameWatcherState> {
   final INameAbbreviationRepository _iAbbreviationNameRepository;
-  final String _collectionName;
-  AbbreviationNameWatcherBloc(
-      this._iAbbreviationNameRepository, this._collectionName)
+  AbbreviationNameWatcherBloc(this._iAbbreviationNameRepository)
       : super(const AbbreviationNameWatcherState.initial()) {
     StreamSubscription<
             Either<NameAbbreviationFailure, KtList<NameAbbreviation>>>?
@@ -34,8 +32,6 @@ class AbbreviationNameWatcherBloc
       });
     });
     on<_WatchFilteredStarted>((event, emit) {
-      print('watch filtered bloc');
-      print(event.keyword);
       _abreviationNameStreamSubscription?.cancel;
       _abreviationNameStreamSubscription = _iAbbreviationNameRepository
           .watchFiltered(event.keyword)

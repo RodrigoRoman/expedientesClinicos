@@ -17,10 +17,8 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$Prescription {
   UniqueId get id => throw _privateConstructorUsedError;
-  Medicine get medicine => throw _privateConstructorUsedError;
-  NonNegInt get dose => throw _privateConstructorUsedError;
-  TimeInterval get frequency => throw _privateConstructorUsedError;
-  TimeInterval get duration => throw _privateConstructorUsedError;
+  BrandedMedicine get medicine => throw _privateConstructorUsedError;
+  Dose get dose => throw _privateConstructorUsedError;
   List3<Indication> get indications => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -36,15 +34,12 @@ abstract class $PrescriptionCopyWith<$Res> {
   @useResult
   $Res call(
       {UniqueId id,
-      Medicine medicine,
-      NonNegInt dose,
-      TimeInterval frequency,
-      TimeInterval duration,
+      BrandedMedicine medicine,
+      Dose dose,
       List3<Indication> indications});
 
-  $MedicineCopyWith<$Res> get medicine;
-  $TimeIntervalCopyWith<$Res> get frequency;
-  $TimeIntervalCopyWith<$Res> get duration;
+  $BrandedMedicineCopyWith<$Res> get medicine;
+  $DoseCopyWith<$Res> get dose;
 }
 
 /// @nodoc
@@ -63,8 +58,6 @@ class _$PrescriptionCopyWithImpl<$Res, $Val extends Prescription>
     Object? id = null,
     Object? medicine = null,
     Object? dose = null,
-    Object? frequency = null,
-    Object? duration = null,
     Object? indications = null,
   }) {
     return _then(_value.copyWith(
@@ -75,19 +68,11 @@ class _$PrescriptionCopyWithImpl<$Res, $Val extends Prescription>
       medicine: null == medicine
           ? _value.medicine
           : medicine // ignore: cast_nullable_to_non_nullable
-              as Medicine,
+              as BrandedMedicine,
       dose: null == dose
           ? _value.dose
           : dose // ignore: cast_nullable_to_non_nullable
-              as NonNegInt,
-      frequency: null == frequency
-          ? _value.frequency
-          : frequency // ignore: cast_nullable_to_non_nullable
-              as TimeInterval,
-      duration: null == duration
-          ? _value.duration
-          : duration // ignore: cast_nullable_to_non_nullable
-              as TimeInterval,
+              as Dose,
       indications: null == indications
           ? _value.indications
           : indications // ignore: cast_nullable_to_non_nullable
@@ -97,25 +82,17 @@ class _$PrescriptionCopyWithImpl<$Res, $Val extends Prescription>
 
   @override
   @pragma('vm:prefer-inline')
-  $MedicineCopyWith<$Res> get medicine {
-    return $MedicineCopyWith<$Res>(_value.medicine, (value) {
+  $BrandedMedicineCopyWith<$Res> get medicine {
+    return $BrandedMedicineCopyWith<$Res>(_value.medicine, (value) {
       return _then(_value.copyWith(medicine: value) as $Val);
     });
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $TimeIntervalCopyWith<$Res> get frequency {
-    return $TimeIntervalCopyWith<$Res>(_value.frequency, (value) {
-      return _then(_value.copyWith(frequency: value) as $Val);
-    });
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $TimeIntervalCopyWith<$Res> get duration {
-    return $TimeIntervalCopyWith<$Res>(_value.duration, (value) {
-      return _then(_value.copyWith(duration: value) as $Val);
+  $DoseCopyWith<$Res> get dose {
+    return $DoseCopyWith<$Res>(_value.dose, (value) {
+      return _then(_value.copyWith(dose: value) as $Val);
     });
   }
 }
@@ -130,18 +107,14 @@ abstract class _$$_PrescriptionCopyWith<$Res>
   @useResult
   $Res call(
       {UniqueId id,
-      Medicine medicine,
-      NonNegInt dose,
-      TimeInterval frequency,
-      TimeInterval duration,
+      BrandedMedicine medicine,
+      Dose dose,
       List3<Indication> indications});
 
   @override
-  $MedicineCopyWith<$Res> get medicine;
+  $BrandedMedicineCopyWith<$Res> get medicine;
   @override
-  $TimeIntervalCopyWith<$Res> get frequency;
-  @override
-  $TimeIntervalCopyWith<$Res> get duration;
+  $DoseCopyWith<$Res> get dose;
 }
 
 /// @nodoc
@@ -158,8 +131,6 @@ class __$$_PrescriptionCopyWithImpl<$Res>
     Object? id = null,
     Object? medicine = null,
     Object? dose = null,
-    Object? frequency = null,
-    Object? duration = null,
     Object? indications = null,
   }) {
     return _then(_$_Prescription(
@@ -170,19 +141,11 @@ class __$$_PrescriptionCopyWithImpl<$Res>
       medicine: null == medicine
           ? _value.medicine
           : medicine // ignore: cast_nullable_to_non_nullable
-              as Medicine,
+              as BrandedMedicine,
       dose: null == dose
           ? _value.dose
           : dose // ignore: cast_nullable_to_non_nullable
-              as NonNegInt,
-      frequency: null == frequency
-          ? _value.frequency
-          : frequency // ignore: cast_nullable_to_non_nullable
-              as TimeInterval,
-      duration: null == duration
-          ? _value.duration
-          : duration // ignore: cast_nullable_to_non_nullable
-              as TimeInterval,
+              as Dose,
       indications: null == indications
           ? _value.indications
           : indications // ignore: cast_nullable_to_non_nullable
@@ -198,27 +161,21 @@ class _$_Prescription extends _Prescription {
       {required this.id,
       required this.medicine,
       required this.dose,
-      required this.frequency,
-      required this.duration,
       required this.indications})
       : super._();
 
   @override
   final UniqueId id;
   @override
-  final Medicine medicine;
+  final BrandedMedicine medicine;
   @override
-  final NonNegInt dose;
-  @override
-  final TimeInterval frequency;
-  @override
-  final TimeInterval duration;
+  final Dose dose;
   @override
   final List3<Indication> indications;
 
   @override
   String toString() {
-    return 'Prescription(id: $id, medicine: $medicine, dose: $dose, frequency: $frequency, duration: $duration, indications: $indications)';
+    return 'Prescription(id: $id, medicine: $medicine, dose: $dose, indications: $indications)';
   }
 
   @override
@@ -230,17 +187,12 @@ class _$_Prescription extends _Prescription {
             (identical(other.medicine, medicine) ||
                 other.medicine == medicine) &&
             (identical(other.dose, dose) || other.dose == dose) &&
-            (identical(other.frequency, frequency) ||
-                other.frequency == frequency) &&
-            (identical(other.duration, duration) ||
-                other.duration == duration) &&
             (identical(other.indications, indications) ||
                 other.indications == indications));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, id, medicine, dose, frequency, duration, indications);
+  int get hashCode => Object.hash(runtimeType, id, medicine, dose, indications);
 
   @JsonKey(ignore: true)
   @override
@@ -252,23 +204,17 @@ class _$_Prescription extends _Prescription {
 abstract class _Prescription extends Prescription {
   const factory _Prescription(
       {required final UniqueId id,
-      required final Medicine medicine,
-      required final NonNegInt dose,
-      required final TimeInterval frequency,
-      required final TimeInterval duration,
+      required final BrandedMedicine medicine,
+      required final Dose dose,
       required final List3<Indication> indications}) = _$_Prescription;
   const _Prescription._() : super._();
 
   @override
   UniqueId get id;
   @override
-  Medicine get medicine;
+  BrandedMedicine get medicine;
   @override
-  NonNegInt get dose;
-  @override
-  TimeInterval get frequency;
-  @override
-  TimeInterval get duration;
+  Dose get dose;
   @override
   List3<Indication> get indications;
   @override
