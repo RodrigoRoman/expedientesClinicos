@@ -9,7 +9,8 @@ import 'package:expedientes_clinicos/domain/core/categories/category.dart';
 import 'package:expedientes_clinicos/presentation/resources/string_manager.dart';
 
 class BrandedMedicineFormPage extends StatefulWidget {
-  const BrandedMedicineFormPage({super.key});
+  BrandedMedicineFormPage({this.onCreated, super.key});
+  Function? onCreated;
 
   @override
   State<BrandedMedicineFormPage> createState() =>
@@ -17,35 +18,24 @@ class BrandedMedicineFormPage extends StatefulWidget {
 }
 
 class _BrandedMedicineFormPageState extends State<BrandedMedicineFormPage> {
-  final TextEditingController categoryText = TextEditingController();
-
-  final TextEditingController medicineComercialController =
-      TextEditingController();
-
-  final TextEditingController medicineGenericController =
-      TextEditingController();
-
-  final TextEditingController measureUnitText = TextEditingController();
-
-  final TextEditingController adminRouteText = TextEditingController();
-
-  final TextEditingController description = TextEditingController();
-
-  final ScrollController scrollController = ScrollController();
-
   bool requestedSubmition = false;
 
   final _key = GlobalKey<FormState>();
 
   List<Category> categoriesList = [];
+  
+  @override
+  void dispose() {
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     final double keyboardHeight = MediaQuery.of(context).viewInsets.bottom;
-    WidgetsBinding.instance.addPostFrameCallback((_) async =>
-        scrollController.animateTo(keyboardHeight / 2,
-            duration: const Duration(milliseconds: 300),
-            curve: Curves.easeInOut));
+    // WidgetsBinding.instance.addPostFrameCallback((_) async =>
+    //     scrollController.animateTo(keyboardHeight / 2,
+    //         duration: const Duration(milliseconds: 300),
+    //         curve: Curves.easeInOut));
     return LayoutBuilder(builder: (context, constraint) {
       double heightUnit = (constraint.maxHeight + keyboardHeight) / 16;
       return SizedBox(
@@ -112,6 +102,7 @@ class _BrandedMedicineFormPageState extends State<BrandedMedicineFormPage> {
                                           500));
                                 },
                               ), (r) {
+                        widget.onCreated?.call(state.medicine);
                         context.read<StateRendererBloc>().add(
                             StateRendererEvent.popUpSuccess(
                                 AppStrings.success,

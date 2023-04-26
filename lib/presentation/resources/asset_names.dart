@@ -17,4 +17,7 @@ class AppAssetNames {
   //image names
   static const controlledImage = "$IMG_PATH/medicine/controlled.png";
   static const freeSaleImage = "$IMG_PATH/medicine/free_sale.png";
+
+  //general images
+  static const digitalWatchBackground = "$IMG_PATH/general/digital_watch.png";
 }

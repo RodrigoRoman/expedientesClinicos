@@ -9,7 +9,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class MedicineCategoryForm extends StatefulWidget {
   final Category category;
-  const MedicineCategoryForm({required this.category, super.key});
+  Function? onCreated;
+
+  MedicineCategoryForm({required this.category, this.onCreated, super.key});
   @override
   State<MedicineCategoryForm> createState() => _MedicineCategoryFormState();
 }
@@ -75,6 +77,7 @@ class _MedicineCategoryFormState extends State<MedicineCategoryForm> {
                                     500));
                           },
                         ), (r) {
+                  widget.onCreated?.call(state.category);
                   context.read<StateRendererBloc>().add(
                       StateRendererEvent.popUpSuccess(AppStrings.success,
                           AppStrings.successfullyCreated, null, 300, 500));
@@ -84,7 +87,6 @@ class _MedicineCategoryFormState extends State<MedicineCategoryForm> {
         return CategoryForm(
           category: context.read<MedicineCategoryFormBloc>().state.category,
           onNameChanged: (name) {
-            print(name);
             context
                 .read<MedicineCategoryFormBloc>()
                 .add(CategoryFormEvent.nameChanged(name));
@@ -103,14 +105,6 @@ class _MedicineCategoryFormState extends State<MedicineCategoryForm> {
             //         (_) => null);
           },
           onImageChanged: (img) {
-            print('nueva imagen');
-            print(img);
-            print('saved?');
-            print(context
-                .read<MedicineCategoryFormBloc>()
-                .state
-                .category
-                .imageUrl);
             context
                 .read<MedicineCategoryFormBloc>()
                 .add(CategoryFormEvent.imageUrlChanged(img));

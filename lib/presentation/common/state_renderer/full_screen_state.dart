@@ -8,10 +8,8 @@ class FullScreenState extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print('JJJJJJ');
     return Scaffold(
       appBar: AppBar(
-        title: Text('Why'),
         iconTheme: const IconThemeData(
           color: Colors.blue, //change your color here
         ),

@@ -21,20 +21,20 @@ class PopUpDialog extends StatelessWidget {
       shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(AppSize.s14)),
       elevation: AppSize.s1_5,
-      backgroundColor: Colors.transparent,
+      backgroundColor: Colors.white,
       child: Container(
         height: dialogHeight,
         width: dialogWidth,
         decoration: BoxDecoration(
-            color: Colors.transparent,
+            color: Colors.white,
             shape: BoxShape.rectangle,
             borderRadius: BorderRadius.circular(AppSize.s14),
             boxShadow: const [
               BoxShadow(
-                  color: Colors.white24,
+                  color: Colors.white54,
                   blurRadius: AppSize.s4,
                   spreadRadius: AppSize.s8,
-                  offset: Offset(AppSize.s0, AppSize.s0))
+                  offset: Offset(AppSize.s3, AppSize.s3))
             ]),
         child: Container(
             height: dialogHeight,

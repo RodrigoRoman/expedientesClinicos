@@ -26,7 +26,7 @@ abstract class NameAbbreviationDto implements _$NameAbbreviationDto {
   NameAbbreviation toDomain() {
     return NameAbbreviation(
         id: UniqueId.fromUniqueString(id),
-        name: AbbrName(name),
+        name: FullName(name),
         abbr: AbbrName(abbr));
   }
 

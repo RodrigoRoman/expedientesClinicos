@@ -83,19 +83,14 @@ class _DropdownSearchPharmaceuticalFormState
                       'Crear ${AppStrings.pharmaceuticalForm}',
                       PharmaceuticalFormForm(
                         nameAbbreviation: NameAbbreviation.empty(),
-                        onAbbreviationChanged: (newAbbr) {
-                          context.read<PharmaceuticalFormFormBloc>().add(
-                              AbbreviationNameFormEvent.abreviationChanged(
-                                  newAbbr));
-                        },
-                        onNameChanged: (newName) {
-                          context.read<PharmaceuticalFormFormBloc>().add(
-                              AbbreviationNameFormEvent.nameChanged(newName));
-                        },
-                        onSubmit: () {
-                          context
-                              .read<PharmaceuticalFormFormBloc>()
-                              .add(const AbbreviationNameFormEvent.saved());
+                        onCreated: (NameAbbreviation nameAbbreviation) {
+                          context.read<GenericMedicineFormBloc>().add(
+                              GenericMedicineFormEvent
+                                  .pharmaceuticalFormChanged(nameAbbreviation));
+                          searchFieldController.text = nameAbbreviation
+                              .name.value
+                              .fold((l) => '', (r) => r);
+                          setState(() {});
                         },
                       ),
                       300,

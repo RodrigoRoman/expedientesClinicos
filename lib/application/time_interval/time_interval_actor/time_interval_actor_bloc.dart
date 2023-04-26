@@ -13,8 +13,7 @@ part 'time_interval_actor_bloc.freezed.dart';
 class TimeIntervalActorBloc
     extends Bloc<TimeIntervalActorEvent, TimeIntervalActorState> {
   final ITimeIntervalRepository _iTimeIntervalRepository;
-  final String _collectionName;
-  TimeIntervalActorBloc(this._iTimeIntervalRepository, this._collectionName)
+  TimeIntervalActorBloc(this._iTimeIntervalRepository)
       : super(const TimeIntervalActorState.initial()) {
     on<_Deleted>((event, emit) async {
       emit(const TimeIntervalActorState.actionInProgress());

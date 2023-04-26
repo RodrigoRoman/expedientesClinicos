@@ -27,7 +27,7 @@ class CategoryRepository implements ICategoryRepository {
   String get collectionName => _collectionName;
 
   @override
-  Future<Either<CategoryFailures, Unit>> create(Category category) async {
+  Future<Either<CategoryFailures, Category>> create(Category category) async {
     try {
       //Upload image to Firestorage
       CategoryDto categoryDto = CategoryDto.fromDomain(category);
@@ -51,8 +51,11 @@ class CategoryRepository implements ICategoryRepository {
 
       //We keep the id that comes from categoryDto and avoid autogeneration
       await categories.doc(categoryDto.id).set(data);
+      Category newCategory =
+          CategoryDto.fromFirestore(await categories.doc(categoryDto.id).get())
+              .toDomain();
 
-      return right(unit);
+      return right(newCategory);
     } on FirebaseException catch (e) {
       return left(const CategoryFailures.unableToUploadImage());
     } on PlatformException catch (e) {
@@ -153,7 +156,7 @@ class CategoryRepository implements ICategoryRepository {
 
   //Needs to be modified for updating imageUrl and keywords
   @override
-  Future<Either<CategoryFailures, Unit>> update(Category category) async {
+  Future<Either<CategoryFailures, Category>> update(Category category) async {
     try {
       CategoryDto categoryDto = CategoryDto.fromDomain(category);
 
@@ -177,8 +180,11 @@ class CategoryRepository implements ICategoryRepository {
 
       //We keep the id that comes from categoryDto and avoid autogeneration
       await categories.doc(categoryDto.id).set(data);
+      Category newCategory =
+          CategoryDto.fromFirestore(await categories.doc(categoryDto.id).get())
+              .toDomain();
 
-      return right(unit);
+      return right(newCategory);
     } on PlatformException catch (e) {
       // These error codes and messages aren't in the documentation AFAIK, experiment in the debugger to find out about them.
       if (e.message!.contains('PERMISSION_DENIED')) {
@@ -192,8 +198,6 @@ class CategoryRepository implements ICategoryRepository {
   @override
   Stream<Either<CategoryFailures, KtList<Category>>> watchAll() async* {
     final category = _firestore.collection(_collectionName);
-    print('inside repo');
-    print(_collectionName);
     yield* category
         .snapshots()
         .map(

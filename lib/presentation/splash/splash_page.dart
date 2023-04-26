@@ -80,7 +80,7 @@ class _SplashPageState extends State<SplashPage> {
         onPressed: () async {
           if (!mounted) return;
 
-          await context.router.push(const GenericMedicineFormRoute());
+          await context.router.push(GenericMedicineFormRoute());
         },
         tooltip: 'Increment',
         child: const Icon(Icons.add),

@@ -67,7 +67,6 @@ class StateAppWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print('STATE RENDER');
     Size size = MediaQuery.of(context).size;
     switch (stateRendererType) {
       case StateRendererType.POPUP_LOADING_STATE:
@@ -119,13 +118,13 @@ class StateAppWidget extends StatelessWidget {
       case StateRendererType.POPUP_FORM:
         return PopUpDialog(
           children: [
-            FittedBox(
-              child: Text(
-                title ?? '',
-                style: Theme.of(context)
-                    .textTheme
-                    .displayLarge!
-                    .copyWith(color: Theme.of(context).colorScheme.background),
+            Padding(
+              padding: const EdgeInsets.all(3.0),
+              child: FittedBox(
+                child: Text(
+                  title ?? '',
+                  style: Theme.of(context).textTheme.headlineMedium,
+                ),
               ),
             ),
             SizedBox(

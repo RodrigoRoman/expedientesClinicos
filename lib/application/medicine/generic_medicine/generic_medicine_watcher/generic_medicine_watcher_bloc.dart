@@ -38,10 +38,8 @@ class GenericMedicineWatcherBloc
     });
     //Combine the two watchers above listening to the CategoriesReceived event that they emit
     on<_MedicinesReceived>((event, emit) async {
-      print('...... emitting new state .....');
       emit(event.failureOrMedicines
           .fold((f) => GenericMedicineWatcherState.loadFailure(f), (medicines) {
-        print(medicines.asList().length);
         return GenericMedicineWatcherState.loadSuccess(medicines);
       }));
     });

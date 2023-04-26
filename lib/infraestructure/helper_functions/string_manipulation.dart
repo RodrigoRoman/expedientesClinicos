@@ -1,7 +1,7 @@
 //create list of words to facilitate search with array-contains
 List<String> generateKeywords(String word) {
   List<String> keywords = [];
-  List<String> splittedWord = word.split(RegExp('\W'));
+  List<String> splittedWord = word.split(RegExp(r'[^\wW]+'));
   splittedWord = splittedWord.map((e) => removeSpecialCharacters(e)).toList();
   List<String> permutes = [];
   for (var wd in splittedWord) {

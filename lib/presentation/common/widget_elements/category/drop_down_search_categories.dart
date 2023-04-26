@@ -75,7 +75,9 @@ class _DropdownSearchCategoriesState extends State<DropdownSearchCategories> {
   @override
   void dispose() {
     _focusNode.dispose();
-    _overlayEntry!.remove();
+    if (_overlayEntry != null) {
+      _overlayEntry!.remove();
+    }
     _overlayEntry = null;
     super.dispose();
   }
@@ -177,6 +179,8 @@ class _DropdownSearchCategoriesState extends State<DropdownSearchCategories> {
 
   @override
   Widget build(BuildContext context) {
+    int inputLenght = widget.searchFieldController.text.length;
+
     return
         // BlocListener<MedicineCategoryWatcherBloc, CategoryWatcherState>(
         //     listener: (context, state) {
@@ -237,30 +241,49 @@ class _DropdownSearchCategoriesState extends State<DropdownSearchCategories> {
                       : TextFormField(
                           controller: widget.searchFieldController,
                           textAlign: TextAlign.center,
+                          textCapitalization: TextCapitalization.sentences,
                           decoration: InputDecoration(
                             icon: const Icon(Icons.search_rounded,
                                 size: FontSize.s18),
                             border: InputBorder.none,
                             hintText: widget.hintText,
                           ),
+                          style: (widget.searchFieldController.text.length != 0)
+                              ? Theme.of(context)
+                                  .textTheme
+                                  .bodyMedium!
+                                  .copyWith(
+                                      fontSize: 40 / ((inputLenght + 5) * 0.3))
+                              : Theme.of(context)
+                                  .textTheme
+                                  .bodyMedium!
+                                  .copyWith(fontSize: 8),
                           focusNode: _focusNode,
                           keyboardType: TextInputType.text,
-                          textCapitalization: TextCapitalization.words,
                           textInputAction: TextInputAction.next,
                           onChanged: (value) {
-                            widget.searchFieldController.text = value;
-                            widget.searchFieldController.selection =
-                                TextSelection.fromPosition(TextPosition(
-                                    offset: widget
-                                        .searchFieldController.text.length));
+                            widget.searchFieldController.value =
+                                TextEditingValue(
+                              text: value,
+                              selection: TextSelection.fromPosition(
+                                TextPosition(
+                                    offset: widget.searchFieldController
+                                        .selection.extentOffset),
+                              ),
+                            );
                             if (value.isEmpty) {
                               widget.onSearchAll();
+
                               // context.read<MedicineCategoryWatcherBloc>().add(
                               //     const CategoryWatcherEvent
                               //         .watchAllStarted());
                             } else {
                               widget.onSearchWithKey(
                                   widget.searchFieldController.text);
+                              setState(() {
+                                inputLenght =
+                                    widget.searchFieldController.text.length;
+                              });
                               // context.read<MedicineCategoryWatcherBloc>().add(
                               //     CategoryWatcherEvent.watchFilteredStarted(
                               //         widget.searchFieldController.text));

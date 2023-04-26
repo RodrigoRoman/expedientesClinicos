@@ -41,15 +41,25 @@ class AppRouter extends _i6.RootStackRouter {
       );
     },
     GenericMedicineFormRoute.name: (routeData) {
+      final args = routeData.argsAs<GenericMedicineFormRouteArgs>(
+          orElse: () => const GenericMedicineFormRouteArgs());
       return _i6.MaterialPageX<dynamic>(
         routeData: routeData,
-        child: const _i3.GenericMedicineFormPage(),
+        child: _i3.GenericMedicineFormPage(
+          onCreated: args.onCreated,
+          key: args.key,
+        ),
       );
     },
     BrandedMedicineFormRoute.name: (routeData) {
+      final args = routeData.argsAs<BrandedMedicineFormRouteArgs>(
+          orElse: () => const BrandedMedicineFormRouteArgs());
       return _i6.MaterialPageX<dynamic>(
         routeData: routeData,
-        child: const _i4.BrandedMedicineFormPage(),
+        child: _i4.BrandedMedicineFormPage(
+          onCreated: args.onCreated,
+          key: args.key,
+        ),
       );
     },
     FullScreenState.name: (routeData) {
@@ -115,26 +125,72 @@ class PatientVisitRoute extends _i6.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i3.GenericMedicineFormPage]
-class GenericMedicineFormRoute extends _i6.PageRouteInfo<void> {
-  const GenericMedicineFormRoute()
-      : super(
+class GenericMedicineFormRoute
+    extends _i6.PageRouteInfo<GenericMedicineFormRouteArgs> {
+  GenericMedicineFormRoute({
+    Function? onCreated,
+    _i7.Key? key,
+  }) : super(
           GenericMedicineFormRoute.name,
           path: '/generic-medicine-form-page',
+          args: GenericMedicineFormRouteArgs(
+            onCreated: onCreated,
+            key: key,
+          ),
         );
 
   static const String name = 'GenericMedicineFormRoute';
 }
 
+class GenericMedicineFormRouteArgs {
+  const GenericMedicineFormRouteArgs({
+    this.onCreated,
+    this.key,
+  });
+
+  final Function? onCreated;
+
+  final _i7.Key? key;
+
+  @override
+  String toString() {
+    return 'GenericMedicineFormRouteArgs{onCreated: $onCreated, key: $key}';
+  }
+}
+
 /// generated route for
 /// [_i4.BrandedMedicineFormPage]
-class BrandedMedicineFormRoute extends _i6.PageRouteInfo<void> {
-  const BrandedMedicineFormRoute()
-      : super(
+class BrandedMedicineFormRoute
+    extends _i6.PageRouteInfo<BrandedMedicineFormRouteArgs> {
+  BrandedMedicineFormRoute({
+    Function? onCreated,
+    _i7.Key? key,
+  }) : super(
           BrandedMedicineFormRoute.name,
           path: '/branded-medicine-form-page',
+          args: BrandedMedicineFormRouteArgs(
+            onCreated: onCreated,
+            key: key,
+          ),
         );
 
   static const String name = 'BrandedMedicineFormRoute';
+}
+
+class BrandedMedicineFormRouteArgs {
+  const BrandedMedicineFormRouteArgs({
+    this.onCreated,
+    this.key,
+  });
+
+  final Function? onCreated;
+
+  final _i7.Key? key;
+
+  @override
+  String toString() {
+    return 'BrandedMedicineFormRouteArgs{onCreated: $onCreated, key: $key}';
+  }
 }
 
 /// generated route for

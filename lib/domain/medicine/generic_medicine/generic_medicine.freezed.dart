@@ -297,45 +297,6 @@ class _$_GenericMedicine extends _GenericMedicine {
     return 'GenericMedicine(id: $id, genericName: $genericName, measureUnit: $measureUnit, amountMeasureUnit: $amountMeasureUnit, administrationRoute: $administrationRoute, pharmaceuticalForm: $pharmaceuticalForm, amountPerPackage: $amountPerPackage, category: $category, controlled: $controlled, counter: $counter)';
   }
 
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_GenericMedicine &&
-            (identical(other.id, id) || other.id == id) &&
-            (identical(other.genericName, genericName) ||
-                other.genericName == genericName) &&
-            (identical(other.measureUnit, measureUnit) ||
-                other.measureUnit == measureUnit) &&
-            (identical(other.amountMeasureUnit, amountMeasureUnit) ||
-                other.amountMeasureUnit == amountMeasureUnit) &&
-            (identical(other.administrationRoute, administrationRoute) ||
-                other.administrationRoute == administrationRoute) &&
-            (identical(other.pharmaceuticalForm, pharmaceuticalForm) ||
-                other.pharmaceuticalForm == pharmaceuticalForm) &&
-            (identical(other.amountPerPackage, amountPerPackage) ||
-                other.amountPerPackage == amountPerPackage) &&
-            (identical(other.category, category) ||
-                other.category == category) &&
-            (identical(other.controlled, controlled) ||
-                other.controlled == controlled) &&
-            (identical(other.counter, counter) || other.counter == counter));
-  }
-
-  @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      id,
-      genericName,
-      measureUnit,
-      amountMeasureUnit,
-      administrationRoute,
-      pharmaceuticalForm,
-      amountPerPackage,
-      category,
-      controlled,
-      counter);
-
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')

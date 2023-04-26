@@ -21,6 +21,7 @@ mixin _$PrescriptionFormEvent {
     required TResult Function(Option<Prescription> prescription) initialized,
     required TResult Function(BrandedMedicine medicine) onMedicineChanged,
     required TResult Function(Dose dose) onDoseChanged,
+    required TResult Function(DoseAmount doseAmount) onDoseAmountChanged,
     required TResult Function(Duration frequency) onChanged,
     required TResult Function(List<Indication> listIndications)
         onIndicationsChanged,
@@ -32,6 +33,7 @@ mixin _$PrescriptionFormEvent {
     TResult? Function(Option<Prescription> prescription)? initialized,
     TResult? Function(BrandedMedicine medicine)? onMedicineChanged,
     TResult? Function(Dose dose)? onDoseChanged,
+    TResult? Function(DoseAmount doseAmount)? onDoseAmountChanged,
     TResult? Function(Duration frequency)? onChanged,
     TResult? Function(List<Indication> listIndications)? onIndicationsChanged,
     TResult? Function()? saved,
@@ -42,6 +44,7 @@ mixin _$PrescriptionFormEvent {
     TResult Function(Option<Prescription> prescription)? initialized,
     TResult Function(BrandedMedicine medicine)? onMedicineChanged,
     TResult Function(Dose dose)? onDoseChanged,
+    TResult Function(DoseAmount doseAmount)? onDoseAmountChanged,
     TResult Function(Duration frequency)? onChanged,
     TResult Function(List<Indication> listIndications)? onIndicationsChanged,
     TResult Function()? saved,
@@ -53,6 +56,7 @@ mixin _$PrescriptionFormEvent {
     required TResult Function(_Initialized value) initialized,
     required TResult Function(_MedicineChanged value) onMedicineChanged,
     required TResult Function(_DoseChanged value) onDoseChanged,
+    required TResult Function(_DoseAmountChanged value) onDoseAmountChanged,
     required TResult Function(_FrequencyChanged value) onChanged,
     required TResult Function(_IndicationsChanged value) onIndicationsChanged,
     required TResult Function(_Saved value) saved,
@@ -63,6 +67,7 @@ mixin _$PrescriptionFormEvent {
     TResult? Function(_Initialized value)? initialized,
     TResult? Function(_MedicineChanged value)? onMedicineChanged,
     TResult? Function(_DoseChanged value)? onDoseChanged,
+    TResult? Function(_DoseAmountChanged value)? onDoseAmountChanged,
     TResult? Function(_FrequencyChanged value)? onChanged,
     TResult? Function(_IndicationsChanged value)? onIndicationsChanged,
     TResult? Function(_Saved value)? saved,
@@ -73,6 +78,7 @@ mixin _$PrescriptionFormEvent {
     TResult Function(_Initialized value)? initialized,
     TResult Function(_MedicineChanged value)? onMedicineChanged,
     TResult Function(_DoseChanged value)? onDoseChanged,
+    TResult Function(_DoseAmountChanged value)? onDoseAmountChanged,
     TResult Function(_FrequencyChanged value)? onChanged,
     TResult Function(_IndicationsChanged value)? onIndicationsChanged,
     TResult Function(_Saved value)? saved,
@@ -168,6 +174,7 @@ class _$_Initialized implements _Initialized {
     required TResult Function(Option<Prescription> prescription) initialized,
     required TResult Function(BrandedMedicine medicine) onMedicineChanged,
     required TResult Function(Dose dose) onDoseChanged,
+    required TResult Function(DoseAmount doseAmount) onDoseAmountChanged,
     required TResult Function(Duration frequency) onChanged,
     required TResult Function(List<Indication> listIndications)
         onIndicationsChanged,
@@ -182,6 +189,7 @@ class _$_Initialized implements _Initialized {
     TResult? Function(Option<Prescription> prescription)? initialized,
     TResult? Function(BrandedMedicine medicine)? onMedicineChanged,
     TResult? Function(Dose dose)? onDoseChanged,
+    TResult? Function(DoseAmount doseAmount)? onDoseAmountChanged,
     TResult? Function(Duration frequency)? onChanged,
     TResult? Function(List<Indication> listIndications)? onIndicationsChanged,
     TResult? Function()? saved,
@@ -195,6 +203,7 @@ class _$_Initialized implements _Initialized {
     TResult Function(Option<Prescription> prescription)? initialized,
     TResult Function(BrandedMedicine medicine)? onMedicineChanged,
     TResult Function(Dose dose)? onDoseChanged,
+    TResult Function(DoseAmount doseAmount)? onDoseAmountChanged,
     TResult Function(Duration frequency)? onChanged,
     TResult Function(List<Indication> listIndications)? onIndicationsChanged,
     TResult Function()? saved,
@@ -212,6 +221,7 @@ class _$_Initialized implements _Initialized {
     required TResult Function(_Initialized value) initialized,
     required TResult Function(_MedicineChanged value) onMedicineChanged,
     required TResult Function(_DoseChanged value) onDoseChanged,
+    required TResult Function(_DoseAmountChanged value) onDoseAmountChanged,
     required TResult Function(_FrequencyChanged value) onChanged,
     required TResult Function(_IndicationsChanged value) onIndicationsChanged,
     required TResult Function(_Saved value) saved,
@@ -225,6 +235,7 @@ class _$_Initialized implements _Initialized {
     TResult? Function(_Initialized value)? initialized,
     TResult? Function(_MedicineChanged value)? onMedicineChanged,
     TResult? Function(_DoseChanged value)? onDoseChanged,
+    TResult? Function(_DoseAmountChanged value)? onDoseAmountChanged,
     TResult? Function(_FrequencyChanged value)? onChanged,
     TResult? Function(_IndicationsChanged value)? onIndicationsChanged,
     TResult? Function(_Saved value)? saved,
@@ -238,6 +249,7 @@ class _$_Initialized implements _Initialized {
     TResult Function(_Initialized value)? initialized,
     TResult Function(_MedicineChanged value)? onMedicineChanged,
     TResult Function(_DoseChanged value)? onDoseChanged,
+    TResult Function(_DoseAmountChanged value)? onDoseAmountChanged,
     TResult Function(_FrequencyChanged value)? onChanged,
     TResult Function(_IndicationsChanged value)? onIndicationsChanged,
     TResult Function(_Saved value)? saved,
@@ -338,6 +350,7 @@ class _$_MedicineChanged implements _MedicineChanged {
     required TResult Function(Option<Prescription> prescription) initialized,
     required TResult Function(BrandedMedicine medicine) onMedicineChanged,
     required TResult Function(Dose dose) onDoseChanged,
+    required TResult Function(DoseAmount doseAmount) onDoseAmountChanged,
     required TResult Function(Duration frequency) onChanged,
     required TResult Function(List<Indication> listIndications)
         onIndicationsChanged,
@@ -352,6 +365,7 @@ class _$_MedicineChanged implements _MedicineChanged {
     TResult? Function(Option<Prescription> prescription)? initialized,
     TResult? Function(BrandedMedicine medicine)? onMedicineChanged,
     TResult? Function(Dose dose)? onDoseChanged,
+    TResult? Function(DoseAmount doseAmount)? onDoseAmountChanged,
     TResult? Function(Duration frequency)? onChanged,
     TResult? Function(List<Indication> listIndications)? onIndicationsChanged,
     TResult? Function()? saved,
@@ -365,6 +379,7 @@ class _$_MedicineChanged implements _MedicineChanged {
     TResult Function(Option<Prescription> prescription)? initialized,
     TResult Function(BrandedMedicine medicine)? onMedicineChanged,
     TResult Function(Dose dose)? onDoseChanged,
+    TResult Function(DoseAmount doseAmount)? onDoseAmountChanged,
     TResult Function(Duration frequency)? onChanged,
     TResult Function(List<Indication> listIndications)? onIndicationsChanged,
     TResult Function()? saved,
@@ -382,6 +397,7 @@ class _$_MedicineChanged implements _MedicineChanged {
     required TResult Function(_Initialized value) initialized,
     required TResult Function(_MedicineChanged value) onMedicineChanged,
     required TResult Function(_DoseChanged value) onDoseChanged,
+    required TResult Function(_DoseAmountChanged value) onDoseAmountChanged,
     required TResult Function(_FrequencyChanged value) onChanged,
     required TResult Function(_IndicationsChanged value) onIndicationsChanged,
     required TResult Function(_Saved value) saved,
@@ -395,6 +411,7 @@ class _$_MedicineChanged implements _MedicineChanged {
     TResult? Function(_Initialized value)? initialized,
     TResult? Function(_MedicineChanged value)? onMedicineChanged,
     TResult? Function(_DoseChanged value)? onDoseChanged,
+    TResult? Function(_DoseAmountChanged value)? onDoseAmountChanged,
     TResult? Function(_FrequencyChanged value)? onChanged,
     TResult? Function(_IndicationsChanged value)? onIndicationsChanged,
     TResult? Function(_Saved value)? saved,
@@ -408,6 +425,7 @@ class _$_MedicineChanged implements _MedicineChanged {
     TResult Function(_Initialized value)? initialized,
     TResult Function(_MedicineChanged value)? onMedicineChanged,
     TResult Function(_DoseChanged value)? onDoseChanged,
+    TResult Function(_DoseAmountChanged value)? onDoseAmountChanged,
     TResult Function(_FrequencyChanged value)? onChanged,
     TResult Function(_IndicationsChanged value)? onIndicationsChanged,
     TResult Function(_Saved value)? saved,
@@ -507,6 +525,7 @@ class _$_DoseChanged implements _DoseChanged {
     required TResult Function(Option<Prescription> prescription) initialized,
     required TResult Function(BrandedMedicine medicine) onMedicineChanged,
     required TResult Function(Dose dose) onDoseChanged,
+    required TResult Function(DoseAmount doseAmount) onDoseAmountChanged,
     required TResult Function(Duration frequency) onChanged,
     required TResult Function(List<Indication> listIndications)
         onIndicationsChanged,
@@ -521,6 +540,7 @@ class _$_DoseChanged implements _DoseChanged {
     TResult? Function(Option<Prescription> prescription)? initialized,
     TResult? Function(BrandedMedicine medicine)? onMedicineChanged,
     TResult? Function(Dose dose)? onDoseChanged,
+    TResult? Function(DoseAmount doseAmount)? onDoseAmountChanged,
     TResult? Function(Duration frequency)? onChanged,
     TResult? Function(List<Indication> listIndications)? onIndicationsChanged,
     TResult? Function()? saved,
@@ -534,6 +554,7 @@ class _$_DoseChanged implements _DoseChanged {
     TResult Function(Option<Prescription> prescription)? initialized,
     TResult Function(BrandedMedicine medicine)? onMedicineChanged,
     TResult Function(Dose dose)? onDoseChanged,
+    TResult Function(DoseAmount doseAmount)? onDoseAmountChanged,
     TResult Function(Duration frequency)? onChanged,
     TResult Function(List<Indication> listIndications)? onIndicationsChanged,
     TResult Function()? saved,
@@ -551,6 +572,7 @@ class _$_DoseChanged implements _DoseChanged {
     required TResult Function(_Initialized value) initialized,
     required TResult Function(_MedicineChanged value) onMedicineChanged,
     required TResult Function(_DoseChanged value) onDoseChanged,
+    required TResult Function(_DoseAmountChanged value) onDoseAmountChanged,
     required TResult Function(_FrequencyChanged value) onChanged,
     required TResult Function(_IndicationsChanged value) onIndicationsChanged,
     required TResult Function(_Saved value) saved,
@@ -564,6 +586,7 @@ class _$_DoseChanged implements _DoseChanged {
     TResult? Function(_Initialized value)? initialized,
     TResult? Function(_MedicineChanged value)? onMedicineChanged,
     TResult? Function(_DoseChanged value)? onDoseChanged,
+    TResult? Function(_DoseAmountChanged value)? onDoseAmountChanged,
     TResult? Function(_FrequencyChanged value)? onChanged,
     TResult? Function(_IndicationsChanged value)? onIndicationsChanged,
     TResult? Function(_Saved value)? saved,
@@ -577,6 +600,7 @@ class _$_DoseChanged implements _DoseChanged {
     TResult Function(_Initialized value)? initialized,
     TResult Function(_MedicineChanged value)? onMedicineChanged,
     TResult Function(_DoseChanged value)? onDoseChanged,
+    TResult Function(_DoseAmountChanged value)? onDoseAmountChanged,
     TResult Function(_FrequencyChanged value)? onChanged,
     TResult Function(_IndicationsChanged value)? onIndicationsChanged,
     TResult Function(_Saved value)? saved,
@@ -595,6 +619,183 @@ abstract class _DoseChanged implements PrescriptionFormEvent {
   Dose get dose;
   @JsonKey(ignore: true)
   _$$_DoseChangedCopyWith<_$_DoseChanged> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_DoseAmountChangedCopyWith<$Res> {
+  factory _$$_DoseAmountChangedCopyWith(_$_DoseAmountChanged value,
+          $Res Function(_$_DoseAmountChanged) then) =
+      __$$_DoseAmountChangedCopyWithImpl<$Res>;
+  @useResult
+  $Res call({DoseAmount doseAmount});
+
+  $DoseAmountCopyWith<$Res> get doseAmount;
+}
+
+/// @nodoc
+class __$$_DoseAmountChangedCopyWithImpl<$Res>
+    extends _$PrescriptionFormEventCopyWithImpl<$Res, _$_DoseAmountChanged>
+    implements _$$_DoseAmountChangedCopyWith<$Res> {
+  __$$_DoseAmountChangedCopyWithImpl(
+      _$_DoseAmountChanged _value, $Res Function(_$_DoseAmountChanged) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? doseAmount = null,
+  }) {
+    return _then(_$_DoseAmountChanged(
+      null == doseAmount
+          ? _value.doseAmount
+          : doseAmount // ignore: cast_nullable_to_non_nullable
+              as DoseAmount,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $DoseAmountCopyWith<$Res> get doseAmount {
+    return $DoseAmountCopyWith<$Res>(_value.doseAmount, (value) {
+      return _then(_value.copyWith(doseAmount: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$_DoseAmountChanged implements _DoseAmountChanged {
+  const _$_DoseAmountChanged(this.doseAmount);
+
+  @override
+  final DoseAmount doseAmount;
+
+  @override
+  String toString() {
+    return 'PrescriptionFormEvent.onDoseAmountChanged(doseAmount: $doseAmount)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_DoseAmountChanged &&
+            (identical(other.doseAmount, doseAmount) ||
+                other.doseAmount == doseAmount));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, doseAmount);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_DoseAmountChangedCopyWith<_$_DoseAmountChanged> get copyWith =>
+      __$$_DoseAmountChangedCopyWithImpl<_$_DoseAmountChanged>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Option<Prescription> prescription) initialized,
+    required TResult Function(BrandedMedicine medicine) onMedicineChanged,
+    required TResult Function(Dose dose) onDoseChanged,
+    required TResult Function(DoseAmount doseAmount) onDoseAmountChanged,
+    required TResult Function(Duration frequency) onChanged,
+    required TResult Function(List<Indication> listIndications)
+        onIndicationsChanged,
+    required TResult Function() saved,
+  }) {
+    return onDoseAmountChanged(doseAmount);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(Option<Prescription> prescription)? initialized,
+    TResult? Function(BrandedMedicine medicine)? onMedicineChanged,
+    TResult? Function(Dose dose)? onDoseChanged,
+    TResult? Function(DoseAmount doseAmount)? onDoseAmountChanged,
+    TResult? Function(Duration frequency)? onChanged,
+    TResult? Function(List<Indication> listIndications)? onIndicationsChanged,
+    TResult? Function()? saved,
+  }) {
+    return onDoseAmountChanged?.call(doseAmount);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Option<Prescription> prescription)? initialized,
+    TResult Function(BrandedMedicine medicine)? onMedicineChanged,
+    TResult Function(Dose dose)? onDoseChanged,
+    TResult Function(DoseAmount doseAmount)? onDoseAmountChanged,
+    TResult Function(Duration frequency)? onChanged,
+    TResult Function(List<Indication> listIndications)? onIndicationsChanged,
+    TResult Function()? saved,
+    required TResult orElse(),
+  }) {
+    if (onDoseAmountChanged != null) {
+      return onDoseAmountChanged(doseAmount);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initialized value) initialized,
+    required TResult Function(_MedicineChanged value) onMedicineChanged,
+    required TResult Function(_DoseChanged value) onDoseChanged,
+    required TResult Function(_DoseAmountChanged value) onDoseAmountChanged,
+    required TResult Function(_FrequencyChanged value) onChanged,
+    required TResult Function(_IndicationsChanged value) onIndicationsChanged,
+    required TResult Function(_Saved value) saved,
+  }) {
+    return onDoseAmountChanged(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initialized value)? initialized,
+    TResult? Function(_MedicineChanged value)? onMedicineChanged,
+    TResult? Function(_DoseChanged value)? onDoseChanged,
+    TResult? Function(_DoseAmountChanged value)? onDoseAmountChanged,
+    TResult? Function(_FrequencyChanged value)? onChanged,
+    TResult? Function(_IndicationsChanged value)? onIndicationsChanged,
+    TResult? Function(_Saved value)? saved,
+  }) {
+    return onDoseAmountChanged?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initialized value)? initialized,
+    TResult Function(_MedicineChanged value)? onMedicineChanged,
+    TResult Function(_DoseChanged value)? onDoseChanged,
+    TResult Function(_DoseAmountChanged value)? onDoseAmountChanged,
+    TResult Function(_FrequencyChanged value)? onChanged,
+    TResult Function(_IndicationsChanged value)? onIndicationsChanged,
+    TResult Function(_Saved value)? saved,
+    required TResult orElse(),
+  }) {
+    if (onDoseAmountChanged != null) {
+      return onDoseAmountChanged(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _DoseAmountChanged implements PrescriptionFormEvent {
+  const factory _DoseAmountChanged(final DoseAmount doseAmount) =
+      _$_DoseAmountChanged;
+
+  DoseAmount get doseAmount;
+  @JsonKey(ignore: true)
+  _$$_DoseAmountChangedCopyWith<_$_DoseAmountChanged> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -666,6 +867,7 @@ class _$_FrequencyChanged implements _FrequencyChanged {
     required TResult Function(Option<Prescription> prescription) initialized,
     required TResult Function(BrandedMedicine medicine) onMedicineChanged,
     required TResult Function(Dose dose) onDoseChanged,
+    required TResult Function(DoseAmount doseAmount) onDoseAmountChanged,
     required TResult Function(Duration frequency) onChanged,
     required TResult Function(List<Indication> listIndications)
         onIndicationsChanged,
@@ -680,6 +882,7 @@ class _$_FrequencyChanged implements _FrequencyChanged {
     TResult? Function(Option<Prescription> prescription)? initialized,
     TResult? Function(BrandedMedicine medicine)? onMedicineChanged,
     TResult? Function(Dose dose)? onDoseChanged,
+    TResult? Function(DoseAmount doseAmount)? onDoseAmountChanged,
     TResult? Function(Duration frequency)? onChanged,
     TResult? Function(List<Indication> listIndications)? onIndicationsChanged,
     TResult? Function()? saved,
@@ -693,6 +896,7 @@ class _$_FrequencyChanged implements _FrequencyChanged {
     TResult Function(Option<Prescription> prescription)? initialized,
     TResult Function(BrandedMedicine medicine)? onMedicineChanged,
     TResult Function(Dose dose)? onDoseChanged,
+    TResult Function(DoseAmount doseAmount)? onDoseAmountChanged,
     TResult Function(Duration frequency)? onChanged,
     TResult Function(List<Indication> listIndications)? onIndicationsChanged,
     TResult Function()? saved,
@@ -710,6 +914,7 @@ class _$_FrequencyChanged implements _FrequencyChanged {
     required TResult Function(_Initialized value) initialized,
     required TResult Function(_MedicineChanged value) onMedicineChanged,
     required TResult Function(_DoseChanged value) onDoseChanged,
+    required TResult Function(_DoseAmountChanged value) onDoseAmountChanged,
     required TResult Function(_FrequencyChanged value) onChanged,
     required TResult Function(_IndicationsChanged value) onIndicationsChanged,
     required TResult Function(_Saved value) saved,
@@ -723,6 +928,7 @@ class _$_FrequencyChanged implements _FrequencyChanged {
     TResult? Function(_Initialized value)? initialized,
     TResult? Function(_MedicineChanged value)? onMedicineChanged,
     TResult? Function(_DoseChanged value)? onDoseChanged,
+    TResult? Function(_DoseAmountChanged value)? onDoseAmountChanged,
     TResult? Function(_FrequencyChanged value)? onChanged,
     TResult? Function(_IndicationsChanged value)? onIndicationsChanged,
     TResult? Function(_Saved value)? saved,
@@ -736,6 +942,7 @@ class _$_FrequencyChanged implements _FrequencyChanged {
     TResult Function(_Initialized value)? initialized,
     TResult Function(_MedicineChanged value)? onMedicineChanged,
     TResult Function(_DoseChanged value)? onDoseChanged,
+    TResult Function(_DoseAmountChanged value)? onDoseAmountChanged,
     TResult Function(_FrequencyChanged value)? onChanged,
     TResult Function(_IndicationsChanged value)? onIndicationsChanged,
     TResult Function(_Saved value)? saved,
@@ -834,6 +1041,7 @@ class _$_IndicationsChanged implements _IndicationsChanged {
     required TResult Function(Option<Prescription> prescription) initialized,
     required TResult Function(BrandedMedicine medicine) onMedicineChanged,
     required TResult Function(Dose dose) onDoseChanged,
+    required TResult Function(DoseAmount doseAmount) onDoseAmountChanged,
     required TResult Function(Duration frequency) onChanged,
     required TResult Function(List<Indication> listIndications)
         onIndicationsChanged,
@@ -848,6 +1056,7 @@ class _$_IndicationsChanged implements _IndicationsChanged {
     TResult? Function(Option<Prescription> prescription)? initialized,
     TResult? Function(BrandedMedicine medicine)? onMedicineChanged,
     TResult? Function(Dose dose)? onDoseChanged,
+    TResult? Function(DoseAmount doseAmount)? onDoseAmountChanged,
     TResult? Function(Duration frequency)? onChanged,
     TResult? Function(List<Indication> listIndications)? onIndicationsChanged,
     TResult? Function()? saved,
@@ -861,6 +1070,7 @@ class _$_IndicationsChanged implements _IndicationsChanged {
     TResult Function(Option<Prescription> prescription)? initialized,
     TResult Function(BrandedMedicine medicine)? onMedicineChanged,
     TResult Function(Dose dose)? onDoseChanged,
+    TResult Function(DoseAmount doseAmount)? onDoseAmountChanged,
     TResult Function(Duration frequency)? onChanged,
     TResult Function(List<Indication> listIndications)? onIndicationsChanged,
     TResult Function()? saved,
@@ -878,6 +1088,7 @@ class _$_IndicationsChanged implements _IndicationsChanged {
     required TResult Function(_Initialized value) initialized,
     required TResult Function(_MedicineChanged value) onMedicineChanged,
     required TResult Function(_DoseChanged value) onDoseChanged,
+    required TResult Function(_DoseAmountChanged value) onDoseAmountChanged,
     required TResult Function(_FrequencyChanged value) onChanged,
     required TResult Function(_IndicationsChanged value) onIndicationsChanged,
     required TResult Function(_Saved value) saved,
@@ -891,6 +1102,7 @@ class _$_IndicationsChanged implements _IndicationsChanged {
     TResult? Function(_Initialized value)? initialized,
     TResult? Function(_MedicineChanged value)? onMedicineChanged,
     TResult? Function(_DoseChanged value)? onDoseChanged,
+    TResult? Function(_DoseAmountChanged value)? onDoseAmountChanged,
     TResult? Function(_FrequencyChanged value)? onChanged,
     TResult? Function(_IndicationsChanged value)? onIndicationsChanged,
     TResult? Function(_Saved value)? saved,
@@ -904,6 +1116,7 @@ class _$_IndicationsChanged implements _IndicationsChanged {
     TResult Function(_Initialized value)? initialized,
     TResult Function(_MedicineChanged value)? onMedicineChanged,
     TResult Function(_DoseChanged value)? onDoseChanged,
+    TResult Function(_DoseAmountChanged value)? onDoseAmountChanged,
     TResult Function(_FrequencyChanged value)? onChanged,
     TResult Function(_IndicationsChanged value)? onIndicationsChanged,
     TResult Function(_Saved value)? saved,
@@ -965,6 +1178,7 @@ class _$_Saved implements _Saved {
     required TResult Function(Option<Prescription> prescription) initialized,
     required TResult Function(BrandedMedicine medicine) onMedicineChanged,
     required TResult Function(Dose dose) onDoseChanged,
+    required TResult Function(DoseAmount doseAmount) onDoseAmountChanged,
     required TResult Function(Duration frequency) onChanged,
     required TResult Function(List<Indication> listIndications)
         onIndicationsChanged,
@@ -979,6 +1193,7 @@ class _$_Saved implements _Saved {
     TResult? Function(Option<Prescription> prescription)? initialized,
     TResult? Function(BrandedMedicine medicine)? onMedicineChanged,
     TResult? Function(Dose dose)? onDoseChanged,
+    TResult? Function(DoseAmount doseAmount)? onDoseAmountChanged,
     TResult? Function(Duration frequency)? onChanged,
     TResult? Function(List<Indication> listIndications)? onIndicationsChanged,
     TResult? Function()? saved,
@@ -992,6 +1207,7 @@ class _$_Saved implements _Saved {
     TResult Function(Option<Prescription> prescription)? initialized,
     TResult Function(BrandedMedicine medicine)? onMedicineChanged,
     TResult Function(Dose dose)? onDoseChanged,
+    TResult Function(DoseAmount doseAmount)? onDoseAmountChanged,
     TResult Function(Duration frequency)? onChanged,
     TResult Function(List<Indication> listIndications)? onIndicationsChanged,
     TResult Function()? saved,
@@ -1009,6 +1225,7 @@ class _$_Saved implements _Saved {
     required TResult Function(_Initialized value) initialized,
     required TResult Function(_MedicineChanged value) onMedicineChanged,
     required TResult Function(_DoseChanged value) onDoseChanged,
+    required TResult Function(_DoseAmountChanged value) onDoseAmountChanged,
     required TResult Function(_FrequencyChanged value) onChanged,
     required TResult Function(_IndicationsChanged value) onIndicationsChanged,
     required TResult Function(_Saved value) saved,
@@ -1022,6 +1239,7 @@ class _$_Saved implements _Saved {
     TResult? Function(_Initialized value)? initialized,
     TResult? Function(_MedicineChanged value)? onMedicineChanged,
     TResult? Function(_DoseChanged value)? onDoseChanged,
+    TResult? Function(_DoseAmountChanged value)? onDoseAmountChanged,
     TResult? Function(_FrequencyChanged value)? onChanged,
     TResult? Function(_IndicationsChanged value)? onIndicationsChanged,
     TResult? Function(_Saved value)? saved,
@@ -1035,6 +1253,7 @@ class _$_Saved implements _Saved {
     TResult Function(_Initialized value)? initialized,
     TResult Function(_MedicineChanged value)? onMedicineChanged,
     TResult Function(_DoseChanged value)? onDoseChanged,
+    TResult Function(_DoseAmountChanged value)? onDoseAmountChanged,
     TResult Function(_FrequencyChanged value)? onChanged,
     TResult Function(_IndicationsChanged value)? onIndicationsChanged,
     TResult Function(_Saved value)? saved,

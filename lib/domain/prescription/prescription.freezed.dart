@@ -18,6 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$Prescription {
   UniqueId get id => throw _privateConstructorUsedError;
   BrandedMedicine get medicine => throw _privateConstructorUsedError;
+  DoseAmount get doseAmount => throw _privateConstructorUsedError;
   Dose get dose => throw _privateConstructorUsedError;
   List3<Indication> get indications => throw _privateConstructorUsedError;
 
@@ -35,10 +36,12 @@ abstract class $PrescriptionCopyWith<$Res> {
   $Res call(
       {UniqueId id,
       BrandedMedicine medicine,
+      DoseAmount doseAmount,
       Dose dose,
       List3<Indication> indications});
 
   $BrandedMedicineCopyWith<$Res> get medicine;
+  $DoseAmountCopyWith<$Res> get doseAmount;
   $DoseCopyWith<$Res> get dose;
 }
 
@@ -57,6 +60,7 @@ class _$PrescriptionCopyWithImpl<$Res, $Val extends Prescription>
   $Res call({
     Object? id = null,
     Object? medicine = null,
+    Object? doseAmount = null,
     Object? dose = null,
     Object? indications = null,
   }) {
@@ -69,6 +73,10 @@ class _$PrescriptionCopyWithImpl<$Res, $Val extends Prescription>
           ? _value.medicine
           : medicine // ignore: cast_nullable_to_non_nullable
               as BrandedMedicine,
+      doseAmount: null == doseAmount
+          ? _value.doseAmount
+          : doseAmount // ignore: cast_nullable_to_non_nullable
+              as DoseAmount,
       dose: null == dose
           ? _value.dose
           : dose // ignore: cast_nullable_to_non_nullable
@@ -85,6 +93,14 @@ class _$PrescriptionCopyWithImpl<$Res, $Val extends Prescription>
   $BrandedMedicineCopyWith<$Res> get medicine {
     return $BrandedMedicineCopyWith<$Res>(_value.medicine, (value) {
       return _then(_value.copyWith(medicine: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $DoseAmountCopyWith<$Res> get doseAmount {
+    return $DoseAmountCopyWith<$Res>(_value.doseAmount, (value) {
+      return _then(_value.copyWith(doseAmount: value) as $Val);
     });
   }
 
@@ -108,11 +124,14 @@ abstract class _$$_PrescriptionCopyWith<$Res>
   $Res call(
       {UniqueId id,
       BrandedMedicine medicine,
+      DoseAmount doseAmount,
       Dose dose,
       List3<Indication> indications});
 
   @override
   $BrandedMedicineCopyWith<$Res> get medicine;
+  @override
+  $DoseAmountCopyWith<$Res> get doseAmount;
   @override
   $DoseCopyWith<$Res> get dose;
 }
@@ -130,6 +149,7 @@ class __$$_PrescriptionCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
     Object? medicine = null,
+    Object? doseAmount = null,
     Object? dose = null,
     Object? indications = null,
   }) {
@@ -142,6 +162,10 @@ class __$$_PrescriptionCopyWithImpl<$Res>
           ? _value.medicine
           : medicine // ignore: cast_nullable_to_non_nullable
               as BrandedMedicine,
+      doseAmount: null == doseAmount
+          ? _value.doseAmount
+          : doseAmount // ignore: cast_nullable_to_non_nullable
+              as DoseAmount,
       dose: null == dose
           ? _value.dose
           : dose // ignore: cast_nullable_to_non_nullable
@@ -160,6 +184,7 @@ class _$_Prescription extends _Prescription {
   const _$_Prescription(
       {required this.id,
       required this.medicine,
+      required this.doseAmount,
       required this.dose,
       required this.indications})
       : super._();
@@ -169,13 +194,15 @@ class _$_Prescription extends _Prescription {
   @override
   final BrandedMedicine medicine;
   @override
+  final DoseAmount doseAmount;
+  @override
   final Dose dose;
   @override
   final List3<Indication> indications;
 
   @override
   String toString() {
-    return 'Prescription(id: $id, medicine: $medicine, dose: $dose, indications: $indications)';
+    return 'Prescription(id: $id, medicine: $medicine, doseAmount: $doseAmount, dose: $dose, indications: $indications)';
   }
 
   @override
@@ -186,13 +213,16 @@ class _$_Prescription extends _Prescription {
             (identical(other.id, id) || other.id == id) &&
             (identical(other.medicine, medicine) ||
                 other.medicine == medicine) &&
+            (identical(other.doseAmount, doseAmount) ||
+                other.doseAmount == doseAmount) &&
             (identical(other.dose, dose) || other.dose == dose) &&
             (identical(other.indications, indications) ||
                 other.indications == indications));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, id, medicine, dose, indications);
+  int get hashCode =>
+      Object.hash(runtimeType, id, medicine, doseAmount, dose, indications);
 
   @JsonKey(ignore: true)
   @override
@@ -205,6 +235,7 @@ abstract class _Prescription extends Prescription {
   const factory _Prescription(
       {required final UniqueId id,
       required final BrandedMedicine medicine,
+      required final DoseAmount doseAmount,
       required final Dose dose,
       required final List3<Indication> indications}) = _$_Prescription;
   const _Prescription._() : super._();
@@ -213,6 +244,8 @@ abstract class _Prescription extends Prescription {
   UniqueId get id;
   @override
   BrandedMedicine get medicine;
+  @override
+  DoseAmount get doseAmount;
   @override
   Dose get dose;
   @override

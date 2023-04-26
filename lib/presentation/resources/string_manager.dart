@@ -16,18 +16,30 @@ class AppStrings {
 
   //Prompts
   static const String loginMode = 'Ingresar con una cuenta';
+  static const String labelDayHours = 'Dosis diarias';
+  static const String labelWeekDays = 'Dias de la semana';
+  static const String labelDuration = 'Duración total del tratamiento';
+  static const String labelDurationAbbr = 'Duración total';
+
+  static const String labelDoseAmount = 'Etiqueta de cantidad';
+  static const String labelShowUp = 'Etiqueta con que aparece';
+
   static const String registerMode = 'Crear una cuenta';
   static const String createBrandedMedicine = 'Crear medicamento de patente';
   static const String createGenericMedicine = 'Crear medicamento generico';
+  static const String selectBrandedMedicine = 'Medicamento de patente';
+  static const String selectGenericMedicine = 'Medicamento generico';
 
   static const String measureUnit = 'Unidad de medida';
   static const String administrationRoute = 'Via de administracion';
   static const String adminRouteAbbreviation = 'Via de administracion';
   static const String measureUnitAbreviation = 'Abreviatura';
-  static const String chooseUnit = 'Elige unidad de medida';
-  static const String chooseAdminRoute = 'Elige via de administracion';
-  static const String chooseCategory = 'Elige categoria';
-  static const String dateSelectPromt = 'Elige una fecha';
+  static const String chooseUnit = 'Elija unidad de medida';
+  static const String chooseAdminRoute = 'Elija via de administracion';
+  static const String chooseCategory = 'Elija categoria';
+  static const String dateSelectPromt = 'Elija una fecha';
+  static const String chooseGenericMedicine = 'Elija una medicamento generico';
+
   static const String newSupplier = 'Nuevo proveedor';
   static const String address = 'Direccion';
   static const String createAdminRoute = 'Crear via de administracion';
@@ -41,6 +53,8 @@ class AppStrings {
   static const String mobileNumber = 'mobile_number_hint';
   static const String fullName = 'Nombre completo';
   static const String abbreviationName = 'Abreviatura';
+  static const String dayDosesAmount = 'Numero de dosis diarias';
+  static const String doseAmount = 'Cantidad';
 
   static const String categoryName = 'Nombre de Categoria';
   static const String providerName = 'Nombre del proveedor';
@@ -63,6 +77,7 @@ class AppStrings {
   static const String phoneNumber = 'Telefono';
 
   //Processing
+  static const String popUp = 'popUp';
   static const String saving = 'Guardando...';
   static const String actionInProgress = 'Solicitud en proceso';
   static const String actionInProgressExplain =
@@ -74,9 +89,10 @@ class AppStrings {
   static const String freeSale = 'Libre';
   static const String all = 'Todo';
   static const String carritoDeCompra = 'Carrito de compra';
+  static const String undefinedTime = 'Tiempo indefinido';
 
   //Errors
-  static const String invalidEmail = 'Elige un email valido';
+  static const String invalidEmail = 'Elija un email valido';
   static const String error = 'Error no identificado';
   static const String somethingWentWrong = 'Algo ha salido mal';
   static const String tooShort = 'Demasiado corto';
@@ -110,4 +126,6 @@ class AppStrings {
   static const String success = 'Accion completada!';
   static const String successfullyCreated =
       'El elemento se ha creado correctamente.';
+
+  static const weekDays = ['Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab', 'Dom'];
 }

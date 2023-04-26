@@ -7,6 +7,8 @@ class PrescriptionFormEvent with _$PrescriptionFormEvent {
   const factory PrescriptionFormEvent.onMedicineChanged(
       BrandedMedicine medicine) = _MedicineChanged;
   const factory PrescriptionFormEvent.onDoseChanged(Dose dose) = _DoseChanged;
+  const factory PrescriptionFormEvent.onDoseAmountChanged(
+      DoseAmount doseAmount) = _DoseAmountChanged;
   const factory PrescriptionFormEvent.onChanged(Duration frequency) =
       _FrequencyChanged;
   const factory PrescriptionFormEvent.onIndicationsChanged(

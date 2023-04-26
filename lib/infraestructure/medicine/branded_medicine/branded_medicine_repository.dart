@@ -21,7 +21,7 @@ class BrandedMedicineRepository implements IBrandedMedicineRepository {
   final FirebaseFirestore _firestore;
   BrandedMedicineRepository(this._firestore);
   @override
-  Future<Either<BrandedMedicineFailures, Unit>> create(
+  Future<Either<BrandedMedicineFailures, BrandedMedicine>> create(
       BrandedMedicine medicine) async {
     try {
       BrandedMedicineDto brandedmedicineDto =
@@ -50,7 +50,12 @@ class BrandedMedicineRepository implements IBrandedMedicineRepository {
 
       //We keep the id that comes from BrandedmedicineDto and avoid autogeneration
       await medicines.doc(brandedmedicineDto.id).set(data);
-      return right(unit);
+
+      BrandedMedicine brandedMedicine = BrandedMedicineDto.fromFirestore(
+              await medicines.doc(brandedmedicineDto.id).get())
+          .toDomain();
+
+      return right(brandedMedicine);
     } on PlatformException catch (e) {
       // These error codes and messages aren't in the documentation AFAIK, experiment in the debugger to find out about them.
       if (e.message!.contains('PERMISSION_DENIED')) {
@@ -90,7 +95,7 @@ class BrandedMedicineRepository implements IBrandedMedicineRepository {
   }
 
   @override
-  Future<Either<BrandedMedicineFailures, Unit>> update(
+  Future<Either<BrandedMedicineFailures, BrandedMedicine>> update(
       BrandedMedicine medicine) async {
     try {
       BrandedMedicineDto brandedmedicineDto =
@@ -119,7 +124,11 @@ class BrandedMedicineRepository implements IBrandedMedicineRepository {
 
       //We keep the id that comes from BrandedmedicineDto and avoid autogeneration
       await medicines.doc(brandedmedicineDto.id).set(data);
-      return right(unit);
+      BrandedMedicine brandedMedicine = BrandedMedicineDto.fromFirestore(
+              await medicines.doc(brandedmedicineDto.id).get())
+          .toDomain();
+
+      return right(brandedMedicine);
     } on PlatformException catch (e) {
       // These error codes and messages aren't in the documentation AFAIK, experiment in the debugger to find out about them.
       if (e.message!.contains('PERMISSION_DENIED')) {
@@ -133,9 +142,37 @@ class BrandedMedicineRepository implements IBrandedMedicineRepository {
   @override
   Stream<Either<BrandedMedicineFailures, KtList<BrandedMedicine>>>
       watchAll() async* {
+    print('entered seach all');
     final medicines = _firestore.collection('brandedMedicines');
     yield* medicines
-        .orderBy('lastUpdated', descending: true)
+        .snapshots()
+        .map(
+          (snapshot) => right<BrandedMedicineFailures, KtList<BrandedMedicine>>(
+            snapshot.docs
+                .map((doc) => BrandedMedicineDto.fromFirestore(doc).toDomain())
+                .toImmutableList(),
+          ),
+        )
+        .onErrorReturnWith((e, _) {
+      if (e is PlatformException && e.message!.contains('PERMISSION_DENIED')) {
+        return left(const BrandedMedicineFailures.insufficientPermissions());
+      } else {
+        print('the error');
+        print(e);
+        return left(const BrandedMedicineFailures.unexpected());
+      }
+    });
+
+    // ingredientVersionCollection();
+  }
+
+  @override
+  Stream<Either<BrandedMedicineFailures, KtList<BrandedMedicine>>>
+      watchFiltered(String name) async* {
+    print('entered search filter');
+    final medicines = _firestore.collection('brandedMedicines');
+    yield* medicines
+        .where('keyWords', arrayContains: removeSpecialCharacters(name))
         .snapshots()
         .map(
           (snapshot) => right<BrandedMedicineFailures, KtList<BrandedMedicine>>(
@@ -151,14 +188,5 @@ class BrandedMedicineRepository implements IBrandedMedicineRepository {
         return left(const BrandedMedicineFailures.unexpected());
       }
     });
-
-    // ingredientVersionCollection();
-  }
-
-  @override
-  Stream<Either<BrandedMedicineFailures, KtList<BrandedMedicine>>>
-      watchFiltered(String name) {
-    // TODO: implement watchFiltered
-    throw UnimplementedError();
   }
 }

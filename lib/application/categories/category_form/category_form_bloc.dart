@@ -38,7 +38,7 @@ class CategoryFormBloc extends Bloc<CategoryFormEvent, CategoryFormState> {
               state.category.copyWith(imageUrl: ImageURL(event.imageURL))));
     });
     on<_Saved>((event, emit) async {
-      Either<CategoryFailures, Unit>? failureOrSuccess;
+      Either<CategoryFailures, Category>? failureOrSuccess;
       emit(state.copyWith(isSaving: true, saveFailureOrSuccessOption: none()));
       if (state.category.failureOption.isNone()) {
         failureOrSuccess = state.isUpdating
@@ -48,6 +48,7 @@ class CategoryFormBloc extends Bloc<CategoryFormEvent, CategoryFormState> {
         failureOrSuccess = const Left(CategoryFailures.unexpected());
       }
       emit(state.copyWith(
+          category: failureOrSuccess.fold((l) => Category.empty(), (r) => r),
           isSaving: false,
           showErrorMessages: true,
           saveFailureOrSuccessOption: optionOf(failureOrSuccess)));

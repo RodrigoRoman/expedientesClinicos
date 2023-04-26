@@ -16,12 +16,14 @@ class TitleValidated extends StatelessWidget {
       children: [
         Expanded(
           flex: 4,
-          child: Text(
-            title,
-            style: Theme.of(context).textTheme.titleSmall!.copyWith(
-                color: condition
-                    ? Theme.of(context).colorScheme.error
-                    : Colors.black),
+          child: FittedBox(
+            child: Text(
+              title,
+              style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                  color: condition
+                      ? Theme.of(context).colorScheme.error
+                      : Colors.black),
+            ),
           ),
         ),
         condition
@@ -44,7 +46,7 @@ class TitleValidated extends StatelessWidget {
                   ],
                 ),
               )
-            : SizedBox.shrink()
+            : Spacer(flex: 2)
       ],
     );
   }

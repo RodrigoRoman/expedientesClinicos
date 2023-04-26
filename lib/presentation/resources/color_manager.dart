@@ -21,7 +21,7 @@ class LightThemeColors {
   static Color accent = HexColor.fromHex('#81D4FA'); // Light Blue
   static Color primary = HexColor.fromHex('#8BC34A'); // Light Green
   static Color secondary = HexColor.fromHex('#FFC107'); // Yellow
-  static Color tertiary = HexColor.fromHex('#FF5722'); // Light Red
+  static Color tertiary = HexColor.fromHex('#d2f8d2'); // Light Red
   static Color background = HexColor.fromHex('#ECEFF1'); // Light grey
 }
 

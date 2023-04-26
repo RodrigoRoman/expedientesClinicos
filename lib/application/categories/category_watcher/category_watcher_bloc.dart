@@ -22,7 +22,6 @@ class CategoryWatcherBloc
   CategoryWatcherBloc(this._categoryRepository)
       : super(const CategoryWatcherState.initial()) {
     on<_WatchAllStarted>((event, emit) {
-      print('inside watchall');
       _categoriesStreamSubscription?.cancel;
       _categoriesStreamSubscription =
           _categoryRepository.watchAll().listen((failureOrCategories) {
@@ -30,7 +29,6 @@ class CategoryWatcherBloc
       });
     });
     on<_WatchFilteredStarted>((event, emit) {
-      print('inside watch filtered');
       _categoriesStreamSubscription?.cancel;
       _categoriesStreamSubscription = _categoryRepository
           .watchFiltered(event.keyword)

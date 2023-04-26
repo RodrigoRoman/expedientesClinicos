@@ -12,23 +12,54 @@ class PatientVisitPage extends StatefulWidget {
 }
 
 class _PatientVisitPageState extends State<PatientVisitPage> {
+  ScrollController _scrollController = ScrollController();
   @override
   Widget build(BuildContext context) {
+    final double keyboardHeight = MediaQuery.of(context).viewInsets.bottom;
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (WidgetsBinding.instance.window.viewInsets.bottom > 0.0) {
+        _scrollController.animateTo(_scrollController.offset * 5,
+            duration: Duration(milliseconds: 100), curve: Curves.bounceIn);
+        // Keyboard is visible.
+      }
+    });
+
     return Scaffold(
         appBar: AppBar(
           // Here we take the value from the SplashPage object that was created by
           // the App.build method, and use it to set our appbar title.
-          title: Text('Visita Medica'),
+          title: const Text('Visita Medica'),
         ),
-        body: BlocProvider(
-          create: (context) => getIt<PatientVisitFormBloc>(),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Expanded(child: Text('Paciente X')),
-              // Expanded(child: PrescriptionBody())
-            ],
-          ),
+        body: GestureDetector(
+          onTap: () {
+            // Create a FocusScopeNode object for the current context
+            final currentFocus = FocusScope.of(context);
+
+            // Call the unfocus method to remove focus from any child widgets
+            currentFocus.unfocus();
+          },
+          child: LayoutBuilder(builder: (context, constraints) {
+            double heightUnit = (constraints.maxHeight + keyboardHeight) / 8;
+            return BlocProvider(
+              create: (context) => getIt<PatientVisitFormBloc>(),
+              child: SingleChildScrollView(
+                controller: _scrollController,
+                // padding: EdgeInsets.only(bottom: keyboardHeight),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    SizedBox(
+                        height: heightUnit * 1,
+                        child: const Text('Paciente X')),
+                    SizedBox(
+                        height: heightUnit * 7,
+                        child: const PrescriptionBody()),
+                    SizedBox(height: heightUnit * 1)
+                  ],
+                ),
+              ),
+            );
+          }),
         ));
   }
 }

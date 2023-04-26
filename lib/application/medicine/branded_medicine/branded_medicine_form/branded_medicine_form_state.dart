@@ -7,7 +7,7 @@ class BrandedMedicineFormState with _$BrandedMedicineFormState {
     required bool showErrorMessages,
     required bool isUpdating,
     required bool isSaving,
-    required Option<Either<BrandedMedicineFailures, Unit>>
+    required Option<Either<BrandedMedicineFailures, BrandedMedicine>>
         saveFailureOrSuccessOption,
   }) = _BrandedMedicineFormState;
   factory BrandedMedicineFormState.initial() => BrandedMedicineFormState(

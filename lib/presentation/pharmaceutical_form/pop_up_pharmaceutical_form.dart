@@ -10,15 +10,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class PharmaceuticalFormForm extends StatefulWidget {
   final NameAbbreviation? nameAbbreviation;
-  final Function onNameChanged;
-  final Function onAbbreviationChanged;
-  final Function onSubmit;
-  const PharmaceuticalFormForm(
-      {required this.nameAbbreviation,
-      required this.onAbbreviationChanged,
-      required this.onNameChanged,
-      required this.onSubmit,
-      super.key});
+  Function? onCreated;
+  PharmaceuticalFormForm(
+      {required this.nameAbbreviation, required this.onCreated, super.key});
   @override
   State<PharmaceuticalFormForm> createState() => _PharmaceuticalFormFormState();
 }
@@ -74,6 +68,7 @@ class _PharmaceuticalFormFormState extends State<PharmaceuticalFormForm> {
                                     500));
                           },
                         ), (r) {
+                  widget.onCreated?.call(state.abbreviation);
                   context.read<StateRendererBloc>().add(
                       StateRendererEvent.popUpSuccess(AppStrings.success,
                           AppStrings.successfullyCreated, null, 300, 500));

@@ -37,6 +37,12 @@ abstract class ValueFailure<T> with _$ValueFailure<T> {
   const factory ValueFailure.passwordMustContainNumber({
     required T failedValue,
   }) = PasswordMustContainNumber<T>;
+  const factory ValueFailure.invalidHour({
+    required T failedValue,
+  }) = IvalidHour<T>;
+  const factory ValueFailure.invalidMinute({
+    required T failedValue,
+  }) = IvalidMinute<T>;
   const factory ValueFailure.urlMustBeValid({
     required T failedValue,
   }) = UrlMustBeValid<T>;

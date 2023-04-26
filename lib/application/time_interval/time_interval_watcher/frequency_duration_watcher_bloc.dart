@@ -6,7 +6,8 @@ import 'package:injectable/injectable.dart';
 @injectable
 class FrequencyIntervalWatcherBloc extends TimeIntervalWatcherBloc {
   final ITimeIntervalRepository _iFrequencyIntervalRepository;
-  FrequencyIntervalWatcherBloc(this._iFrequencyIntervalRepository)
-      : super(_iFrequencyIntervalRepository,
-            FirebaseCollectionsTimeInterval.doseFrequencyInterval);
+  FrequencyIntervalWatcherBloc(
+      @Named(FirebaseCollectionsTimeInterval.doseFrequencyInterval)
+          this._iFrequencyIntervalRepository)
+      : super(_iFrequencyIntervalRepository);
 }

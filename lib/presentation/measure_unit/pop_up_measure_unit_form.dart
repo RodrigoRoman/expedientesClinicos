@@ -11,7 +11,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class MeasureUnitForm extends StatefulWidget {
   final NameAbbreviation? nameAbbreviation;
-  const MeasureUnitForm({required this.nameAbbreviation, super.key});
+  Function? onCreated;
+  MeasureUnitForm({required this.nameAbbreviation, this.onCreated, super.key});
   @override
   State<MeasureUnitForm> createState() => _MeasureUnitFormState();
 }
@@ -67,13 +68,10 @@ class _MeasureUnitFormState extends State<MeasureUnitForm> {
                                     500));
                           },
                         ), (r) {
+                  widget.onCreated?.call(state.abbreviation);
                   context.read<StateRendererBloc>().add(
-                      StateRendererEvent.popUpSuccess(
-                          AppStrings.success,
-                          AppStrings.successfullyCreated,
-                          GenericMedicineFormRoute.name,
-                          300,
-                          300));
+                      StateRendererEvent.popUpSuccess(AppStrings.success,
+                          AppStrings.successfullyCreated, null, 300, 300));
                 }));
       },
       builder: (context, state) {

@@ -19,6 +19,10 @@ mixin _$TitleSubtitleImageViewModel {
   FullName get title => throw _privateConstructorUsedError;
   FullName get subtitle => throw _privateConstructorUsedError;
   ImageURL get imageURL => throw _privateConstructorUsedError;
+  GenericMedicine get originGenericMedicine =>
+      throw _privateConstructorUsedError;
+  BrandedMedicine get originBrandedMedicine =>
+      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $TitleSubtitleImageViewModelCopyWith<TitleSubtitleImageViewModel>
@@ -33,7 +37,15 @@ abstract class $TitleSubtitleImageViewModelCopyWith<$Res> {
       _$TitleSubtitleImageViewModelCopyWithImpl<$Res,
           TitleSubtitleImageViewModel>;
   @useResult
-  $Res call({FullName title, FullName subtitle, ImageURL imageURL});
+  $Res call(
+      {FullName title,
+      FullName subtitle,
+      ImageURL imageURL,
+      GenericMedicine originGenericMedicine,
+      BrandedMedicine originBrandedMedicine});
+
+  $GenericMedicineCopyWith<$Res> get originGenericMedicine;
+  $BrandedMedicineCopyWith<$Res> get originBrandedMedicine;
 }
 
 /// @nodoc
@@ -53,6 +65,8 @@ class _$TitleSubtitleImageViewModelCopyWithImpl<$Res,
     Object? title = null,
     Object? subtitle = null,
     Object? imageURL = null,
+    Object? originGenericMedicine = null,
+    Object? originBrandedMedicine = null,
   }) {
     return _then(_value.copyWith(
       title: null == title
@@ -67,7 +81,33 @@ class _$TitleSubtitleImageViewModelCopyWithImpl<$Res,
           ? _value.imageURL
           : imageURL // ignore: cast_nullable_to_non_nullable
               as ImageURL,
+      originGenericMedicine: null == originGenericMedicine
+          ? _value.originGenericMedicine
+          : originGenericMedicine // ignore: cast_nullable_to_non_nullable
+              as GenericMedicine,
+      originBrandedMedicine: null == originBrandedMedicine
+          ? _value.originBrandedMedicine
+          : originBrandedMedicine // ignore: cast_nullable_to_non_nullable
+              as BrandedMedicine,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $GenericMedicineCopyWith<$Res> get originGenericMedicine {
+    return $GenericMedicineCopyWith<$Res>(_value.originGenericMedicine,
+        (value) {
+      return _then(_value.copyWith(originGenericMedicine: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $BrandedMedicineCopyWith<$Res> get originBrandedMedicine {
+    return $BrandedMedicineCopyWith<$Res>(_value.originBrandedMedicine,
+        (value) {
+      return _then(_value.copyWith(originBrandedMedicine: value) as $Val);
+    });
   }
 }
 
@@ -80,7 +120,17 @@ abstract class _$$_TitleSubtitleImageViewModelCopyWith<$Res>
       __$$_TitleSubtitleImageViewModelCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({FullName title, FullName subtitle, ImageURL imageURL});
+  $Res call(
+      {FullName title,
+      FullName subtitle,
+      ImageURL imageURL,
+      GenericMedicine originGenericMedicine,
+      BrandedMedicine originBrandedMedicine});
+
+  @override
+  $GenericMedicineCopyWith<$Res> get originGenericMedicine;
+  @override
+  $BrandedMedicineCopyWith<$Res> get originBrandedMedicine;
 }
 
 /// @nodoc
@@ -99,6 +149,8 @@ class __$$_TitleSubtitleImageViewModelCopyWithImpl<$Res>
     Object? title = null,
     Object? subtitle = null,
     Object? imageURL = null,
+    Object? originGenericMedicine = null,
+    Object? originBrandedMedicine = null,
   }) {
     return _then(_$_TitleSubtitleImageViewModel(
       title: null == title
@@ -113,6 +165,14 @@ class __$$_TitleSubtitleImageViewModelCopyWithImpl<$Res>
           ? _value.imageURL
           : imageURL // ignore: cast_nullable_to_non_nullable
               as ImageURL,
+      originGenericMedicine: null == originGenericMedicine
+          ? _value.originGenericMedicine
+          : originGenericMedicine // ignore: cast_nullable_to_non_nullable
+              as GenericMedicine,
+      originBrandedMedicine: null == originBrandedMedicine
+          ? _value.originBrandedMedicine
+          : originBrandedMedicine // ignore: cast_nullable_to_non_nullable
+              as BrandedMedicine,
     ));
   }
 }
@@ -121,7 +181,11 @@ class __$$_TitleSubtitleImageViewModelCopyWithImpl<$Res>
 
 class _$_TitleSubtitleImageViewModel extends _TitleSubtitleImageViewModel {
   const _$_TitleSubtitleImageViewModel(
-      {required this.title, required this.subtitle, required this.imageURL})
+      {required this.title,
+      required this.subtitle,
+      required this.imageURL,
+      required this.originGenericMedicine,
+      required this.originBrandedMedicine})
       : super._();
 
   @override
@@ -130,10 +194,14 @@ class _$_TitleSubtitleImageViewModel extends _TitleSubtitleImageViewModel {
   final FullName subtitle;
   @override
   final ImageURL imageURL;
+  @override
+  final GenericMedicine originGenericMedicine;
+  @override
+  final BrandedMedicine originBrandedMedicine;
 
   @override
   String toString() {
-    return 'TitleSubtitleImageViewModel(title: $title, subtitle: $subtitle, imageURL: $imageURL)';
+    return 'TitleSubtitleImageViewModel(title: $title, subtitle: $subtitle, imageURL: $imageURL, originGenericMedicine: $originGenericMedicine, originBrandedMedicine: $originBrandedMedicine)';
   }
 
   @override
@@ -145,11 +213,16 @@ class _$_TitleSubtitleImageViewModel extends _TitleSubtitleImageViewModel {
             (identical(other.subtitle, subtitle) ||
                 other.subtitle == subtitle) &&
             (identical(other.imageURL, imageURL) ||
-                other.imageURL == imageURL));
+                other.imageURL == imageURL) &&
+            (identical(other.originGenericMedicine, originGenericMedicine) ||
+                other.originGenericMedicine == originGenericMedicine) &&
+            (identical(other.originBrandedMedicine, originBrandedMedicine) ||
+                other.originBrandedMedicine == originBrandedMedicine));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, title, subtitle, imageURL);
+  int get hashCode => Object.hash(runtimeType, title, subtitle, imageURL,
+      originGenericMedicine, originBrandedMedicine);
 
   @JsonKey(ignore: true)
   @override
@@ -162,9 +235,12 @@ class _$_TitleSubtitleImageViewModel extends _TitleSubtitleImageViewModel {
 abstract class _TitleSubtitleImageViewModel
     extends TitleSubtitleImageViewModel {
   const factory _TitleSubtitleImageViewModel(
-      {required final FullName title,
-      required final FullName subtitle,
-      required final ImageURL imageURL}) = _$_TitleSubtitleImageViewModel;
+          {required final FullName title,
+          required final FullName subtitle,
+          required final ImageURL imageURL,
+          required final GenericMedicine originGenericMedicine,
+          required final BrandedMedicine originBrandedMedicine}) =
+      _$_TitleSubtitleImageViewModel;
   const _TitleSubtitleImageViewModel._() : super._();
 
   @override
@@ -173,6 +249,10 @@ abstract class _TitleSubtitleImageViewModel
   FullName get subtitle;
   @override
   ImageURL get imageURL;
+  @override
+  GenericMedicine get originGenericMedicine;
+  @override
+  BrandedMedicine get originBrandedMedicine;
   @override
   @JsonKey(ignore: true)
   _$$_TitleSubtitleImageViewModelCopyWith<_$_TitleSubtitleImageViewModel>

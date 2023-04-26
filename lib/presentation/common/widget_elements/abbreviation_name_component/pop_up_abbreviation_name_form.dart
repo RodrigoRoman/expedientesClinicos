@@ -63,15 +63,19 @@ class _AbbreviationNameFormState extends State<AbbreviationNameForm> {
                                     .copyWith(
                                         color: Theme.of(context).canvasColor)),
                             keyboardType: TextInputType.text,
-                            textCapitalization: TextCapitalization.words,
                             onChanged: (value) {
-                              nameController.text = value;
-                              nameController.selection =
-                                  TextSelection.fromPosition(TextPosition(
-                                      offset: nameController.text.length));
+                              nameController.value = TextEditingValue(
+                                text: value,
+                                selection: TextSelection.fromPosition(
+                                  TextPosition(
+                                      offset: nameController
+                                          .selection.extentOffset),
+                                ),
+                              );
                               widget.onNameChanged(nameController.text);
                             },
                             textInputAction: TextInputAction.next,
+                            textCapitalization: TextCapitalization.sentences,
                           ));
                     })),
                 const Spacer(),
@@ -98,13 +102,16 @@ class _AbbreviationNameFormState extends State<AbbreviationNameForm> {
                                     .copyWith(
                                         color: Theme.of(context).canvasColor)),
                             keyboardType: TextInputType.text,
-                            textCapitalization: TextCapitalization.words,
+                            textCapitalization: TextCapitalization.sentences,
                             onChanged: (value) {
-                              abbreviationController.text = value;
-                              abbreviationController.selection =
-                                  TextSelection.fromPosition(TextPosition(
-                                      offset:
-                                          abbreviationController.text.length));
+                              abbreviationController.value = TextEditingValue(
+                                text: value,
+                                selection: TextSelection.fromPosition(
+                                  TextPosition(
+                                      offset: abbreviationController
+                                          .selection.extentOffset),
+                                ),
+                              );
                               widget.onAbbreviationChanged(
                                   abbreviationController.text);
                             },

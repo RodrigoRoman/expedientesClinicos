@@ -1530,7 +1530,7 @@ mixin _$BrandedMedicineFormState {
   bool get showErrorMessages => throw _privateConstructorUsedError;
   bool get isUpdating => throw _privateConstructorUsedError;
   bool get isSaving => throw _privateConstructorUsedError;
-  Option<Either<BrandedMedicineFailures, Unit>>
+  Option<Either<BrandedMedicineFailures, BrandedMedicine>>
       get saveFailureOrSuccessOption => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -1549,7 +1549,7 @@ abstract class $BrandedMedicineFormStateCopyWith<$Res> {
       bool showErrorMessages,
       bool isUpdating,
       bool isSaving,
-      Option<Either<BrandedMedicineFailures, Unit>>
+      Option<Either<BrandedMedicineFailures, BrandedMedicine>>
           saveFailureOrSuccessOption});
 
   $BrandedMedicineCopyWith<$Res> get medicine;
@@ -1595,7 +1595,7 @@ class _$BrandedMedicineFormStateCopyWithImpl<$Res,
       saveFailureOrSuccessOption: null == saveFailureOrSuccessOption
           ? _value.saveFailureOrSuccessOption
           : saveFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
-              as Option<Either<BrandedMedicineFailures, Unit>>,
+              as Option<Either<BrandedMedicineFailures, BrandedMedicine>>,
     ) as $Val);
   }
 
@@ -1622,7 +1622,7 @@ abstract class _$$_BrandedMedicineFormStateCopyWith<$Res>
       bool showErrorMessages,
       bool isUpdating,
       bool isSaving,
-      Option<Either<BrandedMedicineFailures, Unit>>
+      Option<Either<BrandedMedicineFailures, BrandedMedicine>>
           saveFailureOrSuccessOption});
 
   @override
@@ -1667,7 +1667,7 @@ class __$$_BrandedMedicineFormStateCopyWithImpl<$Res>
       saveFailureOrSuccessOption: null == saveFailureOrSuccessOption
           ? _value.saveFailureOrSuccessOption
           : saveFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
-              as Option<Either<BrandedMedicineFailures, Unit>>,
+              as Option<Either<BrandedMedicineFailures, BrandedMedicine>>,
     ));
   }
 }
@@ -1693,7 +1693,7 @@ class _$_BrandedMedicineFormState
   @override
   final bool isSaving;
   @override
-  final Option<Either<BrandedMedicineFailures, Unit>>
+  final Option<Either<BrandedMedicineFailures, BrandedMedicine>>
       saveFailureOrSuccessOption;
 
   @override
@@ -1751,7 +1751,7 @@ abstract class _BrandedMedicineFormState implements BrandedMedicineFormState {
       required final bool showErrorMessages,
       required final bool isUpdating,
       required final bool isSaving,
-      required final Option<Either<BrandedMedicineFailures, Unit>>
+      required final Option<Either<BrandedMedicineFailures, BrandedMedicine>>
           saveFailureOrSuccessOption}) = _$_BrandedMedicineFormState;
 
   @override
@@ -1763,7 +1763,8 @@ abstract class _BrandedMedicineFormState implements BrandedMedicineFormState {
   @override
   bool get isSaving;
   @override
-  Option<Either<BrandedMedicineFailures, Unit>> get saveFailureOrSuccessOption;
+  Option<Either<BrandedMedicineFailures, BrandedMedicine>>
+      get saveFailureOrSuccessOption;
   @override
   @JsonKey(ignore: true)
   _$$_BrandedMedicineFormStateCopyWith<_$_BrandedMedicineFormState>

@@ -1,15 +1,11 @@
-import 'package:expedientes_clinicos/application/abbreviation_name/abbreviation_name_watcher/abbreviation_name_watcher_bloc.dart';
-import 'package:expedientes_clinicos/application/abbreviation_name/abbreviation_name_watcher/administration_route_watcher_bloc_.dart';
-import 'package:expedientes_clinicos/application/categories/category_watcher/category_watcher_bloc.dart';
-import 'package:expedientes_clinicos/application/categories/category_watcher/medicine_category_bloc.dart';
 import 'package:expedientes_clinicos/application/medicine/branded_medicine/branded_medicine_form/branded_medicine_form_bloc.dart';
 import 'package:expedientes_clinicos/domain/core/categories/category.dart';
-import 'package:expedientes_clinicos/domain/core/name_abbreviation/name_abbr.dart';
-import 'package:expedientes_clinicos/injection.dart';
-import 'package:expedientes_clinicos/presentation/administration_route/drop_down_search_administration_route.dart';
+import 'package:expedientes_clinicos/domain/core/value_objects.dart';
+import 'package:expedientes_clinicos/domain/medicine/generic_medicine/generic_medicine.dart';
 import 'package:expedientes_clinicos/presentation/common/widget_elements/image_picker_display.dart';
 import 'package:expedientes_clinicos/presentation/common/widget_elements/input_full_name.dart';
 import 'package:expedientes_clinicos/presentation/common/widget_elements/title_validated.dart';
+import 'package:expedientes_clinicos/presentation/medicine/generic_medicine/generic_medicine_watcher/drop_down_generic_medicine.dart';
 import 'package:expedientes_clinicos/presentation/resources/string_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -27,17 +23,15 @@ class BrandedMedicineFormBody extends StatefulWidget {
 class _BrandedMedicineFormBodyState extends State<BrandedMedicineFormBody> {
   final _key = GlobalKey<FormState>();
 
-  final TextEditingController categoryText = TextEditingController();
-
   final TextEditingController medicineComercialController =
       TextEditingController();
 
-  final TextEditingController medicineGenericController =
-      TextEditingController();
-
-  final TextEditingController measureUnitText = TextEditingController();
-
-  final TextEditingController adminRouteText = TextEditingController();
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    medicineComercialController.dispose();
+    super.dispose();
+  }
 
   bool requestedSubmition = false;
   final List<Category> categoriesList = [];
@@ -46,31 +40,35 @@ class _BrandedMedicineFormBodyState extends State<BrandedMedicineFormBody> {
     return LayoutBuilder(builder: (context, constraints) {
       double unitHeight = constraints.maxHeight / 10;
       return Form(
+        autovalidateMode: AutovalidateMode.onUserInteraction,
         key: _key,
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
               SizedBox(
-                height: unitHeight,
+                height: unitHeight / 2,
               ),
-              ImagePickerDisplay(
-                  heightUnit: unitHeight,
-                  width: constraints.maxWidth / 1.3,
-                  medicineComercialController: medicineComercialController,
-                  onImageUrlChanged: (img) {
-                    context
-                        .read<BrandedMedicineFormBloc>()
-                        .add(BrandedMedicineFormEvent.imageUrlChanged(img));
-                  },
-                  imageUrl: context
-                      .read<BrandedMedicineFormBloc>()
-                      .state
-                      .medicine
-                      .imageURL,
-                  mounted: mounted),
               SizedBox(
-                height: unitHeight,
+                height: unitHeight * 3,
+                child: ImagePickerDisplay(
+                    heightUnit: unitHeight,
+                    width: constraints.maxWidth / 1.3,
+                    medicineComercialController: medicineComercialController,
+                    onImageUrlChanged: (img) {
+                      context
+                          .read<BrandedMedicineFormBloc>()
+                          .add(BrandedMedicineFormEvent.imageUrlChanged(img));
+                    },
+                    imageUrl: context
+                        .read<BrandedMedicineFormBloc>()
+                        .state
+                        .medicine
+                        .imageURL,
+                    mounted: mounted),
+              ),
+              SizedBox(
+                height: unitHeight / 2,
               ),
               SizedBox(
                 height: unitHeight * 1.5,
@@ -81,25 +79,46 @@ class _BrandedMedicineFormBodyState extends State<BrandedMedicineFormBody> {
                     ),
                     Expanded(
                         flex: 4,
-                        child: InputFullName(
-                            label: AppStrings.comercialName,
-                            fullName: context
-                                .read<BrandedMedicineFormBloc>()
-                                .state
-                                .medicine
-                                .comercialName,
-                            onChanged: (value) {
-                              medicineComercialController.text = value;
-                              medicineComercialController.selection =
-                                  TextSelection.fromPosition(TextPosition(
-                                      offset: medicineComercialController
-                                          .text.length));
+                        child: Column(
+                          children: [
+                            Expanded(
+                              child: TitleValidated(
+                                  title: AppStrings.fullName,
+                                  condition: (requestedSubmition &
+                                      (context
+                                              .read<BrandedMedicineFormBloc>()
+                                              .state
+                                              .medicine
+                                              .comercialName ==
+                                          FullName('')))),
+                            ),
+                            Spacer(),
+                            Expanded(
+                              flex: 2,
+                              child: InputFullName(
+                                  label: AppStrings.comercialName,
+                                  fullName: context
+                                      .read<BrandedMedicineFormBloc>()
+                                      .state
+                                      .medicine
+                                      .comercialName,
+                                  onChanged: (value) {
+                                    medicineComercialController.text = value;
+                                    medicineComercialController.selection =
+                                        TextSelection.fromPosition(TextPosition(
+                                            offset: medicineComercialController
+                                                .text.length));
 
-                              context.read<BrandedMedicineFormBloc>().add(
-                                  BrandedMedicineFormEvent.comercialNameChanged(
-                                      medicineComercialController.text));
-                            },
-                            textController: medicineComercialController)),
+                                    context.read<BrandedMedicineFormBloc>().add(
+                                        BrandedMedicineFormEvent
+                                            .comercialNameChanged(
+                                                medicineComercialController
+                                                    .text));
+                                  },
+                                  textController: medicineComercialController),
+                            ),
+                          ],
+                        )),
                     const Spacer(
                       flex: 1,
                     ),
@@ -110,18 +129,38 @@ class _BrandedMedicineFormBodyState extends State<BrandedMedicineFormBody> {
                 height: unitHeight / 2,
               ),
               SizedBox(
-                height: unitHeight / 2,
-              ),
+                  height: unitHeight * 1.5,
+                  child: Column(
+                    children: [
+                      Expanded(
+                        child: TitleValidated(
+                            title: AppStrings.selectGenericMedicine,
+                            condition: (requestedSubmition &
+                                (context
+                                        .read<BrandedMedicineFormBloc>()
+                                        .state
+                                        .medicine
+                                        .genericMedicine ==
+                                    GenericMedicine.empty()))),
+                      ),
+                      Spacer(),
+                      Expanded(
+                        flex: 2,
+                        child: DropdownSearchGenericMedicineForm(
+                            onSelected: (genericMedicine) {
+                          context.read<BrandedMedicineFormBloc>().add(
+                              BrandedMedicineFormEvent.genericMedicineChanged(
+                                  genericMedicine));
+                        }),
+                      ),
+                    ],
+                  )),
 
               SizedBox(
-                height: unitHeight / 2,
-              ),
-              //ADMINISTRATION ROUTE
-              SizedBox(
-                height: unitHeight / 2,
+                height: unitHeight * 1.5,
               ),
               SizedBox(
-                  height: unitHeight,
+                  height: unitHeight / 2,
                   width: constraints.maxWidth / 3,
                   child: ElevatedButton(
                     onPressed: () {
@@ -143,9 +182,6 @@ class _BrandedMedicineFormBodyState extends State<BrandedMedicineFormBody> {
 
               //FAKER BUTTON - TO BE COMMENTED
               // FakerMedicineButton(heightUnit: heightUnit),
-              SizedBox(
-                height: unitHeight / 2,
-              ),
             ],
           ),
         ),

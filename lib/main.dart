@@ -2,12 +2,18 @@ import 'package:auto_route/auto_route.dart';
 import 'package:expedientes_clinicos/application/abbreviation_name/abbreviation_name_form/administration_route_form_bloc.dart';
 import 'package:expedientes_clinicos/application/abbreviation_name/abbreviation_name_form/measure_unit_form_bloc.dart';
 import 'package:expedientes_clinicos/application/abbreviation_name/abbreviation_name_form/pharmaceutical_form_form_bloc.dart';
-import 'package:expedientes_clinicos/application/categories/category_form/category_form_bloc.dart';
 import 'package:expedientes_clinicos/application/categories/category_form/medicine_category_form_bloc.dart';
 import 'package:expedientes_clinicos/application/medicine/branded_medicine/branded_medicine_form/branded_medicine_form_bloc.dart';
+import 'package:expedientes_clinicos/application/medicine/dose/dose_components/day_hours_dose/day_hours_dose_form/day_hours_dose_form_bloc.dart';
+import 'package:expedientes_clinicos/application/medicine/dose/dose_components/dose_amount/dose_amount_form/dose_amount_form_bloc.dart';
+import 'package:expedientes_clinicos/application/medicine/dose/dose_components/week_days_dose/week_days_dose_form/week_days_dose_form_bloc.dart';
+import 'package:expedientes_clinicos/application/medicine/dose/dose_core/dose_form/dose_form_bloc.dart';
 import 'package:expedientes_clinicos/application/medicine/generic_medicine/generic_medicine_form/generic_medicine_form_bloc.dart';
+import 'package:expedientes_clinicos/application/prescription/prescription_form/prescription_form_bloc.dart';
 import 'package:expedientes_clinicos/application/state_render/state_renderer_bloc.dart';
+import 'package:expedientes_clinicos/application/time_interval/time_interval_form/duration_interval_form_bloc.dart';
 import 'package:expedientes_clinicos/injection.dart';
+import 'package:expedientes_clinicos/presentation/resources/string_manager.dart';
 import 'package:expedientes_clinicos/presentation/routes/router.gr.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -49,7 +55,19 @@ class AppRoot extends StatelessWidget {
           BlocProvider<GenericMedicineFormBloc>(
               create: (context) => getIt<GenericMedicineFormBloc>()),
           BlocProvider<BrandedMedicineFormBloc>(
-              create: (context) => getIt<BrandedMedicineFormBloc>())
+              create: (context) => getIt<BrandedMedicineFormBloc>()),
+          BlocProvider<PrescriptionFormBloc>(
+              create: (context) => getIt<PrescriptionFormBloc>()),
+          BlocProvider<DayHoursDoseFormBloc>(
+              create: (context) => getIt<DayHoursDoseFormBloc>()),
+          BlocProvider<DoseAmountFormBloc>(
+              create: (context) => getIt<DoseAmountFormBloc>()),
+          BlocProvider<DurationIntervalFormBloc>(
+              create: (context) => getIt<DurationIntervalFormBloc>()),
+          BlocProvider<WeekDaysDoseFormBloc>(
+              create: (context) => getIt<WeekDaysDoseFormBloc>()),
+          BlocProvider<DoseFormBloc>(
+              create: (context) => getIt<DoseFormBloc>()),
         ],
         child: BlocConsumer<StateRendererBloc, StateRendererState>(
             buildWhen: (previous, current) =>
@@ -62,10 +80,12 @@ class AppRoot extends StatelessWidget {
                   //Check if there is a dialog before showing another one
                   if (appRouter.canPop()) {
                     if (state.until != null) {
-                      appRouter.popUntil(
-                          (route) => route.settings.name == state.until);
+                      if (state.until != AppStrings.popUp) {
+                        appRouter.popUntil(
+                            (route) => route.settings.name == state.until);
+                      }
                     } else {
-                      appRouter.pop();
+                      appRouter.popUntilRoot();
                     }
                   }
                   await showPopUp(ctx, state.stateRender, () {
@@ -82,7 +102,6 @@ class AppRoot extends StatelessWidget {
                   )));
                 }
               } else {
-                print('HERE!!!');
                 appRouter.push(FullScreenState(
                     content: StateRenderer(
                   bodyWidget: state.body,

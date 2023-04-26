@@ -1,6 +1,8 @@
 import 'package:dartz/dartz.dart';
 import 'package:expedientes_clinicos/domain/core/failures.dart';
+import 'package:expedientes_clinicos/domain/core/value_objects.dart';
 import 'package:expedientes_clinicos/presentation/resources/constant_validation.dart';
+import 'package:flutter/material.dart';
 
 //convert a double to two decimal places
 extension Ex on double {
@@ -107,4 +109,20 @@ Either<ValueFailure<int>, int> validateNonNegInt(int nonNegInt) {
   } else {
     return left(ValueFailure.passwordMustContainNumber(failedValue: nonNegInt));
   }
+}
+
+Either<ValueFailure<TimeOfDay>, TimeOfDay> validateHourTime(TimeOfDay time) {
+  final hour = time.hour;
+  final minute = time.minute;
+
+  if (hour < 0 || hour > 23) {
+    return left(ValueFailure.invalidHour(failedValue: time));
+  }
+
+  if (minute < 0 || minute > 59) {
+    return left(ValueFailure.invalidMinute(failedValue: time));
+  }
+
+  final validatedTime = TimeOfDay(hour: hour, minute: minute);
+  return right(validatedTime);
 }

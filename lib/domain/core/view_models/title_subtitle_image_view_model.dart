@@ -16,27 +16,39 @@ abstract class TitleSubtitleImageViewModel
     required FullName title,
     required FullName subtitle,
     required ImageURL imageURL,
+    required GenericMedicine originGenericMedicine,
+    required BrandedMedicine originBrandedMedicine,
   }) = _TitleSubtitleImageViewModel;
 
   factory TitleSubtitleImageViewModel.empty() => TitleSubtitleImageViewModel(
-        title: FullName(EmptyFormValues.emptyString),
-        subtitle: FullName(EmptyFormValues.emptyString),
-        imageURL: ImageURL(EmptyFormValues.medicineURLImage),
-      );
+      title: FullName(EmptyFormValues.emptyString),
+      subtitle: FullName(EmptyFormValues.emptyString),
+      imageURL: ImageURL(EmptyFormValues.medicineURLImage),
+      originBrandedMedicine: BrandedMedicine.empty(),
+      originGenericMedicine: GenericMedicine.empty());
 
   factory TitleSubtitleImageViewModel.fromBrandedMedicine(
       BrandedMedicine medicine) {
     return TitleSubtitleImageViewModel(
-      title: medicine.comercialName,
-      subtitle: FullName(
-          medicine.genericMedicine.genericName.value.fold((l) => '', (r) => r) +
-              medicine.genericMedicine.amountMeasureUnit.value
-                  .fold((l) => '', (r) => r)
-                  .toString() +
-              medicine.genericMedicine.measureUnit.abbr.value
-                  .fold((l) => '', (r) => r)),
-      imageURL: medicine.imageURL,
-    );
+        title: medicine.comercialName,
+        subtitle: FullName(medicine.genericMedicine.genericName.value
+                .fold((l) => '', (r) => r) +
+            ' ' +
+            medicine.genericMedicine.amountMeasureUnit.value
+                .fold((l) => '', (r) => r)
+                .toString() +
+            ' ' +
+            medicine.genericMedicine.measureUnit.abbr.value
+                .fold((l) => '', (r) => r) +
+            ' con ' +
+            medicine.genericMedicine.amountPerPackage.value
+                .fold((l) => '', (r) => r.toString()) +
+            ' ' +
+            medicine.genericMedicine.pharmaceuticalForm.abbr.value
+                .fold((l) => '', (r) => r)),
+        imageURL: medicine.imageURL,
+        originBrandedMedicine: medicine,
+        originGenericMedicine: GenericMedicine.empty());
   }
   factory TitleSubtitleImageViewModel.fromGenericMedicine(
       GenericMedicine medicine) {
@@ -45,8 +57,18 @@ abstract class TitleSubtitleImageViewModel
         subtitle: FullName(medicine.amountMeasureUnit.value
                 .fold((l) => '', (r) => r)
                 .toString() +
-            medicine.measureUnit.abbr.value.fold((l) => '', (r) => r)),
-        imageURL: ImageURL(''));
+            ' ' +
+            medicine.measureUnit.abbr.value
+                .fold((l) => '', (r) => r)
+                .toString() +
+            ' con ' +
+            medicine.amountPerPackage.value
+                .fold((l) => '', (r) => r.toString()) +
+            ' ' +
+            medicine.pharmaceuticalForm.abbr.value.fold((l) => '', (r) => r)),
+        imageURL: ImageURL(''),
+        originGenericMedicine: medicine,
+        originBrandedMedicine: BrandedMedicine.empty());
   }
 
   Option<ValueFailure<dynamic>> get failureOption {

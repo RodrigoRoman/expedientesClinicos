@@ -17,6 +17,7 @@ class CustomTheme {
           onPrimary: LightThemeColors.background,
           secondary: LightThemeColors.secondary,
           onSecondary: LightThemeColors.background,
+          tertiary: LightThemeColors.tertiary,
           error: ColorManager.red,
           onError: LightThemeColors.tertiary,
           background: LightThemeColors.background,

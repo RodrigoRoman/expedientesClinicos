@@ -4,7 +4,6 @@ import 'package:expedientes_clinicos/domain/core/value_objects.dart';
 import 'package:expedientes_clinicos/domain/patient_visit/patient_visit.dart';
 import 'package:expedientes_clinicos/domain/prescription/prescription.dart';
 import 'package:expedientes_clinicos/infraestructure/medicine/branded_medicine/branded_medicine_dtos.dart';
-import 'package:expedientes_clinicos/infraestructure/medicine/dose/dose_dtos.dart';
 import 'package:expedientes_clinicos/infraestructure/prescription/prescription_dtos.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:kt_dart/collection.dart';

@@ -4,6 +4,7 @@ import 'package:dartz/dartz.dart';
 import 'package:expedientes_clinicos/domain/core/errors.dart';
 import 'package:expedientes_clinicos/domain/core/failures.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:kt_dart/kt.dart';
 import 'package:uuid/uuid.dart';
@@ -84,7 +85,7 @@ class UniqueId extends ValueObject<String> {
 class FullName extends ValueObject<String> {
   @override
   final Either<ValueFailure<String>, String> value;
-  static const maxLength = 30;
+  static const maxLength = 50;
   factory FullName(String input) {
     assert(input != null);
     return FullName._(validateMaxLength(input, maxLength)
@@ -171,6 +172,31 @@ class PhoneNumber extends ValueObject<String> {
     return PhoneNumber._(validatePhoneNumber(input));
   }
   const PhoneNumber._(this.value);
+}
+
+class HourTime extends ValueObject<TimeOfDay> {
+  factory HourTime.fromTimestamp(Timestamp timestamp) {
+    DateTime dateTime = timestamp.toDate();
+    final time = TimeOfDay(hour: dateTime.hour, minute: dateTime.minute);
+    return HourTime._(validateHourTime(time));
+  }
+
+  Timestamp toTimestamp() {
+    final hour = value.fold((failure) => 0, (time) => time.hour);
+    final minute = value.fold((failure) => 0, (time) => time.minute);
+    DateTime now = DateTime.now();
+    DateTime dateTime = DateTime(now.year, now.month, now.day, hour, minute);
+    return Timestamp.fromDate(dateTime);
+  }
+
+  @override
+  final Either<ValueFailure<TimeOfDay>, TimeOfDay> value;
+
+  factory HourTime(TimeOfDay input) {
+    assert(input != null);
+    return HourTime._(validateHourTime(input));
+  }
+  const HourTime._(this.value);
 }
 
 class NonNegDouble extends ValueObject<double> {

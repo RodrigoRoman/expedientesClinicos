@@ -15,9 +15,11 @@ import 'package:kt_dart/kt.dart';
 
 class DropdownSearchBrandedMedicineForm extends StatefulWidget {
   //optional for the case of editing
-  const DropdownSearchBrandedMedicineForm({
+  DropdownSearchBrandedMedicineForm({
+    required this.onSelected,
     super.key,
   });
+  Function onSelected;
   @override
   _DropdownSearchPharmaceuticalFormState createState() =>
       _DropdownSearchPharmaceuticalFormState();
@@ -38,19 +40,16 @@ class _DropdownSearchPharmaceuticalFormState
             BrandedMedicineWatcherState>(listener: (context, state) {
           state.map(
               initial: (value) {
+                print('-----INITIALIZEDD----');
                 brandedMedicineList = [];
               },
               loadInProgress: ((value) => context.read<StateRendererBloc>().add(
                   StateRendererEvent.popUpLoading(AppStrings.saving,
                       AppStrings.actionInProgressExplain, null, 300, 500))),
               loadSuccess: ((value) {
+                print('ON LOAD FILL LIST');
                 setState(() {
                   brandedMedicineList = value.medicines.asList();
-                  // value.medicines
-                  // .map((brandedMedicine) =>
-                  //     TitleSubtitleImageViewModel.fromBrandedMedicine(
-                  //         brandedMedicine))
-                  // .asList();
                 });
               }),
               loadFailure: ((value) => context.read<StateRendererBloc>().add(
@@ -58,13 +57,14 @@ class _DropdownSearchPharmaceuticalFormState
                       AppStrings.unableToReadErrorExplain, null, 300, 500))));
         }, builder: (context, state) {
           return DropdownSearchTitleSubtitleImg(
-            element: TitleSubtitleImageViewModel.fromBrandedMedicine(
-                context.read<BrandedMedicineFormBloc>().state.medicine),
+            element: TitleSubtitleImageViewModel.fromBrandedMedicine(context
+                .read<PrescriptionFormBloc>()
+                .state
+                .prescription
+                .medicine),
             searchFieldController: searchFieldController,
-            onSelected: (nameAbbr) {
-              context
-                  .read<PrescriptionFormBloc>()
-                  .add(PrescriptionFormEvent.onMedicineChanged(nameAbbr));
+            onSelected: (TitleSubtitleImageViewModel medicine) {
+              widget.onSelected(medicine.originBrandedMedicine);
               setState(() {});
             },
             onSearchWithKey: (key) {
@@ -82,14 +82,25 @@ class _DropdownSearchPharmaceuticalFormState
                     TitleSubtitleImageViewModel.fromBrandedMedicine(
                         brandedMedicine))
                 .toList(),
-            hintText: AppStrings.pharmaceuticalForm,
+            hintText: AppStrings.selectBrandedMedicine,
             newFunction: () {
               context.read<StateRendererBloc>().add(
-                  const StateRendererEvent.fullScreenForm(
-                      ' ${AppStrings.createBrandedMedicine}',
-                      BrandedMedicineFormPage(),
-                      ' ',
-                      null));
+                      StateRendererEvent.fullScreenForm(
+                          ' ${AppStrings.createBrandedMedicine}',
+                          BrandedMedicineFormPage(
+                    onCreated: (brandedMedicine) {
+                      context.read<PrescriptionFormBloc>().add(
+                          PrescriptionFormEvent.onMedicineChanged(
+                              brandedMedicine));
+                      searchFieldController.text = context
+                          .read<BrandedMedicineFormBloc>()
+                          .state
+                          .medicine
+                          .comercialName
+                          .value
+                          .fold((l) => '', (r) => r);
+                    },
+                  ), ' ', null));
             },
           );
         }));

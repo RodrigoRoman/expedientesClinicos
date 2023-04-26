@@ -60,7 +60,9 @@ class _DropdownSearchAbbreviationNameRouteState
   @override
   void dispose() {
     _focusNode.dispose();
-    _overlayEntry!.remove();
+    if (_overlayEntry != null) {
+      _overlayEntry!.remove();
+    }
     _overlayEntry = null;
     super.dispose();
   }
@@ -150,6 +152,8 @@ class _DropdownSearchAbbreviationNameRouteState
 
   @override
   Widget build(BuildContext context) {
+    int inputLenght = widget.searchFieldController.text.length;
+
     WidgetsBinding.instance.addPostFrameCallback((_) {
       rebuildOverlay();
     });
@@ -185,6 +189,9 @@ class _DropdownSearchAbbreviationNameRouteState
                       )
                     : TextFormField(
                         // autofocus: true,
+                        style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                            fontSize:
+                                constraints.maxWidth / constraints.maxHeight),
                         key: globalKey,
                         controller: widget.searchFieldController,
                         textAlign: TextAlign.center,
@@ -196,19 +203,26 @@ class _DropdownSearchAbbreviationNameRouteState
                         ),
                         focusNode: _focusNode,
                         keyboardType: TextInputType.text,
-                        textCapitalization: TextCapitalization.words,
                         textInputAction: TextInputAction.next,
+                        textCapitalization: TextCapitalization.sentences,
                         onChanged: (value) {
-                          widget.searchFieldController.text = value;
-                          widget.searchFieldController.selection =
-                              TextSelection.fromPosition(TextPosition(
-                                  offset: widget
-                                      .searchFieldController.text.length));
+                          widget.searchFieldController.value = TextEditingValue(
+                            text: value,
+                            selection: TextSelection.fromPosition(
+                              TextPosition(
+                                  offset: widget.searchFieldController.selection
+                                      .extentOffset),
+                            ),
+                          );
                           if (value.isEmpty) {
                             widget.onSearchAll();
                           } else {
                             widget.onSearchWithKey(
                                 widget.searchFieldController.text);
+                            setState(() {
+                              inputLenght =
+                                  widget.searchFieldController.text.length;
+                            });
                           }
                         },
                       )),

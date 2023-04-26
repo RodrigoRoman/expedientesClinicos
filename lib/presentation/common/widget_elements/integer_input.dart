@@ -35,7 +35,10 @@ class _IntegerInputBoxState extends State<IntegerInputBox> {
         ..add(IntCounterEvent.initialized(optionOf(0), none())),
       child: BlocConsumer<IntCounterBloc, IntCounterState>(
         listener: (context, state) {
-          textController.text = state.amount.toString();
+          textController.value = TextEditingValue(
+              text: state.amount.toString(),
+              selection: TextSelection.fromPosition(
+                  TextPosition(offset: textController.selection.extentOffset)));
           widget.onChanged(state.amount);
         },
         builder: (context, state) {
@@ -108,11 +111,17 @@ class _IntInputBodyState extends State<IntInputBody> {
             style: Theme.of(context)
                 .textTheme
                 .bodyMedium!
-                .copyWith(fontSize: 40 / ((inputLength + 1) * 0.7)),
+                .copyWith(fontSize: 40 / ((inputLength + 1) * 0.9)),
             onChanged: (value) {
+              print('input value!');
+              print(value);
               int newValue = 0;
               if (value.isNotEmpty) {
                 newValue = int.parse(value);
+                widget.textController.value = TextEditingValue(
+                    text: value,
+                    selection: TextSelection.fromPosition(TextPosition(
+                        offset: widget.textController.selection.extentOffset)));
                 setState(() {
                   inputLength =
                       (int.parse(widget.textController.text)).toString().length;
@@ -143,6 +152,7 @@ class _IntInputBodyState extends State<IntInputBody> {
                   context
                       .read<IntCounterBloc>()
                       .add(const IntCounterEvent.amountIncreased());
+
                   setState(() {
                     inputLength = (int.parse(widget.textController.text) + 1)
                         .toString()

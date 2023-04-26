@@ -13,8 +13,8 @@ class Description extends StatelessWidget {
       controller: textController,
       textAlign: TextAlign.center,
       keyboardType: TextInputType.text,
-      textCapitalization: TextCapitalization.words,
       textInputAction: TextInputAction.next,
+      textCapitalization: TextCapitalization.sentences,
       onChanged: (value) => onChanged(value),
     );
   }

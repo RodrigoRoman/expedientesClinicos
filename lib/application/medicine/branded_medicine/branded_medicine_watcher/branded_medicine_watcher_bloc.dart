@@ -18,30 +18,28 @@ class BrandedMedicineWatcherBloc
     extends Bloc<BrandedMedicineWatcherEvent, BrandedMedicineWatcherState> {
   final IBrandedMedicineRepository _medicineRepository;
   StreamSubscription<Either<BrandedMedicineFailures, KtList<BrandedMedicine>>>?
-      _categoriesStreamSubscription;
+      _brandedMedicineStreamSubscription;
   BrandedMedicineWatcherBloc(this._medicineRepository)
       : super(const BrandedMedicineWatcherState.initial()) {
     on<_WatchAllStarted>((event, emit) {
-      _categoriesStreamSubscription?.cancel;
-      _categoriesStreamSubscription =
-          _medicineRepository.watchAll().listen((failureOrDose) {
-        add(BrandedMedicineWatcherEvent.medicinesReceived(failureOrDose));
+      _brandedMedicineStreamSubscription?.cancel;
+      _brandedMedicineStreamSubscription =
+          _medicineRepository.watchAll().listen((failureOrMedicine) {
+        add(BrandedMedicineWatcherEvent.medicinesReceived(failureOrMedicine));
       });
     });
     on<_WatchFilteredStarted>((event, emit) {
-      _categoriesStreamSubscription?.cancel;
-      _categoriesStreamSubscription = _medicineRepository
+      _brandedMedicineStreamSubscription?.cancel;
+      _brandedMedicineStreamSubscription = _medicineRepository
           .watchFiltered(event.keyword)
-          .listen((failureOrDose) {
-        add(BrandedMedicineWatcherEvent.medicinesReceived(failureOrDose));
+          .listen((failureOrMedicine) {
+        add(BrandedMedicineWatcherEvent.medicinesReceived(failureOrMedicine));
       });
     });
     //Combine the two watchers above listening to the CategoriesReceived event that they emit
     on<_MedicinesReceived>((event, emit) async {
-      print('...... emitting new state .....');
       emit(event.failureOrMedicines
           .fold((f) => BrandedMedicineWatcherState.loadFailure(f), (medicines) {
-        print(medicines.asList().length);
         return BrandedMedicineWatcherState.loadSuccess(medicines);
       }));
     });

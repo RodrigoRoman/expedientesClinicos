@@ -7,7 +7,8 @@ abstract class CategoryFormState with _$CategoryFormState {
     required bool showErrorMessages,
     required bool isUpdating,
     required bool isSaving,
-    required Option<Either<CategoryFailures, Unit>> saveFailureOrSuccessOption,
+    required Option<Either<CategoryFailures, Category>>
+        saveFailureOrSuccessOption,
   }) = _CategoryFormState;
   factory CategoryFormState.initial() => CategoryFormState(
       category: Category.empty(),

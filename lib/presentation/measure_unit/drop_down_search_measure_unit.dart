@@ -79,6 +79,15 @@ class _DropdownSearchMeasureUnitState extends State<DropdownSearchMeasureUnit> {
                   .add(StateRendererEvent.popUpForm(
                       'Crear Unidad de Medida',
                       MeasureUnitForm(
+                        onCreated: (NameAbbreviation nameAbbreviation) {
+                          context.read<GenericMedicineFormBloc>().add(
+                              GenericMedicineFormEvent.measureUnitChanged(
+                                  nameAbbreviation));
+                          searchFieldController.text = nameAbbreviation
+                              .name.value
+                              .fold((l) => '', (r) => r);
+                          setState(() {});
+                        },
                         nameAbbreviation: NameAbbreviation.empty(),
                       ),
                       300,

@@ -7,10 +7,10 @@ abstract class IBrandedMedicineRepository {
   Stream<Either<BrandedMedicineFailures, KtList<BrandedMedicine>>> watchAll();
   Stream<Either<BrandedMedicineFailures, KtList<BrandedMedicine>>>
       watchFiltered(String name);
-  Future<Either<BrandedMedicineFailures, Unit>> create(
+  Future<Either<BrandedMedicineFailures, BrandedMedicine>> create(
       BrandedMedicine brandedMedicine);
   Future<Either<BrandedMedicineFailures, Unit>> createFake();
-  Future<Either<BrandedMedicineFailures, Unit>> update(
+  Future<Either<BrandedMedicineFailures, BrandedMedicine>> update(
       BrandedMedicine brandedMedicine);
   Future<Either<BrandedMedicineFailures, Unit>> delete(
       BrandedMedicine brandedMedicine);

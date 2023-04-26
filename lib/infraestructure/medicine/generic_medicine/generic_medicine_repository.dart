@@ -8,8 +8,6 @@ import 'package:expedientes_clinicos/domain/medicine/generic_medicine/generic_me
 import 'package:expedientes_clinicos/domain/medicine/generic_medicine/i_generic_medicine_repository.dart';
 import 'package:expedientes_clinicos/infraestructure/helper_functions/string_manipulation.dart';
 import 'package:expedientes_clinicos/infraestructure/medicine/generic_medicine/generic_medicine_dtos.dart';
-import 'package:faker/faker.dart';
-import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/services.dart';
 import 'package:injectable/injectable.dart';
 import 'package:kt_dart/collection.dart';
@@ -101,9 +99,8 @@ class GenericMedicineRepository implements IGenericMedicineRepository {
   @override
   Stream<Either<GenericMedicineFailures, KtList<GenericMedicine>>>
       watchAll() async* {
-    final medicines = _firestore.collection('mediciness');
+    final medicines = _firestore.collection('genericMedicines');
     yield* medicines
-        .orderBy('lastUpdated', descending: true)
         .snapshots()
         .map(
           (snapshot) => right<GenericMedicineFailures, KtList<GenericMedicine>>(
@@ -125,8 +122,24 @@ class GenericMedicineRepository implements IGenericMedicineRepository {
 
   @override
   Stream<Either<GenericMedicineFailures, KtList<GenericMedicine>>>
-      watchFiltered(String name) {
-    // TODO: implement watchFiltered
-    throw UnimplementedError();
+      watchFiltered(String name) async* {
+    final medicines = _firestore.collection('genericMedicines');
+    yield* medicines
+        .where('keyWords', arrayContains: removeSpecialCharacters(name))
+        .snapshots()
+        .map(
+          (snapshot) => right<GenericMedicineFailures, KtList<GenericMedicine>>(
+            snapshot.docs
+                .map((doc) => GenericMedicineDto.fromFirestore(doc).toDomain())
+                .toImmutableList(),
+          ),
+        )
+        .onErrorReturnWith((e, _) {
+      if (e is PlatformException && e.message!.contains('PERMISSION_DENIED')) {
+        return left(const GenericMedicineFailures.insufficientPermissions());
+      } else {
+        return left(const GenericMedicineFailures.unexpected());
+      }
+    });
   }
 }

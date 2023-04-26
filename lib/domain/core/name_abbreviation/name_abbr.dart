@@ -10,12 +10,12 @@ abstract class NameAbbreviation implements _$NameAbbreviation {
   const NameAbbreviation._();
   const factory NameAbbreviation({
     required UniqueId id,
-    required AbbrName name,
+    required FullName name,
     required AbbrName abbr,
   }) = _NameAbbreviation;
 
   factory NameAbbreviation.empty() =>
-      NameAbbreviation(id: UniqueId(), name: AbbrName(''), abbr: AbbrName(''));
+      NameAbbreviation(id: UniqueId(), name: FullName(''), abbr: AbbrName(''));
   Option<ValueFailure<dynamic>> get failureOption {
     return name.value.fold((f) => some(f), (_) => none());
   }

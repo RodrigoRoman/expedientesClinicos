@@ -642,7 +642,7 @@ mixin _$CategoryFormState {
   bool get showErrorMessages => throw _privateConstructorUsedError;
   bool get isUpdating => throw _privateConstructorUsedError;
   bool get isSaving => throw _privateConstructorUsedError;
-  Option<Either<CategoryFailures, Unit>> get saveFailureOrSuccessOption =>
+  Option<Either<CategoryFailures, Category>> get saveFailureOrSuccessOption =>
       throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -661,7 +661,7 @@ abstract class $CategoryFormStateCopyWith<$Res> {
       bool showErrorMessages,
       bool isUpdating,
       bool isSaving,
-      Option<Either<CategoryFailures, Unit>> saveFailureOrSuccessOption});
+      Option<Either<CategoryFailures, Category>> saveFailureOrSuccessOption});
 
   $CategoryCopyWith<$Res> get category;
 }
@@ -705,7 +705,7 @@ class _$CategoryFormStateCopyWithImpl<$Res, $Val extends CategoryFormState>
       saveFailureOrSuccessOption: null == saveFailureOrSuccessOption
           ? _value.saveFailureOrSuccessOption
           : saveFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
-              as Option<Either<CategoryFailures, Unit>>,
+              as Option<Either<CategoryFailures, Category>>,
     ) as $Val);
   }
 
@@ -731,7 +731,7 @@ abstract class _$$_CategoryFormStateCopyWith<$Res>
       bool showErrorMessages,
       bool isUpdating,
       bool isSaving,
-      Option<Either<CategoryFailures, Unit>> saveFailureOrSuccessOption});
+      Option<Either<CategoryFailures, Category>> saveFailureOrSuccessOption});
 
   @override
   $CategoryCopyWith<$Res> get category;
@@ -774,7 +774,7 @@ class __$$_CategoryFormStateCopyWithImpl<$Res>
       saveFailureOrSuccessOption: null == saveFailureOrSuccessOption
           ? _value.saveFailureOrSuccessOption
           : saveFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
-              as Option<Either<CategoryFailures, Unit>>,
+              as Option<Either<CategoryFailures, Category>>,
     ));
   }
 }
@@ -798,7 +798,7 @@ class _$_CategoryFormState implements _CategoryFormState {
   @override
   final bool isSaving;
   @override
-  final Option<Either<CategoryFailures, Unit>> saveFailureOrSuccessOption;
+  final Option<Either<CategoryFailures, Category>> saveFailureOrSuccessOption;
 
   @override
   String toString() {
@@ -842,7 +842,7 @@ abstract class _CategoryFormState implements CategoryFormState {
       required final bool showErrorMessages,
       required final bool isUpdating,
       required final bool isSaving,
-      required final Option<Either<CategoryFailures, Unit>>
+      required final Option<Either<CategoryFailures, Category>>
           saveFailureOrSuccessOption}) = _$_CategoryFormState;
 
   @override
@@ -854,7 +854,7 @@ abstract class _CategoryFormState implements CategoryFormState {
   @override
   bool get isSaving;
   @override
-  Option<Either<CategoryFailures, Unit>> get saveFailureOrSuccessOption;
+  Option<Either<CategoryFailures, Category>> get saveFailureOrSuccessOption;
   @override
   @JsonKey(ignore: true)
   _$$_CategoryFormStateCopyWith<_$_CategoryFormState> get copyWith =>

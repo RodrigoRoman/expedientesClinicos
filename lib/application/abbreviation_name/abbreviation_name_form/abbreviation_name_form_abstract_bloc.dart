@@ -30,7 +30,7 @@ class AbbreviationNameFormBloc
     });
     on<_NameChanged>((event, emit) {
       emit(state.copyWith(
-          abbreviation: state.abbreviation.copyWith(name: AbbrName(event.name)),
+          abbreviation: state.abbreviation.copyWith(name: FullName(event.name)),
           saveFailureOrSuccessOption: none()));
     });
     on<_AbbreviationChanged>((event, emit) {

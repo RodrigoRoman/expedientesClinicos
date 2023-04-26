@@ -24,17 +24,13 @@ class InputFullName extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Expanded(
-            flex: 1,
-            child: Text(
-              label,
-              style: Theme.of(context).textTheme.titleSmall,
-            )),
-        Expanded(
             flex: 2,
             child: TextFormField(
+              textCapitalization: TextCapitalization.sentences,
               decoration: InputDecoration(
+                  hintText: label,
                   errorStyle: TextStyle(
-                      fontSize: AppSize.s12,
+                      fontSize: AppSize.s8,
                       color: Theme.of(context).colorScheme.error),
                   errorBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
@@ -50,12 +46,19 @@ class InputFullName extends StatelessWidget {
                 return fullName.value.fold(
                     (l) => l.maybeMap(
                         exceedingLength: (_) => AppStrings.tooLong,
-                        empty: (_) => AppStrings.isEmpty,
+                        empty: (s) => value != '' ? null : AppStrings.isEmpty,
                         orElse: () => AppStrings.error),
-                    (r) => null);
+                    (r) => value != '' ? null : AppStrings.isEmpty);
               },
               onChanged: (value) {
+                textController.value = TextEditingValue(
+                  text: value,
+                  selection: TextSelection.fromPosition(
+                    TextPosition(offset: textController.selection.extentOffset),
+                  ),
+                );
                 onChanged(value);
+
                 // textController.text = value;
                 // textController.selection = TextSelection.fromPosition(
                 //     TextPosition(offset: textController.text.length));

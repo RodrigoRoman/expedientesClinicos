@@ -6,9 +6,9 @@ import 'package:kt_dart/collection.dart';
 abstract class ICategoryRepository {
   Stream<Either<CategoryFailures, KtList<Category>>> watchAll();
   Stream<Either<CategoryFailures, KtList<Category>>> watchFiltered(String name);
-  Future<Either<CategoryFailures, Unit>> create(Category category);
+  Future<Either<CategoryFailures, Category>> create(Category category);
   Future<Either<CategoryFailures, Unit>> createFake();
-  Future<Either<CategoryFailures, Unit>> update(Category category);
+  Future<Either<CategoryFailures, Category>> update(Category category);
   Future<Either<CategoryFailures, Unit>> delete(Category category);
   String get collectionName;
 }

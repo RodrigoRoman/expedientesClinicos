@@ -78,6 +78,14 @@ class _DropdownSearchMedicineCategoryState
                       'Crear Unidad de Medida',
                       MedicineCategoryForm(
                         category: Category.empty(),
+                        onCreated: (Category category) {
+                          context.read<GenericMedicineFormBloc>().add(
+                              GenericMedicineFormEvent.categoryChanged(
+                                  category));
+                          searchFieldController.text =
+                              category.name.value.fold((l) => '', (r) => r);
+                          setState(() {});
+                        },
                       ),
                       300,
                       300,

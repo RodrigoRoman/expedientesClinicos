@@ -207,6 +207,7 @@ class _CategoryFormState extends State<CategoryForm> {
                                 .bodyMedium!
                                 .copyWith(color: Theme.of(context).canvasColor),
                             textAlign: TextAlign.center,
+                            textCapitalization: TextCapitalization.sentences,
                             decoration: InputDecoration(
                                 border: InputBorder.none,
                                 hintText: AppStrings.categoryName,
@@ -216,7 +217,6 @@ class _CategoryFormState extends State<CategoryForm> {
                                     .copyWith(
                                         color: Theme.of(context).canvasColor)),
                             keyboardType: TextInputType.text,
-                            textCapitalization: TextCapitalization.words,
                             onChanged: (value) {
                               categoryNameController.text = value;
                               categoryNameController.selection =

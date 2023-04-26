@@ -88,6 +88,8 @@ flutter:
     - assets/json/
     - assets/images/
     - assets/images/medicine/
+    - assets/images/general/
+
 
   # To add assets to your application, add an assets section, like this:
   # assets:

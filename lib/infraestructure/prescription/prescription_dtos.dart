@@ -3,7 +3,8 @@ import 'package:expedientes_clinicos/domain/core/indication/indication.dart';
 import 'package:expedientes_clinicos/domain/core/value_objects.dart';
 import 'package:expedientes_clinicos/domain/prescription/prescription.dart';
 import 'package:expedientes_clinicos/infraestructure/medicine/branded_medicine/branded_medicine_dtos.dart';
-import 'package:expedientes_clinicos/infraestructure/medicine/dose/dose_dtos.dart';
+import 'package:expedientes_clinicos/infraestructure/prescription/dose/dose_amount/dose_amount_dtos.dart';
+import 'package:expedientes_clinicos/infraestructure/prescription/dose/dose_dtos.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:kt_dart/collection.dart';
 
@@ -18,6 +19,7 @@ abstract class PrescriptionDto implements _$PrescriptionDto {
   const factory PrescriptionDto({
     required String id,
     required BrandedMedicineDto medicine,
+    required DoseAmountDto doseAmount,
     required DoseDto dose,
     required List<IndicationDto> indications,
   }) = _PrescriptionDto;
@@ -26,6 +28,7 @@ abstract class PrescriptionDto implements _$PrescriptionDto {
     return PrescriptionDto(
       id: prescription.id.getOrCrash(),
       medicine: BrandedMedicineDto.fromDomain(prescription.medicine),
+      doseAmount: DoseAmountDto.fromDomain(prescription.doseAmount),
       dose: DoseDto.fromDomain(prescription.dose),
       indications: prescription.indications
           .getOrCrash()
@@ -38,6 +41,7 @@ abstract class PrescriptionDto implements _$PrescriptionDto {
     return Prescription(
       id: UniqueId.fromUniqueString(id),
       medicine: medicine.toDomain(),
+      doseAmount: doseAmount.toDomain(),
       dose: dose.toDomain(),
       indications: List3<Indication>(
           indications.map((dto) => dto.toDomain()).toImmutableList()),

@@ -35,7 +35,10 @@ class _DoubleInputBoxState extends State<DoubleInputBox> {
         ..add(DoubleCounterEvent.initialized(optionOf(0.0), none())),
       child: BlocConsumer<DoubleCounterBloc, DoubleCounterState>(
         listener: (context, state) {
-          textController.text = state.amount.toString();
+          textController.value = TextEditingValue(
+              text: state.amount.toString(),
+              selection: TextSelection.fromPosition(
+                  TextPosition(offset: textController.selection.extentOffset)));
           widget.onChanged(state.amount);
         },
         builder: (context, state) {
@@ -110,11 +113,13 @@ class _DoubleInputBodyState extends State<DoubleInputBody> {
                 .bodyMedium!
                 .copyWith(fontSize: 80 / ((inputLength + 1) * 1.4)),
             onChanged: (value) {
-              print('value');
-              print(value);
               double newValue = 0;
               if (value.isNotEmpty) {
                 newValue = double.parse(value);
+                widget.textController.value = TextEditingValue(
+                    text: value,
+                    selection: TextSelection.fromPosition(TextPosition(
+                        offset: widget.textController.selection.extentOffset)));
                 setState(() {
                   inputLength = value.length;
                 });

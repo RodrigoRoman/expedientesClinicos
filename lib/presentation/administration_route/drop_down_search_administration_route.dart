@@ -80,21 +80,17 @@ class _DropdownSearchAdministrationRouteState
                   .add(StateRendererEvent.popUpForm(
                       AppStrings.createAdminRoute,
                       AdministrationRouteForm(
+                        onCreated: (NameAbbreviation nameAbbreviation) {
+                          context.read<GenericMedicineFormBloc>().add(
+                              GenericMedicineFormEvent
+                                  .administrationRouteChanged(
+                                      nameAbbreviation));
+                          searchFieldController.text = nameAbbreviation
+                              .name.value
+                              .fold((l) => '', (r) => r);
+                          setState(() {});
+                        },
                         nameAbbreviation: NameAbbreviation.empty(),
-                        // onAbbreviationChanged: (newAbbr) {
-                        //   context.read<AdministrationRouteFormBloc>().add(
-                        //       AbbreviationNameFormEvent.abreviationChanged(
-                        //           newAbbr));
-                        // },
-                        // onNameChanged: (newName) {
-                        //   context.read<AdministrationRouteFormBloc>().add(
-                        //       AbbreviationNameFormEvent.nameChanged(newName));
-                        // },
-                        // onSubmit: () {
-                        //   context
-                        //       .read<AdministrationRouteFormBloc>()
-                        //       .add(const AbbreviationNameFormEvent.saved());
-                        // },
                       ),
                       300,
                       500,

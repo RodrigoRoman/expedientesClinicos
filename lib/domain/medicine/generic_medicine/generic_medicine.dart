@@ -49,4 +49,16 @@ abstract class GenericMedicine implements _$GenericMedicine {
             measureUnit.failureOption.fold(() => right(unit), (f) => left(f)))
         .fold((f) => some(f), (_) => none());
   }
+
+  @override
+  bool operator ==(Object other) {
+    return other is GenericMedicine &&
+        other.genericName == genericName &&
+        other.measureUnit == measureUnit &&
+        other.amountMeasureUnit == amountMeasureUnit &&
+        other.administrationRoute == administrationRoute &&
+        other.pharmaceuticalForm == pharmaceuticalForm &&
+        other.amountPerPackage == amountPerPackage &&
+        other.category == category;
+  }
 }

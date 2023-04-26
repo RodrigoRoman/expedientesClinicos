@@ -6,7 +6,8 @@ import 'package:injectable/injectable.dart';
 @injectable
 class DurationIntervalWatcherBloc extends TimeIntervalWatcherBloc {
   final ITimeIntervalRepository _iDurationIntervalRepository;
-  DurationIntervalWatcherBloc(this._iDurationIntervalRepository)
-      : super(_iDurationIntervalRepository,
-            FirebaseCollectionsTimeInterval.medicineDurationInterval);
+  DurationIntervalWatcherBloc(
+      @Named(FirebaseCollectionsTimeInterval.medicineDurationInterval)
+          this._iDurationIntervalRepository)
+      : super(_iDurationIntervalRepository);
 }

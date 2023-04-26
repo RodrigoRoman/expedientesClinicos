@@ -5,6 +5,7 @@ import 'package:expedientes_clinicos/application/categories/category_watcher/med
 import 'package:expedientes_clinicos/application/medicine/generic_medicine/generic_medicine_form/generic_medicine_form_bloc.dart';
 import 'package:expedientes_clinicos/domain/core/categories/category.dart';
 import 'package:expedientes_clinicos/domain/core/name_abbreviation/name_abbr.dart';
+import 'package:expedientes_clinicos/domain/core/value_objects.dart';
 import 'package:expedientes_clinicos/injection.dart';
 import 'package:expedientes_clinicos/presentation/administration_route/drop_down_search_administration_route.dart';
 import 'package:expedientes_clinicos/presentation/common/widget_elements/input_full_name.dart';
@@ -52,6 +53,7 @@ class _GenericMedicineFormBodyState extends State<GenericMedicineFormBody> {
     return LayoutBuilder(builder: (context, constraints) {
       double unitHeight = constraints.maxHeight / 12;
       return Form(
+          autovalidateMode: AutovalidateMode.onUserInteraction,
           key: _key,
           child: SingleChildScrollView(
             controller: _scrollController,
@@ -72,25 +74,45 @@ class _GenericMedicineFormBodyState extends State<GenericMedicineFormBody> {
                       ),
                       Expanded(
                         flex: 4,
-                        child: InputFullName(
-                            label: AppStrings.genericName,
-                            fullName: context
-                                .read<GenericMedicineFormBloc>()
-                                .state
-                                .medicine
-                                .genericName,
-                            onChanged: (value) {
-                              medicineGenericController.text = value;
-                              medicineGenericController.selection =
-                                  TextSelection.fromPosition(TextPosition(
-                                      offset: medicineGenericController
-                                          .text.length));
+                        child: Column(
+                          children: [
+                            Expanded(
+                              child: TitleValidated(
+                                  title: AppStrings.fullName,
+                                  condition: (requestedSubmition &
+                                      (context
+                                              .read<GenericMedicineFormBloc>()
+                                              .state
+                                              .medicine
+                                              .genericName ==
+                                          FullName('')))),
+                            ),
+                            Expanded(
+                              flex: 2,
+                              child: InputFullName(
+                                  label: AppStrings.genericName,
+                                  fullName: context
+                                      .read<GenericMedicineFormBloc>()
+                                      .state
+                                      .medicine
+                                      .genericName,
+                                  onChanged: (value) {
+                                    medicineGenericController.text = value;
+                                    medicineGenericController.selection =
+                                        TextSelection.fromPosition(TextPosition(
+                                            offset: medicineGenericController
+                                                .text.length));
 
-                              context.read<GenericMedicineFormBloc>().add(
-                                  GenericMedicineFormEvent.genericNameChanged(
-                                      medicineGenericController.text));
-                            },
-                            textController: medicineGenericController),
+                                    context.read<GenericMedicineFormBloc>().add(
+                                        GenericMedicineFormEvent
+                                            .genericNameChanged(
+                                                medicineGenericController
+                                                    .text));
+                                  },
+                                  textController: medicineGenericController),
+                            ),
+                          ],
+                        ),
                       ),
                       const Spacer(
                         flex: 1,
@@ -209,33 +231,36 @@ class _GenericMedicineFormBodyState extends State<GenericMedicineFormBody> {
                       ],
                     )),
                 SizedBox(
-                  height: unitHeight / 2,
+                  height: unitHeight / 1.5,
                   width: constraints.maxWidth,
                 ),
                 SizedBox(
                     height: unitHeight,
-                    width: constraints.maxWidth / 3,
-                    child: ElevatedButton(
-                      onPressed: () {
-                        print('current state');
-                        // print(_key.currentState.);
-
-                        if (_key.currentState!.validate()) {
-                          context
-                              .read<GenericMedicineFormBloc>()
-                              .add(const GenericMedicineFormEvent.saved());
-                        } else {
-                          setState(() {
-                            requestedSubmition = true;
-                          });
-                        }
-                      },
-                      child: const Icon(FontAwesomeIcons.paperPlane),
+                    width: constraints.maxWidth / 1.3,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Spacer(flex: 4),
+                        Expanded(
+                          child: IconButton(
+                            onPressed: () {
+                              if (_key.currentState!.validate()) {
+                                context.read<GenericMedicineFormBloc>().add(
+                                    const GenericMedicineFormEvent.saved());
+                              } else {
+                                setState(() {
+                                  requestedSubmition = true;
+                                });
+                              }
+                            },
+                            icon: const Icon(FontAwesomeIcons.paperPlane),
+                          ),
+                        ),
+                      ],
                     )),
                 SizedBox(
                   height: unitHeight / 2,
                 ),
-
                 //FAKER BUTTON - TO BE COMMENTED
                 // FakerMedicineButton(heightUnit: heightUnit),
                 SizedBox(

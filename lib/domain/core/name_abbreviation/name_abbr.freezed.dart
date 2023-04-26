@@ -17,7 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$NameAbbreviation {
   UniqueId get id => throw _privateConstructorUsedError;
-  AbbrName get name => throw _privateConstructorUsedError;
+  FullName get name => throw _privateConstructorUsedError;
   AbbrName get abbr => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -31,7 +31,7 @@ abstract class $NameAbbreviationCopyWith<$Res> {
           NameAbbreviation value, $Res Function(NameAbbreviation) then) =
       _$NameAbbreviationCopyWithImpl<$Res, NameAbbreviation>;
   @useResult
-  $Res call({UniqueId id, AbbrName name, AbbrName abbr});
+  $Res call({UniqueId id, FullName name, AbbrName abbr});
 }
 
 /// @nodoc
@@ -59,7 +59,7 @@ class _$NameAbbreviationCopyWithImpl<$Res, $Val extends NameAbbreviation>
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as AbbrName,
+              as FullName,
       abbr: null == abbr
           ? _value.abbr
           : abbr // ignore: cast_nullable_to_non_nullable
@@ -76,7 +76,7 @@ abstract class _$$_NameAbbreviationCopyWith<$Res>
       __$$_NameAbbreviationCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({UniqueId id, AbbrName name, AbbrName abbr});
+  $Res call({UniqueId id, FullName name, AbbrName abbr});
 }
 
 /// @nodoc
@@ -102,7 +102,7 @@ class __$$_NameAbbreviationCopyWithImpl<$Res>
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as AbbrName,
+              as FullName,
       abbr: null == abbr
           ? _value.abbr
           : abbr // ignore: cast_nullable_to_non_nullable
@@ -121,7 +121,7 @@ class _$_NameAbbreviation extends _NameAbbreviation {
   @override
   final UniqueId id;
   @override
-  final AbbrName name;
+  final FullName name;
   @override
   final AbbrName abbr;
 
@@ -140,14 +140,14 @@ class _$_NameAbbreviation extends _NameAbbreviation {
 abstract class _NameAbbreviation extends NameAbbreviation {
   const factory _NameAbbreviation(
       {required final UniqueId id,
-      required final AbbrName name,
+      required final FullName name,
       required final AbbrName abbr}) = _$_NameAbbreviation;
   const _NameAbbreviation._() : super._();
 
   @override
   UniqueId get id;
   @override
-  AbbrName get name;
+  FullName get name;
   @override
   AbbrName get abbr;
   @override

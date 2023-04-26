@@ -10,15 +10,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AdministrationRouteForm extends StatefulWidget {
   final NameAbbreviation? nameAbbreviation;
-  // final Function onNameChanged;
-  // final Function onAbbreviationChanged;
-  // final Function onSubmit;
-  const AdministrationRouteForm(
-      {required this.nameAbbreviation,
-      // required this.onAbbreviationChanged,
-      // required this.onNameChanged,
-      // required this.onSubmit,
-      super.key});
+  Function? onCreated;
+  AdministrationRouteForm(
+      {required this.nameAbbreviation, this.onCreated, super.key});
 
   @override
   State<AdministrationRouteForm> createState() =>
@@ -76,6 +70,7 @@ class _AdministrationRouteFormState extends State<AdministrationRouteForm> {
                                     500));
                           },
                         ), (r) {
+                  widget.onCreated?.call(state.abbreviation);
                   context.read<StateRendererBloc>().add(
                       StateRendererEvent.popUpSuccess(AppStrings.success,
                           AppStrings.successfullyCreated, null, 300, 500));

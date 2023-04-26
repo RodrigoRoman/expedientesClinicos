@@ -1,7 +1,5 @@
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
-import 'package:expedientes_clinicos/domain/core/categories/category.dart';
-import 'package:expedientes_clinicos/domain/core/name_abbreviation/name_abbr.dart';
 import 'package:expedientes_clinicos/domain/core/value_objects.dart';
 import 'package:expedientes_clinicos/domain/medicine/branded_medicine/branded_medicine.dart';
 import 'package:expedientes_clinicos/domain/medicine/branded_medicine/branded_medicine_failures.dart';
@@ -58,7 +56,7 @@ class BrandedMedicineFormBloc
               state.medicine.copyWith(genericMedicine: event.genericMedicine)));
     });
     on<_Saved>((event, emit) async {
-      Either<BrandedMedicineFailures, Unit>? failureOrSuccess;
+      Either<BrandedMedicineFailures, BrandedMedicine>? failureOrSuccess;
       emit(state.copyWith(isSaving: true, saveFailureOrSuccessOption: none()));
       if (state.medicine.failureOption.isNone()) {
         failureOrSuccess = state.isUpdating
@@ -68,6 +66,8 @@ class BrandedMedicineFormBloc
         failureOrSuccess = const Left(BrandedMedicineFailures.unexpected());
       }
       emit(state.copyWith(
+          medicine:
+              failureOrSuccess.fold((l) => BrandedMedicine.empty(), (r) => r),
           isSaving: false,
           showErrorMessages: true,
           saveFailureOrSuccessOption: optionOf(failureOrSuccess)));
