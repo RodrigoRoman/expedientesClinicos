@@ -4,17 +4,12 @@ import 'package:expedientes_clinicos/application/medicine/dose/dose_components/d
 import 'package:expedientes_clinicos/application/medicine/dose/dose_components/week_days_dose/week_days_dose_form/week_days_dose_form_bloc.dart';
 import 'package:expedientes_clinicos/application/medicine/dose/dose_components/week_days_dose/week_days_dose_watcher/week_days_dose_watcher_bloc.dart';
 import 'package:expedientes_clinicos/application/medicine/dose/dose_core/dose_form/dose_form_bloc.dart';
-import 'package:expedientes_clinicos/application/medicine/generic_medicine/generic_medicine_form/generic_medicine_form_bloc.dart';
 import 'package:expedientes_clinicos/application/state_render/state_renderer_bloc.dart';
 import 'package:expedientes_clinicos/domain/core/view_models/label_dose_times_view_model.dart';
-import 'package:expedientes_clinicos/domain/prescription/dose/day_hours_doses/day_hours_doses.dart';
 import 'package:expedientes_clinicos/domain/prescription/dose/week_doses/week_days_dose.dart';
 import 'package:expedientes_clinicos/injection.dart';
 import 'package:expedientes_clinicos/presentation/common/widget_elements/label_drop_down/label_drop_down.dart';
-import 'package:expedientes_clinicos/presentation/pharmaceutical_form/pop_up_pharmaceutical_form.dart';
-import 'package:expedientes_clinicos/presentation/prescription/dose/day_hours_dose/day_hours_dose_form/day_hours_dose_form.dart';
 import 'package:expedientes_clinicos/presentation/prescription/dose/week_days_dose/week_days_dose_form/week_days_form.dart';
-import 'package:expedientes_clinicos/presentation/resources/constant_size_values.dart';
 import 'package:expedientes_clinicos/presentation/resources/string_manager.dart';
 import 'package:expedientes_clinicos/presentation/routes/router.gr.dart';
 import 'package:flutter/material.dart';
@@ -66,6 +61,8 @@ class _DropdownSearchWeekDaysState extends State<DropdownSearchWeekDays> {
                 context.read<DoseFormBloc>().state.dose.weekDays),
             searchFieldController: searchFieldController,
             onSelected: (LabelDoseTimesViewModel labelDoseTimesViewModel) {
+              print('dose amount');
+              print(labelDoseTimesViewModel.weekDaysDose);
               context.read<DoseFormBloc>().add(DoseFormEvent.weekDaysChanged(
                   labelDoseTimesViewModel.weekDaysDose));
               setState(() {});

@@ -70,8 +70,7 @@ class _DropdownSearchDoseState extends State<DropdownSearchDose> {
                   .add(const DoseWatcherEvent.watchAllStarted());
             },
             listElements: doseList
-                .map((dayHoursDose) =>
-                    LabelDoseTimesViewModel.fromDose(dayHoursDose))
+                .map((dose) => LabelDoseTimesViewModel.fromDose(dose))
                 .toList(),
             hintText: AppStrings.doseAmount,
             newFunction: () {

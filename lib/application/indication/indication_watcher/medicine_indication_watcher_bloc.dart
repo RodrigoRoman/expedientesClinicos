@@ -6,7 +6,8 @@ import 'package:injectable/injectable.dart';
 @injectable
 class MedicineIndicationWatcherBloc extends IndicationWatcherBloc {
   final IIndicationRepository _medicineIndicationRepository;
-  MedicineIndicationWatcherBloc(this._medicineIndicationRepository)
-      : super(_medicineIndicationRepository,
-            FirebaseCollectionsIndication.medicineIndication);
+  MedicineIndicationWatcherBloc(
+      @Named(FirebaseCollectionsIndication.medicineIndication)
+          this._medicineIndicationRepository)
+      : super(_medicineIndicationRepository);
 }

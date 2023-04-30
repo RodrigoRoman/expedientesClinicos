@@ -46,7 +46,6 @@ class _DoseTimeFormState extends State<DoseTimeForm> {
 
   @override
   Widget build(BuildContext context) {
-    final double keyboardHeight = MediaQuery.of(context).viewInsets.bottom;
     return LayoutBuilder(builder: (context, constraints) {
       return Center(
         child: GestureDetector(
@@ -130,16 +129,55 @@ class _DoseTimeFormState extends State<DoseTimeForm> {
                           }));
                 },
                 builder: (context, state) {
-                  // WidgetsBinding.instance.addPostFrameCallback((_) {
-                  //   if (WidgetsBinding.instance.window.viewInsets.bottom >
-                  //       0.0) {
-                  //     scrollController.animateTo(
-                  //         WidgetsBinding.instance.window.viewInsets.bottom / 6,
-                  //         duration: Duration(milliseconds: 100),
-                  //         curve: Curves.bounceIn);
-                  //     // Keyboard is visible.
-                  //   }
-                  // });
+                  dayDose = context
+                      .read<DoseFormBloc>()
+                      .state
+                      .dose
+                      .dayHoursDose
+                      .label
+                      .value
+                      .fold((l) => '', (r) => r);
+                  weekDays = context
+                      .read<DoseFormBloc>()
+                      .state
+                      .dose
+                      .weekDays
+                      .label
+                      .value
+                      .fold((l) => '', (r) => r);
+                  totalDuration = context
+                      .read<DoseFormBloc>()
+                      .state
+                      .dose
+                      .duration
+                      .label
+                      .value
+                      .fold((l) => '', (r) => r);
+                  //Define the label of the timeDose with the previously selected labels for dayHours,weekDay,totalDuration
+                  bool equals = listEquals(listWord, [
+                    dayDose,
+                    weekDays,
+                    totalDuration,
+                  ]);
+
+                  if (!equals) {
+                    listWord = [
+                      dayDose,
+                      weekDays,
+                      totalDuration,
+                    ];
+                    WidgetsBinding.instance.addPostFrameCallback((_) {
+                      context.read<DoseFormBloc>().add(
+                          DoseFormEvent.labelChanged(labelController.text));
+
+                      labelController.value = TextEditingValue(
+                          text: "$dayDose $weekDays $totalDuration",
+                          selection: TextSelection.fromPosition(
+                            TextPosition(
+                                offset: labelController.selection.extentOffset),
+                          ));
+                    });
+                  }
                   double unitHeight = (constraints.maxWidth) / 10;
                   return SingleChildScrollView(
                     controller: scrollController,
@@ -147,181 +185,113 @@ class _DoseTimeFormState extends State<DoseTimeForm> {
                       children: [
                         SizedBox(height: unitHeight),
                         SizedBox(
-                          height: unitHeight * 14,
-                          child: BlocProvider(
-                            create: (context) => getIt<DoseFormBloc>(),
-                            child: BlocConsumer<DoseFormBloc, DoseFormState>(
-                              listener: (context, state) {},
-                              builder: (context, state) {
-                                dayDose = context
-                                    .read<DoseFormBloc>()
-                                    .state
-                                    .dose
-                                    .dayHoursDose
-                                    .label
-                                    .value
-                                    .fold((l) => '', (r) => r);
-                                weekDays = context
-                                    .read<DoseFormBloc>()
-                                    .state
-                                    .dose
-                                    .weekDays
-                                    .label
-                                    .value
-                                    .fold((l) => '', (r) => r);
-                                totalDuration = context
-                                    .read<DoseFormBloc>()
-                                    .state
-                                    .dose
-                                    .duration
-                                    .label
-                                    .value
-                                    .fold((l) => '', (r) => r);
-                                //Define the label of the timeDose with the previously selected labels for dayHours,weekDay,totalDuration
-                                bool equals = listEquals(listWord, [
-                                  dayDose,
-                                  weekDays,
-                                  totalDuration,
-                                ]);
-
-                                if (!equals) {
-                                  listWord = [
-                                    dayDose,
-                                    weekDays,
-                                    totalDuration,
-                                  ];
-                                  WidgetsBinding.instance
-                                      .addPostFrameCallback((_) {
-                                    context.read<DoseFormBloc>().add(
-                                        DoseFormEvent.labelChanged(
-                                            labelController.text));
-
-                                    labelController.value = TextEditingValue(
-                                        text:
-                                            "$dayDose $weekDays $totalDuration",
-                                        selection: TextSelection.fromPosition(
-                                          TextPosition(
-                                              offset: labelController
-                                                  .selection.extentOffset),
-                                        ));
-                                  });
-                                }
-
-                                return Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    children: [
-                                      Spacer(flex: 1),
-                                      Expanded(
-                                        flex: 2,
-                                        child: Column(
-                                          children: [
-                                            Expanded(
-                                                child: TitleValidated(
-                                                    title: AppStrings
-                                                        .labelDayHours,
-                                                    condition: context
-                                                            .read<
-                                                                DoseFormBloc>()
-                                                            .state
-                                                            .dose
-                                                            .dayHoursDose ==
-                                                        DayHoursDose.empty())),
-                                            Expanded(
-                                              flex: 2,
-                                              child:
-                                                  DropdownSearchDayHoursDose(),
-                                            ),
-                                          ],
+                            height: unitHeight * 14,
+                            child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Spacer(flex: 1),
+                                  Expanded(
+                                    flex: 2,
+                                    child: Column(
+                                      children: [
+                                        Expanded(
+                                            child: TitleValidated(
+                                                title: AppStrings.labelDayHours,
+                                                condition: context
+                                                        .read<DoseFormBloc>()
+                                                        .state
+                                                        .dose
+                                                        .dayHoursDose ==
+                                                    DayHoursDose.empty())),
+                                        Expanded(
+                                          flex: 2,
+                                          child: DropdownSearchDayHoursDose(),
                                         ),
-                                      ),
-                                      Spacer(flex: 1),
-                                      Expanded(
-                                          flex: 2,
-                                          child: Column(
-                                            children: [
-                                              Expanded(
-                                                  child: TitleValidated(
-                                                      title: AppStrings
-                                                          .labelWeekDays,
-                                                      condition: context
-                                                              .read<
-                                                                  DoseFormBloc>()
-                                                              .state
-                                                              .dose
-                                                              .weekDays ==
-                                                          WeekDaysDose
-                                                              .empty())),
-                                              Expanded(
-                                                flex: 2,
-                                                child: DropdownSearchWeekDays(),
-                                              ),
-                                            ],
-                                          )),
-                                      Spacer(flex: 1),
-                                      Expanded(
-                                          flex: 2,
-                                          child: Row(
-                                            children: [
-                                              Expanded(
-                                                  flex: 2,
-                                                  child: Column(
-                                                    children: [
-                                                      Expanded(
-                                                          child: TitleValidated(
-                                                              title: AppStrings
-                                                                  .labelDuration,
-                                                              condition: context
-                                                                      .read<
-                                                                          DoseFormBloc>()
-                                                                      .state
-                                                                      .dose
-                                                                      .duration ==
-                                                                  TimeInterval
-                                                                      .empty())),
-                                                      Expanded(
-                                                          flex: 2,
-                                                          child:
-                                                              DropdownSearchDoseDuration()),
-                                                    ],
-                                                  ))
-                                            ],
-                                          )),
-                                      Spacer(flex: 1),
-                                      Expanded(
-                                          flex: 2,
-                                          child: Column(
-                                            children: [
-                                              Expanded(
-                                                  child: TitleValidated(
-                                                      title: AppStrings
-                                                          .labelShowUp,
-                                                      condition: context
-                                                              .read<
-                                                                  DoseFormBloc>()
-                                                              .state
-                                                              .dose
-                                                              .label
-                                                              .value
-                                                              .fold(
-                                                                  (l) =>
-                                                                      AppStrings
-                                                                          .empty,
-                                                                  (r) => r) ==
-                                                          AppStrings.empty)),
-                                              Expanded(
-                                                  flex: 2,
-                                                  child: TextFormField(
-                                                    maxLines: 2,
-                                                    controller: labelController,
-                                                    textAlign: TextAlign.center,
-                                                    textCapitalization:
-                                                        TextCapitalization
-                                                            .sentences,
-                                                    decoration: InputDecoration(
-                                                        suffix: (labelController
-                                                                    .text !=
+                                      ],
+                                    ),
+                                  ),
+                                  Spacer(flex: 1),
+                                  Expanded(
+                                      flex: 2,
+                                      child: Column(
+                                        children: [
+                                          Expanded(
+                                              child: TitleValidated(
+                                                  title:
+                                                      AppStrings.labelWeekDays,
+                                                  condition: context
+                                                          .read<DoseFormBloc>()
+                                                          .state
+                                                          .dose
+                                                          .weekDays ==
+                                                      WeekDaysDose.empty())),
+                                          Expanded(
+                                            flex: 2,
+                                            child: DropdownSearchWeekDays(),
+                                          ),
+                                        ],
+                                      )),
+                                  Spacer(flex: 1),
+                                  Expanded(
+                                      flex: 2,
+                                      child: Row(
+                                        children: [
+                                          Expanded(
+                                              flex: 2,
+                                              child: Column(
+                                                children: [
+                                                  Expanded(
+                                                      child: TitleValidated(
+                                                          title: AppStrings
+                                                              .labelDuration,
+                                                          condition: context
+                                                                  .read<
+                                                                      DoseFormBloc>()
+                                                                  .state
+                                                                  .dose
+                                                                  .duration ==
+                                                              TimeInterval
+                                                                  .empty())),
+                                                  Expanded(
+                                                      flex: 2,
+                                                      child:
+                                                          DropdownSearchDoseDuration()),
+                                                ],
+                                              ))
+                                        ],
+                                      )),
+                                  Spacer(flex: 1),
+                                  Expanded(
+                                      flex: 2,
+                                      child: Column(
+                                        children: [
+                                          Expanded(
+                                              child: TitleValidated(
+                                                  title: AppStrings.labelShowUp,
+                                                  condition: context
+                                                          .read<DoseFormBloc>()
+                                                          .state
+                                                          .dose
+                                                          .label
+                                                          .value
+                                                          .fold(
+                                                              (l) => AppStrings
+                                                                  .empty,
+                                                              (r) => r) ==
+                                                      AppStrings.empty)),
+                                          Expanded(
+                                              flex: 2,
+                                              child: TextFormField(
+                                                maxLines: 2,
+                                                controller: labelController,
+                                                textAlign: TextAlign.center,
+                                                textCapitalization:
+                                                    TextCapitalization
+                                                        .sentences,
+                                                decoration: InputDecoration(
+                                                    suffix:
+                                                        (labelController.text !=
                                                                 '')
                                                             ? Material(
                                                                 elevation: 3,
@@ -349,97 +319,42 @@ class _DoseTimeFormState extends State<DoseTimeForm> {
                                                                 ),
                                                               )
                                                             : SizedBox.shrink(),
-                                                        border:
-                                                            InputBorder.none,
-                                                        hintText: AppStrings
-                                                            .labelShowUp),
-                                                    style: TextStyle(
-                                                      fontSize: AppSize.s12,
-                                                    ),
-                                                    keyboardType:
-                                                        TextInputType.text,
-                                                    textInputAction:
-                                                        TextInputAction.next,
-                                                    onChanged: (value) {
-                                                      labelController.value =
-                                                          TextEditingValue(
-                                                              text: value,
-                                                              selection:
-                                                                  TextSelection
-                                                                      .fromPosition(
-                                                                TextPosition(
-                                                                    offset: labelController
-                                                                        .selection
-                                                                        .extentOffset),
-                                                              ));
-                                                      context
-                                                          .read<DoseFormBloc>()
-                                                          .add(DoseFormEvent
-                                                              .labelChanged(
-                                                                  value));
-                                                    },
-                                                  )
-
-                                                  // InputFullName(
-                                                  //     label:
-                                                  //         AppStrings.labelShowUp,
-                                                  //     fullName: context
-                                                  //         .read<DoseFormBloc>()
-                                                  //         .state
-                                                  //         .dose
-                                                  //         .label,
-                                                  //     onChanged: (value) {
-                                                  //       labelController.text =
-                                                  //           value;
-                                                  //       labelController
-                                                  //               .selection =
-                                                  //           TextSelection.fromPosition(
-                                                  //               TextPosition(
-                                                  //                   offset: labelController
-                                                  //                       .text
-                                                  //                       .length));
-
-                                                  //       context
-                                                  //           .read<DoseFormBloc>()
-                                                  //           .add(DoseFormEvent
-                                                  //               .labelChanged(
-                                                  //                   labelController
-                                                  //                       .text));
-                                                  //     },
-                                                  //     textController:
-                                                  //         labelController),
-                                                  ),
-                                            ],
-                                          ))
-                                    ]);
-                              },
-                            ),
-                          ),
-                        ),
+                                                    border: InputBorder.none,
+                                                    hintText:
+                                                        AppStrings.labelShowUp),
+                                                style: TextStyle(
+                                                  fontSize: AppSize.s12,
+                                                ),
+                                                keyboardType:
+                                                    TextInputType.text,
+                                                textInputAction:
+                                                    TextInputAction.next,
+                                                onChanged: (value) {
+                                                  labelController.value =
+                                                      TextEditingValue(
+                                                          text: value,
+                                                          selection:
+                                                              TextSelection
+                                                                  .fromPosition(
+                                                            TextPosition(
+                                                                offset: labelController
+                                                                    .selection
+                                                                    .extentOffset),
+                                                          ));
+                                                  context
+                                                      .read<DoseFormBloc>()
+                                                      .add(DoseFormEvent
+                                                          .labelChanged(value));
+                                                },
+                                              )),
+                                        ],
+                                      ))
+                                ])),
                         SizedBox(
                           height: unitHeight,
                         ),
                         ElevatedButton(
                             onPressed: () {
-                              // if (_key.currentState!.validate()) {
-                              print('dayDose!');
-                              print(context
-                                  .read<DoseFormBloc>()
-                                  .state
-                                  .dose
-                                  .dayHoursDose);
-                              print('weekDays!');
-                              print(context
-                                  .read<DoseFormBloc>()
-                                  .state
-                                  .dose
-                                  .weekDays);
-                              print('duration');
-                              print(context
-                                  .read<DoseFormBloc>()
-                                  .state
-                                  .dose
-                                  .duration);
                               if ((context
                                           .read<DoseFormBloc>()
                                           .state
@@ -457,9 +372,9 @@ class _DoseTimeFormState extends State<DoseTimeForm> {
                                           .state
                                           .dose
                                           .duration !=
-                                      TimeInterval.empty()) print('VALIDATED');
-                              print(context.read<DoseFormBloc>().state.dose);
-                              widget.onSubmit();
+                                      TimeInterval.empty()) {
+                                widget.onSubmit();
+                              }
                               // }
                               setState(() {
                                 submitted = true;

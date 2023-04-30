@@ -4,6 +4,7 @@ import 'package:expedientes_clinicos/domain/prescription/dose/week_doses/week_da
 import 'package:expedientes_clinicos/presentation/common/widget_elements/title_validated.dart';
 import 'package:expedientes_clinicos/presentation/resources/constant_size_values.dart';
 import 'package:expedientes_clinicos/presentation/resources/string_manager.dart';
+import 'package:expedientes_clinicos/presentation/routes/router.gr.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kt_dart/kt.dart';
@@ -31,7 +32,7 @@ class _WeekDaysDoseFormState extends State<WeekDaysDoseForm> {
   final TextEditingController labelController = TextEditingController();
   int doseAmount = 0;
   bool submitted = false;
-  List<int> listWeekDays = [];
+  List<int> listWeekDays = List.generate(7, (index) => index);
 
   @override
   Widget build(BuildContext context) {
@@ -62,7 +63,7 @@ class _WeekDaysDoseFormState extends State<WeekDaysDoseForm> {
                                       StateRendererEvent.popUpError(
                                           AppStrings.couldNotSaveImage,
                                           AppStrings.somethingWentWrong,
-                                          null,
+                                          FullScreenState.name,
                                           300,
                                           500));
                                 },
@@ -72,7 +73,7 @@ class _WeekDaysDoseFormState extends State<WeekDaysDoseForm> {
                                           AppStrings.insuficcientPermissions,
                                           AppStrings
                                               .insuficcientPermissionsExplain,
-                                          null,
+                                          FullScreenState.name,
                                           300,
                                           500));
                                 },
@@ -81,7 +82,7 @@ class _WeekDaysDoseFormState extends State<WeekDaysDoseForm> {
                                       StateRendererEvent.popUpError(
                                           AppStrings.unableToCreate,
                                           AppStrings.unableToCreateExplain,
-                                          null,
+                                          FullScreenState.name,
                                           300,
                                           500));
                                 },
@@ -90,7 +91,7 @@ class _WeekDaysDoseFormState extends State<WeekDaysDoseForm> {
                                       StateRendererEvent.popUpError(
                                           AppStrings.genericError,
                                           AppStrings.genericErrorExplain,
-                                          null,
+                                          FullScreenState.name,
                                           300,
                                           500));
                                 },
@@ -100,7 +101,7 @@ class _WeekDaysDoseFormState extends State<WeekDaysDoseForm> {
                             StateRendererEvent.popUpSuccess(
                                 AppStrings.success,
                                 AppStrings.successfullyCreated,
-                                null,
+                                FullScreenState.name,
                                 300,
                                 500));
                       }));
@@ -172,7 +173,12 @@ class _WeekDaysDoseFormState extends State<WeekDaysDoseForm> {
                     Expanded(
                         flex: 3,
                         child: LayoutBuilder(builder: (context, constraints) {
-                          return SizedBox(
+                          return Container(
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(20),
+                                  border: (submitted && listWeekDays.isEmpty)
+                                      ? Border.all(width: 4, color: Colors.red)
+                                      : null),
                               width: constraints.maxWidth / 1.5,
                               height: constraints.maxHeight / 2,
                               child: Center(
@@ -189,7 +195,7 @@ class _WeekDaysDoseFormState extends State<WeekDaysDoseForm> {
                                       width: constraints.maxWidth / 4,
                                       child: TextButton(
                                         style: ButtonStyle(
-                                          shape: listWeekDays.contains(index)
+                                          shape: !listWeekDays.contains(index)
                                               ? MaterialStateProperty.all(
                                                   CircleBorder())
                                               : null,
@@ -201,7 +207,7 @@ class _WeekDaysDoseFormState extends State<WeekDaysDoseForm> {
                                                       ? Theme.of(context)
                                                           .colorScheme
                                                           .onPrimary
-                                                      : (listWeekDays
+                                                      : !(listWeekDays
                                                               .contains(index))
                                                           ? Theme.of(context)
                                                               .colorScheme
@@ -234,7 +240,8 @@ class _WeekDaysDoseFormState extends State<WeekDaysDoseForm> {
                     const Spacer(),
                     ElevatedButton(
                         onPressed: () {
-                          if (_key.currentState!.validate()) {
+                          if (_key.currentState!.validate() &&
+                              listWeekDays.isNotEmpty) {
                             widget.onSubmit();
                           }
                           setState(() {

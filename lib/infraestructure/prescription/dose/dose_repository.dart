@@ -101,7 +101,6 @@ class DoseRepository implements IDoseRepository {
   Stream<Either<DoseFailures, KtList<Dose>>> watchAll() async* {
     final doses = _firestore.collection('doses');
     yield* doses
-        .orderBy('lastUpdated', descending: true)
         .snapshots()
         .map(
           (snapshot) => right<DoseFailures, KtList<Dose>>(
@@ -114,6 +113,8 @@ class DoseRepository implements IDoseRepository {
       if (e is PlatformException && e.message!.contains('PERMISSION_DENIED')) {
         return left(const DoseFailures.insufficientPermissions());
       } else {
+        print('error');
+        print(e);
         return left(const DoseFailures.unexpected());
       }
     });

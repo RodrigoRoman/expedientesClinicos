@@ -12,17 +12,16 @@ class PatientVisitPage extends StatefulWidget {
 }
 
 class _PatientVisitPageState extends State<PatientVisitPage> {
-  ScrollController _scrollController = ScrollController();
   @override
   Widget build(BuildContext context) {
     final double keyboardHeight = MediaQuery.of(context).viewInsets.bottom;
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      if (WidgetsBinding.instance.window.viewInsets.bottom > 0.0) {
-        _scrollController.animateTo(_scrollController.offset * 5,
-            duration: Duration(milliseconds: 100), curve: Curves.bounceIn);
-        // Keyboard is visible.
-      }
-    });
+    // WidgetsBinding.instance.addPostFrameCallback((_) {
+    //   if (WidgetsBinding.instance.window.viewInsets.bottom > 0.0) {
+    //     _scrollController.animateTo(_scrollController.offset * 5,
+    //         duration: Duration(milliseconds: 100), curve: Curves.bounceIn);
+    //     // Keyboard is visible.
+    //   }
+    // });
 
     return Scaffold(
         appBar: AppBar(
@@ -43,7 +42,6 @@ class _PatientVisitPageState extends State<PatientVisitPage> {
             return BlocProvider(
               create: (context) => getIt<PatientVisitFormBloc>(),
               child: SingleChildScrollView(
-                controller: _scrollController,
                 // padding: EdgeInsets.only(bottom: keyboardHeight),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,

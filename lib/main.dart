@@ -3,6 +3,7 @@ import 'package:expedientes_clinicos/application/abbreviation_name/abbreviation_
 import 'package:expedientes_clinicos/application/abbreviation_name/abbreviation_name_form/measure_unit_form_bloc.dart';
 import 'package:expedientes_clinicos/application/abbreviation_name/abbreviation_name_form/pharmaceutical_form_form_bloc.dart';
 import 'package:expedientes_clinicos/application/categories/category_form/medicine_category_form_bloc.dart';
+import 'package:expedientes_clinicos/application/indication/indication_form/medicine_indication_form_bloc.dart';
 import 'package:expedientes_clinicos/application/medicine/branded_medicine/branded_medicine_form/branded_medicine_form_bloc.dart';
 import 'package:expedientes_clinicos/application/medicine/dose/dose_components/day_hours_dose/day_hours_dose_form/day_hours_dose_form_bloc.dart';
 import 'package:expedientes_clinicos/application/medicine/dose/dose_components/dose_amount/dose_amount_form/dose_amount_form_bloc.dart';
@@ -68,6 +69,8 @@ class AppRoot extends StatelessWidget {
               create: (context) => getIt<WeekDaysDoseFormBloc>()),
           BlocProvider<DoseFormBloc>(
               create: (context) => getIt<DoseFormBloc>()),
+          BlocProvider<MedicineIndicationFormBloc>(
+              create: (context) => getIt<MedicineIndicationFormBloc>())
         ],
         child: BlocConsumer<StateRendererBloc, StateRendererState>(
             buildWhen: (previous, current) =>

@@ -20,15 +20,16 @@ class AppStrings {
   static const String labelWeekDays = 'Dias de la semana';
   static const String labelDuration = 'Duración total del tratamiento';
   static const String labelDurationAbbr = 'Duración total';
-
   static const String labelDoseAmount = 'Etiqueta de cantidad';
   static const String labelShowUp = 'Etiqueta con que aparece';
+  static const String labelIndication = 'Indicación';
 
   static const String registerMode = 'Crear una cuenta';
   static const String createBrandedMedicine = 'Crear medicamento de patente';
   static const String createGenericMedicine = 'Crear medicamento generico';
   static const String selectBrandedMedicine = 'Medicamento de patente';
   static const String selectGenericMedicine = 'Medicamento generico';
+  static const String selectIndication = 'Indicaciones del medicamento';
 
   static const String measureUnit = 'Unidad de medida';
   static const String administrationRoute = 'Via de administracion';
@@ -57,6 +58,7 @@ class AppStrings {
   static const String doseAmount = 'Cantidad';
 
   static const String categoryName = 'Nombre de Categoria';
+  static const String categoryIndication = 'Tipo de indicacion';
   static const String providerName = 'Nombre del proveedor';
   static const String existenceAmount = 'Cantidad en existencias';
   static const String optimum = 'Optimo';

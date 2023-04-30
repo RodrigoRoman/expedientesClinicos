@@ -13,6 +13,7 @@ import 'package:expedientes_clinicos/presentation/prescription/dose/dose_amount/
 import 'package:expedientes_clinicos/presentation/prescription/dose/dose_duration/drop_down_dose_duration.dart';
 import 'package:expedientes_clinicos/presentation/prescription/dose/drop_down_dose.dart';
 import 'package:expedientes_clinicos/presentation/prescription/dose/week_days_dose/drop_down_week_days.dart';
+import 'package:expedientes_clinicos/presentation/prescription/indications/drop_down_indication_form.dart';
 import 'package:expedientes_clinicos/presentation/resources/constant_size_values.dart';
 import 'package:expedientes_clinicos/presentation/resources/string_manager.dart';
 import 'package:flutter/material.dart';
@@ -112,7 +113,7 @@ class _PrescriptionBodyState extends State<PrescriptionBody> {
                       ],
                     )),
                 Expanded(
-                    flex: 8,
+                    flex: 3,
                     child: Stack(
                       children: [
                         Container(
@@ -153,7 +154,7 @@ class _PrescriptionBodyState extends State<PrescriptionBody> {
                                   ],
                                 ),
                               ),
-                              Expanded(flex: 3, child: DropdownSearchDose()),
+                              Expanded(flex: 1, child: DropdownSearchDose()),
                             ],
                           ),
                         ),
@@ -186,6 +187,77 @@ class _PrescriptionBodyState extends State<PrescriptionBody> {
                             ))
                       ],
                     )),
+                Expanded(
+                    flex: 3,
+                    child: Stack(
+                      children: [
+                        Container(
+                          padding: EdgeInsets.all(4),
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                              color: Theme.of(context).colorScheme.primary,
+                              width: 3.0,
+                              style: BorderStyle.solid,
+                            ),
+                          ),
+                          child: Column(
+                            children: [
+                              Expanded(
+                                  flex: 1,
+                                  child: Column(
+                                    children: [
+                                      Spacer(),
+                                      Expanded(
+                                          child: TitleValidated(
+                                              title: AppStrings.labelIndication,
+                                              condition: context
+                                                      .read<
+                                                          PrescriptionFormBloc>()
+                                                      .state
+                                                      .prescription
+                                                      .indications !=
+                                                  [])),
+                                      Expanded(
+                                          flex: 2,
+                                          child: DropdownSearchIndication(
+                                            onSelected: () {},
+                                          )),
+                                    ],
+                                  )),
+                            ],
+                          ),
+                        ),
+                        Positioned(
+                            // top: AppSize.s10,
+                            left: AppSize.s10,
+                            child: SizedBox(
+                              child: SizedBox(
+                                height: AppSize.s20 * 2,
+                                width: AppSize.s20 * 6,
+                                child: Row(
+                                  children: [
+                                    Expanded(
+                                      flex: 2,
+                                      child: Icon(
+                                        FontAwesomeIcons.listCheck,
+                                        color: Theme.of(context)
+                                            .colorScheme
+                                            .primary,
+                                        size: AppSize.s20,
+                                      ),
+                                    ),
+                                    Spacer(),
+                                    Expanded(
+                                        flex: 4,
+                                        child: FittedBox(
+                                            child: Text('Indicaciones'))),
+                                  ],
+                                ),
+                              ),
+                            ))
+                      ],
+                    )),
+                Spacer(flex: 3)
               ]),
             ),
           );

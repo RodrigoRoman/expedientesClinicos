@@ -1,15 +1,17 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:expedientes_clinicos/domain/core/categories/i_category_repository.dart';
+import 'package:expedientes_clinicos/domain/core/indication/i_indication_repository.dart';
 import 'package:expedientes_clinicos/domain/core/name_abbreviation/i_name_abbreviation_repository.dart';
 import 'package:expedientes_clinicos/domain/core/time_interval/i_time_interval_repository.dart';
 import 'package:expedientes_clinicos/infraestructure/category/category_db_collection_name.dart';
 import 'package:expedientes_clinicos/infraestructure/category/category_repository.dart';
+import 'package:expedientes_clinicos/infraestructure/indication/indication_db_collection_name.dart';
+import 'package:expedientes_clinicos/infraestructure/indication/indication_repository.dart';
 import 'package:expedientes_clinicos/infraestructure/name_abbreviation/name_abbreviation_db_collection_names.dart';
 import 'package:expedientes_clinicos/infraestructure/name_abbreviation/name_abbreviation_repository.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:injectable/injectable.dart';
-
 import 'time_interval/time_interval_db_collection_name.dart';
 import 'time_interval/time_interval_repository.dart';
 
@@ -32,6 +34,20 @@ abstract class FirebaseInjectableModule {
   @lazySingleton
   ICategoryRepository get categoryIndicationRepository => CategoryRepository(
       firestore, FirebaseCollectionCategories.indicationCategories);
+
+  //indication names
+
+  @Named(FirebaseCollectionsIndication.medicineIndication)
+  @lazySingleton
+  IIndicationRepository get medicineIndicationRepository =>
+      IndicationRepository(
+          firestore, FirebaseCollectionsIndication.medicineIndication);
+
+  @Named(FirebaseCollectionsIndication.treatmentIndication)
+  @lazySingleton
+  IIndicationRepository get treatmentIndicationRepository =>
+      IndicationRepository(
+          firestore, FirebaseCollectionsIndication.treatmentIndication);
 
   //abreviation names collection names
   @Named(FirebaseCollectionNameAbbreviations.measureUnits)

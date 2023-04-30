@@ -74,10 +74,10 @@ abstract class LabelDoseTimesViewModel implements _$LabelDoseTimesViewModel {
   factory LabelDoseTimesViewModel.fromDose(Dose dose) {
     return LabelDoseTimesViewModel(
         label: dose.label,
-        dayHoursDose: DayHoursDose.empty(),
+        dayHoursDose: dose.dayHoursDose,
         doseAmount: DoseAmount.empty(),
-        timeInterval: TimeInterval.empty(),
-        weekDaysDose: WeekDaysDose.empty(),
+        timeInterval: dose.duration,
+        weekDaysDose: dose.weekDays,
         dose: dose);
   }
   Option<ValueFailure<dynamic>> get failureOption {

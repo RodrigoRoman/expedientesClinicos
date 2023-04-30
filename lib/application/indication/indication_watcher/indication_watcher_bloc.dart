@@ -17,8 +17,7 @@ part 'indication_watcher_bloc.freezed.dart';
 class IndicationWatcherBloc
     extends Bloc<IndicationWatcherEvent, IndicationWatcherState> {
   final IIndicationRepository _iIndicationRepository;
-  final String _collectionName;
-  IndicationWatcherBloc(this._iIndicationRepository, this._collectionName)
+  IndicationWatcherBloc(this._iIndicationRepository)
       : super(const IndicationWatcherState.initial()) {
     StreamSubscription<Either<IndicationFailure, KtList<Indication>>>?
         _indicationStreamSubscription;

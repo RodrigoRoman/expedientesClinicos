@@ -102,6 +102,7 @@ class _DropdownSearchLabelState extends State<DropdownSearchLabel> {
   }
 
   OverlayEntry _createOverlay() {
+    print('overlay called');
     RenderBox renderBox = context.findRenderObject() as RenderBox;
     var size = renderBox.size;
     return OverlayEntry(

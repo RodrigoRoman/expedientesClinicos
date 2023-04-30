@@ -44,11 +44,13 @@ abstract class DayHoursDoseDto implements _$DayHoursDoseDto {
   }
 
   factory DayHoursDoseDto.fromJson(Map<String, dynamic> json) =>
-      _$DayHoursDoseDtoFromJson(json);
-
-  // factory DayHoursDoseDto.fromFirestore(DocumentSnapshot doc) {
-  //   return DayHoursDoseDto.fromJson(doc.data() as Map<String, dynamic>);
-  // }
+      DayHoursDoseDto(
+        id: json['id'] as String,
+        label: json['label'] as String,
+        doseHours: _timeFromJson((json['doseHours'] as List<dynamic>)
+            .map((dynamic timestamp) => timestamp as Timestamp)
+            .toList()),
+      );
 
   factory DayHoursDoseDto.fromFirestore(DocumentSnapshot doc) {
     final data = doc.data() as Map<String, dynamic>;

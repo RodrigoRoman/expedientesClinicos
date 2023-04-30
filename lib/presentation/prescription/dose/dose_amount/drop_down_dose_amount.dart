@@ -63,6 +63,8 @@ class _DropdownSearchDoseAmountState extends State<DropdownSearchDoseAmount> {
                 .doseAmount),
             searchFieldController: searchFieldController,
             onSelected: (LabelDoseTimesViewModel labelAmount) {
+              print('dose amount');
+              print(labelAmount.doseAmount);
               context.read<PrescriptionFormBloc>().add(
                   PrescriptionFormEvent.onDoseAmountChanged(
                       labelAmount.doseAmount));

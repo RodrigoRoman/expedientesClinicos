@@ -201,6 +201,10 @@ extension GetItInjectableX on _i1.GetIt {
         () => firebaseInjectableModule.googleSignIn);
     gh.lazySingleton<_i7.IBrandedMedicineRepository>(
         () => _i8.BrandedMedicineRepository(gh<_i5.FirebaseFirestore>()));
+    gh.lazySingleton<_i9.ICategoryRepository>(() => _i10.CategoryRepository(
+          gh<_i5.FirebaseFirestore>(),
+          gh<String>(),
+        ));
     gh.lazySingleton<_i9.ICategoryRepository>(
       () => firebaseInjectableModule.categoryIndicationRepository,
       instanceName: 'categoryIndication',
@@ -209,10 +213,6 @@ extension GetItInjectableX on _i1.GetIt {
       () => firebaseInjectableModule.categoryMedicineRepository,
       instanceName: 'categoryMedicine',
     );
-    gh.lazySingleton<_i9.ICategoryRepository>(() => _i10.CategoryRepository(
-          gh<_i5.FirebaseFirestore>(),
-          gh<String>(),
-        ));
     gh.lazySingleton<_i11.IDayHoursDoseRepository>(
         () => _i12.DayHoursDosesRepository(gh<_i5.FirebaseFirestore>()));
     gh.lazySingleton<_i13.IDoseAmountRepository>(
@@ -226,6 +226,14 @@ extension GetItInjectableX on _i1.GetIt {
               gh<_i5.FirebaseFirestore>(),
               gh<String>(),
             ));
+    gh.lazySingleton<_i19.IIndicationRepository>(
+      () => firebaseInjectableModule.treatmentIndicationRepository,
+      instanceName: 'treatmentIndication',
+    );
+    gh.lazySingleton<_i19.IIndicationRepository>(
+      () => firebaseInjectableModule.medicineIndicationRepository,
+      instanceName: 'medicineIndication',
+    );
     gh.factory<_i21.INameAbbreviationRepository>(
       () => firebaseInjectableModule.administrationRoutesRepostitory,
       instanceName: 'administrationRoutes',
@@ -253,12 +261,12 @@ extension GetItInjectableX on _i1.GetIt {
               gh<String>(),
             ));
     gh.factory<_i27.ITimeIntervalRepository>(
-      () => firebaseInjectableModule.medicineDurationRoutesRepostitory,
-      instanceName: 'medicineDurationInterval',
-    );
-    gh.factory<_i27.ITimeIntervalRepository>(
       () => firebaseInjectableModule.doseFrequencyRoutesRepostitory,
       instanceName: 'doseFrequencyInterval',
+    );
+    gh.factory<_i27.ITimeIntervalRepository>(
+      () => firebaseInjectableModule.medicineDurationRoutesRepostitory,
+      instanceName: 'medicineDurationInterval',
     );
     gh.lazySingleton<_i29.IWeekDaysDoseRepository>(
         () => _i30.WeekDaysDoseRepository(gh<_i5.FirebaseFirestore>()));
@@ -277,10 +285,8 @@ extension GetItInjectableX on _i1.GetIt {
             gh<_i9.ICategoryRepository>(instanceName: 'categoryIndication')));
     gh.factory<_i35.IndicationFormBloc>(
         () => _i35.IndicationFormBloc(gh<_i19.IIndicationRepository>()));
-    gh.factory<_i36.IndicationWatcherBloc>(() => _i36.IndicationWatcherBloc(
-          gh<_i19.IIndicationRepository>(),
-          gh<String>(),
-        ));
+    gh.factory<_i36.IndicationWatcherBloc>(
+        () => _i36.IndicationWatcherBloc(gh<_i19.IIndicationRepository>()));
     gh.factory<_i37.MeasureUnitActorBloc>(() => _i37.MeasureUnitActorBloc(
         gh<_i21.INameAbbreviationRepository>(instanceName: 'measureUnits')));
     gh.factory<_i38.MeasureUnitFormBloc>(() => _i38.MeasureUnitFormBloc(
@@ -302,7 +308,8 @@ extension GetItInjectableX on _i1.GetIt {
         _i44.MedicineIndicationFormBloc(gh<_i19.IIndicationRepository>(
             instanceName: 'medicineIndication')));
     gh.factory<_i45.MedicineIndicationWatcherBloc>(() =>
-        _i45.MedicineIndicationWatcherBloc(gh<_i19.IIndicationRepository>()));
+        _i45.MedicineIndicationWatcherBloc(gh<_i19.IIndicationRepository>(
+            instanceName: 'medicineIndication')));
     gh.factory<_i46.PatientVisitActorBloc>(
         () => _i46.PatientVisitActorBloc(gh<_i23.IPatientVisitRepository>()));
     gh.factory<_i47.PatientVisitFormBloc>(
