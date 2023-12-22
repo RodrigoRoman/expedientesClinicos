@@ -1,24 +1,19 @@
-import 'package:expedientes_clinicos/application/medicine/dose/dose_core/dose_form/dose_form_bloc.dart';
 import 'package:expedientes_clinicos/application/prescription/prescription_form/prescription_form_bloc.dart';
-import 'package:expedientes_clinicos/domain/core/time_interval/time_interval.dart';
-import 'package:expedientes_clinicos/domain/prescription/dose/day_hours_doses/day_hours_doses.dart';
+import 'package:expedientes_clinicos/domain/core/categories/category.dart';
+import 'package:expedientes_clinicos/domain/core/indication/indication.dart';
 import 'package:expedientes_clinicos/domain/prescription/dose/dose_amount/dose_amount.dart';
-import 'package:expedientes_clinicos/domain/prescription/dose/week_doses/week_days_dose.dart';
-import 'package:expedientes_clinicos/injection.dart';
-import 'package:expedientes_clinicos/presentation/common/widget_elements/input_full_name.dart';
+import 'package:expedientes_clinicos/presentation/common/widget_elements/input_fields/double_input.dart';
 import 'package:expedientes_clinicos/presentation/common/widget_elements/title_validated.dart';
 import 'package:expedientes_clinicos/presentation/medicine/branded_medicine/branded_medicine_watcher/drop_down_branded_medicine.dart';
-import 'package:expedientes_clinicos/presentation/prescription/dose/day_hours_dose/drop_down_day_hours_dose.dart';
 import 'package:expedientes_clinicos/presentation/prescription/dose/dose_amount/drop_down_dose_amount.dart';
-import 'package:expedientes_clinicos/presentation/prescription/dose/dose_duration/drop_down_dose_duration.dart';
 import 'package:expedientes_clinicos/presentation/prescription/dose/drop_down_dose.dart';
-import 'package:expedientes_clinicos/presentation/prescription/dose/week_days_dose/drop_down_week_days.dart';
-import 'package:expedientes_clinicos/presentation/prescription/indications/drop_down_indication_form.dart';
+import 'package:expedientes_clinicos/presentation/prescription/indications/drop_down_indication.dart';
 import 'package:expedientes_clinicos/presentation/resources/constant_size_values.dart';
 import 'package:expedientes_clinicos/presentation/resources/string_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:kt_dart/kt.dart';
 
 class PrescriptionBody extends StatefulWidget {
   const PrescriptionBody({super.key});
@@ -29,12 +24,9 @@ class PrescriptionBody extends StatefulWidget {
 
 class _PrescriptionBodyState extends State<PrescriptionBody> {
   TextEditingController labelController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
-    // WidgetsBinding.instance.addPostFrameCallback((_) {
-    //   labelController.text =
-    // });
-
     return BlocConsumer<PrescriptionFormBloc, PrescriptionFormState>(
       listener: (context, state) {
         // TODO: implement listener
@@ -54,7 +46,7 @@ class _PrescriptionBodyState extends State<PrescriptionBody> {
               ),
               child: Column(children: [
                 Expanded(
-                    flex: 4,
+                    flex: 7,
                     child: Stack(
                       children: [
                         Container(
@@ -70,7 +62,7 @@ class _PrescriptionBodyState extends State<PrescriptionBody> {
                             children: [
                               Spacer(),
                               Expanded(
-                                flex: 3,
+                                flex: 5,
                                 child: DropdownSearchBrandedMedicineForm(
                                   onSelected: (medicine) {
                                     context.read<PrescriptionFormBloc>().add(
@@ -113,11 +105,11 @@ class _PrescriptionBodyState extends State<PrescriptionBody> {
                       ],
                     )),
                 Expanded(
-                    flex: 3,
+                    flex: 6,
                     child: Stack(
                       children: [
                         Container(
-                          padding: EdgeInsets.all(4),
+                          padding: EdgeInsets.only(top: AppSize.s35),
                           decoration: BoxDecoration(
                             border: Border.all(
                               color: Theme.of(context).colorScheme.primary,
@@ -125,26 +117,16 @@ class _PrescriptionBodyState extends State<PrescriptionBody> {
                               style: BorderStyle.solid,
                             ),
                           ),
-                          child: Column(
+                          child: const Column(
                             children: [
                               Expanded(
+                                flex: 3,
                                 child: Row(
                                   children: [
                                     Expanded(
                                         flex: 2,
                                         child: Column(
                                           children: [
-                                            Expanded(
-                                                child: TitleValidated(
-                                                    title:
-                                                        AppStrings.doseAmount,
-                                                    condition: context
-                                                            .read<
-                                                                PrescriptionFormBloc>()
-                                                            .state
-                                                            .prescription
-                                                            .doseAmount ==
-                                                        DoseAmount.empty())),
                                             Expanded(
                                                 flex: 2,
                                                 child:
@@ -154,7 +136,8 @@ class _PrescriptionBodyState extends State<PrescriptionBody> {
                                   ],
                                 ),
                               ),
-                              Expanded(flex: 1, child: DropdownSearchDose()),
+                              Spacer(),
+                              Expanded(flex: 3, child: DropdownSearchDose()),
                             ],
                           ),
                         ),
@@ -188,7 +171,7 @@ class _PrescriptionBodyState extends State<PrescriptionBody> {
                       ],
                     )),
                 Expanded(
-                    flex: 3,
+                    flex: 9,
                     child: Stack(
                       children: [
                         Container(
@@ -218,12 +201,336 @@ class _PrescriptionBodyState extends State<PrescriptionBody> {
                                                       .indications !=
                                                   [])),
                                       Expanded(
-                                          flex: 2,
+                                          flex: 3,
                                           child: DropdownSearchIndication(
                                             onSelected: () {},
                                           )),
                                     ],
                                   )),
+                              (context
+                                          .read<PrescriptionFormBloc>()
+                                          .state
+                                          .prescription
+                                          .indications
+                                          .length >
+                                      0)
+                                  ? Expanded(child: LayoutBuilder(
+                                      builder: (context, constraints) {
+                                      Category prevCategory = Category.empty();
+
+                                      List<Indication> selectedIndications =
+                                          context
+                                              .read<PrescriptionFormBloc>()
+                                              .state
+                                              .prescription
+                                              .indications
+                                              .value
+                                              .fold(
+                                                  (l) => [],
+                                                  (r) => r
+                                                      .toMutableList()
+                                                      .asList());
+                                      selectedIndications.sort((a, b) => a
+                                          .indicationCategory.name.value
+                                          .fold((l) => '', (r) => r)
+                                          .compareTo(b
+                                              .indicationCategory.name.value
+                                              .fold((l) => '', (r) => r)));
+                                      return ListView.builder(
+                                          itemCount: context
+                                              .read<PrescriptionFormBloc>()
+                                              .state
+                                              .prescription
+                                              .indications
+                                              .length,
+                                          itemBuilder: (context, index) {
+                                            Indication e = context
+                                                .read<PrescriptionFormBloc>()
+                                                .state
+                                                .prescription
+                                                .indications
+                                                .value
+                                                .fold((l) => Indication.empty(),
+                                                    (r) => r[index]);
+                                            bool condition = (prevCategory !=
+                                                e.indicationCategory);
+                                            prevCategory = e.indicationCategory;
+                                            return (condition)
+                                                ? Column(
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .start,
+                                                    children: [
+                                                      SizedBox(
+                                                          height: constraints
+                                                                  .maxHeight /
+                                                              3,
+                                                          width: constraints
+                                                                  .maxWidth /
+                                                              1.4,
+                                                          child: ListTile(
+                                                            contentPadding:
+                                                                EdgeInsets.zero,
+                                                            isThreeLine: false,
+                                                            leading: e
+                                                                .indicationCategory
+                                                                .imageUrl
+                                                                .value
+                                                                .fold(
+                                                              (l) => null,
+                                                              (r) => SizedBox(
+                                                                width: constraints
+                                                                        .maxWidth /
+                                                                    3,
+                                                                height: constraints
+                                                                        .maxHeight /
+                                                                    3,
+                                                                child: Row(
+                                                                  children: [
+                                                                    Expanded(
+                                                                      child:
+                                                                          Container(
+                                                                        decoration:
+                                                                            BoxDecoration(
+                                                                          shape:
+                                                                              BoxShape.circle,
+                                                                          image:
+                                                                              DecorationImage(
+                                                                            fit:
+                                                                                BoxFit.cover,
+                                                                            image:
+                                                                                NetworkImage(
+                                                                              r,
+                                                                            ),
+                                                                          ),
+                                                                        ),
+                                                                      ),
+                                                                    ),
+                                                                    Expanded(
+                                                                      flex: 1,
+                                                                      child: FittedBox(
+                                                                          child: Text(e
+                                                                              .indicationCategory
+                                                                              .name
+                                                                              .value
+                                                                              .fold((l) => '', (r) => r))),
+                                                                    )
+                                                                  ],
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          )),
+                                                      SizedBox(
+                                                        height: AppSize.s8,
+                                                      ),
+                                                      SizedBox(
+                                                        height: constraints
+                                                                .maxHeight /
+                                                            3,
+                                                        width: constraints
+                                                                .maxWidth /
+                                                            1.1,
+                                                        child: ListTile(
+                                                            trailing:
+                                                                IconButton(
+                                                              icon: Icon(
+                                                                  Icons.cancel),
+                                                              color: Colors.red,
+                                                              onPressed: () {
+                                                                selectedIndications
+                                                                    .removeAt(
+                                                                        index);
+                                                                context
+                                                                    .read<
+                                                                        PrescriptionFormBloc>()
+                                                                    .add(PrescriptionFormEvent
+                                                                        .onIndicationsChanged(
+                                                                            selectedIndications));
+                                                                selectedIndications.sort((a, b) => a
+                                                                    .indicationCategory
+                                                                    .name
+                                                                    .value
+                                                                    .fold(
+                                                                        (l) =>
+                                                                            '',
+                                                                        (r) =>
+                                                                            r)
+                                                                    .compareTo(b
+                                                                        .indicationCategory
+                                                                        .name
+                                                                        .value
+                                                                        .fold(
+                                                                            (l) =>
+                                                                                '',
+                                                                            (r) =>
+                                                                                r)));
+                                                              },
+                                                            ),
+                                                            contentPadding:
+                                                                EdgeInsets.zero,
+                                                            isThreeLine: false,
+                                                            // leading:
+                                                            //     SizedBox.shrink(),
+                                                            title: Row(
+                                                              children: [
+                                                                Expanded(
+                                                                  child:
+                                                                      Padding(
+                                                                    padding: EdgeInsets
+                                                                        .only(
+                                                                            right:
+                                                                                8),
+                                                                    child: Icon(
+                                                                        Icons
+                                                                            .fiber_manual_record,
+                                                                        size:
+                                                                            12),
+                                                                  ),
+                                                                ),
+                                                                Expanded(
+                                                                  flex: 5,
+                                                                  child:
+                                                                      SingleChildScrollView(
+                                                                    // direction: Axis.vertical,
+                                                                    clipBehavior:
+                                                                        Clip.antiAliasWithSaveLayer,
+                                                                    child: Text(
+                                                                        e.indicationName.value.fold(
+                                                                            (l) => AppStrings
+                                                                                .isEmpty,
+                                                                            (r) =>
+                                                                                r),
+                                                                        style: Theme.of(context)
+                                                                            .textTheme
+                                                                            .titleLarge!
+                                                                            .copyWith(
+                                                                                fontSize: AppSize
+                                                                                    .s18),
+                                                                        textAlign:
+                                                                            TextAlign
+                                                                                .center,
+                                                                        maxLines:
+                                                                            4,
+                                                                        overflow:
+                                                                            TextOverflow.ellipsis),
+                                                                  ),
+                                                                ),
+                                                              ],
+                                                            )),
+                                                      ),
+                                                      SizedBox(
+                                                        height: AppSize.s8,
+                                                      ),
+                                                    ],
+                                                  )
+                                                : Column(
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .start,
+                                                    children: [
+                                                      SizedBox(
+                                                        height: constraints
+                                                                .maxHeight /
+                                                            3,
+                                                        width: constraints
+                                                                .maxWidth /
+                                                            1.1,
+                                                        child: ListTile(
+                                                            trailing:
+                                                                IconButton(
+                                                              icon: Icon(
+                                                                  Icons.cancel),
+                                                              color: Colors.red,
+                                                              onPressed: () {
+                                                                selectedIndications
+                                                                    .removeAt(
+                                                                        index);
+                                                                context
+                                                                    .read<
+                                                                        PrescriptionFormBloc>()
+                                                                    .add(PrescriptionFormEvent
+                                                                        .onIndicationsChanged(
+                                                                            selectedIndications));
+                                                                selectedIndications.sort((a, b) => a
+                                                                    .indicationCategory
+                                                                    .name
+                                                                    .value
+                                                                    .fold(
+                                                                        (l) =>
+                                                                            '',
+                                                                        (r) =>
+                                                                            r)
+                                                                    .compareTo(b
+                                                                        .indicationCategory
+                                                                        .name
+                                                                        .value
+                                                                        .fold(
+                                                                            (l) =>
+                                                                                '',
+                                                                            (r) =>
+                                                                                r)));
+                                                              },
+                                                            ),
+                                                            contentPadding:
+                                                                EdgeInsets.zero,
+                                                            isThreeLine: false,
+                                                            // leading: SizedBox.shrink(),
+                                                            title: Row(
+                                                              children: [
+                                                                Expanded(
+                                                                  child:
+                                                                      Padding(
+                                                                    padding: EdgeInsets
+                                                                        .only(
+                                                                            right:
+                                                                                8),
+                                                                    child: Icon(
+                                                                        Icons
+                                                                            .fiber_manual_record,
+                                                                        size:
+                                                                            12),
+                                                                  ),
+                                                                ),
+                                                                Expanded(
+                                                                  flex: 5,
+                                                                  child:
+                                                                      SingleChildScrollView(
+                                                                    // direction: Axis.vertical,
+                                                                    clipBehavior:
+                                                                        Clip.antiAliasWithSaveLayer,
+                                                                    child: Text(
+                                                                        e.indicationName.value.fold(
+                                                                            (l) => AppStrings
+                                                                                .isEmpty,
+                                                                            (r) =>
+                                                                                r),
+                                                                        style: Theme.of(context)
+                                                                            .textTheme
+                                                                            .titleLarge!
+                                                                            .copyWith(
+                                                                                fontSize: AppSize
+                                                                                    .s18),
+                                                                        textAlign:
+                                                                            TextAlign
+                                                                                .center,
+                                                                        maxLines:
+                                                                            4,
+                                                                        overflow:
+                                                                            TextOverflow.ellipsis),
+                                                                  ),
+                                                                ),
+                                                              ],
+                                                            )),
+                                                      ),
+                                                      SizedBox(
+                                                        height: AppSize.s8,
+                                                      ),
+                                                    ],
+                                                  );
+                                          });
+                                    }))
+                                  : Expanded(
+                                      child: Icon(FontAwesomeIcons.list)),
                             ],
                           ),
                         ),
@@ -257,7 +564,7 @@ class _PrescriptionBodyState extends State<PrescriptionBody> {
                             ))
                       ],
                     )),
-                Spacer(flex: 3)
+                Spacer(flex: 1)
               ]),
             ),
           );

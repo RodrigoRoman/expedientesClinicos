@@ -22,7 +22,7 @@ class TimeIntervalRepository implements ITimeIntervalRepository {
     try {
       final timeIntervalDto = TimeIntervalDto.fromDomain(timeInterval);
       Map<String, dynamic> data = timeIntervalDto.toJson();
-      data['keyWords'] = generateKeywords(timeIntervalDto.label);
+      data['keyWords'] = await generateKeywords(timeIntervalDto.label);
       //We keep the id that comes from ingredientDto and avoid autogeneration
       await timeIntervals.doc(timeIntervalDto.id).set(data);
       return right(unit);
@@ -61,7 +61,7 @@ class TimeIntervalRepository implements ITimeIntervalRepository {
     try {
       final timeIntervalDto = TimeIntervalDto.fromDomain(timeInterval);
       Map<String, dynamic> data = timeIntervalDto.toJson();
-      data['keyWords'] = generateKeywords(timeIntervalDto.label);
+      data['keyWords'] = await generateKeywords(timeIntervalDto.label);
       await timeIntervals.doc(timeIntervalDto.id).update(data);
       return right(unit);
     } on PlatformException catch (e) {

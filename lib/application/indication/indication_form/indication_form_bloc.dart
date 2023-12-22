@@ -42,23 +42,32 @@ class IndicationFormBloc
           saveFailureOrSuccessOption: none()));
     });
     on<_Saved>((event, emit) async {
-      Either<IndicationFailure, Unit>? failureOrSuccess;
-      emit(state.copyWith(isSaving: true, saveFailureOrSuccessOption: none()));
-      if (state.indication.failureOption.isNone()) {
-        failureOrSuccess = state.isUpdating
-            ? await _iIndicationRepository.update(state.indication)
-            : await _iIndicationRepository.create(state.indication);
+      try {
+        print('inside saved!!!!');
+        Either<IndicationFailure, Unit>? failureOrSuccess;
+        emit(
+            state.copyWith(isSaving: true, saveFailureOrSuccessOption: none()));
+        if (state.indication.failureOption.isNone()) {
+          failureOrSuccess = state.isUpdating
+              ? await _iIndicationRepository.update(state.indication)
+              : await _iIndicationRepository.create(state.indication);
+        }
+        print('save proceess passed');
+        emit(state.copyWith(
+            isSaving: false,
+            showErrorMessages: true,
+            saveFailureOrSuccessOption: optionOf(failureOrSuccess)));
+        print('even sent');
+        emit(state.copyWith(
+            indication: Indication.empty(),
+            showErrorMessages: false,
+            isSaving: false,
+            isUpdating: false,
+            saveFailureOrSuccessOption: none()));
+      } catch (e) {
+        print('error!!!!1');
+        print(e);
       }
-      emit(state.copyWith(
-          isSaving: false,
-          showErrorMessages: true,
-          saveFailureOrSuccessOption: optionOf(failureOrSuccess)));
-      emit(state.copyWith(
-          indication: Indication.empty(),
-          showErrorMessages: false,
-          isSaving: false,
-          isUpdating: false,
-          saveFailureOrSuccessOption: none()));
     });
   }
 }

@@ -8,6 +8,7 @@ import 'package:kt_dart/kt.dart';
 part 'week_days_dose.freezed.dart';
 
 //week days are encoded as intergers from 0 to 6
+// taking Monday as 0
 @freezed
 abstract class WeekDaysDose implements _$WeekDaysDose {
   const WeekDaysDose._();
@@ -19,7 +20,15 @@ abstract class WeekDaysDose implements _$WeekDaysDose {
   factory WeekDaysDose.empty() => WeekDaysDose(
       id: UniqueId(),
       label: FullName(AppStrings.empty),
-      weekDays: List3(const KtList.empty()),
+      weekDays: List3(KtList.from([
+        NonNegInt(0),
+        NonNegInt(1),
+        NonNegInt(2),
+        NonNegInt(3),
+        NonNegInt(4),
+        NonNegInt(5),
+        NonNegInt(6)
+      ])),
       counter: NonNegInt(0));
 
   Option<ValueFailure<dynamic>> get failureOption {
@@ -31,6 +40,31 @@ abstract class WeekDaysDose implements _$WeekDaysDose {
             .getOrElse(0, (_) => right(unit))
             .fold((f) => left(f), (_) => right(unit)))
         .fold((f) => some(f), (_) => none());
+  }
+
+  String get weekDaysNames {
+    // Spanish names for the days of the week
+    const List<String> daysInSpanish = [
+      'Lunes', // 0
+      'Martes', // 1
+      'Miércoles', // 2
+      'Jueves', // 3
+      'Viernes', // 4
+      'Sábado', // 5
+      'Domingo', // 6
+    ];
+
+    // Convert each index in weekDays to its corresponding day name
+    final String daysString = weekDays
+        .getOrCrash()
+        .map((index) {
+          print("index!");
+          print(index);
+          return daysInSpanish[index.value.fold((l) => 0, (r) => r)];
+        })
+        .asList()
+        .join(", ");
+    return '$daysString';
   }
 
   bool operator ==(dynamic other) {

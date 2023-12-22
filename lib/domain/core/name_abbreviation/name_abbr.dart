@@ -20,6 +20,10 @@ abstract class NameAbbreviation implements _$NameAbbreviation {
     return name.value.fold((f) => some(f), (_) => none());
   }
 
+  bool get isEmpty {
+    return name == FullName('') && abbr == AbbrName('');
+  }
+
   @override
   bool operator ==(Object other) {
     return other is NameAbbreviation &&

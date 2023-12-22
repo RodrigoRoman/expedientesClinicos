@@ -1,6 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:expedientes_clinicos/domain/core/indication/indication.dart';
+import 'package:expedientes_clinicos/domain/core/label_double_amount/label_double_amount.dart';
 import 'package:expedientes_clinicos/domain/core/value_objects.dart';
 import 'package:expedientes_clinicos/domain/medicine/branded_medicine/branded_medicine.dart';
 import 'package:expedientes_clinicos/domain/prescription/dose/dose.dart';
@@ -46,7 +47,7 @@ class PrescriptionFormBloc
     on<_DoseAmountChanged>((event, emit) {
       emit(state.copyWith(
           prescription:
-              state.prescription.copyWith(doseAmount: event.doseAmount),
+              state.prescription.copyWith(doseAmount: event.labelDoubleAmount),
           saveFailureOrSuccessOption: none()));
     });
     on<_IndicationsChanged>((event, emit) => emit(state.copyWith(

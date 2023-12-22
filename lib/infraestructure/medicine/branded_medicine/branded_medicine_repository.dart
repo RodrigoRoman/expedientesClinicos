@@ -42,11 +42,14 @@ class BrandedMedicineRepository implements IBrandedMedicineRepository {
       Map<String, dynamic> data = brandedmedicineDto.toJson();
 
       //store the keyword that we will use for querying this document
-      data['keyWords'] = generateKeywords(brandedmedicineDto.comercialName) +
-          generateKeywords(brandedmedicineDto.genericMedicine.genericName) +
-          generateKeywords(
-              brandedmedicineDto.genericMedicine.administrationRoute.name) +
-          generateKeywords(brandedmedicineDto.genericMedicine.category.name);
+      data['keyWords'] =
+          await generateKeywords(brandedmedicineDto.comercialName) +
+              await generateKeywords(
+                  brandedmedicineDto.genericMedicine.genericName) +
+              await generateKeywords(
+                  brandedmedicineDto.genericMedicine.administrationRoute.name) +
+              await generateKeywords(
+                  brandedmedicineDto.genericMedicine.category.name);
 
       //We keep the id that comes from BrandedmedicineDto and avoid autogeneration
       await medicines.doc(brandedmedicineDto.id).set(data);
@@ -116,11 +119,14 @@ class BrandedMedicineRepository implements IBrandedMedicineRepository {
       Map<String, dynamic> data = brandedmedicineDto.toJson();
 
       //store the keyword that we will use for querying this document
-      data['keyWords'] = generateKeywords(brandedmedicineDto.comercialName) +
-          generateKeywords(brandedmedicineDto.genericMedicine.genericName) +
-          generateKeywords(
-              brandedmedicineDto.genericMedicine.administrationRoute.name) +
-          generateKeywords(brandedmedicineDto.genericMedicine.category.name);
+      data['keyWords'] =
+          await generateKeywords(brandedmedicineDto.comercialName) +
+              await generateKeywords(
+                  brandedmedicineDto.genericMedicine.genericName) +
+              await generateKeywords(
+                  brandedmedicineDto.genericMedicine.administrationRoute.name) +
+              await generateKeywords(
+                  brandedmedicineDto.genericMedicine.category.name);
 
       //We keep the id that comes from BrandedmedicineDto and avoid autogeneration
       await medicines.doc(brandedmedicineDto.id).set(data);

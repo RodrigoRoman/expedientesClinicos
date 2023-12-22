@@ -4,7 +4,9 @@ import 'package:expedientes_clinicos/application/abbreviation_name/abbreviation_
 import 'package:expedientes_clinicos/application/state_render/state_renderer_bloc.dart';
 import 'package:expedientes_clinicos/domain/core/name_abbreviation/name_abbr.dart';
 import 'package:expedientes_clinicos/presentation/common/widget_elements/abbreviation_name_component/pop_up_abbreviation_name_form.dart';
+import 'package:expedientes_clinicos/presentation/resources/constant_size_values.dart';
 import 'package:expedientes_clinicos/presentation/resources/string_manager.dart';
+import 'package:expedientes_clinicos/presentation/routes/router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -25,53 +27,51 @@ class _PharmaceuticalFormFormState extends State<PharmaceuticalFormForm> {
         state.saveFailureOrSuccessOption.fold(() {
           if (state.isSaving) {
             context.read<StateRendererBloc>().add(
-                StateRendererEvent.popUpLoading(AppStrings.saving,
-                    AppStrings.actionInProgressExplain, null, 300, 500));
+                const StateRendererEvent.popUpLoading(
+                    title: AppStrings.saving,
+                    message: AppStrings.actionInProgressExplain,
+                    until: AppStrings.popUp));
           }
         },
             (either) => either.fold(
                     (failure) => failure.maybeMap(
                           unexpected: (e) {
                             context.read<StateRendererBloc>().add(
-                                StateRendererEvent.popUpError(
-                                    AppStrings.couldNotSaveImage,
-                                    AppStrings.somethingWentWrong,
-                                    null,
-                                    300,
-                                    500));
+                                const StateRendererEvent.popUpError(
+                                    title: AppStrings.couldNotSaveImage,
+                                    message: AppStrings.somethingWentWrong,
+                                    until: AppStrings.popUp));
                           },
                           insufficientPermissions: (e) {
                             context.read<StateRendererBloc>().add(
-                                StateRendererEvent.popUpError(
-                                    AppStrings.insuficcientPermissions,
-                                    AppStrings.insuficcientPermissionsExplain,
-                                    null,
-                                    300,
-                                    500));
+                                const StateRendererEvent.popUpError(
+                                    title: AppStrings.insuficcientPermissions,
+                                    message: AppStrings
+                                        .insuficcientPermissionsExplain,
+                                    until: AppStrings.popUp));
                           },
                           unableToCreate: (e) {
                             context.read<StateRendererBloc>().add(
-                                StateRendererEvent.popUpError(
-                                    AppStrings.unableToCreate,
-                                    AppStrings.unableToCreateExplain,
-                                    null,
-                                    300,
-                                    500));
+                                const StateRendererEvent.popUpError(
+                                    title: AppStrings.unableToCreate,
+                                    message: AppStrings.unableToCreateExplain,
+                                    until: AppStrings.popUp));
                           },
                           orElse: () {
                             context.read<StateRendererBloc>().add(
-                                StateRendererEvent.popUpError(
-                                    AppStrings.genericError,
-                                    AppStrings.genericErrorExplain,
-                                    null,
-                                    300,
-                                    500));
+                                const StateRendererEvent.popUpError(
+                                    title: AppStrings.genericError,
+                                    message: AppStrings.genericErrorExplain,
+                                    until: AppStrings.popUp));
                           },
                         ), (r) {
                   widget.onCreated?.call(state.abbreviation);
                   context.read<StateRendererBloc>().add(
-                      StateRendererEvent.popUpSuccess(AppStrings.success,
-                          AppStrings.successfullyCreated, null, 300, 500));
+                      const StateRendererEvent.popUpSuccess(
+                          title: AppStrings.success,
+                          message: AppStrings.successfullyCreated,
+                          width: AppSize.popUpSMWidth,
+                          height: AppSize.popUpSMHeight));
                 }));
       },
       builder: (context, state) {
@@ -80,7 +80,7 @@ class _PharmaceuticalFormFormState extends State<PharmaceuticalFormForm> {
         return AbbreviationNameForm(
           nameAbbreviation: abbrName,
           validAbbreviation: () {
-            context
+            return context
                 .read<PharmaceuticalFormFormBloc>()
                 .state
                 .abbreviation
@@ -94,7 +94,7 @@ class _PharmaceuticalFormFormState extends State<PharmaceuticalFormForm> {
                     (_) => null);
           },
           validName: () {
-            context
+            return context
                 .read<PharmaceuticalFormFormBloc>()
                 .state
                 .abbreviation
@@ -118,7 +118,6 @@ class _PharmaceuticalFormFormState extends State<PharmaceuticalFormForm> {
                 .add(AbbreviationNameFormEvent.nameChanged(newName));
           },
           onSubmit: () {
-            print('submit pharmaceutical form');
             context
                 .read<PharmaceuticalFormFormBloc>()
                 .add(const AbbreviationNameFormEvent.saved());

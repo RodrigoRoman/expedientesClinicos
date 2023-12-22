@@ -1,5 +1,6 @@
 import 'package:expedientes_clinicos/domain/core/failures.dart';
 import 'package:expedientes_clinicos/domain/core/indication/indication.dart';
+import 'package:expedientes_clinicos/domain/core/label_double_amount/label_double_amount.dart';
 import 'package:expedientes_clinicos/domain/core/value_objects.dart';
 import 'package:dartz/dartz.dart';
 import 'package:expedientes_clinicos/domain/medicine/branded_medicine/branded_medicine.dart';
@@ -16,14 +17,14 @@ abstract class Prescription implements _$Prescription {
   const factory Prescription({
     required UniqueId id,
     required BrandedMedicine medicine,
-    required DoseAmount doseAmount,
+    required LabelDoubleAmount doseAmount,
     required Dose dose,
     required List3<Indication> indications,
   }) = _Prescription;
   factory Prescription.empty() => Prescription(
         id: UniqueId(),
         medicine: BrandedMedicine.empty(),
-        doseAmount: DoseAmount.empty(),
+        doseAmount: LabelDoubleAmount.empty(),
         dose: Dose.empty(),
         indications: List3(const KtList.empty()),
       );

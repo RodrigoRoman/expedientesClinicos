@@ -1,228 +1,164 @@
-// **************************************************************************
-// AutoRouteGenerator
-// **************************************************************************
-
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
 // **************************************************************************
-// AutoRouteGenerator
+// AutoRouterGenerator
 // **************************************************************************
-//
+
 // ignore_for_file: type=lint
+// coverage:ignore-file
 
-// ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:auto_route/auto_route.dart' as _i6;
-import 'package:flutter/material.dart' as _i7;
+part of 'router.dart';
 
-import '../common/state_renderer/full_screen_state.dart' as _i5;
-import '../medicine/branded_medicine/branded_medicine_form/branded_medicine_form_page.dart'
-    as _i4;
-import '../medicine/generic_medicine/generic_medicine_form/generic_medicine_form_page.dart'
-    as _i3;
-import '../patient_visit/patient_visit_page.dart' as _i2;
-import '../splash/splash_page.dart' as _i1;
-
-class AppRouter extends _i6.RootStackRouter {
-  AppRouter([_i7.GlobalKey<_i7.NavigatorState>? navigatorKey])
-      : super(navigatorKey);
+abstract class _$AppRouter extends RootStackRouter {
+  // ignore: unused_element
+  _$AppRouter({super.navigatorKey});
 
   @override
-  final Map<String, _i6.PageFactory> pagesMap = {
-    SplashRoute.name: (routeData) {
-      return _i6.MaterialPageX<dynamic>(
+  final Map<String, PageFactory> pagesMap = {
+    BrandedMedicineFormPageRoute.name: (routeData) {
+      final args = routeData.argsAs<BrandedMedicineFormPageRouteArgs>(
+          orElse: () => const BrandedMedicineFormPageRouteArgs());
+      return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i1.SplashPage(),
+        child: BrandedMedicineFormPage(onCreated: args.onCreated),
       );
     },
-    PatientVisitRoute.name: (routeData) {
-      return _i6.MaterialPageX<dynamic>(
+    FullScreenStatePageRoute.name: (routeData) {
+      final args = routeData.argsAs<FullScreenStatePageRouteArgs>();
+      return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i2.PatientVisitPage(),
-      );
-    },
-    GenericMedicineFormRoute.name: (routeData) {
-      final args = routeData.argsAs<GenericMedicineFormRouteArgs>(
-          orElse: () => const GenericMedicineFormRouteArgs());
-      return _i6.MaterialPageX<dynamic>(
-        routeData: routeData,
-        child: _i3.GenericMedicineFormPage(
-          onCreated: args.onCreated,
-          key: args.key,
-        ),
-      );
-    },
-    BrandedMedicineFormRoute.name: (routeData) {
-      final args = routeData.argsAs<BrandedMedicineFormRouteArgs>(
-          orElse: () => const BrandedMedicineFormRouteArgs());
-      return _i6.MaterialPageX<dynamic>(
-        routeData: routeData,
-        child: _i4.BrandedMedicineFormPage(
-          onCreated: args.onCreated,
-          key: args.key,
-        ),
-      );
-    },
-    FullScreenState.name: (routeData) {
-      final args = routeData.argsAs<FullScreenStateArgs>();
-      return _i6.MaterialPageX<dynamic>(
-        routeData: routeData,
-        child: _i5.FullScreenState(
+        child: FullScreenStatePage(
           content: args.content,
-          key: args.key,
+          title: args.title,
         ),
+      );
+    },
+    GenericMedicineFormPageRoute.name: (routeData) {
+      final args = routeData.argsAs<GenericMedicineFormPageRouteArgs>(
+          orElse: () => const GenericMedicineFormPageRouteArgs());
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: GenericMedicineFormPage(onCreated: args.onCreated),
+      );
+    },
+    PatientVisitPageRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const PatientVisitPage(),
       );
     },
   };
-
-  @override
-  List<_i6.RouteConfig> get routes => [
-        _i6.RouteConfig(
-          SplashRoute.name,
-          path: '/splash-page',
-        ),
-        _i6.RouteConfig(
-          PatientVisitRoute.name,
-          path: '/',
-        ),
-        _i6.RouteConfig(
-          GenericMedicineFormRoute.name,
-          path: '/generic-medicine-form-page',
-        ),
-        _i6.RouteConfig(
-          BrandedMedicineFormRoute.name,
-          path: '/branded-medicine-form-page',
-        ),
-        _i6.RouteConfig(
-          FullScreenState.name,
-          path: '/full-screen-state',
-        ),
-      ];
 }
 
 /// generated route for
-/// [_i1.SplashPage]
-class SplashRoute extends _i6.PageRouteInfo<void> {
-  const SplashRoute()
-      : super(
-          SplashRoute.name,
-          path: '/splash-page',
-        );
-
-  static const String name = 'SplashRoute';
-}
-
-/// generated route for
-/// [_i2.PatientVisitPage]
-class PatientVisitRoute extends _i6.PageRouteInfo<void> {
-  const PatientVisitRoute()
-      : super(
-          PatientVisitRoute.name,
-          path: '/',
-        );
-
-  static const String name = 'PatientVisitRoute';
-}
-
-/// generated route for
-/// [_i3.GenericMedicineFormPage]
-class GenericMedicineFormRoute
-    extends _i6.PageRouteInfo<GenericMedicineFormRouteArgs> {
-  GenericMedicineFormRoute({
+/// [BrandedMedicineFormPage]
+class BrandedMedicineFormPageRoute
+    extends PageRouteInfo<BrandedMedicineFormPageRouteArgs> {
+  BrandedMedicineFormPageRoute({
     Function? onCreated,
-    _i7.Key? key,
+    List<PageRouteInfo>? children,
   }) : super(
-          GenericMedicineFormRoute.name,
-          path: '/generic-medicine-form-page',
-          args: GenericMedicineFormRouteArgs(
-            onCreated: onCreated,
-            key: key,
-          ),
+          BrandedMedicineFormPageRoute.name,
+          args: BrandedMedicineFormPageRouteArgs(onCreated: onCreated),
+          initialChildren: children,
         );
 
-  static const String name = 'GenericMedicineFormRoute';
+  static const String name = 'BrandedMedicineFormPageRoute';
+
+  static const PageInfo<BrandedMedicineFormPageRouteArgs> page =
+      PageInfo<BrandedMedicineFormPageRouteArgs>(name);
 }
 
-class GenericMedicineFormRouteArgs {
-  const GenericMedicineFormRouteArgs({
-    this.onCreated,
-    this.key,
-  });
+class BrandedMedicineFormPageRouteArgs {
+  const BrandedMedicineFormPageRouteArgs({this.onCreated});
 
   final Function? onCreated;
 
-  final _i7.Key? key;
-
   @override
   String toString() {
-    return 'GenericMedicineFormRouteArgs{onCreated: $onCreated, key: $key}';
+    return 'BrandedMedicineFormPageRouteArgs{onCreated: $onCreated}';
   }
 }
 
 /// generated route for
-/// [_i4.BrandedMedicineFormPage]
-class BrandedMedicineFormRoute
-    extends _i6.PageRouteInfo<BrandedMedicineFormRouteArgs> {
-  BrandedMedicineFormRoute({
-    Function? onCreated,
-    _i7.Key? key,
+/// [FullScreenStatePage]
+class FullScreenStatePageRoute
+    extends PageRouteInfo<FullScreenStatePageRouteArgs> {
+  FullScreenStatePageRoute({
+    required Widget content,
+    required String title,
+    List<PageRouteInfo>? children,
   }) : super(
-          BrandedMedicineFormRoute.name,
-          path: '/branded-medicine-form-page',
-          args: BrandedMedicineFormRouteArgs(
-            onCreated: onCreated,
-            key: key,
-          ),
-        );
-
-  static const String name = 'BrandedMedicineFormRoute';
-}
-
-class BrandedMedicineFormRouteArgs {
-  const BrandedMedicineFormRouteArgs({
-    this.onCreated,
-    this.key,
-  });
-
-  final Function? onCreated;
-
-  final _i7.Key? key;
-
-  @override
-  String toString() {
-    return 'BrandedMedicineFormRouteArgs{onCreated: $onCreated, key: $key}';
-  }
-}
-
-/// generated route for
-/// [_i5.FullScreenState]
-class FullScreenState extends _i6.PageRouteInfo<FullScreenStateArgs> {
-  FullScreenState({
-    required _i7.Widget content,
-    _i7.Key? key,
-  }) : super(
-          FullScreenState.name,
-          path: '/full-screen-state',
-          args: FullScreenStateArgs(
+          FullScreenStatePageRoute.name,
+          args: FullScreenStatePageRouteArgs(
             content: content,
-            key: key,
+            title: title,
           ),
+          initialChildren: children,
         );
 
-  static const String name = 'FullScreenState';
+  static const String name = 'FullScreenStatePageRoute';
+
+  static const PageInfo<FullScreenStatePageRouteArgs> page =
+      PageInfo<FullScreenStatePageRouteArgs>(name);
 }
 
-class FullScreenStateArgs {
-  const FullScreenStateArgs({
+class FullScreenStatePageRouteArgs {
+  const FullScreenStatePageRouteArgs({
     required this.content,
-    this.key,
+    required this.title,
   });
 
-  final _i7.Widget content;
+  final Widget content;
 
-  final _i7.Key? key;
+  final String title;
 
   @override
   String toString() {
-    return 'FullScreenStateArgs{content: $content, key: $key}';
+    return 'FullScreenStatePageRouteArgs{content: $content, title: $title}';
   }
+}
+
+/// generated route for
+/// [GenericMedicineFormPage]
+class GenericMedicineFormPageRoute
+    extends PageRouteInfo<GenericMedicineFormPageRouteArgs> {
+  GenericMedicineFormPageRoute({
+    Function? onCreated,
+    List<PageRouteInfo>? children,
+  }) : super(
+          GenericMedicineFormPageRoute.name,
+          args: GenericMedicineFormPageRouteArgs(onCreated: onCreated),
+          initialChildren: children,
+        );
+
+  static const String name = 'GenericMedicineFormPageRoute';
+
+  static const PageInfo<GenericMedicineFormPageRouteArgs> page =
+      PageInfo<GenericMedicineFormPageRouteArgs>(name);
+}
+
+class GenericMedicineFormPageRouteArgs {
+  const GenericMedicineFormPageRouteArgs({this.onCreated});
+
+  final Function? onCreated;
+
+  @override
+  String toString() {
+    return 'GenericMedicineFormPageRouteArgs{onCreated: $onCreated}';
+  }
+}
+
+/// generated route for
+/// [PatientVisitPage]
+class PatientVisitPageRoute extends PageRouteInfo<void> {
+  const PatientVisitPageRoute({List<PageRouteInfo>? children})
+      : super(
+          PatientVisitPageRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'PatientVisitPageRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
 }

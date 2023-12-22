@@ -3,7 +3,6 @@ import 'package:expedientes_clinicos/domain/core/value_objects.dart';
 import 'package:expedientes_clinicos/domain/prescription/dose/day_hours_doses/day_hours_doses.dart';
 import 'package:expedientes_clinicos/domain/prescription/dose/dose.dart';
 import 'package:expedientes_clinicos/infraestructure/prescription/dose/day_hours_doses/day_hours_doses_dtos.dart';
-import 'package:expedientes_clinicos/infraestructure/prescription/dose/dose_amount/dose_amount_dtos.dart';
 import 'package:expedientes_clinicos/infraestructure/prescription/dose/week_days_dose/week_days_dose_dtos.dart';
 import 'package:expedientes_clinicos/infraestructure/time_interval/time_interval_dtos.dart';
 import 'package:flutter/material.dart';

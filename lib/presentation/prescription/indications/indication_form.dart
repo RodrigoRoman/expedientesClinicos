@@ -7,8 +7,9 @@ import 'package:expedientes_clinicos/domain/core/categories/category.dart';
 import 'package:expedientes_clinicos/domain/core/indication/indication.dart';
 import 'package:expedientes_clinicos/domain/core/value_objects.dart';
 import 'package:expedientes_clinicos/presentation/common/widget_elements/title_validated.dart';
-import 'package:expedientes_clinicos/presentation/medicine/generic_medicine/medicine_category/drop_down_medicine_category.dart';
+import 'package:expedientes_clinicos/presentation/prescription/indications/indicationCategory/drop_down_indication.dart';
 import 'package:expedientes_clinicos/presentation/resources/string_manager.dart';
+import 'package:expedientes_clinicos/presentation/routes/router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -39,56 +40,60 @@ class _IndicationFormState extends State<IndicationForm> {
         listener: (context, state) {
       state.saveFailureOrSuccessOption.fold(() {
         if (state.isSaving) {
-          context.read<StateRendererBloc>().add(StateRendererEvent.popUpLoading(
-              AppStrings.saving,
-              AppStrings.actionInProgressExplain,
-              null,
-              300,
-              500));
+          context
+              .read<StateRendererBloc>()
+              .add(const StateRendererEvent.popUpLoading(
+                title: AppStrings.saving,
+                message: AppStrings.actionInProgressExplain,
+                until: FullScreenStatePageRoute.name,
+              ));
         }
       },
           (either) => either.fold(
                   (failure) => failure.maybeMap(
                         unexpected: (e) {
-                          context.read<StateRendererBloc>().add(
-                              StateRendererEvent.popUpError(
-                                  AppStrings.couldNotSaveImage,
-                                  AppStrings.somethingWentWrong,
-                                  null,
-                                  300,
-                                  500));
+                          context
+                              .read<StateRendererBloc>()
+                              .add(const StateRendererEvent.popUpError(
+                                title: AppStrings.couldNotSaveImage,
+                                message: AppStrings.somethingWentWrong,
+                                until: FullScreenStatePageRoute.name,
+                              ));
                         },
                         insufficientPermissions: (e) {
-                          context.read<StateRendererBloc>().add(
-                              StateRendererEvent.popUpError(
-                                  AppStrings.insuficcientPermissions,
-                                  AppStrings.insuficcientPermissionsExplain,
-                                  null,
-                                  300,
-                                  500));
+                          context
+                              .read<StateRendererBloc>()
+                              .add(const StateRendererEvent.popUpError(
+                                title: AppStrings.insuficcientPermissions,
+                                message:
+                                    AppStrings.insuficcientPermissionsExplain,
+                                until: FullScreenStatePageRoute.name,
+                              ));
                         },
                         unableToCreate: (e) {
-                          context.read<StateRendererBloc>().add(
-                              StateRendererEvent.popUpError(
-                                  AppStrings.unableToCreate,
-                                  AppStrings.unableToCreateExplain,
-                                  null,
-                                  300,
-                                  500));
+                          print('error here');
+                          context
+                              .read<StateRendererBloc>()
+                              .add(const StateRendererEvent.popUpError(
+                                title: AppStrings.unableToCreate,
+                                message: AppStrings.unableToCreateExplain,
+                                until: FullScreenStatePageRoute.name,
+                              ));
                         },
                         orElse: () {
-                          context.read<StateRendererBloc>().add(
-                              StateRendererEvent.popUpError(
-                                  AppStrings.genericError,
-                                  AppStrings.genericErrorExplain,
-                                  null,
-                                  300,
-                                  500));
+                          context
+                              .read<StateRendererBloc>()
+                              .add(const StateRendererEvent.popUpError(
+                                title: AppStrings.genericError,
+                                message: AppStrings.genericErrorExplain,
+                                until: FullScreenStatePageRoute.name,
+                              ));
                         },
                       ), (r) {
                 context.read<StateRendererBloc>().add(
-                    StateRendererEvent.popUpSuccess(AppStrings.success,
-                        AppStrings.successfullyCreated, null, 300, 500));
+                    const StateRendererEvent.popUpSuccess(
+                        title: AppStrings.success,
+                        message: AppStrings.successfullyCreated));
               }));
     }, builder: (context, state) {
       return LayoutBuilder(
@@ -113,7 +118,7 @@ class _IndicationFormState extends State<IndicationForm> {
                                     title: AppStrings.categoryIndication,
                                     condition: indicationNameController.text ==
                                         AppStrings.empty)),
-                            Expanded(child: DropdownSearchMedicineCategory()),
+                            Expanded(child: DropdownSearchIndicationCategory()),
                           ],
                         )),
                     const Spacer(),
@@ -132,7 +137,9 @@ class _IndicationFormState extends State<IndicationForm> {
                                               indicationNameController.text ==
                                                   AppStrings.empty)),
                                   Expanded(
+                                    flex: 2,
                                     child: TextFormField(
+                                      maxLines: 2,
                                       controller: indicationNameController,
                                       style: Theme.of(context)
                                           .textTheme
@@ -178,8 +185,10 @@ class _IndicationFormState extends State<IndicationForm> {
                     Expanded(
                       child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                            fixedSize: Size(200,
-                                50), // set the width and height of the button
+                            fixedSize: Size(
+                                constraints.maxWidth / 2,
+                                constraints.maxHeight /
+                                    13), // set the width and height of the button
                           ),
                           onPressed: () {
                             if ((context
@@ -193,7 +202,11 @@ class _IndicationFormState extends State<IndicationForm> {
                                         .state
                                         .indication
                                         .indicationCategory !=
-                                    Category.empty())) {}
+                                    Category.empty())) {
+                              context
+                                  .read<MedicineIndicationFormBloc>()
+                                  .add(IndicationFormEvent.saved());
+                            }
                           },
                           child: const Text(AppStrings.create)),
                     ),

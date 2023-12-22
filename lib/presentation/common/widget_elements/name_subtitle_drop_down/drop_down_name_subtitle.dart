@@ -1,6 +1,7 @@
 import 'package:expedientes_clinicos/domain/core/constants.dart';
 import 'package:expedientes_clinicos/domain/core/value_objects.dart';
-import 'package:expedientes_clinicos/domain/core/view_models/title_subtitle_image_view_model.dart';
+import 'package:expedientes_clinicos/domain/core/view_models/drop_down_view_model.dart';
+import 'package:expedientes_clinicos/domain/core/view_models/title_subtitle_img_view_model.dart';
 import 'package:expedientes_clinicos/presentation/medicine/generic_medicine/generic_medicine_form/generic_medicine_form_page.dart';
 import 'package:expedientes_clinicos/presentation/resources/constant_size_values.dart';
 import 'package:expedientes_clinicos/presentation/resources/font_manager.dart';
@@ -179,42 +180,45 @@ class _DropdownSearchTitleSubtitleImgState
                                         // Spacer(),
                                         Expanded(
                                           flex: 5,
-                                          child: Wrap(
-                                            children: [
-                                              Text(
-                                                  e.title.value.fold(
-                                                      (l) => AppStrings.isEmpty,
-                                                      (r) => r),
-                                                  style: Theme.of(context)
-                                                      .textTheme
-                                                      .titleLarge!
-                                                      .copyWith(
-                                                          fontSize:
-                                                              AppSize.s22),
-                                                  textAlign: TextAlign.center,
-                                                  maxLines: 3,
-                                                  overflow: TextOverflow.fade)
-                                            ],
+                                          child: SingleChildScrollView(
+                                            // direction: Axis.vertical,
+                                            clipBehavior:
+                                                Clip.antiAliasWithSaveLayer,
+                                            child: Text(
+                                                e.title.value.fold(
+                                                    (l) => AppStrings.isEmpty,
+                                                    (r) => r),
+                                                style: Theme.of(context)
+                                                    .textTheme
+                                                    .titleLarge!
+                                                    .copyWith(
+                                                        fontSize: AppSize.s18),
+                                                textAlign: TextAlign.center,
+                                                maxLines: 4,
+                                                overflow:
+                                                    TextOverflow.ellipsis),
                                           ),
                                         ),
+                                        Spacer(),
                                         Expanded(
-                                          flex: 3,
-                                          child: Wrap(
-                                            children: [
-                                              Text(
-                                                  e.subtitle.value.fold(
-                                                      (l) => AppStrings.isEmpty,
-                                                      (r) => r),
-                                                  style: Theme.of(context)
-                                                      .textTheme
-                                                      .titleLarge!
-                                                      .copyWith(
-                                                          fontSize:
-                                                              AppSize.s12),
-                                                  textAlign: TextAlign.center,
-                                                  maxLines: 3,
-                                                  overflow: TextOverflow.fade)
-                                            ],
+                                          flex: 2,
+                                          child: SingleChildScrollView(
+                                            // direction: Axis.vertical,
+                                            clipBehavior:
+                                                Clip.antiAliasWithSaveLayer,
+                                            child: Text(
+                                                e.subtitle.value.fold(
+                                                    (l) => AppStrings.isEmpty,
+                                                    (r) => r),
+                                                style: Theme.of(context)
+                                                    .textTheme
+                                                    .titleLarge!
+                                                    .copyWith(
+                                                        fontSize: AppSize.s12),
+                                                textAlign: TextAlign.center,
+                                                maxLines: 2,
+                                                overflow:
+                                                    TextOverflow.ellipsis),
                                           ),
                                         ),
                                         Spacer(),
@@ -222,10 +226,6 @@ class _DropdownSearchTitleSubtitleImgState
                                     ),
                                     onTap: () {
                                       widget.onSelected(e);
-                                      widget.searchFieldController.text =
-                                          e.title.value.fold(
-                                              (l) => AppStrings.isEmpty,
-                                              (r) => r);
                                       _focusNode.unfocus();
                                     },
                                   ),
@@ -327,25 +327,18 @@ class _DropdownSearchTitleSubtitleImgState
                                       size: FontSize.s18),
                                   border: InputBorder.none,
                                   hintText: widget.hintText,
-                                  suffix:
-                                      (widget.searchFieldController.text != '')
-                                          ? Material(
-                                              elevation: 3,
-                                              shape: CircleBorder(),
-                                              clipBehavior: Clip.hardEdge,
-                                              child: GestureDetector(
-                                                onTap: () {
-                                                  widget.searchFieldController
-                                                      .text = '';
-                                                  widget.onSearchAll();
-                                                },
-                                                child: Icon(
-                                                  Icons.cancel_rounded,
-                                                  size: AppSize.s18,
-                                                ),
-                                              ),
-                                            )
-                                          : SizedBox.shrink(),
+                                  suffix: (widget.searchFieldController.text !=
+                                          '')
+                                      ? IconButton(
+                                          icon: Icon(Icons.cancel),
+                                          iconSize: AppSize.s20,
+                                          onPressed: () {
+                                            widget.searchFieldController.text =
+                                                '';
+                                            widget.onSearchAll();
+                                          },
+                                        )
+                                      : SizedBox.shrink(),
                                 ),
                                 focusNode: _focusNode,
                                 keyboardType: TextInputType.text,

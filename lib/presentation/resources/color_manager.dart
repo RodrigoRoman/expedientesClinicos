@@ -18,11 +18,17 @@ extension HexColor on Color {
 }
 
 class LightThemeColors {
-  static Color accent = HexColor.fromHex('#81D4FA'); // Light Blue
-  static Color primary = HexColor.fromHex('#8BC34A'); // Light Green
-  static Color secondary = HexColor.fromHex('#FFC107'); // Yellow
-  static Color tertiary = HexColor.fromHex('#d2f8d2'); // Light Red
-  static Color background = HexColor.fromHex('#ECEFF1'); // Light grey
+  static Color primary = HexColor.fromHex('#255ED6'); // Most dominant color
+  static Color secondary =
+      HexColor.fromHex('#E6EFF9'); // Complement of primary color
+  static Color tertiary =
+      HexColor.fromHex('#6CD8D1'); // Provides variety to the UI
+  static Color accent = HexColor.fromHex('#FEA41D'); // Color that stands out
+  static Color callout = HexColor.fromHex('#51BEFB'); // Color that stands out
+  static Color background = HexColor.fromHex('#FDFFFA'); // Background color
+  static Color opaqueBackground = HexColor.fromHex('#CCe6e6e6');
+  static Color surface =
+      HexColor.fromHex('#C5DCFA'); // Cards,dialog,pannels color
 }
 
 class DarkThemeColors {

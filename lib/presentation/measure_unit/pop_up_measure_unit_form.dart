@@ -5,7 +5,7 @@ import 'package:expedientes_clinicos/application/state_render/state_renderer_blo
 import 'package:expedientes_clinicos/domain/core/name_abbreviation/name_abbr.dart';
 import 'package:expedientes_clinicos/presentation/common/widget_elements/abbreviation_name_component/pop_up_abbreviation_name_form.dart';
 import 'package:expedientes_clinicos/presentation/resources/string_manager.dart';
-import 'package:expedientes_clinicos/presentation/routes/router.gr.dart';
+import 'package:expedientes_clinicos/presentation/routes/router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -25,53 +25,53 @@ class _MeasureUnitFormState extends State<MeasureUnitForm> {
         state.saveFailureOrSuccessOption.fold(() {
           if (state.isSaving) {
             context.read<StateRendererBloc>().add(
-                StateRendererEvent.popUpLoading(AppStrings.saving,
-                    AppStrings.actionInProgressExplain, null, 300, 500));
+                const StateRendererEvent.popUpLoading(
+                    title: AppStrings.saving,
+                    message: AppStrings.actionInProgressExplain,
+                    until: AppStrings.popUp));
           }
         },
             (either) => either.fold(
                     (failure) => failure.maybeMap(
                           unexpected: (e) {
                             context.read<StateRendererBloc>().add(
-                                StateRendererEvent.popUpError(
-                                    AppStrings.couldNotSaveImage,
-                                    AppStrings.somethingWentWrong,
-                                    GenericMedicineFormRoute.name,
-                                    300,
-                                    500));
+                                const StateRendererEvent.popUpError(
+                                    title: AppStrings.couldNotSaveImage,
+                                    message: AppStrings.somethingWentWrong,
+                                    until: GenericMedicineFormPageRoute.name));
                           },
                           insufficientPermissions: (e) {
                             context.read<StateRendererBloc>().add(
-                                StateRendererEvent.popUpError(
-                                    AppStrings.insuficcientPermissions,
-                                    AppStrings.insuficcientPermissionsExplain,
-                                    GenericMedicineFormRoute.name,
-                                    300,
-                                    500));
+                                const StateRendererEvent.popUpError(
+                                    title: AppStrings.insuficcientPermissions,
+                                    message: AppStrings
+                                        .insuficcientPermissionsExplain,
+                                    until: GenericMedicineFormPageRoute.name));
                           },
                           unableToCreate: (e) {
-                            context.read<StateRendererBloc>().add(
-                                StateRendererEvent.popUpError(
-                                    AppStrings.unableToCreate,
-                                    AppStrings.unableToCreateExplain,
-                                    GenericMedicineFormRoute.name,
-                                    300,
-                                    500));
+                            context
+                                .read<StateRendererBloc>()
+                                .add(const StateRendererEvent.popUpError(
+                                  title: AppStrings.unableToCreate,
+                                  message: AppStrings.unableToCreateExplain,
+                                  until: GenericMedicineFormPageRoute.name,
+                                ));
                           },
                           orElse: () {
-                            context.read<StateRendererBloc>().add(
-                                StateRendererEvent.popUpError(
-                                    AppStrings.genericError,
-                                    AppStrings.genericErrorExplain,
-                                    GenericMedicineFormRoute.name,
-                                    300,
-                                    500));
+                            context
+                                .read<StateRendererBloc>()
+                                .add(const StateRendererEvent.popUpError(
+                                  title: AppStrings.genericError,
+                                  message: AppStrings.genericErrorExplain,
+                                  until: GenericMedicineFormPageRoute.name,
+                                ));
                           },
                         ), (r) {
                   widget.onCreated?.call(state.abbreviation);
                   context.read<StateRendererBloc>().add(
-                      StateRendererEvent.popUpSuccess(AppStrings.success,
-                          AppStrings.successfullyCreated, null, 300, 300));
+                      StateRendererEvent.popUpSuccess(
+                          title: AppStrings.success,
+                          message: AppStrings.successfullyCreated));
                 }));
       },
       builder: (context, state) {
@@ -95,7 +95,7 @@ class _MeasureUnitFormState extends State<MeasureUnitForm> {
               .read<MeasureUnitFormBloc>()
               .state
               .abbreviation
-              .abbr
+              .name
               .value
               .fold(
                   (f) => f.maybeMap(

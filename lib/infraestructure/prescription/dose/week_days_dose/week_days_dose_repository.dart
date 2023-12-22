@@ -27,7 +27,7 @@ class WeekDaysDoseRepository implements IWeekDaysDoseRepository {
       Map<String, dynamic> data = weekDaysDoseDto.toJson();
 
       //store the keyword that we will use for querying this document
-      data['keyWords'] = generateKeywords(weekDaysDoseDto.label);
+      data['keyWords'] = await generateKeywords(weekDaysDoseDto.label);
 
       //We keep the id that comes from genericMedicineDto and avoid autogeneration
       await weekDaysDoses.doc(weekDaysDoseDto.id).set(data);
@@ -81,7 +81,7 @@ class WeekDaysDoseRepository implements IWeekDaysDoseRepository {
       Map<String, dynamic> data = weekDaysDoseDto.toJson();
 
       //store the keyword that we will use for querying this document
-      data['keyWords'] = generateKeywords(weekDaysDoseDto.label);
+      data['keyWords'] = await generateKeywords(weekDaysDoseDto.label);
 
       //We keep the id that comes from genericMedicineDto and avoid autogeneration
       await weekDaysDoses.doc(weekDaysDoseDto.id).set(data);

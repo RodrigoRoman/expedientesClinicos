@@ -29,5 +29,5 @@ const fullStateRender = [
   StateRendererType.EMPTY_SCREEN_STATE
 ];
 
-const int integerInfinity = 2147483648;
+const int integerInfinity = 221474283;
 const double doubleInfinity = double.infinity;

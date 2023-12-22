@@ -3,13 +3,15 @@ import 'package:expedientes_clinicos/application/medicine/dose/dose_components/d
 import 'package:expedientes_clinicos/application/medicine/dose/dose_components/day_hours_dose/day_hours_dose_watcher/day_hours_dose_watcher_bloc.dart';
 import 'package:expedientes_clinicos/application/medicine/dose/dose_core/dose_form/dose_form_bloc.dart';
 import 'package:expedientes_clinicos/application/state_render/state_renderer_bloc.dart';
+import 'package:expedientes_clinicos/domain/core/view_models/drop_down_view_model.dart';
 import 'package:expedientes_clinicos/domain/core/view_models/label_dose_times_view_model.dart';
 import 'package:expedientes_clinicos/domain/prescription/dose/day_hours_doses/day_hours_doses.dart';
 import 'package:expedientes_clinicos/injection.dart';
+import 'package:expedientes_clinicos/presentation/common/widget_elements/label_drop_down/drop_down_head.dart';
 import 'package:expedientes_clinicos/presentation/common/widget_elements/label_drop_down/label_drop_down.dart';
 import 'package:expedientes_clinicos/presentation/prescription/dose/day_hours_dose/day_hours_dose_form/day_hours_dose_form.dart';
 import 'package:expedientes_clinicos/presentation/resources/string_manager.dart';
-import 'package:expedientes_clinicos/presentation/routes/router.gr.dart';
+import 'package:expedientes_clinicos/presentation/routes/router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -41,27 +43,27 @@ class _DropdownSearchDayHoursDoseState
                 dayHoursDoseList = [];
               },
               loadInProgress: ((value) => context.read<StateRendererBloc>().add(
-                  StateRendererEvent.popUpLoading(AppStrings.saving,
-                      AppStrings.actionInProgressExplain, null, 300, 500))),
+                  StateRendererEvent.popUpLoading(
+                      title: AppStrings.saving,
+                      message: AppStrings.actionInProgressExplain))),
               loadSuccess: ((value) {
                 setState(() {
                   dayHoursDoseList = value.dayHourDose.asList();
                 });
               }),
               loadFailure: ((value) => context.read<StateRendererBloc>().add(
-                  StateRendererEvent.popUpError(AppStrings.unableToReadError,
-                      AppStrings.unableToReadErrorExplain, null, 300, 500))));
+                  StateRendererEvent.popUpError(
+                      title: AppStrings.unableToReadError,
+                      message: AppStrings.unableToReadErrorExplain))));
         }, builder: (context, state) {
-          return DropdownSearchLabel(
-            element: LabelDoseTimesViewModel.fromDayHoursDose(
+          return DropDownSearchHead(
+            element: DropdownItemViewModel.fromDayHoursDose(
                 context.read<DoseFormBloc>().state.dose.dayHoursDose),
             searchFieldController: searchFieldController,
-            onSelected: (LabelDoseTimesViewModel labelDoseTimesViewModel) {
-              print('day hours');
-              print(labelDoseTimesViewModel.dayHoursDose);
+            onSelected: (DropdownItemViewModel dropdownItemViewModel) {
               context.read<DoseFormBloc>().add(
                   DoseFormEvent.dayHoursDoseChanged(
-                      labelDoseTimesViewModel.dayHoursDose));
+                      dropdownItemViewModel.dayHoursDose!));
               setState(() {});
             },
             onSearchWithKey: (key) {
@@ -76,15 +78,15 @@ class _DropdownSearchDayHoursDoseState
             },
             listElements: dayHoursDoseList
                 .map((dayHoursDose) =>
-                    LabelDoseTimesViewModel.fromDayHoursDose(dayHoursDose))
+                    DropdownItemViewModel.fromDayHoursDose(dayHoursDose))
                 .toList(),
             hintText: AppStrings.labelDayHours,
             newFunction: () {
               context
                   .read<StateRendererBloc>()
                   .add(StateRendererEvent.popUpForm(
-                      'Crear ${AppStrings.labelDayHours}',
-                      DayHoursDoseForm(
+                      title: 'Crear ${AppStrings.labelDayHours}',
+                      bodyWidget: DayHoursDoseForm(
                         onCreated: (DayHoursDose dayHoursDose) {
                           context.read<DoseFormBloc>().add(
                               DoseFormEvent.dayHoursDoseChanged(dayHoursDose));
@@ -107,6 +109,19 @@ class _DropdownSearchDayHoursDoseState
                                       orElse: () => AppStrings.empty),
                                   (_) => null);
                         },
+                        validHours: () {
+                          context
+                              .read<DayHoursDoseFormBloc>()
+                              .state
+                              .dayHoursDose
+                              .doseHours
+                              .value
+                              .fold(
+                                  (f) => f.maybeMap(
+                                      empty: (value) => AppStrings.tooLong,
+                                      orElse: () => AppStrings.genericError),
+                                  (_) => null);
+                        },
                         onNameChanged: (label) {
                           context
                               .read<DayHoursDoseFormBloc>()
@@ -118,9 +133,7 @@ class _DropdownSearchDayHoursDoseState
                               .add(DayHoursDoseFormEvent.saved());
                         },
                       ),
-                      500,
-                      400,
-                      FullScreenState.name));
+                      until: FullScreenStatePageRoute.name));
             },
           );
         }));

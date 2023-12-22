@@ -41,7 +41,7 @@ abstract class $DayHoursDoseDtoCopyWith<$Res> {
       {String id,
       String label,
       @JsonKey(fromJson: _timeToJson, toJson: _timeFromJson)
-          List<Timestamp> doseHours});
+      List<Timestamp> doseHours});
 }
 
 /// @nodoc
@@ -90,7 +90,7 @@ abstract class _$$_DayHoursDoseDtoCopyWith<$Res>
       {String id,
       String label,
       @JsonKey(fromJson: _timeToJson, toJson: _timeFromJson)
-          List<Timestamp> doseHours});
+      List<Timestamp> doseHours});
 }
 
 /// @nodoc
@@ -132,7 +132,7 @@ class _$_DayHoursDoseDto extends _DayHoursDoseDto {
       {required this.id,
       required this.label,
       @JsonKey(fromJson: _timeToJson, toJson: _timeFromJson)
-          required final List<Timestamp> doseHours})
+      required final List<Timestamp> doseHours})
       : _doseHours = doseHours,
         super._();
 
@@ -192,7 +192,7 @@ abstract class _DayHoursDoseDto extends DayHoursDoseDto {
       {required final String id,
       required final String label,
       @JsonKey(fromJson: _timeToJson, toJson: _timeFromJson)
-          required final List<Timestamp> doseHours}) = _$_DayHoursDoseDto;
+      required final List<Timestamp> doseHours}) = _$_DayHoursDoseDto;
   const _DayHoursDoseDto._() : super._();
 
   factory _DayHoursDoseDto.fromJson(Map<String, dynamic> json) =

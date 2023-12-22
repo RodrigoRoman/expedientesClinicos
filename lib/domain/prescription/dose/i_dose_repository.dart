@@ -1,6 +1,4 @@
 import 'package:dartz/dartz.dart';
-import 'package:expedientes_clinicos/domain/medicine/branded_medicine/branded_medicine.dart';
-import 'package:expedientes_clinicos/domain/medicine/branded_medicine/branded_medicine_failures.dart';
 import 'package:expedientes_clinicos/domain/prescription/dose/dose.dart';
 import 'package:expedientes_clinicos/domain/prescription/dose/dose_failures.dart';
 import 'package:kt_dart/collection.dart';

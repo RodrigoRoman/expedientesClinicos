@@ -4,6 +4,7 @@ import 'package:dartz/dartz.dart';
 import 'package:expedientes_clinicos/presentation/resources/string_manager.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:kt_dart/kt.dart';
+import 'package:intl/intl.dart';
 
 part 'day_hours_doses.freezed.dart';
 
@@ -30,6 +31,22 @@ abstract class DayHoursDose implements _$DayHoursDose {
             .getOrElse(0, (_) => right(unit))
             .fold((f) => left(f), (_) => right(unit)))
         .fold((f) => some(f), (_) => none());
+  }
+
+  String get formattedDoseHours {
+    final now = DateTime.now();
+    // Your custom formatting logic goes here.
+    // For example, you might format each HourTime object and join them with a comma.
+    return doseHours
+        .getOrCrash()
+        .asList()
+        .map((hourTime) => hourTime.value.fold((l) => l, (r) {
+              final dt =
+                  DateTime(now.year, now.month, now.day, r.hour, r.minute);
+              final DateFormat format = DateFormat.jm();
+              return format.format(dt);
+            }))
+        .join(",");
   }
 
   bool operator ==(dynamic other) {

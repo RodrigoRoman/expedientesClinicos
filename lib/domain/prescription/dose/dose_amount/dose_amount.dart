@@ -4,7 +4,6 @@ import 'package:expedientes_clinicos/domain/core/value_objects.dart';
 import 'package:dartz/dartz.dart';
 import 'package:expedientes_clinicos/presentation/resources/string_manager.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:kt_dart/kt.dart';
 
 part 'dose_amount.freezed.dart';
 

@@ -7,6 +7,7 @@ class GenericMedicineFormState with _$GenericMedicineFormState {
     required bool showErrorMessages,
     required bool isUpdating,
     required bool isSaving,
+    required bool isValid,
     required Option<Either<GenericMedicineFailures, Unit>>
         saveFailureOrSuccessOption,
   }) = _GenericMedicineFormState;
@@ -15,5 +16,6 @@ class GenericMedicineFormState with _$GenericMedicineFormState {
       showErrorMessages: false,
       isSaving: false,
       isUpdating: false,
+      isValid: false,
       saveFailureOrSuccessOption: none());
 }

@@ -1,4 +1,5 @@
 import 'package:expedientes_clinicos/presentation/resources/color_manager.dart';
+import 'package:expedientes_clinicos/presentation/resources/const_style_widgets.dart';
 import 'package:expedientes_clinicos/presentation/resources/constant_size_values.dart';
 import 'package:expedientes_clinicos/presentation/resources/font_manager.dart';
 import 'package:expedientes_clinicos/presentation/resources/text_style.dart';
@@ -21,68 +22,54 @@ class CustomTheme {
           error: ColorManager.red,
           onError: LightThemeColors.tertiary,
           background: LightThemeColors.background,
-          onBackground: LightThemeColors.accent,
-          surface: LightThemeColors.accent,
+          onBackground: LightThemeColors.callout,
+          surface: LightThemeColors.opaqueBackground,
           onSurface: LightThemeColors.secondary),
       scaffoldBackgroundColor: LightThemeColors.background,
       fontFamily: FontConstants.fontFamily,
+      // Modify buttonTheme to have primary color for button background and white text/icon color
       buttonTheme: ButtonThemeData(
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(18.0)),
-          disabledColor: ColorManager.grey,
-          buttonColor: LightThemeColors.accent,
-          splashColor: LightThemeColors.secondary),
-      elevatedButtonTheme: ElevatedButtonThemeData(
-          style: ElevatedButton.styleFrom(
-        textStyle:
-            RegularTextStyle(color: ColorManager.black, size: AppSize.s16),
-        backgroundColor: LightThemeColors.secondary,
-        foregroundColor: LightThemeColors.accent,
-      )),
-      textTheme: TextTheme(
-        titleLarge: BoldTextStyle(color: ColorManager.black, size: AppSize.s22),
-        titleMedium:
-            SemiBoldTextStyle(color: ColorManager.black, size: AppSize.s20),
-        titleSmall:
-            RegularTextStyle(color: ColorManager.black, size: AppSize.s20),
-        headlineLarge:
-            SemiBoldTextStyle(color: ColorManager.black, size: AppSize.s18),
-        headlineMedium:
-            RegularTextStyle(color: ColorManager.grey, size: AppSize.s18),
-        bodyLarge:
-            SemiBoldTextStyle(color: ColorManager.black, size: AppSize.s14),
-        bodyMedium:
-            SemiBoldTextStyle(color: ColorManager.black, size: AppSize.s16),
-        bodySmall: LightTextStyle(color: ColorManager.black, size: AppSize.s12),
+        shape:
+            RoundedRectangleBorder(borderRadius: BorderRadius.circular(18.0)),
+        disabledColor: ColorManager.grey,
+        buttonColor: LightThemeColors
+            .primary, // Set the primary color for the button background
+        splashColor: LightThemeColors.secondary,
+        textTheme: ButtonTextTheme
+            .primary, // This will set the text/icon color to white
       ),
+
+      // Modify inputDecorationTheme to have secondary color for the outline
       inputDecorationTheme: InputDecorationTheme(
-          contentPadding: const EdgeInsets.all(AppSize.s8),
-          labelStyle: RegularTextStyle(
-              color: LightThemeColors.accent, size: AppSize.s14),
-          hintStyle:
-              RegularTextStyle(color: ColorManager.grey, size: AppSize.s14),
-          errorStyle:
-              RegularTextStyle(color: ColorManager.red, size: AppSize.s14),
-          enabledBorder: OutlineInputBorder(
-              borderSide:
-                  BorderSide(color: LightThemeColors.accent, width: AppSize.s2),
-              borderRadius:
-                  const BorderRadius.all(Radius.circular(AppSize.s8))),
-          focusedBorder: OutlineInputBorder(
-              borderSide:
-                  BorderSide(color: LightThemeColors.accent, width: AppSize.s2),
-              borderRadius:
-                  const BorderRadius.all(Radius.circular(AppSize.s8))),
-          errorBorder: OutlineInputBorder(
-              borderSide: BorderSide(
-                  color: LightThemeColors.secondary, width: AppSize.s2),
-              borderRadius:
-                  const BorderRadius.all(Radius.circular(AppSize.s8))),
-          focusedErrorBorder: OutlineInputBorder(
-              borderSide:
-                  BorderSide(color: ColorManager.red, width: AppSize.s2),
-              borderRadius:
-                  const BorderRadius.all(Radius.circular(AppSize.s8)))),
+        contentPadding: const EdgeInsets.all(AppSize.s3),
+        labelStyle:
+            RegularTextStyle(color: LightThemeColors.accent, size: AppSize.s14),
+        hintStyle:
+            RegularTextStyle(color: ColorManager.grey, size: AppSize.s14),
+        errorStyle:
+            RegularTextStyle(color: ColorManager.red, size: AppSize.s14),
+        enabledBorder: OutlineInputBorder(
+          borderSide: BorderSide(
+              color: LightThemeColors.secondary,
+              width: AppSize.s2), // Set secondary color for the outline
+          borderRadius: BoderRadiusStyle.allCurve,
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderSide: BorderSide(
+            color: LightThemeColors.primary,
+            width: AppSize.s2,
+          ),
+          borderRadius: BoderRadiusStyle.allCurve,
+        ),
+        errorBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: ColorManager.red, width: AppSize.s2),
+          borderRadius: const BorderRadius.all(Radius.circular(AppSize.s8)),
+        ),
+        focusedErrorBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: ColorManager.red, width: AppSize.s2),
+          borderRadius: const BorderRadius.all(Radius.circular(AppSize.s8)),
+        ),
+      ),
     );
   }
 

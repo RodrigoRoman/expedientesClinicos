@@ -85,7 +85,7 @@ class UniqueId extends ValueObject<String> {
 class FullName extends ValueObject<String> {
   @override
   final Either<ValueFailure<String>, String> value;
-  static const maxLength = 100;
+  static const maxLength = 200;
   factory FullName(String input) {
     assert(input != null);
     return FullName._(validateMaxLength(input, maxLength)
@@ -97,7 +97,7 @@ class FullName extends ValueObject<String> {
 class AbbrName extends ValueObject<String> {
   @override
   final Either<ValueFailure<String>, String> value;
-  static const maxLength = 15;
+  static const maxLength = 25;
   factory AbbrName(String input) {
     assert(input != null);
     return AbbrName._(validateMaxLength(input, maxLength)

@@ -1,7 +1,12 @@
 //create list of words to facilitate search with array-contains
-List<String> generateKeywords(String word) {
+
+Future<List<String>> generateKeywords(String word) async {
   List<String> keywords = [];
   List<String> splittedWord = word.split(RegExp(r'[^\wW]+'));
+  //To avoid exceding conputational time if the prase is too large we prefer to simplify it to one word
+  if (splittedWord.length > 4) {
+    splittedWord = [word];
+  }
   splittedWord = splittedWord.map((e) => removeSpecialCharacters(e)).toList();
   List<String> permutes = [];
   for (var wd in splittedWord) {
@@ -10,7 +15,7 @@ List<String> generateKeywords(String word) {
         keywords.add(wd);
       }
     } else {
-      List<String> resultWords = wordSubs(wd);
+      List<String> resultWords = await wordSubs(wd);
       for (var el in resultWords) {
         if (!keywords.contains(el)) {
           keywords.add(el);
@@ -18,25 +23,26 @@ List<String> generateKeywords(String word) {
       }
     }
   }
-  permutes = permutations(splittedWord);
+  permutes = await permutations(splittedWord);
   for (var element in permutes) {
     if (!keywords.contains(element)) {
       keywords.add(element);
     }
   }
   for (var element in permutes) {
-    List<String> resultWords = wordSubs(element);
+    List<String> resultWords = await wordSubs(element);
     for (var el in resultWords) {
       if (!keywords.contains(el)) {
         keywords.add(el);
       }
     }
   }
+
   return keywords;
 }
 
 //Get permutations of a single word
-List<String> wordSubs(String word) {
+Future<List<String>> wordSubs(String word) async {
   List<String> substrings = [];
   for (var i = 0; i <= word.length - 1; i++) {
     for (var j = i + 1; ((j <= word.length) & ((j - i) >= 1)); j++) {
@@ -49,26 +55,30 @@ List<String> wordSubs(String word) {
 }
 
 //get all the permutations of the list of words
-List<String> permutations(List<String> strings) {
+Future<List<String>> permutations(List<String> strings) async {
   List<String> result = [];
-  int lengthStrings = strings.reduce((a, b) => a + b).length;
-  void recursiveFn(int i, String newString) {
-    if (newString.length == lengthStrings) {
-      if (!result.contains(newString)) {
-        result.add(newString);
+  if (strings.isNotEmpty) {
+    int lengthStrings = strings.reduce((a, b) => a + b).length;
+    void recursiveFn(int i, String newString) {
+      if (newString.length == lengthStrings) {
+        if (!result.contains(newString)) {
+          result.add(newString);
+        }
+        return;
+      }
+      for (var n in strings) {
+        if (!newString.contains(n)) {
+          recursiveFn(i + 1, '${newString + n}');
+        }
       }
       return;
     }
-    for (var n in strings) {
-      if (!newString.contains(n)) {
-        recursiveFn(i + 1, '${newString + n}');
-      }
-    }
-    return;
-  }
 
-  recursiveFn(0, '');
-  return result;
+    recursiveFn(0, '');
+    return result;
+  } else {
+    return [];
+  }
 }
 
 //Remove any special character from a string

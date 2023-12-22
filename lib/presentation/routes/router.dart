@@ -4,14 +4,16 @@ import 'package:expedientes_clinicos/presentation/patient_visit/patient_visit_pa
 import 'package:expedientes_clinicos/presentation/medicine/branded_medicine/branded_medicine_form/branded_medicine_form_page.dart';
 import 'package:expedientes_clinicos/presentation/medicine/generic_medicine/generic_medicine_form/generic_medicine_form_page.dart';
 import 'package:expedientes_clinicos/presentation/splash/splash_page.dart';
+import 'package:flutter/material.dart';
 
-@MaterialAutoRouter(replaceInRouteName: 'Page,Route', routes: <MaterialRoute>[
-  MaterialRoute(
-    page: SplashPage,
-  ),
-  MaterialRoute(page: PatientVisitPage, initial: true),
-  MaterialRoute(page: GenericMedicineFormPage),
-  MaterialRoute(page: BrandedMedicineFormPage),
-  MaterialRoute(page: FullScreenState),
-])
-class $AppRouter {}
+part 'router.gr.dart';
+
+@AutoRouterConfig(replaceInRouteName: 'Page,Route,Screen')
+class AppRouter extends _$AppRouter {
+  List<AutoRoute> get routes => [
+        AutoRoute(page: PatientVisitPageRoute.page, initial: true),
+        AutoRoute(page: GenericMedicineFormPageRoute.page),
+        AutoRoute(page: BrandedMedicineFormPageRoute.page),
+        AutoRoute(page: FullScreenStatePageRoute.page),
+      ];
+}

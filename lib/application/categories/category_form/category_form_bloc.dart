@@ -38,26 +38,32 @@ class CategoryFormBloc extends Bloc<CategoryFormEvent, CategoryFormState> {
               state.category.copyWith(imageUrl: ImageURL(event.imageURL))));
     });
     on<_Saved>((event, emit) async {
-      Either<CategoryFailures, Category>? failureOrSuccess;
-      emit(state.copyWith(isSaving: true, saveFailureOrSuccessOption: none()));
-      if (state.category.failureOption.isNone()) {
-        failureOrSuccess = state.isUpdating
-            ? await _categoryRepository.update(state.category)
-            : await _categoryRepository.create(state.category);
-      } else {
-        failureOrSuccess = const Left(CategoryFailures.unexpected());
+      try {
+        Either<CategoryFailures, Category>? failureOrSuccess;
+        emit(
+            state.copyWith(isSaving: true, saveFailureOrSuccessOption: none()));
+        if (state.category.failureOption.isNone()) {
+          failureOrSuccess = state.isUpdating
+              ? await _categoryRepository.update(state.category)
+              : await _categoryRepository.create(state.category);
+        } else {
+          failureOrSuccess = const Left(CategoryFailures.unexpected());
+        }
+        emit(state.copyWith(
+            category: failureOrSuccess.fold((l) => Category.empty(), (r) => r),
+            isSaving: false,
+            showErrorMessages: true,
+            saveFailureOrSuccessOption: optionOf(failureOrSuccess)));
+        emit(state.copyWith(
+            category: Category.empty(),
+            showErrorMessages: false,
+            isSaving: false,
+            isUpdating: false,
+            saveFailureOrSuccessOption: none()));
+      } catch (e) {
+        print('error from bloc');
+        print(e);
       }
-      emit(state.copyWith(
-          category: failureOrSuccess.fold((l) => Category.empty(), (r) => r),
-          isSaving: false,
-          showErrorMessages: true,
-          saveFailureOrSuccessOption: optionOf(failureOrSuccess)));
-      emit(state.copyWith(
-          category: Category.empty(),
-          showErrorMessages: false,
-          isSaving: false,
-          isUpdating: false,
-          saveFailureOrSuccessOption: none()));
     });
   }
 }

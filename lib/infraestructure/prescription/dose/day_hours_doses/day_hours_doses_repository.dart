@@ -27,13 +27,15 @@ class DayHoursDosesRepository implements IDayHoursDoseRepository {
       Map<String, dynamic> data = dayHoursDoseDto.toJson();
 
       //store the keyword that we will use for querying this document
-      data['keyWords'] = generateKeywords(dayHoursDoseDto.label);
+      data['keyWords'] = await generateKeywords(dayHoursDoseDto.label);
 
       //We keep the id that comes from genericMedicineDto and avoid autogeneration
       await dayHoursDoses.doc(dayHoursDoseDto.id).set(data);
 
       return right(unit);
     } on PlatformException catch (e) {
+      print("Error from infraestructure");
+      print(e);
       // These error codes and messages aren't in the documentation AFAIK, experiment in the debugger to find out about them.
       if (e.message!.contains('PERMISSION_DENIED')) {
         return left(const DayHoursDoseFailures.insufficientPermissions());
@@ -41,6 +43,8 @@ class DayHoursDosesRepository implements IDayHoursDoseRepository {
         return left(const DayHoursDoseFailures.unexpected());
       }
     } catch (e) {
+      print("Unexpected Error from infraestructure");
+      print(e);
       return left(const DayHoursDoseFailures.unexpected());
     }
   }

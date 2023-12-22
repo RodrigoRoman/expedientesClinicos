@@ -1,10 +1,12 @@
 import 'package:expedientes_clinicos/application/medicine/dose/dose_components/week_days_dose/week_days_dose_form/week_days_dose_form_bloc.dart';
 import 'package:expedientes_clinicos/application/state_render/state_renderer_bloc.dart';
 import 'package:expedientes_clinicos/domain/prescription/dose/week_doses/week_days_dose.dart';
+import 'package:expedientes_clinicos/presentation/common/widget_elements/buttons_group/cancel_create_row.dart';
 import 'package:expedientes_clinicos/presentation/common/widget_elements/title_validated.dart';
+import 'package:expedientes_clinicos/presentation/resources/const_style_widgets.dart';
 import 'package:expedientes_clinicos/presentation/resources/constant_size_values.dart';
 import 'package:expedientes_clinicos/presentation/resources/string_manager.dart';
-import 'package:expedientes_clinicos/presentation/routes/router.gr.dart';
+import 'package:expedientes_clinicos/presentation/routes/router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kt_dart/kt.dart';
@@ -47,63 +49,65 @@ class _WeekDaysDoseFormState extends State<WeekDaysDoseForm> {
             listener: (context, state) {
               state.saveFailureOrSuccessOption.fold(() {
                 if (state.isSaving) {
-                  context.read<StateRendererBloc>().add(
-                      StateRendererEvent.popUpLoading(
-                          AppStrings.saving,
-                          AppStrings.actionInProgressExplain,
-                          AppStrings.popUp,
-                          300,
-                          500));
+                  context
+                      .read<StateRendererBloc>()
+                      .add(const StateRendererEvent.popUpLoading(
+                        title: AppStrings.saving,
+                        message: AppStrings.actionInProgressExplain,
+                        until: AppStrings.popUp,
+                      ));
                 }
               },
                   (either) => either.fold(
                           (failure) => failure.maybeMap(
                                 unexpected: (e) {
-                                  context.read<StateRendererBloc>().add(
-                                      StateRendererEvent.popUpError(
-                                          AppStrings.couldNotSaveImage,
-                                          AppStrings.somethingWentWrong,
-                                          FullScreenState.name,
-                                          300,
-                                          500));
+                                  context
+                                      .read<StateRendererBloc>()
+                                      .add(const StateRendererEvent.popUpError(
+                                        title: AppStrings.couldNotSaveImage,
+                                        message: AppStrings.somethingWentWrong,
+                                        until: FullScreenStatePageRoute.name,
+                                      ));
                                 },
                                 insufficientPermissions: (e) {
-                                  context.read<StateRendererBloc>().add(
-                                      StateRendererEvent.popUpError(
-                                          AppStrings.insuficcientPermissions,
-                                          AppStrings
-                                              .insuficcientPermissionsExplain,
-                                          FullScreenState.name,
-                                          300,
-                                          500));
+                                  context
+                                      .read<StateRendererBloc>()
+                                      .add(const StateRendererEvent.popUpError(
+                                        title:
+                                            AppStrings.insuficcientPermissions,
+                                        message: AppStrings
+                                            .insuficcientPermissionsExplain,
+                                        until: FullScreenStatePageRoute.name,
+                                      ));
                                 },
                                 unableToCreate: (e) {
-                                  context.read<StateRendererBloc>().add(
-                                      StateRendererEvent.popUpError(
-                                          AppStrings.unableToCreate,
-                                          AppStrings.unableToCreateExplain,
-                                          FullScreenState.name,
-                                          300,
-                                          500));
+                                  context
+                                      .read<StateRendererBloc>()
+                                      .add(const StateRendererEvent.popUpError(
+                                        title: AppStrings.unableToCreate,
+                                        message:
+                                            AppStrings.unableToCreateExplain,
+                                        until: FullScreenStatePageRoute.name,
+                                      ));
                                 },
                                 orElse: () {
-                                  context.read<StateRendererBloc>().add(
-                                      StateRendererEvent.popUpError(
-                                          AppStrings.genericError,
-                                          AppStrings.genericErrorExplain,
-                                          FullScreenState.name,
-                                          300,
-                                          500));
+                                  context
+                                      .read<StateRendererBloc>()
+                                      .add(const StateRendererEvent.popUpError(
+                                        title: AppStrings.genericError,
+                                        message: AppStrings.genericErrorExplain,
+                                        until: FullScreenStatePageRoute.name,
+                                      ));
                                 },
                               ), (r) {
                         widget.onCreated?.call(state.weekDays);
-                        context.read<StateRendererBloc>().add(
-                            StateRendererEvent.popUpSuccess(
-                                AppStrings.success,
-                                AppStrings.successfullyCreated,
-                                FullScreenState.name,
-                                300,
-                                500));
+                        context
+                            .read<StateRendererBloc>()
+                            .add(const StateRendererEvent.popUpSuccess(
+                              title: AppStrings.success,
+                              message: AppStrings.successfullyCreated,
+                              until: FullScreenStatePageRoute.name,
+                            ));
                       }));
             },
             builder: (context, state) {
@@ -190,15 +194,16 @@ class _WeekDaysDoseFormState extends State<WeekDaysDoseForm> {
                                   itemBuilder:
                                       (BuildContext context, int index) {
                                     return AnimatedContainer(
-                                      duration: Duration(microseconds: 500),
-                                      margin: EdgeInsets.all(AppSize.s4),
+                                      duration:
+                                          const Duration(microseconds: 500),
+                                      margin: const EdgeInsets.all(AppSize.s4),
                                       width: constraints.maxWidth / 4,
                                       child: TextButton(
                                         style: ButtonStyle(
-                                          shape: !listWeekDays.contains(index)
-                                              ? MaterialStateProperty.all(
-                                                  CircleBorder())
-                                              : null,
+                                          shape: MaterialStateProperty.all(
+                                              RoundedRectangleBorder(
+                                                  borderRadius: BoderRadiusStyle
+                                                      .weekDayButton)),
                                           backgroundColor:
                                               MaterialStateColor.resolveWith(
                                                   (states) => states.contains(
@@ -206,15 +211,15 @@ class _WeekDaysDoseFormState extends State<WeekDaysDoseForm> {
                                                       // darker green when pressed
                                                       ? Theme.of(context)
                                                           .colorScheme
-                                                          .onPrimary
+                                                          .surface
                                                       : !(listWeekDays
                                                               .contains(index))
                                                           ? Theme.of(context)
                                                               .colorScheme
-                                                              .onPrimary
+                                                              .surface
                                                           : Theme.of(context)
                                                               .colorScheme
-                                                              .tertiary // regular green
+                                                              .onBackground // regular green
                                                   ),
                                         ),
                                         onPressed: () {
@@ -238,17 +243,21 @@ class _WeekDaysDoseFormState extends State<WeekDaysDoseForm> {
                               ));
                         })),
                     const Spacer(),
-                    ElevatedButton(
-                        onPressed: () {
-                          if (_key.currentState!.validate() &&
+                    Expanded(
+                      flex: 3,
+                      child: SizedBox(
+                        width: constraints.maxWidth / 1.2,
+                        child: CancelCreateButtonsRow(onCreate: () {
+                          if (widget.validLabel() == null &&
                               listWeekDays.isNotEmpty) {
                             widget.onSubmit();
                           }
                           setState(() {
                             submitted = true;
                           });
-                        },
-                        child: const Text(AppStrings.create))
+                        }),
+                      ),
+                    ),
                   ]);
             },
           ),

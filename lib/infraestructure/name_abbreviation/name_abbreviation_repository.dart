@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:expedientes_clinicos/domain/core/failures.dart';
 import 'package:expedientes_clinicos/domain/core/name_abbreviation/i_name_abbreviation_repository.dart';
 import 'package:expedientes_clinicos/domain/core/name_abbreviation/name_abbr.dart';
 import 'package:expedientes_clinicos/domain/core/name_abbreviation/name_abbr_failure.dart';
@@ -18,20 +19,36 @@ class NameAbbreviationRepository implements INameAbbreviationRepository {
   @override
   Future<Either<NameAbbreviationFailure, Unit>> create(
       NameAbbreviation measureUnit) async {
+    print('inside create!');
     final measureUnits = _firestore.collection(_collectionName);
     try {
+      // Either<ValueFailure<String>, String> name = measureUnit.abbr.value;
+      // if( measureUnit.abbr.value.isLeft() ){
+      //   return measureUnit.abbr.value.fold((l) => , (r) => null);
+      // }
+      // abbreviation =
       final measureUnitDto = NameAbbreviationDto.fromDomain(measureUnit);
+      print('measure unit dto');
+      print(measureUnitDto);
       Map<String, dynamic> data = measureUnitDto.toJson();
+      print('measure toJson');
+      print(data);
       data['keyWords'] =
-          generateKeywords(measureUnitDto.name + measureUnitDto.abbr);
+          await generateKeywords(measureUnitDto.name + measureUnitDto.abbr);
       //We keep the id that comes from ingredientDto and avoid autogeneration
       await measureUnits.doc(measureUnitDto.id).set(data);
+      print('made it through here');
       return right(unit);
     } on PlatformException catch (e) {
       // These error codes and messages aren't in the documentation AFAIK, experiment in the debugger to find out about them.
       if (e.message!.contains('PERMISSION_DENIED')) {
+        print('denied');
+        print(e);
+
         return left(const NameAbbreviationFailure.insufficientPermissions());
       } else {
+        print('abbreviation else failure');
+        print(e);
         return left(const NameAbbreviationFailure.unexpected());
       }
     }

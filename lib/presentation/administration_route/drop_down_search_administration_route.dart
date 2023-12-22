@@ -3,18 +3,19 @@ import 'package:expedientes_clinicos/application/abbreviation_name/abbreviation_
 import 'package:expedientes_clinicos/application/medicine/generic_medicine/generic_medicine_form/generic_medicine_form_bloc.dart';
 import 'package:expedientes_clinicos/application/state_render/state_renderer_bloc.dart';
 import 'package:expedientes_clinicos/domain/core/name_abbreviation/name_abbr.dart';
+import 'package:expedientes_clinicos/domain/core/view_models/drop_down_view_model.dart';
 import 'package:expedientes_clinicos/injection.dart';
 import 'package:expedientes_clinicos/presentation/administration_route/pop_up_administration_route_form.dart';
-import 'package:expedientes_clinicos/presentation/common/widget_elements/abbreviation_name_component/drop_down_search_abbreviation_name.dart';
+import 'package:expedientes_clinicos/presentation/common/widget_elements/label_drop_down/drop_down_head.dart';
 import 'package:expedientes_clinicos/presentation/resources/string_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class DropdownSearchAdministrationRoute extends StatefulWidget {
   //optional for the case of editing
-  const DropdownSearchAdministrationRoute({
-    super.key,
-  });
+  bool requestedSubmition;
+  DropdownSearchAdministrationRoute(
+      {super.key, this.requestedSubmition = false});
   @override
   _DropdownSearchAdministrationRouteState createState() =>
       _DropdownSearchAdministrationRouteState();
@@ -38,30 +39,39 @@ class _DropdownSearchAdministrationRouteState
                 administrationRouteList = [];
               },
               loadInProgress: ((value) => context.read<StateRendererBloc>().add(
-                  StateRendererEvent.popUpLoading(AppStrings.saving,
-                      AppStrings.actionInProgressExplain, null, 300, 500))),
+                  const StateRendererEvent.popUpLoading(
+                      title: AppStrings.saving,
+                      message: AppStrings.actionInProgressExplain))),
               loadSuccess: ((value) {
                 setState(() {
                   administrationRouteList = value.abbreviationName.asList();
                 });
               }),
               loadFailure: ((value) => context.read<StateRendererBloc>().add(
-                  StateRendererEvent.popUpError(AppStrings.unableToReadError,
-                      AppStrings.unableToReadErrorExplain, null, 300, 500))));
+                  const StateRendererEvent.popUpError(
+                      title: AppStrings.unableToReadError,
+                      message: AppStrings.unableToReadErrorExplain))));
         }, builder: (context, state) {
-          return DropdownSearchAbbreviationNameRoute(
-            abbreviationName: context
+          return DropDownSearchHead(
+            element: DropdownItemViewModel.fromNameAbbreviation(context
                 .read<GenericMedicineFormBloc>()
                 .state
                 .medicine
-                .administrationRoute,
+                .administrationRoute),
             searchFieldController: searchFieldController,
-            onSelected: (nameAbbr) {
+            onSelected: (DropdownItemViewModel nameAbbr) {
               context.read<GenericMedicineFormBloc>().add(
                   GenericMedicineFormEvent.administrationRouteChanged(
-                      nameAbbr));
+                      nameAbbr.nameAbbreviation!));
               setState(() {});
             },
+            valid: widget.requestedSubmition &&
+                (context
+                        .read<GenericMedicineFormBloc>()
+                        .state
+                        .medicine
+                        .administrationRoute ==
+                    NameAbbreviation.empty()),
             onSearchWithKey: (key) {
               context
                   .read<AdministrationRouteWatcherBloc>()
@@ -72,14 +82,16 @@ class _DropdownSearchAdministrationRouteState
                   .read<AdministrationRouteWatcherBloc>()
                   .add(const AbbreviationNameWatcherEvent.watchAllStarted());
             },
-            abbreviationNameList: administrationRouteList,
+            listElements: administrationRouteList
+                .map((e) => DropdownItemViewModel.fromNameAbbreviation(e))
+                .toList(),
             hintText: AppStrings.administrationRoute,
             newFunction: () {
               context
                   .read<StateRendererBloc>()
                   .add(StateRendererEvent.popUpForm(
-                      AppStrings.createAdminRoute,
-                      AdministrationRouteForm(
+                      title: AppStrings.createAdminRoute,
+                      bodyWidget: AdministrationRouteForm(
                         onCreated: (NameAbbreviation nameAbbreviation) {
                           context.read<GenericMedicineFormBloc>().add(
                               GenericMedicineFormEvent
@@ -92,9 +104,7 @@ class _DropdownSearchAdministrationRouteState
                         },
                         nameAbbreviation: NameAbbreviation.empty(),
                       ),
-                      300,
-                      500,
-                      null));
+                      until: AppStrings.popUp));
             },
           );
         }));

@@ -1,4 +1,4 @@
-import 'package:expedientes_clinicos/presentation/routes/router.gr.dart';
+import 'package:expedientes_clinicos/presentation/routes/router.dart';
 import 'package:injectable/injectable.dart';
 
 @module

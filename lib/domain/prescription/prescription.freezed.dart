@@ -18,7 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$Prescription {
   UniqueId get id => throw _privateConstructorUsedError;
   BrandedMedicine get medicine => throw _privateConstructorUsedError;
-  DoseAmount get doseAmount => throw _privateConstructorUsedError;
+  LabelDoubleAmount get doseAmount => throw _privateConstructorUsedError;
   Dose get dose => throw _privateConstructorUsedError;
   List3<Indication> get indications => throw _privateConstructorUsedError;
 
@@ -36,12 +36,12 @@ abstract class $PrescriptionCopyWith<$Res> {
   $Res call(
       {UniqueId id,
       BrandedMedicine medicine,
-      DoseAmount doseAmount,
+      LabelDoubleAmount doseAmount,
       Dose dose,
       List3<Indication> indications});
 
   $BrandedMedicineCopyWith<$Res> get medicine;
-  $DoseAmountCopyWith<$Res> get doseAmount;
+  $LabelDoubleAmountCopyWith<$Res> get doseAmount;
   $DoseCopyWith<$Res> get dose;
 }
 
@@ -76,7 +76,7 @@ class _$PrescriptionCopyWithImpl<$Res, $Val extends Prescription>
       doseAmount: null == doseAmount
           ? _value.doseAmount
           : doseAmount // ignore: cast_nullable_to_non_nullable
-              as DoseAmount,
+              as LabelDoubleAmount,
       dose: null == dose
           ? _value.dose
           : dose // ignore: cast_nullable_to_non_nullable
@@ -98,8 +98,8 @@ class _$PrescriptionCopyWithImpl<$Res, $Val extends Prescription>
 
   @override
   @pragma('vm:prefer-inline')
-  $DoseAmountCopyWith<$Res> get doseAmount {
-    return $DoseAmountCopyWith<$Res>(_value.doseAmount, (value) {
+  $LabelDoubleAmountCopyWith<$Res> get doseAmount {
+    return $LabelDoubleAmountCopyWith<$Res>(_value.doseAmount, (value) {
       return _then(_value.copyWith(doseAmount: value) as $Val);
     });
   }
@@ -124,14 +124,14 @@ abstract class _$$_PrescriptionCopyWith<$Res>
   $Res call(
       {UniqueId id,
       BrandedMedicine medicine,
-      DoseAmount doseAmount,
+      LabelDoubleAmount doseAmount,
       Dose dose,
       List3<Indication> indications});
 
   @override
   $BrandedMedicineCopyWith<$Res> get medicine;
   @override
-  $DoseAmountCopyWith<$Res> get doseAmount;
+  $LabelDoubleAmountCopyWith<$Res> get doseAmount;
   @override
   $DoseCopyWith<$Res> get dose;
 }
@@ -165,7 +165,7 @@ class __$$_PrescriptionCopyWithImpl<$Res>
       doseAmount: null == doseAmount
           ? _value.doseAmount
           : doseAmount // ignore: cast_nullable_to_non_nullable
-              as DoseAmount,
+              as LabelDoubleAmount,
       dose: null == dose
           ? _value.dose
           : dose // ignore: cast_nullable_to_non_nullable
@@ -194,7 +194,7 @@ class _$_Prescription extends _Prescription {
   @override
   final BrandedMedicine medicine;
   @override
-  final DoseAmount doseAmount;
+  final LabelDoubleAmount doseAmount;
   @override
   final Dose dose;
   @override
@@ -235,7 +235,7 @@ abstract class _Prescription extends Prescription {
   const factory _Prescription(
       {required final UniqueId id,
       required final BrandedMedicine medicine,
-      required final DoseAmount doseAmount,
+      required final LabelDoubleAmount doseAmount,
       required final Dose dose,
       required final List3<Indication> indications}) = _$_Prescription;
   const _Prescription._() : super._();
@@ -245,7 +245,7 @@ abstract class _Prescription extends Prescription {
   @override
   BrandedMedicine get medicine;
   @override
-  DoseAmount get doseAmount;
+  LabelDoubleAmount get doseAmount;
   @override
   Dose get dose;
   @override

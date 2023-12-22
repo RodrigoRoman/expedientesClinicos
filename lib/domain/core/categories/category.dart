@@ -25,6 +25,10 @@ abstract class Category implements _$Category {
     return name.failureOrUnit.fold((f) => some(f), (_) => none());
   }
 
+  bool get isEmpty {
+    return name == AbbrName('') && imageUrl == ImageURL('');
+  }
+
   @override
   bool operator ==(Object other) {
     return other is Category &&

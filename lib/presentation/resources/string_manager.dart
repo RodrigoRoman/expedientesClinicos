@@ -15,16 +15,25 @@ class AppStrings {
   static const String edit = 'Editar';
 
   //Prompts
+  static const String doseSchedule = "Esquema de dosificacion";
   static const String loginMode = 'Ingresar con una cuenta';
   static const String labelDayHours = 'Dosis diarias';
   static const String labelWeekDays = 'Dias de la semana';
   static const String labelDuration = 'Duración total del tratamiento';
+
+  static const String monthsAmount = 'Meses';
+  static const String weeksAmount = 'Semanas';
+  static const String daysAmount = 'Dias';
+
   static const String labelDurationAbbr = 'Duración total';
   static const String labelDoseAmount = 'Etiqueta de cantidad';
   static const String labelShowUp = 'Etiqueta con que aparece';
   static const String labelIndication = 'Indicación';
+  static const String doseAmountName =
+      "Nombre de cantidad con respecto a unidad";
 
   static const String registerMode = 'Crear una cuenta';
+  static const String createCategory = 'Crear categoria';
   static const String createBrandedMedicine = 'Crear medicamento de patente';
   static const String createGenericMedicine = 'Crear medicamento generico';
   static const String selectBrandedMedicine = 'Medicamento de patente';
@@ -32,6 +41,7 @@ class AppStrings {
   static const String selectIndication = 'Indicaciones del medicamento';
 
   static const String measureUnit = 'Unidad de medida';
+  static const String createMeasureUnit = 'Crear Unidad de Medida';
   static const String administrationRoute = 'Via de administracion';
   static const String adminRouteAbbreviation = 'Via de administracion';
   static const String measureUnitAbreviation = 'Abreviatura';
@@ -43,9 +53,9 @@ class AppStrings {
 
   static const String newSupplier = 'Nuevo proveedor';
   static const String address = 'Direccion';
-  static const String createAdminRoute = 'Crear via de administracion';
+  static const String createAdminRoute = 'Crear Via De Administracion';
   static const String description = 'Escribe una descripcion';
-  static const String pharmaceuticalForm = 'Forma farmaceutica';
+  static const String pharmaceuticalForm = 'Forma Farmaceutica';
 
   //Field hints
   static const String username = 'username_hint';
@@ -68,6 +78,7 @@ class AppStrings {
   static const String comercialName = 'Nombre comercial';
   static const String genericName = 'Nombre generico';
   static const String amountUnitMeasure = 'Cantidad de unidades';
+  static const String amount = 'Cantidad';
 
   static const String abr = 'Alias';
   static const String supplier = 'Proveedor';
@@ -87,7 +98,7 @@ class AppStrings {
 
   //Names
   static const String existence = 'Existencias';
-  static const String controlled = 'Controlado';
+  static const String controlledQuestion = 'Controlado?';
   static const String freeSale = 'Libre';
   static const String all = 'Todo';
   static const String carritoDeCompra = 'Carrito de compra';
@@ -100,6 +111,7 @@ class AppStrings {
   static const String tooShort = 'Demasiado corto';
   static const String tooLong = 'Demasiado largo';
   static const String invalidPhone = 'Telefono no valido';
+  static const String genericInputError = "Input invalido";
 
   static const String passwordDoesNotMatch = 'Las contraseña no coinciden';
   static const String couldNotSaveImage = 'La imagen no se pudo guardar';

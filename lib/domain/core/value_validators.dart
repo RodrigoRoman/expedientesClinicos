@@ -1,6 +1,5 @@
 import 'package:dartz/dartz.dart';
 import 'package:expedientes_clinicos/domain/core/failures.dart';
-import 'package:expedientes_clinicos/domain/core/value_objects.dart';
 import 'package:expedientes_clinicos/presentation/resources/constant_validation.dart';
 import 'package:flutter/material.dart';
 
@@ -73,6 +72,8 @@ Either<ValueFailure<String>, String> validateMaxLength(String str, int mx) {
   if (str.length <= mx) {
     return right(str);
   } else {
+    print('exeding length');
+
     return left(ValueFailure.exceedingLength(failedValue: str, max: mx));
   }
 }
@@ -104,7 +105,7 @@ Either<ValueFailure<double>, double> validateNonNegDouble(double nonNegDouble) {
 }
 
 Either<ValueFailure<int>, int> validateNonNegInt(int nonNegInt) {
-  if (nonNegInt >= 0) {
+  if (nonNegInt >= 0 && (nonNegInt.toString().length <= 8)) {
     return right(nonNegInt);
   } else {
     return left(ValueFailure.passwordMustContainNumber(failedValue: nonNegInt));

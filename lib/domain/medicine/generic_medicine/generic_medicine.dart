@@ -34,6 +34,18 @@ abstract class GenericMedicine implements _$GenericMedicine {
       category: Category.empty(),
       counter: NonNegInt(EmptyFormValues.emptyAmount),
       controlled: false);
+  bool get isEmpty {
+    return genericName == FullName(EmptyFormValues.emptyString) &&
+        measureUnit == NameAbbreviation.empty() &&
+        amountMeasureUnit ==
+            NonNegDouble(EmptyFormValues.emptyAmountMeasureUnit) &&
+        administrationRoute == NameAbbreviation.empty() &&
+        pharmaceuticalForm == NameAbbreviation.empty() &&
+        amountPerPackage == NonNegInt(EmptyFormValues.emptyAmount) &&
+        category == Category.empty() &&
+        counter == NonNegInt(EmptyFormValues.emptyAmount) &&
+        controlled == false;
+  }
 
   Option<ValueFailure<dynamic>> get failureOption {
     return genericName.failureOrUnit
@@ -55,6 +67,7 @@ abstract class GenericMedicine implements _$GenericMedicine {
     return other is GenericMedicine &&
         other.genericName == genericName &&
         other.measureUnit == measureUnit &&
+        other.controlled == controlled &&
         other.amountMeasureUnit == amountMeasureUnit &&
         other.administrationRoute == administrationRoute &&
         other.pharmaceuticalForm == pharmaceuticalForm &&

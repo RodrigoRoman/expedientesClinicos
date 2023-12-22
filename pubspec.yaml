@@ -47,16 +47,20 @@ dependencies:
   cloud_firestore: ^4.1.0
   firebase_auth: ^4.1.4
   firebase_storage: ^11.0.6
-  injectable: ^2.0.1
+  injectable: ^2.3.0
   google_sign_in: ^5.4.2
-  firebase_core: ^2.3.0
   get_it: ^7.2.0
   lottie: ^2.0.0
   font_awesome_flutter: ^10.2.1
-  auto_route: ^5.0.2
+  auto_route: ^7.8.3
   rxdart: ^0.27.7
   faker: ^2.1.0
   unsplash_client: ^2.1.0+3
+  flutter_keyboard_visibility: ^5.4.1
+  auto_size_text: ^3.0.0
+  firebase_core: ^2.11.0
+  freezed: ^2.4.1
+  intl: ^0.19.0  
 
 dev_dependencies:
   flutter_test:
@@ -69,10 +73,9 @@ dev_dependencies:
   # rules and activating additional ones.
   flutter_lints: ^2.0.0
   build_runner: ^2.2.0
-  freezed: ^2.0.4
-  injectable_generator: ^2.0.1
+  injectable_generator: ^2.4.0
   json_serializable: ^6.3.1
-  auto_route_generator: ^5.0.2
+  auto_route_generator: ^7.3.1
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

@@ -11,14 +11,15 @@ part 'int_counter_bloc.freezed.dart';
 class IntCounterBloc extends Bloc<IntCounterEvent, IntCounterState> {
   IntCounterBloc() : super(IntCounterState.initial()) {
     on<_Initialized>((event, emit) {
-      emit(event.initialAmount.fold(
-          () => state,
-          (initialMeasureUnit) =>
-              state.copyWith(amount: initialMeasureUnit, isUpdating: true)));
+      int maxAmount = event.maxAmount.fold(() => integerInfinity, (m) => m);
+      int initialAmount =
+          event.initialAmount.fold(() => 0, (initial) => initial);
+      emit(state.copyWith(
+          amount: initialAmount, maxAmount: maxAmount, isUpdating: true));
     });
 
     on<_AmountUpdated>((event, emit) {
-      if (event.newAmount < 0) {
+      if (event.newAmount < 0 || (event.newAmount > state.maxAmount)) {
         emit(state);
       } else {
         emit(state.copyWith(amount: event.newAmount));

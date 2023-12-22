@@ -1,5 +1,4 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:expedientes_clinicos/presentation/routes/router.gr.dart';
 import 'package:flutter/material.dart';
 
 class SplashPage extends StatefulWidget {
@@ -80,7 +79,7 @@ class _SplashPageState extends State<SplashPage> {
         onPressed: () async {
           if (!mounted) return;
 
-          await context.router.push(GenericMedicineFormRoute());
+          // await context.router.push(GenericMedicineFormRoute());
         },
         tooltip: 'Increment',
         child: const Icon(Icons.add),

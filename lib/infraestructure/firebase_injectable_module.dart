@@ -1,12 +1,14 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:expedientes_clinicos/domain/core/categories/i_category_repository.dart';
 import 'package:expedientes_clinicos/domain/core/indication/i_indication_repository.dart';
+import 'package:expedientes_clinicos/domain/core/label_double_amount/i_label_double_amount_repository.dart';
 import 'package:expedientes_clinicos/domain/core/name_abbreviation/i_name_abbreviation_repository.dart';
 import 'package:expedientes_clinicos/domain/core/time_interval/i_time_interval_repository.dart';
 import 'package:expedientes_clinicos/infraestructure/category/category_db_collection_name.dart';
 import 'package:expedientes_clinicos/infraestructure/category/category_repository.dart';
 import 'package:expedientes_clinicos/infraestructure/indication/indication_db_collection_name.dart';
 import 'package:expedientes_clinicos/infraestructure/indication/indication_repository.dart';
+import 'package:expedientes_clinicos/infraestructure/label_double_amount/label_double_amount_repository.dart';
 import 'package:expedientes_clinicos/infraestructure/name_abbreviation/name_abbreviation_db_collection_names.dart';
 import 'package:expedientes_clinicos/infraestructure/name_abbreviation/name_abbreviation_repository.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -64,6 +66,11 @@ abstract class FirebaseInjectableModule {
   INameAbbreviationRepository get administrationRoutesRepostitory =>
       NameAbbreviationRepository(
           firestore, FirebaseCollectionNameAbbreviations.administrationRoutes);
+  //LabelDoubleAmount
+  @Named(FirebaseCollectionNameAbbreviations.doseAmount)
+  ILabelDoubleAmountRepository get doseAmountRepository =>
+      LabelDoubleAmountRepository(
+          firestore, FirebaseCollectionNameAbbreviations.doseAmount);
 
   @Named(FirebaseCollectionsTimeInterval.doseFrequencyInterval)
   ITimeIntervalRepository get doseFrequencyRoutesRepostitory =>

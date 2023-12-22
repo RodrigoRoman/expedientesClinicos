@@ -6,14 +6,16 @@ import 'package:expedientes_clinicos/application/time_interval/time_interval_for
 import 'package:expedientes_clinicos/application/time_interval/time_interval_watcher/duration_interval_watcher_bloc.dart';
 import 'package:expedientes_clinicos/application/time_interval/time_interval_watcher/time_interval_watcher_bloc.dart';
 import 'package:expedientes_clinicos/domain/core/time_interval/time_interval.dart';
+import 'package:expedientes_clinicos/domain/core/view_models/drop_down_view_model.dart';
 import 'package:expedientes_clinicos/domain/core/view_models/label_dose_times_view_model.dart';
 import 'package:expedientes_clinicos/domain/prescription/dose/dose_amount/dose_amount.dart';
 import 'package:expedientes_clinicos/injection.dart';
+import 'package:expedientes_clinicos/presentation/common/widget_elements/label_drop_down/drop_down_head.dart';
 import 'package:expedientes_clinicos/presentation/common/widget_elements/label_drop_down/label_drop_down.dart';
 import 'package:expedientes_clinicos/presentation/prescription/dose/dose_amount/dose_amount_form.dart';
 import 'package:expedientes_clinicos/presentation/prescription/dose/dose_duration/dose_duration_form.dart';
 import 'package:expedientes_clinicos/presentation/resources/string_manager.dart';
-import 'package:expedientes_clinicos/presentation/routes/router.gr.dart';
+import 'package:expedientes_clinicos/presentation/routes/router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -46,24 +48,26 @@ class _DropdownSearchDoseDurationState
                 doseDuarationsList = [];
               },
               loadInProgress: ((value) => context.read<StateRendererBloc>().add(
-                  StateRendererEvent.popUpLoading(AppStrings.saving,
-                      AppStrings.actionInProgressExplain, null, 300, 500))),
+                  const StateRendererEvent.popUpLoading(
+                      title: AppStrings.saving,
+                      message: AppStrings.actionInProgressExplain))),
               loadSuccess: ((value) {
                 setState(() {
                   doseDuarationsList = value.timeIntervals.asList();
                 });
               }),
               loadFailure: ((value) => context.read<StateRendererBloc>().add(
-                  StateRendererEvent.popUpError(AppStrings.unableToReadError,
-                      AppStrings.unableToReadErrorExplain, null, 300, 500))));
+                  const StateRendererEvent.popUpError(
+                      title: AppStrings.unableToReadError,
+                      message: AppStrings.unableToReadErrorExplain))));
         }, builder: (context, state) {
-          return DropdownSearchLabel(
-            element: LabelDoseTimesViewModel.fromTimeInterval(
+          return DropDownSearchHead(
+            element: DropdownItemViewModel.fromTimeInterval(
                 context.read<DoseFormBloc>().state.dose.duration),
             searchFieldController: searchFieldController,
-            onSelected: (LabelDoseTimesViewModel labelDoseTimesViewModel) {
+            onSelected: (DropdownItemViewModel dropdownItemViewModel) {
               context.read<DoseFormBloc>().add(DoseFormEvent.durationChanged(
-                  labelDoseTimesViewModel.timeInterval));
+                  dropdownItemViewModel.timeInterval!));
               setState(() {});
             },
             onSearchWithKey: (key) {
@@ -78,15 +82,15 @@ class _DropdownSearchDoseDurationState
             },
             listElements: doseDuarationsList
                 .map((dayHoursDose) =>
-                    LabelDoseTimesViewModel.fromTimeInterval(dayHoursDose))
+                    DropdownItemViewModel.fromTimeInterval(dayHoursDose))
                 .toList(),
             hintText: AppStrings.labelDurationAbbr,
             newFunction: () {
               context
                   .read<StateRendererBloc>()
                   .add(StateRendererEvent.popUpForm(
-                      'Crear ${AppStrings.pharmaceuticalForm}',
-                      DoseDurationForm(
+                      title: 'Crear ${AppStrings.labelDuration}',
+                      bodyWidget: DoseDurationForm(
                         onCreated: (TimeInterval duration) {
                           context
                               .read<DoseFormBloc>()
@@ -95,6 +99,18 @@ class _DropdownSearchDoseDurationState
                               duration.label.value.fold((l) => '', (r) => r);
                         },
                         doseAmount: DoseAmount.empty(),
+                        onDaysChanged: (int newDays) {
+                          context.read<DurationIntervalFormBloc>().add(
+                              TimeIntervalFormEvent.onDaysChanged(newDays));
+                        },
+                        onMonthsChanged: (int newMonths) {
+                          context.read<DurationIntervalFormBloc>().add(
+                              TimeIntervalFormEvent.onMonthsChanged(newMonths));
+                        },
+                        onWeeksChanged: (int newWeeks) {
+                          context.read<DurationIntervalFormBloc>().add(
+                              TimeIntervalFormEvent.onWeeksChanged(newWeeks));
+                        },
                         onAmountChanged: (int newAmount) {
                           context.read<DurationIntervalFormBloc>().add(
                               TimeIntervalFormEvent.onIntervalDurationChanged(
@@ -128,12 +144,10 @@ class _DropdownSearchDoseDurationState
                         onSubmit: () {
                           context
                               .read<DurationIntervalFormBloc>()
-                              .add(TimeIntervalFormEvent.saved());
+                              .add(const TimeIntervalFormEvent.saved());
                         },
                       ),
-                      500,
-                      400,
-                      FullScreenState.name));
+                      until: FullScreenStatePageRoute.name));
             },
           );
         }));

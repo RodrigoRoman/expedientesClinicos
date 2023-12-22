@@ -181,23 +181,23 @@ class __$$PopUpSuccessCopyWithImpl<$Res>
     Object? height = freezed,
   }) {
     return _then(_$PopUpSuccess(
-      null == title
+      title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
-      null == message
+      message: null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String,
-      freezed == until
+      until: freezed == until
           ? _value.until
           : until // ignore: cast_nullable_to_non_nullable
               as String?,
-      freezed == width
+      width: freezed == width
           ? _value.width
           : width // ignore: cast_nullable_to_non_nullable
               as double?,
-      freezed == height
+      height: freezed == height
           ? _value.height
           : height // ignore: cast_nullable_to_non_nullable
               as double?,
@@ -209,7 +209,11 @@ class __$$PopUpSuccessCopyWithImpl<$Res>
 
 class _$PopUpSuccess implements PopUpSuccess {
   const _$PopUpSuccess(
-      this.title, this.message, this.until, this.width, this.height);
+      {required this.title,
+      required this.message,
+      this.until,
+      this.width,
+      this.height});
 
   @override
   final String title;
@@ -389,11 +393,11 @@ class _$PopUpSuccess implements PopUpSuccess {
 
 abstract class PopUpSuccess implements StateRendererEvent {
   const factory PopUpSuccess(
-      final String title,
-      final String message,
+      {required final String title,
+      required final String message,
       final String? until,
       final double? width,
-      final double? height) = _$PopUpSuccess;
+      final double? height}) = _$PopUpSuccess;
 
   String get title;
   String get message;
@@ -437,23 +441,23 @@ class __$$PopUpErrorCopyWithImpl<$Res>
     Object? height = freezed,
   }) {
     return _then(_$PopUpError(
-      null == title
+      title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
-      null == message
+      message: null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String,
-      freezed == until
+      until: freezed == until
           ? _value.until
           : until // ignore: cast_nullable_to_non_nullable
               as String?,
-      freezed == width
+      width: freezed == width
           ? _value.width
           : width // ignore: cast_nullable_to_non_nullable
               as double?,
-      freezed == height
+      height: freezed == height
           ? _value.height
           : height // ignore: cast_nullable_to_non_nullable
               as double?,
@@ -465,7 +469,11 @@ class __$$PopUpErrorCopyWithImpl<$Res>
 
 class _$PopUpError implements PopUpError {
   const _$PopUpError(
-      this.title, this.message, this.until, this.width, this.height);
+      {required this.title,
+      required this.message,
+      this.until,
+      this.width,
+      this.height});
 
   @override
   final String title;
@@ -645,11 +653,11 @@ class _$PopUpError implements PopUpError {
 
 abstract class PopUpError implements StateRendererEvent {
   const factory PopUpError(
-      final String title,
-      final String message,
+      {required final String title,
+      required final String message,
       final String? until,
       final double? width,
-      final double? height) = _$PopUpError;
+      final double? height}) = _$PopUpError;
 
   String get title;
   String get message;
@@ -685,11 +693,11 @@ class __$$PopUpServerErrorCopyWithImpl<$Res>
     Object? message = null,
   }) {
     return _then(_$PopUpServerError(
-      null == title
+      title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
-      null == message
+      message: null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String,
@@ -700,7 +708,7 @@ class __$$PopUpServerErrorCopyWithImpl<$Res>
 /// @nodoc
 
 class _$PopUpServerError implements PopUpServerError {
-  const _$PopUpServerError(this.title, this.message);
+  const _$PopUpServerError({required this.title, required this.message});
 
   @override
   final String title;
@@ -869,8 +877,9 @@ class _$PopUpServerError implements PopUpServerError {
 }
 
 abstract class PopUpServerError implements StateRendererEvent {
-  const factory PopUpServerError(final String title, final String message) =
-      _$PopUpServerError;
+  const factory PopUpServerError(
+      {required final String title,
+      required final String message}) = _$PopUpServerError;
 
   String get title;
   String get message;
@@ -911,23 +920,23 @@ class __$$PopUpLoadingCopyWithImpl<$Res>
     Object? height = freezed,
   }) {
     return _then(_$PopUpLoading(
-      null == title
+      title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
-      null == message
+      message: null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String,
-      freezed == until
+      until: freezed == until
           ? _value.until
           : until // ignore: cast_nullable_to_non_nullable
               as String?,
-      freezed == width
+      width: freezed == width
           ? _value.width
           : width // ignore: cast_nullable_to_non_nullable
               as double?,
-      freezed == height
+      height: freezed == height
           ? _value.height
           : height // ignore: cast_nullable_to_non_nullable
               as double?,
@@ -939,7 +948,11 @@ class __$$PopUpLoadingCopyWithImpl<$Res>
 
 class _$PopUpLoading implements PopUpLoading {
   const _$PopUpLoading(
-      this.title, this.message, this.until, this.width, this.height);
+      {required this.title,
+      required this.message,
+      this.until,
+      this.width,
+      this.height});
 
   @override
   final String title;
@@ -1119,11 +1132,11 @@ class _$PopUpLoading implements PopUpLoading {
 
 abstract class PopUpLoading implements StateRendererEvent {
   const factory PopUpLoading(
-      final String title,
-      final String message,
+      {required final String title,
+      required final String message,
       final String? until,
       final double? width,
-      final double? height) = _$PopUpLoading;
+      final double? height}) = _$PopUpLoading;
 
   String get title;
   String get message;
@@ -1167,23 +1180,23 @@ class __$$PopUpFormCopyWithImpl<$Res>
     Object? until = freezed,
   }) {
     return _then(_$PopUpForm(
-      null == title
+      title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
-      null == bodyWidget
+      bodyWidget: null == bodyWidget
           ? _value.bodyWidget
           : bodyWidget // ignore: cast_nullable_to_non_nullable
               as Widget,
-      freezed == width
+      width: freezed == width
           ? _value.width
           : width // ignore: cast_nullable_to_non_nullable
               as double?,
-      freezed == height
+      height: freezed == height
           ? _value.height
           : height // ignore: cast_nullable_to_non_nullable
               as double?,
-      freezed == until
+      until: freezed == until
           ? _value.until
           : until // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -1195,7 +1208,11 @@ class __$$PopUpFormCopyWithImpl<$Res>
 
 class _$PopUpForm implements PopUpForm {
   const _$PopUpForm(
-      this.title, this.bodyWidget, this.width, this.height, this.until);
+      {required this.title,
+      required this.bodyWidget,
+      this.width,
+      this.height,
+      this.until});
 
   @override
   final String title;
@@ -1376,11 +1393,11 @@ class _$PopUpForm implements PopUpForm {
 
 abstract class PopUpForm implements StateRendererEvent {
   const factory PopUpForm(
-      final String title,
-      final Widget bodyWidget,
+      {required final String title,
+      required final Widget bodyWidget,
       final double? width,
       final double? height,
-      final String? until) = _$PopUpForm;
+      final String? until}) = _$PopUpForm;
 
   String get title;
   Widget get bodyWidget;
@@ -1417,15 +1434,15 @@ class __$$FullErrorScreenCopyWithImpl<$Res>
     Object? until = freezed,
   }) {
     return _then(_$FullErrorScreen(
-      null == title
+      title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
-      null == message
+      message: null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String,
-      freezed == until
+      until: freezed == until
           ? _value.until
           : until // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -1436,7 +1453,8 @@ class __$$FullErrorScreenCopyWithImpl<$Res>
 /// @nodoc
 
 class _$FullErrorScreen implements FullErrorScreen {
-  const _$FullErrorScreen(this.title, this.message, this.until);
+  const _$FullErrorScreen(
+      {required this.title, required this.message, this.until});
 
   @override
   final String title;
@@ -1609,8 +1627,9 @@ class _$FullErrorScreen implements FullErrorScreen {
 
 abstract class FullErrorScreen implements StateRendererEvent {
   const factory FullErrorScreen(
-          final String title, final String message, final String? until) =
-      _$FullErrorScreen;
+      {required final String title,
+      required final String message,
+      final String? until}) = _$FullErrorScreen;
 
   String get title;
   String get message;
@@ -1646,19 +1665,19 @@ class __$$FullScreenFormCopyWithImpl<$Res>
     Object? until = freezed,
   }) {
     return _then(_$FullScreenForm(
-      null == title
+      title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
-      null == bodyWidget
+      bodyWidget: null == bodyWidget
           ? _value.bodyWidget
           : bodyWidget // ignore: cast_nullable_to_non_nullable
               as Widget,
-      null == message
+      message: null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String,
-      freezed == until
+      until: freezed == until
           ? _value.until
           : until // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -1669,7 +1688,11 @@ class __$$FullScreenFormCopyWithImpl<$Res>
 /// @nodoc
 
 class _$FullScreenForm implements FullScreenForm {
-  const _$FullScreenForm(this.title, this.bodyWidget, this.message, this.until);
+  const _$FullScreenForm(
+      {required this.title,
+      required this.bodyWidget,
+      required this.message,
+      this.until});
 
   @override
   final String title;
@@ -1846,8 +1869,11 @@ class _$FullScreenForm implements FullScreenForm {
 }
 
 abstract class FullScreenForm implements StateRendererEvent {
-  const factory FullScreenForm(final String title, final Widget bodyWidget,
-      final String message, final String? until) = _$FullScreenForm;
+  const factory FullScreenForm(
+      {required final String title,
+      required final Widget bodyWidget,
+      required final String message,
+      final String? until}) = _$FullScreenForm;
 
   String get title;
   Widget get bodyWidget;

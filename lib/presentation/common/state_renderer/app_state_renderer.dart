@@ -28,8 +28,8 @@ class StateRenderer extends StatelessWidget {
       Key? key})
       : message = message ?? AppStrings.loading,
         title = title ?? AppStrings.empty,
-        dialogHeight = dialogHeight ?? 500,
-        dialogWidth = dialogWidth ?? 300,
+        dialogHeight = dialogHeight ?? AppSize.popUpMHeight,
+        dialogWidth = dialogWidth ?? AppSize.popUpMWidth,
         bodyWidget = bodyWidget ?? const SizedBox(),
         super(key: key);
   @override
@@ -77,6 +77,8 @@ class StateAppWidget extends StatelessWidget {
         );
       case StateRendererType.POPUP_ERROR_STATE:
         return PopUpDialog(
+          dialogHeight: dialogHeight,
+          dialogWidth: dialogWidth,
           children: [
             const AnimatedImage(animationName: AppAssetNames.error),
             StateMessage(message: message),
@@ -85,11 +87,11 @@ class StateAppWidget extends StatelessWidget {
               retryAction: retryActionFunction,
             )
           ],
-          dialogHeight: dialogHeight,
-          dialogWidth: dialogWidth,
         );
       case StateRendererType.POPUP_SERVER_ERROR_STATE:
         return PopUpDialog(
+          dialogHeight: dialogHeight,
+          dialogWidth: dialogWidth,
           children: [
             const AnimatedImage(animationName: AppAssetNames.lost),
             StateMessage(message: message),
@@ -98,33 +100,37 @@ class StateAppWidget extends StatelessWidget {
               retryAction: retryActionFunction,
             )
           ],
-          dialogHeight: dialogHeight,
-          dialogWidth: dialogWidth,
         );
       case StateRendererType.POPUP_SUCCESS:
-        return PopUpDialog(children: [
-          Expanded(
-              flex: 1,
-              child: const AnimatedImage(animationName: AppAssetNames.success)),
-          Expanded(flex: 2, child: StateMessage(message: message)),
-          Expanded(
-            flex: 1,
-            child: RetryButton(
-              buttonTitle: AppStrings.ok,
-              retryAction: retryActionFunction,
-            ),
-          )
-        ], dialogHeight: dialogHeight, dialogWidth: dialogWidth);
+        return PopUpDialog(
+            dialogHeight: dialogHeight,
+            dialogWidth: dialogWidth,
+            children: [
+              SizedBox(
+                  height: 100,
+                  child: const AnimatedImage(
+                      animationName: AppAssetNames.success)),
+              SizedBox(height: 100, child: StateMessage(message: message)),
+              SizedBox(
+                height: 100,
+                child: RetryButton(
+                  buttonTitle: AppStrings.ok,
+                  retryAction: retryActionFunction,
+                ),
+              )
+            ]);
       case StateRendererType.POPUP_FORM:
         return PopUpDialog(
+          dialogHeight: dialogHeight,
+          dialogWidth: dialogWidth,
           children: [
             Padding(
-              padding: const EdgeInsets.all(3.0),
-              child: FittedBox(
-                child: Text(
-                  title ?? '',
-                  style: Theme.of(context).textTheme.headlineMedium,
-                ),
+              padding: const EdgeInsets.symmetric(
+                  horizontal: AppSize.s35, vertical: AppSize.s10),
+              child: Text(
+                title ?? '',
+                textAlign: TextAlign.center,
+                style: Theme.of(context).textTheme.headlineSmall,
               ),
             ),
             SizedBox(
@@ -132,8 +138,6 @@ class StateAppWidget extends StatelessWidget {
                 height: dialogHeight / 1.2,
                 child: bodyWidget),
           ],
-          dialogHeight: dialogHeight,
-          dialogWidth: dialogWidth,
         );
       case StateRendererType.FULL_SCREEN_LOADING_STATE:
         return ItemInColumn(children: [
@@ -158,9 +162,9 @@ class StateAppWidget extends StatelessWidget {
             children: [AnimatedImage(animationName: AppAssetNames.lost)]);
       default:
         return PopUpDialog(
-          children: [AnimatedImage(animationName: AppAssetNames.lost)],
           dialogHeight: dialogHeight,
           dialogWidth: dialogWidth,
+          children: const [AnimatedImage(animationName: AppAssetNames.lost)],
         );
     }
   }

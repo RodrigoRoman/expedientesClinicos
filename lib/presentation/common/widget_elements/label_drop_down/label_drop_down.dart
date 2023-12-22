@@ -1,6 +1,7 @@
 import 'package:expedientes_clinicos/domain/core/constants.dart';
 import 'package:expedientes_clinicos/domain/core/value_objects.dart';
 import 'package:expedientes_clinicos/domain/core/view_models/label_dose_times_view_model.dart';
+import 'package:expedientes_clinicos/presentation/common/widget_components/text_input/text_input_field.dart';
 import 'package:expedientes_clinicos/presentation/resources/constant_size_values.dart';
 import 'package:expedientes_clinicos/presentation/resources/string_manager.dart';
 import 'package:flutter/material.dart';
@@ -216,14 +217,15 @@ class _DropdownSearchLabelState extends State<DropdownSearchLabel> {
                                 child: SizedBox(
                                   width: constraints.maxWidth,
                                   height: constraints.maxHeight,
-                                  child: ListTile(
-                                    isThreeLine: false,
-                                    title: SizedBox(
-                                      width: (constraints.maxWidth * 5) / 6,
-                                      height: constraints.maxHeight / 4,
-                                      child: Wrap(
-                                        children: [
-                                          Text(
+                                  child: Center(
+                                    child: ListTile(
+                                      isThreeLine: false,
+                                      title: SizedBox(
+                                        width: constraints.maxWidth,
+                                        height: constraints.maxHeight / 2,
+                                        child: SingleChildScrollView(
+                                          child: Text(
+                                            textAlign: TextAlign.center,
                                             widget.element.label.value.fold(
                                                 (l) => AppStrings.isEmpty,
                                                 (r) => r),
@@ -232,61 +234,20 @@ class _DropdownSearchLabelState extends State<DropdownSearchLabel> {
                                                 .textTheme
                                                 .displayMedium!
                                                 .copyWith(
-                                                  fontSize: AppSize.s12,
+                                                  fontSize: AppSize.s18,
                                                 ),
                                             overflow: TextOverflow.fade,
-                                          )
-                                        ],
+                                          ),
+                                        ),
                                       ),
                                     ),
                                   ),
                                 ),
                               )
-                            : TextFormField(
-                                controller: widget.searchFieldController,
-                                textAlign: TextAlign.center,
-                                textCapitalization:
-                                    TextCapitalization.sentences,
-                                decoration: InputDecoration(
-                                    suffix:
-                                        (widget.searchFieldController.text !=
-                                                '')
-                                            ? Material(
-                                                elevation: 3,
-                                                shape: CircleBorder(),
-                                                clipBehavior: Clip.hardEdge,
-                                                child: GestureDetector(
-                                                  onTap: () {
-                                                    widget.searchFieldController
-                                                        .text = '';
-                                                    widget.onSearchAll();
-                                                  },
-                                                  child: Icon(
-                                                    Icons.cancel_rounded,
-                                                    size: AppSize.s18,
-                                                  ),
-                                                ),
-                                              )
-                                            : SizedBox.shrink(),
-                                    border: InputBorder.none,
-                                    hintText: widget.hintText),
+                            : TextInputField(
                                 focusNode: _focusNode,
-                                style: TextStyle(
-                                  fontSize: AppSize.s12,
-                                ),
-                                keyboardType: TextInputType.text,
-                                textInputAction: TextInputAction.next,
-                                onChanged: (value) {
-                                  widget.searchFieldController.value =
-                                      TextEditingValue(
-                                          text: value,
-                                          selection: TextSelection.fromPosition(
-                                            TextPosition(
-                                                offset: widget
-                                                    .searchFieldController
-                                                    .selection
-                                                    .extentOffset),
-                                          ));
+                                onCancel: widget.onSearchAll,
+                                onChange: (value) {
                                   if (value.isEmpty) {
                                     widget.onSearchAll();
                                   } else {
@@ -294,7 +255,84 @@ class _DropdownSearchLabelState extends State<DropdownSearchLabel> {
                                         widget.searchFieldController.text);
                                   }
                                 },
-                              )),
+                                hintText: widget.hintText,
+                                textFieldController:
+                                    widget.searchFieldController,
+                              )
+
+                        // Container(
+                        //     // margin: EdgeInsets.all(AppSize.s2),
+                        //     decoration: BoxDecoration(
+                        //       borderRadius: BoderRadiusStyle.allCircular,
+                        //       border: Border.all(
+                        //           color: LightThemeColors.callout
+                        //               .withOpacity(0.3),
+                        //           width: AppSize
+                        //               .s4 // Adjust the width for focused and unfocused states
+                        //           ),
+                        //     ),
+                        //     child: Material(
+                        //       borderRadius: BoderRadiusStyle.allRound,
+                        //       elevation: 3,
+                        //       child: TextFormField(
+                        //         controller: widget.searchFieldController,
+                        //         textAlign: TextAlign.center,
+                        //         textCapitalization:
+                        //             TextCapitalization.sentences,
+                        //         decoration: InputDecoration(
+                        //             suffix:
+                        //                 (widget.searchFieldController.text !=
+                        //                         '')
+                        //                     ? Material(
+                        //                         elevation: 3,
+                        //                         shape: CircleBorder(),
+                        //                         clipBehavior: Clip.hardEdge,
+                        //                         child: GestureDetector(
+                        //                           onTap: () {
+                        //                             widget
+                        //                                 .searchFieldController
+                        //                                 .text = '';
+                        //                             widget.onSearchAll();
+                        //                           },
+                        //                           child: Icon(
+                        //                             Icons.cancel_rounded,
+                        //                             size: AppSize.s18,
+                        //                           ),
+                        //                         ),
+                        //                       )
+                        //                     : SizedBox.shrink(),
+                        //             border: InputBorder.none,
+                        //             hintText: widget.hintText),
+                        //         focusNode: _focusNode,
+                        //         style: TextStyle(
+                        //           fontSize: AppSize.s12,
+                        //         ),
+                        //         keyboardType: TextInputType.text,
+                        //         textInputAction: TextInputAction.next,
+                        //         onChanged: (value) {
+                        //           widget.searchFieldController.value =
+                        //               TextEditingValue(
+                        //                   text: value,
+                        //                   selection:
+                        //                       TextSelection.fromPosition(
+                        //                     TextPosition(
+                        //                         offset: widget
+                        //                             .searchFieldController
+                        //                             .selection
+                        //                             .extentOffset),
+                        //                   ));
+                        //           if (value.isEmpty) {
+                        //             widget.onSearchAll();
+                        //           } else {
+                        //             widget.onSearchWithKey(
+                        //                 widget.searchFieldController.text);
+                        //           }
+                        //         },
+                        //       ),
+                        //     ),
+                        //   ),
+
+                        ),
                   ),
                   const Spacer(),
                   Expanded(

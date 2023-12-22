@@ -66,66 +66,62 @@ class _DoseTimeFormState extends State<DoseTimeForm> {
                 listener: (context, state) {
                   state.saveFailureOrSuccessOption.fold(() {
                     if (state.isSaving) {
-                      context.read<StateRendererBloc>().add(
-                          StateRendererEvent.popUpLoading(
-                              AppStrings.saving,
-                              AppStrings.actionInProgressExplain,
-                              AppStrings.popUp,
-                              300,
-                              500));
+                      context
+                          .read<StateRendererBloc>()
+                          .add(const StateRendererEvent.popUpLoading(
+                            title: AppStrings.saving,
+                            message: AppStrings.actionInProgressExplain,
+                            until: AppStrings.popUp,
+                          ));
                     }
                   },
                       (either) => either.fold(
                               (failure) => failure.maybeMap(
                                     unexpected: (e) {
-                                      print('error');
-                                      print(failure);
                                       context.read<StateRendererBloc>().add(
-                                          StateRendererEvent.popUpError(
-                                              AppStrings.couldNotSaveImage,
-                                              AppStrings.somethingWentWrong,
-                                              null,
-                                              300,
-                                              500));
+                                              const StateRendererEvent
+                                                  .popUpError(
+                                            title: AppStrings.couldNotSaveImage,
+                                            message:
+                                                AppStrings.somethingWentWrong,
+                                          ));
                                     },
                                     insufficientPermissions: (e) {
                                       context.read<StateRendererBloc>().add(
-                                          StateRendererEvent.popUpError(
-                                              AppStrings
-                                                  .insuficcientPermissions,
-                                              AppStrings
-                                                  .insuficcientPermissionsExplain,
-                                              null,
-                                              300,
-                                              500));
+                                              const StateRendererEvent
+                                                  .popUpError(
+                                            title: AppStrings
+                                                .insuficcientPermissions,
+                                            message: AppStrings
+                                                .insuficcientPermissionsExplain,
+                                          ));
                                     },
                                     unableToCreate: (e) {
                                       context.read<StateRendererBloc>().add(
-                                          StateRendererEvent.popUpError(
-                                              AppStrings.unableToCreate,
-                                              AppStrings.unableToCreateExplain,
-                                              null,
-                                              300,
-                                              500));
+                                              const StateRendererEvent
+                                                  .popUpError(
+                                            title: AppStrings.unableToCreate,
+                                            message: AppStrings
+                                                .unableToCreateExplain,
+                                          ));
                                     },
                                     orElse: () {
                                       context.read<StateRendererBloc>().add(
-                                          StateRendererEvent.popUpError(
-                                              AppStrings.genericError,
-                                              AppStrings.genericErrorExplain,
-                                              null,
-                                              300,
-                                              500));
+                                              const StateRendererEvent
+                                                  .popUpError(
+                                            title: AppStrings.genericError,
+                                            message:
+                                                AppStrings.genericErrorExplain,
+                                          ));
                                     },
                                   ), (r) {
                             widget.onCreated?.call(state.dose);
-                            context.read<StateRendererBloc>().add(
-                                StateRendererEvent.popUpSuccess(
-                                    AppStrings.success,
-                                    AppStrings.successfullyCreated,
-                                    null,
-                                    300,
-                                    500));
+                            context
+                                .read<StateRendererBloc>()
+                                .add(const StateRendererEvent.popUpSuccess(
+                                  title: AppStrings.success,
+                                  message: AppStrings.successfullyCreated,
+                                ));
                           }));
                 },
                 builder: (context, state) {
@@ -171,7 +167,7 @@ class _DoseTimeFormState extends State<DoseTimeForm> {
                           DoseFormEvent.labelChanged(labelController.text));
 
                       labelController.value = TextEditingValue(
-                          text: "$dayDose $weekDays $totalDuration",
+                          text: "$dayDose, $weekDays durante $totalDuration",
                           selection: TextSelection.fromPosition(
                             TextPosition(
                                 offset: labelController.selection.extentOffset),
@@ -190,78 +186,41 @@ class _DoseTimeFormState extends State<DoseTimeForm> {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
-                                  Spacer(flex: 1),
+                                  const Spacer(flex: 1),
                                   Expanded(
                                     flex: 2,
                                     child: Column(
                                       children: [
-                                        Expanded(
-                                            child: TitleValidated(
-                                                title: AppStrings.labelDayHours,
-                                                condition: context
-                                                        .read<DoseFormBloc>()
-                                                        .state
-                                                        .dose
-                                                        .dayHoursDose ==
-                                                    DayHoursDose.empty())),
-                                        Expanded(
+                                        const Expanded(
                                           flex: 2,
                                           child: DropdownSearchDayHoursDose(),
                                         ),
                                       ],
                                     ),
                                   ),
-                                  Spacer(flex: 1),
+                                  const Spacer(flex: 1),
                                   Expanded(
                                       flex: 2,
                                       child: Column(
                                         children: [
-                                          Expanded(
-                                              child: TitleValidated(
-                                                  title:
-                                                      AppStrings.labelWeekDays,
-                                                  condition: context
-                                                          .read<DoseFormBloc>()
-                                                          .state
-                                                          .dose
-                                                          .weekDays ==
-                                                      WeekDaysDose.empty())),
-                                          Expanded(
+                                          const Expanded(
                                             flex: 2,
                                             child: DropdownSearchWeekDays(),
                                           ),
                                         ],
                                       )),
-                                  Spacer(flex: 1),
+                                  const Spacer(flex: 1),
                                   Expanded(
                                       flex: 2,
                                       child: Row(
                                         children: [
                                           Expanded(
                                               flex: 2,
-                                              child: Column(
-                                                children: [
-                                                  Expanded(
-                                                      child: TitleValidated(
-                                                          title: AppStrings
-                                                              .labelDuration,
-                                                          condition: context
-                                                                  .read<
-                                                                      DoseFormBloc>()
-                                                                  .state
-                                                                  .dose
-                                                                  .duration ==
-                                                              TimeInterval
-                                                                  .empty())),
-                                                  Expanded(
-                                                      flex: 2,
-                                                      child:
-                                                          DropdownSearchDoseDuration()),
-                                                ],
-                                              ))
+                                              child:
+                                                  DropdownSearchDoseDuration()),
                                         ],
                                       )),
-                                  Spacer(flex: 1),
+                                  const Spacer(flex: 1),
                                   Expanded(
                                       flex: 2,
                                       child: Column(
@@ -290,39 +249,41 @@ class _DoseTimeFormState extends State<DoseTimeForm> {
                                                     TextCapitalization
                                                         .sentences,
                                                 decoration: InputDecoration(
-                                                    suffix:
-                                                        (labelController.text !=
-                                                                '')
-                                                            ? Material(
-                                                                elevation: 3,
-                                                                shape:
-                                                                    CircleBorder(),
-                                                                clipBehavior:
-                                                                    Clip.hardEdge,
-                                                                child:
-                                                                    GestureDetector(
-                                                                  onTap: () {
-                                                                    labelController
-                                                                        .text = '';
-                                                                    context
-                                                                        .read<
-                                                                            DoseFormBloc>()
-                                                                        .add(DoseFormEvent.labelChanged(
-                                                                            labelController.text));
-                                                                  },
-                                                                  child: Icon(
-                                                                    Icons
-                                                                        .cancel_rounded,
-                                                                    size: AppSize
-                                                                        .s18,
-                                                                  ),
-                                                                ),
-                                                              )
-                                                            : SizedBox.shrink(),
+                                                    suffix: (labelController
+                                                                .text !=
+                                                            '')
+                                                        ? Material(
+                                                            elevation: 3,
+                                                            shape:
+                                                                const CircleBorder(),
+                                                            clipBehavior:
+                                                                Clip.hardEdge,
+                                                            child:
+                                                                GestureDetector(
+                                                              onTap: () {
+                                                                labelController
+                                                                    .text = '';
+                                                                context
+                                                                    .read<
+                                                                        DoseFormBloc>()
+                                                                    .add(DoseFormEvent.labelChanged(
+                                                                        labelController
+                                                                            .text));
+                                                              },
+                                                              child: const Icon(
+                                                                Icons
+                                                                    .cancel_rounded,
+                                                                size:
+                                                                    AppSize.s18,
+                                                              ),
+                                                            ),
+                                                          )
+                                                        : const SizedBox
+                                                            .shrink(),
                                                     border: InputBorder.none,
                                                     hintText:
                                                         AppStrings.labelShowUp),
-                                                style: TextStyle(
+                                                style: const TextStyle(
                                                   fontSize: AppSize.s12,
                                                 ),
                                                 keyboardType:

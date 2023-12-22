@@ -3,9 +3,11 @@ import 'package:expedientes_clinicos/application/medicine/dose/dose_core/dose_fo
 import 'package:expedientes_clinicos/application/medicine/dose/dose_core/dose_watcher/dose_watcher_bloc.dart';
 import 'package:expedientes_clinicos/application/prescription/prescription_form/prescription_form_bloc.dart';
 import 'package:expedientes_clinicos/application/state_render/state_renderer_bloc.dart';
+import 'package:expedientes_clinicos/domain/core/view_models/drop_down_view_model.dart';
 import 'package:expedientes_clinicos/domain/core/view_models/label_dose_times_view_model.dart';
 import 'package:expedientes_clinicos/domain/prescription/dose/dose.dart';
 import 'package:expedientes_clinicos/injection.dart';
+import 'package:expedientes_clinicos/presentation/common/widget_elements/label_drop_down/drop_down_head.dart';
 import 'package:expedientes_clinicos/presentation/common/widget_elements/label_drop_down/label_drop_down.dart';
 import 'package:expedientes_clinicos/presentation/prescription/dose/dose_form_page.dart';
 import 'package:expedientes_clinicos/presentation/resources/string_manager.dart';
@@ -38,20 +40,21 @@ class _DropdownSearchDoseState extends State<DropdownSearchDose> {
                 doseList = [];
               },
               loadInProgress: ((value) => context.read<StateRendererBloc>().add(
-                  StateRendererEvent.popUpLoading(AppStrings.saving,
-                      AppStrings.actionInProgressExplain, null, 300, 500))),
+                  const StateRendererEvent.popUpLoading(
+                      title: AppStrings.saving,
+                      message: AppStrings.actionInProgressExplain))),
               loadSuccess: ((value) {
                 setState(() {
                   doseList = value.dose.asList();
                 });
               }),
               loadFailure: ((value) => context.read<StateRendererBloc>().add(
-                  StateRendererEvent.popUpError(AppStrings.unableToReadError,
-                      AppStrings.unableToReadErrorExplain, null, 300, 500))));
+                  const StateRendererEvent.popUpError(
+                      title: AppStrings.unableToReadError,
+                      message: AppStrings.unableToReadErrorExplain))));
         }, builder: (context, state) {
-          return DropdownSearchLabel(
-            element: LabelDoseTimesViewModel.fromDose(
-                context.read<PrescriptionFormBloc>().state.prescription.dose),
+          return DropDownSearchHead(
+            element: DropdownItemViewModel.empty(),
             searchFieldController: searchFieldController,
             onSelected: (LabelDoseTimesViewModel labelDoseTimesViewModel) {
               context.read<PrescriptionFormBloc>().add(
@@ -69,32 +72,30 @@ class _DropdownSearchDoseState extends State<DropdownSearchDose> {
                   .read<DoseWatcherBloc>()
                   .add(const DoseWatcherEvent.watchAllStarted());
             },
-            listElements: doseList
-                .map((dose) => LabelDoseTimesViewModel.fromDose(dose))
-                .toList(),
-            hintText: AppStrings.doseAmount,
+            listElements: [],
+            hintText: AppStrings.doseSchedule,
             newFunction: () {
               context
                   .read<StateRendererBloc>()
                   .add(StateRendererEvent.fullScreenForm(
-                      'Crear ${AppStrings.pharmaceuticalForm}',
-                      DoseTimeForm(
-                        onCreated: (Dose dose) {
-                          context
-                              .read<PrescriptionFormBloc>()
-                              .add(PrescriptionFormEvent.onDoseChanged(dose));
-                          searchFieldController.text =
-                              dose.label.value.fold((l) => '', (r) => r);
-                        },
-                        dose: Dose.empty(),
-                        onSubmit: () {
-                          context
-                              .read<DoseFormBloc>()
-                              .add(DoseFormEvent.saved());
-                        },
-                      ),
-                      '',
-                      null));
+                    title: 'Crear ${AppStrings.pharmaceuticalForm}',
+                    bodyWidget: DoseTimeForm(
+                      onCreated: (Dose dose) {
+                        context
+                            .read<PrescriptionFormBloc>()
+                            .add(PrescriptionFormEvent.onDoseChanged(dose));
+                        searchFieldController.text =
+                            dose.label.value.fold((l) => '', (r) => r);
+                      },
+                      dose: Dose.empty(),
+                      onSubmit: () {
+                        context
+                            .read<DoseFormBloc>()
+                            .add(const DoseFormEvent.saved());
+                      },
+                    ),
+                    message: AppStrings.empty,
+                  ));
             },
           );
         }));

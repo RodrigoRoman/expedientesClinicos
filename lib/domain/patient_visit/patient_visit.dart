@@ -28,6 +28,5 @@ abstract class PatientVisit implements _$PatientVisit {
         .getOrElse(0, (_) => none())
         .fold(() => right(unit), (f) => left(f))
         .fold((f) => some(f), (_) => none());
-    ;
   }
 }

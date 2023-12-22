@@ -3,9 +3,11 @@ import 'package:expedientes_clinicos/application/medicine/branded_medicine/brand
 import 'package:expedientes_clinicos/application/medicine/branded_medicine/branded_medicine_watcher/branded_medicine_watcher_bloc.dart';
 import 'package:expedientes_clinicos/application/prescription/prescription_form/prescription_form_bloc.dart';
 import 'package:expedientes_clinicos/application/state_render/state_renderer_bloc.dart';
-import 'package:expedientes_clinicos/domain/core/view_models/title_subtitle_image_view_model.dart';
+import 'package:expedientes_clinicos/domain/core/view_models/drop_down_view_model.dart';
+import 'package:expedientes_clinicos/domain/core/view_models/title_subtitle_img_view_model.dart';
 import 'package:expedientes_clinicos/domain/medicine/branded_medicine/branded_medicine.dart';
 import 'package:expedientes_clinicos/injection.dart';
+import 'package:expedientes_clinicos/presentation/common/widget_elements/label_drop_down/drop_down_head.dart';
 import 'package:expedientes_clinicos/presentation/common/widget_elements/name_subtitle_drop_down/drop_down_name_subtitle.dart';
 import 'package:expedientes_clinicos/presentation/medicine/branded_medicine/branded_medicine_form/branded_medicine_form_page.dart';
 import 'package:expedientes_clinicos/presentation/resources/string_manager.dart';
@@ -44,8 +46,9 @@ class _DropdownSearchPharmaceuticalFormState
                 brandedMedicineList = [];
               },
               loadInProgress: ((value) => context.read<StateRendererBloc>().add(
-                  StateRendererEvent.popUpLoading(AppStrings.saving,
-                      AppStrings.actionInProgressExplain, null, 300, 500))),
+                  StateRendererEvent.popUpLoading(
+                      title: AppStrings.saving,
+                      message: AppStrings.actionInProgressExplain))),
               loadSuccess: ((value) {
                 print('ON LOAD FILL LIST');
                 setState(() {
@@ -53,19 +56,23 @@ class _DropdownSearchPharmaceuticalFormState
                 });
               }),
               loadFailure: ((value) => context.read<StateRendererBloc>().add(
-                  StateRendererEvent.popUpError(AppStrings.unableToReadError,
-                      AppStrings.unableToReadErrorExplain, null, 300, 500))));
+                  StateRendererEvent.popUpError(
+                      title: AppStrings.unableToReadError,
+                      message: AppStrings.unableToReadErrorExplain))));
         }, builder: (context, state) {
-          return DropdownSearchTitleSubtitleImg(
-            element: TitleSubtitleImageViewModel.fromBrandedMedicine(context
+          return DropDownSearchHead(
+            element: DropdownItemViewModel.fromBrandedMedicine(context
                 .read<PrescriptionFormBloc>()
                 .state
                 .prescription
                 .medicine),
+            // element: DropdownItemViewModel.empty(),
             searchFieldController: searchFieldController,
-            onSelected: (TitleSubtitleImageViewModel medicine) {
+            onSelected: (DropdownItemViewModel medicine) {
               widget.onSelected(medicine.originBrandedMedicine);
-              setState(() {});
+              searchFieldController.text = medicine.title.value
+                  .fold((l) => AppStrings.isEmpty, (r) => r);
+              // setState(() {});
             },
             onSearchWithKey: (key) {
               context
@@ -79,28 +86,30 @@ class _DropdownSearchPharmaceuticalFormState
             },
             listElements: brandedMedicineList
                 .map((brandedMedicine) =>
-                    TitleSubtitleImageViewModel.fromBrandedMedicine(
-                        brandedMedicine))
+                    DropdownItemViewModel.fromBrandedMedicine(brandedMedicine))
                 .toList(),
+            // listElements: [],
             hintText: AppStrings.selectBrandedMedicine,
             newFunction: () {
-              context.read<StateRendererBloc>().add(
-                      StateRendererEvent.fullScreenForm(
-                          ' ${AppStrings.createBrandedMedicine}',
-                          BrandedMedicineFormPage(
-                    onCreated: (brandedMedicine) {
-                      context.read<PrescriptionFormBloc>().add(
-                          PrescriptionFormEvent.onMedicineChanged(
-                              brandedMedicine));
-                      searchFieldController.text = context
-                          .read<BrandedMedicineFormBloc>()
-                          .state
-                          .medicine
-                          .comercialName
-                          .value
-                          .fold((l) => '', (r) => r);
-                    },
-                  ), ' ', null));
+              context
+                  .read<StateRendererBloc>()
+                  .add(StateRendererEvent.fullScreenForm(
+                      title: AppStrings.createBrandedMedicine,
+                      bodyWidget: BrandedMedicineFormPage(
+                        onCreated: (brandedMedicine) {
+                          context.read<PrescriptionFormBloc>().add(
+                              PrescriptionFormEvent.onMedicineChanged(
+                                  brandedMedicine));
+                          searchFieldController.text = context
+                              .read<BrandedMedicineFormBloc>()
+                              .state
+                              .medicine
+                              .comercialName
+                              .value
+                              .fold((l) => '', (r) => r);
+                        },
+                      ),
+                      message: AppStrings.empty));
             },
           );
         }));

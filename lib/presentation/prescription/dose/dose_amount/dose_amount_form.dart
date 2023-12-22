@@ -1,33 +1,19 @@
-import 'package:expedientes_clinicos/application/medicine/dose/dose_components/dose_amount/dose_amount_form/dose_amount_form_bloc.dart';
+import 'package:expedientes_clinicos/application/label_double_amount/label_double_amount_form/dose_amount_form_bloc.dart';
+import 'package:expedientes_clinicos/application/label_double_amount/label_double_amount_form/label_double_amount_form_bloc.dart';
 import 'package:expedientes_clinicos/application/state_render/state_renderer_bloc.dart';
 import 'package:expedientes_clinicos/domain/core/value_objects.dart';
-import 'package:expedientes_clinicos/domain/prescription/dose/dose_amount/dose_amount.dart';
-import 'package:expedientes_clinicos/presentation/common/widget_elements/double_input.dart';
-import 'package:expedientes_clinicos/presentation/common/widget_elements/title_validated.dart';
+import 'package:expedientes_clinicos/presentation/common/widget_elements/label_double_amount/label_double_amount_popup_form.dart';
 import 'package:expedientes_clinicos/presentation/resources/string_manager.dart';
-import 'package:expedientes_clinicos/presentation/routes/router.gr.dart';
+import 'package:expedientes_clinicos/presentation/routes/router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kt_dart/kt.dart';
 
 class DoseAmountForm extends StatefulWidget {
-  final DoseAmount doseAmount;
-  final Function onNameChanged;
-  final Function onAmountChanged;
+  final bool submitted;
   final Function? onCreated;
-  final double currentDoseAmount;
-  final Function onSubmit;
-  final Function validLabel;
 
-  const DoseAmountForm(
-      {required this.doseAmount,
-      required this.validLabel,
-      required this.onNameChanged,
-      required this.onCreated,
-      required this.currentDoseAmount,
-      required this.onSubmit,
-      required this.onAmountChanged,
-      super.key});
+  const DoseAmountForm({required this.submitted, this.onCreated, super.key});
 
   @override
   State<DoseAmountForm> createState() => _DoseAmountFormState();
@@ -49,183 +35,107 @@ class _DoseAmountFormState extends State<DoseAmountForm> {
         child: Form(
           key: _key,
           autovalidateMode: AutovalidateMode.disabled,
-          child: BlocConsumer<DoseAmountFormBloc, DoseAmountFormState>(
+          child: BlocConsumer<DoseAmountFormBloc, LabelDoubleAmountFormState>(
             listener: (context, state) {
               state.saveFailureOrSuccessOption.fold(() {
                 if (state.isSaving) {
-                  context.read<StateRendererBloc>().add(
-                      StateRendererEvent.popUpLoading(
-                          AppStrings.saving,
-                          AppStrings.actionInProgressExplain,
-                          AppStrings.popUp,
-                          300,
-                          500));
+                  context
+                      .read<StateRendererBloc>()
+                      .add(const StateRendererEvent.popUpLoading(
+                        title: AppStrings.saving,
+                        message: AppStrings.actionInProgressExplain,
+                        until: AppStrings.popUp,
+                      ));
                 }
               },
                   (either) => either.fold(
                           (failure) => failure.maybeMap(
                                 unexpected: (e) {
-                                  context.read<StateRendererBloc>().add(
-                                      StateRendererEvent.popUpError(
-                                          AppStrings.couldNotSaveImage,
-                                          AppStrings.somethingWentWrong,
-                                          FullScreenState.name,
-                                          300,
-                                          500));
+                                  context
+                                      .read<StateRendererBloc>()
+                                      .add(const StateRendererEvent.popUpError(
+                                        title: AppStrings.couldNotSaveImage,
+                                        message: AppStrings.somethingWentWrong,
+                                        until: FullScreenStatePageRoute.name,
+                                      ));
                                 },
                                 insufficientPermissions: (e) {
-                                  context.read<StateRendererBloc>().add(
-                                      StateRendererEvent.popUpError(
-                                          AppStrings.insuficcientPermissions,
-                                          AppStrings
-                                              .insuficcientPermissionsExplain,
-                                          FullScreenState.name,
-                                          300,
-                                          500));
+                                  context
+                                      .read<StateRendererBloc>()
+                                      .add(const StateRendererEvent.popUpError(
+                                        title:
+                                            AppStrings.insuficcientPermissions,
+                                        message: AppStrings
+                                            .insuficcientPermissionsExplain,
+                                        until: FullScreenStatePageRoute.name,
+                                      ));
                                 },
                                 unableToCreate: (e) {
-                                  context.read<StateRendererBloc>().add(
-                                      StateRendererEvent.popUpError(
-                                          AppStrings.unableToCreate,
-                                          AppStrings.unableToCreateExplain,
-                                          FullScreenState.name,
-                                          300,
-                                          500));
+                                  context
+                                      .read<StateRendererBloc>()
+                                      .add(const StateRendererEvent.popUpError(
+                                        title: AppStrings.unableToCreate,
+                                        message:
+                                            AppStrings.unableToCreateExplain,
+                                        until: FullScreenStatePageRoute.name,
+                                      ));
                                 },
                                 orElse: () {
-                                  context.read<StateRendererBloc>().add(
-                                      StateRendererEvent.popUpError(
-                                          AppStrings.genericError,
-                                          AppStrings.genericErrorExplain,
-                                          FullScreenState.name,
-                                          300,
-                                          500));
+                                  context
+                                      .read<StateRendererBloc>()
+                                      .add(const StateRendererEvent.popUpError(
+                                        title: AppStrings.genericError,
+                                        message: AppStrings.genericErrorExplain,
+                                        until: FullScreenStatePageRoute.name,
+                                      ));
                                 },
                               ), (r) {
-                        widget.onCreated?.call(state.doseAmount);
-                        context.read<StateRendererBloc>().add(
-                            StateRendererEvent.popUpSuccess(
-                                AppStrings.success,
-                                AppStrings.successfullyCreated,
-                                FullScreenState.name,
-                                300,
-                                500));
+                        widget.onCreated?.call(state.labelDoubleAmount);
+                        context
+                            .read<StateRendererBloc>()
+                            .add(const StateRendererEvent.popUpSuccess(
+                              title: AppStrings.success,
+                              message: AppStrings.successfullyCreated,
+                            ));
                       }));
             },
             builder: (context, state) {
-              return Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    const Spacer(),
-                    Expanded(
-                        flex: 4,
-                        child: LayoutBuilder(builder: (context, constraints) {
-                          return SizedBox(
-                              width: constraints.maxWidth / 1.5,
-                              height: constraints.maxHeight,
-                              child: Column(
-                                children: [
-                                  Expanded(
-                                    child: TitleValidated(
-                                        title: AppStrings.labelDoseAmount,
-                                        condition:
-                                            ((labelController.text == '') &&
-                                                (submitted))),
-                                  ),
-                                  Expanded(
-                                    flex: 2,
-                                    child: TextFormField(
-                                      maxLines: 2,
-                                      controller: labelController,
-                                      validator: (_) => widget.validLabel(),
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .bodyMedium,
-                                      textAlign: TextAlign.center,
-                                      decoration: InputDecoration(
-                                          border: InputBorder.none,
-                                          hintText: AppStrings.labelDoseAmount,
-                                          hintStyle: Theme.of(context)
-                                              .textTheme
-                                              .bodySmall!
-                                              .copyWith(
-                                                  color: Theme.of(context)
-                                                      .canvasColor)),
-                                      keyboardType: TextInputType.text,
-                                      textCapitalization:
-                                          TextCapitalization.sentences,
-                                      onChanged: (value) {
-                                        labelController.value =
-                                            TextEditingValue(
-                                          text: value,
-                                          selection: TextSelection.fromPosition(
-                                            TextPosition(
-                                                offset: labelController
-                                                    .selection.extentOffset),
-                                          ),
-                                        );
-                                        ;
-                                        widget.onNameChanged(
-                                            labelController.text);
-                                      },
-                                      textInputAction: TextInputAction.next,
-                                    ),
-                                  ),
-                                ],
-                              ));
-                        })),
-                    const Spacer(),
-                    Expanded(
-                        flex: 3,
-                        child: LayoutBuilder(builder: (context, constraints) {
-                          return SizedBox(
-                              width: constraints.maxWidth / 1.5,
-                              height: constraints.maxHeight,
-                              child: Column(
-                                children: [
-                                  Expanded(
-                                    child: TitleValidated(
-                                        title: AppStrings.dayDosesAmount,
-                                        condition:
-                                            ((widget.currentDoseAmount == 0) &&
-                                                (submitted))),
-                                  ),
-                                  Expanded(
-                                    child: DoubleInputBox(
-                                        initialValue: 0,
-                                        minValue: 0,
-                                        onChanged: (double newInt) {
-                                          widget.onAmountChanged(newInt);
-                                          // listHours = List.generate(
-                                          //     newInt,
-                                          //     (index) => HourTime(TimeOfDay(
-                                          //         hour: (((24 * index) ~/
-                                          //                     newInt) +
-                                          //                 7) %
-                                          //             24,
-                                          //         minute: 0)));
-                                          // context
-                                          //     .read<DoseAmountFormBloc>()
-                                          //     .add(DoseAmountFormEvent
-                                          //         .listHoursChanged(listHours));
-                                        }),
-                                  ),
-                                ],
-                              ));
-                        })),
-                    const Spacer(),
-                    ElevatedButton(
-                        onPressed: () {
-                          if (_key.currentState!.validate()) {
-                            widget.onSubmit();
-                          }
-                          setState(() {
-                            submitted = true;
-                          });
-                        },
-                        child: const Text(AppStrings.create))
-                  ]);
+              return LabelAmountDoublePopUpForm(
+                titleName: AppStrings.doseAmountName,
+                validAbbreviation: () => context
+                    .read<DoseAmountFormBloc>()
+                    .state
+                    .labelDoubleAmount
+                    .label
+                    .value
+                    .fold((l) => AppStrings.genericError, (r) => null),
+                onAmountChanged: (double newAmount) {
+                  context
+                      .read<DoseAmountFormBloc>()
+                      .add(LabelDoubleAmountFormEvent.amountChanged(newAmount));
+                },
+                onNameChanged: (label) {
+                  context
+                      .read<DoseAmountFormBloc>()
+                      .add(LabelDoubleAmountFormEvent.labelChanged(label));
+                },
+                validAmount: () => context
+                    .read<DoseAmountFormBloc>()
+                    .state
+                    .labelDoubleAmount
+                    .amount
+                    .value
+                    .fold((l) => AppStrings.genericError, (r) => null),
+                onSubmit: () {
+                  print(context
+                      .read<DoseAmountFormBloc>()
+                      .state
+                      .labelDoubleAmount);
+                  context
+                      .read<DoseAmountFormBloc>()
+                      .add(LabelDoubleAmountFormEvent.saved());
+                },
+              );
             },
           ),
         ),

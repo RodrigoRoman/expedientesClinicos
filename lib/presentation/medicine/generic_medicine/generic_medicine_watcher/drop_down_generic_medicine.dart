@@ -1,33 +1,34 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:expedientes_clinicos/application/medicine/branded_medicine/branded_medicine_form/branded_medicine_form_bloc.dart';
-import 'package:expedientes_clinicos/application/medicine/generic_medicine/generic_medicine_form/generic_medicine_form_bloc.dart';
 import 'package:expedientes_clinicos/application/medicine/generic_medicine/generic_medicine_watcher/generic_medicine_watcher_bloc.dart';
 import 'package:expedientes_clinicos/application/state_render/state_renderer_bloc.dart';
-import 'package:expedientes_clinicos/domain/core/view_models/title_subtitle_image_view_model.dart';
+import 'package:expedientes_clinicos/domain/core/view_models/drop_down_view_model.dart';
+import 'package:expedientes_clinicos/domain/core/view_models/title_subtitle_img_view_model.dart';
 import 'package:expedientes_clinicos/domain/medicine/generic_medicine/generic_medicine.dart';
 import 'package:expedientes_clinicos/injection.dart';
-import 'package:expedientes_clinicos/presentation/common/widget_elements/name_subtitle_drop_down/drop_down_name_subtitle.dart';
+import 'package:expedientes_clinicos/presentation/common/widget_elements/label_drop_down/drop_down_head.dart';
 import 'package:expedientes_clinicos/presentation/medicine/generic_medicine/generic_medicine_form/generic_medicine_form_page.dart';
 import 'package:expedientes_clinicos/presentation/resources/string_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:kt_dart/kt.dart';
 
-class DropdownSearchGenericMedicineForm extends StatefulWidget {
+class DropdownSearchGenericMedicine extends StatefulWidget {
+  bool requestedSubmition;
   //optional for the case of editing
-  const DropdownSearchGenericMedicineForm({
+  DropdownSearchGenericMedicine({
     required this.onSelected,
+    this.requestedSubmition = false,
     super.key,
   });
   final Function onSelected;
 
   @override
-  _DropdownSearchGenericMedicineForm createState() =>
-      _DropdownSearchGenericMedicineForm();
+  _DropdownSearchGenericMedicine createState() =>
+      _DropdownSearchGenericMedicine();
 }
 
-class _DropdownSearchGenericMedicineForm
-    extends State<DropdownSearchGenericMedicineForm> {
+class _DropdownSearchGenericMedicine
+    extends State<DropdownSearchGenericMedicine> {
   GlobalKey globalKey = GlobalKey();
   List<GenericMedicine> genericMedicineList = [];
   TextEditingController searchFieldController = TextEditingController();
@@ -43,29 +44,41 @@ class _DropdownSearchGenericMedicineForm
               initial: (value) {
                 genericMedicineList = [];
               },
-              loadInProgress: ((value) => context.read<StateRendererBloc>().add(
-                  StateRendererEvent.popUpLoading(AppStrings.saving,
-                      AppStrings.actionInProgressExplain, null, 300, 500))),
+              loadInProgress: ((value) => context
+                  .read<StateRendererBloc>()
+                  .add(const StateRendererEvent.popUpLoading(
+                    title: AppStrings.saving,
+                    message: AppStrings.actionInProgressExplain,
+                  ))),
               loadSuccess: ((value) {
                 setState(() {
                   genericMedicineList = value.medicines.asList();
                 });
               }),
               loadFailure: ((value) => context.read<StateRendererBloc>().add(
-                  StateRendererEvent.popUpError(AppStrings.unableToReadError,
-                      AppStrings.unableToReadErrorExplain, null, 300, 500))));
+                  const StateRendererEvent.popUpError(
+                      title: AppStrings.unableToReadError,
+                      message: AppStrings.unableToReadErrorExplain))));
         }, builder: (context, state) {
-          return DropdownSearchTitleSubtitleImg(
-            element: TitleSubtitleImageViewModel.fromGenericMedicine(context
+          return DropDownSearchHead(
+            element: DropdownItemViewModel.fromGenericMedicine(context
                 .read<BrandedMedicineFormBloc>()
                 .state
                 .medicine
                 .genericMedicine),
             searchFieldController: searchFieldController,
-            onSelected: (TitleSubtitleImageViewModel medicine) {
-              widget.onSelected(medicine.originGenericMedicine);
-              setState(() {});
+            onSelected: (DropdownItemViewModel itemViewModel) {
+              widget.onSelected(itemViewModel.originGenericMedicine);
+              searchFieldController.text = itemViewModel.title.value
+                  .fold((l) => AppStrings.isEmpty, (r) => r);
             },
+            valid: widget.requestedSubmition &&
+                (context
+                    .read<BrandedMedicineFormBloc>()
+                    .state
+                    .medicine
+                    .genericMedicine
+                    .isEmpty),
             onSearchWithKey: (key) {
               context
                   .read<GenericMedicineWatcherBloc>()
@@ -78,21 +91,22 @@ class _DropdownSearchGenericMedicineForm
             },
             listElements: genericMedicineList
                 .map((genericMedicine) =>
-                    TitleSubtitleImageViewModel.fromGenericMedicine(
-                        genericMedicine))
+                    DropdownItemViewModel.fromGenericMedicine(genericMedicine))
                 .toList(),
             hintText: AppStrings.selectGenericMedicine,
             newFunction: () {
-              context.read<StateRendererBloc>().add(
-                      StateRendererEvent.popUpForm(
-                          ' ${AppStrings.createGenericMedicine}',
-                          GenericMedicineFormPage(
-                              onCreated: (GenericMedicine medicine) {
-                    widget.onSelected(medicine);
-                    searchFieldController.text =
-                        medicine.genericName.value.fold((l) => '', (r) => r);
-                    // setState(() {});
-                  }), 600, 600, null));
+              context
+                  .read<StateRendererBloc>()
+                  .add(StateRendererEvent.fullScreenForm(
+                    title: AppStrings.createGenericMedicine,
+                    bodyWidget: GenericMedicineFormPage(
+                        onCreated: (GenericMedicine medicine) {
+                      widget.onSelected(medicine);
+                      searchFieldController.text =
+                          medicine.genericName.value.fold((l) => '', (r) => r);
+                    }),
+                    message: AppStrings.empty,
+                  ));
             },
           );
         }));

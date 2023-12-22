@@ -5,13 +5,15 @@ import 'package:expedientes_clinicos/application/medicine/dose/dose_components/w
 import 'package:expedientes_clinicos/application/medicine/dose/dose_components/week_days_dose/week_days_dose_watcher/week_days_dose_watcher_bloc.dart';
 import 'package:expedientes_clinicos/application/medicine/dose/dose_core/dose_form/dose_form_bloc.dart';
 import 'package:expedientes_clinicos/application/state_render/state_renderer_bloc.dart';
+import 'package:expedientes_clinicos/domain/core/view_models/drop_down_view_model.dart';
 import 'package:expedientes_clinicos/domain/core/view_models/label_dose_times_view_model.dart';
 import 'package:expedientes_clinicos/domain/prescription/dose/week_doses/week_days_dose.dart';
 import 'package:expedientes_clinicos/injection.dart';
+import 'package:expedientes_clinicos/presentation/common/widget_elements/label_drop_down/drop_down_head.dart';
 import 'package:expedientes_clinicos/presentation/common/widget_elements/label_drop_down/label_drop_down.dart';
 import 'package:expedientes_clinicos/presentation/prescription/dose/week_days_dose/week_days_dose_form/week_days_form.dart';
 import 'package:expedientes_clinicos/presentation/resources/string_manager.dart';
-import 'package:expedientes_clinicos/presentation/routes/router.gr.dart';
+import 'package:expedientes_clinicos/presentation/routes/router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -33,38 +35,39 @@ class _DropdownSearchWeekDaysState extends State<DropdownSearchWeekDays> {
   Widget build(BuildContext context) {
     return BlocProvider(
         create: (context) => getIt<WeekDaysDoseWatcherBloc>()
-          ..add(WeekDaysDoseWatcherEvent.watchAllStarted()),
+          ..add(const WeekDaysDoseWatcherEvent.watchAllStarted()),
         child: BlocConsumer<WeekDaysDoseWatcherBloc, WeekDaysDoseWatcherState>(
             listener: (context, state) {
           state.map(
               initial: (value) {
                 weekDaysList = [];
               },
-              loadInProgress: ((value) => context.read<StateRendererBloc>().add(
-                  StateRendererEvent.popUpLoading(
-                      AppStrings.saving,
-                      AppStrings.actionInProgressExplain,
-                      AppStrings.popUp,
-                      300,
-                      500))),
+              loadInProgress: ((value) => context
+                  .read<StateRendererBloc>()
+                  .add(const StateRendererEvent.popUpLoading(
+                    title: AppStrings.saving,
+                    message: AppStrings.actionInProgressExplain,
+                    until: AppStrings.popUp,
+                  ))),
               loadSuccess: ((value) {
                 setState(() {
                   weekDaysList = value.weekDaysDose.asList();
                 });
               }),
-              loadFailure: ((value) => context.read<StateRendererBloc>().add(
-                  StateRendererEvent.popUpError(AppStrings.unableToReadError,
-                      AppStrings.unableToReadErrorExplain, null, 300, 500))));
+              loadFailure: ((value) => context
+                  .read<StateRendererBloc>()
+                  .add(const StateRendererEvent.popUpError(
+                    title: AppStrings.unableToReadError,
+                    message: AppStrings.unableToReadErrorExplain,
+                  ))));
         }, builder: (context, state) {
-          return DropdownSearchLabel(
-            element: LabelDoseTimesViewModel.fromWeekDays(
+          return DropDownSearchHead(
+            element: DropdownItemViewModel.fromWeekDays(
                 context.read<DoseFormBloc>().state.dose.weekDays),
             searchFieldController: searchFieldController,
-            onSelected: (LabelDoseTimesViewModel labelDoseTimesViewModel) {
-              print('dose amount');
-              print(labelDoseTimesViewModel.weekDaysDose);
+            onSelected: (DropdownItemViewModel dropdownItemViewModel) {
               context.read<DoseFormBloc>().add(DoseFormEvent.weekDaysChanged(
-                  labelDoseTimesViewModel.weekDaysDose));
+                  dropdownItemViewModel.weekDaysDose!));
               setState(() {});
             },
             onSearchWithKey: (key) {
@@ -78,16 +81,15 @@ class _DropdownSearchWeekDaysState extends State<DropdownSearchWeekDays> {
                   .add(const WeekDaysDoseWatcherEvent.watchAllStarted());
             },
             listElements: weekDaysList
-                .map((weekDays) =>
-                    LabelDoseTimesViewModel.fromWeekDays(weekDays))
+                .map((weekDays) => DropdownItemViewModel.fromWeekDays(weekDays))
                 .toList(),
             hintText: AppStrings.labelWeekDays,
             newFunction: () {
               context
                   .read<StateRendererBloc>()
                   .add(StateRendererEvent.popUpForm(
-                      'Crear ${AppStrings.labelDayHours}',
-                      WeekDaysDoseForm(
+                      title: 'Crear ${AppStrings.labelDayHours}',
+                      bodyWidget: WeekDaysDoseForm(
                         onCreated: (WeekDaysDose weekDaysDose) {
                           context
                               .read<DoseFormBloc>()
@@ -122,9 +124,7 @@ class _DropdownSearchWeekDaysState extends State<DropdownSearchWeekDays> {
                               .add(const WeekDaysDoseFormEvent.saved());
                         },
                       ),
-                      500,
-                      400,
-                      FullScreenState.name));
+                      until: FullScreenStatePageRoute.name));
             },
           );
         }));

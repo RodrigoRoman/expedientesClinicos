@@ -22,7 +22,7 @@ PrescriptionDto _$PrescriptionDtoFromJson(Map<String, dynamic> json) {
 mixin _$PrescriptionDto {
   String get id => throw _privateConstructorUsedError;
   BrandedMedicineDto get medicine => throw _privateConstructorUsedError;
-  DoseAmountDto get doseAmount => throw _privateConstructorUsedError;
+  LabelDoubleAmountDto get doseAmount => throw _privateConstructorUsedError;
   DoseDto get dose => throw _privateConstructorUsedError;
   List<IndicationDto> get indications => throw _privateConstructorUsedError;
 
@@ -41,12 +41,12 @@ abstract class $PrescriptionDtoCopyWith<$Res> {
   $Res call(
       {String id,
       BrandedMedicineDto medicine,
-      DoseAmountDto doseAmount,
+      LabelDoubleAmountDto doseAmount,
       DoseDto dose,
       List<IndicationDto> indications});
 
   $BrandedMedicineDtoCopyWith<$Res> get medicine;
-  $DoseAmountDtoCopyWith<$Res> get doseAmount;
+  $LabelDoubleAmountDtoCopyWith<$Res> get doseAmount;
   $DoseDtoCopyWith<$Res> get dose;
 }
 
@@ -81,7 +81,7 @@ class _$PrescriptionDtoCopyWithImpl<$Res, $Val extends PrescriptionDto>
       doseAmount: null == doseAmount
           ? _value.doseAmount
           : doseAmount // ignore: cast_nullable_to_non_nullable
-              as DoseAmountDto,
+              as LabelDoubleAmountDto,
       dose: null == dose
           ? _value.dose
           : dose // ignore: cast_nullable_to_non_nullable
@@ -103,8 +103,8 @@ class _$PrescriptionDtoCopyWithImpl<$Res, $Val extends PrescriptionDto>
 
   @override
   @pragma('vm:prefer-inline')
-  $DoseAmountDtoCopyWith<$Res> get doseAmount {
-    return $DoseAmountDtoCopyWith<$Res>(_value.doseAmount, (value) {
+  $LabelDoubleAmountDtoCopyWith<$Res> get doseAmount {
+    return $LabelDoubleAmountDtoCopyWith<$Res>(_value.doseAmount, (value) {
       return _then(_value.copyWith(doseAmount: value) as $Val);
     });
   }
@@ -129,14 +129,14 @@ abstract class _$$_PrescriptionDtoCopyWith<$Res>
   $Res call(
       {String id,
       BrandedMedicineDto medicine,
-      DoseAmountDto doseAmount,
+      LabelDoubleAmountDto doseAmount,
       DoseDto dose,
       List<IndicationDto> indications});
 
   @override
   $BrandedMedicineDtoCopyWith<$Res> get medicine;
   @override
-  $DoseAmountDtoCopyWith<$Res> get doseAmount;
+  $LabelDoubleAmountDtoCopyWith<$Res> get doseAmount;
   @override
   $DoseDtoCopyWith<$Res> get dose;
 }
@@ -170,7 +170,7 @@ class __$$_PrescriptionDtoCopyWithImpl<$Res>
       doseAmount: null == doseAmount
           ? _value.doseAmount
           : doseAmount // ignore: cast_nullable_to_non_nullable
-              as DoseAmountDto,
+              as LabelDoubleAmountDto,
       dose: null == dose
           ? _value.dose
           : dose // ignore: cast_nullable_to_non_nullable
@@ -203,7 +203,7 @@ class _$_PrescriptionDto extends _PrescriptionDto {
   @override
   final BrandedMedicineDto medicine;
   @override
-  final DoseAmountDto doseAmount;
+  final LabelDoubleAmountDto doseAmount;
   @override
   final DoseDto dose;
   final List<IndicationDto> _indications;
@@ -257,7 +257,7 @@ abstract class _PrescriptionDto extends PrescriptionDto {
   const factory _PrescriptionDto(
       {required final String id,
       required final BrandedMedicineDto medicine,
-      required final DoseAmountDto doseAmount,
+      required final LabelDoubleAmountDto doseAmount,
       required final DoseDto dose,
       required final List<IndicationDto> indications}) = _$_PrescriptionDto;
   const _PrescriptionDto._() : super._();
@@ -270,7 +270,7 @@ abstract class _PrescriptionDto extends PrescriptionDto {
   @override
   BrandedMedicineDto get medicine;
   @override
-  DoseAmountDto get doseAmount;
+  LabelDoubleAmountDto get doseAmount;
   @override
   DoseDto get dose;
   @override

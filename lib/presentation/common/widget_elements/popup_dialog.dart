@@ -1,4 +1,5 @@
 //Remove existing Dialog
+import 'package:expedientes_clinicos/injection.dart';
 import 'package:expedientes_clinicos/presentation/common/state_renderer/app_state_renderer.dart';
 import 'package:expedientes_clinicos/presentation/resources/const_values.dart';
 import 'package:expedientes_clinicos/presentation/resources/constant_size_values.dart';
@@ -45,16 +46,24 @@ class PopUpDialog extends StatelessWidget {
   }
 }
 
-class DialogContent extends StatelessWidget {
+class DialogContent extends StatefulWidget {
   final List<Widget> children;
   const DialogContent({required this.children, Key? key}) : super(key: key);
+
+  @override
+  State<DialogContent> createState() => _DialogContentState();
+}
+
+class _DialogContentState extends State<DialogContent> {
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      mainAxisSize: MainAxisSize.min,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: children,
+    return SingleChildScrollView(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: widget.children,
+      ),
     );
   }
 }

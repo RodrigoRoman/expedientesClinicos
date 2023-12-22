@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:expedientes_clinicos/application/medicine/branded_medicine/branded_medicine_form/branded_medicine_form_bloc.dart';
 import 'package:expedientes_clinicos/presentation/medicine/branded_medicine/branded_medicine_form/branded_medicine_form_body.dart';
+import 'package:expedientes_clinicos/presentation/routes/router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:expedientes_clinicos/injection.dart';
@@ -8,8 +9,9 @@ import 'package:expedientes_clinicos/application/state_render/state_renderer_blo
 import 'package:expedientes_clinicos/domain/core/categories/category.dart';
 import 'package:expedientes_clinicos/presentation/resources/string_manager.dart';
 
+@RoutePage()
 class BrandedMedicineFormPage extends StatefulWidget {
-  BrandedMedicineFormPage({this.onCreated, super.key});
+  BrandedMedicineFormPage({this.onCreated});
   Function? onCreated;
 
   @override
@@ -23,7 +25,7 @@ class _BrandedMedicineFormPageState extends State<BrandedMedicineFormPage> {
   final _key = GlobalKey<FormState>();
 
   List<Category> categoriesList = [];
-  
+
   @override
   void dispose() {
     super.dispose();
@@ -48,68 +50,73 @@ class _BrandedMedicineFormPageState extends State<BrandedMedicineFormPage> {
                     listener: (context, state) {
               state.saveFailureOrSuccessOption.fold(() {
                 if (state.isSaving) {
-                  context.read<StateRendererBloc>().add(
-                      StateRendererEvent.popUpLoading(AppStrings.saving,
-                          AppStrings.actionInProgressExplain, null, 300, 500));
+                  context
+                      .read<StateRendererBloc>()
+                      .add(const StateRendererEvent.popUpLoading(
+                        title: AppStrings.saving,
+                        message: AppStrings.actionInProgressExplain,
+                        until: FullScreenStatePageRoute.name,
+                      ));
                 }
               },
                   (either) => either.fold(
                           (failure) => failure.maybeMap(
                                 unexpected: (e) {
-                                  context.read<StateRendererBloc>().add(
-                                      StateRendererEvent.popUpError(
-                                          AppStrings.couldNotSaveImage,
-                                          AppStrings.somethingWentWrong,
-                                          null,
-                                          300,
-                                          500));
+                                  context
+                                      .read<StateRendererBloc>()
+                                      .add(const StateRendererEvent.popUpError(
+                                        title: AppStrings.couldNotSaveImage,
+                                        message: AppStrings.somethingWentWrong,
+                                        until: FullScreenStatePageRoute.name,
+                                      ));
                                 },
                                 unableToUploadImage: (e) {
-                                  context.read<StateRendererBloc>().add(
-                                      StateRendererEvent.popUpError(
-                                          AppStrings.couldNotSaveImage,
-                                          AppStrings.somethingWentWrong,
-                                          null,
-                                          300,
-                                          500));
+                                  context
+                                      .read<StateRendererBloc>()
+                                      .add(const StateRendererEvent.popUpError(
+                                        title: AppStrings.couldNotSaveImage,
+                                        message: AppStrings.somethingWentWrong,
+                                        until: FullScreenStatePageRoute.name,
+                                      ));
                                 },
                                 insufficientPermissions: (e) {
-                                  context.read<StateRendererBloc>().add(
-                                      StateRendererEvent.popUpError(
-                                          AppStrings.insuficcientPermissions,
-                                          AppStrings
-                                              .insuficcientPermissionsExplain,
-                                          null,
-                                          300,
-                                          500));
+                                  context
+                                      .read<StateRendererBloc>()
+                                      .add(const StateRendererEvent.popUpError(
+                                        title:
+                                            AppStrings.insuficcientPermissions,
+                                        message: AppStrings
+                                            .insuficcientPermissionsExplain,
+                                        until: FullScreenStatePageRoute.name,
+                                      ));
                                 },
                                 unableToCreate: (e) {
-                                  context.read<StateRendererBloc>().add(
-                                      StateRendererEvent.popUpError(
-                                          AppStrings.unableToCreate,
-                                          AppStrings.unableToCreateExplain,
-                                          null,
-                                          300,
-                                          500));
+                                  context
+                                      .read<StateRendererBloc>()
+                                      .add(const StateRendererEvent.popUpError(
+                                        title: AppStrings.unableToCreate,
+                                        message:
+                                            AppStrings.unableToCreateExplain,
+                                        until: FullScreenStatePageRoute.name,
+                                      ));
                                 },
                                 orElse: () {
-                                  context.read<StateRendererBloc>().add(
-                                      StateRendererEvent.popUpError(
-                                          AppStrings.genericError,
-                                          AppStrings.genericErrorExplain,
-                                          null,
-                                          300,
-                                          500));
+                                  context
+                                      .read<StateRendererBloc>()
+                                      .add(const StateRendererEvent.popUpError(
+                                        title: AppStrings.genericError,
+                                        message: AppStrings.genericErrorExplain,
+                                        until: FullScreenStatePageRoute.name,
+                                      ));
                                 },
                               ), (r) {
                         widget.onCreated?.call(state.medicine);
-                        context.read<StateRendererBloc>().add(
-                            StateRendererEvent.popUpSuccess(
-                                AppStrings.success,
-                                AppStrings.successfullyCreated,
-                                null,
-                                300,
-                                500));
+                        context
+                            .read<StateRendererBloc>()
+                            .add(const StateRendererEvent.popUpSuccess(
+                              title: AppStrings.success,
+                              message: AppStrings.successfullyCreated,
+                            ));
                       }));
               // state.ingredientCore.imgUrl.value;
             }, builder: (context, state) {

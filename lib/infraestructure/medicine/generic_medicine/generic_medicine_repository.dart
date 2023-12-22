@@ -32,9 +32,10 @@ class GenericMedicineRepository implements IGenericMedicineRepository {
       Map<String, dynamic> data = genericMedicineDto.toJson();
 
       //store the keyword that we will use for querying this document
-      data['keyWords'] = generateKeywords(genericMedicineDto.category.name) +
-          generateKeywords(genericMedicineDto.genericName) +
-          generateKeywords(genericMedicineDto.administrationRoute.name);
+      data['keyWords'] = await generateKeywords(
+              genericMedicineDto.category.name) +
+          await generateKeywords(genericMedicineDto.genericName) +
+          await generateKeywords(genericMedicineDto.administrationRoute.name);
 
       //We keep the id that comes from genericMedicineDto and avoid autogeneration
       await medicines.doc(genericMedicineDto.id).set(data);

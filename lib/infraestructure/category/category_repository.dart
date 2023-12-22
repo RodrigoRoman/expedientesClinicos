@@ -47,7 +47,7 @@ class CategoryRepository implements ICategoryRepository {
       categoryDto = categoryDto.copyWith(imageUrl: imageUrl);
 
       Map<String, dynamic> data = categoryDto.toJson();
-      data['keyWords'] = generateKeywords(categoryDto.name);
+      data['keyWords'] = await generateKeywords(categoryDto.name);
 
       //We keep the id that comes from categoryDto and avoid autogeneration
       await categories.doc(categoryDto.id).set(data);
@@ -66,6 +66,8 @@ class CategoryRepository implements ICategoryRepository {
         return left(const CategoryFailures.unexpected());
       }
     } catch (e) {
+      print('unexpected error');
+      print(e);
       return left(const CategoryFailures.unexpected());
     }
   }

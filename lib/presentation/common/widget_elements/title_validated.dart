@@ -1,29 +1,35 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:expedientes_clinicos/presentation/resources/string_manager.dart';
 import 'package:flutter/material.dart';
 
 class TitleValidated extends StatelessWidget {
-  const TitleValidated({
-    super.key,
-    required this.title,
-    required this.condition,
-  });
   final String title;
   final bool condition;
+  final String? errorText;
+
+  const TitleValidated(
+      {super.key,
+      required this.title,
+      required this.condition,
+      this.errorText = AppStrings.isEmpty});
 
   @override
   Widget build(BuildContext context) {
+    TextStyle titleTextTheme =
+        Theme.of(context).textTheme.displaySmall ?? const TextStyle();
     return Column(
+      mainAxisSize: MainAxisSize.min,
       children: [
         Expanded(
           flex: 4,
-          child: FittedBox(
-            child: Text(
-              title,
-              style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                  color: condition
-                      ? Theme.of(context).colorScheme.error
-                      : Colors.black),
-            ),
+          child: AutoSizeText(
+            title,
+            wrapWords: false,
+            maxLines: 1,
+            style: titleTextTheme.copyWith(
+                color: condition
+                    ? Theme.of(context).colorScheme.error
+                    : titleTextTheme.color),
           ),
         ),
         condition
@@ -32,14 +38,12 @@ class TitleValidated extends StatelessWidget {
                 child: Column(
                   children: [
                     Expanded(
-                      child: FittedBox(
-                        child: Text(AppStrings.isEmpty,
-                            style: Theme.of(context)
-                                .textTheme
-                                .bodySmall!
-                                .copyWith(
-                                    color:
-                                        Theme.of(context).colorScheme.error)),
+                      child: AutoSizeText(
+                        errorText ?? AppStrings.isEmpty,
+                        wrapWords: false,
+                        maxLines: 1,
+                        style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                            color: Theme.of(context).colorScheme.error),
                       ),
                     ),
                     Spacer(),

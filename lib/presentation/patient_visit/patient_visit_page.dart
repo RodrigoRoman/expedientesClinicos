@@ -1,9 +1,11 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:expedientes_clinicos/application/patient_visit/patient_visit_form/patient_visit_form_bloc.dart';
 import 'package:expedientes_clinicos/injection.dart';
 import 'package:expedientes_clinicos/presentation/prescription/prescription.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+@RoutePage()
 class PatientVisitPage extends StatefulWidget {
   const PatientVisitPage({super.key});
 
@@ -50,7 +52,7 @@ class _PatientVisitPageState extends State<PatientVisitPage> {
                         height: heightUnit * 1,
                         child: const Text('Paciente X')),
                     SizedBox(
-                        height: heightUnit * 7,
+                        height: heightUnit * 10,
                         child: const PrescriptionBody()),
                     SizedBox(height: heightUnit * 1)
                   ],

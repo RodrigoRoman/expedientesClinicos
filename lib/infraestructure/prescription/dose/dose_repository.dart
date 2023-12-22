@@ -29,9 +29,9 @@ class DoseRepository implements IDoseRepository {
       Map<String, dynamic> data = doseDto.toJson();
 
       //store the keyword that we will use for querying this document
-      data['keyWords'] = generateKeywords(doseDto.dayHoursDose.label) +
-          generateKeywords(doseDto.weekDaysDose.label) +
-          generateKeywords(doseDto.duration.label);
+      data['keyWords'] = await generateKeywords(doseDto.dayHoursDose.label) +
+          await generateKeywords(doseDto.weekDaysDose.label) +
+          await generateKeywords(doseDto.duration.label);
       //We keep the id that comes from DoseDto and avoid autogeneration
       await doses.doc(doseDto.id).set(data);
       return right(unit);
@@ -81,9 +81,9 @@ class DoseRepository implements IDoseRepository {
       Map<String, dynamic> data = doseDto.toJson();
 
       //store the keyword that we will use for querying this document
-      data['keyWords'] = generateKeywords(doseDto.dayHoursDose.label) +
-          generateKeywords(doseDto.weekDaysDose.label) +
-          generateKeywords(doseDto.duration.label);
+      data['keyWords'] = await generateKeywords(doseDto.dayHoursDose.label) +
+          await generateKeywords(doseDto.weekDaysDose.label) +
+          await generateKeywords(doseDto.duration.label);
       //We keep the id that comes from DoseDto and avoid autogeneration
       await doses.doc(doseDto.id).set(data);
       return right(unit);

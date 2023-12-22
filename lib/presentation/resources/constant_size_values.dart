@@ -16,6 +16,11 @@ class AppSize {
   static const double s20 = 20.0;
   static const double s22 = 22.0;
   static const double s24 = 24.0;
+  static const double s35 = 35.0;
+  static const double s50 = 50.0;
+  static const double s75 = 75.0;
+  static const double s85 = 85.0;
+  static const double s100 = 100.0;
 
   //as integer values
   static const int iS0 = 0;
@@ -31,6 +36,15 @@ class AppSize {
   static const int iS20 = 20;
   static const int iS22 = 22;
   static const int iS24 = 24;
+
+  //size for specific widgetsr
+  static const double popUpSMHeight = 300;
+  static const double popUpMHeight = 500;
+  static const double popUpLHeight = 900;
+
+  static const double popUpSMWidth = 300;
+  static const double popUpMWidth = 400;
+  static const double popUpLWidth = 500;
 }
 
 class AppSizePercents {
@@ -62,4 +76,37 @@ class AppSizePercents {
   static const double per160 = 1.60;
   static const double per170 = 1.70;
   static const double per180 = 1.80;
+}
+
+class InputFieldHeight {
+  static const double xs = 30;
+  static const double s = 70;
+  static const double m = 120;
+  static const double l = 200;
+  static const double xl = 280;
+  static const double xxl = 400;
+}
+
+class InputFieldWidth {
+  static const double xs = 70;
+  static const double s = 120;
+  static const double m = 200;
+  static const double l = 300;
+  static const double xl = 500;
+}
+
+class CardItemHeight {
+  static const double xs = 70;
+  static const double s = 110;
+  static const double m = 170;
+  static const double l = 250;
+  static const double xl = 350;
+}
+
+class CardItemWidth {
+  static const double xs = 70;
+  static const double s = 120;
+  static const double m = 200;
+  static const double l = 300;
+  static const double xl = 500;
 }

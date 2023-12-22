@@ -1,10 +1,10 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:expedientes_clinicos/application/abbreviation_name/abbreviation_name_watcher/abbreviation_name_watcher_bloc.dart';
 import 'package:expedientes_clinicos/application/abbreviation_name/abbreviation_name_watcher/measure_unit_watcher_bloc.dart';
 import 'package:expedientes_clinicos/application/medicine/generic_medicine/generic_medicine_form/generic_medicine_form_bloc.dart';
 import 'package:expedientes_clinicos/domain/core/name_abbreviation/name_abbr.dart';
 import 'package:expedientes_clinicos/injection.dart';
-import 'package:expedientes_clinicos/presentation/common/widget_elements/double_input.dart';
-import 'package:expedientes_clinicos/presentation/common/widget_elements/title_validated.dart';
+import 'package:expedientes_clinicos/presentation/common/widget_elements/input_fields/double_input.dart';
 import 'package:expedientes_clinicos/presentation/measure_unit/drop_down_search_measure_unit.dart';
 import 'package:expedientes_clinicos/presentation/resources/string_manager.dart';
 import 'package:flutter/material.dart';
@@ -24,31 +24,14 @@ class MeasureUnitAmountRow extends StatelessWidget {
       children: [
         Expanded(
           flex: 6,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Expanded(
-                child: TitleValidated(
-                    title: AppStrings.measureUnit,
-                    condition: (requestedSubmition &
-                        (context
-                                .read<GenericMedicineFormBloc>()
-                                .state
-                                .medicine
-                                .measureUnit ==
-                            NameAbbreviation.empty()))),
-              ),
-              Expanded(
-                child: BlocProvider(
-                  create: (context) => getIt<MeasureUnitWatcherBloc>()
-                    ..add(const AbbreviationNameWatcherEvent.watchAllStarted()),
-                  child: DropdownSearchMeasureUnit(),
-                ),
-              )
-            ],
+          child: BlocProvider(
+            create: (context) => getIt<MeasureUnitWatcherBloc>()
+              ..add(const AbbreviationNameWatcherEvent.watchAllStarted()),
+            child: DropdownSearchMeasureUnit(
+                requestedSubmition: requestedSubmition),
           ),
         ),
+        const Spacer(),
         context.read<GenericMedicineFormBloc>().state.medicine.measureUnit !=
                 NameAbbreviation.empty()
             ? Expanded(
@@ -60,11 +43,10 @@ class MeasureUnitAmountRow extends StatelessWidget {
                       child: Column(
                         children: [
                           Expanded(
-                              child: FittedBox(
-                            child: Text(
-                              AppStrings.amountUnitMeasure,
-                              style: Theme.of(context).textTheme.bodyMedium,
-                            ),
+                              child: AutoSizeText(
+                            AppStrings.amount,
+                            textAlign: TextAlign.center,
+                            style: Theme.of(context).textTheme.displayMedium,
                           )),
                           Expanded(
                               flex: 2,

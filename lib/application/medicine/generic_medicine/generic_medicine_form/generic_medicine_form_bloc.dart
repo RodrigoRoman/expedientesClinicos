@@ -18,8 +18,20 @@ part 'generic_medicine_form_bloc.freezed.dart';
 class GenericMedicineFormBloc
     extends Bloc<GenericMedicineFormEvent, GenericMedicineFormState> {
   final IGenericMedicineRepository _medicineRepository;
+
   GenericMedicineFormBloc(this._medicineRepository)
       : super(GenericMedicineFormState.initial()) {
+    //Auxiliar function for validating the form
+    bool _validateMedicine(GenericMedicine medicine) {
+      return state.medicine.genericName.value.isRight() &&
+          !state.medicine.measureUnit.isEmpty &&
+          state.medicine.amountMeasureUnit.value.isRight() &&
+          !state.medicine.administrationRoute.isEmpty &&
+          !state.medicine.pharmaceuticalForm.isEmpty &&
+          state.medicine.amountPerPackage.value.isRight() &&
+          !state.medicine.category.isEmpty;
+    }
+
     on<_Initialized>((event, emit) {
       emit(event.intialMedicineOption.fold(
           () => state.copyWith(
@@ -33,40 +45,48 @@ class GenericMedicineFormBloc
     });
     on<_GenericNameChanged>((event, emit) {
       emit(state.copyWith(
+          isValid: _validateMedicine(state.medicine),
           medicine: state.medicine
               .copyWith(genericName: FullName(event.genericName))));
     });
     on<_MeasureUnitChanged>((event, emit) {
       emit(state.copyWith(
+          isValid: _validateMedicine(state.medicine),
           medicine: state.medicine.copyWith(measureUnit: event.measureUnit)));
     });
     on<_AmountMeasureChanged>((event, emit) {
       emit(state.copyWith(
+          isValid: _validateMedicine(state.medicine),
           medicine: state.medicine
               .copyWith(amountMeasureUnit: NonNegDouble(event.amountMeasure))));
     });
     on<_AdministrationRouteChanged>((event, emit) {
       emit(state.copyWith(
+          isValid: _validateMedicine(state.medicine),
           medicine: state.medicine
               .copyWith(administrationRoute: event.administrationRoute)));
     });
     on<_PharmaceuticalFormChanged>((event, emit) {
       emit(state.copyWith(
+          isValid: _validateMedicine(state.medicine),
           medicine: state.medicine
               .copyWith(pharmaceuticalForm: event.pharmaceuticalForm)));
     });
     on<_AmountPerPackageChanged>((event, emit) {
       emit(state.copyWith(
+          isValid: _validateMedicine(state.medicine),
           medicine: state.medicine
               .copyWith(amountPerPackage: NonNegInt(event.amountPerPackage))));
     });
     on<_CategoryChanged>((event, emit) {
       emit(state.copyWith(
+          isValid: _validateMedicine(state.medicine),
           medicine: state.medicine.copyWith(category: event.category)));
     });
     on<_ControlledChanged>((event, emit) {
       emit(state.copyWith(
-          medicine: state.medicine.copyWith(controlled: event.controlled)));
+          medicine:
+              state.medicine.copyWith(controlled: !state.medicine.controlled)));
     });
     on<_Saved>((event, emit) async {
       Either<GenericMedicineFailures, Unit>? failureOrSuccess;

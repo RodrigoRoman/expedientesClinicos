@@ -4,6 +4,7 @@ import 'package:expedientes_clinicos/application/state_render/state_renderer_blo
 import 'package:expedientes_clinicos/domain/core/categories/category.dart';
 import 'package:expedientes_clinicos/presentation/common/widget_elements/category/pop_up_category_form.dart';
 import 'package:expedientes_clinicos/presentation/resources/string_manager.dart';
+import 'package:expedientes_clinicos/presentation/routes/router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -24,63 +25,57 @@ class _MedicineCategoryFormState extends State<MedicineCategoryForm> {
         state.saveFailureOrSuccessOption.fold(() {
           if (state.isSaving) {
             context.read<StateRendererBloc>().add(
-                const StateRendererEvent.popUpLoading(AppStrings.saving,
-                    AppStrings.actionInProgressExplain, null, 300, 500));
+                const StateRendererEvent.popUpLoading(
+                    until: AppStrings.popUp,
+                    title: AppStrings.saving,
+                    message: AppStrings.actionInProgressExplain));
           }
         },
             (either) => either.fold(
                     (failure) => failure.maybeMap(
                           unexpected: (e) {
                             context.read<StateRendererBloc>().add(
-                                // ignore: prefer_const_constructors
                                 StateRendererEvent.popUpError(
-                                    AppStrings.couldNotSaveImage,
-                                    AppStrings.somethingWentWrong,
-                                    null,
-                                    300,
-                                    500));
+                                    title: AppStrings.couldNotSaveImage,
+                                    message: AppStrings.somethingWentWrong,
+                                    until: FullScreenStatePageRoute.name));
                           },
                           unableToUploadImage: (e) {
                             context.read<StateRendererBloc>().add(
-                                StateRendererEvent.popUpError(
-                                    AppStrings.couldNotSaveImage,
-                                    AppStrings.somethingWentWrong,
-                                    null,
-                                    300,
-                                    500));
+                                const StateRendererEvent.popUpError(
+                                    title: AppStrings.couldNotSaveImage,
+                                    message: AppStrings.somethingWentWrong,
+                                    until: FullScreenStatePageRoute.name));
                           },
                           insufficientPermissions: (e) {
                             context.read<StateRendererBloc>().add(
-                                StateRendererEvent.popUpError(
-                                    AppStrings.insuficcientPermissions,
-                                    AppStrings.insuficcientPermissionsExplain,
-                                    null,
-                                    300,
-                                    500));
+                                const StateRendererEvent.popUpError(
+                                    title: AppStrings.insuficcientPermissions,
+                                    message: AppStrings
+                                        .insuficcientPermissionsExplain,
+                                    until: FullScreenStatePageRoute.name));
                           },
                           unableToCreate: (e) {
                             context.read<StateRendererBloc>().add(
-                                StateRendererEvent.popUpError(
-                                    AppStrings.unableToCreate,
-                                    AppStrings.unableToCreateExplain,
-                                    null,
-                                    300,
-                                    500));
+                                const StateRendererEvent.popUpError(
+                                    title: AppStrings.unableToCreate,
+                                    message: AppStrings.unableToCreateExplain,
+                                    until: FullScreenStatePageRoute.name));
                           },
                           orElse: () {
                             context.read<StateRendererBloc>().add(
-                                StateRendererEvent.popUpError(
-                                    AppStrings.genericError,
-                                    AppStrings.genericErrorExplain,
-                                    null,
-                                    300,
-                                    500));
+                                const StateRendererEvent.popUpError(
+                                    title: AppStrings.genericError,
+                                    message: AppStrings.genericErrorExplain,
+                                    until: FullScreenStatePageRoute.name));
                           },
                         ), (r) {
                   widget.onCreated?.call(state.category);
                   context.read<StateRendererBloc>().add(
-                      StateRendererEvent.popUpSuccess(AppStrings.success,
-                          AppStrings.successfullyCreated, null, 300, 500));
+                      const StateRendererEvent.popUpSuccess(
+                          title: AppStrings.success,
+                          message: AppStrings.successfullyCreated,
+                          until: FullScreenStatePageRoute.name));
                 }));
       },
       builder: (context, state) {
@@ -90,38 +85,11 @@ class _MedicineCategoryFormState extends State<MedicineCategoryForm> {
             context
                 .read<MedicineCategoryFormBloc>()
                 .add(CategoryFormEvent.nameChanged(name));
-            // setState(() {});
-            // context
-            //     .read<MedicineCategoryFormBloc>()
-            //     .state
-            //     .category
-            //     .name
-            //     .value
-            //     .fold(
-            //         (f) => f.maybeMap(
-            //             exceedingLength: (value) => AppStrings.tooLong,
-            //             empty: (value) => AppStrings.isEmpty,
-            //             orElse: () => AppStrings.empty),
-            //         (_) => null);
           },
           onImageChanged: (img) {
             context
                 .read<MedicineCategoryFormBloc>()
                 .add(CategoryFormEvent.imageUrlChanged(img));
-            // setState(() {});
-
-            // context
-            //     .read<MedicineCategoryFormBloc>()
-            //     .state
-            //     .category
-            //     .imageUrl
-            //     .value
-            //     .fold(
-            //         (f) => f.maybeMap(
-            //             urlMustBeValid: (value) => AppStrings.unableToReadError,
-            //             empty: (value) => AppStrings.isEmpty,
-            //             orElse: () => AppStrings.empty),
-            //         (_) => null);
           },
           validName: () {
             return context

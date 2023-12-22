@@ -1,0 +1,204 @@
+
+App Thinning Size Report for All Variants of Runner
+
+Variant: farmacia_san_roman_app-06190645-44A3-4CD8-8B02-8E7A36DC9E33.ipa
+Supported variant descriptors: [device: iPhone12,1, os-version: 15.0], [device: iPhone11,8, os-version: 15.0], [device: iPhone12,1, os-version: 16.0], and [device: iPhone11,8, os-version: 16.0]
+App + On Demand Resources size: 23.5 MB compressed, 57.7 MB uncompressed
+App size: 23.5 MB compressed, 57.7 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
+
+
+Variant: farmacia_san_roman_app-1C2B3766-99F3-4E24-9CF2-6879CF0BEA20.ipa
+Supported variant descriptors: [device: iPad6,12, os-version: 12.0], [device: iPad5,2, os-version: 12.0], [device: iPad5,1, os-version: 12.0], [device: iPad4,2, os-version: 12.0], [device: iPad4,5, os-version: 12.0], [device: iPad4,9, os-version: 12.0], [device: iPad5,4, os-version: 12.0], [device: iPad4,8, os-version: 12.0], [device: iPad6,7, os-version: 12.0], [device: iPad4,1, os-version: 12.0], [device: iPad4,3, os-version: 12.0], [device: iPad4,4, os-version: 12.0], [device: iPad5,3, os-version: 12.0], [device: iPad6,11, os-version: 12.0], [device: iPad7,5, os-version: 12.0], [device: iPad7,6, os-version: 12.0], [device: iPad4,6, os-version: 12.0], [device: iPad4,7, os-version: 12.0], and [device: iPad6,8, os-version: 12.0]
+App + On Demand Resources size: 26.2 MB compressed, 66 MB uncompressed
+App size: 26.2 MB compressed, 66 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
+
+
+Variant: farmacia_san_roman_app-25F1DE8D-1E31-4438-88C0-7C9D9D6FC46D.ipa
+Supported variant descriptors: [device: iPhone10,3, os-version: 16.0], [device: iPhone11,6, os-version: 15.0], [device: iPhone11,4, os-version: 16.0], [device: iPhone14,3, os-version: 16.0], [device: iPhone14,4, os-version: 15.0], [device: iPhone14,5, os-version: 16.0], [device: iPhone13,2, os-version: 15.0], [device: iPhone14,2, os-version: 16.0], [device: iPhone13,4, os-version: 15.0], [device: iPhone10,2, os-version: 15.0], [device: iPhone12,3, os-version: 15.0], [device: iPhone10,5, os-version: 15.0], [device: iPhone10,2, os-version: 16.0], [device: iPhone14,4, os-version: 16.0], [device: iPhone11,2, os-version: 15.0], [device: iPhone13,1, os-version: 16.0], [device: iPhone9,4, os-version: 15.0], [device: iPhone14,7, os-version: 16.0], [device: iPhone13,1, os-version: 15.0], [device: iPhone12,5, os-version: 15.0], [device: iPhone13,2, os-version: 16.0], [device: iPhone12,3, os-version: 16.0], [device: iPhone13,3, os-version: 16.0], [device: iPhone12,5, os-version: 16.0], [device: iPhone15,2, os-version: 16.0], [device: iPhone14,5, os-version: 15.0], [device: iPhone13,4, os-version: 16.0], [device: iPhone14,2, os-version: 15.0], [device: iPhone11,2, os-version: 16.0], [device: iPhone10,6, os-version: 15.0], [device: iPhone11,4, os-version: 15.0], [device: iPhone9,2, os-version: 15.0], [device: iPhone10,6, os-version: 16.0], [device: iPhone15,3, os-version: 16.0], [device: iPhone10,3, os-version: 15.0], [device: iPhone14,8, os-version: 16.0], [device: iPhone10,5, os-version: 16.0], [device: iPhone13,3, os-version: 15.0], [device: iPhone14,3, os-version: 15.0], and [device: iPhone11,6, os-version: 16.0]
+App + On Demand Resources size: 23.5 MB compressed, 57.7 MB uncompressed
+App size: 23.5 MB compressed, 57.7 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
+
+
+Variant: farmacia_san_roman_app-3875CE77-2A73-490D-96F2-942BD9C354AE.ipa
+Supported variant descriptors: [device: iPad6,7, os-version: 12.2], [device: iPad6,8, os-version: 12.2], [device: iPad4,2, os-version: 12.2], [device: iPad7,5, os-version: 12.2], [device: iPad5,2, os-version: 12.2], [device: iPad6,11, os-version: 12.2], [device: iPad4,4, os-version: 12.2], [device: iPad4,5, os-version: 12.2], [device: iPad4,7, os-version: 12.2], [device: iPad7,6, os-version: 12.2], [device: iPad4,1, os-version: 12.2], [device: iPad4,6, os-version: 12.2], [device: iPad4,9, os-version: 12.2], [device: iPad5,1, os-version: 12.2], [device: iPad6,12, os-version: 12.2], [device: iPad4,3, os-version: 12.2], [device: iPad4,8, os-version: 12.2], [device: iPad5,3, os-version: 12.2], and [device: iPad5,4, os-version: 12.2]
+App + On Demand Resources size: 23.7 MB compressed, 58.1 MB uncompressed
+App size: 23.7 MB compressed, 58.1 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
+
+
+Variant: farmacia_san_roman_app-483A5095-866B-453A-B1EC-8CF34B36507A.ipa
+Supported variant descriptors: [device: iPhone10,1, os-version: 15.0], [device: iPhone12,8, os-version: 15.0], [device: iPhone14,6, os-version: 15.0], [device: iPhone10,4, os-version: 16.0], [device: iPhone9,3, os-version: 15.0], [device: iPhone9,1, os-version: 15.0], [device: iPhone10,4, os-version: 15.0], [device: iPhone10,1, os-version: 16.0], [device: iPhone12,8, os-version: 16.0], and [device: iPhone14,6, os-version: 16.0]
+App + On Demand Resources size: 23.5 MB compressed, 57.7 MB uncompressed
+App size: 23.5 MB compressed, 57.7 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
+
+
+Variant: farmacia_san_roman_app-4A798B80-9284-4B01-AA7C-4AC1CE3E6CFA.ipa
+Supported variant descriptors: [device: iPad6,7, os-version: 13.0], [device: iPad5,2, os-version: 13.0], [device: iPad5,1, os-version: 13.0], [device: iPad11,6, os-version: 14.0], [device: iPad6,7, os-version: 14.0], [device: iPad7,5, os-version: 14.0], [device: iPad5,4, os-version: 14.0], [device: iPad6,12, os-version: 13.0], [device: iPad7,11, os-version: 14.0], [device: iPad5,3, os-version: 13.0], [device: iPad6,8, os-version: 14.0], [device: iPad7,5, os-version: 13.0], [device: iPad5,2, os-version: 14.0], [device: iPad7,11, os-version: 13.0], [device: iPad7,12, os-version: 14.0], [device: iPad6,11, os-version: 13.0], [device: iPad5,3, os-version: 14.0], [device: iPad5,4, os-version: 13.0], [device: iPad5,1, os-version: 14.0], [device: iPad11,7, os-version: 14.0], [device: iPad7,6, os-version: 14.0], [device: iPad6,12, os-version: 14.0], [device: iPad7,6, os-version: 13.0], [device: iPad6,8, os-version: 13.0], [device: iPad7,12, os-version: 13.0], and [device: iPad6,11, os-version: 14.0]
+App + On Demand Resources size: 23.7 MB compressed, 58.1 MB uncompressed
+App size: 23.7 MB compressed, 58.1 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
+
+
+Variant: farmacia_san_roman_app-50EFF3DA-C73C-4187-AAC9-3CC83F43B86D.ipa
+Supported variant descriptors: [device: iPad8,4, os-version: 13.0], [device: iPad8,5, os-version: 14.0], [device: iPad6,4, os-version: 14.0], [device: iPad8,6, os-version: 14.0], [device: iPad7,1, os-version: 13.0], [device: iPad11,4, os-version: 14.0], [device: iPad8,6, os-version: 13.0], [device: iPad8,12, os-version: 14.0], [device: iPad8,2, os-version: 14.0], [device: iPad13,4, os-version: 14.0], [device: iPad8,9, os-version: 14.0], [device: iPad11,4, os-version: 13.0], [device: iPad11,3, os-version: 14.0], [device: iPad7,1, os-version: 14.0], [device: MacFamily20,1, os-version: 14.0], [device: iPad13,10, os-version: 14.0], [device: iPad8,10, os-version: 13.0], [device: iPad11,1, os-version: 13.0], [device: iPad13,7, os-version: 14.0], [device: iPad8,1, os-version: 13.0], [device: iPad13,5, os-version: 14.0], [device: iPad7,2, os-version: 13.0], [device: iPad11,2, os-version: 14.0], [device: iPad11,1, os-version: 14.0], [device: iPad7,4, os-version: 14.0], [device: iPad6,4, os-version: 13.0], [device: iPad8,3, os-version: 14.0], [device: iPad13,2, os-version: 14.0], [device: iPad7,3, os-version: 14.0], [device: iPad13,6, os-version: 14.0], [device: iPad11,2, os-version: 13.0], [device: iPad8,7, os-version: 13.0], [device: iPad8,4, os-version: 14.0], [device: iPad6,3, os-version: 14.0], [device: iPad8,7, os-version: 14.0], [device: iPad8,11, os-version: 14.0], [device: iPad7,3, os-version: 13.0], [device: iPad7,4, os-version: 13.0], [device: iPad8,11, os-version: 13.0], [device: iPad8,8, os-version: 13.0], [device: iPad6,3, os-version: 13.0], [device: iPad7,2, os-version: 14.0], [device: iPad8,5, os-version: 13.0], [device: iPad13,8, os-version: 14.0], [device: iPad8,10, os-version: 14.0], [device: iPad8,8, os-version: 14.0], [device: iPad8,12, os-version: 13.0], [device: iPad13,1, os-version: 14.0], [device: iPad13,9, os-version: 14.0], [device: iPad8,2, os-version: 13.0], [device: iPad8,9, os-version: 13.0], [device: iPad11,3, os-version: 13.0], [device: iPad8,3, os-version: 13.0], [device: iPad8,1, os-version: 14.0], and [device: iPad13,11, os-version: 14.0]
+App + On Demand Resources size: 23.7 MB compressed, 58.1 MB uncompressed
+App size: 23.7 MB compressed, 58.1 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
+
+
+Variant: farmacia_san_roman_app-5AC2DF40-CCA5-43D1-AE79-013307CB1F62.ipa
+Supported variant descriptors: [device: iPhone7,1, os-version: 12.0] and [device: iPhone8,2, os-version: 12.0]
+App + On Demand Resources size: 26.2 MB compressed, 66 MB uncompressed
+App size: 26.2 MB compressed, 66 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
+
+
+Variant: farmacia_san_roman_app-5EF4F147-3649-44FE-9444-E9309E5FE4B7.ipa
+Supported variant descriptors: [device: iPhone7,1, os-version: 12.2] and [device: iPhone8,2, os-version: 12.2]
+App + On Demand Resources size: 23.7 MB compressed, 58.1 MB uncompressed
+App size: 23.7 MB compressed, 58.1 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
+
+
+Variant: farmacia_san_roman_app-652195B2-8AA3-4FDA-8DB2-2B989C31241D.ipa
+Supported variant descriptors: [device: iPad8,3, os-version: 12.2], [device: iPad7,3, os-version: 12.2], [device: iPad6,3, os-version: 12.2], [device: iPad8,6, os-version: 12.2], [device: iPad8,4, os-version: 12.2], [device: iPad8,5, os-version: 12.2], [device: iPad7,1, os-version: 12.2], [device: iPad11,2, os-version: 12.2], [device: iPad11,3, os-version: 12.2], [device: iPad6,4, os-version: 12.2], [device: iPad11,4, os-version: 12.2], [device: iPad7,2, os-version: 12.2], [device: iPad8,7, os-version: 12.2], [device: iPad7,4, os-version: 12.2], [device: iPad8,1, os-version: 12.2], [device: iPad8,8, os-version: 12.2], [device: iPad11,1, os-version: 12.2], and [device: iPad8,2, os-version: 12.2]
+App + On Demand Resources size: 23.7 MB compressed, 58.1 MB uncompressed
+App size: 23.7 MB compressed, 58.1 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
+
+
+Variant: farmacia_san_roman_app-787D4515-D1C5-4FBD-8BEA-1212326E78D3.ipa
+Supported variant descriptors: [device: iPhone11,8, os-version: 12.0]
+App + On Demand Resources size: 26.2 MB compressed, 66 MB uncompressed
+App size: 26.2 MB compressed, 66 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
+
+
+Variant: farmacia_san_roman_app-806D2033-81BD-413A-9B40-29E5E331B219.ipa
+Supported variant descriptors: [device: iPhone8,2, os-version: 15.0]
+App + On Demand Resources size: 23.5 MB compressed, 57.7 MB uncompressed
+App size: 23.5 MB compressed, 57.7 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
+
+
+Variant: farmacia_san_roman_app-8A11FE2D-A7C4-4D65-9E3E-A60FBDA85458.ipa
+Supported variant descriptors: [device: iPhone11,8, os-version: 12.2]
+App + On Demand Resources size: 23.7 MB compressed, 58.1 MB uncompressed
+App size: 23.7 MB compressed, 58.1 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
+
+
+Variant: farmacia_san_roman_app-943458B2-A3C1-4F2A-A9C9-DCE894B6BE28.ipa
+Supported variant descriptors: [device: iPhone6,2, os-version: 12.2], [device: iPhone8,1, os-version: 12.2], [device: iPhone8,4, os-version: 12.2], [device: iPod7,1, os-version: 12.2], [device: iPod9,1, os-version: 12.2], [device: iPhone6,1, os-version: 12.2], and [device: iPhone7,2, os-version: 12.2]
+App + On Demand Resources size: 23.6 MB compressed, 58.1 MB uncompressed
+App size: 23.6 MB compressed, 58.1 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
+
+
+Variant: farmacia_san_roman_app-97F6D560-EC48-4445-85F6-52813EE0182A.ipa
+Supported variant descriptors: [device: iPhone12,1, os-version: 13.0], [device: iPhone12,1, os-version: 14.0], [device: iPhone11,8, os-version: 14.0], and [device: iPhone11,8, os-version: 13.0]
+App + On Demand Resources size: 23.7 MB compressed, 58.1 MB uncompressed
+App size: 23.7 MB compressed, 58.1 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
+
+
+Variant: farmacia_san_roman_app-9A948DD2-3179-4614-8772-0EDC01500460.ipa
+Supported variant descriptors: [device: iPhone10,3, os-version: 13.0], [device: iPhone10,5, os-version: 14.0], [device: iPhone10,5, os-version: 13.0], [device: iPhone9,4, os-version: 14.0], [device: iPhone11,4, os-version: 13.0], [device: iPhone10,6, os-version: 13.0], [device: iPhone10,3, os-version: 14.0], [device: iPhone10,2, os-version: 14.0], [device: iPhone10,6, os-version: 14.0], [device: iPhone12,3, os-version: 13.0], [device: iPhone12,5, os-version: 13.0], [device: iPhone9,2, os-version: 13.0], [device: iPhone11,2, os-version: 14.0], [device: iPhone12,5, os-version: 14.0], [device: iPhone13,2, os-version: 14.0], [device: iPhone9,4, os-version: 13.0], [device: iPhone13,4, os-version: 14.0], [device: iPhone13,3, os-version: 14.0], [device: iPhone11,4, os-version: 14.0], [device: iPhone11,6, os-version: 13.0], [device: iPhone12,3, os-version: 14.0], [device: iPhone11,2, os-version: 13.0], [device: iPhone9,2, os-version: 14.0], [device: iPhone11,6, os-version: 14.0], [device: iPhone13,1, os-version: 14.0], and [device: iPhone10,2, os-version: 13.0]
+App + On Demand Resources size: 23.7 MB compressed, 58.1 MB uncompressed
+App size: 23.7 MB compressed, 58.1 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
+
+
+Variant: farmacia_san_roman_app-9D9FBC2F-2181-4F17-9B64-F638FAC9279D.ipa
+Supported variant descriptors: [device: iPhone9,3, os-version: 12.0], [device: iPhone10,4, os-version: 12.0], [device: iPhone10,1, os-version: 12.0], and [device: iPhone9,1, os-version: 12.0]
+App + On Demand Resources size: 26.2 MB compressed, 66 MB uncompressed
+App size: 26.2 MB compressed, 66 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
+
+
+Variant: farmacia_san_roman_app-A33BF089-D13F-40EA-BD22-1BD6BC1D05F2.ipa
+Supported variant descriptors: [device: iPhone8,1, os-version: 13.0], [device: iPhone8,4, os-version: 13.0], [device: iPhone8,1, os-version: 14.0], [device: iPod9,1, os-version: 14.0], [device: iPod9,1, os-version: 13.0], and [device: iPhone8,4, os-version: 14.0]
+App + On Demand Resources size: 23.6 MB compressed, 58.1 MB uncompressed
+App size: 23.6 MB compressed, 58.1 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
+
+
+Variant: farmacia_san_roman_app-ACC170C9-6309-4A56-B999-3A07E9ECB8A5.ipa
+Supported variant descriptors: [device: iPad6,7, os-version: 16.0], [device: iPad6,12, os-version: 16.0], [device: iPad6,11, os-version: 16.0], [device: iPad7,6, os-version: 16.0], [device: iPad6,7, os-version: 15.0], [device: iPad12,1, os-version: 16.0], [device: iPad5,1, os-version: 15.0], [device: iPad7,5, os-version: 16.0], [device: iPad5,2, os-version: 15.0], [device: iPad5,3, os-version: 15.0], [device: iPad7,5, os-version: 15.0], [device: iPad7,6, os-version: 15.0], [device: iPad13,19, os-version: 16.0], [device: iPad6,8, os-version: 16.0], [device: iPad11,7, os-version: 16.0], [device: iPad6,12, os-version: 15.0], [device: iPad7,12, os-version: 15.0], [device: iPad6,8, os-version: 15.0], [device: iPad7,12, os-version: 16.0], [device: iPad11,7, os-version: 15.0], [device: iPad5,4, os-version: 15.0], [device: iPad11,6, os-version: 15.0], [device: iPad6,11, os-version: 15.0], [device: iPad11,6, os-version: 16.0], [device: iPad12,2, os-version: 16.0], [device: iPad7,11, os-version: 15.0], [device: iPad7,11, os-version: 16.0], [device: iPad13,18, os-version: 16.0], [device: iPad12,1, os-version: 15.0], and [device: iPad12,2, os-version: 15.0]
+App + On Demand Resources size: 23.5 MB compressed, 57.7 MB uncompressed
+App size: 23.5 MB compressed, 57.7 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
+
+
+Variant: farmacia_san_roman_app-AEF831B4-BB96-403A-A37C-0A6BA303619B.ipa
+Supported variant descriptors: [device: iPhone10,6, os-version: 12.2], [device: iPhone10,2, os-version: 12.2], [device: iPhone11,2, os-version: 12.2], [device: iPhone11,6, os-version: 12.2], [device: iPhone10,3, os-version: 12.2], [device: iPhone9,2, os-version: 12.2], [device: iPhone11,4, os-version: 12.2], [device: iPhone10,5, os-version: 12.2], and [device: iPhone9,4, os-version: 12.2]
+App + On Demand Resources size: 23.7 MB compressed, 58.1 MB uncompressed
+App size: 23.7 MB compressed, 58.1 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
+
+
+Variant: farmacia_san_roman_app-AF69DD1E-32D4-40F1-B5CA-7372CD54530E.ipa
+Supported variant descriptors: [device: iPhone10,6, os-version: 12.0], [device: iPhone9,2, os-version: 12.0], [device: iPhone10,5, os-version: 12.0], [device: iPhone11,4, os-version: 12.0], [device: iPhone10,2, os-version: 12.0], [device: iPhone10,3, os-version: 12.0], [device: iPhone11,6, os-version: 12.0], [device: iPhone11,2, os-version: 12.0], and [device: iPhone9,4, os-version: 12.0]
+App + On Demand Resources size: 26.2 MB compressed, 66 MB uncompressed
+App size: 26.2 MB compressed, 66 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
+
+
+Variant: farmacia_san_roman_app-B9F5D753-AD42-4F23-A999-265FE37131DB.ipa
+Supported variant descriptors: [device: iPhone8,2, os-version: 14.0] and [device: iPhone8,2, os-version: 13.0]
+App + On Demand Resources size: 23.7 MB compressed, 58.1 MB uncompressed
+App size: 23.7 MB compressed, 58.1 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
+
+
+Variant: farmacia_san_roman_app-D2F8988D-C505-4D34-8EE4-9A584D5FE655.ipa
+Supported variant descriptors: [device: iPhone8,4, os-version: 12.0], [device: iPhone6,2, os-version: 12.0], [device: iPhone8,1, os-version: 12.0], [device: iPhone7,2, os-version: 12.0], [device: iPhone6,1, os-version: 12.0], and [device: iPod7,1, os-version: 12.0]
+App + On Demand Resources size: 26.2 MB compressed, 66 MB uncompressed
+App size: 26.2 MB compressed, 66 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
+
+
+Variant: farmacia_san_roman_app-DD926716-AD22-44FA-BD59-FD4A61A698A6.ipa
+Supported variant descriptors: [device: iPhone9,1, os-version: 13.0], [device: iPhone10,1, os-version: 13.0], [device: iPhone12,8, os-version: 14.0], [device: iPhone9,1, os-version: 14.0], [device: iPhone10,1, os-version: 14.0], [device: iPhone9,3, os-version: 13.0], [device: iPhone9,3, os-version: 14.0], [device: iPhone10,4, os-version: 13.0], [device: iPhone12,8, os-version: 13.0], and [device: iPhone10,4, os-version: 14.0]
+App + On Demand Resources size: 23.6 MB compressed, 58.1 MB uncompressed
+App size: 23.6 MB compressed, 58.1 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
+
+
+Variant: farmacia_san_roman_app-E884B1F4-DD55-48B3-B6D3-F40C4C832F9B.ipa
+Supported variant descriptors: [device: iPhone9,3, os-version: 12.2], [device: iPhone10,4, os-version: 12.2], [device: iPhone10,1, os-version: 12.2], and [device: iPhone9,1, os-version: 12.2]
+App + On Demand Resources size: 23.6 MB compressed, 58.1 MB uncompressed
+App size: 23.6 MB compressed, 58.1 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
+
+
+Variant: farmacia_san_roman_app-ED5F25E0-FFE4-4454-AE19-FF4B566AC16C.ipa
+Supported variant descriptors: [device: iPad7,4, os-version: 15.0], [device: iPad13,1, os-version: 15.0], [device: iPad8,6, os-version: 15.0], [device: iPad8,5, os-version: 15.0], [device: iPad14,2, os-version: 16.0], [device: iPad13,1, os-version: 16.0], [device: iPad8,12, os-version: 15.0], [device: iPad14,3-B, os-version: 16.0], [device: iPad8,1, os-version: 16.0], [device: iPad8,7, os-version: 16.0], [device: iPad6,4, os-version: 15.0], [device: iPad14,2, os-version: 15.0], [device: iPad11,2, os-version: 15.0], [device: iPad6,3, os-version: 15.0], [device: iPad11,4, os-version: 16.0], [device: iPad13,10, os-version: 15.0], [device: iPad13,4, os-version: 16.0], [device: iPad14,6-A, os-version: 16.0], [device: iPad7,3, os-version: 16.0], [device: iPad7,3, os-version: 15.0], [device: iPad14,1, os-version: 16.0], [device: iPad13,11, os-version: 16.0], [device: iPad8,9, os-version: 15.0], [device: iPad13,9, os-version: 15.0], [device: iPad13,17, os-version: 16.0], [device: iPad14,4-A, os-version: 16.0], [device: iPad8,3, os-version: 16.0], [device: iPad13,7, os-version: 15.0], [device: MacFamily20,1, os-version: 15.0], [device: iPad13,8, os-version: 16.0], [device: iPad14,5-A, os-version: 16.0], [device: iPad8,11, os-version: 15.0], [device: iPad8,6, os-version: 16.0], [device: iPad8,5, os-version: 16.0], [device: iPad13,10, os-version: 16.0], [device: iPad7,1, os-version: 15.0], [device: iPad13,6, os-version: 15.0], [device: iPad13,16, os-version: 16.0], [device: iPad11,1, os-version: 16.0], [device: iPad8,8, os-version: 15.0], [device: iPad13,5, os-version: 16.0], [device: iPad8,4, os-version: 16.0], [device: iPad8,9, os-version: 16.0], [device: iPad11,4, os-version: 15.0], [device: iPad14,5-B, os-version: 16.0], [device: iPad13,4, os-version: 15.0], [device: iPad13,8, os-version: 15.0], [device: iPad6,4, os-version: 16.0], [device: iPad14,6-B, os-version: 16.0], [device: iPad8,8, os-version: 16.0], [device: iPad11,2, os-version: 16.0], [device: iPad13,9, os-version: 16.0], [device: iPad13,11, os-version: 15.0], [device: iPad7,2, os-version: 15.0], [device: iPad8,3, os-version: 15.0], [device: iPad7,4, os-version: 16.0], [device: iPad13,2, os-version: 16.0], [device: iPad11,3, os-version: 15.0], [device: iPad6,3, os-version: 16.0], [device: iPad11,1, os-version: 15.0], [device: iPad13,2, os-version: 15.0], [device: iPad8,1, os-version: 15.0], [device: iPad13,6, os-version: 16.0], [device: iPad11,3, os-version: 16.0], [device: iPad8,4, os-version: 15.0], [device: iPad13,7, os-version: 16.0], [device: iPad14,3-A, os-version: 16.0], [device: iPad14,4-B, os-version: 16.0], [device: iPad14,1, os-version: 15.0], [device: iPad8,10, os-version: 15.0], [device: iPad8,11, os-version: 16.0], [device: iPad13,5, os-version: 15.0], [device: MacFamily20,1, os-version: 16.0], [device: iPad13,17, os-version: 15.0], [device: iPad8,10, os-version: 16.0], [device: iPad7,1, os-version: 16.0], [device: iPad7,2, os-version: 16.0], [device: iPad8,2, os-version: 15.0], [device: iPad13,16, os-version: 15.0], [device: iPad8,2, os-version: 16.0], [device: iPad8,12, os-version: 16.0], and [device: iPad8,7, os-version: 15.0]
+App + On Demand Resources size: 23.5 MB compressed, 57.7 MB uncompressed
+App size: 23.5 MB compressed, 57.7 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
+
+
+Variant: farmacia_san_roman_app-F59BC77C-05EC-4752-8C9E-FD2B8A216CBC.ipa
+Supported variant descriptors: [device: iPhone8,1, os-version: 15.0], [device: iPhone8,4, os-version: 15.0], and [device: iPod9,1, os-version: 15.0]
+App + On Demand Resources size: 23.5 MB compressed, 57.7 MB uncompressed
+App size: 23.5 MB compressed, 57.7 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
+
+
+Variant: farmacia_san_roman_app-FA196A70-1335-41EF-AEE0-A7F5BDE11ACD.ipa
+Supported variant descriptors: [device: iPad7,4, os-version: 12.0], [device: iPad8,3, os-version: 12.0], [device: iPad8,6, os-version: 12.0], [device: iPad8,1, os-version: 12.0], [device: iPad8,8, os-version: 12.0], [device: iPad6,4, os-version: 12.0], [device: iPad8,4, os-version: 12.0], [device: iPad7,3, os-version: 12.0], [device: iPad7,2, os-version: 12.0], [device: iPad8,2, os-version: 12.0], [device: iPad6,3, os-version: 12.0], [device: iPad7,1, os-version: 12.0], [device: iPad8,7, os-version: 12.0], and [device: iPad8,5, os-version: 12.0]
+App + On Demand Resources size: 26.2 MB compressed, 66 MB uncompressed
+App size: 26.2 MB compressed, 66 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
+
+
+Variant: farmacia_san_roman_app.ipa
+Supported variant descriptors: Universal
+App + On Demand Resources size: 33.8 MB compressed, 90.2 MB uncompressed
+App size: 33.8 MB compressed, 90.2 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed

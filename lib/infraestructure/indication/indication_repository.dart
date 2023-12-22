@@ -25,12 +25,15 @@ class IndicationRepository implements IIndicationRepository {
     try {
       final indications = _firestore.collection(_collectionName);
       IndicationDto indicationDto = IndicationDto.fromDomain(indication);
+
       Map<String, dynamic> data = indicationDto.toJson();
       //store the keyword that we will use for querying this document
-      data['keyWords'] = generateKeywords(indicationDto.indicationName) +
-          generateKeywords(indicationDto.indicationCategory.name);
+      data['keyWords'] = await generateKeywords(indicationDto.indicationName) +
+          await generateKeywords(indicationDto.indicationCategory.name);
+
       //We keep the id that comes from indicationDto and avoid autogeneration
       await indications.doc(indicationDto.id).set(data);
+
       return right(unit);
     } on PlatformException catch (e) {
       // These error codes and messages aren't in the documentation AFAIK, experiment in the debugger to find out about them.
@@ -70,8 +73,9 @@ class IndicationRepository implements IIndicationRepository {
       final indicationDto = IndicationDto.fromDomain(indication);
       Map<String, dynamic> data = indicationDto.toJson();
       //store the keyword that we will use for querying this document
-      data['keyWords'] = generateKeywords(indicationDto.indicationName) +
-          generateKeywords(indicationDto.indicationCategory.name);
+
+      data['keyWords'] = await generateKeywords(indicationDto.indicationName) +
+          await generateKeywords(indicationDto.indicationCategory.name);
 
       await indications.doc(indicationDto.id).set(data);
       return right(unit);
@@ -113,6 +117,7 @@ class IndicationRepository implements IIndicationRepository {
       String name) async* {
     final medicines = _firestore.collection(_collectionName);
     yield* medicines
+        .where('keyWords', arrayContains: removeSpecialCharacters(name))
         .snapshots()
         .map(
           (snapshot) => right<IndicationFailure, KtList<Indication>>(

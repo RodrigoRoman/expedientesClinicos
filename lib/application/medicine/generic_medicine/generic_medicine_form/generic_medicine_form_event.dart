@@ -19,7 +19,7 @@ class GenericMedicineFormEvent with _$GenericMedicineFormEvent {
       int amountPerPackage) = _AmountPerPackageChanged;
   const factory GenericMedicineFormEvent.categoryChanged(Category category) =
       _CategoryChanged;
-  const factory GenericMedicineFormEvent.controlledChanged(bool controlled) =
+  const factory GenericMedicineFormEvent.controlledChanged() =
       _ControlledChanged;
   const factory GenericMedicineFormEvent.saved() = _Saved;
 }

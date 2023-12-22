@@ -12,11 +12,12 @@ class AppAssetNames {
   static const noInternet = "$JSON_PATH/no-internet.json";
   static const maleUser = "$JSON_PATH/male_user.json";
   static const femaleUser = "$JSON_PATH/female_user.json";
-  static const imagePlaceholder = "$JSON_PATH/image_placeholder.json";
+  static const imagePlaceholder = "$JSON_PATH/photo_placeholder.json";
 
   //image names
-  static const controlledImage = "$IMG_PATH/medicine/controlled.png";
-  static const freeSaleImage = "$IMG_PATH/medicine/free_sale.png";
+  static const controlledImage = "$IMG_PATH/medicine/lock.png";
+  static const freeSaleImage = "$IMG_PATH/medicine/unlock.png";
+  static const imagePlaceholderIMG = "$IMG_PATH/medicine/free_sale.png";
 
   //general images
   static const digitalWatchBackground = "$IMG_PATH/general/digital_watch.png";
