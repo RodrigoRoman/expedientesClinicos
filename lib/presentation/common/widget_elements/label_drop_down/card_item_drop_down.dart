@@ -82,7 +82,9 @@ class _CardViewIItemState extends State<CardViewIItem> {
                         imageURL: widget.cardData.imageURL!,
                       ),
                     )
-                  : Expanded(flex: 2, child: subtitleWidget),
+                  : (widget.cardData.subtitle != null)
+                      ? Expanded(flex: 2, child: subtitleWidget)
+                      : SizedBox.shrink(),
               Expanded(
                   flex: 5,
                   child: Column(
@@ -108,6 +110,7 @@ class _CardViewIItemState extends State<CardViewIItem> {
                                                 .textTheme
                                                 .headlineMedium,
                                             maxLines: 2,
+                                            textAlign: TextAlign.center,
                                           ),
                                         ));
                                   }))),

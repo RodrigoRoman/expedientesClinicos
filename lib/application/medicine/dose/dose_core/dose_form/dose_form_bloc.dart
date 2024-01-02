@@ -54,8 +54,6 @@ class DoseFormBloc extends Bloc<DoseFormEvent, DoseFormState> {
             ? await _doseRepository.update(state.dose)
             : await _doseRepository.create(state.dose);
       } else {
-        print('inside failureOrOption not none');
-        print(state.dose);
         failureOrSuccess = const Left(DoseFailures.unexpected());
       }
       emit(state.copyWith(

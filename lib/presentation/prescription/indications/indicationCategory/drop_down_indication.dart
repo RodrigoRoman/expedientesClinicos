@@ -7,7 +7,7 @@ import 'package:expedientes_clinicos/domain/core/categories/category.dart';
 import 'package:expedientes_clinicos/domain/core/view_models/drop_down_view_model.dart';
 import 'package:expedientes_clinicos/injection.dart';
 import 'package:expedientes_clinicos/presentation/common/widget_elements/label_drop_down/drop_down_head.dart';
-import 'package:expedientes_clinicos/presentation/prescription/indications/indicationCategory/pop_up_indication_form.dart';
+import 'package:expedientes_clinicos/presentation/prescription/indications/indicationCategory/indication_category_form.dart';
 import 'package:expedientes_clinicos/presentation/resources/string_manager.dart';
 import 'package:expedientes_clinicos/presentation/routes/router.dart';
 import 'package:flutter/material.dart';
@@ -63,11 +63,12 @@ class _DropdownSearchIndicationCategoryState
                 .indication
                 .indicationCategory),
             searchFieldController: searchFieldController,
-            onSelected: (category) {
-              context
-                  .read<MedicineIndicationFormBloc>()
-                  .add(IndicationFormEvent.onCategoryChanged(category));
-              searchFieldController.text = '';
+            onSelected: (DropdownItemViewModel dropdownItemViewModel) {
+              context.read<MedicineIndicationFormBloc>().add(
+                  IndicationFormEvent.onCategoryChanged(
+                      dropdownItemViewModel.category!));
+              // searchFieldController.text = '';
+              setState(() {});
             },
             onSearchWithKey: (key) {
               context

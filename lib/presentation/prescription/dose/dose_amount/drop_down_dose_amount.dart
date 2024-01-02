@@ -21,10 +21,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class DropdownSearchDoseAmount extends StatefulWidget {
+  bool valid;
   //optional for the case of editing
-  const DropdownSearchDoseAmount({
-    super.key,
-  });
+  DropdownSearchDoseAmount({super.key, this.valid = true});
   @override
   _DropdownSearchDoseAmountState createState() =>
       _DropdownSearchDoseAmountState();
@@ -65,6 +64,7 @@ class _DropdownSearchDoseAmountState extends State<DropdownSearchDoseAmount> {
                       message: AppStrings.unableToReadErrorExplain))));
         }, builder: (context, state) {
           return DropDownSearchHead(
+            valid: widget.valid,
             element: DropdownItemViewModel.fromLabelDoubleAmount(context
                 .read<PrescriptionFormBloc>()
                 .state

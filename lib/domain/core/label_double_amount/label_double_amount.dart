@@ -28,6 +28,11 @@ abstract class LabelDoubleAmount implements _$LabelDoubleAmount {
         .fold((f) => some(f), (_) => none());
   }
 
+  bool get isEmpty {
+    return label == FullName(EmptyFormValues.emptyString) &&
+        amount == NonNegDouble(EmptyFormValues.emptyAmountMeasureUnit);
+  }
+
   bool operator ==(dynamic other) {
     if (identical(this, other)) return true;
     return other is LabelDoubleAmount &&

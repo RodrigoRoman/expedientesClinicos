@@ -16,11 +16,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kt_dart/kt.dart';
 
 class DropdownSearchBrandedMedicineForm extends StatefulWidget {
+  bool valid;
   //optional for the case of editing
-  DropdownSearchBrandedMedicineForm({
-    required this.onSelected,
-    super.key,
-  });
+  DropdownSearchBrandedMedicineForm(
+      {required this.onSelected, super.key, this.valid = true});
   Function onSelected;
   @override
   _DropdownSearchPharmaceuticalFormState createState() =>
@@ -61,6 +60,7 @@ class _DropdownSearchPharmaceuticalFormState
                       message: AppStrings.unableToReadErrorExplain))));
         }, builder: (context, state) {
           return DropDownSearchHead(
+            valid: widget.valid,
             element: DropdownItemViewModel.fromBrandedMedicine(context
                 .read<PrescriptionFormBloc>()
                 .state

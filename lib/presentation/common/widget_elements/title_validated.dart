@@ -27,12 +27,12 @@ class TitleValidated extends StatelessWidget {
             wrapWords: false,
             maxLines: 1,
             style: titleTextTheme.copyWith(
-                color: condition
+                color: !condition
                     ? Theme.of(context).colorScheme.error
                     : titleTextTheme.color),
           ),
         ),
-        condition
+        !condition
             ? Expanded(
                 flex: 3,
                 child: Column(
@@ -41,6 +41,7 @@ class TitleValidated extends StatelessWidget {
                       child: AutoSizeText(
                         errorText ?? AppStrings.isEmpty,
                         wrapWords: false,
+                        minFontSize: 8,
                         maxLines: 1,
                         style: Theme.of(context).textTheme.bodySmall!.copyWith(
                             color: Theme.of(context).colorScheme.error),

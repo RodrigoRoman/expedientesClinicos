@@ -8,16 +8,17 @@ import 'package:expedientes_clinicos/domain/core/view_models/label_dose_times_vi
 import 'package:expedientes_clinicos/domain/prescription/dose/dose.dart';
 import 'package:expedientes_clinicos/injection.dart';
 import 'package:expedientes_clinicos/presentation/common/widget_elements/label_drop_down/drop_down_head.dart';
-import 'package:expedientes_clinicos/presentation/common/widget_elements/label_drop_down/label_drop_down.dart';
 import 'package:expedientes_clinicos/presentation/prescription/dose/dose_form_page.dart';
 import 'package:expedientes_clinicos/presentation/resources/string_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class DropdownSearchDose extends StatefulWidget {
+  bool valid;
   //optional for the case of editing
-  const DropdownSearchDose({
+  DropdownSearchDose({
     super.key,
+    this.valid = true,
   });
   @override
   _DropdownSearchDoseState createState() => _DropdownSearchDoseState();
@@ -39,10 +40,12 @@ class _DropdownSearchDoseState extends State<DropdownSearchDose> {
               initial: (value) {
                 doseList = [];
               },
-              loadInProgress: ((value) => context.read<StateRendererBloc>().add(
-                  const StateRendererEvent.popUpLoading(
-                      title: AppStrings.saving,
-                      message: AppStrings.actionInProgressExplain))),
+              loadInProgress: ((value) => context
+                  .read<StateRendererBloc>()
+                  .add(const StateRendererEvent.popUpLoading(
+                    title: AppStrings.saving,
+                    message: AppStrings.actionInProgressExplain,
+                  ))),
               loadSuccess: ((value) {
                 setState(() {
                   doseList = value.dose.asList();
@@ -54,12 +57,14 @@ class _DropdownSearchDoseState extends State<DropdownSearchDose> {
                       message: AppStrings.unableToReadErrorExplain))));
         }, builder: (context, state) {
           return DropDownSearchHead(
-            element: DropdownItemViewModel.empty(),
+            valid: widget.valid,
+            element: DropdownItemViewModel.fromDose(
+                context.read<PrescriptionFormBloc>().state.prescription.dose),
             searchFieldController: searchFieldController,
-            onSelected: (LabelDoseTimesViewModel labelDoseTimesViewModel) {
+            onSelected: (DropdownItemViewModel dropdownItemViewModel) {
               context.read<PrescriptionFormBloc>().add(
                   PrescriptionFormEvent.onDoseChanged(
-                      labelDoseTimesViewModel.dose));
+                      dropdownItemViewModel.dose!));
               setState(() {});
             },
             onSearchWithKey: (key) {
@@ -72,7 +77,9 @@ class _DropdownSearchDoseState extends State<DropdownSearchDose> {
                   .read<DoseWatcherBloc>()
                   .add(const DoseWatcherEvent.watchAllStarted());
             },
-            listElements: [],
+            listElements: doseList
+                .map((dose) => DropdownItemViewModel.fromDose(dose))
+                .toList(),
             hintText: AppStrings.doseSchedule,
             newFunction: () {
               context

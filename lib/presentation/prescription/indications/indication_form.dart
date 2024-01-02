@@ -6,8 +6,11 @@ import 'package:expedientes_clinicos/application/state_render/state_renderer_blo
 import 'package:expedientes_clinicos/domain/core/categories/category.dart';
 import 'package:expedientes_clinicos/domain/core/indication/indication.dart';
 import 'package:expedientes_clinicos/domain/core/value_objects.dart';
+import 'package:expedientes_clinicos/presentation/common/widget_components/buttons/main_action_button.dart';
+import 'package:expedientes_clinicos/presentation/common/widget_elements/input_fields/text_input_title.dart';
 import 'package:expedientes_clinicos/presentation/common/widget_elements/title_validated.dart';
 import 'package:expedientes_clinicos/presentation/prescription/indications/indicationCategory/drop_down_indication.dart';
+import 'package:expedientes_clinicos/presentation/resources/constant_size_values.dart';
 import 'package:expedientes_clinicos/presentation/resources/string_manager.dart';
 import 'package:expedientes_clinicos/presentation/routes/router.dart';
 import 'package:flutter/material.dart';
@@ -33,6 +36,7 @@ class _IndicationFormState extends State<IndicationForm> {
   final _key = GlobalKey<FormState>();
   final TextEditingController indicationNameController =
       TextEditingController();
+  final bool submitted = false;
 
   @override
   Widget build(BuildContext context) {
@@ -71,7 +75,6 @@ class _IndicationFormState extends State<IndicationForm> {
                               ));
                         },
                         unableToCreate: (e) {
-                          print('error here');
                           context
                               .read<StateRendererBloc>()
                               .add(const StateRendererEvent.popUpError(
@@ -96,100 +99,49 @@ class _IndicationFormState extends State<IndicationForm> {
                         message: AppStrings.successfullyCreated));
               }));
     }, builder: (context, state) {
-      return LayoutBuilder(
-        builder: (context, constraints) {
-          return SizedBox(
-            width: constraints.maxWidth,
-            height: constraints.maxHeight,
-            child: Form(
-              key: _key,
-              autovalidateMode: AutovalidateMode.disabled,
+      return Form(
+          key: _key,
+          autovalidateMode: AutovalidateMode.disabled,
+          child: SingleChildScrollView(
+            child: Padding(
+              padding: const EdgeInsets.all(AppSize.s10),
               child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    const Spacer(),
-                    Expanded(
-                        flex: 2,
-                        child: Column(
-                          children: [
-                            Expanded(
-                                child: TitleValidated(
-                                    title: AppStrings.categoryIndication,
-                                    condition: indicationNameController.text ==
-                                        AppStrings.empty)),
-                            Expanded(child: DropdownSearchIndicationCategory()),
-                          ],
+                    const SizedBox(height: InputFieldHeight.xs),
+                    SizedBox(
+                        height: InputFieldHeight.l,
+                        child: TextInputTitle(
+                          title: AppStrings.labelIndication,
+                          textEditingController: indicationNameController,
+                          submitted: submitted,
+                          onChanged: (value) {
+                            indicationNameController.value = TextEditingValue(
+                                text: value,
+                                selection: TextSelection.fromPosition(
+                                  TextPosition(
+                                      offset: indicationNameController
+                                          .selection.extentOffset),
+                                ));
+                            context.read<MedicineIndicationFormBloc>().add(
+                                IndicationFormEvent.onIndicationNameChanged(
+                                    value));
+                          },
                         )),
-                    const Spacer(),
-                    Expanded(
-                        flex: 2,
-                        child: LayoutBuilder(builder: (context, constraints) {
-                          return SizedBox(
-                              width: constraints.maxWidth / 1.5,
-                              height: constraints.maxHeight,
-                              child: Column(
-                                children: [
-                                  Expanded(
-                                      child: TitleValidated(
-                                          title: AppStrings.labelIndication,
-                                          condition:
-                                              indicationNameController.text ==
-                                                  AppStrings.empty)),
-                                  Expanded(
-                                    flex: 2,
-                                    child: TextFormField(
-                                      maxLines: 2,
-                                      controller: indicationNameController,
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .bodyMedium!,
-                                      textAlign: TextAlign.center,
-                                      textCapitalization:
-                                          TextCapitalization.sentences,
-                                      decoration: InputDecoration(
-                                          border: InputBorder.none,
-                                          hintText: AppStrings.labelIndication,
-                                          hintStyle: Theme.of(context)
-                                              .textTheme
-                                              .bodySmall!
-                                              .copyWith(
-                                                  color: Theme.of(context)
-                                                      .canvasColor)),
-                                      keyboardType: TextInputType.text,
-                                      onChanged: (value) {
-                                        indicationNameController.value =
-                                            TextEditingValue(
-                                                text: value,
-                                                selection:
-                                                    TextSelection.fromPosition(
-                                                  TextPosition(
-                                                      offset:
-                                                          indicationNameController
-                                                              .selection
-                                                              .extentOffset),
-                                                ));
-                                        context
-                                            .read<MedicineIndicationFormBloc>()
-                                            .add(IndicationFormEvent
-                                                .onIndicationNameChanged(
-                                                    value));
-                                      },
-                                      textInputAction: TextInputAction.next,
-                                    ),
-                                  ),
-                                ],
-                              ));
-                        })),
-                    Spacer(),
-                    Expanded(
-                      child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                            fixedSize: Size(
-                                constraints.maxWidth / 2,
-                                constraints.maxHeight /
-                                    13), // set the width and height of the button
-                          ),
+                    const SizedBox(
+                      height: InputFieldHeight.s,
+                    ),
+                    const SizedBox(
+                      height: InputFieldHeight.m,
+                      child: DropdownSearchIndicationCategory(),
+                    ),
+                    const SizedBox(
+                      height: InputFieldHeight.m,
+                    ),
+                    SizedBox(
+                        height: InputFieldHeight.s,
+                        child: MainActionButton(
                           onPressed: () {
                             if ((context
                                         .read<MedicineIndicationFormBloc>()
@@ -208,16 +160,42 @@ class _IndicationFormState extends State<IndicationForm> {
                                   .add(IndicationFormEvent.saved());
                             }
                           },
-                          child: const Text(AppStrings.create)),
-                    ),
-                    Spacer(
-                      flex: 2,
+                          text: AppStrings.create,
+                        )
+
+                        // ElevatedButton(
+                        //     style: ElevatedButton.styleFrom(
+                        //       fixedSize: Size(
+                        //           constraints.maxWidth / 2,
+                        //           constraints.maxHeight /
+                        //               13), // set the width and height of the button
+                        //     ),
+                        // onPressed: () {
+                        //   if ((context
+                        //               .read<MedicineIndicationFormBloc>()
+                        //               .state
+                        //               .indication
+                        //               .indicationName !=
+                        //           FullName('')) &&
+                        //       (context
+                        //               .read<MedicineIndicationFormBloc>()
+                        //               .state
+                        //               .indication
+                        //               .indicationCategory !=
+                        //           Category.empty())) {
+                        //     context
+                        //         .read<MedicineIndicationFormBloc>()
+                        //         .add(IndicationFormEvent.saved());
+                        //   }
+                        // },
+                        //     child: const Text(AppStrings.create)),
+                        ),
+                    SizedBox(
+                      height: InputFieldHeight.xs,
                     )
                   ]),
             ),
-          );
-        },
-      );
+          ));
     });
   }
 }

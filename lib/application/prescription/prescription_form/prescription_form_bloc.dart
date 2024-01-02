@@ -5,7 +5,6 @@ import 'package:expedientes_clinicos/domain/core/label_double_amount/label_doubl
 import 'package:expedientes_clinicos/domain/core/value_objects.dart';
 import 'package:expedientes_clinicos/domain/medicine/branded_medicine/branded_medicine.dart';
 import 'package:expedientes_clinicos/domain/prescription/dose/dose.dart';
-import 'package:expedientes_clinicos/domain/prescription/dose/dose_amount/dose_amount.dart';
 import 'package:expedientes_clinicos/domain/prescription/i_prescription_repository.dart';
 import 'package:expedientes_clinicos/domain/prescription/prescription.dart';
 import 'package:expedientes_clinicos/domain/prescription/prescription_failures.dart';

@@ -1,12 +1,8 @@
 import 'package:expedientes_clinicos/application/medicine/branded_medicine/branded_medicine_form/branded_medicine_form_bloc.dart';
 import 'package:expedientes_clinicos/domain/core/categories/category.dart';
-import 'package:expedientes_clinicos/domain/core/value_objects.dart';
-import 'package:expedientes_clinicos/domain/medicine/generic_medicine/generic_medicine.dart';
 import 'package:expedientes_clinicos/presentation/common/widget_components/buttons/main_action_button.dart';
 import 'package:expedientes_clinicos/presentation/common/widget_elements/image_picker_display.dart';
 import 'package:expedientes_clinicos/presentation/common/widget_elements/input_fields/text_input_title.dart';
-import 'package:expedientes_clinicos/presentation/common/widget_elements/input_full_name.dart';
-import 'package:expedientes_clinicos/presentation/common/widget_elements/title_validated.dart';
 import 'package:expedientes_clinicos/presentation/medicine/generic_medicine/generic_medicine_watcher/drop_down_generic_medicine.dart';
 import 'package:expedientes_clinicos/presentation/resources/constant_size_values.dart';
 import 'package:expedientes_clinicos/presentation/resources/string_manager.dart';
@@ -130,7 +126,6 @@ class _BrandedMedicineFormBodyState extends State<BrandedMedicineFormBody> {
                   child: MainActionButton(
                     text: AppStrings.create,
                     onPressed: () {
-                      print("if statement");
                       if (context
                               .read<BrandedMedicineFormBloc>()
                               .state
@@ -148,7 +143,6 @@ class _BrandedMedicineFormBodyState extends State<BrandedMedicineFormBody> {
                             .read<BrandedMedicineFormBloc>()
                             .add(const BrandedMedicineFormEvent.saved());
                       } else {
-                        print("else");
                         setState(() {
                           requestedSubmition = true;
                         });

@@ -31,6 +31,15 @@ abstract class BrandedMedicine implements _$BrandedMedicine {
         imageURL: ImageURL(EmptyFormValues.medicineURLImage),
         genericMedicine: GenericMedicine.empty(),
       );
+  bool get isEmpty {
+    return comercialName == FullName(EmptyFormValues.emptyString) &&
+        comercialName == FullName(EmptyFormValues.emptyString) &&
+        optimum == NonNegInt(EmptyFormValues.emptyAmount) &&
+        existence == NonNegInt(EmptyFormValues.emptyAmount) &&
+        counter == NonNegInt(EmptyFormValues.emptyAmount) &&
+        imageURL == ImageURL(EmptyFormValues.medicineURLImage) &&
+        genericMedicine == GenericMedicine.empty();
+  }
 
   Option<ValueFailure<dynamic>> get failureOption {
     return comercialName.failureOrUnit

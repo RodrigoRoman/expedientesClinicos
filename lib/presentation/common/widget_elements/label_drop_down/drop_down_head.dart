@@ -33,7 +33,7 @@ class DropDownSearchHead extends StatefulWidget {
       required this.hintText,
       required this.onSelected,
       required this.element,
-      this.valid = false,
+      this.valid = true,
       required this.listElements});
 
   @override
@@ -181,7 +181,7 @@ class _DropDownSearchHeadState extends State<DropDownSearchHead> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Expanded(
-                    flex: 2,
+                    flex: 3,
                     child: Container(
                         margin: const EdgeInsets.all(AppSize.s2),
                         child: Row(

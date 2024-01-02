@@ -30,6 +30,13 @@ abstract class Dose implements _$Dose {
       weekDays: WeekDaysDose.empty(),
       counter: NonNegInt(EmptyFormValues.emptyAmount),
       label: FullName(EmptyFormValues.emptyString));
+  bool get isEmpty {
+    return dayHoursDose == DayHoursDose.empty() &&
+        duration == TimeInterval.empty() &&
+        weekDays == WeekDaysDose.empty() &&
+        counter == NonNegInt(EmptyFormValues.emptyAmount) &&
+        label == FullName(EmptyFormValues.emptyString);
+  }
 
   Option<ValueFailure<dynamic>> get failureOption {
     return label.failureOrUnit

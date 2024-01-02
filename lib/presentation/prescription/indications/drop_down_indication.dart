@@ -4,8 +4,10 @@ import 'package:expedientes_clinicos/application/indication/indication_watcher/m
 import 'package:expedientes_clinicos/application/prescription/prescription_form/prescription_form_bloc.dart';
 import 'package:expedientes_clinicos/application/state_render/state_renderer_bloc.dart';
 import 'package:expedientes_clinicos/domain/core/indication/indication.dart';
+import 'package:expedientes_clinicos/domain/core/view_models/drop_down_view_model.dart';
 import 'package:expedientes_clinicos/domain/core/view_models/title_subtitle_img_view_model.dart';
 import 'package:expedientes_clinicos/injection.dart';
+import 'package:expedientes_clinicos/presentation/common/widget_elements/label_drop_down/drop_down_head.dart';
 import 'package:expedientes_clinicos/presentation/common/widget_elements/name_subtitle_drop_down/drop_down_name_subtitle.dart';
 import 'package:expedientes_clinicos/presentation/prescription/indications/indication_form.dart';
 import 'package:expedientes_clinicos/presentation/resources/string_manager.dart';
@@ -13,23 +15,26 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kt_dart/kt.dart';
 
-class DropdownSearchIndication extends StatefulWidget {
+//DropSearchIndication is an agnostic widget that can be used in many scenarios
+//That is why most of the functions come in as parameters
+class DropdownSearchPrescriptionIndication extends StatefulWidget {
   //optional for the case of editing
-  DropdownSearchIndication({
-    required this.onSelected,
+  DropdownSearchPrescriptionIndication({
+    // required this.onSelected,
     super.key,
   });
-  Function onSelected;
+  // Function onSelected;
   @override
-  _DropdownSearchPharmaceuticalFormState createState() =>
-      _DropdownSearchPharmaceuticalFormState();
+  _DropdownSearchPrescriptionIndication createState() =>
+      _DropdownSearchPrescriptionIndication();
 }
 
-class _DropdownSearchPharmaceuticalFormState
-    extends State<DropdownSearchIndication> {
+class _DropdownSearchPrescriptionIndication
+    extends State<DropdownSearchPrescriptionIndication> {
   GlobalKey globalKey = GlobalKey();
   List<Indication> indicationList = [];
   TextEditingController searchFieldController = TextEditingController();
+  List<Indication> selectedIndications = [];
 
   @override
   Widget build(BuildContext context) {
@@ -57,22 +62,22 @@ class _DropdownSearchPharmaceuticalFormState
                       title: AppStrings.unableToReadError,
                       message: AppStrings.unableToReadErrorExplain))));
         }, builder: (context, state) {
-          List<Indication> selectedIndications = context
+          selectedIndications = context
               .read<PrescriptionFormBloc>()
               .state
               .prescription
               .indications
               .value
               .fold((l) => [], (r) => r.toMutableList().asList());
-          return DropdownSearchTitleSubtitleImg(
-            element:
-                TitleSubtitleImageViewModel.fromIndication(Indication.empty()),
+          return DropDownSearchHead(
+            element: DropdownItemViewModel.fromIndication(Indication.empty()),
             searchFieldController: searchFieldController,
-            onSelected: (TitleSubtitleImageViewModel medicine) {
-              if (selectedIndications.contains(medicine.indication)) {
+            onSelected: (DropdownItemViewModel dropdownItemViewModel) {
+              if (selectedIndications
+                  .contains(dropdownItemViewModel.indication)) {
                 searchFieldController.text = '';
               } else {
-                selectedIndications.add(medicine.indication);
+                selectedIndications.add(dropdownItemViewModel.indication!);
                 selectedIndications.sort((a, b) => a
                     .indicationCategory.name.value
                     .fold((l) => '', (r) => r)
@@ -88,27 +93,28 @@ class _DropdownSearchPharmaceuticalFormState
               }
               searchFieldController.text = '';
 
-              // widget.onSelected(medicine.originBrandedMedicine);
-              // setState(() {});
+              // widget.onSelected(medicine.indication);
+              setState(() {});
             },
             onSearchWithKey: (key) {
-              print('search key');
-              print(key);
+              // widget.onSearchWithKey(key);
               context
                   .read<MedicineIndicationWatcherBloc>()
                   .add(IndicationWatcherEvent.watchFilteredStarted(key));
             },
             onSearchAll: () {
+              // widget.onSearchAll();
               context
                   .read<MedicineIndicationWatcherBloc>()
                   .add(const IndicationWatcherEvent.watchAllStarted());
             },
             listElements: indicationList
                 .map((indication) =>
-                    TitleSubtitleImageViewModel.fromIndication(indication))
+                    DropdownItemViewModel.fromIndication(indication))
                 .toList(),
             hintText: AppStrings.selectIndication,
             newFunction: () {
+              // widget.onCreate();
               context
                   .read<StateRendererBloc>()
                   .add(StateRendererEvent.fullScreenForm(

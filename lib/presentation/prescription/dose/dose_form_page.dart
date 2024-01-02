@@ -6,6 +6,8 @@ import 'package:expedientes_clinicos/domain/prescription/dose/day_hours_doses/da
 import 'package:expedientes_clinicos/domain/prescription/dose/dose.dart';
 import 'package:expedientes_clinicos/domain/prescription/dose/week_doses/week_days_dose.dart';
 import 'package:expedientes_clinicos/injection.dart';
+import 'package:expedientes_clinicos/presentation/common/widget_components/buttons/main_action_button.dart';
+import 'package:expedientes_clinicos/presentation/common/widget_elements/input_fields/text_input_title.dart';
 import 'package:expedientes_clinicos/presentation/common/widget_elements/input_full_name.dart';
 import 'package:expedientes_clinicos/presentation/common/widget_elements/title_validated.dart';
 import 'package:expedientes_clinicos/presentation/prescription/dose/day_hours_dose/drop_down_day_hours_dose.dart';
@@ -222,99 +224,132 @@ class _DoseTimeFormState extends State<DoseTimeForm> {
                                       )),
                                   const Spacer(flex: 1),
                                   Expanded(
-                                      flex: 2,
-                                      child: Column(
-                                        children: [
-                                          Expanded(
-                                              child: TitleValidated(
-                                                  title: AppStrings.labelShowUp,
-                                                  condition: context
-                                                          .read<DoseFormBloc>()
-                                                          .state
-                                                          .dose
-                                                          .label
-                                                          .value
-                                                          .fold(
-                                                              (l) => AppStrings
-                                                                  .empty,
-                                                              (r) => r) ==
-                                                      AppStrings.empty)),
-                                          Expanded(
-                                              flex: 2,
-                                              child: TextFormField(
-                                                maxLines: 2,
-                                                controller: labelController,
-                                                textAlign: TextAlign.center,
-                                                textCapitalization:
-                                                    TextCapitalization
-                                                        .sentences,
-                                                decoration: InputDecoration(
-                                                    suffix: (labelController
-                                                                .text !=
-                                                            '')
-                                                        ? Material(
-                                                            elevation: 3,
-                                                            shape:
-                                                                const CircleBorder(),
-                                                            clipBehavior:
-                                                                Clip.hardEdge,
-                                                            child:
-                                                                GestureDetector(
-                                                              onTap: () {
-                                                                labelController
-                                                                    .text = '';
-                                                                context
-                                                                    .read<
-                                                                        DoseFormBloc>()
-                                                                    .add(DoseFormEvent.labelChanged(
-                                                                        labelController
-                                                                            .text));
-                                                              },
-                                                              child: const Icon(
-                                                                Icons
-                                                                    .cancel_rounded,
-                                                                size:
-                                                                    AppSize.s18,
-                                                              ),
-                                                            ),
-                                                          )
-                                                        : const SizedBox
-                                                            .shrink(),
-                                                    border: InputBorder.none,
-                                                    hintText:
-                                                        AppStrings.labelShowUp),
-                                                style: const TextStyle(
-                                                  fontSize: AppSize.s12,
-                                                ),
-                                                keyboardType:
-                                                    TextInputType.text,
-                                                textInputAction:
-                                                    TextInputAction.next,
-                                                onChanged: (value) {
-                                                  labelController.value =
-                                                      TextEditingValue(
-                                                          text: value,
-                                                          selection:
-                                                              TextSelection
-                                                                  .fromPosition(
-                                                            TextPosition(
-                                                                offset: labelController
-                                                                    .selection
-                                                                    .extentOffset),
-                                                          ));
-                                                  context
-                                                      .read<DoseFormBloc>()
-                                                      .add(DoseFormEvent
-                                                          .labelChanged(value));
-                                                },
-                                              )),
-                                        ],
-                                      ))
+                                      flex: 4,
+                                      child: TextInputTitle(
+                                        title: AppStrings.labelShowUp,
+                                        maxLines: 3,
+                                        textEditingController: labelController,
+                                        submitted: submitted,
+                                        validator: () => context
+                                            .read<DoseFormBloc>()
+                                            .state
+                                            .dose
+                                            .label
+                                            .value
+                                            .fold((l) => AppStrings.empty,
+                                                (r) => r),
+                                        onChanged: (value) {
+                                          labelController.value =
+                                              TextEditingValue(
+                                                  text: value,
+                                                  selection: TextSelection
+                                                      .fromPosition(
+                                                    TextPosition(
+                                                        offset: labelController
+                                                            .selection
+                                                            .extentOffset),
+                                                  ));
+                                          context.read<DoseFormBloc>().add(
+                                              DoseFormEvent.labelChanged(
+                                                  value));
+                                        },
+                                      )),
+
+                                  // Column(
+                                  //   children: [
+
+                                  //     Expanded(
+                                  //         child: TitleValidated(
+                                  //             title: AppStrings.labelShowUp,
+                                  //             condition: context
+                                  //                     .read<DoseFormBloc>()
+                                  //                     .state
+                                  //                     .dose
+                                  //                     .label
+                                  //                     .value
+                                  //                     .fold(
+                                  //                         (l) => AppStrings
+                                  //                             .empty,
+                                  //                         (r) => r) ==
+                                  //                 AppStrings.empty)),
+                                  //     Expanded(
+                                  //         flex: 2,
+                                  //         child: TextFormField(
+                                  //           maxLines: 2,
+                                  //           controller: labelController,
+                                  //           textAlign: TextAlign.center,
+                                  //           textCapitalization:
+                                  //               TextCapitalization
+                                  //                   .sentences,
+                                  //           decoration: InputDecoration(
+                                  //               suffix: (labelController
+                                  //                           .text !=
+                                  //                       '')
+                                  //                   ? Material(
+                                  //                       elevation: 3,
+                                  //                       shape:
+                                  //                           const CircleBorder(),
+                                  //                       clipBehavior:
+                                  //                           Clip.hardEdge,
+                                  //                       child:
+                                  //                           GestureDetector(
+                                  //                         onTap: () {
+                                  //                           labelController
+                                  //                               .text = '';
+                                  //                           context
+                                  //                               .read<
+                                  //                                   DoseFormBloc>()
+                                  //                               .add(DoseFormEvent.labelChanged(
+                                  //                                   labelController
+                                  //                                       .text));
+                                  //                         },
+                                  //                         child: const Icon(
+                                  //                           Icons
+                                  //                               .cancel_rounded,
+                                  //                           size:
+                                  //                               AppSize.s18,
+                                  //                         ),
+                                  //                       ),
+                                  //                     )
+                                  //                   : const SizedBox
+                                  //                       .shrink(),
+                                  //               border: InputBorder.none,
+                                  //               hintText:
+                                  //                   AppStrings.labelShowUp),
+                                  //           style: const TextStyle(
+                                  //             fontSize: AppSize.s12,
+                                  //           ),
+                                  //           keyboardType:
+                                  //               TextInputType.text,
+                                  //           textInputAction:
+                                  //               TextInputAction.next,
+                                  //           onChanged: (value) {
+                                  //             labelController.value =
+                                  //                 TextEditingValue(
+                                  //                     text: value,
+                                  //                     selection:
+                                  //                         TextSelection
+                                  //                             .fromPosition(
+                                  //                       TextPosition(
+                                  //                           offset: labelController
+                                  //                               .selection
+                                  //                               .extentOffset),
+                                  //                     ));
+                                  //             context
+                                  //                 .read<DoseFormBloc>()
+                                  //                 .add(DoseFormEvent
+                                  //                     .labelChanged(value));
+                                  //           },
+                                  //         )),
+                                  //   ],
+                                  // ))
                                 ])),
                         SizedBox(
                           height: unitHeight,
                         ),
-                        ElevatedButton(
+                        SizedBox(
+                          height: unitHeight * 2,
+                          child: MainActionButton(
                             onPressed: () {
                               if ((context
                                           .read<DoseFormBloc>()
@@ -336,12 +371,13 @@ class _DoseTimeFormState extends State<DoseTimeForm> {
                                       TimeInterval.empty()) {
                                 widget.onSubmit();
                               }
-                              // }
                               setState(() {
                                 submitted = true;
                               });
                             },
-                            child: const Text(AppStrings.create))
+                            text: AppStrings.create,
+                          ),
+                        )
                       ],
                     ),
                   );

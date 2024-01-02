@@ -210,12 +210,12 @@ extension GetItInjectableX on _i1.GetIt {
     gh.lazySingleton<_i7.IBrandedMedicineRepository>(
         () => _i8.BrandedMedicineRepository(gh<_i5.FirebaseFirestore>()));
     gh.lazySingleton<_i9.ICategoryRepository>(
-      () => firebaseInjectableModule.categoryIndicationRepository,
-      instanceName: 'categoryIndication',
-    );
-    gh.lazySingleton<_i9.ICategoryRepository>(
       () => firebaseInjectableModule.categoryMedicineRepository,
       instanceName: 'categoryMedicine',
+    );
+    gh.lazySingleton<_i9.ICategoryRepository>(
+      () => firebaseInjectableModule.categoryIndicationRepository,
+      instanceName: 'categoryIndication',
     );
     gh.lazySingleton<_i9.ICategoryRepository>(() => _i10.CategoryRepository(
           gh<_i5.FirebaseFirestore>(),
@@ -228,11 +228,6 @@ extension GetItInjectableX on _i1.GetIt {
     gh.lazySingleton<_i15.IGenericMedicineRepository>(
         () => _i16.GenericMedicineRepository(gh<_i5.FirebaseFirestore>()));
     gh.lazySingleton<_i17.IIndicationRepository>(
-        () => _i18.IndicationRepository(
-              gh<_i5.FirebaseFirestore>(),
-              gh<String>(),
-            ));
-    gh.lazySingleton<_i17.IIndicationRepository>(
       () => firebaseInjectableModule.medicineIndicationRepository,
       instanceName: 'medicineIndication',
     );
@@ -240,12 +235,22 @@ extension GetItInjectableX on _i1.GetIt {
       () => firebaseInjectableModule.treatmentIndicationRepository,
       instanceName: 'treatmentIndication',
     );
+    gh.lazySingleton<_i17.IIndicationRepository>(
+        () => _i18.IndicationRepository(
+              gh<_i5.FirebaseFirestore>(),
+              gh<String>(),
+            ));
+    gh.lazySingleton<_i19.ILabelDoubleAmountRepository>(
+        () => _i20.LabelDoubleAmountRepository(
+              gh<_i5.FirebaseFirestore>(),
+              gh<String>(),
+            ));
     gh.factory<_i19.ILabelDoubleAmountRepository>(
       () => firebaseInjectableModule.doseAmountRepository,
       instanceName: 'doseAmount',
     );
-    gh.lazySingleton<_i19.ILabelDoubleAmountRepository>(
-        () => _i20.LabelDoubleAmountRepository(
+    gh.lazySingleton<_i21.INameAbbreviationRepository>(
+        () => _i22.NameAbbreviationRepository(
               gh<_i5.FirebaseFirestore>(),
               gh<String>(),
             ));
@@ -253,11 +258,6 @@ extension GetItInjectableX on _i1.GetIt {
       () => firebaseInjectableModule.measureUnitRepository,
       instanceName: 'measureUnits',
     );
-    gh.lazySingleton<_i21.INameAbbreviationRepository>(
-        () => _i22.NameAbbreviationRepository(
-              gh<_i5.FirebaseFirestore>(),
-              gh<String>(),
-            ));
     gh.factory<_i21.INameAbbreviationRepository>(
       () => firebaseInjectableModule.administrationRoutesRepostitory,
       instanceName: 'administrationRoutes',
@@ -270,6 +270,11 @@ extension GetItInjectableX on _i1.GetIt {
         () => _i24.PatientVisitRepository(gh<_i5.FirebaseFirestore>()));
     gh.lazySingleton<_i25.IPrescriptionRepository>(
         () => _i26.PrescriptionRepository(gh<_i5.FirebaseFirestore>()));
+    gh.lazySingleton<_i27.ITimeIntervalRepository>(
+        () => _i28.TimeIntervalRepository(
+              gh<_i5.FirebaseFirestore>(),
+              gh<String>(),
+            ));
     gh.factory<_i27.ITimeIntervalRepository>(
       () => firebaseInjectableModule.medicineDurationRoutesRepostitory,
       instanceName: 'medicineDurationInterval',
@@ -278,11 +283,6 @@ extension GetItInjectableX on _i1.GetIt {
       () => firebaseInjectableModule.doseFrequencyRoutesRepostitory,
       instanceName: 'doseFrequencyInterval',
     );
-    gh.lazySingleton<_i27.ITimeIntervalRepository>(
-        () => _i28.TimeIntervalRepository(
-              gh<_i5.FirebaseFirestore>(),
-              gh<String>(),
-            ));
     gh.lazySingleton<_i29.IWeekDaysDoseRepository>(
         () => _i30.WeekDaysDoseRepository(gh<_i5.FirebaseFirestore>()));
     gh.factory<_i31.IndicationActorBloc>(() => _i31.IndicationActorBloc(

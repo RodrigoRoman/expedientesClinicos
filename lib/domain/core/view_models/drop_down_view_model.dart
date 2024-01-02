@@ -10,6 +10,7 @@ import 'package:expedientes_clinicos/domain/core/value_objects.dart';
 import 'package:expedientes_clinicos/domain/medicine/branded_medicine/branded_medicine.dart';
 import 'package:expedientes_clinicos/domain/medicine/generic_medicine/generic_medicine.dart';
 import 'package:expedientes_clinicos/domain/prescription/dose/day_hours_doses/day_hours_doses.dart';
+import 'package:expedientes_clinicos/domain/prescription/dose/dose.dart';
 import 'package:expedientes_clinicos/domain/prescription/dose/week_doses/week_days_dose.dart';
 import 'package:expedientes_clinicos/domain/utils/helper_functions.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -36,6 +37,7 @@ abstract class DropdownItemViewModel implements _$DropdownItemViewModel {
       DayHoursDose? dayHoursDose,
       WeekDaysDose? weekDaysDose,
       TimeInterval? timeInterval,
+      Dose? dose,
       Category? category}) = _DropdownItemViewModel;
 
   factory DropdownItemViewModel.empty() => DropdownItemViewModel(
@@ -73,6 +75,14 @@ abstract class DropdownItemViewModel implements _$DropdownItemViewModel {
       indication: indication,
     );
   }
+  factory DropdownItemViewModel.fromPlainIndication(Indication indication) {
+    return DropdownItemViewModel(
+      id: indication.id,
+      title: indication.indicationName,
+      indication: indication,
+    );
+  }
+
   factory DropdownItemViewModel.fromCategory(Category category) {
     return DropdownItemViewModel(
         id: category.id,
@@ -123,6 +133,14 @@ abstract class DropdownItemViewModel implements _$DropdownItemViewModel {
         subtitle: FullName(timeInterval.timeDuration.value
             .fold((l) => "0", (r) => daysWeekMonth(r))),
         timeInterval: timeInterval);
+  }
+  factory DropdownItemViewModel.fromDose(Dose dose) {
+    return DropdownItemViewModel(
+        id: dose.id,
+        title: dose.label,
+        subtitle: FullName(
+            '${dose.dayHoursDose.formattedDoseHours}, ${dose.weekDays.weekDaysNames} por ${dose.duration.daysWeekMonth}'),
+        dose: dose);
   }
 
   Option<ValueFailure<dynamic>> get failureOption {

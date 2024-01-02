@@ -31,7 +31,8 @@ class DoseRepository implements IDoseRepository {
       //store the keyword that we will use for querying this document
       data['keyWords'] = await generateKeywords(doseDto.dayHoursDose.label) +
           await generateKeywords(doseDto.weekDaysDose.label) +
-          await generateKeywords(doseDto.duration.label);
+          await generateKeywords(doseDto.duration.label) +
+          await generateKeywords(doseDto.label);
       //We keep the id that comes from DoseDto and avoid autogeneration
       await doses.doc(doseDto.id).set(data);
       return right(unit);

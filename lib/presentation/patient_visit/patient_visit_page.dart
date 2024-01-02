@@ -42,23 +42,23 @@ class _PatientVisitPageState extends State<PatientVisitPage> {
           child: LayoutBuilder(builder: (context, constraints) {
             double heightUnit = (constraints.maxHeight + keyboardHeight) / 8;
             return BlocProvider(
-              create: (context) => getIt<PatientVisitFormBloc>(),
-              child: SingleChildScrollView(
-                // padding: EdgeInsets.only(bottom: keyboardHeight),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    SizedBox(
-                        height: heightUnit * 1,
-                        child: const Text('Paciente X')),
-                    SizedBox(
-                        height: heightUnit * 10,
-                        child: const PrescriptionBody()),
-                    SizedBox(height: heightUnit * 1)
-                  ],
-                ),
-              ),
-            );
+                create: (context) => getIt<PatientVisitFormBloc>(),
+                child: SizedBox(
+                    height: constraints.maxHeight,
+                    child: const PrescriptionBody())
+                // SingleChildScrollView(
+                //   // padding: EdgeInsets.only(bottom: keyboardHeight),
+                //   child: Column(
+                //     crossAxisAlignment: CrossAxisAlignment.center,
+                //     children: [
+                //       SizedBox(
+                //           height: heightUnit * 10,
+                //           child: const PrescriptionBody()),
+                //       SizedBox(height: heightUnit * 1)
+                //     ],
+                //   ),
+                // ),
+                );
           }),
         ));
   }
