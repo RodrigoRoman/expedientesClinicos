@@ -8,8 +8,6 @@ import 'package:expedientes_clinicos/application/prescription/prescription_form/
 import 'package:expedientes_clinicos/application/state_render/state_renderer_bloc.dart';
 import 'package:expedientes_clinicos/domain/core/label_double_amount/label_double_amount.dart';
 import 'package:expedientes_clinicos/domain/core/view_models/drop_down_view_model.dart';
-import 'package:expedientes_clinicos/domain/core/view_models/label_dose_times_view_model.dart';
-import 'package:expedientes_clinicos/domain/prescription/dose/dose_amount/dose_amount.dart';
 import 'package:expedientes_clinicos/injection.dart';
 import 'package:expedientes_clinicos/presentation/common/widget_elements/label_double_amount/label_double_amount_popup_form.dart';
 import 'package:expedientes_clinicos/presentation/common/widget_elements/label_drop_down/drop_down_head.dart';

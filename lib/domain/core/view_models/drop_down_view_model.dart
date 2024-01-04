@@ -12,6 +12,7 @@ import 'package:expedientes_clinicos/domain/medicine/generic_medicine/generic_me
 import 'package:expedientes_clinicos/domain/prescription/dose/day_hours_doses/day_hours_doses.dart';
 import 'package:expedientes_clinicos/domain/prescription/dose/dose.dart';
 import 'package:expedientes_clinicos/domain/prescription/dose/week_doses/week_days_dose.dart';
+import 'package:expedientes_clinicos/domain/prescription/prescription.dart';
 import 'package:expedientes_clinicos/domain/utils/helper_functions.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -134,6 +135,7 @@ abstract class DropdownItemViewModel implements _$DropdownItemViewModel {
             .fold((l) => "0", (r) => daysWeekMonth(r))),
         timeInterval: timeInterval);
   }
+
   factory DropdownItemViewModel.fromDose(Dose dose) {
     return DropdownItemViewModel(
         id: dose.id,

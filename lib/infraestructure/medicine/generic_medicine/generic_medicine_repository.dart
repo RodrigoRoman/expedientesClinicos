@@ -13,7 +13,6 @@ import 'package:injectable/injectable.dart';
 import 'package:kt_dart/collection.dart';
 import 'package:dartz/dartz.dart';
 import 'package:rxdart/rxdart.dart';
-import 'package:unsplash_client/unsplash_client.dart';
 
 @LazySingleton(as: IGenericMedicineRepository)
 class GenericMedicineRepository implements IGenericMedicineRepository {
@@ -35,6 +34,9 @@ class GenericMedicineRepository implements IGenericMedicineRepository {
       data['keyWords'] = await generateKeywords(
               genericMedicineDto.category.name) +
           await generateKeywords(genericMedicineDto.genericName) +
+          await generateKeywords(genericMedicineDto.measureUnit.name) +
+          await generateKeywords(
+              genericMedicineDto.amountMeasureUnit.toInt().toString()) +
           await generateKeywords(genericMedicineDto.administrationRoute.name);
 
       //We keep the id that comes from genericMedicineDto and avoid autogeneration

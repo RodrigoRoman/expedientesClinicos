@@ -3,6 +3,7 @@ import 'package:dartz/dartz.dart';
 import 'package:expedientes_clinicos/domain/prescription/i_prescription_repository.dart';
 import 'package:expedientes_clinicos/domain/prescription/prescription.dart';
 import 'package:expedientes_clinicos/domain/prescription/prescription_failures.dart';
+import 'package:expedientes_clinicos/infraestructure/helper_functions/string_manipulation.dart';
 import 'package:expedientes_clinicos/infraestructure/prescription/prescription_dtos.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/services.dart';
@@ -24,8 +25,24 @@ class PrescriptionRepository implements IPrescriptionRepository {
           PrescriptionDto.fromDomain(prescription);
 
       Map<String, dynamic> data = prescriptionDto.toJson();
+
+      //store the keyword that we will use for querying this document
+      data['keyWords'] =
+          await generateKeywords(prescriptionDto.medicine.comercialName) +
+              await generateKeywords(
+                  prescriptionDto.medicine.genericMedicine.genericName) +
+              await generateKeywords(
+                  prescriptionDto.medicine.genericMedicine.measureUnit.name) +
+              await generateKeywords(prescriptionDto
+                  .medicine.genericMedicine.amountMeasureUnit
+                  .toInt()
+                  .toString()) +
+              await generateKeywords(prescriptionDto
+                  .medicine.genericMedicine.administrationRoute.name);
+
       //We keep the id that comes from prescriptionDto and avoid autogeneration
       await prescriptions.doc(prescriptionDto.id).set(data);
+
       return right(unit);
     } on PlatformException catch (e) {
       // These error codes and messages aren't in the documentation AFAIK, experiment in the debugger to find out about them.
@@ -93,7 +110,6 @@ class PrescriptionRepository implements IPrescriptionRepository {
   Stream<Either<PrescriptionFailures, KtList<Prescription>>> watchAll() async* {
     final prescriptions = _firestore.collection('prescriptions');
     yield* prescriptions
-        .orderBy('lastUpdated', descending: true)
         .snapshots()
         .map(
           (snapshot) => right<PrescriptionFailures, KtList<Prescription>>(
@@ -109,14 +125,29 @@ class PrescriptionRepository implements IPrescriptionRepository {
         return left(const PrescriptionFailures.unexpected());
       }
     });
-
     // ingredientVersionCollection();
   }
 
   @override
   Stream<Either<PrescriptionFailures, KtList<Prescription>>> watchFiltered(
-      String name) {
-    // TODO: implement watchFiltered
-    throw UnimplementedError();
+      String name) async* {
+    final medicines = _firestore.collection('prescriptions');
+    yield* medicines
+        .where('keyWords', arrayContains: removeSpecialCharacters(name))
+        .snapshots()
+        .map(
+          (snapshot) => right<PrescriptionFailures, KtList<Prescription>>(
+            snapshot.docs
+                .map((doc) => PrescriptionDto.fromFirestore(doc).toDomain())
+                .toImmutableList(),
+          ),
+        )
+        .onErrorReturnWith((e, _) {
+      if (e is PlatformException && e.message!.contains('PERMISSION_DENIED')) {
+        return left(const PrescriptionFailures.insufficientPermissions());
+      } else {
+        return left(const PrescriptionFailures.unexpected());
+      }
+    });
   }
 }

@@ -210,12 +210,12 @@ extension GetItInjectableX on _i1.GetIt {
     gh.lazySingleton<_i7.IBrandedMedicineRepository>(
         () => _i8.BrandedMedicineRepository(gh<_i5.FirebaseFirestore>()));
     gh.lazySingleton<_i9.ICategoryRepository>(
-      () => firebaseInjectableModule.categoryMedicineRepository,
-      instanceName: 'categoryMedicine',
-    );
-    gh.lazySingleton<_i9.ICategoryRepository>(
       () => firebaseInjectableModule.categoryIndicationRepository,
       instanceName: 'categoryIndication',
+    );
+    gh.lazySingleton<_i9.ICategoryRepository>(
+      () => firebaseInjectableModule.categoryMedicineRepository,
+      instanceName: 'categoryMedicine',
     );
     gh.lazySingleton<_i9.ICategoryRepository>(() => _i10.CategoryRepository(
           gh<_i5.FirebaseFirestore>(),
@@ -232,23 +232,23 @@ extension GetItInjectableX on _i1.GetIt {
       instanceName: 'medicineIndication',
     );
     gh.lazySingleton<_i17.IIndicationRepository>(
-      () => firebaseInjectableModule.treatmentIndicationRepository,
-      instanceName: 'treatmentIndication',
-    );
-    gh.lazySingleton<_i17.IIndicationRepository>(
         () => _i18.IndicationRepository(
               gh<_i5.FirebaseFirestore>(),
               gh<String>(),
             ));
+    gh.lazySingleton<_i17.IIndicationRepository>(
+      () => firebaseInjectableModule.treatmentIndicationRepository,
+      instanceName: 'treatmentIndication',
+    );
+    gh.factory<_i19.ILabelDoubleAmountRepository>(
+      () => firebaseInjectableModule.doseAmountRepository,
+      instanceName: 'doseAmount',
+    );
     gh.lazySingleton<_i19.ILabelDoubleAmountRepository>(
         () => _i20.LabelDoubleAmountRepository(
               gh<_i5.FirebaseFirestore>(),
               gh<String>(),
             ));
-    gh.factory<_i19.ILabelDoubleAmountRepository>(
-      () => firebaseInjectableModule.doseAmountRepository,
-      instanceName: 'doseAmount',
-    );
     gh.lazySingleton<_i21.INameAbbreviationRepository>(
         () => _i22.NameAbbreviationRepository(
               gh<_i5.FirebaseFirestore>(),
@@ -259,12 +259,12 @@ extension GetItInjectableX on _i1.GetIt {
       instanceName: 'measureUnits',
     );
     gh.factory<_i21.INameAbbreviationRepository>(
-      () => firebaseInjectableModule.administrationRoutesRepostitory,
-      instanceName: 'administrationRoutes',
-    );
-    gh.factory<_i21.INameAbbreviationRepository>(
       () => firebaseInjectableModule.pharmaceuticalFormRepostitory,
       instanceName: 'pharmaceuticalForms',
+    );
+    gh.factory<_i21.INameAbbreviationRepository>(
+      () => firebaseInjectableModule.administrationRoutesRepostitory,
+      instanceName: 'administrationRoutes',
     );
     gh.lazySingleton<_i23.IPatientVisitRepository>(
         () => _i24.PatientVisitRepository(gh<_i5.FirebaseFirestore>()));
@@ -276,12 +276,12 @@ extension GetItInjectableX on _i1.GetIt {
               gh<String>(),
             ));
     gh.factory<_i27.ITimeIntervalRepository>(
-      () => firebaseInjectableModule.medicineDurationRoutesRepostitory,
-      instanceName: 'medicineDurationInterval',
-    );
-    gh.factory<_i27.ITimeIntervalRepository>(
       () => firebaseInjectableModule.doseFrequencyRoutesRepostitory,
       instanceName: 'doseFrequencyInterval',
+    );
+    gh.factory<_i27.ITimeIntervalRepository>(
+      () => firebaseInjectableModule.medicineDurationRoutesRepostitory,
+      instanceName: 'medicineDurationInterval',
     );
     gh.lazySingleton<_i29.IWeekDaysDoseRepository>(
         () => _i30.WeekDaysDoseRepository(gh<_i5.FirebaseFirestore>()));

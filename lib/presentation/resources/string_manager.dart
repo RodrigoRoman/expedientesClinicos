@@ -71,6 +71,7 @@ class AppStrings {
   static const String categoryIndication = 'Tipo de indicacion';
   static const String providerName = 'Nombre del proveedor';
   static const String existenceAmount = 'Cantidad en existencias';
+  static const String medicinePrescription = 'Prescripcion de medicamento';
   static const String optimum = 'Optimo';
   static const String cost = 'Precio de compra';
   static const String sellPrice = 'Precio de venta';

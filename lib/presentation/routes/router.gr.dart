@@ -47,6 +47,14 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const PatientVisitPage(),
       );
     },
+    PrescriptionFormPageRoute.name: (routeData) {
+      final args = routeData.argsAs<PrescriptionFormPageRouteArgs>(
+          orElse: () => const PrescriptionFormPageRouteArgs());
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: PrescriptionFormPage(onCreated: args.onCreated),
+      );
+    },
   };
 }
 
@@ -161,4 +169,34 @@ class PatientVisitPageRoute extends PageRouteInfo<void> {
   static const String name = 'PatientVisitPageRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [PrescriptionFormPage]
+class PrescriptionFormPageRoute
+    extends PageRouteInfo<PrescriptionFormPageRouteArgs> {
+  PrescriptionFormPageRoute({
+    Function? onCreated,
+    List<PageRouteInfo>? children,
+  }) : super(
+          PrescriptionFormPageRoute.name,
+          args: PrescriptionFormPageRouteArgs(onCreated: onCreated),
+          initialChildren: children,
+        );
+
+  static const String name = 'PrescriptionFormPageRoute';
+
+  static const PageInfo<PrescriptionFormPageRouteArgs> page =
+      PageInfo<PrescriptionFormPageRouteArgs>(name);
+}
+
+class PrescriptionFormPageRouteArgs {
+  const PrescriptionFormPageRouteArgs({this.onCreated});
+
+  final Function? onCreated;
+
+  @override
+  String toString() {
+    return 'PrescriptionFormPageRouteArgs{onCreated: $onCreated}';
+  }
 }
