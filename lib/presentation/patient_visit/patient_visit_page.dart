@@ -3,6 +3,7 @@ import 'package:expedientes_clinicos/application/patient_visit/patient_visit_for
 import 'package:expedientes_clinicos/domain/core/view_models/drop_down_expanded_view_model.dart';
 import 'package:expedientes_clinicos/injection.dart';
 import 'package:expedientes_clinicos/presentation/common/widget_elements/label_drop_down/expanded_card_item_drop_down.dart';
+import 'package:expedientes_clinicos/presentation/patient_visit/visit_information/visit_information_body.dart';
 import 'package:expedientes_clinicos/presentation/prescription/drop_down_prescription.dart';
 import 'package:expedientes_clinicos/presentation/prescription/prescription_list_select.dart';
 import 'package:expedientes_clinicos/presentation/resources/constant_size_values.dart';
@@ -40,7 +41,7 @@ class _PatientVisitPageState extends State<PatientVisitPage> {
       body: BlocProvider(
         create: (context) => getIt<PatientVisitFormBloc>(),
         child: Stepper(
-          type: StepperType.horizontal,
+          type: StepperType.vertical,
           currentStep: _currentStep,
           onStepContinue: () {
             if (_currentStep < 2) {
@@ -58,26 +59,40 @@ class _PatientVisitPageState extends State<PatientVisitPage> {
           },
           steps: [
             Step(
-              title: Text('Tratamiento'),
-              content: SizedBox(
-                  height: 600, width: 500, child: PrescriptionListSelect()),
+              title: Text('Informacion de la visita'),
+              content: VisitInformationBody(),
               isActive: _currentStep >= 0,
               state:
                   _currentStep >= 0 ? StepState.complete : StepState.disabled,
             ),
             Step(
-              title: Text('Paso 2'),
-              content: Text('Información del Paso 2'),
+              title: Text('Tratamiento'),
+              content: SizedBox(
+                  height: 600, width: 500, child: PrescriptionListSelect()),
               isActive: _currentStep >= 1,
               state:
                   _currentStep >= 1 ? StepState.complete : StepState.disabled,
             ),
             Step(
-              title: Text('Paso 3'),
-              content: Text('Información del Paso 3'),
+              title: Text('Procediminetos - Indicaciones'),
+              content: Text('Procedimientos'),
               isActive: _currentStep >= 2,
               state:
                   _currentStep >= 2 ? StepState.complete : StepState.disabled,
+            ),
+            Step(
+              title: Text('Laboratorios'),
+              content: Text('Pedir laboratorios'),
+              isActive: _currentStep >= 3,
+              state:
+                  _currentStep >= 3 ? StepState.complete : StepState.disabled,
+            ),
+            Step(
+              title: Text('Imprimir'),
+              content: Text('Información del Paso 5'),
+              isActive: _currentStep >= 4,
+              state:
+                  _currentStep >= 4 ? StepState.complete : StepState.disabled,
             ),
           ],
         ),

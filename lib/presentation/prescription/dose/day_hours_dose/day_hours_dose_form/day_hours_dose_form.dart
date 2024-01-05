@@ -282,10 +282,39 @@ class _DayHoursDoseFormState extends State<DayHoursDoseForm> {
                                             }, (r) {
                                               return r.asList();
                                             });
-                                            return DigitalWatch(
-                                              constraints: constraints,
-                                              time: currentList[index],
-                                              index: index,
+                                            return SizedBox(
+                                              width: constraints.maxWidth / 3,
+                                              height: constraints.maxHeight,
+                                              child: DigitalWatch(
+                                                initialTime: currentList[index],
+                                                onDateSelected:
+                                                    (TimeOfDay newTime) {
+                                                  List<HourTime> currentList = context
+                                                      .read<
+                                                          DayHoursDoseFormBloc>()
+                                                      .state
+                                                      .dayHoursDose
+                                                      .doseHours
+                                                      .value
+                                                      .fold(
+                                                          (l) => [],
+                                                          (r) => r
+                                                              .toMutableList()
+                                                              .asList());
+                                                  currentList[index] =
+                                                      HourTime(newTime);
+                                                  currentList.sort((a, b) => a
+                                                      .toTimestamp()
+                                                      .compareTo(
+                                                          b.toTimestamp()));
+                                                  context
+                                                      .read<
+                                                          DayHoursDoseFormBloc>()
+                                                      .add(DayHoursDoseFormEvent
+                                                          .listHoursChanged(
+                                                              currentList));
+                                                },
+                                              ),
                                             );
                                           },
                                         ),

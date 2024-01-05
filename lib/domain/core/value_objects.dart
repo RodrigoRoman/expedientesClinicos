@@ -189,6 +189,10 @@ class HourTime extends ValueObject<TimeOfDay> {
     return Timestamp.fromDate(dateTime);
   }
 
+  static HourTime now() {
+    return HourTime(TimeOfDay.now());
+  }
+
   @override
   final Either<ValueFailure<TimeOfDay>, TimeOfDay> value;
 
