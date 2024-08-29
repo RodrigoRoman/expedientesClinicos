@@ -184,8 +184,8 @@ class StateMessage extends StatelessWidget {
           textAlign: TextAlign.center,
           style: Theme.of(context)
               .textTheme
-              .headline3!
-              .copyWith(color: Theme.of(context).backgroundColor),
+              .headlineMedium!
+              .copyWith(color: Theme.of(context).dialogBackgroundColor),
         ),
       ),
     ));

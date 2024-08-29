@@ -6,16 +6,16 @@ part of 'name_abbreviation_dtos.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_NameAbbreviationDto _$$_NameAbbreviationDtoFromJson(
+_$NameAbbreviationDtoImpl _$$NameAbbreviationDtoImplFromJson(
         Map<String, dynamic> json) =>
-    _$_NameAbbreviationDto(
+    _$NameAbbreviationDtoImpl(
       id: json['id'] as String,
       name: json['name'] as String,
       abbr: json['abbr'] as String,
     );
 
-Map<String, dynamic> _$$_NameAbbreviationDtoToJson(
-        _$_NameAbbreviationDto instance) =>
+Map<String, dynamic> _$$NameAbbreviationDtoImplToJson(
+        _$NameAbbreviationDtoImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,

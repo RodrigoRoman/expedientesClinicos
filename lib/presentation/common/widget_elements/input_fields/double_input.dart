@@ -12,10 +12,20 @@ class DoubleInputBox extends StatefulWidget {
   final double initialValue;
   double minValue;
   double maxValue;
-  final Function onChanged;
-
+  final Function(double) onChanged;
+  bool inactive;
+  // A way to see the minimum dimensions this widget supports
+  // base on experience (trial and error)
+  // Getter for width
+  static int get minWidth => 100;
+  // Getter for minHeight
+  static int get minHeight => 50;
   DoubleInputBox(
-      {required this.initialValue, minValue, maxValue, required this.onChanged})
+      {required this.initialValue,
+      minValue,
+      maxValue,
+      required this.onChanged,
+      this.inactive = false})
       : maxValue = maxValue ?? doubleInfinity,
         minValue = minValue ?? 0.0;
 
@@ -53,6 +63,7 @@ class _DoubleInputBoxState extends State<DoubleInputBox> {
           return DoubleInputBody(
             textController: textController,
             isValidInput: isValidInput,
+            inactive: widget.inactive,
             maxDouble: widget.maxValue,
           );
         },
@@ -66,10 +77,12 @@ class DoubleInputBody extends StatelessWidget {
   Function isValidInput;
   double maxDouble;
   double minDouble;
+  bool inactive;
   DoubleInputBody(
       {super.key,
       required this.textController,
       required this.isValidInput,
+      required this.inactive,
       this.minDouble = 0.0,
       required this.maxDouble});
   int inputLength = 3;
@@ -81,6 +94,7 @@ class DoubleInputBody extends StatelessWidget {
         Expanded(
             flex: 1,
             child: MinusButtonDown(
+              inactive: inactive,
               onPressed: () {
                 context
                     .read<DoubleCounterBloc>()
@@ -90,6 +104,7 @@ class DoubleInputBody extends StatelessWidget {
         Expanded(
             flex: 2,
             child: DoubleTextInput(
+              inactive: inactive,
               doubleTextController: textController,
               onInputChanged: (double value) {
                 if (isValidInput(value)) {
@@ -124,6 +139,7 @@ class DoubleInputBody extends StatelessWidget {
         Expanded(
             flex: 1,
             child: PlusButtonUp(
+              inactive: inactive,
               onPressed: () {
                 context
                     .read<DoubleCounterBloc>()

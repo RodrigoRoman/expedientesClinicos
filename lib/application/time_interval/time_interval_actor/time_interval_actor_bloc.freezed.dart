@@ -12,7 +12,7 @@ part of 'time_interval_actor_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$TimeIntervalActorEvent {
@@ -100,11 +100,11 @@ class _$TimeIntervalActorEventCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_DeletedCopyWith<$Res>
+abstract class _$$DeletedImplCopyWith<$Res>
     implements $TimeIntervalActorEventCopyWith<$Res> {
-  factory _$$_DeletedCopyWith(
-          _$_Deleted value, $Res Function(_$_Deleted) then) =
-      __$$_DeletedCopyWithImpl<$Res>;
+  factory _$$DeletedImplCopyWith(
+          _$DeletedImpl value, $Res Function(_$DeletedImpl) then) =
+      __$$DeletedImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({TimeInterval timeInterval});
@@ -114,10 +114,11 @@ abstract class _$$_DeletedCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_DeletedCopyWithImpl<$Res>
-    extends _$TimeIntervalActorEventCopyWithImpl<$Res, _$_Deleted>
-    implements _$$_DeletedCopyWith<$Res> {
-  __$$_DeletedCopyWithImpl(_$_Deleted _value, $Res Function(_$_Deleted) _then)
+class __$$DeletedImplCopyWithImpl<$Res>
+    extends _$TimeIntervalActorEventCopyWithImpl<$Res, _$DeletedImpl>
+    implements _$$DeletedImplCopyWith<$Res> {
+  __$$DeletedImplCopyWithImpl(
+      _$DeletedImpl _value, $Res Function(_$DeletedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -125,7 +126,7 @@ class __$$_DeletedCopyWithImpl<$Res>
   $Res call({
     Object? timeInterval = null,
   }) {
-    return _then(_$_Deleted(
+    return _then(_$DeletedImpl(
       null == timeInterval
           ? _value.timeInterval
           : timeInterval // ignore: cast_nullable_to_non_nullable
@@ -136,8 +137,8 @@ class __$$_DeletedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Deleted implements _Deleted {
-  const _$_Deleted(this.timeInterval);
+class _$DeletedImpl implements _Deleted {
+  const _$DeletedImpl(this.timeInterval);
 
   @override
   final TimeInterval timeInterval;
@@ -148,10 +149,10 @@ class _$_Deleted implements _Deleted {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Deleted &&
+            other is _$DeletedImpl &&
             (identical(other.timeInterval, timeInterval) ||
                 other.timeInterval == timeInterval));
   }
@@ -162,8 +163,8 @@ class _$_Deleted implements _Deleted {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DeletedCopyWith<_$_Deleted> get copyWith =>
-      __$$_DeletedCopyWithImpl<_$_Deleted>(this, _$identity);
+  _$$DeletedImplCopyWith<_$DeletedImpl> get copyWith =>
+      __$$DeletedImplCopyWithImpl<_$DeletedImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -223,13 +224,13 @@ class _$_Deleted implements _Deleted {
 }
 
 abstract class _Deleted implements TimeIntervalActorEvent {
-  const factory _Deleted(final TimeInterval timeInterval) = _$_Deleted;
+  const factory _Deleted(final TimeInterval timeInterval) = _$DeletedImpl;
 
   @override
   TimeInterval get timeInterval;
   @override
   @JsonKey(ignore: true)
-  _$$_DeletedCopyWith<_$_Deleted> get copyWith =>
+  _$$DeletedImplCopyWith<_$DeletedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -308,24 +309,25 @@ class _$TimeIntervalActorStateCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_InitialCopyWith<$Res> {
-  factory _$$_InitialCopyWith(
-          _$_Initial value, $Res Function(_$_Initial) then) =
-      __$$_InitialCopyWithImpl<$Res>;
+abstract class _$$InitialImplCopyWith<$Res> {
+  factory _$$InitialImplCopyWith(
+          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
+      __$$InitialImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_InitialCopyWithImpl<$Res>
-    extends _$TimeIntervalActorStateCopyWithImpl<$Res, _$_Initial>
-    implements _$$_InitialCopyWith<$Res> {
-  __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
+class __$$InitialImplCopyWithImpl<$Res>
+    extends _$TimeIntervalActorStateCopyWithImpl<$Res, _$InitialImpl>
+    implements _$$InitialImplCopyWith<$Res> {
+  __$$InitialImplCopyWithImpl(
+      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_Initial implements _Initial {
-  const _$_Initial();
+class _$InitialImpl implements _Initial {
+  const _$InitialImpl();
 
   @override
   String toString() {
@@ -333,9 +335,9 @@ class _$_Initial implements _Initial {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Initial);
+        (other.runtimeType == runtimeType && other is _$InitialImpl);
   }
 
   @override
@@ -418,29 +420,29 @@ class _$_Initial implements _Initial {
 }
 
 abstract class _Initial implements TimeIntervalActorState {
-  const factory _Initial() = _$_Initial;
+  const factory _Initial() = _$InitialImpl;
 }
 
 /// @nodoc
-abstract class _$$_ActionInProgressCopyWith<$Res> {
-  factory _$$_ActionInProgressCopyWith(
-          _$_ActionInProgress value, $Res Function(_$_ActionInProgress) then) =
-      __$$_ActionInProgressCopyWithImpl<$Res>;
+abstract class _$$ActionInProgressImplCopyWith<$Res> {
+  factory _$$ActionInProgressImplCopyWith(_$ActionInProgressImpl value,
+          $Res Function(_$ActionInProgressImpl) then) =
+      __$$ActionInProgressImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_ActionInProgressCopyWithImpl<$Res>
-    extends _$TimeIntervalActorStateCopyWithImpl<$Res, _$_ActionInProgress>
-    implements _$$_ActionInProgressCopyWith<$Res> {
-  __$$_ActionInProgressCopyWithImpl(
-      _$_ActionInProgress _value, $Res Function(_$_ActionInProgress) _then)
+class __$$ActionInProgressImplCopyWithImpl<$Res>
+    extends _$TimeIntervalActorStateCopyWithImpl<$Res, _$ActionInProgressImpl>
+    implements _$$ActionInProgressImplCopyWith<$Res> {
+  __$$ActionInProgressImplCopyWithImpl(_$ActionInProgressImpl _value,
+      $Res Function(_$ActionInProgressImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_ActionInProgress implements _ActionInProgress {
-  const _$_ActionInProgress();
+class _$ActionInProgressImpl implements _ActionInProgress {
+  const _$ActionInProgressImpl();
 
   @override
   String toString() {
@@ -448,9 +450,9 @@ class _$_ActionInProgress implements _ActionInProgress {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_ActionInProgress);
+        (other.runtimeType == runtimeType && other is _$ActionInProgressImpl);
   }
 
   @override
@@ -533,14 +535,14 @@ class _$_ActionInProgress implements _ActionInProgress {
 }
 
 abstract class _ActionInProgress implements TimeIntervalActorState {
-  const factory _ActionInProgress() = _$_ActionInProgress;
+  const factory _ActionInProgress() = _$ActionInProgressImpl;
 }
 
 /// @nodoc
-abstract class _$$_DeleteFalureCopyWith<$Res> {
-  factory _$$_DeleteFalureCopyWith(
-          _$_DeleteFalure value, $Res Function(_$_DeleteFalure) then) =
-      __$$_DeleteFalureCopyWithImpl<$Res>;
+abstract class _$$DeleteFalureImplCopyWith<$Res> {
+  factory _$$DeleteFalureImplCopyWith(
+          _$DeleteFalureImpl value, $Res Function(_$DeleteFalureImpl) then) =
+      __$$DeleteFalureImplCopyWithImpl<$Res>;
   @useResult
   $Res call({TimeIntervalFailure timeIntervalFailure});
 
@@ -548,11 +550,11 @@ abstract class _$$_DeleteFalureCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_DeleteFalureCopyWithImpl<$Res>
-    extends _$TimeIntervalActorStateCopyWithImpl<$Res, _$_DeleteFalure>
-    implements _$$_DeleteFalureCopyWith<$Res> {
-  __$$_DeleteFalureCopyWithImpl(
-      _$_DeleteFalure _value, $Res Function(_$_DeleteFalure) _then)
+class __$$DeleteFalureImplCopyWithImpl<$Res>
+    extends _$TimeIntervalActorStateCopyWithImpl<$Res, _$DeleteFalureImpl>
+    implements _$$DeleteFalureImplCopyWith<$Res> {
+  __$$DeleteFalureImplCopyWithImpl(
+      _$DeleteFalureImpl _value, $Res Function(_$DeleteFalureImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -560,7 +562,7 @@ class __$$_DeleteFalureCopyWithImpl<$Res>
   $Res call({
     Object? timeIntervalFailure = null,
   }) {
-    return _then(_$_DeleteFalure(
+    return _then(_$DeleteFalureImpl(
       null == timeIntervalFailure
           ? _value.timeIntervalFailure
           : timeIntervalFailure // ignore: cast_nullable_to_non_nullable
@@ -580,8 +582,8 @@ class __$$_DeleteFalureCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_DeleteFalure implements _DeleteFalure {
-  const _$_DeleteFalure(this.timeIntervalFailure);
+class _$DeleteFalureImpl implements _DeleteFalure {
+  const _$DeleteFalureImpl(this.timeIntervalFailure);
 
   @override
   final TimeIntervalFailure timeIntervalFailure;
@@ -592,10 +594,10 @@ class _$_DeleteFalure implements _DeleteFalure {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_DeleteFalure &&
+            other is _$DeleteFalureImpl &&
             (identical(other.timeIntervalFailure, timeIntervalFailure) ||
                 other.timeIntervalFailure == timeIntervalFailure));
   }
@@ -606,8 +608,8 @@ class _$_DeleteFalure implements _DeleteFalure {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DeleteFalureCopyWith<_$_DeleteFalure> get copyWith =>
-      __$$_DeleteFalureCopyWithImpl<_$_DeleteFalure>(this, _$identity);
+  _$$DeleteFalureImplCopyWith<_$DeleteFalureImpl> get copyWith =>
+      __$$DeleteFalureImplCopyWithImpl<_$DeleteFalureImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -687,34 +689,34 @@ class _$_DeleteFalure implements _DeleteFalure {
 
 abstract class _DeleteFalure implements TimeIntervalActorState {
   const factory _DeleteFalure(final TimeIntervalFailure timeIntervalFailure) =
-      _$_DeleteFalure;
+      _$DeleteFalureImpl;
 
   TimeIntervalFailure get timeIntervalFailure;
   @JsonKey(ignore: true)
-  _$$_DeleteFalureCopyWith<_$_DeleteFalure> get copyWith =>
+  _$$DeleteFalureImplCopyWith<_$DeleteFalureImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_DeleteSuccessCopyWith<$Res> {
-  factory _$$_DeleteSuccessCopyWith(
-          _$_DeleteSuccess value, $Res Function(_$_DeleteSuccess) then) =
-      __$$_DeleteSuccessCopyWithImpl<$Res>;
+abstract class _$$DeleteSuccessImplCopyWith<$Res> {
+  factory _$$DeleteSuccessImplCopyWith(
+          _$DeleteSuccessImpl value, $Res Function(_$DeleteSuccessImpl) then) =
+      __$$DeleteSuccessImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_DeleteSuccessCopyWithImpl<$Res>
-    extends _$TimeIntervalActorStateCopyWithImpl<$Res, _$_DeleteSuccess>
-    implements _$$_DeleteSuccessCopyWith<$Res> {
-  __$$_DeleteSuccessCopyWithImpl(
-      _$_DeleteSuccess _value, $Res Function(_$_DeleteSuccess) _then)
+class __$$DeleteSuccessImplCopyWithImpl<$Res>
+    extends _$TimeIntervalActorStateCopyWithImpl<$Res, _$DeleteSuccessImpl>
+    implements _$$DeleteSuccessImplCopyWith<$Res> {
+  __$$DeleteSuccessImplCopyWithImpl(
+      _$DeleteSuccessImpl _value, $Res Function(_$DeleteSuccessImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_DeleteSuccess implements _DeleteSuccess {
-  const _$_DeleteSuccess();
+class _$DeleteSuccessImpl implements _DeleteSuccess {
+  const _$DeleteSuccessImpl();
 
   @override
   String toString() {
@@ -722,9 +724,9 @@ class _$_DeleteSuccess implements _DeleteSuccess {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_DeleteSuccess);
+        (other.runtimeType == runtimeType && other is _$DeleteSuccessImpl);
   }
 
   @override
@@ -807,5 +809,5 @@ class _$_DeleteSuccess implements _DeleteSuccess {
 }
 
 abstract class _DeleteSuccess implements TimeIntervalActorState {
-  const factory _DeleteSuccess() = _$_DeleteSuccess;
+  const factory _DeleteSuccess() = _$DeleteSuccessImpl;
 }

@@ -4,6 +4,8 @@ import 'package:expedientes_clinicos/application/abbreviation_name/abbreviation_
 import 'package:expedientes_clinicos/application/abbreviation_name/abbreviation_name_form/pharmaceutical_form_form_bloc.dart';
 import 'package:expedientes_clinicos/application/categories/category_form/indication_category_form_bloc.dart';
 import 'package:expedientes_clinicos/application/categories/category_form/medicine_category_form_bloc.dart';
+import 'package:expedientes_clinicos/application/categories/category_form/patient_visit_category_form_bloc.dart';
+import 'package:expedientes_clinicos/application/dynamic_form/dynamic_form_form/dynamic_form_form_bloc.dart';
 import 'package:expedientes_clinicos/application/indication/indication_form/medicine_indication_form_bloc.dart';
 import 'package:expedientes_clinicos/application/label_double_amount/label_double_amount_form/dose_amount_form_bloc.dart';
 import 'package:expedientes_clinicos/application/label_double_amount/label_double_amount_form/label_double_amount_form_bloc.dart';
@@ -22,6 +24,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
+import 'package:intl/intl.dart';
+import 'package:intl/date_symbol_data_local.dart';
 
 import 'presentation/common/state_renderer/app_state_renderer.dart';
 import 'presentation/common/widget_elements/popup_dialog.dart';
@@ -33,7 +37,11 @@ void main() async {
 
   await configureInjection(Environment.prod);
   await Firebase.initializeApp();
-  runApp(AppRoot());
+
+  initializeDateFormatting().then((_) {
+    runApp(AppRoot());
+  });
+  // runApp(AppRoot());
 }
 
 class AppRoot extends StatelessWidget {
@@ -74,7 +82,11 @@ class AppRoot extends StatelessWidget {
           BlocProvider<MedicineIndicationFormBloc>(
               create: (context) => getIt<MedicineIndicationFormBloc>()),
           BlocProvider<IndicationCategoryFormBloc>(
-              create: (context) => getIt<IndicationCategoryFormBloc>())
+              create: (context) => getIt<IndicationCategoryFormBloc>()),
+          BlocProvider<PatientVisitTypeCategoryFormBloc>(
+              create: (context) => getIt<PatientVisitTypeCategoryFormBloc>()),
+          BlocProvider<DynamicFormFormBloc>(
+              create: (context) => getIt<DynamicFormFormBloc>())
         ],
         child: BlocConsumer<StateRendererBloc, StateRendererState>(
             buildWhen: (previous, current) =>

@@ -12,7 +12,7 @@ part of 'time_interval.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$TimeInterval {
@@ -79,11 +79,11 @@ class _$TimeIntervalCopyWithImpl<$Res, $Val extends TimeInterval>
 }
 
 /// @nodoc
-abstract class _$$_TimeIntervalCopyWith<$Res>
+abstract class _$$TimeIntervalImplCopyWith<$Res>
     implements $TimeIntervalCopyWith<$Res> {
-  factory _$$_TimeIntervalCopyWith(
-          _$_TimeInterval value, $Res Function(_$_TimeInterval) then) =
-      __$$_TimeIntervalCopyWithImpl<$Res>;
+  factory _$$TimeIntervalImplCopyWith(
+          _$TimeIntervalImpl value, $Res Function(_$TimeIntervalImpl) then) =
+      __$$TimeIntervalImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -94,11 +94,11 @@ abstract class _$$_TimeIntervalCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_TimeIntervalCopyWithImpl<$Res>
-    extends _$TimeIntervalCopyWithImpl<$Res, _$_TimeInterval>
-    implements _$$_TimeIntervalCopyWith<$Res> {
-  __$$_TimeIntervalCopyWithImpl(
-      _$_TimeInterval _value, $Res Function(_$_TimeInterval) _then)
+class __$$TimeIntervalImplCopyWithImpl<$Res>
+    extends _$TimeIntervalCopyWithImpl<$Res, _$TimeIntervalImpl>
+    implements _$$TimeIntervalImplCopyWith<$Res> {
+  __$$TimeIntervalImplCopyWithImpl(
+      _$TimeIntervalImpl _value, $Res Function(_$TimeIntervalImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -109,7 +109,7 @@ class __$$_TimeIntervalCopyWithImpl<$Res>
     Object? timeDuration = null,
     Object? counter = null,
   }) {
-    return _then(_$_TimeInterval(
+    return _then(_$TimeIntervalImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -132,8 +132,8 @@ class __$$_TimeIntervalCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_TimeInterval extends _TimeInterval {
-  const _$_TimeInterval(
+class _$TimeIntervalImpl extends _TimeInterval {
+  const _$TimeIntervalImpl(
       {required this.id,
       required this.label,
       required this.timeDuration,
@@ -157,8 +157,8 @@ class _$_TimeInterval extends _TimeInterval {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_TimeIntervalCopyWith<_$_TimeInterval> get copyWith =>
-      __$$_TimeIntervalCopyWithImpl<_$_TimeInterval>(this, _$identity);
+  _$$TimeIntervalImplCopyWith<_$TimeIntervalImpl> get copyWith =>
+      __$$TimeIntervalImplCopyWithImpl<_$TimeIntervalImpl>(this, _$identity);
 }
 
 abstract class _TimeInterval extends TimeInterval {
@@ -166,7 +166,7 @@ abstract class _TimeInterval extends TimeInterval {
       {required final UniqueId id,
       required final FullName label,
       required final TimeDuration timeDuration,
-      required final NonNegInt counter}) = _$_TimeInterval;
+      required final NonNegInt counter}) = _$TimeIntervalImpl;
   const _TimeInterval._() : super._();
 
   @override
@@ -179,6 +179,6 @@ abstract class _TimeInterval extends TimeInterval {
   NonNegInt get counter;
   @override
   @JsonKey(ignore: true)
-  _$$_TimeIntervalCopyWith<_$_TimeInterval> get copyWith =>
+  _$$TimeIntervalImplCopyWith<_$TimeIntervalImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -9,7 +9,7 @@ import 'package:flutter/material.dart';
 class LabelAmountDoublePopUpForm extends StatefulWidget {
   final String titleName;
   final Function validAbbreviation;
-  final Function onAmountChanged;
+  final Function(double) onAmountChanged;
   final Function validAmount;
   final Function onSubmit;
   final Function onNameChanged;

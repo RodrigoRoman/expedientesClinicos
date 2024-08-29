@@ -12,7 +12,7 @@ part of 'drop_down_expanded_view_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$DropdownExpandedItemViewModel {
@@ -131,12 +131,12 @@ class _$DropdownExpandedItemViewModelCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_DropdownExpandedItemViewModelCopyWith<$Res>
+abstract class _$$DropdownExpandedItemViewModelImplCopyWith<$Res>
     implements $DropdownExpandedItemViewModelCopyWith<$Res> {
-  factory _$$_DropdownExpandedItemViewModelCopyWith(
-          _$_DropdownExpandedItemViewModel value,
-          $Res Function(_$_DropdownExpandedItemViewModel) then) =
-      __$$_DropdownExpandedItemViewModelCopyWithImpl<$Res>;
+  factory _$$DropdownExpandedItemViewModelImplCopyWith(
+          _$DropdownExpandedItemViewModelImpl value,
+          $Res Function(_$DropdownExpandedItemViewModelImpl) then) =
+      __$$DropdownExpandedItemViewModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -155,13 +155,13 @@ abstract class _$$_DropdownExpandedItemViewModelCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_DropdownExpandedItemViewModelCopyWithImpl<$Res>
+class __$$DropdownExpandedItemViewModelImplCopyWithImpl<$Res>
     extends _$DropdownExpandedItemViewModelCopyWithImpl<$Res,
-        _$_DropdownExpandedItemViewModel>
-    implements _$$_DropdownExpandedItemViewModelCopyWith<$Res> {
-  __$$_DropdownExpandedItemViewModelCopyWithImpl(
-      _$_DropdownExpandedItemViewModel _value,
-      $Res Function(_$_DropdownExpandedItemViewModel) _then)
+        _$DropdownExpandedItemViewModelImpl>
+    implements _$$DropdownExpandedItemViewModelImplCopyWith<$Res> {
+  __$$DropdownExpandedItemViewModelImplCopyWithImpl(
+      _$DropdownExpandedItemViewModelImpl _value,
+      $Res Function(_$DropdownExpandedItemViewModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -177,7 +177,7 @@ class __$$_DropdownExpandedItemViewModelCopyWithImpl<$Res>
     Object? listIndications = null,
     Object? prescription = freezed,
   }) {
-    return _then(_$_DropdownExpandedItemViewModel(
+    return _then(_$DropdownExpandedItemViewModelImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -220,8 +220,9 @@ class __$$_DropdownExpandedItemViewModelCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_DropdownExpandedItemViewModel extends _DropdownExpandedItemViewModel {
-  const _$_DropdownExpandedItemViewModel(
+class _$DropdownExpandedItemViewModelImpl
+    extends _DropdownExpandedItemViewModel {
+  const _$DropdownExpandedItemViewModelImpl(
       {required this.id,
       required this.title,
       this.subtitle,
@@ -260,9 +261,10 @@ class _$_DropdownExpandedItemViewModel extends _DropdownExpandedItemViewModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DropdownExpandedItemViewModelCopyWith<_$_DropdownExpandedItemViewModel>
-      get copyWith => __$$_DropdownExpandedItemViewModelCopyWithImpl<
-          _$_DropdownExpandedItemViewModel>(this, _$identity);
+  _$$DropdownExpandedItemViewModelImplCopyWith<
+          _$DropdownExpandedItemViewModelImpl>
+      get copyWith => __$$DropdownExpandedItemViewModelImplCopyWithImpl<
+          _$DropdownExpandedItemViewModelImpl>(this, _$identity);
 }
 
 abstract class _DropdownExpandedItemViewModel
@@ -276,7 +278,7 @@ abstract class _DropdownExpandedItemViewModel
       final FullName? column2,
       final FullName? column3,
       required final List3<Indication> listIndications,
-      final Prescription? prescription}) = _$_DropdownExpandedItemViewModel;
+      final Prescription? prescription}) = _$DropdownExpandedItemViewModelImpl;
   const _DropdownExpandedItemViewModel._() : super._();
 
   @override
@@ -299,6 +301,7 @@ abstract class _DropdownExpandedItemViewModel
   Prescription? get prescription;
   @override
   @JsonKey(ignore: true)
-  _$$_DropdownExpandedItemViewModelCopyWith<_$_DropdownExpandedItemViewModel>
+  _$$DropdownExpandedItemViewModelImplCopyWith<
+          _$DropdownExpandedItemViewModelImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

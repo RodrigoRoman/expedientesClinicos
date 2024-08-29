@@ -6,8 +6,8 @@ part of 'indication_dtos.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_IndicationDto _$$_IndicationDtoFromJson(Map<String, dynamic> json) =>
-    _$_IndicationDto(
+_$IndicationDtoImpl _$$IndicationDtoImplFromJson(Map<String, dynamic> json) =>
+    _$IndicationDtoImpl(
       id: json['id'] as String,
       indicationName: json['indicationName'] as String,
       indicationCategory: CategoryDto.fromJson(
@@ -15,7 +15,7 @@ _$_IndicationDto _$$_IndicationDtoFromJson(Map<String, dynamic> json) =>
       counter: json['counter'] as int,
     );
 
-Map<String, dynamic> _$$_IndicationDtoToJson(_$_IndicationDto instance) =>
+Map<String, dynamic> _$$IndicationDtoImplToJson(_$IndicationDtoImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'indicationName': instance.indicationName,

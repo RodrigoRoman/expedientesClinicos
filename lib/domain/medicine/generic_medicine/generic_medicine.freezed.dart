@@ -12,7 +12,7 @@ part of 'generic_medicine.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$GenericMedicine {
@@ -159,11 +159,11 @@ class _$GenericMedicineCopyWithImpl<$Res, $Val extends GenericMedicine>
 }
 
 /// @nodoc
-abstract class _$$_GenericMedicineCopyWith<$Res>
+abstract class _$$GenericMedicineImplCopyWith<$Res>
     implements $GenericMedicineCopyWith<$Res> {
-  factory _$$_GenericMedicineCopyWith(
-          _$_GenericMedicine value, $Res Function(_$_GenericMedicine) then) =
-      __$$_GenericMedicineCopyWithImpl<$Res>;
+  factory _$$GenericMedicineImplCopyWith(_$GenericMedicineImpl value,
+          $Res Function(_$GenericMedicineImpl) then) =
+      __$$GenericMedicineImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -189,11 +189,11 @@ abstract class _$$_GenericMedicineCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_GenericMedicineCopyWithImpl<$Res>
-    extends _$GenericMedicineCopyWithImpl<$Res, _$_GenericMedicine>
-    implements _$$_GenericMedicineCopyWith<$Res> {
-  __$$_GenericMedicineCopyWithImpl(
-      _$_GenericMedicine _value, $Res Function(_$_GenericMedicine) _then)
+class __$$GenericMedicineImplCopyWithImpl<$Res>
+    extends _$GenericMedicineCopyWithImpl<$Res, _$GenericMedicineImpl>
+    implements _$$GenericMedicineImplCopyWith<$Res> {
+  __$$GenericMedicineImplCopyWithImpl(
+      _$GenericMedicineImpl _value, $Res Function(_$GenericMedicineImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -210,7 +210,7 @@ class __$$_GenericMedicineCopyWithImpl<$Res>
     Object? controlled = null,
     Object? counter = null,
   }) {
-    return _then(_$_GenericMedicine(
+    return _then(_$GenericMedicineImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -257,8 +257,8 @@ class __$$_GenericMedicineCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_GenericMedicine extends _GenericMedicine {
-  const _$_GenericMedicine(
+class _$GenericMedicineImpl extends _GenericMedicine {
+  const _$GenericMedicineImpl(
       {required this.id,
       required this.genericName,
       required this.measureUnit,
@@ -300,8 +300,9 @@ class _$_GenericMedicine extends _GenericMedicine {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_GenericMedicineCopyWith<_$_GenericMedicine> get copyWith =>
-      __$$_GenericMedicineCopyWithImpl<_$_GenericMedicine>(this, _$identity);
+  _$$GenericMedicineImplCopyWith<_$GenericMedicineImpl> get copyWith =>
+      __$$GenericMedicineImplCopyWithImpl<_$GenericMedicineImpl>(
+          this, _$identity);
 }
 
 abstract class _GenericMedicine extends GenericMedicine {
@@ -315,7 +316,7 @@ abstract class _GenericMedicine extends GenericMedicine {
       required final NonNegInt amountPerPackage,
       required final Category category,
       required final bool controlled,
-      required final NonNegInt counter}) = _$_GenericMedicine;
+      required final NonNegInt counter}) = _$GenericMedicineImpl;
   const _GenericMedicine._() : super._();
 
   @override
@@ -340,6 +341,6 @@ abstract class _GenericMedicine extends GenericMedicine {
   NonNegInt get counter;
   @override
   @JsonKey(ignore: true)
-  _$$_GenericMedicineCopyWith<_$_GenericMedicine> get copyWith =>
+  _$$GenericMedicineImplCopyWith<_$GenericMedicineImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

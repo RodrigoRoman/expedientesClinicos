@@ -1,10 +1,12 @@
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
+import 'package:expedientes_clinicos/domain/core/categories/category.dart';
 import 'package:expedientes_clinicos/domain/core/value_objects.dart';
 import 'package:expedientes_clinicos/domain/patient_visit/i_patient_visit_repository.dart';
 import 'package:expedientes_clinicos/domain/patient_visit/patient_visit.dart';
 import 'package:expedientes_clinicos/domain/patient_visit/patient_visit_failures.dart';
 import 'package:expedientes_clinicos/domain/prescription/prescription.dart';
+import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:kt_dart/kt.dart';
@@ -33,6 +35,27 @@ class PatientVisitFormBloc
     on<_TreatmentChanged>((event, emit) => emit(state.copyWith(
         patientVisit: state.patientVisit
             .copyWith(treatment: List3(KtList.from(event.treatment))),
+        saveFailureOrSuccessOption: none())));
+    on<_DateTimeChanged>((event, emit) => emit(state.copyWith(
+        patientVisit:
+            state.patientVisit.copyWith(dateTimeVisit: event.dateTime),
+        saveFailureOrSuccessOption: none())));
+    on<_DateChanged>((event, emit) => emit(state.copyWith(
+        patientVisit:
+            state.patientVisit.copyWith(dateTimeVisit: event.dateTime),
+        saveFailureOrSuccessOption: none())));
+    on<_VisitTypeChanged>((event, emit) => emit(state.copyWith(
+        patientVisit: state.patientVisit.copyWith(visitType: event.visitType),
+        saveFailureOrSuccessOption: none())));
+    on<_TimeChanged>((event, emit) => emit(state.copyWith(
+        patientVisit: state.patientVisit.copyWith(
+            dateTimeVisit: DateTime(
+          state.patientVisit.dateTimeVisit.year,
+          state.patientVisit.dateTimeVisit.month,
+          state.patientVisit.dateTimeVisit.weekday,
+          event.time.hour,
+          event.time.minute,
+        )),
         saveFailureOrSuccessOption: none())));
     on<_Saved>((event, emit) async {
       Either<PatientVisitFailures, Unit>? failureOrSuccess;

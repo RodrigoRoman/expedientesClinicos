@@ -12,7 +12,7 @@ part of 'indication_dtos.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 IndicationDto _$IndicationDtoFromJson(Map<String, dynamic> json) {
   return _IndicationDto.fromJson(json);
@@ -94,11 +94,11 @@ class _$IndicationDtoCopyWithImpl<$Res, $Val extends IndicationDto>
 }
 
 /// @nodoc
-abstract class _$$_IndicationDtoCopyWith<$Res>
+abstract class _$$IndicationDtoImplCopyWith<$Res>
     implements $IndicationDtoCopyWith<$Res> {
-  factory _$$_IndicationDtoCopyWith(
-          _$_IndicationDto value, $Res Function(_$_IndicationDto) then) =
-      __$$_IndicationDtoCopyWithImpl<$Res>;
+  factory _$$IndicationDtoImplCopyWith(
+          _$IndicationDtoImpl value, $Res Function(_$IndicationDtoImpl) then) =
+      __$$IndicationDtoImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -112,11 +112,11 @@ abstract class _$$_IndicationDtoCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_IndicationDtoCopyWithImpl<$Res>
-    extends _$IndicationDtoCopyWithImpl<$Res, _$_IndicationDto>
-    implements _$$_IndicationDtoCopyWith<$Res> {
-  __$$_IndicationDtoCopyWithImpl(
-      _$_IndicationDto _value, $Res Function(_$_IndicationDto) _then)
+class __$$IndicationDtoImplCopyWithImpl<$Res>
+    extends _$IndicationDtoCopyWithImpl<$Res, _$IndicationDtoImpl>
+    implements _$$IndicationDtoImplCopyWith<$Res> {
+  __$$IndicationDtoImplCopyWithImpl(
+      _$IndicationDtoImpl _value, $Res Function(_$IndicationDtoImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -127,7 +127,7 @@ class __$$_IndicationDtoCopyWithImpl<$Res>
     Object? indicationCategory = null,
     Object? counter = null,
   }) {
-    return _then(_$_IndicationDto(
+    return _then(_$IndicationDtoImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -150,16 +150,16 @@ class __$$_IndicationDtoCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_IndicationDto extends _IndicationDto {
-  const _$_IndicationDto(
+class _$IndicationDtoImpl extends _IndicationDto {
+  const _$IndicationDtoImpl(
       {required this.id,
       required this.indicationName,
       required this.indicationCategory,
       required this.counter})
       : super._();
 
-  factory _$_IndicationDto.fromJson(Map<String, dynamic> json) =>
-      _$$_IndicationDtoFromJson(json);
+  factory _$IndicationDtoImpl.fromJson(Map<String, dynamic> json) =>
+      _$$IndicationDtoImplFromJson(json);
 
   @override
   final String id;
@@ -176,10 +176,10 @@ class _$_IndicationDto extends _IndicationDto {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_IndicationDto &&
+            other is _$IndicationDtoImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.indicationName, indicationName) ||
                 other.indicationName == indicationName) &&
@@ -196,12 +196,12 @@ class _$_IndicationDto extends _IndicationDto {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_IndicationDtoCopyWith<_$_IndicationDto> get copyWith =>
-      __$$_IndicationDtoCopyWithImpl<_$_IndicationDto>(this, _$identity);
+  _$$IndicationDtoImplCopyWith<_$IndicationDtoImpl> get copyWith =>
+      __$$IndicationDtoImplCopyWithImpl<_$IndicationDtoImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_IndicationDtoToJson(
+    return _$$IndicationDtoImplToJson(
       this,
     );
   }
@@ -212,11 +212,11 @@ abstract class _IndicationDto extends IndicationDto {
       {required final String id,
       required final String indicationName,
       required final CategoryDto indicationCategory,
-      required final int counter}) = _$_IndicationDto;
+      required final int counter}) = _$IndicationDtoImpl;
   const _IndicationDto._() : super._();
 
   factory _IndicationDto.fromJson(Map<String, dynamic> json) =
-      _$_IndicationDto.fromJson;
+      _$IndicationDtoImpl.fromJson;
 
   @override
   String get id;
@@ -228,6 +228,6 @@ abstract class _IndicationDto extends IndicationDto {
   int get counter;
   @override
   @JsonKey(ignore: true)
-  _$$_IndicationDtoCopyWith<_$_IndicationDto> get copyWith =>
+  _$$IndicationDtoImplCopyWith<_$IndicationDtoImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -12,7 +12,7 @@ part of 'double_counter_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$DoubleCounterEvent {
@@ -97,20 +97,20 @@ class _$DoubleCounterEventCopyWithImpl<$Res, $Val extends DoubleCounterEvent>
 }
 
 /// @nodoc
-abstract class _$$_InitializedCopyWith<$Res> {
-  factory _$$_InitializedCopyWith(
-          _$_Initialized value, $Res Function(_$_Initialized) then) =
-      __$$_InitializedCopyWithImpl<$Res>;
+abstract class _$$InitializedImplCopyWith<$Res> {
+  factory _$$InitializedImplCopyWith(
+          _$InitializedImpl value, $Res Function(_$InitializedImpl) then) =
+      __$$InitializedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Option<double> initialAmount, Option<double> maxAmount});
 }
 
 /// @nodoc
-class __$$_InitializedCopyWithImpl<$Res>
-    extends _$DoubleCounterEventCopyWithImpl<$Res, _$_Initialized>
-    implements _$$_InitializedCopyWith<$Res> {
-  __$$_InitializedCopyWithImpl(
-      _$_Initialized _value, $Res Function(_$_Initialized) _then)
+class __$$InitializedImplCopyWithImpl<$Res>
+    extends _$DoubleCounterEventCopyWithImpl<$Res, _$InitializedImpl>
+    implements _$$InitializedImplCopyWith<$Res> {
+  __$$InitializedImplCopyWithImpl(
+      _$InitializedImpl _value, $Res Function(_$InitializedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -119,7 +119,7 @@ class __$$_InitializedCopyWithImpl<$Res>
     Object? initialAmount = null,
     Object? maxAmount = null,
   }) {
-    return _then(_$_Initialized(
+    return _then(_$InitializedImpl(
       null == initialAmount
           ? _value.initialAmount
           : initialAmount // ignore: cast_nullable_to_non_nullable
@@ -134,8 +134,8 @@ class __$$_InitializedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Initialized with DiagnosticableTreeMixin implements _Initialized {
-  const _$_Initialized(this.initialAmount, this.maxAmount);
+class _$InitializedImpl with DiagnosticableTreeMixin implements _Initialized {
+  const _$InitializedImpl(this.initialAmount, this.maxAmount);
 
   @override
   final Option<double> initialAmount;
@@ -157,10 +157,10 @@ class _$_Initialized with DiagnosticableTreeMixin implements _Initialized {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Initialized &&
+            other is _$InitializedImpl &&
             (identical(other.initialAmount, initialAmount) ||
                 other.initialAmount == initialAmount) &&
             (identical(other.maxAmount, maxAmount) ||
@@ -173,8 +173,8 @@ class _$_Initialized with DiagnosticableTreeMixin implements _Initialized {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_InitializedCopyWith<_$_Initialized> get copyWith =>
-      __$$_InitializedCopyWithImpl<_$_Initialized>(this, _$identity);
+  _$$InitializedImplCopyWith<_$InitializedImpl> get copyWith =>
+      __$$InitializedImplCopyWithImpl<_$InitializedImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -264,30 +264,30 @@ class _$_Initialized with DiagnosticableTreeMixin implements _Initialized {
 abstract class _Initialized implements DoubleCounterEvent {
   const factory _Initialized(
           final Option<double> initialAmount, final Option<double> maxAmount) =
-      _$_Initialized;
+      _$InitializedImpl;
 
   Option<double> get initialAmount;
   Option<double> get maxAmount;
   @JsonKey(ignore: true)
-  _$$_InitializedCopyWith<_$_Initialized> get copyWith =>
+  _$$InitializedImplCopyWith<_$InitializedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_AmountUpdatedCopyWith<$Res> {
-  factory _$$_AmountUpdatedCopyWith(
-          _$_AmountUpdated value, $Res Function(_$_AmountUpdated) then) =
-      __$$_AmountUpdatedCopyWithImpl<$Res>;
+abstract class _$$AmountUpdatedImplCopyWith<$Res> {
+  factory _$$AmountUpdatedImplCopyWith(
+          _$AmountUpdatedImpl value, $Res Function(_$AmountUpdatedImpl) then) =
+      __$$AmountUpdatedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({double newAmount});
 }
 
 /// @nodoc
-class __$$_AmountUpdatedCopyWithImpl<$Res>
-    extends _$DoubleCounterEventCopyWithImpl<$Res, _$_AmountUpdated>
-    implements _$$_AmountUpdatedCopyWith<$Res> {
-  __$$_AmountUpdatedCopyWithImpl(
-      _$_AmountUpdated _value, $Res Function(_$_AmountUpdated) _then)
+class __$$AmountUpdatedImplCopyWithImpl<$Res>
+    extends _$DoubleCounterEventCopyWithImpl<$Res, _$AmountUpdatedImpl>
+    implements _$$AmountUpdatedImplCopyWith<$Res> {
+  __$$AmountUpdatedImplCopyWithImpl(
+      _$AmountUpdatedImpl _value, $Res Function(_$AmountUpdatedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -295,7 +295,7 @@ class __$$_AmountUpdatedCopyWithImpl<$Res>
   $Res call({
     Object? newAmount = null,
   }) {
-    return _then(_$_AmountUpdated(
+    return _then(_$AmountUpdatedImpl(
       null == newAmount
           ? _value.newAmount
           : newAmount // ignore: cast_nullable_to_non_nullable
@@ -306,8 +306,10 @@ class __$$_AmountUpdatedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_AmountUpdated with DiagnosticableTreeMixin implements _AmountUpdated {
-  const _$_AmountUpdated(this.newAmount);
+class _$AmountUpdatedImpl
+    with DiagnosticableTreeMixin
+    implements _AmountUpdated {
+  const _$AmountUpdatedImpl(this.newAmount);
 
   @override
   final double newAmount;
@@ -326,10 +328,10 @@ class _$_AmountUpdated with DiagnosticableTreeMixin implements _AmountUpdated {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_AmountUpdated &&
+            other is _$AmountUpdatedImpl &&
             (identical(other.newAmount, newAmount) ||
                 other.newAmount == newAmount));
   }
@@ -340,8 +342,8 @@ class _$_AmountUpdated with DiagnosticableTreeMixin implements _AmountUpdated {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_AmountUpdatedCopyWith<_$_AmountUpdated> get copyWith =>
-      __$$_AmountUpdatedCopyWithImpl<_$_AmountUpdated>(this, _$identity);
+  _$$AmountUpdatedImplCopyWith<_$AmountUpdatedImpl> get copyWith =>
+      __$$AmountUpdatedImplCopyWithImpl<_$AmountUpdatedImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -429,29 +431,29 @@ class _$_AmountUpdated with DiagnosticableTreeMixin implements _AmountUpdated {
 }
 
 abstract class _AmountUpdated implements DoubleCounterEvent {
-  const factory _AmountUpdated(final double newAmount) = _$_AmountUpdated;
+  const factory _AmountUpdated(final double newAmount) = _$AmountUpdatedImpl;
 
   double get newAmount;
   @JsonKey(ignore: true)
-  _$$_AmountUpdatedCopyWith<_$_AmountUpdated> get copyWith =>
+  _$$AmountUpdatedImplCopyWith<_$AmountUpdatedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_MaxAmountUpdatedCopyWith<$Res> {
-  factory _$$_MaxAmountUpdatedCopyWith(
-          _$_MaxAmountUpdated value, $Res Function(_$_MaxAmountUpdated) then) =
-      __$$_MaxAmountUpdatedCopyWithImpl<$Res>;
+abstract class _$$MaxAmountUpdatedImplCopyWith<$Res> {
+  factory _$$MaxAmountUpdatedImplCopyWith(_$MaxAmountUpdatedImpl value,
+          $Res Function(_$MaxAmountUpdatedImpl) then) =
+      __$$MaxAmountUpdatedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({double addSubtractAmount});
 }
 
 /// @nodoc
-class __$$_MaxAmountUpdatedCopyWithImpl<$Res>
-    extends _$DoubleCounterEventCopyWithImpl<$Res, _$_MaxAmountUpdated>
-    implements _$$_MaxAmountUpdatedCopyWith<$Res> {
-  __$$_MaxAmountUpdatedCopyWithImpl(
-      _$_MaxAmountUpdated _value, $Res Function(_$_MaxAmountUpdated) _then)
+class __$$MaxAmountUpdatedImplCopyWithImpl<$Res>
+    extends _$DoubleCounterEventCopyWithImpl<$Res, _$MaxAmountUpdatedImpl>
+    implements _$$MaxAmountUpdatedImplCopyWith<$Res> {
+  __$$MaxAmountUpdatedImplCopyWithImpl(_$MaxAmountUpdatedImpl _value,
+      $Res Function(_$MaxAmountUpdatedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -459,7 +461,7 @@ class __$$_MaxAmountUpdatedCopyWithImpl<$Res>
   $Res call({
     Object? addSubtractAmount = null,
   }) {
-    return _then(_$_MaxAmountUpdated(
+    return _then(_$MaxAmountUpdatedImpl(
       null == addSubtractAmount
           ? _value.addSubtractAmount
           : addSubtractAmount // ignore: cast_nullable_to_non_nullable
@@ -470,10 +472,10 @@ class __$$_MaxAmountUpdatedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_MaxAmountUpdated
+class _$MaxAmountUpdatedImpl
     with DiagnosticableTreeMixin
     implements _MaxAmountUpdated {
-  const _$_MaxAmountUpdated(this.addSubtractAmount);
+  const _$MaxAmountUpdatedImpl(this.addSubtractAmount);
 
   @override
   final double addSubtractAmount;
@@ -492,10 +494,10 @@ class _$_MaxAmountUpdated
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_MaxAmountUpdated &&
+            other is _$MaxAmountUpdatedImpl &&
             (identical(other.addSubtractAmount, addSubtractAmount) ||
                 other.addSubtractAmount == addSubtractAmount));
   }
@@ -506,8 +508,9 @@ class _$_MaxAmountUpdated
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_MaxAmountUpdatedCopyWith<_$_MaxAmountUpdated> get copyWith =>
-      __$$_MaxAmountUpdatedCopyWithImpl<_$_MaxAmountUpdated>(this, _$identity);
+  _$$MaxAmountUpdatedImplCopyWith<_$MaxAmountUpdatedImpl> get copyWith =>
+      __$$MaxAmountUpdatedImplCopyWithImpl<_$MaxAmountUpdatedImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -596,36 +599,36 @@ class _$_MaxAmountUpdated
 
 abstract class _MaxAmountUpdated implements DoubleCounterEvent {
   const factory _MaxAmountUpdated(final double addSubtractAmount) =
-      _$_MaxAmountUpdated;
+      _$MaxAmountUpdatedImpl;
 
   double get addSubtractAmount;
   @JsonKey(ignore: true)
-  _$$_MaxAmountUpdatedCopyWith<_$_MaxAmountUpdated> get copyWith =>
+  _$$MaxAmountUpdatedImplCopyWith<_$MaxAmountUpdatedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_AmountIncreasedCopyWith<$Res> {
-  factory _$$_AmountIncreasedCopyWith(
-          _$_AmountIncreased value, $Res Function(_$_AmountIncreased) then) =
-      __$$_AmountIncreasedCopyWithImpl<$Res>;
+abstract class _$$AmountIncreasedImplCopyWith<$Res> {
+  factory _$$AmountIncreasedImplCopyWith(_$AmountIncreasedImpl value,
+          $Res Function(_$AmountIncreasedImpl) then) =
+      __$$AmountIncreasedImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_AmountIncreasedCopyWithImpl<$Res>
-    extends _$DoubleCounterEventCopyWithImpl<$Res, _$_AmountIncreased>
-    implements _$$_AmountIncreasedCopyWith<$Res> {
-  __$$_AmountIncreasedCopyWithImpl(
-      _$_AmountIncreased _value, $Res Function(_$_AmountIncreased) _then)
+class __$$AmountIncreasedImplCopyWithImpl<$Res>
+    extends _$DoubleCounterEventCopyWithImpl<$Res, _$AmountIncreasedImpl>
+    implements _$$AmountIncreasedImplCopyWith<$Res> {
+  __$$AmountIncreasedImplCopyWithImpl(
+      _$AmountIncreasedImpl _value, $Res Function(_$AmountIncreasedImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_AmountIncreased
+class _$AmountIncreasedImpl
     with DiagnosticableTreeMixin
     implements _AmountIncreased {
-  const _$_AmountIncreased();
+  const _$AmountIncreasedImpl();
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -640,9 +643,9 @@ class _$_AmountIncreased
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_AmountIncreased);
+        (other.runtimeType == runtimeType && other is _$AmountIncreasedImpl);
   }
 
   @override
@@ -734,31 +737,31 @@ class _$_AmountIncreased
 }
 
 abstract class _AmountIncreased implements DoubleCounterEvent {
-  const factory _AmountIncreased() = _$_AmountIncreased;
+  const factory _AmountIncreased() = _$AmountIncreasedImpl;
 }
 
 /// @nodoc
-abstract class _$$_AmountDecreasedCopyWith<$Res> {
-  factory _$$_AmountDecreasedCopyWith(
-          _$_AmountDecreased value, $Res Function(_$_AmountDecreased) then) =
-      __$$_AmountDecreasedCopyWithImpl<$Res>;
+abstract class _$$AmountDecreasedImplCopyWith<$Res> {
+  factory _$$AmountDecreasedImplCopyWith(_$AmountDecreasedImpl value,
+          $Res Function(_$AmountDecreasedImpl) then) =
+      __$$AmountDecreasedImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_AmountDecreasedCopyWithImpl<$Res>
-    extends _$DoubleCounterEventCopyWithImpl<$Res, _$_AmountDecreased>
-    implements _$$_AmountDecreasedCopyWith<$Res> {
-  __$$_AmountDecreasedCopyWithImpl(
-      _$_AmountDecreased _value, $Res Function(_$_AmountDecreased) _then)
+class __$$AmountDecreasedImplCopyWithImpl<$Res>
+    extends _$DoubleCounterEventCopyWithImpl<$Res, _$AmountDecreasedImpl>
+    implements _$$AmountDecreasedImplCopyWith<$Res> {
+  __$$AmountDecreasedImplCopyWithImpl(
+      _$AmountDecreasedImpl _value, $Res Function(_$AmountDecreasedImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_AmountDecreased
+class _$AmountDecreasedImpl
     with DiagnosticableTreeMixin
     implements _AmountDecreased {
-  const _$_AmountDecreased();
+  const _$AmountDecreasedImpl();
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -773,9 +776,9 @@ class _$_AmountDecreased
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_AmountDecreased);
+        (other.runtimeType == runtimeType && other is _$AmountDecreasedImpl);
   }
 
   @override
@@ -867,7 +870,7 @@ class _$_AmountDecreased
 }
 
 abstract class _AmountDecreased implements DoubleCounterEvent {
-  const factory _AmountDecreased() = _$_AmountDecreased;
+  const factory _AmountDecreased() = _$AmountDecreasedImpl;
 }
 
 /// @nodoc
@@ -935,11 +938,11 @@ class _$DoubleCounterStateCopyWithImpl<$Res, $Val extends DoubleCounterState>
 }
 
 /// @nodoc
-abstract class _$$_DoubleCounterStateCopyWith<$Res>
+abstract class _$$DoubleCounterStateImplCopyWith<$Res>
     implements $DoubleCounterStateCopyWith<$Res> {
-  factory _$$_DoubleCounterStateCopyWith(_$_DoubleCounterState value,
-          $Res Function(_$_DoubleCounterState) then) =
-      __$$_DoubleCounterStateCopyWithImpl<$Res>;
+  factory _$$DoubleCounterStateImplCopyWith(_$DoubleCounterStateImpl value,
+          $Res Function(_$DoubleCounterStateImpl) then) =
+      __$$DoubleCounterStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -950,11 +953,11 @@ abstract class _$$_DoubleCounterStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_DoubleCounterStateCopyWithImpl<$Res>
-    extends _$DoubleCounterStateCopyWithImpl<$Res, _$_DoubleCounterState>
-    implements _$$_DoubleCounterStateCopyWith<$Res> {
-  __$$_DoubleCounterStateCopyWithImpl(
-      _$_DoubleCounterState _value, $Res Function(_$_DoubleCounterState) _then)
+class __$$DoubleCounterStateImplCopyWithImpl<$Res>
+    extends _$DoubleCounterStateCopyWithImpl<$Res, _$DoubleCounterStateImpl>
+    implements _$$DoubleCounterStateImplCopyWith<$Res> {
+  __$$DoubleCounterStateImplCopyWithImpl(_$DoubleCounterStateImpl _value,
+      $Res Function(_$DoubleCounterStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -965,7 +968,7 @@ class __$$_DoubleCounterStateCopyWithImpl<$Res>
     Object? showErrorMessages = null,
     Object? isUpdating = null,
   }) {
-    return _then(_$_DoubleCounterState(
+    return _then(_$DoubleCounterStateImpl(
       amount: null == amount
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
@@ -988,10 +991,10 @@ class __$$_DoubleCounterStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_DoubleCounterState
+class _$DoubleCounterStateImpl
     with DiagnosticableTreeMixin
     implements _DoubleCounterState {
-  const _$_DoubleCounterState(
+  const _$DoubleCounterStateImpl(
       {required this.amount,
       required this.maxAmount,
       required this.showErrorMessages,
@@ -1023,10 +1026,10 @@ class _$_DoubleCounterState
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_DoubleCounterState &&
+            other is _$DoubleCounterStateImpl &&
             (identical(other.amount, amount) || other.amount == amount) &&
             (identical(other.maxAmount, maxAmount) ||
                 other.maxAmount == maxAmount) &&
@@ -1043,8 +1046,8 @@ class _$_DoubleCounterState
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DoubleCounterStateCopyWith<_$_DoubleCounterState> get copyWith =>
-      __$$_DoubleCounterStateCopyWithImpl<_$_DoubleCounterState>(
+  _$$DoubleCounterStateImplCopyWith<_$DoubleCounterStateImpl> get copyWith =>
+      __$$DoubleCounterStateImplCopyWithImpl<_$DoubleCounterStateImpl>(
           this, _$identity);
 }
 
@@ -1053,7 +1056,7 @@ abstract class _DoubleCounterState implements DoubleCounterState {
       {required final double amount,
       required final double maxAmount,
       required final bool showErrorMessages,
-      required final bool isUpdating}) = _$_DoubleCounterState;
+      required final bool isUpdating}) = _$DoubleCounterStateImpl;
 
   @override
   double get amount;
@@ -1065,6 +1068,6 @@ abstract class _DoubleCounterState implements DoubleCounterState {
   bool get isUpdating;
   @override
   @JsonKey(ignore: true)
-  _$$_DoubleCounterStateCopyWith<_$_DoubleCounterState> get copyWith =>
+  _$$DoubleCounterStateImplCopyWith<_$DoubleCounterStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

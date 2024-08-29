@@ -12,7 +12,7 @@ part of 'name_abbreviation_dtos.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 NameAbbreviationDto _$NameAbbreviationDtoFromJson(Map<String, dynamic> json) {
   return _NameAbbreviationDto.fromJson(json);
@@ -74,22 +74,22 @@ class _$NameAbbreviationDtoCopyWithImpl<$Res, $Val extends NameAbbreviationDto>
 }
 
 /// @nodoc
-abstract class _$$_NameAbbreviationDtoCopyWith<$Res>
+abstract class _$$NameAbbreviationDtoImplCopyWith<$Res>
     implements $NameAbbreviationDtoCopyWith<$Res> {
-  factory _$$_NameAbbreviationDtoCopyWith(_$_NameAbbreviationDto value,
-          $Res Function(_$_NameAbbreviationDto) then) =
-      __$$_NameAbbreviationDtoCopyWithImpl<$Res>;
+  factory _$$NameAbbreviationDtoImplCopyWith(_$NameAbbreviationDtoImpl value,
+          $Res Function(_$NameAbbreviationDtoImpl) then) =
+      __$$NameAbbreviationDtoImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String id, String name, String abbr});
 }
 
 /// @nodoc
-class __$$_NameAbbreviationDtoCopyWithImpl<$Res>
-    extends _$NameAbbreviationDtoCopyWithImpl<$Res, _$_NameAbbreviationDto>
-    implements _$$_NameAbbreviationDtoCopyWith<$Res> {
-  __$$_NameAbbreviationDtoCopyWithImpl(_$_NameAbbreviationDto _value,
-      $Res Function(_$_NameAbbreviationDto) _then)
+class __$$NameAbbreviationDtoImplCopyWithImpl<$Res>
+    extends _$NameAbbreviationDtoCopyWithImpl<$Res, _$NameAbbreviationDtoImpl>
+    implements _$$NameAbbreviationDtoImplCopyWith<$Res> {
+  __$$NameAbbreviationDtoImplCopyWithImpl(_$NameAbbreviationDtoImpl _value,
+      $Res Function(_$NameAbbreviationDtoImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -99,7 +99,7 @@ class __$$_NameAbbreviationDtoCopyWithImpl<$Res>
     Object? name = null,
     Object? abbr = null,
   }) {
-    return _then(_$_NameAbbreviationDto(
+    return _then(_$NameAbbreviationDtoImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -118,13 +118,13 @@ class __$$_NameAbbreviationDtoCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_NameAbbreviationDto extends _NameAbbreviationDto {
-  const _$_NameAbbreviationDto(
+class _$NameAbbreviationDtoImpl extends _NameAbbreviationDto {
+  const _$NameAbbreviationDtoImpl(
       {required this.id, required this.name, required this.abbr})
       : super._();
 
-  factory _$_NameAbbreviationDto.fromJson(Map<String, dynamic> json) =>
-      _$$_NameAbbreviationDtoFromJson(json);
+  factory _$NameAbbreviationDtoImpl.fromJson(Map<String, dynamic> json) =>
+      _$$NameAbbreviationDtoImplFromJson(json);
 
   @override
   final String id;
@@ -139,10 +139,10 @@ class _$_NameAbbreviationDto extends _NameAbbreviationDto {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_NameAbbreviationDto &&
+            other is _$NameAbbreviationDtoImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.abbr, abbr) || other.abbr == abbr));
@@ -155,13 +155,13 @@ class _$_NameAbbreviationDto extends _NameAbbreviationDto {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_NameAbbreviationDtoCopyWith<_$_NameAbbreviationDto> get copyWith =>
-      __$$_NameAbbreviationDtoCopyWithImpl<_$_NameAbbreviationDto>(
+  _$$NameAbbreviationDtoImplCopyWith<_$NameAbbreviationDtoImpl> get copyWith =>
+      __$$NameAbbreviationDtoImplCopyWithImpl<_$NameAbbreviationDtoImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_NameAbbreviationDtoToJson(
+    return _$$NameAbbreviationDtoImplToJson(
       this,
     );
   }
@@ -171,11 +171,11 @@ abstract class _NameAbbreviationDto extends NameAbbreviationDto {
   const factory _NameAbbreviationDto(
       {required final String id,
       required final String name,
-      required final String abbr}) = _$_NameAbbreviationDto;
+      required final String abbr}) = _$NameAbbreviationDtoImpl;
   const _NameAbbreviationDto._() : super._();
 
   factory _NameAbbreviationDto.fromJson(Map<String, dynamic> json) =
-      _$_NameAbbreviationDto.fromJson;
+      _$NameAbbreviationDtoImpl.fromJson;
 
   @override
   String get id;
@@ -185,6 +185,6 @@ abstract class _NameAbbreviationDto extends NameAbbreviationDto {
   String get abbr;
   @override
   @JsonKey(ignore: true)
-  _$$_NameAbbreviationDtoCopyWith<_$_NameAbbreviationDto> get copyWith =>
+  _$$NameAbbreviationDtoImplCopyWith<_$NameAbbreviationDtoImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

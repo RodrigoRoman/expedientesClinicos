@@ -7,6 +7,9 @@ import 'package:expedientes_clinicos/domain/core/label_double_amount/label_doubl
 import 'package:expedientes_clinicos/domain/core/name_abbreviation/name_abbr.dart';
 import 'package:expedientes_clinicos/domain/core/time_interval/time_interval.dart';
 import 'package:expedientes_clinicos/domain/core/value_objects.dart';
+import 'package:expedientes_clinicos/domain/dynamic_forms/form_section/form_components/filed_types/field_types.dart';
+import 'package:expedientes_clinicos/domain/dynamic_forms/form_section/form_components/form_element.dart';
+import 'package:expedientes_clinicos/domain/dynamic_forms/section_types.dart';
 import 'package:expedientes_clinicos/domain/medicine/branded_medicine/branded_medicine.dart';
 import 'package:expedientes_clinicos/domain/medicine/generic_medicine/generic_medicine.dart';
 import 'package:expedientes_clinicos/domain/prescription/dose/day_hours_doses/day_hours_doses.dart';
@@ -38,6 +41,9 @@ abstract class DropdownItemViewModel implements _$DropdownItemViewModel {
       DayHoursDose? dayHoursDose,
       WeekDaysDose? weekDaysDose,
       TimeInterval? timeInterval,
+      FormElement? formElement,
+      FieldType? fieldType,
+      SectionTypes? sectionType,
       Dose? dose,
       Category? category}) = _DropdownItemViewModel;
 
@@ -127,6 +133,28 @@ abstract class DropdownItemViewModel implements _$DropdownItemViewModel {
         subtitle: FullName(weekDaysDose.weekDaysNames),
         weekDaysDose: weekDaysDose);
   }
+
+  factory DropdownItemViewModel.fromFormElement(FormElement formElement) {
+    return DropdownItemViewModel(
+        id: formElement.fieldId ?? UniqueId(),
+        title: formElement.fieldType.value.fold(
+            (ifLeft) => FullName(ifLeft.toString()),
+            (ifRight) => FullName(ifRight.displayName)),
+        formElement: formElement);
+  }
+  factory DropdownItemViewModel.fromFieldType(FieldType fieldType) {
+    return DropdownItemViewModel(
+        id: UniqueId(),
+        title: FullName(fieldType.displayName),
+        fieldType: fieldType);
+  }
+  factory DropdownItemViewModel.fromSectionType(SectionTypes sectionType) {
+    return DropdownItemViewModel(
+        id: UniqueId(),
+        title: FullName(sectionType.displayName),
+        sectionType: sectionType);
+  }
+
   factory DropdownItemViewModel.fromTimeInterval(TimeInterval timeInterval) {
     return DropdownItemViewModel(
         id: timeInterval.id,

@@ -12,7 +12,7 @@ part of 'title_subtitle_img_view_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$TitleSubtitleImageViewModel {
@@ -128,12 +128,12 @@ class _$TitleSubtitleImageViewModelCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_TitleSubtitleImageViewModelCopyWith<$Res>
+abstract class _$$TitleSubtitleImageViewModelImplCopyWith<$Res>
     implements $TitleSubtitleImageViewModelCopyWith<$Res> {
-  factory _$$_TitleSubtitleImageViewModelCopyWith(
-          _$_TitleSubtitleImageViewModel value,
-          $Res Function(_$_TitleSubtitleImageViewModel) then) =
-      __$$_TitleSubtitleImageViewModelCopyWithImpl<$Res>;
+  factory _$$TitleSubtitleImageViewModelImplCopyWith(
+          _$TitleSubtitleImageViewModelImpl value,
+          $Res Function(_$TitleSubtitleImageViewModelImpl) then) =
+      __$$TitleSubtitleImageViewModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -153,13 +153,13 @@ abstract class _$$_TitleSubtitleImageViewModelCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_TitleSubtitleImageViewModelCopyWithImpl<$Res>
+class __$$TitleSubtitleImageViewModelImplCopyWithImpl<$Res>
     extends _$TitleSubtitleImageViewModelCopyWithImpl<$Res,
-        _$_TitleSubtitleImageViewModel>
-    implements _$$_TitleSubtitleImageViewModelCopyWith<$Res> {
-  __$$_TitleSubtitleImageViewModelCopyWithImpl(
-      _$_TitleSubtitleImageViewModel _value,
-      $Res Function(_$_TitleSubtitleImageViewModel) _then)
+        _$TitleSubtitleImageViewModelImpl>
+    implements _$$TitleSubtitleImageViewModelImplCopyWith<$Res> {
+  __$$TitleSubtitleImageViewModelImplCopyWithImpl(
+      _$TitleSubtitleImageViewModelImpl _value,
+      $Res Function(_$TitleSubtitleImageViewModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -172,7 +172,7 @@ class __$$_TitleSubtitleImageViewModelCopyWithImpl<$Res>
     Object? originBrandedMedicine = null,
     Object? indication = null,
   }) {
-    return _then(_$_TitleSubtitleImageViewModel(
+    return _then(_$TitleSubtitleImageViewModelImpl(
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -203,8 +203,8 @@ class __$$_TitleSubtitleImageViewModelCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_TitleSubtitleImageViewModel extends _TitleSubtitleImageViewModel {
-  const _$_TitleSubtitleImageViewModel(
+class _$TitleSubtitleImageViewModelImpl extends _TitleSubtitleImageViewModel {
+  const _$TitleSubtitleImageViewModelImpl(
       {required this.title,
       required this.subtitle,
       required this.imageURL,
@@ -232,10 +232,10 @@ class _$_TitleSubtitleImageViewModel extends _TitleSubtitleImageViewModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_TitleSubtitleImageViewModel &&
+            other is _$TitleSubtitleImageViewModelImpl &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.subtitle, subtitle) ||
                 other.subtitle == subtitle) &&
@@ -256,20 +256,21 @@ class _$_TitleSubtitleImageViewModel extends _TitleSubtitleImageViewModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_TitleSubtitleImageViewModelCopyWith<_$_TitleSubtitleImageViewModel>
-      get copyWith => __$$_TitleSubtitleImageViewModelCopyWithImpl<
-          _$_TitleSubtitleImageViewModel>(this, _$identity);
+  _$$TitleSubtitleImageViewModelImplCopyWith<_$TitleSubtitleImageViewModelImpl>
+      get copyWith => __$$TitleSubtitleImageViewModelImplCopyWithImpl<
+          _$TitleSubtitleImageViewModelImpl>(this, _$identity);
 }
 
 abstract class _TitleSubtitleImageViewModel
     extends TitleSubtitleImageViewModel {
   const factory _TitleSubtitleImageViewModel(
-      {required final FullName title,
-      required final FullName subtitle,
-      required final ImageURL imageURL,
-      required final GenericMedicine originGenericMedicine,
-      required final BrandedMedicine originBrandedMedicine,
-      required final Indication indication}) = _$_TitleSubtitleImageViewModel;
+          {required final FullName title,
+          required final FullName subtitle,
+          required final ImageURL imageURL,
+          required final GenericMedicine originGenericMedicine,
+          required final BrandedMedicine originBrandedMedicine,
+          required final Indication indication}) =
+      _$TitleSubtitleImageViewModelImpl;
   const _TitleSubtitleImageViewModel._() : super._();
 
   @override
@@ -286,6 +287,6 @@ abstract class _TitleSubtitleImageViewModel
   Indication get indication;
   @override
   @JsonKey(ignore: true)
-  _$$_TitleSubtitleImageViewModelCopyWith<_$_TitleSubtitleImageViewModel>
+  _$$TitleSubtitleImageViewModelImplCopyWith<_$TitleSubtitleImageViewModelImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

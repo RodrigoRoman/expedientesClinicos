@@ -19,7 +19,7 @@ abstract class DayHoursDoseDto implements _$DayHoursDoseDto {
     required String id,
     required String label,
     @JsonKey(fromJson: _timeToJson, toJson: _timeFromJson)
-        required List<Timestamp> doseHours,
+    required List<Timestamp> doseHours,
   }) = _DayHoursDoseDto;
 
   factory DayHoursDoseDto.fromDomain(DayHoursDose dayHourDoses) {

@@ -24,6 +24,7 @@ class AppStrings {
   static const String monthsAmount = 'Meses';
   static const String weeksAmount = 'Semanas';
   static const String daysAmount = 'Dias';
+  static const String visitType = "Tipo de visita";
 
   static const String labelDurationAbbr = 'Duración total';
   static const String labelDoseAmount = 'Etiqueta de cantidad';
@@ -31,14 +32,22 @@ class AppStrings {
   static const String labelIndication = 'Indicación';
   static const String doseAmountName =
       "Nombre de cantidad con respecto a unidad";
+  static const String defineSectionElements = "Definir campos de seccion";
 
   static const String registerMode = 'Crear una cuenta';
+  static const String createVisitType = 'Crear tipo de visita';
   static const String createCategory = 'Crear categoria';
   static const String createBrandedMedicine = 'Crear medicamento de patente';
   static const String createGenericMedicine = 'Crear medicamento generico';
   static const String selectBrandedMedicine = 'Medicamento de patente';
   static const String selectGenericMedicine = 'Medicamento generico';
   static const String selectIndication = 'Indicaciones del medicamento';
+
+  //Dynamic Form
+  static const String createField = "Definir campo";
+  static const String fieldName = "Nombre del campo";
+  static const String formFieldType = 'Tipo de campo';
+  static const String formSectionType = 'Tipo de seccion';
 
   static const String measureUnit = 'Unidad de medida';
   static const String createMeasureUnit = 'Crear Unidad de Medida';
@@ -56,6 +65,12 @@ class AppStrings {
   static const String createAdminRoute = 'Crear Via De Administracion';
   static const String description = 'Escribe una descripcion';
   static const String pharmaceuticalForm = 'Forma Farmaceutica';
+  static const String textFieldDynamic = 'Campo de texto';
+  static const String fieldVisualizationTitle = "Visualizacion de campo";
+  static const String rangeDefinition = "Definir rango";
+  static const String minRange = "Minimo";
+  static const String maxRange = "Maximo";
+  static const String add = "Agregar";
 
   //Field hints
   static const String username = 'username_hint';
@@ -63,6 +78,8 @@ class AppStrings {
   static const String password = 'Contraseña';
   static const String mobileNumber = 'mobile_number_hint';
   static const String fullName = 'Nombre completo';
+  static const String formName = 'Nombre de la forma';
+
   static const String abbreviationName = 'Abreviatura';
   static const String dayDosesAmount = 'Numero de dosis diarias';
   static const String doseAmount = 'Cantidad';

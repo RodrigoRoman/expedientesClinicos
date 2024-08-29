@@ -12,7 +12,7 @@ part of 'category_actor_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$CategoryActorEvent {
@@ -75,10 +75,10 @@ class _$CategoryActorEventCopyWithImpl<$Res, $Val extends CategoryActorEvent>
 }
 
 /// @nodoc
-abstract class _$$_DeleteCategoryCopyWith<$Res> {
-  factory _$$_DeleteCategoryCopyWith(
-          _$_DeleteCategory value, $Res Function(_$_DeleteCategory) then) =
-      __$$_DeleteCategoryCopyWithImpl<$Res>;
+abstract class _$$DeleteCategoryImplCopyWith<$Res> {
+  factory _$$DeleteCategoryImplCopyWith(_$DeleteCategoryImpl value,
+          $Res Function(_$DeleteCategoryImpl) then) =
+      __$$DeleteCategoryImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Category category});
 
@@ -86,11 +86,11 @@ abstract class _$$_DeleteCategoryCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_DeleteCategoryCopyWithImpl<$Res>
-    extends _$CategoryActorEventCopyWithImpl<$Res, _$_DeleteCategory>
-    implements _$$_DeleteCategoryCopyWith<$Res> {
-  __$$_DeleteCategoryCopyWithImpl(
-      _$_DeleteCategory _value, $Res Function(_$_DeleteCategory) _then)
+class __$$DeleteCategoryImplCopyWithImpl<$Res>
+    extends _$CategoryActorEventCopyWithImpl<$Res, _$DeleteCategoryImpl>
+    implements _$$DeleteCategoryImplCopyWith<$Res> {
+  __$$DeleteCategoryImplCopyWithImpl(
+      _$DeleteCategoryImpl _value, $Res Function(_$DeleteCategoryImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -98,7 +98,7 @@ class __$$_DeleteCategoryCopyWithImpl<$Res>
   $Res call({
     Object? category = null,
   }) {
-    return _then(_$_DeleteCategory(
+    return _then(_$DeleteCategoryImpl(
       null == category
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
@@ -117,10 +117,10 @@ class __$$_DeleteCategoryCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_DeleteCategory
+class _$DeleteCategoryImpl
     with DiagnosticableTreeMixin
     implements _DeleteCategory {
-  const _$_DeleteCategory(this.category);
+  const _$DeleteCategoryImpl(this.category);
 
   @override
   final Category category;
@@ -139,10 +139,10 @@ class _$_DeleteCategory
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_DeleteCategory &&
+            other is _$DeleteCategoryImpl &&
             (identical(other.category, category) ||
                 other.category == category));
   }
@@ -153,8 +153,9 @@ class _$_DeleteCategory
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DeleteCategoryCopyWith<_$_DeleteCategory> get copyWith =>
-      __$$_DeleteCategoryCopyWithImpl<_$_DeleteCategory>(this, _$identity);
+  _$$DeleteCategoryImplCopyWith<_$DeleteCategoryImpl> get copyWith =>
+      __$$DeleteCategoryImplCopyWithImpl<_$DeleteCategoryImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -220,34 +221,34 @@ class _$_DeleteCategory
 }
 
 abstract class _DeleteCategory implements CategoryActorEvent {
-  const factory _DeleteCategory(final Category category) = _$_DeleteCategory;
+  const factory _DeleteCategory(final Category category) = _$DeleteCategoryImpl;
 
   Category get category;
   @JsonKey(ignore: true)
-  _$$_DeleteCategoryCopyWith<_$_DeleteCategory> get copyWith =>
+  _$$DeleteCategoryImplCopyWith<_$DeleteCategoryImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_FakeCategoryCopyWith<$Res> {
-  factory _$$_FakeCategoryCopyWith(
-          _$_FakeCategory value, $Res Function(_$_FakeCategory) then) =
-      __$$_FakeCategoryCopyWithImpl<$Res>;
+abstract class _$$FakeCategoryImplCopyWith<$Res> {
+  factory _$$FakeCategoryImplCopyWith(
+          _$FakeCategoryImpl value, $Res Function(_$FakeCategoryImpl) then) =
+      __$$FakeCategoryImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_FakeCategoryCopyWithImpl<$Res>
-    extends _$CategoryActorEventCopyWithImpl<$Res, _$_FakeCategory>
-    implements _$$_FakeCategoryCopyWith<$Res> {
-  __$$_FakeCategoryCopyWithImpl(
-      _$_FakeCategory _value, $Res Function(_$_FakeCategory) _then)
+class __$$FakeCategoryImplCopyWithImpl<$Res>
+    extends _$CategoryActorEventCopyWithImpl<$Res, _$FakeCategoryImpl>
+    implements _$$FakeCategoryImplCopyWith<$Res> {
+  __$$FakeCategoryImplCopyWithImpl(
+      _$FakeCategoryImpl _value, $Res Function(_$FakeCategoryImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_FakeCategory with DiagnosticableTreeMixin implements _FakeCategory {
-  const _$_FakeCategory();
+class _$FakeCategoryImpl with DiagnosticableTreeMixin implements _FakeCategory {
+  const _$FakeCategoryImpl();
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -261,9 +262,9 @@ class _$_FakeCategory with DiagnosticableTreeMixin implements _FakeCategory {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_FakeCategory);
+        (other.runtimeType == runtimeType && other is _$FakeCategoryImpl);
   }
 
   @override
@@ -333,7 +334,7 @@ class _$_FakeCategory with DiagnosticableTreeMixin implements _FakeCategory {
 }
 
 abstract class _FakeCategory implements CategoryActorEvent {
-  const factory _FakeCategory() = _$_FakeCategory;
+  const factory _FakeCategory() = _$FakeCategoryImpl;
 }
 
 /// @nodoc
@@ -421,24 +422,25 @@ class _$CategoryActorStateCopyWithImpl<$Res, $Val extends CategoryActorState>
 }
 
 /// @nodoc
-abstract class _$$_InitialCopyWith<$Res> {
-  factory _$$_InitialCopyWith(
-          _$_Initial value, $Res Function(_$_Initial) then) =
-      __$$_InitialCopyWithImpl<$Res>;
+abstract class _$$InitialImplCopyWith<$Res> {
+  factory _$$InitialImplCopyWith(
+          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
+      __$$InitialImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_InitialCopyWithImpl<$Res>
-    extends _$CategoryActorStateCopyWithImpl<$Res, _$_Initial>
-    implements _$$_InitialCopyWith<$Res> {
-  __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
+class __$$InitialImplCopyWithImpl<$Res>
+    extends _$CategoryActorStateCopyWithImpl<$Res, _$InitialImpl>
+    implements _$$InitialImplCopyWith<$Res> {
+  __$$InitialImplCopyWithImpl(
+      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_Initial with DiagnosticableTreeMixin implements _Initial {
-  const _$_Initial();
+class _$InitialImpl with DiagnosticableTreeMixin implements _Initial {
+  const _$InitialImpl();
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -452,9 +454,9 @@ class _$_Initial with DiagnosticableTreeMixin implements _Initial {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Initial);
+        (other.runtimeType == runtimeType && other is _$InitialImpl);
   }
 
   @override
@@ -548,31 +550,31 @@ class _$_Initial with DiagnosticableTreeMixin implements _Initial {
 }
 
 abstract class _Initial implements CategoryActorState {
-  const factory _Initial() = _$_Initial;
+  const factory _Initial() = _$InitialImpl;
 }
 
 /// @nodoc
-abstract class _$$_ActionInProgressCopyWith<$Res> {
-  factory _$$_ActionInProgressCopyWith(
-          _$_ActionInProgress value, $Res Function(_$_ActionInProgress) then) =
-      __$$_ActionInProgressCopyWithImpl<$Res>;
+abstract class _$$ActionInProgressImplCopyWith<$Res> {
+  factory _$$ActionInProgressImplCopyWith(_$ActionInProgressImpl value,
+          $Res Function(_$ActionInProgressImpl) then) =
+      __$$ActionInProgressImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_ActionInProgressCopyWithImpl<$Res>
-    extends _$CategoryActorStateCopyWithImpl<$Res, _$_ActionInProgress>
-    implements _$$_ActionInProgressCopyWith<$Res> {
-  __$$_ActionInProgressCopyWithImpl(
-      _$_ActionInProgress _value, $Res Function(_$_ActionInProgress) _then)
+class __$$ActionInProgressImplCopyWithImpl<$Res>
+    extends _$CategoryActorStateCopyWithImpl<$Res, _$ActionInProgressImpl>
+    implements _$$ActionInProgressImplCopyWith<$Res> {
+  __$$ActionInProgressImplCopyWithImpl(_$ActionInProgressImpl _value,
+      $Res Function(_$ActionInProgressImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_ActionInProgress
+class _$ActionInProgressImpl
     with DiagnosticableTreeMixin
     implements _ActionInProgress {
-  const _$_ActionInProgress();
+  const _$ActionInProgressImpl();
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -587,9 +589,9 @@ class _$_ActionInProgress
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_ActionInProgress);
+        (other.runtimeType == runtimeType && other is _$ActionInProgressImpl);
   }
 
   @override
@@ -683,14 +685,14 @@ class _$_ActionInProgress
 }
 
 abstract class _ActionInProgress implements CategoryActorState {
-  const factory _ActionInProgress() = _$_ActionInProgress;
+  const factory _ActionInProgress() = _$ActionInProgressImpl;
 }
 
 /// @nodoc
-abstract class _$$_DeleteFailureCopyWith<$Res> {
-  factory _$$_DeleteFailureCopyWith(
-          _$_DeleteFailure value, $Res Function(_$_DeleteFailure) then) =
-      __$$_DeleteFailureCopyWithImpl<$Res>;
+abstract class _$$DeleteFailureImplCopyWith<$Res> {
+  factory _$$DeleteFailureImplCopyWith(
+          _$DeleteFailureImpl value, $Res Function(_$DeleteFailureImpl) then) =
+      __$$DeleteFailureImplCopyWithImpl<$Res>;
   @useResult
   $Res call({CategoryFailures categoryFailure});
 
@@ -698,11 +700,11 @@ abstract class _$$_DeleteFailureCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_DeleteFailureCopyWithImpl<$Res>
-    extends _$CategoryActorStateCopyWithImpl<$Res, _$_DeleteFailure>
-    implements _$$_DeleteFailureCopyWith<$Res> {
-  __$$_DeleteFailureCopyWithImpl(
-      _$_DeleteFailure _value, $Res Function(_$_DeleteFailure) _then)
+class __$$DeleteFailureImplCopyWithImpl<$Res>
+    extends _$CategoryActorStateCopyWithImpl<$Res, _$DeleteFailureImpl>
+    implements _$$DeleteFailureImplCopyWith<$Res> {
+  __$$DeleteFailureImplCopyWithImpl(
+      _$DeleteFailureImpl _value, $Res Function(_$DeleteFailureImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -710,7 +712,7 @@ class __$$_DeleteFailureCopyWithImpl<$Res>
   $Res call({
     Object? categoryFailure = null,
   }) {
-    return _then(_$_DeleteFailure(
+    return _then(_$DeleteFailureImpl(
       null == categoryFailure
           ? _value.categoryFailure
           : categoryFailure // ignore: cast_nullable_to_non_nullable
@@ -729,8 +731,10 @@ class __$$_DeleteFailureCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_DeleteFailure with DiagnosticableTreeMixin implements _DeleteFailure {
-  const _$_DeleteFailure(this.categoryFailure);
+class _$DeleteFailureImpl
+    with DiagnosticableTreeMixin
+    implements _DeleteFailure {
+  const _$DeleteFailureImpl(this.categoryFailure);
 
   @override
   final CategoryFailures categoryFailure;
@@ -749,10 +753,10 @@ class _$_DeleteFailure with DiagnosticableTreeMixin implements _DeleteFailure {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_DeleteFailure &&
+            other is _$DeleteFailureImpl &&
             (identical(other.categoryFailure, categoryFailure) ||
                 other.categoryFailure == categoryFailure));
   }
@@ -763,8 +767,8 @@ class _$_DeleteFailure with DiagnosticableTreeMixin implements _DeleteFailure {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DeleteFailureCopyWith<_$_DeleteFailure> get copyWith =>
-      __$$_DeleteFailureCopyWithImpl<_$_DeleteFailure>(this, _$identity);
+  _$$DeleteFailureImplCopyWith<_$DeleteFailureImpl> get copyWith =>
+      __$$DeleteFailureImplCopyWithImpl<_$DeleteFailureImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -855,19 +859,19 @@ class _$_DeleteFailure with DiagnosticableTreeMixin implements _DeleteFailure {
 
 abstract class _DeleteFailure implements CategoryActorState {
   const factory _DeleteFailure(final CategoryFailures categoryFailure) =
-      _$_DeleteFailure;
+      _$DeleteFailureImpl;
 
   CategoryFailures get categoryFailure;
   @JsonKey(ignore: true)
-  _$$_DeleteFailureCopyWith<_$_DeleteFailure> get copyWith =>
+  _$$DeleteFailureImplCopyWith<_$DeleteFailureImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_FakeFailureCopyWith<$Res> {
-  factory _$$_FakeFailureCopyWith(
-          _$_FakeFailure value, $Res Function(_$_FakeFailure) then) =
-      __$$_FakeFailureCopyWithImpl<$Res>;
+abstract class _$$FakeFailureImplCopyWith<$Res> {
+  factory _$$FakeFailureImplCopyWith(
+          _$FakeFailureImpl value, $Res Function(_$FakeFailureImpl) then) =
+      __$$FakeFailureImplCopyWithImpl<$Res>;
   @useResult
   $Res call({CategoryFailures categoryFailure});
 
@@ -875,11 +879,11 @@ abstract class _$$_FakeFailureCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_FakeFailureCopyWithImpl<$Res>
-    extends _$CategoryActorStateCopyWithImpl<$Res, _$_FakeFailure>
-    implements _$$_FakeFailureCopyWith<$Res> {
-  __$$_FakeFailureCopyWithImpl(
-      _$_FakeFailure _value, $Res Function(_$_FakeFailure) _then)
+class __$$FakeFailureImplCopyWithImpl<$Res>
+    extends _$CategoryActorStateCopyWithImpl<$Res, _$FakeFailureImpl>
+    implements _$$FakeFailureImplCopyWith<$Res> {
+  __$$FakeFailureImplCopyWithImpl(
+      _$FakeFailureImpl _value, $Res Function(_$FakeFailureImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -887,7 +891,7 @@ class __$$_FakeFailureCopyWithImpl<$Res>
   $Res call({
     Object? categoryFailure = null,
   }) {
-    return _then(_$_FakeFailure(
+    return _then(_$FakeFailureImpl(
       null == categoryFailure
           ? _value.categoryFailure
           : categoryFailure // ignore: cast_nullable_to_non_nullable
@@ -906,8 +910,8 @@ class __$$_FakeFailureCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_FakeFailure with DiagnosticableTreeMixin implements _FakeFailure {
-  const _$_FakeFailure(this.categoryFailure);
+class _$FakeFailureImpl with DiagnosticableTreeMixin implements _FakeFailure {
+  const _$FakeFailureImpl(this.categoryFailure);
 
   @override
   final CategoryFailures categoryFailure;
@@ -926,10 +930,10 @@ class _$_FakeFailure with DiagnosticableTreeMixin implements _FakeFailure {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_FakeFailure &&
+            other is _$FakeFailureImpl &&
             (identical(other.categoryFailure, categoryFailure) ||
                 other.categoryFailure == categoryFailure));
   }
@@ -940,8 +944,8 @@ class _$_FakeFailure with DiagnosticableTreeMixin implements _FakeFailure {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_FakeFailureCopyWith<_$_FakeFailure> get copyWith =>
-      __$$_FakeFailureCopyWithImpl<_$_FakeFailure>(this, _$identity);
+  _$$FakeFailureImplCopyWith<_$FakeFailureImpl> get copyWith =>
+      __$$FakeFailureImplCopyWithImpl<_$FakeFailureImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1032,34 +1036,36 @@ class _$_FakeFailure with DiagnosticableTreeMixin implements _FakeFailure {
 
 abstract class _FakeFailure implements CategoryActorState {
   const factory _FakeFailure(final CategoryFailures categoryFailure) =
-      _$_FakeFailure;
+      _$FakeFailureImpl;
 
   CategoryFailures get categoryFailure;
   @JsonKey(ignore: true)
-  _$$_FakeFailureCopyWith<_$_FakeFailure> get copyWith =>
+  _$$FakeFailureImplCopyWith<_$FakeFailureImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_DeleteSuccessCopyWith<$Res> {
-  factory _$$_DeleteSuccessCopyWith(
-          _$_DeleteSuccess value, $Res Function(_$_DeleteSuccess) then) =
-      __$$_DeleteSuccessCopyWithImpl<$Res>;
+abstract class _$$DeleteSuccessImplCopyWith<$Res> {
+  factory _$$DeleteSuccessImplCopyWith(
+          _$DeleteSuccessImpl value, $Res Function(_$DeleteSuccessImpl) then) =
+      __$$DeleteSuccessImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_DeleteSuccessCopyWithImpl<$Res>
-    extends _$CategoryActorStateCopyWithImpl<$Res, _$_DeleteSuccess>
-    implements _$$_DeleteSuccessCopyWith<$Res> {
-  __$$_DeleteSuccessCopyWithImpl(
-      _$_DeleteSuccess _value, $Res Function(_$_DeleteSuccess) _then)
+class __$$DeleteSuccessImplCopyWithImpl<$Res>
+    extends _$CategoryActorStateCopyWithImpl<$Res, _$DeleteSuccessImpl>
+    implements _$$DeleteSuccessImplCopyWith<$Res> {
+  __$$DeleteSuccessImplCopyWithImpl(
+      _$DeleteSuccessImpl _value, $Res Function(_$DeleteSuccessImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_DeleteSuccess with DiagnosticableTreeMixin implements _DeleteSuccess {
-  const _$_DeleteSuccess();
+class _$DeleteSuccessImpl
+    with DiagnosticableTreeMixin
+    implements _DeleteSuccess {
+  const _$DeleteSuccessImpl();
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -1074,9 +1080,9 @@ class _$_DeleteSuccess with DiagnosticableTreeMixin implements _DeleteSuccess {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_DeleteSuccess);
+        (other.runtimeType == runtimeType && other is _$DeleteSuccessImpl);
   }
 
   @override
@@ -1170,29 +1176,29 @@ class _$_DeleteSuccess with DiagnosticableTreeMixin implements _DeleteSuccess {
 }
 
 abstract class _DeleteSuccess implements CategoryActorState {
-  const factory _DeleteSuccess() = _$_DeleteSuccess;
+  const factory _DeleteSuccess() = _$DeleteSuccessImpl;
 }
 
 /// @nodoc
-abstract class _$$_FakeSuccessCopyWith<$Res> {
-  factory _$$_FakeSuccessCopyWith(
-          _$_FakeSuccess value, $Res Function(_$_FakeSuccess) then) =
-      __$$_FakeSuccessCopyWithImpl<$Res>;
+abstract class _$$FakeSuccessImplCopyWith<$Res> {
+  factory _$$FakeSuccessImplCopyWith(
+          _$FakeSuccessImpl value, $Res Function(_$FakeSuccessImpl) then) =
+      __$$FakeSuccessImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_FakeSuccessCopyWithImpl<$Res>
-    extends _$CategoryActorStateCopyWithImpl<$Res, _$_FakeSuccess>
-    implements _$$_FakeSuccessCopyWith<$Res> {
-  __$$_FakeSuccessCopyWithImpl(
-      _$_FakeSuccess _value, $Res Function(_$_FakeSuccess) _then)
+class __$$FakeSuccessImplCopyWithImpl<$Res>
+    extends _$CategoryActorStateCopyWithImpl<$Res, _$FakeSuccessImpl>
+    implements _$$FakeSuccessImplCopyWith<$Res> {
+  __$$FakeSuccessImplCopyWithImpl(
+      _$FakeSuccessImpl _value, $Res Function(_$FakeSuccessImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_FakeSuccess with DiagnosticableTreeMixin implements _FakeSuccess {
-  const _$_FakeSuccess();
+class _$FakeSuccessImpl with DiagnosticableTreeMixin implements _FakeSuccess {
+  const _$FakeSuccessImpl();
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -1207,9 +1213,9 @@ class _$_FakeSuccess with DiagnosticableTreeMixin implements _FakeSuccess {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_FakeSuccess);
+        (other.runtimeType == runtimeType && other is _$FakeSuccessImpl);
   }
 
   @override
@@ -1303,5 +1309,5 @@ class _$_FakeSuccess with DiagnosticableTreeMixin implements _FakeSuccess {
 }
 
 abstract class _FakeSuccess implements CategoryActorState {
-  const factory _FakeSuccess() = _$_FakeSuccess;
+  const factory _FakeSuccess() = _$FakeSuccessImpl;
 }

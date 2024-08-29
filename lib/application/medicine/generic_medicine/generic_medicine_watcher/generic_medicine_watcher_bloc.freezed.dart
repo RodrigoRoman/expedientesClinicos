@@ -12,7 +12,7 @@ part of 'generic_medicine_watcher_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$GenericMedicineWatcherEvent {
@@ -93,25 +93,25 @@ class _$GenericMedicineWatcherEventCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_WatchAllStartedCopyWith<$Res> {
-  factory _$$_WatchAllStartedCopyWith(
-          _$_WatchAllStarted value, $Res Function(_$_WatchAllStarted) then) =
-      __$$_WatchAllStartedCopyWithImpl<$Res>;
+abstract class _$$WatchAllStartedImplCopyWith<$Res> {
+  factory _$$WatchAllStartedImplCopyWith(_$WatchAllStartedImpl value,
+          $Res Function(_$WatchAllStartedImpl) then) =
+      __$$WatchAllStartedImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_WatchAllStartedCopyWithImpl<$Res>
-    extends _$GenericMedicineWatcherEventCopyWithImpl<$Res, _$_WatchAllStarted>
-    implements _$$_WatchAllStartedCopyWith<$Res> {
-  __$$_WatchAllStartedCopyWithImpl(
-      _$_WatchAllStarted _value, $Res Function(_$_WatchAllStarted) _then)
+class __$$WatchAllStartedImplCopyWithImpl<$Res>
+    extends _$GenericMedicineWatcherEventCopyWithImpl<$Res,
+        _$WatchAllStartedImpl> implements _$$WatchAllStartedImplCopyWith<$Res> {
+  __$$WatchAllStartedImplCopyWithImpl(
+      _$WatchAllStartedImpl _value, $Res Function(_$WatchAllStartedImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_WatchAllStarted implements _WatchAllStarted {
-  const _$_WatchAllStarted();
+class _$WatchAllStartedImpl implements _WatchAllStarted {
+  const _$WatchAllStartedImpl();
 
   @override
   String toString() {
@@ -119,9 +119,9 @@ class _$_WatchAllStarted implements _WatchAllStarted {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_WatchAllStarted);
+        (other.runtimeType == runtimeType && other is _$WatchAllStartedImpl);
   }
 
   @override
@@ -206,25 +206,25 @@ class _$_WatchAllStarted implements _WatchAllStarted {
 }
 
 abstract class _WatchAllStarted implements GenericMedicineWatcherEvent {
-  const factory _WatchAllStarted() = _$_WatchAllStarted;
+  const factory _WatchAllStarted() = _$WatchAllStartedImpl;
 }
 
 /// @nodoc
-abstract class _$$_WatchFilteredStartedCopyWith<$Res> {
-  factory _$$_WatchFilteredStartedCopyWith(_$_WatchFilteredStarted value,
-          $Res Function(_$_WatchFilteredStarted) then) =
-      __$$_WatchFilteredStartedCopyWithImpl<$Res>;
+abstract class _$$WatchFilteredStartedImplCopyWith<$Res> {
+  factory _$$WatchFilteredStartedImplCopyWith(_$WatchFilteredStartedImpl value,
+          $Res Function(_$WatchFilteredStartedImpl) then) =
+      __$$WatchFilteredStartedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String keyword});
 }
 
 /// @nodoc
-class __$$_WatchFilteredStartedCopyWithImpl<$Res>
+class __$$WatchFilteredStartedImplCopyWithImpl<$Res>
     extends _$GenericMedicineWatcherEventCopyWithImpl<$Res,
-        _$_WatchFilteredStarted>
-    implements _$$_WatchFilteredStartedCopyWith<$Res> {
-  __$$_WatchFilteredStartedCopyWithImpl(_$_WatchFilteredStarted _value,
-      $Res Function(_$_WatchFilteredStarted) _then)
+        _$WatchFilteredStartedImpl>
+    implements _$$WatchFilteredStartedImplCopyWith<$Res> {
+  __$$WatchFilteredStartedImplCopyWithImpl(_$WatchFilteredStartedImpl _value,
+      $Res Function(_$WatchFilteredStartedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -232,7 +232,7 @@ class __$$_WatchFilteredStartedCopyWithImpl<$Res>
   $Res call({
     Object? keyword = null,
   }) {
-    return _then(_$_WatchFilteredStarted(
+    return _then(_$WatchFilteredStartedImpl(
       null == keyword
           ? _value.keyword
           : keyword // ignore: cast_nullable_to_non_nullable
@@ -243,8 +243,8 @@ class __$$_WatchFilteredStartedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_WatchFilteredStarted implements _WatchFilteredStarted {
-  const _$_WatchFilteredStarted(this.keyword);
+class _$WatchFilteredStartedImpl implements _WatchFilteredStarted {
+  const _$WatchFilteredStartedImpl(this.keyword);
 
   @override
   final String keyword;
@@ -255,10 +255,10 @@ class _$_WatchFilteredStarted implements _WatchFilteredStarted {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_WatchFilteredStarted &&
+            other is _$WatchFilteredStartedImpl &&
             (identical(other.keyword, keyword) || other.keyword == keyword));
   }
 
@@ -268,9 +268,10 @@ class _$_WatchFilteredStarted implements _WatchFilteredStarted {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_WatchFilteredStartedCopyWith<_$_WatchFilteredStarted> get copyWith =>
-      __$$_WatchFilteredStartedCopyWithImpl<_$_WatchFilteredStarted>(
-          this, _$identity);
+  _$$WatchFilteredStartedImplCopyWith<_$WatchFilteredStartedImpl>
+      get copyWith =>
+          __$$WatchFilteredStartedImplCopyWithImpl<_$WatchFilteredStartedImpl>(
+              this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -352,19 +353,19 @@ class _$_WatchFilteredStarted implements _WatchFilteredStarted {
 
 abstract class _WatchFilteredStarted implements GenericMedicineWatcherEvent {
   const factory _WatchFilteredStarted(final String keyword) =
-      _$_WatchFilteredStarted;
+      _$WatchFilteredStartedImpl;
 
   String get keyword;
   @JsonKey(ignore: true)
-  _$$_WatchFilteredStartedCopyWith<_$_WatchFilteredStarted> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$WatchFilteredStartedImplCopyWith<_$WatchFilteredStartedImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_MedicinesReceivedCopyWith<$Res> {
-  factory _$$_MedicinesReceivedCopyWith(_$_MedicinesReceived value,
-          $Res Function(_$_MedicinesReceived) then) =
-      __$$_MedicinesReceivedCopyWithImpl<$Res>;
+abstract class _$$MedicinesReceivedImplCopyWith<$Res> {
+  factory _$$MedicinesReceivedImplCopyWith(_$MedicinesReceivedImpl value,
+          $Res Function(_$MedicinesReceivedImpl) then) =
+      __$$MedicinesReceivedImplCopyWithImpl<$Res>;
   @useResult
   $Res call(
       {Either<GenericMedicineFailures, KtList<GenericMedicine>>
@@ -372,11 +373,12 @@ abstract class _$$_MedicinesReceivedCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_MedicinesReceivedCopyWithImpl<$Res>
+class __$$MedicinesReceivedImplCopyWithImpl<$Res>
     extends _$GenericMedicineWatcherEventCopyWithImpl<$Res,
-        _$_MedicinesReceived> implements _$$_MedicinesReceivedCopyWith<$Res> {
-  __$$_MedicinesReceivedCopyWithImpl(
-      _$_MedicinesReceived _value, $Res Function(_$_MedicinesReceived) _then)
+        _$MedicinesReceivedImpl>
+    implements _$$MedicinesReceivedImplCopyWith<$Res> {
+  __$$MedicinesReceivedImplCopyWithImpl(_$MedicinesReceivedImpl _value,
+      $Res Function(_$MedicinesReceivedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -384,7 +386,7 @@ class __$$_MedicinesReceivedCopyWithImpl<$Res>
   $Res call({
     Object? failureOrMedicines = null,
   }) {
-    return _then(_$_MedicinesReceived(
+    return _then(_$MedicinesReceivedImpl(
       null == failureOrMedicines
           ? _value.failureOrMedicines
           : failureOrMedicines // ignore: cast_nullable_to_non_nullable
@@ -395,8 +397,8 @@ class __$$_MedicinesReceivedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_MedicinesReceived implements _MedicinesReceived {
-  const _$_MedicinesReceived(this.failureOrMedicines);
+class _$MedicinesReceivedImpl implements _MedicinesReceived {
+  const _$MedicinesReceivedImpl(this.failureOrMedicines);
 
   @override
   final Either<GenericMedicineFailures, KtList<GenericMedicine>>
@@ -408,10 +410,10 @@ class _$_MedicinesReceived implements _MedicinesReceived {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_MedicinesReceived &&
+            other is _$MedicinesReceivedImpl &&
             (identical(other.failureOrMedicines, failureOrMedicines) ||
                 other.failureOrMedicines == failureOrMedicines));
   }
@@ -422,8 +424,8 @@ class _$_MedicinesReceived implements _MedicinesReceived {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_MedicinesReceivedCopyWith<_$_MedicinesReceived> get copyWith =>
-      __$$_MedicinesReceivedCopyWithImpl<_$_MedicinesReceived>(
+  _$$MedicinesReceivedImplCopyWith<_$MedicinesReceivedImpl> get copyWith =>
+      __$$MedicinesReceivedImplCopyWithImpl<_$MedicinesReceivedImpl>(
           this, _$identity);
 
   @override
@@ -507,12 +509,12 @@ class _$_MedicinesReceived implements _MedicinesReceived {
 abstract class _MedicinesReceived implements GenericMedicineWatcherEvent {
   const factory _MedicinesReceived(
       final Either<GenericMedicineFailures, KtList<GenericMedicine>>
-          failureOrMedicines) = _$_MedicinesReceived;
+          failureOrMedicines) = _$MedicinesReceivedImpl;
 
   Either<GenericMedicineFailures, KtList<GenericMedicine>>
       get failureOrMedicines;
   @JsonKey(ignore: true)
-  _$$_MedicinesReceivedCopyWith<_$_MedicinesReceived> get copyWith =>
+  _$$MedicinesReceivedImplCopyWith<_$MedicinesReceivedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -593,24 +595,25 @@ class _$GenericMedicineWatcherStateCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_InitialCopyWith<$Res> {
-  factory _$$_InitialCopyWith(
-          _$_Initial value, $Res Function(_$_Initial) then) =
-      __$$_InitialCopyWithImpl<$Res>;
+abstract class _$$InitialImplCopyWith<$Res> {
+  factory _$$InitialImplCopyWith(
+          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
+      __$$InitialImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_InitialCopyWithImpl<$Res>
-    extends _$GenericMedicineWatcherStateCopyWithImpl<$Res, _$_Initial>
-    implements _$$_InitialCopyWith<$Res> {
-  __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
+class __$$InitialImplCopyWithImpl<$Res>
+    extends _$GenericMedicineWatcherStateCopyWithImpl<$Res, _$InitialImpl>
+    implements _$$InitialImplCopyWith<$Res> {
+  __$$InitialImplCopyWithImpl(
+      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_Initial implements _Initial {
-  const _$_Initial();
+class _$InitialImpl implements _Initial {
+  const _$InitialImpl();
 
   @override
   String toString() {
@@ -618,9 +621,9 @@ class _$_Initial implements _Initial {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Initial);
+        (other.runtimeType == runtimeType && other is _$InitialImpl);
   }
 
   @override
@@ -703,29 +706,29 @@ class _$_Initial implements _Initial {
 }
 
 abstract class _Initial implements GenericMedicineWatcherState {
-  const factory _Initial() = _$_Initial;
+  const factory _Initial() = _$InitialImpl;
 }
 
 /// @nodoc
-abstract class _$$_LoadInProgressCopyWith<$Res> {
-  factory _$$_LoadInProgressCopyWith(
-          _$_LoadInProgress value, $Res Function(_$_LoadInProgress) then) =
-      __$$_LoadInProgressCopyWithImpl<$Res>;
+abstract class _$$LoadInProgressImplCopyWith<$Res> {
+  factory _$$LoadInProgressImplCopyWith(_$LoadInProgressImpl value,
+          $Res Function(_$LoadInProgressImpl) then) =
+      __$$LoadInProgressImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_LoadInProgressCopyWithImpl<$Res>
-    extends _$GenericMedicineWatcherStateCopyWithImpl<$Res, _$_LoadInProgress>
-    implements _$$_LoadInProgressCopyWith<$Res> {
-  __$$_LoadInProgressCopyWithImpl(
-      _$_LoadInProgress _value, $Res Function(_$_LoadInProgress) _then)
+class __$$LoadInProgressImplCopyWithImpl<$Res>
+    extends _$GenericMedicineWatcherStateCopyWithImpl<$Res,
+        _$LoadInProgressImpl> implements _$$LoadInProgressImplCopyWith<$Res> {
+  __$$LoadInProgressImplCopyWithImpl(
+      _$LoadInProgressImpl _value, $Res Function(_$LoadInProgressImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_LoadInProgress implements _LoadInProgress {
-  const _$_LoadInProgress();
+class _$LoadInProgressImpl implements _LoadInProgress {
+  const _$LoadInProgressImpl();
 
   @override
   String toString() {
@@ -733,9 +736,9 @@ class _$_LoadInProgress implements _LoadInProgress {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_LoadInProgress);
+        (other.runtimeType == runtimeType && other is _$LoadInProgressImpl);
   }
 
   @override
@@ -818,24 +821,24 @@ class _$_LoadInProgress implements _LoadInProgress {
 }
 
 abstract class _LoadInProgress implements GenericMedicineWatcherState {
-  const factory _LoadInProgress() = _$_LoadInProgress;
+  const factory _LoadInProgress() = _$LoadInProgressImpl;
 }
 
 /// @nodoc
-abstract class _$$_LoadSuccessCopyWith<$Res> {
-  factory _$$_LoadSuccessCopyWith(
-          _$_LoadSuccess value, $Res Function(_$_LoadSuccess) then) =
-      __$$_LoadSuccessCopyWithImpl<$Res>;
+abstract class _$$LoadSuccessImplCopyWith<$Res> {
+  factory _$$LoadSuccessImplCopyWith(
+          _$LoadSuccessImpl value, $Res Function(_$LoadSuccessImpl) then) =
+      __$$LoadSuccessImplCopyWithImpl<$Res>;
   @useResult
   $Res call({KtList<GenericMedicine> medicines});
 }
 
 /// @nodoc
-class __$$_LoadSuccessCopyWithImpl<$Res>
-    extends _$GenericMedicineWatcherStateCopyWithImpl<$Res, _$_LoadSuccess>
-    implements _$$_LoadSuccessCopyWith<$Res> {
-  __$$_LoadSuccessCopyWithImpl(
-      _$_LoadSuccess _value, $Res Function(_$_LoadSuccess) _then)
+class __$$LoadSuccessImplCopyWithImpl<$Res>
+    extends _$GenericMedicineWatcherStateCopyWithImpl<$Res, _$LoadSuccessImpl>
+    implements _$$LoadSuccessImplCopyWith<$Res> {
+  __$$LoadSuccessImplCopyWithImpl(
+      _$LoadSuccessImpl _value, $Res Function(_$LoadSuccessImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -843,7 +846,7 @@ class __$$_LoadSuccessCopyWithImpl<$Res>
   $Res call({
     Object? medicines = null,
   }) {
-    return _then(_$_LoadSuccess(
+    return _then(_$LoadSuccessImpl(
       null == medicines
           ? _value.medicines
           : medicines // ignore: cast_nullable_to_non_nullable
@@ -854,8 +857,8 @@ class __$$_LoadSuccessCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_LoadSuccess implements _LoadSuccess {
-  const _$_LoadSuccess(this.medicines);
+class _$LoadSuccessImpl implements _LoadSuccess {
+  const _$LoadSuccessImpl(this.medicines);
 
   @override
   final KtList<GenericMedicine> medicines;
@@ -866,10 +869,10 @@ class _$_LoadSuccess implements _LoadSuccess {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LoadSuccess &&
+            other is _$LoadSuccessImpl &&
             (identical(other.medicines, medicines) ||
                 other.medicines == medicines));
   }
@@ -880,8 +883,8 @@ class _$_LoadSuccess implements _LoadSuccess {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LoadSuccessCopyWith<_$_LoadSuccess> get copyWith =>
-      __$$_LoadSuccessCopyWithImpl<_$_LoadSuccess>(this, _$identity);
+  _$$LoadSuccessImplCopyWith<_$LoadSuccessImpl> get copyWith =>
+      __$$LoadSuccessImplCopyWithImpl<_$LoadSuccessImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -961,19 +964,19 @@ class _$_LoadSuccess implements _LoadSuccess {
 
 abstract class _LoadSuccess implements GenericMedicineWatcherState {
   const factory _LoadSuccess(final KtList<GenericMedicine> medicines) =
-      _$_LoadSuccess;
+      _$LoadSuccessImpl;
 
   KtList<GenericMedicine> get medicines;
   @JsonKey(ignore: true)
-  _$$_LoadSuccessCopyWith<_$_LoadSuccess> get copyWith =>
+  _$$LoadSuccessImplCopyWith<_$LoadSuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_MedicineFailureCopyWith<$Res> {
-  factory _$$_MedicineFailureCopyWith(
-          _$_MedicineFailure value, $Res Function(_$_MedicineFailure) then) =
-      __$$_MedicineFailureCopyWithImpl<$Res>;
+abstract class _$$MedicineFailureImplCopyWith<$Res> {
+  factory _$$MedicineFailureImplCopyWith(_$MedicineFailureImpl value,
+          $Res Function(_$MedicineFailureImpl) then) =
+      __$$MedicineFailureImplCopyWithImpl<$Res>;
   @useResult
   $Res call({GenericMedicineFailures medicineFailure});
 
@@ -981,11 +984,11 @@ abstract class _$$_MedicineFailureCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_MedicineFailureCopyWithImpl<$Res>
-    extends _$GenericMedicineWatcherStateCopyWithImpl<$Res, _$_MedicineFailure>
-    implements _$$_MedicineFailureCopyWith<$Res> {
-  __$$_MedicineFailureCopyWithImpl(
-      _$_MedicineFailure _value, $Res Function(_$_MedicineFailure) _then)
+class __$$MedicineFailureImplCopyWithImpl<$Res>
+    extends _$GenericMedicineWatcherStateCopyWithImpl<$Res,
+        _$MedicineFailureImpl> implements _$$MedicineFailureImplCopyWith<$Res> {
+  __$$MedicineFailureImplCopyWithImpl(
+      _$MedicineFailureImpl _value, $Res Function(_$MedicineFailureImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -993,7 +996,7 @@ class __$$_MedicineFailureCopyWithImpl<$Res>
   $Res call({
     Object? medicineFailure = null,
   }) {
-    return _then(_$_MedicineFailure(
+    return _then(_$MedicineFailureImpl(
       null == medicineFailure
           ? _value.medicineFailure
           : medicineFailure // ignore: cast_nullable_to_non_nullable
@@ -1013,8 +1016,8 @@ class __$$_MedicineFailureCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_MedicineFailure implements _MedicineFailure {
-  const _$_MedicineFailure(this.medicineFailure);
+class _$MedicineFailureImpl implements _MedicineFailure {
+  const _$MedicineFailureImpl(this.medicineFailure);
 
   @override
   final GenericMedicineFailures medicineFailure;
@@ -1025,10 +1028,10 @@ class _$_MedicineFailure implements _MedicineFailure {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_MedicineFailure &&
+            other is _$MedicineFailureImpl &&
             (identical(other.medicineFailure, medicineFailure) ||
                 other.medicineFailure == medicineFailure));
   }
@@ -1039,8 +1042,9 @@ class _$_MedicineFailure implements _MedicineFailure {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_MedicineFailureCopyWith<_$_MedicineFailure> get copyWith =>
-      __$$_MedicineFailureCopyWithImpl<_$_MedicineFailure>(this, _$identity);
+  _$$MedicineFailureImplCopyWith<_$MedicineFailureImpl> get copyWith =>
+      __$$MedicineFailureImplCopyWithImpl<_$MedicineFailureImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1120,10 +1124,10 @@ class _$_MedicineFailure implements _MedicineFailure {
 
 abstract class _MedicineFailure implements GenericMedicineWatcherState {
   const factory _MedicineFailure(
-      final GenericMedicineFailures medicineFailure) = _$_MedicineFailure;
+      final GenericMedicineFailures medicineFailure) = _$MedicineFailureImpl;
 
   GenericMedicineFailures get medicineFailure;
   @JsonKey(ignore: true)
-  _$$_MedicineFailureCopyWith<_$_MedicineFailure> get copyWith =>
+  _$$MedicineFailureImplCopyWith<_$MedicineFailureImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

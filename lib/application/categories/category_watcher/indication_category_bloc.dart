@@ -7,6 +7,7 @@ import 'package:injectable/injectable.dart';
 class IndicationCategoryWatcherBloc extends CategoryWatcherBloc {
   final ICategoryRepository _indicationCategoryRepository;
   IndicationCategoryWatcherBloc(
-      @Named('categoryIndication') this._indicationCategoryRepository)
+      @Named(FirebaseCollectionCategories.indicationCategories)
+      this._indicationCategoryRepository)
       : super(_indicationCategoryRepository);
 }

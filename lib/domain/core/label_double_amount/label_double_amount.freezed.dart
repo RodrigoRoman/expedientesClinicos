@@ -12,7 +12,7 @@ part of 'label_double_amount.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$LabelDoubleAmount {
@@ -76,11 +76,11 @@ class _$LabelDoubleAmountCopyWithImpl<$Res, $Val extends LabelDoubleAmount>
 }
 
 /// @nodoc
-abstract class _$$_LabelDoubleAmountCopyWith<$Res>
+abstract class _$$LabelDoubleAmountImplCopyWith<$Res>
     implements $LabelDoubleAmountCopyWith<$Res> {
-  factory _$$_LabelDoubleAmountCopyWith(_$_LabelDoubleAmount value,
-          $Res Function(_$_LabelDoubleAmount) then) =
-      __$$_LabelDoubleAmountCopyWithImpl<$Res>;
+  factory _$$LabelDoubleAmountImplCopyWith(_$LabelDoubleAmountImpl value,
+          $Res Function(_$LabelDoubleAmountImpl) then) =
+      __$$LabelDoubleAmountImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -88,11 +88,11 @@ abstract class _$$_LabelDoubleAmountCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_LabelDoubleAmountCopyWithImpl<$Res>
-    extends _$LabelDoubleAmountCopyWithImpl<$Res, _$_LabelDoubleAmount>
-    implements _$$_LabelDoubleAmountCopyWith<$Res> {
-  __$$_LabelDoubleAmountCopyWithImpl(
-      _$_LabelDoubleAmount _value, $Res Function(_$_LabelDoubleAmount) _then)
+class __$$LabelDoubleAmountImplCopyWithImpl<$Res>
+    extends _$LabelDoubleAmountCopyWithImpl<$Res, _$LabelDoubleAmountImpl>
+    implements _$$LabelDoubleAmountImplCopyWith<$Res> {
+  __$$LabelDoubleAmountImplCopyWithImpl(_$LabelDoubleAmountImpl _value,
+      $Res Function(_$LabelDoubleAmountImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -103,7 +103,7 @@ class __$$_LabelDoubleAmountCopyWithImpl<$Res>
     Object? amount = null,
     Object? counter = null,
   }) {
-    return _then(_$_LabelDoubleAmount(
+    return _then(_$LabelDoubleAmountImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -126,8 +126,8 @@ class __$$_LabelDoubleAmountCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_LabelDoubleAmount extends _LabelDoubleAmount {
-  const _$_LabelDoubleAmount(
+class _$LabelDoubleAmountImpl extends _LabelDoubleAmount {
+  const _$LabelDoubleAmountImpl(
       {required this.id,
       required this.label,
       required this.amount,
@@ -151,8 +151,8 @@ class _$_LabelDoubleAmount extends _LabelDoubleAmount {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LabelDoubleAmountCopyWith<_$_LabelDoubleAmount> get copyWith =>
-      __$$_LabelDoubleAmountCopyWithImpl<_$_LabelDoubleAmount>(
+  _$$LabelDoubleAmountImplCopyWith<_$LabelDoubleAmountImpl> get copyWith =>
+      __$$LabelDoubleAmountImplCopyWithImpl<_$LabelDoubleAmountImpl>(
           this, _$identity);
 }
 
@@ -161,7 +161,7 @@ abstract class _LabelDoubleAmount extends LabelDoubleAmount {
       {required final UniqueId id,
       required final FullName label,
       required final NonNegDouble amount,
-      required final NonNegInt counter}) = _$_LabelDoubleAmount;
+      required final NonNegInt counter}) = _$LabelDoubleAmountImpl;
   const _LabelDoubleAmount._() : super._();
 
   @override
@@ -174,6 +174,6 @@ abstract class _LabelDoubleAmount extends LabelDoubleAmount {
   NonNegInt get counter;
   @override
   @JsonKey(ignore: true)
-  _$$_LabelDoubleAmountCopyWith<_$_LabelDoubleAmount> get copyWith =>
+  _$$LabelDoubleAmountImplCopyWith<_$LabelDoubleAmountImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

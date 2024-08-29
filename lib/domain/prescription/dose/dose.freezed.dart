@@ -12,7 +12,7 @@ part of 'dose.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$Dose {
@@ -119,9 +119,10 @@ class _$DoseCopyWithImpl<$Res, $Val extends Dose>
 }
 
 /// @nodoc
-abstract class _$$_DoseCopyWith<$Res> implements $DoseCopyWith<$Res> {
-  factory _$$_DoseCopyWith(_$_Dose value, $Res Function(_$_Dose) then) =
-      __$$_DoseCopyWithImpl<$Res>;
+abstract class _$$DoseImplCopyWith<$Res> implements $DoseCopyWith<$Res> {
+  factory _$$DoseImplCopyWith(
+          _$DoseImpl value, $Res Function(_$DoseImpl) then) =
+      __$$DoseImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -141,9 +142,10 @@ abstract class _$$_DoseCopyWith<$Res> implements $DoseCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_DoseCopyWithImpl<$Res> extends _$DoseCopyWithImpl<$Res, _$_Dose>
-    implements _$$_DoseCopyWith<$Res> {
-  __$$_DoseCopyWithImpl(_$_Dose _value, $Res Function(_$_Dose) _then)
+class __$$DoseImplCopyWithImpl<$Res>
+    extends _$DoseCopyWithImpl<$Res, _$DoseImpl>
+    implements _$$DoseImplCopyWith<$Res> {
+  __$$DoseImplCopyWithImpl(_$DoseImpl _value, $Res Function(_$DoseImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -156,7 +158,7 @@ class __$$_DoseCopyWithImpl<$Res> extends _$DoseCopyWithImpl<$Res, _$_Dose>
     Object? counter = null,
     Object? label = null,
   }) {
-    return _then(_$_Dose(
+    return _then(_$DoseImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -187,8 +189,8 @@ class __$$_DoseCopyWithImpl<$Res> extends _$DoseCopyWithImpl<$Res, _$_Dose>
 
 /// @nodoc
 
-class _$_Dose extends _Dose {
-  const _$_Dose(
+class _$DoseImpl extends _Dose {
+  const _$DoseImpl(
       {required this.id,
       required this.dayHoursDose,
       required this.weekDays,
@@ -216,10 +218,10 @@ class _$_Dose extends _Dose {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Dose &&
+            other is _$DoseImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.dayHoursDose, dayHoursDose) ||
                 other.dayHoursDose == dayHoursDose) &&
@@ -238,8 +240,8 @@ class _$_Dose extends _Dose {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DoseCopyWith<_$_Dose> get copyWith =>
-      __$$_DoseCopyWithImpl<_$_Dose>(this, _$identity);
+  _$$DoseImplCopyWith<_$DoseImpl> get copyWith =>
+      __$$DoseImplCopyWithImpl<_$DoseImpl>(this, _$identity);
 }
 
 abstract class _Dose extends Dose {
@@ -249,7 +251,7 @@ abstract class _Dose extends Dose {
       required final WeekDaysDose weekDays,
       required final TimeInterval duration,
       required final NonNegInt counter,
-      required final FullName label}) = _$_Dose;
+      required final FullName label}) = _$DoseImpl;
   const _Dose._() : super._();
 
   @override
@@ -266,5 +268,6 @@ abstract class _Dose extends Dose {
   FullName get label;
   @override
   @JsonKey(ignore: true)
-  _$$_DoseCopyWith<_$_Dose> get copyWith => throw _privateConstructorUsedError;
+  _$$DoseImplCopyWith<_$DoseImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

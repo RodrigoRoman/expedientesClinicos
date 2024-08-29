@@ -6,7 +6,8 @@ part of 'dose_dtos.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_DoseDto _$$_DoseDtoFromJson(Map<String, dynamic> json) => _$_DoseDto(
+_$DoseDtoImpl _$$DoseDtoImplFromJson(Map<String, dynamic> json) =>
+    _$DoseDtoImpl(
       id: json['id'] as String,
       dayHoursDose: DayHoursDoseDto.fromJson(
           json['dayHoursDose'] as Map<String, dynamic>),
@@ -18,7 +19,7 @@ _$_DoseDto _$$_DoseDtoFromJson(Map<String, dynamic> json) => _$_DoseDto(
       label: json['label'] as String,
     );
 
-Map<String, dynamic> _$$_DoseDtoToJson(_$_DoseDto instance) =>
+Map<String, dynamic> _$$DoseDtoImplToJson(_$DoseDtoImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'dayHoursDose': instance.dayHoursDose.toJson(),

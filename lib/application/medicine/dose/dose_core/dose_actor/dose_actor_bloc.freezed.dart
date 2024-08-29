@@ -12,7 +12,7 @@ part of 'dose_actor_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$DoseActorEvent {
@@ -75,10 +75,10 @@ class _$DoseActorEventCopyWithImpl<$Res, $Val extends DoseActorEvent>
 }
 
 /// @nodoc
-abstract class _$$_DeleteDoseCopyWith<$Res> {
-  factory _$$_DeleteDoseCopyWith(
-          _$_DeleteDose value, $Res Function(_$_DeleteDose) then) =
-      __$$_DeleteDoseCopyWithImpl<$Res>;
+abstract class _$$DeleteDoseImplCopyWith<$Res> {
+  factory _$$DeleteDoseImplCopyWith(
+          _$DeleteDoseImpl value, $Res Function(_$DeleteDoseImpl) then) =
+      __$$DeleteDoseImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Dose dose});
 
@@ -86,11 +86,11 @@ abstract class _$$_DeleteDoseCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_DeleteDoseCopyWithImpl<$Res>
-    extends _$DoseActorEventCopyWithImpl<$Res, _$_DeleteDose>
-    implements _$$_DeleteDoseCopyWith<$Res> {
-  __$$_DeleteDoseCopyWithImpl(
-      _$_DeleteDose _value, $Res Function(_$_DeleteDose) _then)
+class __$$DeleteDoseImplCopyWithImpl<$Res>
+    extends _$DoseActorEventCopyWithImpl<$Res, _$DeleteDoseImpl>
+    implements _$$DeleteDoseImplCopyWith<$Res> {
+  __$$DeleteDoseImplCopyWithImpl(
+      _$DeleteDoseImpl _value, $Res Function(_$DeleteDoseImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -98,7 +98,7 @@ class __$$_DeleteDoseCopyWithImpl<$Res>
   $Res call({
     Object? dose = null,
   }) {
-    return _then(_$_DeleteDose(
+    return _then(_$DeleteDoseImpl(
       null == dose
           ? _value.dose
           : dose // ignore: cast_nullable_to_non_nullable
@@ -117,8 +117,8 @@ class __$$_DeleteDoseCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_DeleteDose implements _DeleteDose {
-  const _$_DeleteDose(this.dose);
+class _$DeleteDoseImpl implements _DeleteDose {
+  const _$DeleteDoseImpl(this.dose);
 
   @override
   final Dose dose;
@@ -129,10 +129,10 @@ class _$_DeleteDose implements _DeleteDose {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_DeleteDose &&
+            other is _$DeleteDoseImpl &&
             (identical(other.dose, dose) || other.dose == dose));
   }
 
@@ -142,8 +142,8 @@ class _$_DeleteDose implements _DeleteDose {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DeleteDoseCopyWith<_$_DeleteDose> get copyWith =>
-      __$$_DeleteDoseCopyWithImpl<_$_DeleteDose>(this, _$identity);
+  _$$DeleteDoseImplCopyWith<_$DeleteDoseImpl> get copyWith =>
+      __$$DeleteDoseImplCopyWithImpl<_$DeleteDoseImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -209,34 +209,34 @@ class _$_DeleteDose implements _DeleteDose {
 }
 
 abstract class _DeleteDose implements DoseActorEvent {
-  const factory _DeleteDose(final Dose dose) = _$_DeleteDose;
+  const factory _DeleteDose(final Dose dose) = _$DeleteDoseImpl;
 
   Dose get dose;
   @JsonKey(ignore: true)
-  _$$_DeleteDoseCopyWith<_$_DeleteDose> get copyWith =>
+  _$$DeleteDoseImplCopyWith<_$DeleteDoseImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_FakeDoseCopyWith<$Res> {
-  factory _$$_FakeDoseCopyWith(
-          _$_FakeDose value, $Res Function(_$_FakeDose) then) =
-      __$$_FakeDoseCopyWithImpl<$Res>;
+abstract class _$$FakeDoseImplCopyWith<$Res> {
+  factory _$$FakeDoseImplCopyWith(
+          _$FakeDoseImpl value, $Res Function(_$FakeDoseImpl) then) =
+      __$$FakeDoseImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_FakeDoseCopyWithImpl<$Res>
-    extends _$DoseActorEventCopyWithImpl<$Res, _$_FakeDose>
-    implements _$$_FakeDoseCopyWith<$Res> {
-  __$$_FakeDoseCopyWithImpl(
-      _$_FakeDose _value, $Res Function(_$_FakeDose) _then)
+class __$$FakeDoseImplCopyWithImpl<$Res>
+    extends _$DoseActorEventCopyWithImpl<$Res, _$FakeDoseImpl>
+    implements _$$FakeDoseImplCopyWith<$Res> {
+  __$$FakeDoseImplCopyWithImpl(
+      _$FakeDoseImpl _value, $Res Function(_$FakeDoseImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_FakeDose implements _FakeDose {
-  const _$_FakeDose();
+class _$FakeDoseImpl implements _FakeDose {
+  const _$FakeDoseImpl();
 
   @override
   String toString() {
@@ -244,9 +244,9 @@ class _$_FakeDose implements _FakeDose {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_FakeDose);
+        (other.runtimeType == runtimeType && other is _$FakeDoseImpl);
   }
 
   @override
@@ -316,7 +316,7 @@ class _$_FakeDose implements _FakeDose {
 }
 
 abstract class _FakeDose implements DoseActorEvent {
-  const factory _FakeDose() = _$_FakeDose;
+  const factory _FakeDose() = _$FakeDoseImpl;
 }
 
 /// @nodoc
@@ -404,24 +404,25 @@ class _$DoseActorStateCopyWithImpl<$Res, $Val extends DoseActorState>
 }
 
 /// @nodoc
-abstract class _$$_InitialCopyWith<$Res> {
-  factory _$$_InitialCopyWith(
-          _$_Initial value, $Res Function(_$_Initial) then) =
-      __$$_InitialCopyWithImpl<$Res>;
+abstract class _$$InitialImplCopyWith<$Res> {
+  factory _$$InitialImplCopyWith(
+          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
+      __$$InitialImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_InitialCopyWithImpl<$Res>
-    extends _$DoseActorStateCopyWithImpl<$Res, _$_Initial>
-    implements _$$_InitialCopyWith<$Res> {
-  __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
+class __$$InitialImplCopyWithImpl<$Res>
+    extends _$DoseActorStateCopyWithImpl<$Res, _$InitialImpl>
+    implements _$$InitialImplCopyWith<$Res> {
+  __$$InitialImplCopyWithImpl(
+      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_Initial implements _Initial {
-  const _$_Initial();
+class _$InitialImpl implements _Initial {
+  const _$InitialImpl();
 
   @override
   String toString() {
@@ -429,9 +430,9 @@ class _$_Initial implements _Initial {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Initial);
+        (other.runtimeType == runtimeType && other is _$InitialImpl);
   }
 
   @override
@@ -525,29 +526,29 @@ class _$_Initial implements _Initial {
 }
 
 abstract class _Initial implements DoseActorState {
-  const factory _Initial() = _$_Initial;
+  const factory _Initial() = _$InitialImpl;
 }
 
 /// @nodoc
-abstract class _$$_ActionInProgressCopyWith<$Res> {
-  factory _$$_ActionInProgressCopyWith(
-          _$_ActionInProgress value, $Res Function(_$_ActionInProgress) then) =
-      __$$_ActionInProgressCopyWithImpl<$Res>;
+abstract class _$$ActionInProgressImplCopyWith<$Res> {
+  factory _$$ActionInProgressImplCopyWith(_$ActionInProgressImpl value,
+          $Res Function(_$ActionInProgressImpl) then) =
+      __$$ActionInProgressImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_ActionInProgressCopyWithImpl<$Res>
-    extends _$DoseActorStateCopyWithImpl<$Res, _$_ActionInProgress>
-    implements _$$_ActionInProgressCopyWith<$Res> {
-  __$$_ActionInProgressCopyWithImpl(
-      _$_ActionInProgress _value, $Res Function(_$_ActionInProgress) _then)
+class __$$ActionInProgressImplCopyWithImpl<$Res>
+    extends _$DoseActorStateCopyWithImpl<$Res, _$ActionInProgressImpl>
+    implements _$$ActionInProgressImplCopyWith<$Res> {
+  __$$ActionInProgressImplCopyWithImpl(_$ActionInProgressImpl _value,
+      $Res Function(_$ActionInProgressImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_ActionInProgress implements _ActionInProgress {
-  const _$_ActionInProgress();
+class _$ActionInProgressImpl implements _ActionInProgress {
+  const _$ActionInProgressImpl();
 
   @override
   String toString() {
@@ -555,9 +556,9 @@ class _$_ActionInProgress implements _ActionInProgress {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_ActionInProgress);
+        (other.runtimeType == runtimeType && other is _$ActionInProgressImpl);
   }
 
   @override
@@ -651,14 +652,14 @@ class _$_ActionInProgress implements _ActionInProgress {
 }
 
 abstract class _ActionInProgress implements DoseActorState {
-  const factory _ActionInProgress() = _$_ActionInProgress;
+  const factory _ActionInProgress() = _$ActionInProgressImpl;
 }
 
 /// @nodoc
-abstract class _$$_DeleteFailureCopyWith<$Res> {
-  factory _$$_DeleteFailureCopyWith(
-          _$_DeleteFailure value, $Res Function(_$_DeleteFailure) then) =
-      __$$_DeleteFailureCopyWithImpl<$Res>;
+abstract class _$$DeleteFailureImplCopyWith<$Res> {
+  factory _$$DeleteFailureImplCopyWith(
+          _$DeleteFailureImpl value, $Res Function(_$DeleteFailureImpl) then) =
+      __$$DeleteFailureImplCopyWithImpl<$Res>;
   @useResult
   $Res call({DoseFailures doseFailure});
 
@@ -666,11 +667,11 @@ abstract class _$$_DeleteFailureCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_DeleteFailureCopyWithImpl<$Res>
-    extends _$DoseActorStateCopyWithImpl<$Res, _$_DeleteFailure>
-    implements _$$_DeleteFailureCopyWith<$Res> {
-  __$$_DeleteFailureCopyWithImpl(
-      _$_DeleteFailure _value, $Res Function(_$_DeleteFailure) _then)
+class __$$DeleteFailureImplCopyWithImpl<$Res>
+    extends _$DoseActorStateCopyWithImpl<$Res, _$DeleteFailureImpl>
+    implements _$$DeleteFailureImplCopyWith<$Res> {
+  __$$DeleteFailureImplCopyWithImpl(
+      _$DeleteFailureImpl _value, $Res Function(_$DeleteFailureImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -678,7 +679,7 @@ class __$$_DeleteFailureCopyWithImpl<$Res>
   $Res call({
     Object? doseFailure = null,
   }) {
-    return _then(_$_DeleteFailure(
+    return _then(_$DeleteFailureImpl(
       null == doseFailure
           ? _value.doseFailure
           : doseFailure // ignore: cast_nullable_to_non_nullable
@@ -697,8 +698,8 @@ class __$$_DeleteFailureCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_DeleteFailure implements _DeleteFailure {
-  const _$_DeleteFailure(this.doseFailure);
+class _$DeleteFailureImpl implements _DeleteFailure {
+  const _$DeleteFailureImpl(this.doseFailure);
 
   @override
   final DoseFailures doseFailure;
@@ -709,10 +710,10 @@ class _$_DeleteFailure implements _DeleteFailure {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_DeleteFailure &&
+            other is _$DeleteFailureImpl &&
             (identical(other.doseFailure, doseFailure) ||
                 other.doseFailure == doseFailure));
   }
@@ -723,8 +724,8 @@ class _$_DeleteFailure implements _DeleteFailure {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DeleteFailureCopyWith<_$_DeleteFailure> get copyWith =>
-      __$$_DeleteFailureCopyWithImpl<_$_DeleteFailure>(this, _$identity);
+  _$$DeleteFailureImplCopyWith<_$DeleteFailureImpl> get copyWith =>
+      __$$DeleteFailureImplCopyWithImpl<_$DeleteFailureImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -815,34 +816,34 @@ class _$_DeleteFailure implements _DeleteFailure {
 
 abstract class _DeleteFailure implements DoseActorState {
   const factory _DeleteFailure(final DoseFailures doseFailure) =
-      _$_DeleteFailure;
+      _$DeleteFailureImpl;
 
   DoseFailures get doseFailure;
   @JsonKey(ignore: true)
-  _$$_DeleteFailureCopyWith<_$_DeleteFailure> get copyWith =>
+  _$$DeleteFailureImplCopyWith<_$DeleteFailureImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_DeleteSuccessCopyWith<$Res> {
-  factory _$$_DeleteSuccessCopyWith(
-          _$_DeleteSuccess value, $Res Function(_$_DeleteSuccess) then) =
-      __$$_DeleteSuccessCopyWithImpl<$Res>;
+abstract class _$$DeleteSuccessImplCopyWith<$Res> {
+  factory _$$DeleteSuccessImplCopyWith(
+          _$DeleteSuccessImpl value, $Res Function(_$DeleteSuccessImpl) then) =
+      __$$DeleteSuccessImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_DeleteSuccessCopyWithImpl<$Res>
-    extends _$DoseActorStateCopyWithImpl<$Res, _$_DeleteSuccess>
-    implements _$$_DeleteSuccessCopyWith<$Res> {
-  __$$_DeleteSuccessCopyWithImpl(
-      _$_DeleteSuccess _value, $Res Function(_$_DeleteSuccess) _then)
+class __$$DeleteSuccessImplCopyWithImpl<$Res>
+    extends _$DoseActorStateCopyWithImpl<$Res, _$DeleteSuccessImpl>
+    implements _$$DeleteSuccessImplCopyWith<$Res> {
+  __$$DeleteSuccessImplCopyWithImpl(
+      _$DeleteSuccessImpl _value, $Res Function(_$DeleteSuccessImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_DeleteSuccess implements _DeleteSuccess {
-  const _$_DeleteSuccess();
+class _$DeleteSuccessImpl implements _DeleteSuccess {
+  const _$DeleteSuccessImpl();
 
   @override
   String toString() {
@@ -850,9 +851,9 @@ class _$_DeleteSuccess implements _DeleteSuccess {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_DeleteSuccess);
+        (other.runtimeType == runtimeType && other is _$DeleteSuccessImpl);
   }
 
   @override
@@ -946,14 +947,14 @@ class _$_DeleteSuccess implements _DeleteSuccess {
 }
 
 abstract class _DeleteSuccess implements DoseActorState {
-  const factory _DeleteSuccess() = _$_DeleteSuccess;
+  const factory _DeleteSuccess() = _$DeleteSuccessImpl;
 }
 
 /// @nodoc
-abstract class _$$_FakeFailureCopyWith<$Res> {
-  factory _$$_FakeFailureCopyWith(
-          _$_FakeFailure value, $Res Function(_$_FakeFailure) then) =
-      __$$_FakeFailureCopyWithImpl<$Res>;
+abstract class _$$FakeFailureImplCopyWith<$Res> {
+  factory _$$FakeFailureImplCopyWith(
+          _$FakeFailureImpl value, $Res Function(_$FakeFailureImpl) then) =
+      __$$FakeFailureImplCopyWithImpl<$Res>;
   @useResult
   $Res call({DoseFailures doseFailure});
 
@@ -961,11 +962,11 @@ abstract class _$$_FakeFailureCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_FakeFailureCopyWithImpl<$Res>
-    extends _$DoseActorStateCopyWithImpl<$Res, _$_FakeFailure>
-    implements _$$_FakeFailureCopyWith<$Res> {
-  __$$_FakeFailureCopyWithImpl(
-      _$_FakeFailure _value, $Res Function(_$_FakeFailure) _then)
+class __$$FakeFailureImplCopyWithImpl<$Res>
+    extends _$DoseActorStateCopyWithImpl<$Res, _$FakeFailureImpl>
+    implements _$$FakeFailureImplCopyWith<$Res> {
+  __$$FakeFailureImplCopyWithImpl(
+      _$FakeFailureImpl _value, $Res Function(_$FakeFailureImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -973,7 +974,7 @@ class __$$_FakeFailureCopyWithImpl<$Res>
   $Res call({
     Object? doseFailure = null,
   }) {
-    return _then(_$_FakeFailure(
+    return _then(_$FakeFailureImpl(
       null == doseFailure
           ? _value.doseFailure
           : doseFailure // ignore: cast_nullable_to_non_nullable
@@ -992,8 +993,8 @@ class __$$_FakeFailureCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_FakeFailure implements _FakeFailure {
-  const _$_FakeFailure(this.doseFailure);
+class _$FakeFailureImpl implements _FakeFailure {
+  const _$FakeFailureImpl(this.doseFailure);
 
   @override
   final DoseFailures doseFailure;
@@ -1004,10 +1005,10 @@ class _$_FakeFailure implements _FakeFailure {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_FakeFailure &&
+            other is _$FakeFailureImpl &&
             (identical(other.doseFailure, doseFailure) ||
                 other.doseFailure == doseFailure));
   }
@@ -1018,8 +1019,8 @@ class _$_FakeFailure implements _FakeFailure {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_FakeFailureCopyWith<_$_FakeFailure> get copyWith =>
-      __$$_FakeFailureCopyWithImpl<_$_FakeFailure>(this, _$identity);
+  _$$FakeFailureImplCopyWith<_$FakeFailureImpl> get copyWith =>
+      __$$FakeFailureImplCopyWithImpl<_$FakeFailureImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1109,34 +1110,35 @@ class _$_FakeFailure implements _FakeFailure {
 }
 
 abstract class _FakeFailure implements DoseActorState {
-  const factory _FakeFailure(final DoseFailures doseFailure) = _$_FakeFailure;
+  const factory _FakeFailure(final DoseFailures doseFailure) =
+      _$FakeFailureImpl;
 
   DoseFailures get doseFailure;
   @JsonKey(ignore: true)
-  _$$_FakeFailureCopyWith<_$_FakeFailure> get copyWith =>
+  _$$FakeFailureImplCopyWith<_$FakeFailureImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_FakeSuccessCopyWith<$Res> {
-  factory _$$_FakeSuccessCopyWith(
-          _$_FakeSuccess value, $Res Function(_$_FakeSuccess) then) =
-      __$$_FakeSuccessCopyWithImpl<$Res>;
+abstract class _$$FakeSuccessImplCopyWith<$Res> {
+  factory _$$FakeSuccessImplCopyWith(
+          _$FakeSuccessImpl value, $Res Function(_$FakeSuccessImpl) then) =
+      __$$FakeSuccessImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_FakeSuccessCopyWithImpl<$Res>
-    extends _$DoseActorStateCopyWithImpl<$Res, _$_FakeSuccess>
-    implements _$$_FakeSuccessCopyWith<$Res> {
-  __$$_FakeSuccessCopyWithImpl(
-      _$_FakeSuccess _value, $Res Function(_$_FakeSuccess) _then)
+class __$$FakeSuccessImplCopyWithImpl<$Res>
+    extends _$DoseActorStateCopyWithImpl<$Res, _$FakeSuccessImpl>
+    implements _$$FakeSuccessImplCopyWith<$Res> {
+  __$$FakeSuccessImplCopyWithImpl(
+      _$FakeSuccessImpl _value, $Res Function(_$FakeSuccessImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_FakeSuccess implements _FakeSuccess {
-  const _$_FakeSuccess();
+class _$FakeSuccessImpl implements _FakeSuccess {
+  const _$FakeSuccessImpl();
 
   @override
   String toString() {
@@ -1144,9 +1146,9 @@ class _$_FakeSuccess implements _FakeSuccess {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_FakeSuccess);
+        (other.runtimeType == runtimeType && other is _$FakeSuccessImpl);
   }
 
   @override
@@ -1240,5 +1242,5 @@ class _$_FakeSuccess implements _FakeSuccess {
 }
 
 abstract class _FakeSuccess implements DoseActorState {
-  const factory _FakeSuccess() = _$_FakeSuccess;
+  const factory _FakeSuccess() = _$FakeSuccessImpl;
 }

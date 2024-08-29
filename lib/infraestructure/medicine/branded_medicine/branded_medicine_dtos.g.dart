@@ -6,9 +6,9 @@ part of 'branded_medicine_dtos.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_BrandedMedicineDto _$$_BrandedMedicineDtoFromJson(
+_$BrandedMedicineDtoImpl _$$BrandedMedicineDtoImplFromJson(
         Map<String, dynamic> json) =>
-    _$_BrandedMedicineDto(
+    _$BrandedMedicineDtoImpl(
       id: json['id'] as String,
       comercialName: json['comercialName'] as String,
       existence: json['existence'] as int,
@@ -19,8 +19,8 @@ _$_BrandedMedicineDto _$$_BrandedMedicineDtoFromJson(
           json['genericMedicine'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$_BrandedMedicineDtoToJson(
-        _$_BrandedMedicineDto instance) =>
+Map<String, dynamic> _$$BrandedMedicineDtoImplToJson(
+        _$BrandedMedicineDtoImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'comercialName': instance.comercialName,

@@ -12,7 +12,7 @@ part of 'time_interval_form_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$TimeIntervalFormEvent {
@@ -110,20 +110,20 @@ class _$TimeIntervalFormEventCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_InitializedCopyWith<$Res> {
-  factory _$$_InitializedCopyWith(
-          _$_Initialized value, $Res Function(_$_Initialized) then) =
-      __$$_InitializedCopyWithImpl<$Res>;
+abstract class _$$InitializedImplCopyWith<$Res> {
+  factory _$$InitializedImplCopyWith(
+          _$InitializedImpl value, $Res Function(_$InitializedImpl) then) =
+      __$$InitializedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Option<TimeInterval> intitialTimeInterval});
 }
 
 /// @nodoc
-class __$$_InitializedCopyWithImpl<$Res>
-    extends _$TimeIntervalFormEventCopyWithImpl<$Res, _$_Initialized>
-    implements _$$_InitializedCopyWith<$Res> {
-  __$$_InitializedCopyWithImpl(
-      _$_Initialized _value, $Res Function(_$_Initialized) _then)
+class __$$InitializedImplCopyWithImpl<$Res>
+    extends _$TimeIntervalFormEventCopyWithImpl<$Res, _$InitializedImpl>
+    implements _$$InitializedImplCopyWith<$Res> {
+  __$$InitializedImplCopyWithImpl(
+      _$InitializedImpl _value, $Res Function(_$InitializedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -131,7 +131,7 @@ class __$$_InitializedCopyWithImpl<$Res>
   $Res call({
     Object? intitialTimeInterval = null,
   }) {
-    return _then(_$_Initialized(
+    return _then(_$InitializedImpl(
       null == intitialTimeInterval
           ? _value.intitialTimeInterval
           : intitialTimeInterval // ignore: cast_nullable_to_non_nullable
@@ -142,8 +142,8 @@ class __$$_InitializedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Initialized implements _Initialized {
-  const _$_Initialized(this.intitialTimeInterval);
+class _$InitializedImpl implements _Initialized {
+  const _$InitializedImpl(this.intitialTimeInterval);
 
   @override
   final Option<TimeInterval> intitialTimeInterval;
@@ -154,10 +154,10 @@ class _$_Initialized implements _Initialized {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Initialized &&
+            other is _$InitializedImpl &&
             (identical(other.intitialTimeInterval, intitialTimeInterval) ||
                 other.intitialTimeInterval == intitialTimeInterval));
   }
@@ -168,8 +168,8 @@ class _$_Initialized implements _Initialized {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_InitializedCopyWith<_$_Initialized> get copyWith =>
-      __$$_InitializedCopyWithImpl<_$_Initialized>(this, _$identity);
+  _$$InitializedImplCopyWith<_$InitializedImpl> get copyWith =>
+      __$$InitializedImplCopyWithImpl<_$InitializedImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -270,29 +270,29 @@ class _$_Initialized implements _Initialized {
 
 abstract class _Initialized implements TimeIntervalFormEvent {
   const factory _Initialized(final Option<TimeInterval> intitialTimeInterval) =
-      _$_Initialized;
+      _$InitializedImpl;
 
   Option<TimeInterval> get intitialTimeInterval;
   @JsonKey(ignore: true)
-  _$$_InitializedCopyWith<_$_Initialized> get copyWith =>
+  _$$InitializedImplCopyWith<_$InitializedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_IntervalNameChangedCopyWith<$Res> {
-  factory _$$_IntervalNameChangedCopyWith(_$_IntervalNameChanged value,
-          $Res Function(_$_IntervalNameChanged) then) =
-      __$$_IntervalNameChangedCopyWithImpl<$Res>;
+abstract class _$$IntervalNameChangedImplCopyWith<$Res> {
+  factory _$$IntervalNameChangedImplCopyWith(_$IntervalNameChangedImpl value,
+          $Res Function(_$IntervalNameChangedImpl) then) =
+      __$$IntervalNameChangedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String label});
 }
 
 /// @nodoc
-class __$$_IntervalNameChangedCopyWithImpl<$Res>
-    extends _$TimeIntervalFormEventCopyWithImpl<$Res, _$_IntervalNameChanged>
-    implements _$$_IntervalNameChangedCopyWith<$Res> {
-  __$$_IntervalNameChangedCopyWithImpl(_$_IntervalNameChanged _value,
-      $Res Function(_$_IntervalNameChanged) _then)
+class __$$IntervalNameChangedImplCopyWithImpl<$Res>
+    extends _$TimeIntervalFormEventCopyWithImpl<$Res, _$IntervalNameChangedImpl>
+    implements _$$IntervalNameChangedImplCopyWith<$Res> {
+  __$$IntervalNameChangedImplCopyWithImpl(_$IntervalNameChangedImpl _value,
+      $Res Function(_$IntervalNameChangedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -300,7 +300,7 @@ class __$$_IntervalNameChangedCopyWithImpl<$Res>
   $Res call({
     Object? label = null,
   }) {
-    return _then(_$_IntervalNameChanged(
+    return _then(_$IntervalNameChangedImpl(
       null == label
           ? _value.label
           : label // ignore: cast_nullable_to_non_nullable
@@ -311,8 +311,8 @@ class __$$_IntervalNameChangedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_IntervalNameChanged implements _IntervalNameChanged {
-  const _$_IntervalNameChanged(this.label);
+class _$IntervalNameChangedImpl implements _IntervalNameChanged {
+  const _$IntervalNameChangedImpl(this.label);
 
   @override
   final String label;
@@ -323,10 +323,10 @@ class _$_IntervalNameChanged implements _IntervalNameChanged {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_IntervalNameChanged &&
+            other is _$IntervalNameChangedImpl &&
             (identical(other.label, label) || other.label == label));
   }
 
@@ -336,8 +336,8 @@ class _$_IntervalNameChanged implements _IntervalNameChanged {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_IntervalNameChangedCopyWith<_$_IntervalNameChanged> get copyWith =>
-      __$$_IntervalNameChangedCopyWithImpl<_$_IntervalNameChanged>(
+  _$$IntervalNameChangedImplCopyWith<_$IntervalNameChangedImpl> get copyWith =>
+      __$$IntervalNameChangedImplCopyWithImpl<_$IntervalNameChangedImpl>(
           this, _$identity);
 
   @override
@@ -439,29 +439,29 @@ class _$_IntervalNameChanged implements _IntervalNameChanged {
 
 abstract class _IntervalNameChanged implements TimeIntervalFormEvent {
   const factory _IntervalNameChanged(final String label) =
-      _$_IntervalNameChanged;
+      _$IntervalNameChangedImpl;
 
   String get label;
   @JsonKey(ignore: true)
-  _$$_IntervalNameChangedCopyWith<_$_IntervalNameChanged> get copyWith =>
+  _$$IntervalNameChangedImplCopyWith<_$IntervalNameChangedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_MonthsChangedCopyWith<$Res> {
-  factory _$$_MonthsChangedCopyWith(
-          _$_MonthsChanged value, $Res Function(_$_MonthsChanged) then) =
-      __$$_MonthsChangedCopyWithImpl<$Res>;
+abstract class _$$MonthsChangedImplCopyWith<$Res> {
+  factory _$$MonthsChangedImplCopyWith(
+          _$MonthsChangedImpl value, $Res Function(_$MonthsChangedImpl) then) =
+      __$$MonthsChangedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({int months});
 }
 
 /// @nodoc
-class __$$_MonthsChangedCopyWithImpl<$Res>
-    extends _$TimeIntervalFormEventCopyWithImpl<$Res, _$_MonthsChanged>
-    implements _$$_MonthsChangedCopyWith<$Res> {
-  __$$_MonthsChangedCopyWithImpl(
-      _$_MonthsChanged _value, $Res Function(_$_MonthsChanged) _then)
+class __$$MonthsChangedImplCopyWithImpl<$Res>
+    extends _$TimeIntervalFormEventCopyWithImpl<$Res, _$MonthsChangedImpl>
+    implements _$$MonthsChangedImplCopyWith<$Res> {
+  __$$MonthsChangedImplCopyWithImpl(
+      _$MonthsChangedImpl _value, $Res Function(_$MonthsChangedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -469,7 +469,7 @@ class __$$_MonthsChangedCopyWithImpl<$Res>
   $Res call({
     Object? months = null,
   }) {
-    return _then(_$_MonthsChanged(
+    return _then(_$MonthsChangedImpl(
       null == months
           ? _value.months
           : months // ignore: cast_nullable_to_non_nullable
@@ -480,8 +480,8 @@ class __$$_MonthsChangedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_MonthsChanged implements _MonthsChanged {
-  const _$_MonthsChanged(this.months);
+class _$MonthsChangedImpl implements _MonthsChanged {
+  const _$MonthsChangedImpl(this.months);
 
   @override
   final int months;
@@ -492,10 +492,10 @@ class _$_MonthsChanged implements _MonthsChanged {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_MonthsChanged &&
+            other is _$MonthsChangedImpl &&
             (identical(other.months, months) || other.months == months));
   }
 
@@ -505,8 +505,8 @@ class _$_MonthsChanged implements _MonthsChanged {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_MonthsChangedCopyWith<_$_MonthsChanged> get copyWith =>
-      __$$_MonthsChangedCopyWithImpl<_$_MonthsChanged>(this, _$identity);
+  _$$MonthsChangedImplCopyWith<_$MonthsChangedImpl> get copyWith =>
+      __$$MonthsChangedImplCopyWithImpl<_$MonthsChangedImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -606,29 +606,29 @@ class _$_MonthsChanged implements _MonthsChanged {
 }
 
 abstract class _MonthsChanged implements TimeIntervalFormEvent {
-  const factory _MonthsChanged(final int months) = _$_MonthsChanged;
+  const factory _MonthsChanged(final int months) = _$MonthsChangedImpl;
 
   int get months;
   @JsonKey(ignore: true)
-  _$$_MonthsChangedCopyWith<_$_MonthsChanged> get copyWith =>
+  _$$MonthsChangedImplCopyWith<_$MonthsChangedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_WeeksChangedCopyWith<$Res> {
-  factory _$$_WeeksChangedCopyWith(
-          _$_WeeksChanged value, $Res Function(_$_WeeksChanged) then) =
-      __$$_WeeksChangedCopyWithImpl<$Res>;
+abstract class _$$WeeksChangedImplCopyWith<$Res> {
+  factory _$$WeeksChangedImplCopyWith(
+          _$WeeksChangedImpl value, $Res Function(_$WeeksChangedImpl) then) =
+      __$$WeeksChangedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({int weeks});
 }
 
 /// @nodoc
-class __$$_WeeksChangedCopyWithImpl<$Res>
-    extends _$TimeIntervalFormEventCopyWithImpl<$Res, _$_WeeksChanged>
-    implements _$$_WeeksChangedCopyWith<$Res> {
-  __$$_WeeksChangedCopyWithImpl(
-      _$_WeeksChanged _value, $Res Function(_$_WeeksChanged) _then)
+class __$$WeeksChangedImplCopyWithImpl<$Res>
+    extends _$TimeIntervalFormEventCopyWithImpl<$Res, _$WeeksChangedImpl>
+    implements _$$WeeksChangedImplCopyWith<$Res> {
+  __$$WeeksChangedImplCopyWithImpl(
+      _$WeeksChangedImpl _value, $Res Function(_$WeeksChangedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -636,7 +636,7 @@ class __$$_WeeksChangedCopyWithImpl<$Res>
   $Res call({
     Object? weeks = null,
   }) {
-    return _then(_$_WeeksChanged(
+    return _then(_$WeeksChangedImpl(
       null == weeks
           ? _value.weeks
           : weeks // ignore: cast_nullable_to_non_nullable
@@ -647,8 +647,8 @@ class __$$_WeeksChangedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_WeeksChanged implements _WeeksChanged {
-  const _$_WeeksChanged(this.weeks);
+class _$WeeksChangedImpl implements _WeeksChanged {
+  const _$WeeksChangedImpl(this.weeks);
 
   @override
   final int weeks;
@@ -659,10 +659,10 @@ class _$_WeeksChanged implements _WeeksChanged {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_WeeksChanged &&
+            other is _$WeeksChangedImpl &&
             (identical(other.weeks, weeks) || other.weeks == weeks));
   }
 
@@ -672,8 +672,8 @@ class _$_WeeksChanged implements _WeeksChanged {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_WeeksChangedCopyWith<_$_WeeksChanged> get copyWith =>
-      __$$_WeeksChangedCopyWithImpl<_$_WeeksChanged>(this, _$identity);
+  _$$WeeksChangedImplCopyWith<_$WeeksChangedImpl> get copyWith =>
+      __$$WeeksChangedImplCopyWithImpl<_$WeeksChangedImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -773,29 +773,29 @@ class _$_WeeksChanged implements _WeeksChanged {
 }
 
 abstract class _WeeksChanged implements TimeIntervalFormEvent {
-  const factory _WeeksChanged(final int weeks) = _$_WeeksChanged;
+  const factory _WeeksChanged(final int weeks) = _$WeeksChangedImpl;
 
   int get weeks;
   @JsonKey(ignore: true)
-  _$$_WeeksChangedCopyWith<_$_WeeksChanged> get copyWith =>
+  _$$WeeksChangedImplCopyWith<_$WeeksChangedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_DaysChangedCopyWith<$Res> {
-  factory _$$_DaysChangedCopyWith(
-          _$_DaysChanged value, $Res Function(_$_DaysChanged) then) =
-      __$$_DaysChangedCopyWithImpl<$Res>;
+abstract class _$$DaysChangedImplCopyWith<$Res> {
+  factory _$$DaysChangedImplCopyWith(
+          _$DaysChangedImpl value, $Res Function(_$DaysChangedImpl) then) =
+      __$$DaysChangedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({int days});
 }
 
 /// @nodoc
-class __$$_DaysChangedCopyWithImpl<$Res>
-    extends _$TimeIntervalFormEventCopyWithImpl<$Res, _$_DaysChanged>
-    implements _$$_DaysChangedCopyWith<$Res> {
-  __$$_DaysChangedCopyWithImpl(
-      _$_DaysChanged _value, $Res Function(_$_DaysChanged) _then)
+class __$$DaysChangedImplCopyWithImpl<$Res>
+    extends _$TimeIntervalFormEventCopyWithImpl<$Res, _$DaysChangedImpl>
+    implements _$$DaysChangedImplCopyWith<$Res> {
+  __$$DaysChangedImplCopyWithImpl(
+      _$DaysChangedImpl _value, $Res Function(_$DaysChangedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -803,7 +803,7 @@ class __$$_DaysChangedCopyWithImpl<$Res>
   $Res call({
     Object? days = null,
   }) {
-    return _then(_$_DaysChanged(
+    return _then(_$DaysChangedImpl(
       null == days
           ? _value.days
           : days // ignore: cast_nullable_to_non_nullable
@@ -814,8 +814,8 @@ class __$$_DaysChangedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_DaysChanged implements _DaysChanged {
-  const _$_DaysChanged(this.days);
+class _$DaysChangedImpl implements _DaysChanged {
+  const _$DaysChangedImpl(this.days);
 
   @override
   final int days;
@@ -826,10 +826,10 @@ class _$_DaysChanged implements _DaysChanged {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_DaysChanged &&
+            other is _$DaysChangedImpl &&
             (identical(other.days, days) || other.days == days));
   }
 
@@ -839,8 +839,8 @@ class _$_DaysChanged implements _DaysChanged {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DaysChangedCopyWith<_$_DaysChanged> get copyWith =>
-      __$$_DaysChangedCopyWithImpl<_$_DaysChanged>(this, _$identity);
+  _$$DaysChangedImplCopyWith<_$DaysChangedImpl> get copyWith =>
+      __$$DaysChangedImplCopyWithImpl<_$DaysChangedImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -940,30 +940,32 @@ class _$_DaysChanged implements _DaysChanged {
 }
 
 abstract class _DaysChanged implements TimeIntervalFormEvent {
-  const factory _DaysChanged(final int days) = _$_DaysChanged;
+  const factory _DaysChanged(final int days) = _$DaysChangedImpl;
 
   int get days;
   @JsonKey(ignore: true)
-  _$$_DaysChangedCopyWith<_$_DaysChanged> get copyWith =>
+  _$$DaysChangedImplCopyWith<_$DaysChangedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_IntervalDurationChangedCopyWith<$Res> {
-  factory _$$_IntervalDurationChangedCopyWith(_$_IntervalDurationChanged value,
-          $Res Function(_$_IntervalDurationChanged) then) =
-      __$$_IntervalDurationChangedCopyWithImpl<$Res>;
+abstract class _$$IntervalDurationChangedImplCopyWith<$Res> {
+  factory _$$IntervalDurationChangedImplCopyWith(
+          _$IntervalDurationChangedImpl value,
+          $Res Function(_$IntervalDurationChangedImpl) then) =
+      __$$IntervalDurationChangedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Duration intervalDuration});
 }
 
 /// @nodoc
-class __$$_IntervalDurationChangedCopyWithImpl<$Res>
+class __$$IntervalDurationChangedImplCopyWithImpl<$Res>
     extends _$TimeIntervalFormEventCopyWithImpl<$Res,
-        _$_IntervalDurationChanged>
-    implements _$$_IntervalDurationChangedCopyWith<$Res> {
-  __$$_IntervalDurationChangedCopyWithImpl(_$_IntervalDurationChanged _value,
-      $Res Function(_$_IntervalDurationChanged) _then)
+        _$IntervalDurationChangedImpl>
+    implements _$$IntervalDurationChangedImplCopyWith<$Res> {
+  __$$IntervalDurationChangedImplCopyWithImpl(
+      _$IntervalDurationChangedImpl _value,
+      $Res Function(_$IntervalDurationChangedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -971,7 +973,7 @@ class __$$_IntervalDurationChangedCopyWithImpl<$Res>
   $Res call({
     Object? intervalDuration = null,
   }) {
-    return _then(_$_IntervalDurationChanged(
+    return _then(_$IntervalDurationChangedImpl(
       null == intervalDuration
           ? _value.intervalDuration
           : intervalDuration // ignore: cast_nullable_to_non_nullable
@@ -982,8 +984,8 @@ class __$$_IntervalDurationChangedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_IntervalDurationChanged implements _IntervalDurationChanged {
-  const _$_IntervalDurationChanged(this.intervalDuration);
+class _$IntervalDurationChangedImpl implements _IntervalDurationChanged {
+  const _$IntervalDurationChangedImpl(this.intervalDuration);
 
   @override
   final Duration intervalDuration;
@@ -994,10 +996,10 @@ class _$_IntervalDurationChanged implements _IntervalDurationChanged {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_IntervalDurationChanged &&
+            other is _$IntervalDurationChangedImpl &&
             (identical(other.intervalDuration, intervalDuration) ||
                 other.intervalDuration == intervalDuration));
   }
@@ -1008,10 +1010,9 @@ class _$_IntervalDurationChanged implements _IntervalDurationChanged {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_IntervalDurationChangedCopyWith<_$_IntervalDurationChanged>
-      get copyWith =>
-          __$$_IntervalDurationChangedCopyWithImpl<_$_IntervalDurationChanged>(
-              this, _$identity);
+  _$$IntervalDurationChangedImplCopyWith<_$IntervalDurationChangedImpl>
+      get copyWith => __$$IntervalDurationChangedImplCopyWithImpl<
+          _$IntervalDurationChangedImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1112,32 +1113,34 @@ class _$_IntervalDurationChanged implements _IntervalDurationChanged {
 
 abstract class _IntervalDurationChanged implements TimeIntervalFormEvent {
   const factory _IntervalDurationChanged(final Duration intervalDuration) =
-      _$_IntervalDurationChanged;
+      _$IntervalDurationChangedImpl;
 
   Duration get intervalDuration;
   @JsonKey(ignore: true)
-  _$$_IntervalDurationChangedCopyWith<_$_IntervalDurationChanged>
+  _$$IntervalDurationChangedImplCopyWith<_$IntervalDurationChangedImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_SavedCopyWith<$Res> {
-  factory _$$_SavedCopyWith(_$_Saved value, $Res Function(_$_Saved) then) =
-      __$$_SavedCopyWithImpl<$Res>;
+abstract class _$$SavedImplCopyWith<$Res> {
+  factory _$$SavedImplCopyWith(
+          _$SavedImpl value, $Res Function(_$SavedImpl) then) =
+      __$$SavedImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_SavedCopyWithImpl<$Res>
-    extends _$TimeIntervalFormEventCopyWithImpl<$Res, _$_Saved>
-    implements _$$_SavedCopyWith<$Res> {
-  __$$_SavedCopyWithImpl(_$_Saved _value, $Res Function(_$_Saved) _then)
+class __$$SavedImplCopyWithImpl<$Res>
+    extends _$TimeIntervalFormEventCopyWithImpl<$Res, _$SavedImpl>
+    implements _$$SavedImplCopyWith<$Res> {
+  __$$SavedImplCopyWithImpl(
+      _$SavedImpl _value, $Res Function(_$SavedImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_Saved implements _Saved {
-  const _$_Saved();
+class _$SavedImpl implements _Saved {
+  const _$SavedImpl();
 
   @override
   String toString() {
@@ -1145,9 +1148,9 @@ class _$_Saved implements _Saved {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Saved);
+        (other.runtimeType == runtimeType && other is _$SavedImpl);
   }
 
   @override
@@ -1251,7 +1254,7 @@ class _$_Saved implements _Saved {
 }
 
 abstract class _Saved implements TimeIntervalFormEvent {
-  const factory _Saved() = _$_Saved;
+  const factory _Saved() = _$SavedImpl;
 }
 
 /// @nodoc
@@ -1359,11 +1362,12 @@ class _$TimeIntervalFormStateCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_TimeIntervalFormStateCopyWith<$Res>
+abstract class _$$TimeIntervalFormStateImplCopyWith<$Res>
     implements $TimeIntervalFormStateCopyWith<$Res> {
-  factory _$$_TimeIntervalFormStateCopyWith(_$_TimeIntervalFormState value,
-          $Res Function(_$_TimeIntervalFormState) then) =
-      __$$_TimeIntervalFormStateCopyWithImpl<$Res>;
+  factory _$$TimeIntervalFormStateImplCopyWith(
+          _$TimeIntervalFormStateImpl value,
+          $Res Function(_$TimeIntervalFormStateImpl) then) =
+      __$$TimeIntervalFormStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -1381,11 +1385,12 @@ abstract class _$$_TimeIntervalFormStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_TimeIntervalFormStateCopyWithImpl<$Res>
-    extends _$TimeIntervalFormStateCopyWithImpl<$Res, _$_TimeIntervalFormState>
-    implements _$$_TimeIntervalFormStateCopyWith<$Res> {
-  __$$_TimeIntervalFormStateCopyWithImpl(_$_TimeIntervalFormState _value,
-      $Res Function(_$_TimeIntervalFormState) _then)
+class __$$TimeIntervalFormStateImplCopyWithImpl<$Res>
+    extends _$TimeIntervalFormStateCopyWithImpl<$Res,
+        _$TimeIntervalFormStateImpl>
+    implements _$$TimeIntervalFormStateImplCopyWith<$Res> {
+  __$$TimeIntervalFormStateImplCopyWithImpl(_$TimeIntervalFormStateImpl _value,
+      $Res Function(_$TimeIntervalFormStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1400,7 +1405,7 @@ class __$$_TimeIntervalFormStateCopyWithImpl<$Res>
     Object? isSaving = null,
     Object? saveFailureOrSuccessOption = null,
   }) {
-    return _then(_$_TimeIntervalFormState(
+    return _then(_$TimeIntervalFormStateImpl(
       timeInterval: null == timeInterval
           ? _value.timeInterval
           : timeInterval // ignore: cast_nullable_to_non_nullable
@@ -1439,8 +1444,8 @@ class __$$_TimeIntervalFormStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_TimeIntervalFormState implements _TimeIntervalFormState {
-  const _$_TimeIntervalFormState(
+class _$TimeIntervalFormStateImpl implements _TimeIntervalFormState {
+  const _$TimeIntervalFormStateImpl(
       {required this.timeInterval,
       required this.months,
       required this.weeks,
@@ -1473,10 +1478,10 @@ class _$_TimeIntervalFormState implements _TimeIntervalFormState {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_TimeIntervalFormState &&
+            other is _$TimeIntervalFormStateImpl &&
             (identical(other.timeInterval, timeInterval) ||
                 other.timeInterval == timeInterval) &&
             (identical(other.months, months) || other.months == months) &&
@@ -1509,9 +1514,9 @@ class _$_TimeIntervalFormState implements _TimeIntervalFormState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_TimeIntervalFormStateCopyWith<_$_TimeIntervalFormState> get copyWith =>
-      __$$_TimeIntervalFormStateCopyWithImpl<_$_TimeIntervalFormState>(
-          this, _$identity);
+  _$$TimeIntervalFormStateImplCopyWith<_$TimeIntervalFormStateImpl>
+      get copyWith => __$$TimeIntervalFormStateImplCopyWithImpl<
+          _$TimeIntervalFormStateImpl>(this, _$identity);
 }
 
 abstract class _TimeIntervalFormState implements TimeIntervalFormState {
@@ -1524,7 +1529,7 @@ abstract class _TimeIntervalFormState implements TimeIntervalFormState {
       required final bool isUpdating,
       required final bool isSaving,
       required final Option<Either<TimeIntervalFailure, Unit>>
-          saveFailureOrSuccessOption}) = _$_TimeIntervalFormState;
+          saveFailureOrSuccessOption}) = _$TimeIntervalFormStateImpl;
 
   @override
   TimeInterval get timeInterval;
@@ -1544,6 +1549,6 @@ abstract class _TimeIntervalFormState implements TimeIntervalFormState {
   Option<Either<TimeIntervalFailure, Unit>> get saveFailureOrSuccessOption;
   @override
   @JsonKey(ignore: true)
-  _$$_TimeIntervalFormStateCopyWith<_$_TimeIntervalFormState> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$TimeIntervalFormStateImplCopyWith<_$TimeIntervalFormStateImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

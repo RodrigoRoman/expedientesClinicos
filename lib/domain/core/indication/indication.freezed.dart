@@ -12,7 +12,7 @@ part of 'indication.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$Indication {
@@ -89,11 +89,11 @@ class _$IndicationCopyWithImpl<$Res, $Val extends Indication>
 }
 
 /// @nodoc
-abstract class _$$_IndicationCopyWith<$Res>
+abstract class _$$IndicationImplCopyWith<$Res>
     implements $IndicationCopyWith<$Res> {
-  factory _$$_IndicationCopyWith(
-          _$_Indication value, $Res Function(_$_Indication) then) =
-      __$$_IndicationCopyWithImpl<$Res>;
+  factory _$$IndicationImplCopyWith(
+          _$IndicationImpl value, $Res Function(_$IndicationImpl) then) =
+      __$$IndicationImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -107,11 +107,11 @@ abstract class _$$_IndicationCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_IndicationCopyWithImpl<$Res>
-    extends _$IndicationCopyWithImpl<$Res, _$_Indication>
-    implements _$$_IndicationCopyWith<$Res> {
-  __$$_IndicationCopyWithImpl(
-      _$_Indication _value, $Res Function(_$_Indication) _then)
+class __$$IndicationImplCopyWithImpl<$Res>
+    extends _$IndicationCopyWithImpl<$Res, _$IndicationImpl>
+    implements _$$IndicationImplCopyWith<$Res> {
+  __$$IndicationImplCopyWithImpl(
+      _$IndicationImpl _value, $Res Function(_$IndicationImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -122,7 +122,7 @@ class __$$_IndicationCopyWithImpl<$Res>
     Object? indicationName = null,
     Object? counter = null,
   }) {
-    return _then(_$_Indication(
+    return _then(_$IndicationImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -145,8 +145,8 @@ class __$$_IndicationCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Indication extends _Indication {
-  const _$_Indication(
+class _$IndicationImpl extends _Indication {
+  const _$IndicationImpl(
       {required this.id,
       required this.indicationCategory,
       required this.indicationName,
@@ -170,8 +170,8 @@ class _$_Indication extends _Indication {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_IndicationCopyWith<_$_Indication> get copyWith =>
-      __$$_IndicationCopyWithImpl<_$_Indication>(this, _$identity);
+  _$$IndicationImplCopyWith<_$IndicationImpl> get copyWith =>
+      __$$IndicationImplCopyWithImpl<_$IndicationImpl>(this, _$identity);
 }
 
 abstract class _Indication extends Indication {
@@ -179,7 +179,7 @@ abstract class _Indication extends Indication {
       {required final UniqueId id,
       required final Category indicationCategory,
       required final FullName indicationName,
-      required final NonNegInt counter}) = _$_Indication;
+      required final NonNegInt counter}) = _$IndicationImpl;
   const _Indication._() : super._();
 
   @override
@@ -192,6 +192,6 @@ abstract class _Indication extends Indication {
   NonNegInt get counter;
   @override
   @JsonKey(ignore: true)
-  _$$_IndicationCopyWith<_$_Indication> get copyWith =>
+  _$$IndicationImplCopyWith<_$IndicationImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -12,7 +12,7 @@ part of 'drop_down_view_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$DropdownItemViewModel {
@@ -31,6 +31,9 @@ mixin _$DropdownItemViewModel {
   DayHoursDose? get dayHoursDose => throw _privateConstructorUsedError;
   WeekDaysDose? get weekDaysDose => throw _privateConstructorUsedError;
   TimeInterval? get timeInterval => throw _privateConstructorUsedError;
+  FormElement? get formElement => throw _privateConstructorUsedError;
+  FieldType? get fieldType => throw _privateConstructorUsedError;
+  SectionTypes? get sectionType => throw _privateConstructorUsedError;
   Dose? get dose => throw _privateConstructorUsedError;
   Category? get category => throw _privateConstructorUsedError;
 
@@ -58,6 +61,9 @@ abstract class $DropdownItemViewModelCopyWith<$Res> {
       DayHoursDose? dayHoursDose,
       WeekDaysDose? weekDaysDose,
       TimeInterval? timeInterval,
+      FormElement? formElement,
+      FieldType? fieldType,
+      SectionTypes? sectionType,
       Dose? dose,
       Category? category});
 
@@ -99,6 +105,9 @@ class _$DropdownItemViewModelCopyWithImpl<$Res,
     Object? dayHoursDose = freezed,
     Object? weekDaysDose = freezed,
     Object? timeInterval = freezed,
+    Object? formElement = freezed,
+    Object? fieldType = freezed,
+    Object? sectionType = freezed,
     Object? dose = freezed,
     Object? category = freezed,
   }) {
@@ -151,6 +160,18 @@ class _$DropdownItemViewModelCopyWithImpl<$Res,
           ? _value.timeInterval
           : timeInterval // ignore: cast_nullable_to_non_nullable
               as TimeInterval?,
+      formElement: freezed == formElement
+          ? _value.formElement
+          : formElement // ignore: cast_nullable_to_non_nullable
+              as FormElement?,
+      fieldType: freezed == fieldType
+          ? _value.fieldType
+          : fieldType // ignore: cast_nullable_to_non_nullable
+              as FieldType?,
+      sectionType: freezed == sectionType
+          ? _value.sectionType
+          : sectionType // ignore: cast_nullable_to_non_nullable
+              as SectionTypes?,
       dose: freezed == dose
           ? _value.dose
           : dose // ignore: cast_nullable_to_non_nullable
@@ -286,11 +307,12 @@ class _$DropdownItemViewModelCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_DropdownItemViewModelCopyWith<$Res>
+abstract class _$$DropdownItemViewModelImplCopyWith<$Res>
     implements $DropdownItemViewModelCopyWith<$Res> {
-  factory _$$_DropdownItemViewModelCopyWith(_$_DropdownItemViewModel value,
-          $Res Function(_$_DropdownItemViewModel) then) =
-      __$$_DropdownItemViewModelCopyWithImpl<$Res>;
+  factory _$$DropdownItemViewModelImplCopyWith(
+          _$DropdownItemViewModelImpl value,
+          $Res Function(_$DropdownItemViewModelImpl) then) =
+      __$$DropdownItemViewModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -306,6 +328,9 @@ abstract class _$$_DropdownItemViewModelCopyWith<$Res>
       DayHoursDose? dayHoursDose,
       WeekDaysDose? weekDaysDose,
       TimeInterval? timeInterval,
+      FormElement? formElement,
+      FieldType? fieldType,
+      SectionTypes? sectionType,
       Dose? dose,
       Category? category});
 
@@ -332,11 +357,12 @@ abstract class _$$_DropdownItemViewModelCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_DropdownItemViewModelCopyWithImpl<$Res>
-    extends _$DropdownItemViewModelCopyWithImpl<$Res, _$_DropdownItemViewModel>
-    implements _$$_DropdownItemViewModelCopyWith<$Res> {
-  __$$_DropdownItemViewModelCopyWithImpl(_$_DropdownItemViewModel _value,
-      $Res Function(_$_DropdownItemViewModel) _then)
+class __$$DropdownItemViewModelImplCopyWithImpl<$Res>
+    extends _$DropdownItemViewModelCopyWithImpl<$Res,
+        _$DropdownItemViewModelImpl>
+    implements _$$DropdownItemViewModelImplCopyWith<$Res> {
+  __$$DropdownItemViewModelImplCopyWithImpl(_$DropdownItemViewModelImpl _value,
+      $Res Function(_$DropdownItemViewModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -354,10 +380,13 @@ class __$$_DropdownItemViewModelCopyWithImpl<$Res>
     Object? dayHoursDose = freezed,
     Object? weekDaysDose = freezed,
     Object? timeInterval = freezed,
+    Object? formElement = freezed,
+    Object? fieldType = freezed,
+    Object? sectionType = freezed,
     Object? dose = freezed,
     Object? category = freezed,
   }) {
-    return _then(_$_DropdownItemViewModel(
+    return _then(_$DropdownItemViewModelImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -406,6 +435,18 @@ class __$$_DropdownItemViewModelCopyWithImpl<$Res>
           ? _value.timeInterval
           : timeInterval // ignore: cast_nullable_to_non_nullable
               as TimeInterval?,
+      formElement: freezed == formElement
+          ? _value.formElement
+          : formElement // ignore: cast_nullable_to_non_nullable
+              as FormElement?,
+      fieldType: freezed == fieldType
+          ? _value.fieldType
+          : fieldType // ignore: cast_nullable_to_non_nullable
+              as FieldType?,
+      sectionType: freezed == sectionType
+          ? _value.sectionType
+          : sectionType // ignore: cast_nullable_to_non_nullable
+              as SectionTypes?,
       dose: freezed == dose
           ? _value.dose
           : dose // ignore: cast_nullable_to_non_nullable
@@ -420,8 +461,8 @@ class __$$_DropdownItemViewModelCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_DropdownItemViewModel extends _DropdownItemViewModel {
-  const _$_DropdownItemViewModel(
+class _$DropdownItemViewModelImpl extends _DropdownItemViewModel {
+  const _$DropdownItemViewModelImpl(
       {required this.id,
       required this.title,
       this.subtitle,
@@ -434,6 +475,9 @@ class _$_DropdownItemViewModel extends _DropdownItemViewModel {
       this.dayHoursDose,
       this.weekDaysDose,
       this.timeInterval,
+      this.formElement,
+      this.fieldType,
+      this.sectionType,
       this.dose,
       this.category})
       : super._();
@@ -463,21 +507,27 @@ class _$_DropdownItemViewModel extends _DropdownItemViewModel {
   @override
   final TimeInterval? timeInterval;
   @override
+  final FormElement? formElement;
+  @override
+  final FieldType? fieldType;
+  @override
+  final SectionTypes? sectionType;
+  @override
   final Dose? dose;
   @override
   final Category? category;
 
   @override
   String toString() {
-    return 'DropdownItemViewModel(id: $id, title: $title, subtitle: $subtitle, imageURL: $imageURL, originGenericMedicine: $originGenericMedicine, originBrandedMedicine: $originBrandedMedicine, nameAbbreviation: $nameAbbreviation, indication: $indication, labelDoubleAmount: $labelDoubleAmount, dayHoursDose: $dayHoursDose, weekDaysDose: $weekDaysDose, timeInterval: $timeInterval, dose: $dose, category: $category)';
+    return 'DropdownItemViewModel(id: $id, title: $title, subtitle: $subtitle, imageURL: $imageURL, originGenericMedicine: $originGenericMedicine, originBrandedMedicine: $originBrandedMedicine, nameAbbreviation: $nameAbbreviation, indication: $indication, labelDoubleAmount: $labelDoubleAmount, dayHoursDose: $dayHoursDose, weekDaysDose: $weekDaysDose, timeInterval: $timeInterval, formElement: $formElement, fieldType: $fieldType, sectionType: $sectionType, dose: $dose, category: $category)';
   }
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DropdownItemViewModelCopyWith<_$_DropdownItemViewModel> get copyWith =>
-      __$$_DropdownItemViewModelCopyWithImpl<_$_DropdownItemViewModel>(
-          this, _$identity);
+  _$$DropdownItemViewModelImplCopyWith<_$DropdownItemViewModelImpl>
+      get copyWith => __$$DropdownItemViewModelImplCopyWithImpl<
+          _$DropdownItemViewModelImpl>(this, _$identity);
 }
 
 abstract class _DropdownItemViewModel extends DropdownItemViewModel {
@@ -494,8 +544,11 @@ abstract class _DropdownItemViewModel extends DropdownItemViewModel {
       final DayHoursDose? dayHoursDose,
       final WeekDaysDose? weekDaysDose,
       final TimeInterval? timeInterval,
+      final FormElement? formElement,
+      final FieldType? fieldType,
+      final SectionTypes? sectionType,
       final Dose? dose,
-      final Category? category}) = _$_DropdownItemViewModel;
+      final Category? category}) = _$DropdownItemViewModelImpl;
   const _DropdownItemViewModel._() : super._();
 
   @override
@@ -523,11 +576,17 @@ abstract class _DropdownItemViewModel extends DropdownItemViewModel {
   @override
   TimeInterval? get timeInterval;
   @override
+  FormElement? get formElement;
+  @override
+  FieldType? get fieldType;
+  @override
+  SectionTypes? get sectionType;
+  @override
   Dose? get dose;
   @override
   Category? get category;
   @override
   @JsonKey(ignore: true)
-  _$$_DropdownItemViewModelCopyWith<_$_DropdownItemViewModel> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$DropdownItemViewModelImplCopyWith<_$DropdownItemViewModelImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

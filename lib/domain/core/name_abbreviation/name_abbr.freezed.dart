@@ -12,7 +12,7 @@ part of 'name_abbr.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$NameAbbreviation {
@@ -69,22 +69,22 @@ class _$NameAbbreviationCopyWithImpl<$Res, $Val extends NameAbbreviation>
 }
 
 /// @nodoc
-abstract class _$$_NameAbbreviationCopyWith<$Res>
+abstract class _$$NameAbbreviationImplCopyWith<$Res>
     implements $NameAbbreviationCopyWith<$Res> {
-  factory _$$_NameAbbreviationCopyWith(
-          _$_NameAbbreviation value, $Res Function(_$_NameAbbreviation) then) =
-      __$$_NameAbbreviationCopyWithImpl<$Res>;
+  factory _$$NameAbbreviationImplCopyWith(_$NameAbbreviationImpl value,
+          $Res Function(_$NameAbbreviationImpl) then) =
+      __$$NameAbbreviationImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({UniqueId id, FullName name, AbbrName abbr});
 }
 
 /// @nodoc
-class __$$_NameAbbreviationCopyWithImpl<$Res>
-    extends _$NameAbbreviationCopyWithImpl<$Res, _$_NameAbbreviation>
-    implements _$$_NameAbbreviationCopyWith<$Res> {
-  __$$_NameAbbreviationCopyWithImpl(
-      _$_NameAbbreviation _value, $Res Function(_$_NameAbbreviation) _then)
+class __$$NameAbbreviationImplCopyWithImpl<$Res>
+    extends _$NameAbbreviationCopyWithImpl<$Res, _$NameAbbreviationImpl>
+    implements _$$NameAbbreviationImplCopyWith<$Res> {
+  __$$NameAbbreviationImplCopyWithImpl(_$NameAbbreviationImpl _value,
+      $Res Function(_$NameAbbreviationImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -94,7 +94,7 @@ class __$$_NameAbbreviationCopyWithImpl<$Res>
     Object? name = null,
     Object? abbr = null,
   }) {
-    return _then(_$_NameAbbreviation(
+    return _then(_$NameAbbreviationImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -113,8 +113,8 @@ class __$$_NameAbbreviationCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_NameAbbreviation extends _NameAbbreviation {
-  const _$_NameAbbreviation(
+class _$NameAbbreviationImpl extends _NameAbbreviation {
+  const _$NameAbbreviationImpl(
       {required this.id, required this.name, required this.abbr})
       : super._();
 
@@ -133,15 +133,16 @@ class _$_NameAbbreviation extends _NameAbbreviation {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_NameAbbreviationCopyWith<_$_NameAbbreviation> get copyWith =>
-      __$$_NameAbbreviationCopyWithImpl<_$_NameAbbreviation>(this, _$identity);
+  _$$NameAbbreviationImplCopyWith<_$NameAbbreviationImpl> get copyWith =>
+      __$$NameAbbreviationImplCopyWithImpl<_$NameAbbreviationImpl>(
+          this, _$identity);
 }
 
 abstract class _NameAbbreviation extends NameAbbreviation {
   const factory _NameAbbreviation(
       {required final UniqueId id,
       required final FullName name,
-      required final AbbrName abbr}) = _$_NameAbbreviation;
+      required final AbbrName abbr}) = _$NameAbbreviationImpl;
   const _NameAbbreviation._() : super._();
 
   @override
@@ -152,6 +153,6 @@ abstract class _NameAbbreviation extends NameAbbreviation {
   AbbrName get abbr;
   @override
   @JsonKey(ignore: true)
-  _$$_NameAbbreviationCopyWith<_$_NameAbbreviation> get copyWith =>
+  _$$NameAbbreviationImplCopyWith<_$NameAbbreviationImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

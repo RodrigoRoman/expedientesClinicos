@@ -12,7 +12,7 @@ part of 'abbreviation_name_form_abstract_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$AbbreviationNameFormEvent {
@@ -92,20 +92,20 @@ class _$AbbreviationNameFormEventCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_InitializedCopyWith<$Res> {
-  factory _$$_InitializedCopyWith(
-          _$_Initialized value, $Res Function(_$_Initialized) then) =
-      __$$_InitializedCopyWithImpl<$Res>;
+abstract class _$$InitializedImplCopyWith<$Res> {
+  factory _$$InitializedImplCopyWith(
+          _$InitializedImpl value, $Res Function(_$InitializedImpl) then) =
+      __$$InitializedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Option<NameAbbreviation> initiaAbbreviationNameOption});
 }
 
 /// @nodoc
-class __$$_InitializedCopyWithImpl<$Res>
-    extends _$AbbreviationNameFormEventCopyWithImpl<$Res, _$_Initialized>
-    implements _$$_InitializedCopyWith<$Res> {
-  __$$_InitializedCopyWithImpl(
-      _$_Initialized _value, $Res Function(_$_Initialized) _then)
+class __$$InitializedImplCopyWithImpl<$Res>
+    extends _$AbbreviationNameFormEventCopyWithImpl<$Res, _$InitializedImpl>
+    implements _$$InitializedImplCopyWith<$Res> {
+  __$$InitializedImplCopyWithImpl(
+      _$InitializedImpl _value, $Res Function(_$InitializedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -113,7 +113,7 @@ class __$$_InitializedCopyWithImpl<$Res>
   $Res call({
     Object? initiaAbbreviationNameOption = null,
   }) {
-    return _then(_$_Initialized(
+    return _then(_$InitializedImpl(
       null == initiaAbbreviationNameOption
           ? _value.initiaAbbreviationNameOption
           : initiaAbbreviationNameOption // ignore: cast_nullable_to_non_nullable
@@ -124,8 +124,8 @@ class __$$_InitializedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Initialized implements _Initialized {
-  const _$_Initialized(this.initiaAbbreviationNameOption);
+class _$InitializedImpl implements _Initialized {
+  const _$InitializedImpl(this.initiaAbbreviationNameOption);
 
   @override
   final Option<NameAbbreviation> initiaAbbreviationNameOption;
@@ -136,10 +136,10 @@ class _$_Initialized implements _Initialized {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Initialized &&
+            other is _$InitializedImpl &&
             (identical(other.initiaAbbreviationNameOption,
                     initiaAbbreviationNameOption) ||
                 other.initiaAbbreviationNameOption ==
@@ -152,8 +152,8 @@ class _$_Initialized implements _Initialized {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_InitializedCopyWith<_$_Initialized> get copyWith =>
-      __$$_InitializedCopyWithImpl<_$_Initialized>(this, _$identity);
+  _$$InitializedImplCopyWith<_$InitializedImpl> get copyWith =>
+      __$$InitializedImplCopyWithImpl<_$InitializedImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -237,29 +237,29 @@ class _$_Initialized implements _Initialized {
 abstract class _Initialized implements AbbreviationNameFormEvent {
   const factory _Initialized(
           final Option<NameAbbreviation> initiaAbbreviationNameOption) =
-      _$_Initialized;
+      _$InitializedImpl;
 
   Option<NameAbbreviation> get initiaAbbreviationNameOption;
   @JsonKey(ignore: true)
-  _$$_InitializedCopyWith<_$_Initialized> get copyWith =>
+  _$$InitializedImplCopyWith<_$InitializedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_NameChangedCopyWith<$Res> {
-  factory _$$_NameChangedCopyWith(
-          _$_NameChanged value, $Res Function(_$_NameChanged) then) =
-      __$$_NameChangedCopyWithImpl<$Res>;
+abstract class _$$NameChangedImplCopyWith<$Res> {
+  factory _$$NameChangedImplCopyWith(
+          _$NameChangedImpl value, $Res Function(_$NameChangedImpl) then) =
+      __$$NameChangedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String name});
 }
 
 /// @nodoc
-class __$$_NameChangedCopyWithImpl<$Res>
-    extends _$AbbreviationNameFormEventCopyWithImpl<$Res, _$_NameChanged>
-    implements _$$_NameChangedCopyWith<$Res> {
-  __$$_NameChangedCopyWithImpl(
-      _$_NameChanged _value, $Res Function(_$_NameChanged) _then)
+class __$$NameChangedImplCopyWithImpl<$Res>
+    extends _$AbbreviationNameFormEventCopyWithImpl<$Res, _$NameChangedImpl>
+    implements _$$NameChangedImplCopyWith<$Res> {
+  __$$NameChangedImplCopyWithImpl(
+      _$NameChangedImpl _value, $Res Function(_$NameChangedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -267,7 +267,7 @@ class __$$_NameChangedCopyWithImpl<$Res>
   $Res call({
     Object? name = null,
   }) {
-    return _then(_$_NameChanged(
+    return _then(_$NameChangedImpl(
       null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -278,8 +278,8 @@ class __$$_NameChangedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_NameChanged implements _NameChanged {
-  const _$_NameChanged(this.name);
+class _$NameChangedImpl implements _NameChanged {
+  const _$NameChangedImpl(this.name);
 
   @override
   final String name;
@@ -290,10 +290,10 @@ class _$_NameChanged implements _NameChanged {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_NameChanged &&
+            other is _$NameChangedImpl &&
             (identical(other.name, name) || other.name == name));
   }
 
@@ -303,8 +303,8 @@ class _$_NameChanged implements _NameChanged {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_NameChangedCopyWith<_$_NameChanged> get copyWith =>
-      __$$_NameChangedCopyWithImpl<_$_NameChanged>(this, _$identity);
+  _$$NameChangedImplCopyWith<_$NameChangedImpl> get copyWith =>
+      __$$NameChangedImplCopyWithImpl<_$NameChangedImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -386,30 +386,30 @@ class _$_NameChanged implements _NameChanged {
 }
 
 abstract class _NameChanged implements AbbreviationNameFormEvent {
-  const factory _NameChanged(final String name) = _$_NameChanged;
+  const factory _NameChanged(final String name) = _$NameChangedImpl;
 
   String get name;
   @JsonKey(ignore: true)
-  _$$_NameChangedCopyWith<_$_NameChanged> get copyWith =>
+  _$$NameChangedImplCopyWith<_$NameChangedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_AbbreviationChangedCopyWith<$Res> {
-  factory _$$_AbbreviationChangedCopyWith(_$_AbbreviationChanged value,
-          $Res Function(_$_AbbreviationChanged) then) =
-      __$$_AbbreviationChangedCopyWithImpl<$Res>;
+abstract class _$$AbbreviationChangedImplCopyWith<$Res> {
+  factory _$$AbbreviationChangedImplCopyWith(_$AbbreviationChangedImpl value,
+          $Res Function(_$AbbreviationChangedImpl) then) =
+      __$$AbbreviationChangedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String abreviation});
 }
 
 /// @nodoc
-class __$$_AbbreviationChangedCopyWithImpl<$Res>
+class __$$AbbreviationChangedImplCopyWithImpl<$Res>
     extends _$AbbreviationNameFormEventCopyWithImpl<$Res,
-        _$_AbbreviationChanged>
-    implements _$$_AbbreviationChangedCopyWith<$Res> {
-  __$$_AbbreviationChangedCopyWithImpl(_$_AbbreviationChanged _value,
-      $Res Function(_$_AbbreviationChanged) _then)
+        _$AbbreviationChangedImpl>
+    implements _$$AbbreviationChangedImplCopyWith<$Res> {
+  __$$AbbreviationChangedImplCopyWithImpl(_$AbbreviationChangedImpl _value,
+      $Res Function(_$AbbreviationChangedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -417,7 +417,7 @@ class __$$_AbbreviationChangedCopyWithImpl<$Res>
   $Res call({
     Object? abreviation = null,
   }) {
-    return _then(_$_AbbreviationChanged(
+    return _then(_$AbbreviationChangedImpl(
       null == abreviation
           ? _value.abreviation
           : abreviation // ignore: cast_nullable_to_non_nullable
@@ -428,8 +428,8 @@ class __$$_AbbreviationChangedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_AbbreviationChanged implements _AbbreviationChanged {
-  const _$_AbbreviationChanged(this.abreviation);
+class _$AbbreviationChangedImpl implements _AbbreviationChanged {
+  const _$AbbreviationChangedImpl(this.abreviation);
 
   @override
   final String abreviation;
@@ -440,10 +440,10 @@ class _$_AbbreviationChanged implements _AbbreviationChanged {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_AbbreviationChanged &&
+            other is _$AbbreviationChangedImpl &&
             (identical(other.abreviation, abreviation) ||
                 other.abreviation == abreviation));
   }
@@ -454,8 +454,8 @@ class _$_AbbreviationChanged implements _AbbreviationChanged {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_AbbreviationChangedCopyWith<_$_AbbreviationChanged> get copyWith =>
-      __$$_AbbreviationChangedCopyWithImpl<_$_AbbreviationChanged>(
+  _$$AbbreviationChangedImplCopyWith<_$AbbreviationChangedImpl> get copyWith =>
+      __$$AbbreviationChangedImplCopyWithImpl<_$AbbreviationChangedImpl>(
           this, _$identity);
 
   @override
@@ -539,32 +539,34 @@ class _$_AbbreviationChanged implements _AbbreviationChanged {
 
 abstract class _AbbreviationChanged implements AbbreviationNameFormEvent {
   const factory _AbbreviationChanged(final String abreviation) =
-      _$_AbbreviationChanged;
+      _$AbbreviationChangedImpl;
 
   String get abreviation;
   @JsonKey(ignore: true)
-  _$$_AbbreviationChangedCopyWith<_$_AbbreviationChanged> get copyWith =>
+  _$$AbbreviationChangedImplCopyWith<_$AbbreviationChangedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_SavedCopyWith<$Res> {
-  factory _$$_SavedCopyWith(_$_Saved value, $Res Function(_$_Saved) then) =
-      __$$_SavedCopyWithImpl<$Res>;
+abstract class _$$SavedImplCopyWith<$Res> {
+  factory _$$SavedImplCopyWith(
+          _$SavedImpl value, $Res Function(_$SavedImpl) then) =
+      __$$SavedImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_SavedCopyWithImpl<$Res>
-    extends _$AbbreviationNameFormEventCopyWithImpl<$Res, _$_Saved>
-    implements _$$_SavedCopyWith<$Res> {
-  __$$_SavedCopyWithImpl(_$_Saved _value, $Res Function(_$_Saved) _then)
+class __$$SavedImplCopyWithImpl<$Res>
+    extends _$AbbreviationNameFormEventCopyWithImpl<$Res, _$SavedImpl>
+    implements _$$SavedImplCopyWith<$Res> {
+  __$$SavedImplCopyWithImpl(
+      _$SavedImpl _value, $Res Function(_$SavedImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_Saved implements _Saved {
-  const _$_Saved();
+class _$SavedImpl implements _Saved {
+  const _$SavedImpl();
 
   @override
   String toString() {
@@ -572,9 +574,9 @@ class _$_Saved implements _Saved {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Saved);
+        (other.runtimeType == runtimeType && other is _$SavedImpl);
   }
 
   @override
@@ -660,7 +662,7 @@ class _$_Saved implements _Saved {
 }
 
 abstract class _Saved implements AbbreviationNameFormEvent {
-  const factory _Saved() = _$_Saved;
+  const factory _Saved() = _$SavedImpl;
 }
 
 /// @nodoc
@@ -748,12 +750,12 @@ class _$AbbreviationNameFormStateCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_AbbreviationNameFormStateCopyWith<$Res>
+abstract class _$$AbbreviationNameFormStateImplCopyWith<$Res>
     implements $AbbreviationNameFormStateCopyWith<$Res> {
-  factory _$$_AbbreviationNameFormStateCopyWith(
-          _$_AbbreviationNameFormState value,
-          $Res Function(_$_AbbreviationNameFormState) then) =
-      __$$_AbbreviationNameFormStateCopyWithImpl<$Res>;
+  factory _$$AbbreviationNameFormStateImplCopyWith(
+          _$AbbreviationNameFormStateImpl value,
+          $Res Function(_$AbbreviationNameFormStateImpl) then) =
+      __$$AbbreviationNameFormStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -769,13 +771,13 @@ abstract class _$$_AbbreviationNameFormStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_AbbreviationNameFormStateCopyWithImpl<$Res>
+class __$$AbbreviationNameFormStateImplCopyWithImpl<$Res>
     extends _$AbbreviationNameFormStateCopyWithImpl<$Res,
-        _$_AbbreviationNameFormState>
-    implements _$$_AbbreviationNameFormStateCopyWith<$Res> {
-  __$$_AbbreviationNameFormStateCopyWithImpl(
-      _$_AbbreviationNameFormState _value,
-      $Res Function(_$_AbbreviationNameFormState) _then)
+        _$AbbreviationNameFormStateImpl>
+    implements _$$AbbreviationNameFormStateImplCopyWith<$Res> {
+  __$$AbbreviationNameFormStateImplCopyWithImpl(
+      _$AbbreviationNameFormStateImpl _value,
+      $Res Function(_$AbbreviationNameFormStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -787,7 +789,7 @@ class __$$_AbbreviationNameFormStateCopyWithImpl<$Res>
     Object? isSaving = null,
     Object? saveFailureOrSuccessOption = null,
   }) {
-    return _then(_$_AbbreviationNameFormState(
+    return _then(_$AbbreviationNameFormStateImpl(
       abbreviation: null == abbreviation
           ? _value.abbreviation
           : abbreviation // ignore: cast_nullable_to_non_nullable
@@ -814,8 +816,8 @@ class __$$_AbbreviationNameFormStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_AbbreviationNameFormState implements _AbbreviationNameFormState {
-  const _$_AbbreviationNameFormState(
+class _$AbbreviationNameFormStateImpl implements _AbbreviationNameFormState {
+  const _$AbbreviationNameFormStateImpl(
       {required this.abbreviation,
       required this.showErrorMessages,
       required this.isUpdating,
@@ -840,10 +842,10 @@ class _$_AbbreviationNameFormState implements _AbbreviationNameFormState {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_AbbreviationNameFormState &&
+            other is _$AbbreviationNameFormStateImpl &&
             (identical(other.abbreviation, abbreviation) ||
                 other.abbreviation == abbreviation) &&
             (identical(other.showErrorMessages, showErrorMessages) ||
@@ -865,9 +867,9 @@ class _$_AbbreviationNameFormState implements _AbbreviationNameFormState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_AbbreviationNameFormStateCopyWith<_$_AbbreviationNameFormState>
-      get copyWith => __$$_AbbreviationNameFormStateCopyWithImpl<
-          _$_AbbreviationNameFormState>(this, _$identity);
+  _$$AbbreviationNameFormStateImplCopyWith<_$AbbreviationNameFormStateImpl>
+      get copyWith => __$$AbbreviationNameFormStateImplCopyWithImpl<
+          _$AbbreviationNameFormStateImpl>(this, _$identity);
 }
 
 abstract class _AbbreviationNameFormState implements AbbreviationNameFormState {
@@ -877,7 +879,7 @@ abstract class _AbbreviationNameFormState implements AbbreviationNameFormState {
       required final bool isUpdating,
       required final bool isSaving,
       required final Option<Either<NameAbbreviationFailure, Unit>>
-          saveFailureOrSuccessOption}) = _$_AbbreviationNameFormState;
+          saveFailureOrSuccessOption}) = _$AbbreviationNameFormStateImpl;
 
   @override
   NameAbbreviation get abbreviation;
@@ -891,6 +893,6 @@ abstract class _AbbreviationNameFormState implements AbbreviationNameFormState {
   Option<Either<NameAbbreviationFailure, Unit>> get saveFailureOrSuccessOption;
   @override
   @JsonKey(ignore: true)
-  _$$_AbbreviationNameFormStateCopyWith<_$_AbbreviationNameFormState>
+  _$$AbbreviationNameFormStateImplCopyWith<_$AbbreviationNameFormStateImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

@@ -12,7 +12,7 @@ part of 'branded_medicine_failures.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$BrandedMedicineFailures {
@@ -95,25 +95,25 @@ class _$BrandedMedicineFailuresCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_UnexpectedCopyWith<$Res> {
-  factory _$$_UnexpectedCopyWith(
-          _$_Unexpected value, $Res Function(_$_Unexpected) then) =
-      __$$_UnexpectedCopyWithImpl<$Res>;
+abstract class _$$UnexpectedImplCopyWith<$Res> {
+  factory _$$UnexpectedImplCopyWith(
+          _$UnexpectedImpl value, $Res Function(_$UnexpectedImpl) then) =
+      __$$UnexpectedImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_UnexpectedCopyWithImpl<$Res>
-    extends _$BrandedMedicineFailuresCopyWithImpl<$Res, _$_Unexpected>
-    implements _$$_UnexpectedCopyWith<$Res> {
-  __$$_UnexpectedCopyWithImpl(
-      _$_Unexpected _value, $Res Function(_$_Unexpected) _then)
+class __$$UnexpectedImplCopyWithImpl<$Res>
+    extends _$BrandedMedicineFailuresCopyWithImpl<$Res, _$UnexpectedImpl>
+    implements _$$UnexpectedImplCopyWith<$Res> {
+  __$$UnexpectedImplCopyWithImpl(
+      _$UnexpectedImpl _value, $Res Function(_$UnexpectedImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_Unexpected implements _Unexpected {
-  const _$_Unexpected();
+class _$UnexpectedImpl implements _Unexpected {
+  const _$UnexpectedImpl();
 
   @override
   String toString() {
@@ -121,9 +121,9 @@ class _$_Unexpected implements _Unexpected {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Unexpected);
+        (other.runtimeType == runtimeType && other is _$UnexpectedImpl);
   }
 
   @override
@@ -212,30 +212,32 @@ class _$_Unexpected implements _Unexpected {
 }
 
 abstract class _Unexpected implements BrandedMedicineFailures {
-  const factory _Unexpected() = _$_Unexpected;
+  const factory _Unexpected() = _$UnexpectedImpl;
 }
 
 /// @nodoc
-abstract class _$$_InsufficientPermissionCopyWith<$Res> {
-  factory _$$_InsufficientPermissionCopyWith(_$_InsufficientPermission value,
-          $Res Function(_$_InsufficientPermission) then) =
-      __$$_InsufficientPermissionCopyWithImpl<$Res>;
+abstract class _$$InsufficientPermissionImplCopyWith<$Res> {
+  factory _$$InsufficientPermissionImplCopyWith(
+          _$InsufficientPermissionImpl value,
+          $Res Function(_$InsufficientPermissionImpl) then) =
+      __$$InsufficientPermissionImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_InsufficientPermissionCopyWithImpl<$Res>
+class __$$InsufficientPermissionImplCopyWithImpl<$Res>
     extends _$BrandedMedicineFailuresCopyWithImpl<$Res,
-        _$_InsufficientPermission>
-    implements _$$_InsufficientPermissionCopyWith<$Res> {
-  __$$_InsufficientPermissionCopyWithImpl(_$_InsufficientPermission _value,
-      $Res Function(_$_InsufficientPermission) _then)
+        _$InsufficientPermissionImpl>
+    implements _$$InsufficientPermissionImplCopyWith<$Res> {
+  __$$InsufficientPermissionImplCopyWithImpl(
+      _$InsufficientPermissionImpl _value,
+      $Res Function(_$InsufficientPermissionImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_InsufficientPermission implements _InsufficientPermission {
-  const _$_InsufficientPermission();
+class _$InsufficientPermissionImpl implements _InsufficientPermission {
+  const _$InsufficientPermissionImpl();
 
   @override
   String toString() {
@@ -243,10 +245,10 @@ class _$_InsufficientPermission implements _InsufficientPermission {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_InsufficientPermission);
+            other is _$InsufficientPermissionImpl);
   }
 
   @override
@@ -335,29 +337,29 @@ class _$_InsufficientPermission implements _InsufficientPermission {
 }
 
 abstract class _InsufficientPermission implements BrandedMedicineFailures {
-  const factory _InsufficientPermission() = _$_InsufficientPermission;
+  const factory _InsufficientPermission() = _$InsufficientPermissionImpl;
 }
 
 /// @nodoc
-abstract class _$$_UnableToUpdateCopyWith<$Res> {
-  factory _$$_UnableToUpdateCopyWith(
-          _$_UnableToUpdate value, $Res Function(_$_UnableToUpdate) then) =
-      __$$_UnableToUpdateCopyWithImpl<$Res>;
+abstract class _$$UnableToUpdateImplCopyWith<$Res> {
+  factory _$$UnableToUpdateImplCopyWith(_$UnableToUpdateImpl value,
+          $Res Function(_$UnableToUpdateImpl) then) =
+      __$$UnableToUpdateImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_UnableToUpdateCopyWithImpl<$Res>
-    extends _$BrandedMedicineFailuresCopyWithImpl<$Res, _$_UnableToUpdate>
-    implements _$$_UnableToUpdateCopyWith<$Res> {
-  __$$_UnableToUpdateCopyWithImpl(
-      _$_UnableToUpdate _value, $Res Function(_$_UnableToUpdate) _then)
+class __$$UnableToUpdateImplCopyWithImpl<$Res>
+    extends _$BrandedMedicineFailuresCopyWithImpl<$Res, _$UnableToUpdateImpl>
+    implements _$$UnableToUpdateImplCopyWith<$Res> {
+  __$$UnableToUpdateImplCopyWithImpl(
+      _$UnableToUpdateImpl _value, $Res Function(_$UnableToUpdateImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_UnableToUpdate implements _UnableToUpdate {
-  const _$_UnableToUpdate();
+class _$UnableToUpdateImpl implements _UnableToUpdate {
+  const _$UnableToUpdateImpl();
 
   @override
   String toString() {
@@ -365,9 +367,9 @@ class _$_UnableToUpdate implements _UnableToUpdate {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_UnableToUpdate);
+        (other.runtimeType == runtimeType && other is _$UnableToUpdateImpl);
   }
 
   @override
@@ -456,29 +458,29 @@ class _$_UnableToUpdate implements _UnableToUpdate {
 }
 
 abstract class _UnableToUpdate implements BrandedMedicineFailures {
-  const factory _UnableToUpdate() = _$_UnableToUpdate;
+  const factory _UnableToUpdate() = _$UnableToUpdateImpl;
 }
 
 /// @nodoc
-abstract class _$$_UnableToCreateCopyWith<$Res> {
-  factory _$$_UnableToCreateCopyWith(
-          _$_UnableToCreate value, $Res Function(_$_UnableToCreate) then) =
-      __$$_UnableToCreateCopyWithImpl<$Res>;
+abstract class _$$UnableToCreateImplCopyWith<$Res> {
+  factory _$$UnableToCreateImplCopyWith(_$UnableToCreateImpl value,
+          $Res Function(_$UnableToCreateImpl) then) =
+      __$$UnableToCreateImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_UnableToCreateCopyWithImpl<$Res>
-    extends _$BrandedMedicineFailuresCopyWithImpl<$Res, _$_UnableToCreate>
-    implements _$$_UnableToCreateCopyWith<$Res> {
-  __$$_UnableToCreateCopyWithImpl(
-      _$_UnableToCreate _value, $Res Function(_$_UnableToCreate) _then)
+class __$$UnableToCreateImplCopyWithImpl<$Res>
+    extends _$BrandedMedicineFailuresCopyWithImpl<$Res, _$UnableToCreateImpl>
+    implements _$$UnableToCreateImplCopyWith<$Res> {
+  __$$UnableToCreateImplCopyWithImpl(
+      _$UnableToCreateImpl _value, $Res Function(_$UnableToCreateImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_UnableToCreate implements _UnableToCreate {
-  const _$_UnableToCreate();
+class _$UnableToCreateImpl implements _UnableToCreate {
+  const _$UnableToCreateImpl();
 
   @override
   String toString() {
@@ -486,9 +488,9 @@ class _$_UnableToCreate implements _UnableToCreate {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_UnableToCreate);
+        (other.runtimeType == runtimeType && other is _$UnableToCreateImpl);
   }
 
   @override
@@ -577,29 +579,30 @@ class _$_UnableToCreate implements _UnableToCreate {
 }
 
 abstract class _UnableToCreate implements BrandedMedicineFailures {
-  const factory _UnableToCreate() = _$_UnableToCreate;
+  const factory _UnableToCreate() = _$UnableToCreateImpl;
 }
 
 /// @nodoc
-abstract class _$$_UnableToUploadImageCopyWith<$Res> {
-  factory _$$_UnableToUploadImageCopyWith(_$_UnableToUploadImage value,
-          $Res Function(_$_UnableToUploadImage) then) =
-      __$$_UnableToUploadImageCopyWithImpl<$Res>;
+abstract class _$$UnableToUploadImageImplCopyWith<$Res> {
+  factory _$$UnableToUploadImageImplCopyWith(_$UnableToUploadImageImpl value,
+          $Res Function(_$UnableToUploadImageImpl) then) =
+      __$$UnableToUploadImageImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_UnableToUploadImageCopyWithImpl<$Res>
-    extends _$BrandedMedicineFailuresCopyWithImpl<$Res, _$_UnableToUploadImage>
-    implements _$$_UnableToUploadImageCopyWith<$Res> {
-  __$$_UnableToUploadImageCopyWithImpl(_$_UnableToUploadImage _value,
-      $Res Function(_$_UnableToUploadImage) _then)
+class __$$UnableToUploadImageImplCopyWithImpl<$Res>
+    extends _$BrandedMedicineFailuresCopyWithImpl<$Res,
+        _$UnableToUploadImageImpl>
+    implements _$$UnableToUploadImageImplCopyWith<$Res> {
+  __$$UnableToUploadImageImplCopyWithImpl(_$UnableToUploadImageImpl _value,
+      $Res Function(_$UnableToUploadImageImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_UnableToUploadImage implements _UnableToUploadImage {
-  const _$_UnableToUploadImage();
+class _$UnableToUploadImageImpl implements _UnableToUploadImage {
+  const _$UnableToUploadImageImpl();
 
   @override
   String toString() {
@@ -607,9 +610,10 @@ class _$_UnableToUploadImage implements _UnableToUploadImage {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_UnableToUploadImage);
+        (other.runtimeType == runtimeType &&
+            other is _$UnableToUploadImageImpl);
   }
 
   @override
@@ -698,5 +702,5 @@ class _$_UnableToUploadImage implements _UnableToUploadImage {
 }
 
 abstract class _UnableToUploadImage implements BrandedMedicineFailures {
-  const factory _UnableToUploadImage() = _$_UnableToUploadImage;
+  const factory _UnableToUploadImage() = _$UnableToUploadImageImpl;
 }

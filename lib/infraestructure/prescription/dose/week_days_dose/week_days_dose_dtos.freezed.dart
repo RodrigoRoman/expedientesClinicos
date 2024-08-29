@@ -12,7 +12,7 @@ part of 'week_days_dose_dtos.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 WeekDaysDoseDto _$WeekDaysDoseDtoFromJson(Map<String, dynamic> json) {
   return _WeekDaysDoseDto.fromJson(json);
@@ -80,22 +80,22 @@ class _$WeekDaysDoseDtoCopyWithImpl<$Res, $Val extends WeekDaysDoseDto>
 }
 
 /// @nodoc
-abstract class _$$_WeekDaysDoseDtoCopyWith<$Res>
+abstract class _$$WeekDaysDoseDtoImplCopyWith<$Res>
     implements $WeekDaysDoseDtoCopyWith<$Res> {
-  factory _$$_WeekDaysDoseDtoCopyWith(
-          _$_WeekDaysDoseDto value, $Res Function(_$_WeekDaysDoseDto) then) =
-      __$$_WeekDaysDoseDtoCopyWithImpl<$Res>;
+  factory _$$WeekDaysDoseDtoImplCopyWith(_$WeekDaysDoseDtoImpl value,
+          $Res Function(_$WeekDaysDoseDtoImpl) then) =
+      __$$WeekDaysDoseDtoImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String id, String label, List<int> weekDays, int counter});
 }
 
 /// @nodoc
-class __$$_WeekDaysDoseDtoCopyWithImpl<$Res>
-    extends _$WeekDaysDoseDtoCopyWithImpl<$Res, _$_WeekDaysDoseDto>
-    implements _$$_WeekDaysDoseDtoCopyWith<$Res> {
-  __$$_WeekDaysDoseDtoCopyWithImpl(
-      _$_WeekDaysDoseDto _value, $Res Function(_$_WeekDaysDoseDto) _then)
+class __$$WeekDaysDoseDtoImplCopyWithImpl<$Res>
+    extends _$WeekDaysDoseDtoCopyWithImpl<$Res, _$WeekDaysDoseDtoImpl>
+    implements _$$WeekDaysDoseDtoImplCopyWith<$Res> {
+  __$$WeekDaysDoseDtoImplCopyWithImpl(
+      _$WeekDaysDoseDtoImpl _value, $Res Function(_$WeekDaysDoseDtoImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -106,7 +106,7 @@ class __$$_WeekDaysDoseDtoCopyWithImpl<$Res>
     Object? weekDays = null,
     Object? counter = null,
   }) {
-    return _then(_$_WeekDaysDoseDto(
+    return _then(_$WeekDaysDoseDtoImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -129,8 +129,8 @@ class __$$_WeekDaysDoseDtoCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_WeekDaysDoseDto extends _WeekDaysDoseDto {
-  const _$_WeekDaysDoseDto(
+class _$WeekDaysDoseDtoImpl extends _WeekDaysDoseDto {
+  const _$WeekDaysDoseDtoImpl(
       {required this.id,
       required this.label,
       required final List<int> weekDays,
@@ -138,8 +138,8 @@ class _$_WeekDaysDoseDto extends _WeekDaysDoseDto {
       : _weekDays = weekDays,
         super._();
 
-  factory _$_WeekDaysDoseDto.fromJson(Map<String, dynamic> json) =>
-      _$$_WeekDaysDoseDtoFromJson(json);
+  factory _$WeekDaysDoseDtoImpl.fromJson(Map<String, dynamic> json) =>
+      _$$WeekDaysDoseDtoImplFromJson(json);
 
   @override
   final String id;
@@ -162,10 +162,10 @@ class _$_WeekDaysDoseDto extends _WeekDaysDoseDto {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_WeekDaysDoseDto &&
+            other is _$WeekDaysDoseDtoImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.label, label) || other.label == label) &&
             const DeepCollectionEquality().equals(other._weekDays, _weekDays) &&
@@ -180,12 +180,13 @@ class _$_WeekDaysDoseDto extends _WeekDaysDoseDto {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_WeekDaysDoseDtoCopyWith<_$_WeekDaysDoseDto> get copyWith =>
-      __$$_WeekDaysDoseDtoCopyWithImpl<_$_WeekDaysDoseDto>(this, _$identity);
+  _$$WeekDaysDoseDtoImplCopyWith<_$WeekDaysDoseDtoImpl> get copyWith =>
+      __$$WeekDaysDoseDtoImplCopyWithImpl<_$WeekDaysDoseDtoImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_WeekDaysDoseDtoToJson(
+    return _$$WeekDaysDoseDtoImplToJson(
       this,
     );
   }
@@ -196,11 +197,11 @@ abstract class _WeekDaysDoseDto extends WeekDaysDoseDto {
       {required final String id,
       required final String label,
       required final List<int> weekDays,
-      required final int counter}) = _$_WeekDaysDoseDto;
+      required final int counter}) = _$WeekDaysDoseDtoImpl;
   const _WeekDaysDoseDto._() : super._();
 
   factory _WeekDaysDoseDto.fromJson(Map<String, dynamic> json) =
-      _$_WeekDaysDoseDto.fromJson;
+      _$WeekDaysDoseDtoImpl.fromJson;
 
   @override
   String get id;
@@ -212,6 +213,6 @@ abstract class _WeekDaysDoseDto extends WeekDaysDoseDto {
   int get counter;
   @override
   @JsonKey(ignore: true)
-  _$$_WeekDaysDoseDtoCopyWith<_$_WeekDaysDoseDto> get copyWith =>
+  _$$WeekDaysDoseDtoImplCopyWith<_$WeekDaysDoseDtoImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

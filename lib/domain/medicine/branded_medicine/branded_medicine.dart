@@ -31,6 +31,7 @@ abstract class BrandedMedicine implements _$BrandedMedicine {
         imageURL: ImageURL(EmptyFormValues.medicineURLImage),
         genericMedicine: GenericMedicine.empty(),
       );
+
   bool get isEmpty {
     return comercialName == FullName(EmptyFormValues.emptyString) &&
         comercialName == FullName(EmptyFormValues.emptyString) &&

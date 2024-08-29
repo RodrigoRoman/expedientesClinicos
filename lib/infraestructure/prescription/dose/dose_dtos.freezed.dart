@@ -12,7 +12,7 @@ part of 'dose_dtos.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 DoseDto _$DoseDtoFromJson(Map<String, dynamic> json) {
   return _DoseDto.fromJson(json);
@@ -124,10 +124,10 @@ class _$DoseDtoCopyWithImpl<$Res, $Val extends DoseDto>
 }
 
 /// @nodoc
-abstract class _$$_DoseDtoCopyWith<$Res> implements $DoseDtoCopyWith<$Res> {
-  factory _$$_DoseDtoCopyWith(
-          _$_DoseDto value, $Res Function(_$_DoseDto) then) =
-      __$$_DoseDtoCopyWithImpl<$Res>;
+abstract class _$$DoseDtoImplCopyWith<$Res> implements $DoseDtoCopyWith<$Res> {
+  factory _$$DoseDtoImplCopyWith(
+          _$DoseDtoImpl value, $Res Function(_$DoseDtoImpl) then) =
+      __$$DoseDtoImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -147,10 +147,11 @@ abstract class _$$_DoseDtoCopyWith<$Res> implements $DoseDtoCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_DoseDtoCopyWithImpl<$Res>
-    extends _$DoseDtoCopyWithImpl<$Res, _$_DoseDto>
-    implements _$$_DoseDtoCopyWith<$Res> {
-  __$$_DoseDtoCopyWithImpl(_$_DoseDto _value, $Res Function(_$_DoseDto) _then)
+class __$$DoseDtoImplCopyWithImpl<$Res>
+    extends _$DoseDtoCopyWithImpl<$Res, _$DoseDtoImpl>
+    implements _$$DoseDtoImplCopyWith<$Res> {
+  __$$DoseDtoImplCopyWithImpl(
+      _$DoseDtoImpl _value, $Res Function(_$DoseDtoImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -163,7 +164,7 @@ class __$$_DoseDtoCopyWithImpl<$Res>
     Object? counter = null,
     Object? label = null,
   }) {
-    return _then(_$_DoseDto(
+    return _then(_$DoseDtoImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -194,8 +195,8 @@ class __$$_DoseDtoCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_DoseDto extends _DoseDto {
-  const _$_DoseDto(
+class _$DoseDtoImpl extends _DoseDto {
+  const _$DoseDtoImpl(
       {required this.id,
       required this.dayHoursDose,
       required this.duration,
@@ -204,8 +205,8 @@ class _$_DoseDto extends _DoseDto {
       required this.label})
       : super._();
 
-  factory _$_DoseDto.fromJson(Map<String, dynamic> json) =>
-      _$$_DoseDtoFromJson(json);
+  factory _$DoseDtoImpl.fromJson(Map<String, dynamic> json) =>
+      _$$DoseDtoImplFromJson(json);
 
   @override
   final String id;
@@ -226,10 +227,10 @@ class _$_DoseDto extends _DoseDto {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_DoseDto &&
+            other is _$DoseDtoImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.dayHoursDose, dayHoursDose) ||
                 other.dayHoursDose == dayHoursDose) &&
@@ -249,12 +250,12 @@ class _$_DoseDto extends _DoseDto {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DoseDtoCopyWith<_$_DoseDto> get copyWith =>
-      __$$_DoseDtoCopyWithImpl<_$_DoseDto>(this, _$identity);
+  _$$DoseDtoImplCopyWith<_$DoseDtoImpl> get copyWith =>
+      __$$DoseDtoImplCopyWithImpl<_$DoseDtoImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_DoseDtoToJson(
+    return _$$DoseDtoImplToJson(
       this,
     );
   }
@@ -267,10 +268,10 @@ abstract class _DoseDto extends DoseDto {
       required final TimeIntervalDto duration,
       required final WeekDaysDoseDto weekDaysDose,
       required final int counter,
-      required final String label}) = _$_DoseDto;
+      required final String label}) = _$DoseDtoImpl;
   const _DoseDto._() : super._();
 
-  factory _DoseDto.fromJson(Map<String, dynamic> json) = _$_DoseDto.fromJson;
+  factory _DoseDto.fromJson(Map<String, dynamic> json) = _$DoseDtoImpl.fromJson;
 
   @override
   String get id;
@@ -286,6 +287,6 @@ abstract class _DoseDto extends DoseDto {
   String get label;
   @override
   @JsonKey(ignore: true)
-  _$$_DoseDtoCopyWith<_$_DoseDto> get copyWith =>
+  _$$DoseDtoImplCopyWith<_$DoseDtoImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

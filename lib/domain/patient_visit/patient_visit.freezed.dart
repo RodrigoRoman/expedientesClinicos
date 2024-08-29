@@ -12,11 +12,13 @@ part of 'patient_visit.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$PatientVisit {
   UniqueId get id => throw _privateConstructorUsedError;
+  DateTime get dateTimeVisit => throw _privateConstructorUsedError;
+  Category get visitType => throw _privateConstructorUsedError;
   List3<Prescription> get treatment => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -30,7 +32,13 @@ abstract class $PatientVisitCopyWith<$Res> {
           PatientVisit value, $Res Function(PatientVisit) then) =
       _$PatientVisitCopyWithImpl<$Res, PatientVisit>;
   @useResult
-  $Res call({UniqueId id, List3<Prescription> treatment});
+  $Res call(
+      {UniqueId id,
+      DateTime dateTimeVisit,
+      Category visitType,
+      List3<Prescription> treatment});
+
+  $CategoryCopyWith<$Res> get visitType;
 }
 
 /// @nodoc
@@ -47,6 +55,8 @@ class _$PatientVisitCopyWithImpl<$Res, $Val extends PatientVisit>
   @override
   $Res call({
     Object? id = null,
+    Object? dateTimeVisit = null,
+    Object? visitType = null,
     Object? treatment = null,
   }) {
     return _then(_value.copyWith(
@@ -54,44 +64,77 @@ class _$PatientVisitCopyWithImpl<$Res, $Val extends PatientVisit>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as UniqueId,
+      dateTimeVisit: null == dateTimeVisit
+          ? _value.dateTimeVisit
+          : dateTimeVisit // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      visitType: null == visitType
+          ? _value.visitType
+          : visitType // ignore: cast_nullable_to_non_nullable
+              as Category,
       treatment: null == treatment
           ? _value.treatment
           : treatment // ignore: cast_nullable_to_non_nullable
               as List3<Prescription>,
     ) as $Val);
   }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $CategoryCopyWith<$Res> get visitType {
+    return $CategoryCopyWith<$Res>(_value.visitType, (value) {
+      return _then(_value.copyWith(visitType: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
-abstract class _$$_PatientVisitCopyWith<$Res>
+abstract class _$$PatientVisitImplCopyWith<$Res>
     implements $PatientVisitCopyWith<$Res> {
-  factory _$$_PatientVisitCopyWith(
-          _$_PatientVisit value, $Res Function(_$_PatientVisit) then) =
-      __$$_PatientVisitCopyWithImpl<$Res>;
+  factory _$$PatientVisitImplCopyWith(
+          _$PatientVisitImpl value, $Res Function(_$PatientVisitImpl) then) =
+      __$$PatientVisitImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({UniqueId id, List3<Prescription> treatment});
+  $Res call(
+      {UniqueId id,
+      DateTime dateTimeVisit,
+      Category visitType,
+      List3<Prescription> treatment});
+
+  @override
+  $CategoryCopyWith<$Res> get visitType;
 }
 
 /// @nodoc
-class __$$_PatientVisitCopyWithImpl<$Res>
-    extends _$PatientVisitCopyWithImpl<$Res, _$_PatientVisit>
-    implements _$$_PatientVisitCopyWith<$Res> {
-  __$$_PatientVisitCopyWithImpl(
-      _$_PatientVisit _value, $Res Function(_$_PatientVisit) _then)
+class __$$PatientVisitImplCopyWithImpl<$Res>
+    extends _$PatientVisitCopyWithImpl<$Res, _$PatientVisitImpl>
+    implements _$$PatientVisitImplCopyWith<$Res> {
+  __$$PatientVisitImplCopyWithImpl(
+      _$PatientVisitImpl _value, $Res Function(_$PatientVisitImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? id = null,
+    Object? dateTimeVisit = null,
+    Object? visitType = null,
     Object? treatment = null,
   }) {
-    return _then(_$_PatientVisit(
+    return _then(_$PatientVisitImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as UniqueId,
+      dateTimeVisit: null == dateTimeVisit
+          ? _value.dateTimeVisit
+          : dateTimeVisit // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      visitType: null == visitType
+          ? _value.visitType
+          : visitType // ignore: cast_nullable_to_non_nullable
+              as Category,
       treatment: null == treatment
           ? _value.treatment
           : treatment // ignore: cast_nullable_to_non_nullable
@@ -102,52 +145,71 @@ class __$$_PatientVisitCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_PatientVisit extends _PatientVisit {
-  const _$_PatientVisit({required this.id, required this.treatment})
+class _$PatientVisitImpl extends _PatientVisit {
+  const _$PatientVisitImpl(
+      {required this.id,
+      required this.dateTimeVisit,
+      required this.visitType,
+      required this.treatment})
       : super._();
 
   @override
   final UniqueId id;
   @override
+  final DateTime dateTimeVisit;
+  @override
+  final Category visitType;
+  @override
   final List3<Prescription> treatment;
 
   @override
   String toString() {
-    return 'PatientVisit(id: $id, treatment: $treatment)';
+    return 'PatientVisit(id: $id, dateTimeVisit: $dateTimeVisit, visitType: $visitType, treatment: $treatment)';
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_PatientVisit &&
+            other is _$PatientVisitImpl &&
             (identical(other.id, id) || other.id == id) &&
+            (identical(other.dateTimeVisit, dateTimeVisit) ||
+                other.dateTimeVisit == dateTimeVisit) &&
+            (identical(other.visitType, visitType) ||
+                other.visitType == visitType) &&
             (identical(other.treatment, treatment) ||
                 other.treatment == treatment));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, id, treatment);
+  int get hashCode =>
+      Object.hash(runtimeType, id, dateTimeVisit, visitType, treatment);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_PatientVisitCopyWith<_$_PatientVisit> get copyWith =>
-      __$$_PatientVisitCopyWithImpl<_$_PatientVisit>(this, _$identity);
+  _$$PatientVisitImplCopyWith<_$PatientVisitImpl> get copyWith =>
+      __$$PatientVisitImplCopyWithImpl<_$PatientVisitImpl>(this, _$identity);
 }
 
 abstract class _PatientVisit extends PatientVisit {
   const factory _PatientVisit(
       {required final UniqueId id,
-      required final List3<Prescription> treatment}) = _$_PatientVisit;
+      required final DateTime dateTimeVisit,
+      required final Category visitType,
+      required final List3<Prescription> treatment}) = _$PatientVisitImpl;
   const _PatientVisit._() : super._();
 
   @override
   UniqueId get id;
   @override
+  DateTime get dateTimeVisit;
+  @override
+  Category get visitType;
+  @override
   List3<Prescription> get treatment;
   @override
   @JsonKey(ignore: true)
-  _$$_PatientVisitCopyWith<_$_PatientVisit> get copyWith =>
+  _$$PatientVisitImplCopyWith<_$PatientVisitImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

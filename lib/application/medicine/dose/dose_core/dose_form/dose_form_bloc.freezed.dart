@@ -12,7 +12,7 @@ part of 'dose_form_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$DoseFormEvent {
@@ -99,20 +99,20 @@ class _$DoseFormEventCopyWithImpl<$Res, $Val extends DoseFormEvent>
 }
 
 /// @nodoc
-abstract class _$$_InitializedCopyWith<$Res> {
-  factory _$$_InitializedCopyWith(
-          _$_Initialized value, $Res Function(_$_Initialized) then) =
-      __$$_InitializedCopyWithImpl<$Res>;
+abstract class _$$InitializedImplCopyWith<$Res> {
+  factory _$$InitializedImplCopyWith(
+          _$InitializedImpl value, $Res Function(_$InitializedImpl) then) =
+      __$$InitializedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Option<Dose> intialMedicineOption});
 }
 
 /// @nodoc
-class __$$_InitializedCopyWithImpl<$Res>
-    extends _$DoseFormEventCopyWithImpl<$Res, _$_Initialized>
-    implements _$$_InitializedCopyWith<$Res> {
-  __$$_InitializedCopyWithImpl(
-      _$_Initialized _value, $Res Function(_$_Initialized) _then)
+class __$$InitializedImplCopyWithImpl<$Res>
+    extends _$DoseFormEventCopyWithImpl<$Res, _$InitializedImpl>
+    implements _$$InitializedImplCopyWith<$Res> {
+  __$$InitializedImplCopyWithImpl(
+      _$InitializedImpl _value, $Res Function(_$InitializedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -120,7 +120,7 @@ class __$$_InitializedCopyWithImpl<$Res>
   $Res call({
     Object? intialMedicineOption = null,
   }) {
-    return _then(_$_Initialized(
+    return _then(_$InitializedImpl(
       null == intialMedicineOption
           ? _value.intialMedicineOption
           : intialMedicineOption // ignore: cast_nullable_to_non_nullable
@@ -131,8 +131,8 @@ class __$$_InitializedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Initialized implements _Initialized {
-  const _$_Initialized(this.intialMedicineOption);
+class _$InitializedImpl implements _Initialized {
+  const _$InitializedImpl(this.intialMedicineOption);
 
   @override
   final Option<Dose> intialMedicineOption;
@@ -143,10 +143,10 @@ class _$_Initialized implements _Initialized {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Initialized &&
+            other is _$InitializedImpl &&
             (identical(other.intialMedicineOption, intialMedicineOption) ||
                 other.intialMedicineOption == intialMedicineOption));
   }
@@ -157,8 +157,8 @@ class _$_Initialized implements _Initialized {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_InitializedCopyWith<_$_Initialized> get copyWith =>
-      __$$_InitializedCopyWithImpl<_$_Initialized>(this, _$identity);
+  _$$InitializedImplCopyWith<_$InitializedImpl> get copyWith =>
+      __$$InitializedImplCopyWithImpl<_$InitializedImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -249,19 +249,19 @@ class _$_Initialized implements _Initialized {
 
 abstract class _Initialized implements DoseFormEvent {
   const factory _Initialized(final Option<Dose> intialMedicineOption) =
-      _$_Initialized;
+      _$InitializedImpl;
 
   Option<Dose> get intialMedicineOption;
   @JsonKey(ignore: true)
-  _$$_InitializedCopyWith<_$_Initialized> get copyWith =>
+  _$$InitializedImplCopyWith<_$InitializedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_DayHoursDoseChangedCopyWith<$Res> {
-  factory _$$_DayHoursDoseChangedCopyWith(_$_DayHoursDoseChanged value,
-          $Res Function(_$_DayHoursDoseChanged) then) =
-      __$$_DayHoursDoseChangedCopyWithImpl<$Res>;
+abstract class _$$DayHoursDoseChangedImplCopyWith<$Res> {
+  factory _$$DayHoursDoseChangedImplCopyWith(_$DayHoursDoseChangedImpl value,
+          $Res Function(_$DayHoursDoseChangedImpl) then) =
+      __$$DayHoursDoseChangedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({DayHoursDose dayHoursDose});
 
@@ -269,11 +269,11 @@ abstract class _$$_DayHoursDoseChangedCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_DayHoursDoseChangedCopyWithImpl<$Res>
-    extends _$DoseFormEventCopyWithImpl<$Res, _$_DayHoursDoseChanged>
-    implements _$$_DayHoursDoseChangedCopyWith<$Res> {
-  __$$_DayHoursDoseChangedCopyWithImpl(_$_DayHoursDoseChanged _value,
-      $Res Function(_$_DayHoursDoseChanged) _then)
+class __$$DayHoursDoseChangedImplCopyWithImpl<$Res>
+    extends _$DoseFormEventCopyWithImpl<$Res, _$DayHoursDoseChangedImpl>
+    implements _$$DayHoursDoseChangedImplCopyWith<$Res> {
+  __$$DayHoursDoseChangedImplCopyWithImpl(_$DayHoursDoseChangedImpl _value,
+      $Res Function(_$DayHoursDoseChangedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -281,7 +281,7 @@ class __$$_DayHoursDoseChangedCopyWithImpl<$Res>
   $Res call({
     Object? dayHoursDose = null,
   }) {
-    return _then(_$_DayHoursDoseChanged(
+    return _then(_$DayHoursDoseChangedImpl(
       null == dayHoursDose
           ? _value.dayHoursDose
           : dayHoursDose // ignore: cast_nullable_to_non_nullable
@@ -300,8 +300,8 @@ class __$$_DayHoursDoseChangedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_DayHoursDoseChanged implements _DayHoursDoseChanged {
-  const _$_DayHoursDoseChanged(this.dayHoursDose);
+class _$DayHoursDoseChangedImpl implements _DayHoursDoseChanged {
+  const _$DayHoursDoseChangedImpl(this.dayHoursDose);
 
   @override
   final DayHoursDose dayHoursDose;
@@ -312,10 +312,10 @@ class _$_DayHoursDoseChanged implements _DayHoursDoseChanged {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_DayHoursDoseChanged &&
+            other is _$DayHoursDoseChangedImpl &&
             (identical(other.dayHoursDose, dayHoursDose) ||
                 other.dayHoursDose == dayHoursDose));
   }
@@ -326,8 +326,8 @@ class _$_DayHoursDoseChanged implements _DayHoursDoseChanged {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DayHoursDoseChangedCopyWith<_$_DayHoursDoseChanged> get copyWith =>
-      __$$_DayHoursDoseChangedCopyWithImpl<_$_DayHoursDoseChanged>(
+  _$$DayHoursDoseChangedImplCopyWith<_$DayHoursDoseChangedImpl> get copyWith =>
+      __$$DayHoursDoseChangedImplCopyWithImpl<_$DayHoursDoseChangedImpl>(
           this, _$identity);
 
   @override
@@ -419,19 +419,19 @@ class _$_DayHoursDoseChanged implements _DayHoursDoseChanged {
 
 abstract class _DayHoursDoseChanged implements DoseFormEvent {
   const factory _DayHoursDoseChanged(final DayHoursDose dayHoursDose) =
-      _$_DayHoursDoseChanged;
+      _$DayHoursDoseChangedImpl;
 
   DayHoursDose get dayHoursDose;
   @JsonKey(ignore: true)
-  _$$_DayHoursDoseChangedCopyWith<_$_DayHoursDoseChanged> get copyWith =>
+  _$$DayHoursDoseChangedImplCopyWith<_$DayHoursDoseChangedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_DurationChangedCopyWith<$Res> {
-  factory _$$_DurationChangedCopyWith(
-          _$_DurationChanged value, $Res Function(_$_DurationChanged) then) =
-      __$$_DurationChangedCopyWithImpl<$Res>;
+abstract class _$$DurationChangedImplCopyWith<$Res> {
+  factory _$$DurationChangedImplCopyWith(_$DurationChangedImpl value,
+          $Res Function(_$DurationChangedImpl) then) =
+      __$$DurationChangedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({TimeInterval duration});
 
@@ -439,11 +439,11 @@ abstract class _$$_DurationChangedCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_DurationChangedCopyWithImpl<$Res>
-    extends _$DoseFormEventCopyWithImpl<$Res, _$_DurationChanged>
-    implements _$$_DurationChangedCopyWith<$Res> {
-  __$$_DurationChangedCopyWithImpl(
-      _$_DurationChanged _value, $Res Function(_$_DurationChanged) _then)
+class __$$DurationChangedImplCopyWithImpl<$Res>
+    extends _$DoseFormEventCopyWithImpl<$Res, _$DurationChangedImpl>
+    implements _$$DurationChangedImplCopyWith<$Res> {
+  __$$DurationChangedImplCopyWithImpl(
+      _$DurationChangedImpl _value, $Res Function(_$DurationChangedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -451,7 +451,7 @@ class __$$_DurationChangedCopyWithImpl<$Res>
   $Res call({
     Object? duration = null,
   }) {
-    return _then(_$_DurationChanged(
+    return _then(_$DurationChangedImpl(
       null == duration
           ? _value.duration
           : duration // ignore: cast_nullable_to_non_nullable
@@ -470,8 +470,8 @@ class __$$_DurationChangedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_DurationChanged implements _DurationChanged {
-  const _$_DurationChanged(this.duration);
+class _$DurationChangedImpl implements _DurationChanged {
+  const _$DurationChangedImpl(this.duration);
 
   @override
   final TimeInterval duration;
@@ -482,10 +482,10 @@ class _$_DurationChanged implements _DurationChanged {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_DurationChanged &&
+            other is _$DurationChangedImpl &&
             (identical(other.duration, duration) ||
                 other.duration == duration));
   }
@@ -496,8 +496,9 @@ class _$_DurationChanged implements _DurationChanged {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DurationChangedCopyWith<_$_DurationChanged> get copyWith =>
-      __$$_DurationChangedCopyWithImpl<_$_DurationChanged>(this, _$identity);
+  _$$DurationChangedImplCopyWith<_$DurationChangedImpl> get copyWith =>
+      __$$DurationChangedImplCopyWithImpl<_$DurationChangedImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -588,19 +589,19 @@ class _$_DurationChanged implements _DurationChanged {
 
 abstract class _DurationChanged implements DoseFormEvent {
   const factory _DurationChanged(final TimeInterval duration) =
-      _$_DurationChanged;
+      _$DurationChangedImpl;
 
   TimeInterval get duration;
   @JsonKey(ignore: true)
-  _$$_DurationChangedCopyWith<_$_DurationChanged> get copyWith =>
+  _$$DurationChangedImplCopyWith<_$DurationChangedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_WeekDaysDoseChangedCopyWith<$Res> {
-  factory _$$_WeekDaysDoseChangedCopyWith(_$_WeekDaysDoseChanged value,
-          $Res Function(_$_WeekDaysDoseChanged) then) =
-      __$$_WeekDaysDoseChangedCopyWithImpl<$Res>;
+abstract class _$$WeekDaysDoseChangedImplCopyWith<$Res> {
+  factory _$$WeekDaysDoseChangedImplCopyWith(_$WeekDaysDoseChangedImpl value,
+          $Res Function(_$WeekDaysDoseChangedImpl) then) =
+      __$$WeekDaysDoseChangedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({WeekDaysDose weekDaysDose});
 
@@ -608,11 +609,11 @@ abstract class _$$_WeekDaysDoseChangedCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_WeekDaysDoseChangedCopyWithImpl<$Res>
-    extends _$DoseFormEventCopyWithImpl<$Res, _$_WeekDaysDoseChanged>
-    implements _$$_WeekDaysDoseChangedCopyWith<$Res> {
-  __$$_WeekDaysDoseChangedCopyWithImpl(_$_WeekDaysDoseChanged _value,
-      $Res Function(_$_WeekDaysDoseChanged) _then)
+class __$$WeekDaysDoseChangedImplCopyWithImpl<$Res>
+    extends _$DoseFormEventCopyWithImpl<$Res, _$WeekDaysDoseChangedImpl>
+    implements _$$WeekDaysDoseChangedImplCopyWith<$Res> {
+  __$$WeekDaysDoseChangedImplCopyWithImpl(_$WeekDaysDoseChangedImpl _value,
+      $Res Function(_$WeekDaysDoseChangedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -620,7 +621,7 @@ class __$$_WeekDaysDoseChangedCopyWithImpl<$Res>
   $Res call({
     Object? weekDaysDose = null,
   }) {
-    return _then(_$_WeekDaysDoseChanged(
+    return _then(_$WeekDaysDoseChangedImpl(
       null == weekDaysDose
           ? _value.weekDaysDose
           : weekDaysDose // ignore: cast_nullable_to_non_nullable
@@ -639,8 +640,8 @@ class __$$_WeekDaysDoseChangedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_WeekDaysDoseChanged implements _WeekDaysDoseChanged {
-  const _$_WeekDaysDoseChanged(this.weekDaysDose);
+class _$WeekDaysDoseChangedImpl implements _WeekDaysDoseChanged {
+  const _$WeekDaysDoseChangedImpl(this.weekDaysDose);
 
   @override
   final WeekDaysDose weekDaysDose;
@@ -651,10 +652,10 @@ class _$_WeekDaysDoseChanged implements _WeekDaysDoseChanged {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_WeekDaysDoseChanged &&
+            other is _$WeekDaysDoseChangedImpl &&
             (identical(other.weekDaysDose, weekDaysDose) ||
                 other.weekDaysDose == weekDaysDose));
   }
@@ -665,8 +666,8 @@ class _$_WeekDaysDoseChanged implements _WeekDaysDoseChanged {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_WeekDaysDoseChangedCopyWith<_$_WeekDaysDoseChanged> get copyWith =>
-      __$$_WeekDaysDoseChangedCopyWithImpl<_$_WeekDaysDoseChanged>(
+  _$$WeekDaysDoseChangedImplCopyWith<_$WeekDaysDoseChangedImpl> get copyWith =>
+      __$$WeekDaysDoseChangedImplCopyWithImpl<_$WeekDaysDoseChangedImpl>(
           this, _$identity);
 
   @override
@@ -758,29 +759,29 @@ class _$_WeekDaysDoseChanged implements _WeekDaysDoseChanged {
 
 abstract class _WeekDaysDoseChanged implements DoseFormEvent {
   const factory _WeekDaysDoseChanged(final WeekDaysDose weekDaysDose) =
-      _$_WeekDaysDoseChanged;
+      _$WeekDaysDoseChangedImpl;
 
   WeekDaysDose get weekDaysDose;
   @JsonKey(ignore: true)
-  _$$_WeekDaysDoseChangedCopyWith<_$_WeekDaysDoseChanged> get copyWith =>
+  _$$WeekDaysDoseChangedImplCopyWith<_$WeekDaysDoseChangedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_LabelChangedCopyWith<$Res> {
-  factory _$$_LabelChangedCopyWith(
-          _$_LabelChanged value, $Res Function(_$_LabelChanged) then) =
-      __$$_LabelChangedCopyWithImpl<$Res>;
+abstract class _$$LabelChangedImplCopyWith<$Res> {
+  factory _$$LabelChangedImplCopyWith(
+          _$LabelChangedImpl value, $Res Function(_$LabelChangedImpl) then) =
+      __$$LabelChangedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String label});
 }
 
 /// @nodoc
-class __$$_LabelChangedCopyWithImpl<$Res>
-    extends _$DoseFormEventCopyWithImpl<$Res, _$_LabelChanged>
-    implements _$$_LabelChangedCopyWith<$Res> {
-  __$$_LabelChangedCopyWithImpl(
-      _$_LabelChanged _value, $Res Function(_$_LabelChanged) _then)
+class __$$LabelChangedImplCopyWithImpl<$Res>
+    extends _$DoseFormEventCopyWithImpl<$Res, _$LabelChangedImpl>
+    implements _$$LabelChangedImplCopyWith<$Res> {
+  __$$LabelChangedImplCopyWithImpl(
+      _$LabelChangedImpl _value, $Res Function(_$LabelChangedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -788,7 +789,7 @@ class __$$_LabelChangedCopyWithImpl<$Res>
   $Res call({
     Object? label = null,
   }) {
-    return _then(_$_LabelChanged(
+    return _then(_$LabelChangedImpl(
       null == label
           ? _value.label
           : label // ignore: cast_nullable_to_non_nullable
@@ -799,8 +800,8 @@ class __$$_LabelChangedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_LabelChanged implements _LabelChanged {
-  const _$_LabelChanged(this.label);
+class _$LabelChangedImpl implements _LabelChanged {
+  const _$LabelChangedImpl(this.label);
 
   @override
   final String label;
@@ -811,10 +812,10 @@ class _$_LabelChanged implements _LabelChanged {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LabelChanged &&
+            other is _$LabelChangedImpl &&
             (identical(other.label, label) || other.label == label));
   }
 
@@ -824,8 +825,8 @@ class _$_LabelChanged implements _LabelChanged {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LabelChangedCopyWith<_$_LabelChanged> get copyWith =>
-      __$$_LabelChangedCopyWithImpl<_$_LabelChanged>(this, _$identity);
+  _$$LabelChangedImplCopyWith<_$LabelChangedImpl> get copyWith =>
+      __$$LabelChangedImplCopyWithImpl<_$LabelChangedImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -915,32 +916,34 @@ class _$_LabelChanged implements _LabelChanged {
 }
 
 abstract class _LabelChanged implements DoseFormEvent {
-  const factory _LabelChanged(final String label) = _$_LabelChanged;
+  const factory _LabelChanged(final String label) = _$LabelChangedImpl;
 
   String get label;
   @JsonKey(ignore: true)
-  _$$_LabelChangedCopyWith<_$_LabelChanged> get copyWith =>
+  _$$LabelChangedImplCopyWith<_$LabelChangedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_SavedCopyWith<$Res> {
-  factory _$$_SavedCopyWith(_$_Saved value, $Res Function(_$_Saved) then) =
-      __$$_SavedCopyWithImpl<$Res>;
+abstract class _$$SavedImplCopyWith<$Res> {
+  factory _$$SavedImplCopyWith(
+          _$SavedImpl value, $Res Function(_$SavedImpl) then) =
+      __$$SavedImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_SavedCopyWithImpl<$Res>
-    extends _$DoseFormEventCopyWithImpl<$Res, _$_Saved>
-    implements _$$_SavedCopyWith<$Res> {
-  __$$_SavedCopyWithImpl(_$_Saved _value, $Res Function(_$_Saved) _then)
+class __$$SavedImplCopyWithImpl<$Res>
+    extends _$DoseFormEventCopyWithImpl<$Res, _$SavedImpl>
+    implements _$$SavedImplCopyWith<$Res> {
+  __$$SavedImplCopyWithImpl(
+      _$SavedImpl _value, $Res Function(_$SavedImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_Saved implements _Saved {
-  const _$_Saved();
+class _$SavedImpl implements _Saved {
+  const _$SavedImpl();
 
   @override
   String toString() {
@@ -948,9 +951,9 @@ class _$_Saved implements _Saved {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Saved);
+        (other.runtimeType == runtimeType && other is _$SavedImpl);
   }
 
   @override
@@ -1044,7 +1047,7 @@ class _$_Saved implements _Saved {
 }
 
 abstract class _Saved implements DoseFormEvent {
-  const factory _Saved() = _$_Saved;
+  const factory _Saved() = _$SavedImpl;
 }
 
 /// @nodoc
@@ -1130,11 +1133,11 @@ class _$DoseFormStateCopyWithImpl<$Res, $Val extends DoseFormState>
 }
 
 /// @nodoc
-abstract class _$$_DoseFormStateCopyWith<$Res>
+abstract class _$$DoseFormStateImplCopyWith<$Res>
     implements $DoseFormStateCopyWith<$Res> {
-  factory _$$_DoseFormStateCopyWith(
-          _$_DoseFormState value, $Res Function(_$_DoseFormState) then) =
-      __$$_DoseFormStateCopyWithImpl<$Res>;
+  factory _$$DoseFormStateImplCopyWith(
+          _$DoseFormStateImpl value, $Res Function(_$DoseFormStateImpl) then) =
+      __$$DoseFormStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -1149,11 +1152,11 @@ abstract class _$$_DoseFormStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_DoseFormStateCopyWithImpl<$Res>
-    extends _$DoseFormStateCopyWithImpl<$Res, _$_DoseFormState>
-    implements _$$_DoseFormStateCopyWith<$Res> {
-  __$$_DoseFormStateCopyWithImpl(
-      _$_DoseFormState _value, $Res Function(_$_DoseFormState) _then)
+class __$$DoseFormStateImplCopyWithImpl<$Res>
+    extends _$DoseFormStateCopyWithImpl<$Res, _$DoseFormStateImpl>
+    implements _$$DoseFormStateImplCopyWith<$Res> {
+  __$$DoseFormStateImplCopyWithImpl(
+      _$DoseFormStateImpl _value, $Res Function(_$DoseFormStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1165,7 +1168,7 @@ class __$$_DoseFormStateCopyWithImpl<$Res>
     Object? isSaving = null,
     Object? saveFailureOrSuccessOption = null,
   }) {
-    return _then(_$_DoseFormState(
+    return _then(_$DoseFormStateImpl(
       dose: null == dose
           ? _value.dose
           : dose // ignore: cast_nullable_to_non_nullable
@@ -1192,8 +1195,8 @@ class __$$_DoseFormStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_DoseFormState implements _DoseFormState {
-  const _$_DoseFormState(
+class _$DoseFormStateImpl implements _DoseFormState {
+  const _$DoseFormStateImpl(
       {required this.dose,
       required this.showErrorMessages,
       required this.isUpdating,
@@ -1217,10 +1220,10 @@ class _$_DoseFormState implements _DoseFormState {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_DoseFormState &&
+            other is _$DoseFormStateImpl &&
             (identical(other.dose, dose) || other.dose == dose) &&
             (identical(other.showErrorMessages, showErrorMessages) ||
                 other.showErrorMessages == showErrorMessages) &&
@@ -1241,8 +1244,8 @@ class _$_DoseFormState implements _DoseFormState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DoseFormStateCopyWith<_$_DoseFormState> get copyWith =>
-      __$$_DoseFormStateCopyWithImpl<_$_DoseFormState>(this, _$identity);
+  _$$DoseFormStateImplCopyWith<_$DoseFormStateImpl> get copyWith =>
+      __$$DoseFormStateImplCopyWithImpl<_$DoseFormStateImpl>(this, _$identity);
 }
 
 abstract class _DoseFormState implements DoseFormState {
@@ -1252,7 +1255,7 @@ abstract class _DoseFormState implements DoseFormState {
       required final bool isUpdating,
       required final bool isSaving,
       required final Option<Either<DoseFailures, Unit>>
-          saveFailureOrSuccessOption}) = _$_DoseFormState;
+          saveFailureOrSuccessOption}) = _$DoseFormStateImpl;
 
   @override
   Dose get dose;
@@ -1266,6 +1269,6 @@ abstract class _DoseFormState implements DoseFormState {
   Option<Either<DoseFailures, Unit>> get saveFailureOrSuccessOption;
   @override
   @JsonKey(ignore: true)
-  _$$_DoseFormStateCopyWith<_$_DoseFormState> get copyWith =>
+  _$$DoseFormStateImplCopyWith<_$DoseFormStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

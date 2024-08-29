@@ -12,7 +12,7 @@ part of 'week_days_dose_actor_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$WeekDaysDoseActorEvent {
@@ -76,10 +76,10 @@ class _$WeekDaysDoseActorEventCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_DeleteWeekDaysCopyWith<$Res> {
-  factory _$$_DeleteWeekDaysCopyWith(
-          _$_DeleteWeekDays value, $Res Function(_$_DeleteWeekDays) then) =
-      __$$_DeleteWeekDaysCopyWithImpl<$Res>;
+abstract class _$$DeleteWeekDaysImplCopyWith<$Res> {
+  factory _$$DeleteWeekDaysImplCopyWith(_$DeleteWeekDaysImpl value,
+          $Res Function(_$DeleteWeekDaysImpl) then) =
+      __$$DeleteWeekDaysImplCopyWithImpl<$Res>;
   @useResult
   $Res call({WeekDaysDose weekDaysDose});
 
@@ -87,11 +87,11 @@ abstract class _$$_DeleteWeekDaysCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_DeleteWeekDaysCopyWithImpl<$Res>
-    extends _$WeekDaysDoseActorEventCopyWithImpl<$Res, _$_DeleteWeekDays>
-    implements _$$_DeleteWeekDaysCopyWith<$Res> {
-  __$$_DeleteWeekDaysCopyWithImpl(
-      _$_DeleteWeekDays _value, $Res Function(_$_DeleteWeekDays) _then)
+class __$$DeleteWeekDaysImplCopyWithImpl<$Res>
+    extends _$WeekDaysDoseActorEventCopyWithImpl<$Res, _$DeleteWeekDaysImpl>
+    implements _$$DeleteWeekDaysImplCopyWith<$Res> {
+  __$$DeleteWeekDaysImplCopyWithImpl(
+      _$DeleteWeekDaysImpl _value, $Res Function(_$DeleteWeekDaysImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -99,7 +99,7 @@ class __$$_DeleteWeekDaysCopyWithImpl<$Res>
   $Res call({
     Object? weekDaysDose = null,
   }) {
-    return _then(_$_DeleteWeekDays(
+    return _then(_$DeleteWeekDaysImpl(
       null == weekDaysDose
           ? _value.weekDaysDose
           : weekDaysDose // ignore: cast_nullable_to_non_nullable
@@ -118,8 +118,8 @@ class __$$_DeleteWeekDaysCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_DeleteWeekDays implements _DeleteWeekDays {
-  const _$_DeleteWeekDays(this.weekDaysDose);
+class _$DeleteWeekDaysImpl implements _DeleteWeekDays {
+  const _$DeleteWeekDaysImpl(this.weekDaysDose);
 
   @override
   final WeekDaysDose weekDaysDose;
@@ -130,10 +130,10 @@ class _$_DeleteWeekDays implements _DeleteWeekDays {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_DeleteWeekDays &&
+            other is _$DeleteWeekDaysImpl &&
             (identical(other.weekDaysDose, weekDaysDose) ||
                 other.weekDaysDose == weekDaysDose));
   }
@@ -144,8 +144,9 @@ class _$_DeleteWeekDays implements _DeleteWeekDays {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DeleteWeekDaysCopyWith<_$_DeleteWeekDays> get copyWith =>
-      __$$_DeleteWeekDaysCopyWithImpl<_$_DeleteWeekDays>(this, _$identity);
+  _$$DeleteWeekDaysImplCopyWith<_$DeleteWeekDaysImpl> get copyWith =>
+      __$$DeleteWeekDaysImplCopyWithImpl<_$DeleteWeekDaysImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -212,34 +213,34 @@ class _$_DeleteWeekDays implements _DeleteWeekDays {
 
 abstract class _DeleteWeekDays implements WeekDaysDoseActorEvent {
   const factory _DeleteWeekDays(final WeekDaysDose weekDaysDose) =
-      _$_DeleteWeekDays;
+      _$DeleteWeekDaysImpl;
 
   WeekDaysDose get weekDaysDose;
   @JsonKey(ignore: true)
-  _$$_DeleteWeekDaysCopyWith<_$_DeleteWeekDays> get copyWith =>
+  _$$DeleteWeekDaysImplCopyWith<_$DeleteWeekDaysImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_FakeWeekDaysDoseCopyWith<$Res> {
-  factory _$$_FakeWeekDaysDoseCopyWith(
-          _$_FakeWeekDaysDose value, $Res Function(_$_FakeWeekDaysDose) then) =
-      __$$_FakeWeekDaysDoseCopyWithImpl<$Res>;
+abstract class _$$FakeWeekDaysDoseImplCopyWith<$Res> {
+  factory _$$FakeWeekDaysDoseImplCopyWith(_$FakeWeekDaysDoseImpl value,
+          $Res Function(_$FakeWeekDaysDoseImpl) then) =
+      __$$FakeWeekDaysDoseImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_FakeWeekDaysDoseCopyWithImpl<$Res>
-    extends _$WeekDaysDoseActorEventCopyWithImpl<$Res, _$_FakeWeekDaysDose>
-    implements _$$_FakeWeekDaysDoseCopyWith<$Res> {
-  __$$_FakeWeekDaysDoseCopyWithImpl(
-      _$_FakeWeekDaysDose _value, $Res Function(_$_FakeWeekDaysDose) _then)
+class __$$FakeWeekDaysDoseImplCopyWithImpl<$Res>
+    extends _$WeekDaysDoseActorEventCopyWithImpl<$Res, _$FakeWeekDaysDoseImpl>
+    implements _$$FakeWeekDaysDoseImplCopyWith<$Res> {
+  __$$FakeWeekDaysDoseImplCopyWithImpl(_$FakeWeekDaysDoseImpl _value,
+      $Res Function(_$FakeWeekDaysDoseImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_FakeWeekDaysDose implements _FakeWeekDaysDose {
-  const _$_FakeWeekDaysDose();
+class _$FakeWeekDaysDoseImpl implements _FakeWeekDaysDose {
+  const _$FakeWeekDaysDoseImpl();
 
   @override
   String toString() {
@@ -247,9 +248,9 @@ class _$_FakeWeekDaysDose implements _FakeWeekDaysDose {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_FakeWeekDaysDose);
+        (other.runtimeType == runtimeType && other is _$FakeWeekDaysDoseImpl);
   }
 
   @override
@@ -319,7 +320,7 @@ class _$_FakeWeekDaysDose implements _FakeWeekDaysDose {
 }
 
 abstract class _FakeWeekDaysDose implements WeekDaysDoseActorEvent {
-  const factory _FakeWeekDaysDose() = _$_FakeWeekDaysDose;
+  const factory _FakeWeekDaysDose() = _$FakeWeekDaysDoseImpl;
 }
 
 /// @nodoc
@@ -410,24 +411,25 @@ class _$WeekDaysDoseActorStateCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_InitialCopyWith<$Res> {
-  factory _$$_InitialCopyWith(
-          _$_Initial value, $Res Function(_$_Initial) then) =
-      __$$_InitialCopyWithImpl<$Res>;
+abstract class _$$InitialImplCopyWith<$Res> {
+  factory _$$InitialImplCopyWith(
+          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
+      __$$InitialImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_InitialCopyWithImpl<$Res>
-    extends _$WeekDaysDoseActorStateCopyWithImpl<$Res, _$_Initial>
-    implements _$$_InitialCopyWith<$Res> {
-  __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
+class __$$InitialImplCopyWithImpl<$Res>
+    extends _$WeekDaysDoseActorStateCopyWithImpl<$Res, _$InitialImpl>
+    implements _$$InitialImplCopyWith<$Res> {
+  __$$InitialImplCopyWithImpl(
+      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_Initial implements _Initial {
-  const _$_Initial();
+class _$InitialImpl implements _Initial {
+  const _$InitialImpl();
 
   @override
   String toString() {
@@ -435,9 +437,9 @@ class _$_Initial implements _Initial {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Initial);
+        (other.runtimeType == runtimeType && other is _$InitialImpl);
   }
 
   @override
@@ -533,29 +535,29 @@ class _$_Initial implements _Initial {
 }
 
 abstract class _Initial implements WeekDaysDoseActorState {
-  const factory _Initial() = _$_Initial;
+  const factory _Initial() = _$InitialImpl;
 }
 
 /// @nodoc
-abstract class _$$_ActionInProgressCopyWith<$Res> {
-  factory _$$_ActionInProgressCopyWith(
-          _$_ActionInProgress value, $Res Function(_$_ActionInProgress) then) =
-      __$$_ActionInProgressCopyWithImpl<$Res>;
+abstract class _$$ActionInProgressImplCopyWith<$Res> {
+  factory _$$ActionInProgressImplCopyWith(_$ActionInProgressImpl value,
+          $Res Function(_$ActionInProgressImpl) then) =
+      __$$ActionInProgressImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_ActionInProgressCopyWithImpl<$Res>
-    extends _$WeekDaysDoseActorStateCopyWithImpl<$Res, _$_ActionInProgress>
-    implements _$$_ActionInProgressCopyWith<$Res> {
-  __$$_ActionInProgressCopyWithImpl(
-      _$_ActionInProgress _value, $Res Function(_$_ActionInProgress) _then)
+class __$$ActionInProgressImplCopyWithImpl<$Res>
+    extends _$WeekDaysDoseActorStateCopyWithImpl<$Res, _$ActionInProgressImpl>
+    implements _$$ActionInProgressImplCopyWith<$Res> {
+  __$$ActionInProgressImplCopyWithImpl(_$ActionInProgressImpl _value,
+      $Res Function(_$ActionInProgressImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_ActionInProgress implements _ActionInProgress {
-  const _$_ActionInProgress();
+class _$ActionInProgressImpl implements _ActionInProgress {
+  const _$ActionInProgressImpl();
 
   @override
   String toString() {
@@ -563,9 +565,9 @@ class _$_ActionInProgress implements _ActionInProgress {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_ActionInProgress);
+        (other.runtimeType == runtimeType && other is _$ActionInProgressImpl);
   }
 
   @override
@@ -661,14 +663,14 @@ class _$_ActionInProgress implements _ActionInProgress {
 }
 
 abstract class _ActionInProgress implements WeekDaysDoseActorState {
-  const factory _ActionInProgress() = _$_ActionInProgress;
+  const factory _ActionInProgress() = _$ActionInProgressImpl;
 }
 
 /// @nodoc
-abstract class _$$_DeleteFailureCopyWith<$Res> {
-  factory _$$_DeleteFailureCopyWith(
-          _$_DeleteFailure value, $Res Function(_$_DeleteFailure) then) =
-      __$$_DeleteFailureCopyWithImpl<$Res>;
+abstract class _$$DeleteFailureImplCopyWith<$Res> {
+  factory _$$DeleteFailureImplCopyWith(
+          _$DeleteFailureImpl value, $Res Function(_$DeleteFailureImpl) then) =
+      __$$DeleteFailureImplCopyWithImpl<$Res>;
   @useResult
   $Res call({WeekDaysDoseFailures weekDaysDoseFailure});
 
@@ -676,11 +678,11 @@ abstract class _$$_DeleteFailureCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_DeleteFailureCopyWithImpl<$Res>
-    extends _$WeekDaysDoseActorStateCopyWithImpl<$Res, _$_DeleteFailure>
-    implements _$$_DeleteFailureCopyWith<$Res> {
-  __$$_DeleteFailureCopyWithImpl(
-      _$_DeleteFailure _value, $Res Function(_$_DeleteFailure) _then)
+class __$$DeleteFailureImplCopyWithImpl<$Res>
+    extends _$WeekDaysDoseActorStateCopyWithImpl<$Res, _$DeleteFailureImpl>
+    implements _$$DeleteFailureImplCopyWith<$Res> {
+  __$$DeleteFailureImplCopyWithImpl(
+      _$DeleteFailureImpl _value, $Res Function(_$DeleteFailureImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -688,7 +690,7 @@ class __$$_DeleteFailureCopyWithImpl<$Res>
   $Res call({
     Object? weekDaysDoseFailure = null,
   }) {
-    return _then(_$_DeleteFailure(
+    return _then(_$DeleteFailureImpl(
       null == weekDaysDoseFailure
           ? _value.weekDaysDoseFailure
           : weekDaysDoseFailure // ignore: cast_nullable_to_non_nullable
@@ -708,8 +710,8 @@ class __$$_DeleteFailureCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_DeleteFailure implements _DeleteFailure {
-  const _$_DeleteFailure(this.weekDaysDoseFailure);
+class _$DeleteFailureImpl implements _DeleteFailure {
+  const _$DeleteFailureImpl(this.weekDaysDoseFailure);
 
   @override
   final WeekDaysDoseFailures weekDaysDoseFailure;
@@ -720,10 +722,10 @@ class _$_DeleteFailure implements _DeleteFailure {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_DeleteFailure &&
+            other is _$DeleteFailureImpl &&
             (identical(other.weekDaysDoseFailure, weekDaysDoseFailure) ||
                 other.weekDaysDoseFailure == weekDaysDoseFailure));
   }
@@ -734,8 +736,8 @@ class _$_DeleteFailure implements _DeleteFailure {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DeleteFailureCopyWith<_$_DeleteFailure> get copyWith =>
-      __$$_DeleteFailureCopyWithImpl<_$_DeleteFailure>(this, _$identity);
+  _$$DeleteFailureImplCopyWith<_$DeleteFailureImpl> get copyWith =>
+      __$$DeleteFailureImplCopyWithImpl<_$DeleteFailureImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -828,34 +830,34 @@ class _$_DeleteFailure implements _DeleteFailure {
 
 abstract class _DeleteFailure implements WeekDaysDoseActorState {
   const factory _DeleteFailure(final WeekDaysDoseFailures weekDaysDoseFailure) =
-      _$_DeleteFailure;
+      _$DeleteFailureImpl;
 
   WeekDaysDoseFailures get weekDaysDoseFailure;
   @JsonKey(ignore: true)
-  _$$_DeleteFailureCopyWith<_$_DeleteFailure> get copyWith =>
+  _$$DeleteFailureImplCopyWith<_$DeleteFailureImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_DeleteSuccessCopyWith<$Res> {
-  factory _$$_DeleteSuccessCopyWith(
-          _$_DeleteSuccess value, $Res Function(_$_DeleteSuccess) then) =
-      __$$_DeleteSuccessCopyWithImpl<$Res>;
+abstract class _$$DeleteSuccessImplCopyWith<$Res> {
+  factory _$$DeleteSuccessImplCopyWith(
+          _$DeleteSuccessImpl value, $Res Function(_$DeleteSuccessImpl) then) =
+      __$$DeleteSuccessImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_DeleteSuccessCopyWithImpl<$Res>
-    extends _$WeekDaysDoseActorStateCopyWithImpl<$Res, _$_DeleteSuccess>
-    implements _$$_DeleteSuccessCopyWith<$Res> {
-  __$$_DeleteSuccessCopyWithImpl(
-      _$_DeleteSuccess _value, $Res Function(_$_DeleteSuccess) _then)
+class __$$DeleteSuccessImplCopyWithImpl<$Res>
+    extends _$WeekDaysDoseActorStateCopyWithImpl<$Res, _$DeleteSuccessImpl>
+    implements _$$DeleteSuccessImplCopyWith<$Res> {
+  __$$DeleteSuccessImplCopyWithImpl(
+      _$DeleteSuccessImpl _value, $Res Function(_$DeleteSuccessImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_DeleteSuccess implements _DeleteSuccess {
-  const _$_DeleteSuccess();
+class _$DeleteSuccessImpl implements _DeleteSuccess {
+  const _$DeleteSuccessImpl();
 
   @override
   String toString() {
@@ -863,9 +865,9 @@ class _$_DeleteSuccess implements _DeleteSuccess {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_DeleteSuccess);
+        (other.runtimeType == runtimeType && other is _$DeleteSuccessImpl);
   }
 
   @override
@@ -961,14 +963,14 @@ class _$_DeleteSuccess implements _DeleteSuccess {
 }
 
 abstract class _DeleteSuccess implements WeekDaysDoseActorState {
-  const factory _DeleteSuccess() = _$_DeleteSuccess;
+  const factory _DeleteSuccess() = _$DeleteSuccessImpl;
 }
 
 /// @nodoc
-abstract class _$$_FakeFailureCopyWith<$Res> {
-  factory _$$_FakeFailureCopyWith(
-          _$_FakeFailure value, $Res Function(_$_FakeFailure) then) =
-      __$$_FakeFailureCopyWithImpl<$Res>;
+abstract class _$$FakeFailureImplCopyWith<$Res> {
+  factory _$$FakeFailureImplCopyWith(
+          _$FakeFailureImpl value, $Res Function(_$FakeFailureImpl) then) =
+      __$$FakeFailureImplCopyWithImpl<$Res>;
   @useResult
   $Res call({WeekDaysDoseFailures weekDaysDoseFailure});
 
@@ -976,11 +978,11 @@ abstract class _$$_FakeFailureCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_FakeFailureCopyWithImpl<$Res>
-    extends _$WeekDaysDoseActorStateCopyWithImpl<$Res, _$_FakeFailure>
-    implements _$$_FakeFailureCopyWith<$Res> {
-  __$$_FakeFailureCopyWithImpl(
-      _$_FakeFailure _value, $Res Function(_$_FakeFailure) _then)
+class __$$FakeFailureImplCopyWithImpl<$Res>
+    extends _$WeekDaysDoseActorStateCopyWithImpl<$Res, _$FakeFailureImpl>
+    implements _$$FakeFailureImplCopyWith<$Res> {
+  __$$FakeFailureImplCopyWithImpl(
+      _$FakeFailureImpl _value, $Res Function(_$FakeFailureImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -988,7 +990,7 @@ class __$$_FakeFailureCopyWithImpl<$Res>
   $Res call({
     Object? weekDaysDoseFailure = null,
   }) {
-    return _then(_$_FakeFailure(
+    return _then(_$FakeFailureImpl(
       null == weekDaysDoseFailure
           ? _value.weekDaysDoseFailure
           : weekDaysDoseFailure // ignore: cast_nullable_to_non_nullable
@@ -1008,8 +1010,8 @@ class __$$_FakeFailureCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_FakeFailure implements _FakeFailure {
-  const _$_FakeFailure(this.weekDaysDoseFailure);
+class _$FakeFailureImpl implements _FakeFailure {
+  const _$FakeFailureImpl(this.weekDaysDoseFailure);
 
   @override
   final WeekDaysDoseFailures weekDaysDoseFailure;
@@ -1020,10 +1022,10 @@ class _$_FakeFailure implements _FakeFailure {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_FakeFailure &&
+            other is _$FakeFailureImpl &&
             (identical(other.weekDaysDoseFailure, weekDaysDoseFailure) ||
                 other.weekDaysDoseFailure == weekDaysDoseFailure));
   }
@@ -1034,8 +1036,8 @@ class _$_FakeFailure implements _FakeFailure {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_FakeFailureCopyWith<_$_FakeFailure> get copyWith =>
-      __$$_FakeFailureCopyWithImpl<_$_FakeFailure>(this, _$identity);
+  _$$FakeFailureImplCopyWith<_$FakeFailureImpl> get copyWith =>
+      __$$FakeFailureImplCopyWithImpl<_$FakeFailureImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1128,34 +1130,34 @@ class _$_FakeFailure implements _FakeFailure {
 
 abstract class _FakeFailure implements WeekDaysDoseActorState {
   const factory _FakeFailure(final WeekDaysDoseFailures weekDaysDoseFailure) =
-      _$_FakeFailure;
+      _$FakeFailureImpl;
 
   WeekDaysDoseFailures get weekDaysDoseFailure;
   @JsonKey(ignore: true)
-  _$$_FakeFailureCopyWith<_$_FakeFailure> get copyWith =>
+  _$$FakeFailureImplCopyWith<_$FakeFailureImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_FakeSuccessCopyWith<$Res> {
-  factory _$$_FakeSuccessCopyWith(
-          _$_FakeSuccess value, $Res Function(_$_FakeSuccess) then) =
-      __$$_FakeSuccessCopyWithImpl<$Res>;
+abstract class _$$FakeSuccessImplCopyWith<$Res> {
+  factory _$$FakeSuccessImplCopyWith(
+          _$FakeSuccessImpl value, $Res Function(_$FakeSuccessImpl) then) =
+      __$$FakeSuccessImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_FakeSuccessCopyWithImpl<$Res>
-    extends _$WeekDaysDoseActorStateCopyWithImpl<$Res, _$_FakeSuccess>
-    implements _$$_FakeSuccessCopyWith<$Res> {
-  __$$_FakeSuccessCopyWithImpl(
-      _$_FakeSuccess _value, $Res Function(_$_FakeSuccess) _then)
+class __$$FakeSuccessImplCopyWithImpl<$Res>
+    extends _$WeekDaysDoseActorStateCopyWithImpl<$Res, _$FakeSuccessImpl>
+    implements _$$FakeSuccessImplCopyWith<$Res> {
+  __$$FakeSuccessImplCopyWithImpl(
+      _$FakeSuccessImpl _value, $Res Function(_$FakeSuccessImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_FakeSuccess implements _FakeSuccess {
-  const _$_FakeSuccess();
+class _$FakeSuccessImpl implements _FakeSuccess {
+  const _$FakeSuccessImpl();
 
   @override
   String toString() {
@@ -1163,9 +1165,9 @@ class _$_FakeSuccess implements _FakeSuccess {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_FakeSuccess);
+        (other.runtimeType == runtimeType && other is _$FakeSuccessImpl);
   }
 
   @override
@@ -1261,5 +1263,5 @@ class _$_FakeSuccess implements _FakeSuccess {
 }
 
 abstract class _FakeSuccess implements WeekDaysDoseActorState {
-  const factory _FakeSuccess() = _$_FakeSuccess;
+  const factory _FakeSuccess() = _$FakeSuccessImpl;
 }

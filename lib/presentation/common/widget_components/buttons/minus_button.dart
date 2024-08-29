@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 
 class MinusButtonDown extends StatelessWidget {
   Function onPressed;
-  MinusButtonDown({super.key, required this.onPressed});
+  bool inactive;
+  MinusButtonDown({super.key, required this.onPressed, this.inactive = false});
 
   @override
   Widget build(BuildContext context) {
@@ -14,19 +15,23 @@ class MinusButtonDown extends StatelessWidget {
             : constraints.maxWidth;
         return Center(
           child: GestureDetector(
-            onTap: () => onPressed(),
+            onTap: inactive ? null : () => onPressed?.call(),
             child: Container(
               width: buttonSize,
               height: constraints.maxHeight,
               decoration: BoxDecoration(
-                color: Theme.of(context).secondaryHeaderColor,
+                color: inactive
+                    ? Colors.grey[300]
+                    : Theme.of(context).secondaryHeaderColor,
                 borderRadius: BoderRadiusStyle.minusButton,
               ),
               alignment: Alignment.bottomCenter,
               child: Icon(
                 Icons.remove,
                 size: buttonSize,
-                color: Theme.of(context).primaryColorDark,
+                color: inactive
+                    ? Colors.grey.shade700
+                    : Theme.of(context).primaryColorDark,
               ),
             ),
           ),

@@ -12,7 +12,7 @@ part of 'label_double_amount_form_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$LabelDoubleAmountFormEvent {
@@ -93,20 +93,20 @@ class _$LabelDoubleAmountFormEventCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_InitializedCopyWith<$Res> {
-  factory _$$_InitializedCopyWith(
-          _$_Initialized value, $Res Function(_$_Initialized) then) =
-      __$$_InitializedCopyWithImpl<$Res>;
+abstract class _$$InitializedImplCopyWith<$Res> {
+  factory _$$InitializedImplCopyWith(
+          _$InitializedImpl value, $Res Function(_$InitializedImpl) then) =
+      __$$InitializedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Option<LabelDoubleAmount> initialLabelDoubleAmountOption});
 }
 
 /// @nodoc
-class __$$_InitializedCopyWithImpl<$Res>
-    extends _$LabelDoubleAmountFormEventCopyWithImpl<$Res, _$_Initialized>
-    implements _$$_InitializedCopyWith<$Res> {
-  __$$_InitializedCopyWithImpl(
-      _$_Initialized _value, $Res Function(_$_Initialized) _then)
+class __$$InitializedImplCopyWithImpl<$Res>
+    extends _$LabelDoubleAmountFormEventCopyWithImpl<$Res, _$InitializedImpl>
+    implements _$$InitializedImplCopyWith<$Res> {
+  __$$InitializedImplCopyWithImpl(
+      _$InitializedImpl _value, $Res Function(_$InitializedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -114,7 +114,7 @@ class __$$_InitializedCopyWithImpl<$Res>
   $Res call({
     Object? initialLabelDoubleAmountOption = null,
   }) {
-    return _then(_$_Initialized(
+    return _then(_$InitializedImpl(
       null == initialLabelDoubleAmountOption
           ? _value.initialLabelDoubleAmountOption
           : initialLabelDoubleAmountOption // ignore: cast_nullable_to_non_nullable
@@ -125,8 +125,8 @@ class __$$_InitializedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Initialized implements _Initialized {
-  const _$_Initialized(this.initialLabelDoubleAmountOption);
+class _$InitializedImpl implements _Initialized {
+  const _$InitializedImpl(this.initialLabelDoubleAmountOption);
 
   @override
   final Option<LabelDoubleAmount> initialLabelDoubleAmountOption;
@@ -137,10 +137,10 @@ class _$_Initialized implements _Initialized {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Initialized &&
+            other is _$InitializedImpl &&
             (identical(other.initialLabelDoubleAmountOption,
                     initialLabelDoubleAmountOption) ||
                 other.initialLabelDoubleAmountOption ==
@@ -153,8 +153,8 @@ class _$_Initialized implements _Initialized {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_InitializedCopyWith<_$_Initialized> get copyWith =>
-      __$$_InitializedCopyWithImpl<_$_Initialized>(this, _$identity);
+  _$$InitializedImplCopyWith<_$InitializedImpl> get copyWith =>
+      __$$InitializedImplCopyWithImpl<_$InitializedImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -238,29 +238,29 @@ class _$_Initialized implements _Initialized {
 abstract class _Initialized implements LabelDoubleAmountFormEvent {
   const factory _Initialized(
           final Option<LabelDoubleAmount> initialLabelDoubleAmountOption) =
-      _$_Initialized;
+      _$InitializedImpl;
 
   Option<LabelDoubleAmount> get initialLabelDoubleAmountOption;
   @JsonKey(ignore: true)
-  _$$_InitializedCopyWith<_$_Initialized> get copyWith =>
+  _$$InitializedImplCopyWith<_$InitializedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_LabelChangedCopyWith<$Res> {
-  factory _$$_LabelChangedCopyWith(
-          _$_LabelChanged value, $Res Function(_$_LabelChanged) then) =
-      __$$_LabelChangedCopyWithImpl<$Res>;
+abstract class _$$LabelChangedImplCopyWith<$Res> {
+  factory _$$LabelChangedImplCopyWith(
+          _$LabelChangedImpl value, $Res Function(_$LabelChangedImpl) then) =
+      __$$LabelChangedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String label});
 }
 
 /// @nodoc
-class __$$_LabelChangedCopyWithImpl<$Res>
-    extends _$LabelDoubleAmountFormEventCopyWithImpl<$Res, _$_LabelChanged>
-    implements _$$_LabelChangedCopyWith<$Res> {
-  __$$_LabelChangedCopyWithImpl(
-      _$_LabelChanged _value, $Res Function(_$_LabelChanged) _then)
+class __$$LabelChangedImplCopyWithImpl<$Res>
+    extends _$LabelDoubleAmountFormEventCopyWithImpl<$Res, _$LabelChangedImpl>
+    implements _$$LabelChangedImplCopyWith<$Res> {
+  __$$LabelChangedImplCopyWithImpl(
+      _$LabelChangedImpl _value, $Res Function(_$LabelChangedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -268,7 +268,7 @@ class __$$_LabelChangedCopyWithImpl<$Res>
   $Res call({
     Object? label = null,
   }) {
-    return _then(_$_LabelChanged(
+    return _then(_$LabelChangedImpl(
       null == label
           ? _value.label
           : label // ignore: cast_nullable_to_non_nullable
@@ -279,8 +279,8 @@ class __$$_LabelChangedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_LabelChanged implements _LabelChanged {
-  const _$_LabelChanged(this.label);
+class _$LabelChangedImpl implements _LabelChanged {
+  const _$LabelChangedImpl(this.label);
 
   @override
   final String label;
@@ -291,10 +291,10 @@ class _$_LabelChanged implements _LabelChanged {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LabelChanged &&
+            other is _$LabelChangedImpl &&
             (identical(other.label, label) || other.label == label));
   }
 
@@ -304,8 +304,8 @@ class _$_LabelChanged implements _LabelChanged {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LabelChangedCopyWith<_$_LabelChanged> get copyWith =>
-      __$$_LabelChangedCopyWithImpl<_$_LabelChanged>(this, _$identity);
+  _$$LabelChangedImplCopyWith<_$LabelChangedImpl> get copyWith =>
+      __$$LabelChangedImplCopyWithImpl<_$LabelChangedImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -387,29 +387,29 @@ class _$_LabelChanged implements _LabelChanged {
 }
 
 abstract class _LabelChanged implements LabelDoubleAmountFormEvent {
-  const factory _LabelChanged(final String label) = _$_LabelChanged;
+  const factory _LabelChanged(final String label) = _$LabelChangedImpl;
 
   String get label;
   @JsonKey(ignore: true)
-  _$$_LabelChangedCopyWith<_$_LabelChanged> get copyWith =>
+  _$$LabelChangedImplCopyWith<_$LabelChangedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_AmountChangedCopyWith<$Res> {
-  factory _$$_AmountChangedCopyWith(
-          _$_AmountChanged value, $Res Function(_$_AmountChanged) then) =
-      __$$_AmountChangedCopyWithImpl<$Res>;
+abstract class _$$AmountChangedImplCopyWith<$Res> {
+  factory _$$AmountChangedImplCopyWith(
+          _$AmountChangedImpl value, $Res Function(_$AmountChangedImpl) then) =
+      __$$AmountChangedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({double amount});
 }
 
 /// @nodoc
-class __$$_AmountChangedCopyWithImpl<$Res>
-    extends _$LabelDoubleAmountFormEventCopyWithImpl<$Res, _$_AmountChanged>
-    implements _$$_AmountChangedCopyWith<$Res> {
-  __$$_AmountChangedCopyWithImpl(
-      _$_AmountChanged _value, $Res Function(_$_AmountChanged) _then)
+class __$$AmountChangedImplCopyWithImpl<$Res>
+    extends _$LabelDoubleAmountFormEventCopyWithImpl<$Res, _$AmountChangedImpl>
+    implements _$$AmountChangedImplCopyWith<$Res> {
+  __$$AmountChangedImplCopyWithImpl(
+      _$AmountChangedImpl _value, $Res Function(_$AmountChangedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -417,7 +417,7 @@ class __$$_AmountChangedCopyWithImpl<$Res>
   $Res call({
     Object? amount = null,
   }) {
-    return _then(_$_AmountChanged(
+    return _then(_$AmountChangedImpl(
       null == amount
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
@@ -428,8 +428,8 @@ class __$$_AmountChangedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_AmountChanged implements _AmountChanged {
-  const _$_AmountChanged(this.amount);
+class _$AmountChangedImpl implements _AmountChanged {
+  const _$AmountChangedImpl(this.amount);
 
   @override
   final double amount;
@@ -440,10 +440,10 @@ class _$_AmountChanged implements _AmountChanged {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_AmountChanged &&
+            other is _$AmountChangedImpl &&
             (identical(other.amount, amount) || other.amount == amount));
   }
 
@@ -453,8 +453,8 @@ class _$_AmountChanged implements _AmountChanged {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_AmountChangedCopyWith<_$_AmountChanged> get copyWith =>
-      __$$_AmountChangedCopyWithImpl<_$_AmountChanged>(this, _$identity);
+  _$$AmountChangedImplCopyWith<_$AmountChangedImpl> get copyWith =>
+      __$$AmountChangedImplCopyWithImpl<_$AmountChangedImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -536,32 +536,34 @@ class _$_AmountChanged implements _AmountChanged {
 }
 
 abstract class _AmountChanged implements LabelDoubleAmountFormEvent {
-  const factory _AmountChanged(final double amount) = _$_AmountChanged;
+  const factory _AmountChanged(final double amount) = _$AmountChangedImpl;
 
   double get amount;
   @JsonKey(ignore: true)
-  _$$_AmountChangedCopyWith<_$_AmountChanged> get copyWith =>
+  _$$AmountChangedImplCopyWith<_$AmountChangedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_SavedCopyWith<$Res> {
-  factory _$$_SavedCopyWith(_$_Saved value, $Res Function(_$_Saved) then) =
-      __$$_SavedCopyWithImpl<$Res>;
+abstract class _$$SavedImplCopyWith<$Res> {
+  factory _$$SavedImplCopyWith(
+          _$SavedImpl value, $Res Function(_$SavedImpl) then) =
+      __$$SavedImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_SavedCopyWithImpl<$Res>
-    extends _$LabelDoubleAmountFormEventCopyWithImpl<$Res, _$_Saved>
-    implements _$$_SavedCopyWith<$Res> {
-  __$$_SavedCopyWithImpl(_$_Saved _value, $Res Function(_$_Saved) _then)
+class __$$SavedImplCopyWithImpl<$Res>
+    extends _$LabelDoubleAmountFormEventCopyWithImpl<$Res, _$SavedImpl>
+    implements _$$SavedImplCopyWith<$Res> {
+  __$$SavedImplCopyWithImpl(
+      _$SavedImpl _value, $Res Function(_$SavedImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_Saved implements _Saved {
-  const _$_Saved();
+class _$SavedImpl implements _Saved {
+  const _$SavedImpl();
 
   @override
   String toString() {
@@ -569,9 +571,9 @@ class _$_Saved implements _Saved {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Saved);
+        (other.runtimeType == runtimeType && other is _$SavedImpl);
   }
 
   @override
@@ -657,7 +659,7 @@ class _$_Saved implements _Saved {
 }
 
 abstract class _Saved implements LabelDoubleAmountFormEvent {
-  const factory _Saved() = _$_Saved;
+  const factory _Saved() = _$SavedImpl;
 }
 
 /// @nodoc
@@ -746,12 +748,12 @@ class _$LabelDoubleAmountFormStateCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_LabelDoubleAmountFormStateCopyWith<$Res>
+abstract class _$$LabelDoubleAmountFormStateImplCopyWith<$Res>
     implements $LabelDoubleAmountFormStateCopyWith<$Res> {
-  factory _$$_LabelDoubleAmountFormStateCopyWith(
-          _$_LabelDoubleAmountFormState value,
-          $Res Function(_$_LabelDoubleAmountFormState) then) =
-      __$$_LabelDoubleAmountFormStateCopyWithImpl<$Res>;
+  factory _$$LabelDoubleAmountFormStateImplCopyWith(
+          _$LabelDoubleAmountFormStateImpl value,
+          $Res Function(_$LabelDoubleAmountFormStateImpl) then) =
+      __$$LabelDoubleAmountFormStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -767,13 +769,13 @@ abstract class _$$_LabelDoubleAmountFormStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_LabelDoubleAmountFormStateCopyWithImpl<$Res>
+class __$$LabelDoubleAmountFormStateImplCopyWithImpl<$Res>
     extends _$LabelDoubleAmountFormStateCopyWithImpl<$Res,
-        _$_LabelDoubleAmountFormState>
-    implements _$$_LabelDoubleAmountFormStateCopyWith<$Res> {
-  __$$_LabelDoubleAmountFormStateCopyWithImpl(
-      _$_LabelDoubleAmountFormState _value,
-      $Res Function(_$_LabelDoubleAmountFormState) _then)
+        _$LabelDoubleAmountFormStateImpl>
+    implements _$$LabelDoubleAmountFormStateImplCopyWith<$Res> {
+  __$$LabelDoubleAmountFormStateImplCopyWithImpl(
+      _$LabelDoubleAmountFormStateImpl _value,
+      $Res Function(_$LabelDoubleAmountFormStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -785,7 +787,7 @@ class __$$_LabelDoubleAmountFormStateCopyWithImpl<$Res>
     Object? isSaving = null,
     Object? saveFailureOrSuccessOption = null,
   }) {
-    return _then(_$_LabelDoubleAmountFormState(
+    return _then(_$LabelDoubleAmountFormStateImpl(
       labelDoubleAmount: null == labelDoubleAmount
           ? _value.labelDoubleAmount
           : labelDoubleAmount // ignore: cast_nullable_to_non_nullable
@@ -812,8 +814,8 @@ class __$$_LabelDoubleAmountFormStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_LabelDoubleAmountFormState implements _LabelDoubleAmountFormState {
-  const _$_LabelDoubleAmountFormState(
+class _$LabelDoubleAmountFormStateImpl implements _LabelDoubleAmountFormState {
+  const _$LabelDoubleAmountFormStateImpl(
       {required this.labelDoubleAmount,
       required this.showErrorMessages,
       required this.isUpdating,
@@ -838,10 +840,10 @@ class _$_LabelDoubleAmountFormState implements _LabelDoubleAmountFormState {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LabelDoubleAmountFormState &&
+            other is _$LabelDoubleAmountFormStateImpl &&
             (identical(other.labelDoubleAmount, labelDoubleAmount) ||
                 other.labelDoubleAmount == labelDoubleAmount) &&
             (identical(other.showErrorMessages, showErrorMessages) ||
@@ -863,9 +865,9 @@ class _$_LabelDoubleAmountFormState implements _LabelDoubleAmountFormState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LabelDoubleAmountFormStateCopyWith<_$_LabelDoubleAmountFormState>
-      get copyWith => __$$_LabelDoubleAmountFormStateCopyWithImpl<
-          _$_LabelDoubleAmountFormState>(this, _$identity);
+  _$$LabelDoubleAmountFormStateImplCopyWith<_$LabelDoubleAmountFormStateImpl>
+      get copyWith => __$$LabelDoubleAmountFormStateImplCopyWithImpl<
+          _$LabelDoubleAmountFormStateImpl>(this, _$identity);
 }
 
 abstract class _LabelDoubleAmountFormState
@@ -876,7 +878,7 @@ abstract class _LabelDoubleAmountFormState
       required final bool isUpdating,
       required final bool isSaving,
       required final Option<Either<LabelDoubleAmountFailure, Unit>>
-          saveFailureOrSuccessOption}) = _$_LabelDoubleAmountFormState;
+          saveFailureOrSuccessOption}) = _$LabelDoubleAmountFormStateImpl;
 
   @override
   LabelDoubleAmount get labelDoubleAmount;
@@ -890,6 +892,6 @@ abstract class _LabelDoubleAmountFormState
   Option<Either<LabelDoubleAmountFailure, Unit>> get saveFailureOrSuccessOption;
   @override
   @JsonKey(ignore: true)
-  _$$_LabelDoubleAmountFormStateCopyWith<_$_LabelDoubleAmountFormState>
+  _$$LabelDoubleAmountFormStateImplCopyWith<_$LabelDoubleAmountFormStateImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

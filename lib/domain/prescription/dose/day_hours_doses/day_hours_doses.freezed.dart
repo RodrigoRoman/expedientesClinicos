@@ -12,7 +12,7 @@ part of 'day_hours_doses.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$DayHoursDose {
@@ -69,22 +69,22 @@ class _$DayHoursDoseCopyWithImpl<$Res, $Val extends DayHoursDose>
 }
 
 /// @nodoc
-abstract class _$$_DayHoursDoseCopyWith<$Res>
+abstract class _$$DayHoursDoseImplCopyWith<$Res>
     implements $DayHoursDoseCopyWith<$Res> {
-  factory _$$_DayHoursDoseCopyWith(
-          _$_DayHoursDose value, $Res Function(_$_DayHoursDose) then) =
-      __$$_DayHoursDoseCopyWithImpl<$Res>;
+  factory _$$DayHoursDoseImplCopyWith(
+          _$DayHoursDoseImpl value, $Res Function(_$DayHoursDoseImpl) then) =
+      __$$DayHoursDoseImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({UniqueId id, FullName label, List3<HourTime> doseHours});
 }
 
 /// @nodoc
-class __$$_DayHoursDoseCopyWithImpl<$Res>
-    extends _$DayHoursDoseCopyWithImpl<$Res, _$_DayHoursDose>
-    implements _$$_DayHoursDoseCopyWith<$Res> {
-  __$$_DayHoursDoseCopyWithImpl(
-      _$_DayHoursDose _value, $Res Function(_$_DayHoursDose) _then)
+class __$$DayHoursDoseImplCopyWithImpl<$Res>
+    extends _$DayHoursDoseCopyWithImpl<$Res, _$DayHoursDoseImpl>
+    implements _$$DayHoursDoseImplCopyWith<$Res> {
+  __$$DayHoursDoseImplCopyWithImpl(
+      _$DayHoursDoseImpl _value, $Res Function(_$DayHoursDoseImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -94,7 +94,7 @@ class __$$_DayHoursDoseCopyWithImpl<$Res>
     Object? label = null,
     Object? doseHours = null,
   }) {
-    return _then(_$_DayHoursDose(
+    return _then(_$DayHoursDoseImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -113,8 +113,8 @@ class __$$_DayHoursDoseCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_DayHoursDose extends _DayHoursDose {
-  const _$_DayHoursDose(
+class _$DayHoursDoseImpl extends _DayHoursDose {
+  const _$DayHoursDoseImpl(
       {required this.id, required this.label, required this.doseHours})
       : super._();
 
@@ -133,15 +133,15 @@ class _$_DayHoursDose extends _DayHoursDose {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DayHoursDoseCopyWith<_$_DayHoursDose> get copyWith =>
-      __$$_DayHoursDoseCopyWithImpl<_$_DayHoursDose>(this, _$identity);
+  _$$DayHoursDoseImplCopyWith<_$DayHoursDoseImpl> get copyWith =>
+      __$$DayHoursDoseImplCopyWithImpl<_$DayHoursDoseImpl>(this, _$identity);
 }
 
 abstract class _DayHoursDose extends DayHoursDose {
   const factory _DayHoursDose(
       {required final UniqueId id,
       required final FullName label,
-      required final List3<HourTime> doseHours}) = _$_DayHoursDose;
+      required final List3<HourTime> doseHours}) = _$DayHoursDoseImpl;
   const _DayHoursDose._() : super._();
 
   @override
@@ -152,6 +152,6 @@ abstract class _DayHoursDose extends DayHoursDose {
   List3<HourTime> get doseHours;
   @override
   @JsonKey(ignore: true)
-  _$$_DayHoursDoseCopyWith<_$_DayHoursDose> get copyWith =>
+  _$$DayHoursDoseImplCopyWith<_$DayHoursDoseImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

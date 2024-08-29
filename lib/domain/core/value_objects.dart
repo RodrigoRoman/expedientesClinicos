@@ -3,6 +3,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:expedientes_clinicos/domain/core/errors.dart';
 import 'package:expedientes_clinicos/domain/core/failures.dart';
+import 'package:expedientes_clinicos/domain/dynamic_forms/form_section/form_components/filed_types/field_types.dart';
+import 'package:expedientes_clinicos/domain/dynamic_forms/section_types.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -221,4 +223,34 @@ class NonNegInt extends ValueObject<int> {
     return NonNegInt._(validateNonNegInt(input));
   }
   const NonNegInt._(this.value);
+}
+
+class NonEmptyString extends ValueObject<String> {
+  @override
+  final Either<ValueFailure<String>, String> value;
+  factory NonEmptyString(String input) {
+    assert(input != null);
+    return NonEmptyString._(validateStringNotEmpty(input));
+  }
+  const NonEmptyString._(this.value);
+}
+
+class NonEmptyFieldType extends ValueObject<FieldType> {
+  @override
+  final Either<ValueFailure<FieldType>, FieldType> value;
+  factory NonEmptyFieldType(FieldType input) {
+    assert(input != null);
+    return NonEmptyFieldType._(validateNonEmptyFieldType(input));
+  }
+  const NonEmptyFieldType._(this.value);
+}
+
+class NonEmptySectionType extends ValueObject<SectionTypes> {
+  @override
+  final Either<ValueFailure<SectionTypes>, SectionTypes> value;
+  factory NonEmptySectionType(SectionTypes input) {
+    assert(input != null);
+    return NonEmptySectionType._(validateNonEmptySectionType(input));
+  }
+  const NonEmptySectionType._(this.value);
 }

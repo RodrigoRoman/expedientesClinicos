@@ -6,8 +6,9 @@ part of 'prescription_dtos.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_PrescriptionDto _$$_PrescriptionDtoFromJson(Map<String, dynamic> json) =>
-    _$_PrescriptionDto(
+_$PrescriptionDtoImpl _$$PrescriptionDtoImplFromJson(
+        Map<String, dynamic> json) =>
+    _$PrescriptionDtoImpl(
       id: json['id'] as String,
       medicine:
           BrandedMedicineDto.fromJson(json['medicine'] as Map<String, dynamic>),
@@ -19,7 +20,8 @@ _$_PrescriptionDto _$$_PrescriptionDtoFromJson(Map<String, dynamic> json) =>
           .toList(),
     );
 
-Map<String, dynamic> _$$_PrescriptionDtoToJson(_$_PrescriptionDto instance) =>
+Map<String, dynamic> _$$PrescriptionDtoImplToJson(
+        _$PrescriptionDtoImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'medicine': instance.medicine.toJson(),

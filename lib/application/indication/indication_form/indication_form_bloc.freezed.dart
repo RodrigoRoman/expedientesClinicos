@@ -12,7 +12,7 @@ part of 'indication_form_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$IndicationFormEvent {
@@ -90,20 +90,20 @@ class _$IndicationFormEventCopyWithImpl<$Res, $Val extends IndicationFormEvent>
 }
 
 /// @nodoc
-abstract class _$$_InitializedCopyWith<$Res> {
-  factory _$$_InitializedCopyWith(
-          _$_Initialized value, $Res Function(_$_Initialized) then) =
-      __$$_InitializedCopyWithImpl<$Res>;
+abstract class _$$InitializedImplCopyWith<$Res> {
+  factory _$$InitializedImplCopyWith(
+          _$InitializedImpl value, $Res Function(_$InitializedImpl) then) =
+      __$$InitializedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Option<Indication> intitialIndication});
 }
 
 /// @nodoc
-class __$$_InitializedCopyWithImpl<$Res>
-    extends _$IndicationFormEventCopyWithImpl<$Res, _$_Initialized>
-    implements _$$_InitializedCopyWith<$Res> {
-  __$$_InitializedCopyWithImpl(
-      _$_Initialized _value, $Res Function(_$_Initialized) _then)
+class __$$InitializedImplCopyWithImpl<$Res>
+    extends _$IndicationFormEventCopyWithImpl<$Res, _$InitializedImpl>
+    implements _$$InitializedImplCopyWith<$Res> {
+  __$$InitializedImplCopyWithImpl(
+      _$InitializedImpl _value, $Res Function(_$InitializedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -111,7 +111,7 @@ class __$$_InitializedCopyWithImpl<$Res>
   $Res call({
     Object? intitialIndication = null,
   }) {
-    return _then(_$_Initialized(
+    return _then(_$InitializedImpl(
       null == intitialIndication
           ? _value.intitialIndication
           : intitialIndication // ignore: cast_nullable_to_non_nullable
@@ -122,8 +122,8 @@ class __$$_InitializedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Initialized implements _Initialized {
-  const _$_Initialized(this.intitialIndication);
+class _$InitializedImpl implements _Initialized {
+  const _$InitializedImpl(this.intitialIndication);
 
   @override
   final Option<Indication> intitialIndication;
@@ -134,10 +134,10 @@ class _$_Initialized implements _Initialized {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Initialized &&
+            other is _$InitializedImpl &&
             (identical(other.intitialIndication, intitialIndication) ||
                 other.intitialIndication == intitialIndication));
   }
@@ -148,8 +148,8 @@ class _$_Initialized implements _Initialized {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_InitializedCopyWith<_$_Initialized> get copyWith =>
-      __$$_InitializedCopyWithImpl<_$_Initialized>(this, _$identity);
+  _$$InitializedImplCopyWith<_$InitializedImpl> get copyWith =>
+      __$$InitializedImplCopyWithImpl<_$InitializedImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -231,29 +231,30 @@ class _$_Initialized implements _Initialized {
 
 abstract class _Initialized implements IndicationFormEvent {
   const factory _Initialized(final Option<Indication> intitialIndication) =
-      _$_Initialized;
+      _$InitializedImpl;
 
   Option<Indication> get intitialIndication;
   @JsonKey(ignore: true)
-  _$$_InitializedCopyWith<_$_Initialized> get copyWith =>
+  _$$InitializedImplCopyWith<_$InitializedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_IndicationNameChangedCopyWith<$Res> {
-  factory _$$_IndicationNameChangedCopyWith(_$_IndicationNameChanged value,
-          $Res Function(_$_IndicationNameChanged) then) =
-      __$$_IndicationNameChangedCopyWithImpl<$Res>;
+abstract class _$$IndicationNameChangedImplCopyWith<$Res> {
+  factory _$$IndicationNameChangedImplCopyWith(
+          _$IndicationNameChangedImpl value,
+          $Res Function(_$IndicationNameChangedImpl) then) =
+      __$$IndicationNameChangedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String indicationName});
 }
 
 /// @nodoc
-class __$$_IndicationNameChangedCopyWithImpl<$Res>
-    extends _$IndicationFormEventCopyWithImpl<$Res, _$_IndicationNameChanged>
-    implements _$$_IndicationNameChangedCopyWith<$Res> {
-  __$$_IndicationNameChangedCopyWithImpl(_$_IndicationNameChanged _value,
-      $Res Function(_$_IndicationNameChanged) _then)
+class __$$IndicationNameChangedImplCopyWithImpl<$Res>
+    extends _$IndicationFormEventCopyWithImpl<$Res, _$IndicationNameChangedImpl>
+    implements _$$IndicationNameChangedImplCopyWith<$Res> {
+  __$$IndicationNameChangedImplCopyWithImpl(_$IndicationNameChangedImpl _value,
+      $Res Function(_$IndicationNameChangedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -261,7 +262,7 @@ class __$$_IndicationNameChangedCopyWithImpl<$Res>
   $Res call({
     Object? indicationName = null,
   }) {
-    return _then(_$_IndicationNameChanged(
+    return _then(_$IndicationNameChangedImpl(
       null == indicationName
           ? _value.indicationName
           : indicationName // ignore: cast_nullable_to_non_nullable
@@ -272,8 +273,8 @@ class __$$_IndicationNameChangedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_IndicationNameChanged implements _IndicationNameChanged {
-  const _$_IndicationNameChanged(this.indicationName);
+class _$IndicationNameChangedImpl implements _IndicationNameChanged {
+  const _$IndicationNameChangedImpl(this.indicationName);
 
   @override
   final String indicationName;
@@ -284,10 +285,10 @@ class _$_IndicationNameChanged implements _IndicationNameChanged {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_IndicationNameChanged &&
+            other is _$IndicationNameChangedImpl &&
             (identical(other.indicationName, indicationName) ||
                 other.indicationName == indicationName));
   }
@@ -298,9 +299,9 @@ class _$_IndicationNameChanged implements _IndicationNameChanged {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_IndicationNameChangedCopyWith<_$_IndicationNameChanged> get copyWith =>
-      __$$_IndicationNameChangedCopyWithImpl<_$_IndicationNameChanged>(
-          this, _$identity);
+  _$$IndicationNameChangedImplCopyWith<_$IndicationNameChangedImpl>
+      get copyWith => __$$IndicationNameChangedImplCopyWithImpl<
+          _$IndicationNameChangedImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -382,20 +383,20 @@ class _$_IndicationNameChanged implements _IndicationNameChanged {
 
 abstract class _IndicationNameChanged implements IndicationFormEvent {
   const factory _IndicationNameChanged(final String indicationName) =
-      _$_IndicationNameChanged;
+      _$IndicationNameChangedImpl;
 
   String get indicationName;
   @JsonKey(ignore: true)
-  _$$_IndicationNameChangedCopyWith<_$_IndicationNameChanged> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$IndicationNameChangedImplCopyWith<_$IndicationNameChangedImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_IndicationCategoryChangedCopyWith<$Res> {
-  factory _$$_IndicationCategoryChangedCopyWith(
-          _$_IndicationCategoryChanged value,
-          $Res Function(_$_IndicationCategoryChanged) then) =
-      __$$_IndicationCategoryChangedCopyWithImpl<$Res>;
+abstract class _$$IndicationCategoryChangedImplCopyWith<$Res> {
+  factory _$$IndicationCategoryChangedImplCopyWith(
+          _$IndicationCategoryChangedImpl value,
+          $Res Function(_$IndicationCategoryChangedImpl) then) =
+      __$$IndicationCategoryChangedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Category indicationCategory});
 
@@ -403,13 +404,13 @@ abstract class _$$_IndicationCategoryChangedCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_IndicationCategoryChangedCopyWithImpl<$Res>
+class __$$IndicationCategoryChangedImplCopyWithImpl<$Res>
     extends _$IndicationFormEventCopyWithImpl<$Res,
-        _$_IndicationCategoryChanged>
-    implements _$$_IndicationCategoryChangedCopyWith<$Res> {
-  __$$_IndicationCategoryChangedCopyWithImpl(
-      _$_IndicationCategoryChanged _value,
-      $Res Function(_$_IndicationCategoryChanged) _then)
+        _$IndicationCategoryChangedImpl>
+    implements _$$IndicationCategoryChangedImplCopyWith<$Res> {
+  __$$IndicationCategoryChangedImplCopyWithImpl(
+      _$IndicationCategoryChangedImpl _value,
+      $Res Function(_$IndicationCategoryChangedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -417,7 +418,7 @@ class __$$_IndicationCategoryChangedCopyWithImpl<$Res>
   $Res call({
     Object? indicationCategory = null,
   }) {
-    return _then(_$_IndicationCategoryChanged(
+    return _then(_$IndicationCategoryChangedImpl(
       null == indicationCategory
           ? _value.indicationCategory
           : indicationCategory // ignore: cast_nullable_to_non_nullable
@@ -436,8 +437,8 @@ class __$$_IndicationCategoryChangedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_IndicationCategoryChanged implements _IndicationCategoryChanged {
-  const _$_IndicationCategoryChanged(this.indicationCategory);
+class _$IndicationCategoryChangedImpl implements _IndicationCategoryChanged {
+  const _$IndicationCategoryChangedImpl(this.indicationCategory);
 
   @override
   final Category indicationCategory;
@@ -448,10 +449,10 @@ class _$_IndicationCategoryChanged implements _IndicationCategoryChanged {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_IndicationCategoryChanged &&
+            other is _$IndicationCategoryChangedImpl &&
             (identical(other.indicationCategory, indicationCategory) ||
                 other.indicationCategory == indicationCategory));
   }
@@ -462,9 +463,9 @@ class _$_IndicationCategoryChanged implements _IndicationCategoryChanged {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_IndicationCategoryChangedCopyWith<_$_IndicationCategoryChanged>
-      get copyWith => __$$_IndicationCategoryChangedCopyWithImpl<
-          _$_IndicationCategoryChanged>(this, _$identity);
+  _$$IndicationCategoryChangedImplCopyWith<_$IndicationCategoryChangedImpl>
+      get copyWith => __$$IndicationCategoryChangedImplCopyWithImpl<
+          _$IndicationCategoryChangedImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -546,32 +547,34 @@ class _$_IndicationCategoryChanged implements _IndicationCategoryChanged {
 
 abstract class _IndicationCategoryChanged implements IndicationFormEvent {
   const factory _IndicationCategoryChanged(final Category indicationCategory) =
-      _$_IndicationCategoryChanged;
+      _$IndicationCategoryChangedImpl;
 
   Category get indicationCategory;
   @JsonKey(ignore: true)
-  _$$_IndicationCategoryChangedCopyWith<_$_IndicationCategoryChanged>
+  _$$IndicationCategoryChangedImplCopyWith<_$IndicationCategoryChangedImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_SavedCopyWith<$Res> {
-  factory _$$_SavedCopyWith(_$_Saved value, $Res Function(_$_Saved) then) =
-      __$$_SavedCopyWithImpl<$Res>;
+abstract class _$$SavedImplCopyWith<$Res> {
+  factory _$$SavedImplCopyWith(
+          _$SavedImpl value, $Res Function(_$SavedImpl) then) =
+      __$$SavedImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_SavedCopyWithImpl<$Res>
-    extends _$IndicationFormEventCopyWithImpl<$Res, _$_Saved>
-    implements _$$_SavedCopyWith<$Res> {
-  __$$_SavedCopyWithImpl(_$_Saved _value, $Res Function(_$_Saved) _then)
+class __$$SavedImplCopyWithImpl<$Res>
+    extends _$IndicationFormEventCopyWithImpl<$Res, _$SavedImpl>
+    implements _$$SavedImplCopyWith<$Res> {
+  __$$SavedImplCopyWithImpl(
+      _$SavedImpl _value, $Res Function(_$SavedImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_Saved implements _Saved {
-  const _$_Saved();
+class _$SavedImpl implements _Saved {
+  const _$SavedImpl();
 
   @override
   String toString() {
@@ -579,9 +582,9 @@ class _$_Saved implements _Saved {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Saved);
+        (other.runtimeType == runtimeType && other is _$SavedImpl);
   }
 
   @override
@@ -666,7 +669,7 @@ class _$_Saved implements _Saved {
 }
 
 abstract class _Saved implements IndicationFormEvent {
-  const factory _Saved() = _$_Saved;
+  const factory _Saved() = _$SavedImpl;
 }
 
 /// @nodoc
@@ -752,11 +755,11 @@ class _$IndicationFormStateCopyWithImpl<$Res, $Val extends IndicationFormState>
 }
 
 /// @nodoc
-abstract class _$$_IndicationFormStateCopyWith<$Res>
+abstract class _$$IndicationFormStateImplCopyWith<$Res>
     implements $IndicationFormStateCopyWith<$Res> {
-  factory _$$_IndicationFormStateCopyWith(_$_IndicationFormState value,
-          $Res Function(_$_IndicationFormState) then) =
-      __$$_IndicationFormStateCopyWithImpl<$Res>;
+  factory _$$IndicationFormStateImplCopyWith(_$IndicationFormStateImpl value,
+          $Res Function(_$IndicationFormStateImpl) then) =
+      __$$IndicationFormStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -771,11 +774,11 @@ abstract class _$$_IndicationFormStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_IndicationFormStateCopyWithImpl<$Res>
-    extends _$IndicationFormStateCopyWithImpl<$Res, _$_IndicationFormState>
-    implements _$$_IndicationFormStateCopyWith<$Res> {
-  __$$_IndicationFormStateCopyWithImpl(_$_IndicationFormState _value,
-      $Res Function(_$_IndicationFormState) _then)
+class __$$IndicationFormStateImplCopyWithImpl<$Res>
+    extends _$IndicationFormStateCopyWithImpl<$Res, _$IndicationFormStateImpl>
+    implements _$$IndicationFormStateImplCopyWith<$Res> {
+  __$$IndicationFormStateImplCopyWithImpl(_$IndicationFormStateImpl _value,
+      $Res Function(_$IndicationFormStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -787,7 +790,7 @@ class __$$_IndicationFormStateCopyWithImpl<$Res>
     Object? isSaving = null,
     Object? saveFailureOrSuccessOption = null,
   }) {
-    return _then(_$_IndicationFormState(
+    return _then(_$IndicationFormStateImpl(
       indication: null == indication
           ? _value.indication
           : indication // ignore: cast_nullable_to_non_nullable
@@ -814,8 +817,8 @@ class __$$_IndicationFormStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_IndicationFormState implements _IndicationFormState {
-  const _$_IndicationFormState(
+class _$IndicationFormStateImpl implements _IndicationFormState {
+  const _$IndicationFormStateImpl(
       {required this.indication,
       required this.showErrorMessages,
       required this.isUpdating,
@@ -839,10 +842,10 @@ class _$_IndicationFormState implements _IndicationFormState {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_IndicationFormState &&
+            other is _$IndicationFormStateImpl &&
             (identical(other.indication, indication) ||
                 other.indication == indication) &&
             (identical(other.showErrorMessages, showErrorMessages) ||
@@ -864,8 +867,8 @@ class _$_IndicationFormState implements _IndicationFormState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_IndicationFormStateCopyWith<_$_IndicationFormState> get copyWith =>
-      __$$_IndicationFormStateCopyWithImpl<_$_IndicationFormState>(
+  _$$IndicationFormStateImplCopyWith<_$IndicationFormStateImpl> get copyWith =>
+      __$$IndicationFormStateImplCopyWithImpl<_$IndicationFormStateImpl>(
           this, _$identity);
 }
 
@@ -876,7 +879,7 @@ abstract class _IndicationFormState implements IndicationFormState {
       required final bool isUpdating,
       required final bool isSaving,
       required final Option<Either<IndicationFailure, Unit>>
-          saveFailureOrSuccessOption}) = _$_IndicationFormState;
+          saveFailureOrSuccessOption}) = _$IndicationFormStateImpl;
 
   @override
   Indication get indication;
@@ -890,6 +893,6 @@ abstract class _IndicationFormState implements IndicationFormState {
   Option<Either<IndicationFailure, Unit>> get saveFailureOrSuccessOption;
   @override
   @JsonKey(ignore: true)
-  _$$_IndicationFormStateCopyWith<_$_IndicationFormState> get copyWith =>
+  _$$IndicationFormStateImplCopyWith<_$IndicationFormStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

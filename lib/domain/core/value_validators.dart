@@ -1,5 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:expedientes_clinicos/domain/core/failures.dart';
+import 'package:expedientes_clinicos/domain/dynamic_forms/form_section/form_components/filed_types/field_types.dart';
+import 'package:expedientes_clinicos/domain/dynamic_forms/section_types.dart';
 import 'package:expedientes_clinicos/presentation/resources/constant_validation.dart';
 import 'package:flutter/material.dart';
 
@@ -109,6 +111,26 @@ Either<ValueFailure<int>, int> validateNonNegInt(int nonNegInt) {
     return right(nonNegInt);
   } else {
     return left(ValueFailure.passwordMustContainNumber(failedValue: nonNegInt));
+  }
+}
+
+Either<ValueFailure<FieldType>, FieldType> validateNonEmptyFieldType(
+    FieldType fieldType) {
+  switch (fieldType) {
+    case FieldType.empty:
+      return left(ValueFailure.empty(failedValue: fieldType));
+    default:
+      return right(fieldType);
+  }
+}
+
+Either<ValueFailure<SectionTypes>, SectionTypes> validateNonEmptySectionType(
+    SectionTypes sectionType) {
+  switch (sectionType) {
+    case SectionTypes.empty:
+      return left(ValueFailure.empty(failedValue: sectionType));
+    default:
+      return right(sectionType);
   }
 }
 

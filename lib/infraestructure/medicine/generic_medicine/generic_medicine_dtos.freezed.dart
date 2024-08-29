@@ -12,7 +12,7 @@ part of 'generic_medicine_dtos.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 GenericMedicineDto _$GenericMedicineDtoFromJson(Map<String, dynamic> json) {
   return _GenericMedicineDto.fromJson(json);
@@ -169,11 +169,11 @@ class _$GenericMedicineDtoCopyWithImpl<$Res, $Val extends GenericMedicineDto>
 }
 
 /// @nodoc
-abstract class _$$_GenericMedicineDtoCopyWith<$Res>
+abstract class _$$GenericMedicineDtoImplCopyWith<$Res>
     implements $GenericMedicineDtoCopyWith<$Res> {
-  factory _$$_GenericMedicineDtoCopyWith(_$_GenericMedicineDto value,
-          $Res Function(_$_GenericMedicineDto) then) =
-      __$$_GenericMedicineDtoCopyWithImpl<$Res>;
+  factory _$$GenericMedicineDtoImplCopyWith(_$GenericMedicineDtoImpl value,
+          $Res Function(_$GenericMedicineDtoImpl) then) =
+      __$$GenericMedicineDtoImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -199,11 +199,11 @@ abstract class _$$_GenericMedicineDtoCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_GenericMedicineDtoCopyWithImpl<$Res>
-    extends _$GenericMedicineDtoCopyWithImpl<$Res, _$_GenericMedicineDto>
-    implements _$$_GenericMedicineDtoCopyWith<$Res> {
-  __$$_GenericMedicineDtoCopyWithImpl(
-      _$_GenericMedicineDto _value, $Res Function(_$_GenericMedicineDto) _then)
+class __$$GenericMedicineDtoImplCopyWithImpl<$Res>
+    extends _$GenericMedicineDtoCopyWithImpl<$Res, _$GenericMedicineDtoImpl>
+    implements _$$GenericMedicineDtoImplCopyWith<$Res> {
+  __$$GenericMedicineDtoImplCopyWithImpl(_$GenericMedicineDtoImpl _value,
+      $Res Function(_$GenericMedicineDtoImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -220,7 +220,7 @@ class __$$_GenericMedicineDtoCopyWithImpl<$Res>
     Object? counter = null,
     Object? controlled = null,
   }) {
-    return _then(_$_GenericMedicineDto(
+    return _then(_$GenericMedicineDtoImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -267,8 +267,8 @@ class __$$_GenericMedicineDtoCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_GenericMedicineDto extends _GenericMedicineDto {
-  const _$_GenericMedicineDto(
+class _$GenericMedicineDtoImpl extends _GenericMedicineDto {
+  const _$GenericMedicineDtoImpl(
       {required this.id,
       required this.genericName,
       required this.measureUnit,
@@ -281,8 +281,8 @@ class _$_GenericMedicineDto extends _GenericMedicineDto {
       required this.controlled})
       : super._();
 
-  factory _$_GenericMedicineDto.fromJson(Map<String, dynamic> json) =>
-      _$$_GenericMedicineDtoFromJson(json);
+  factory _$GenericMedicineDtoImpl.fromJson(Map<String, dynamic> json) =>
+      _$$GenericMedicineDtoImplFromJson(json);
 
   @override
   final String id;
@@ -313,10 +313,10 @@ class _$_GenericMedicineDto extends _GenericMedicineDto {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_GenericMedicineDto &&
+            other is _$GenericMedicineDtoImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.genericName, genericName) ||
                 other.genericName == genericName) &&
@@ -355,13 +355,13 @@ class _$_GenericMedicineDto extends _GenericMedicineDto {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_GenericMedicineDtoCopyWith<_$_GenericMedicineDto> get copyWith =>
-      __$$_GenericMedicineDtoCopyWithImpl<_$_GenericMedicineDto>(
+  _$$GenericMedicineDtoImplCopyWith<_$GenericMedicineDtoImpl> get copyWith =>
+      __$$GenericMedicineDtoImplCopyWithImpl<_$GenericMedicineDtoImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_GenericMedicineDtoToJson(
+    return _$$GenericMedicineDtoImplToJson(
       this,
     );
   }
@@ -378,11 +378,11 @@ abstract class _GenericMedicineDto extends GenericMedicineDto {
       required final int amountPerPackage,
       required final CategoryDto category,
       required final int counter,
-      required final bool controlled}) = _$_GenericMedicineDto;
+      required final bool controlled}) = _$GenericMedicineDtoImpl;
   const _GenericMedicineDto._() : super._();
 
   factory _GenericMedicineDto.fromJson(Map<String, dynamic> json) =
-      _$_GenericMedicineDto.fromJson;
+      _$GenericMedicineDtoImpl.fromJson;
 
   @override
   String get id;
@@ -406,6 +406,6 @@ abstract class _GenericMedicineDto extends GenericMedicineDto {
   bool get controlled;
   @override
   @JsonKey(ignore: true)
-  _$$_GenericMedicineDtoCopyWith<_$_GenericMedicineDto> get copyWith =>
+  _$$GenericMedicineDtoImplCopyWith<_$GenericMedicineDtoImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

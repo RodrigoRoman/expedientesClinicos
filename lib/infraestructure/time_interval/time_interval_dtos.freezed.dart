@@ -12,7 +12,7 @@ part of 'time_interval_dtos.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 TimeIntervalDto _$TimeIntervalDtoFromJson(Map<String, dynamic> json) {
   return _TimeIntervalDto.fromJson(json);
@@ -80,22 +80,22 @@ class _$TimeIntervalDtoCopyWithImpl<$Res, $Val extends TimeIntervalDto>
 }
 
 /// @nodoc
-abstract class _$$_TimeIntervalDtoCopyWith<$Res>
+abstract class _$$TimeIntervalDtoImplCopyWith<$Res>
     implements $TimeIntervalDtoCopyWith<$Res> {
-  factory _$$_TimeIntervalDtoCopyWith(
-          _$_TimeIntervalDto value, $Res Function(_$_TimeIntervalDto) then) =
-      __$$_TimeIntervalDtoCopyWithImpl<$Res>;
+  factory _$$TimeIntervalDtoImplCopyWith(_$TimeIntervalDtoImpl value,
+          $Res Function(_$TimeIntervalDtoImpl) then) =
+      __$$TimeIntervalDtoImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String id, String label, Duration timeDuration, int counter});
 }
 
 /// @nodoc
-class __$$_TimeIntervalDtoCopyWithImpl<$Res>
-    extends _$TimeIntervalDtoCopyWithImpl<$Res, _$_TimeIntervalDto>
-    implements _$$_TimeIntervalDtoCopyWith<$Res> {
-  __$$_TimeIntervalDtoCopyWithImpl(
-      _$_TimeIntervalDto _value, $Res Function(_$_TimeIntervalDto) _then)
+class __$$TimeIntervalDtoImplCopyWithImpl<$Res>
+    extends _$TimeIntervalDtoCopyWithImpl<$Res, _$TimeIntervalDtoImpl>
+    implements _$$TimeIntervalDtoImplCopyWith<$Res> {
+  __$$TimeIntervalDtoImplCopyWithImpl(
+      _$TimeIntervalDtoImpl _value, $Res Function(_$TimeIntervalDtoImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -106,7 +106,7 @@ class __$$_TimeIntervalDtoCopyWithImpl<$Res>
     Object? timeDuration = null,
     Object? counter = null,
   }) {
-    return _then(_$_TimeIntervalDto(
+    return _then(_$TimeIntervalDtoImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -129,16 +129,16 @@ class __$$_TimeIntervalDtoCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_TimeIntervalDto extends _TimeIntervalDto {
-  const _$_TimeIntervalDto(
+class _$TimeIntervalDtoImpl extends _TimeIntervalDto {
+  const _$TimeIntervalDtoImpl(
       {required this.id,
       required this.label,
       required this.timeDuration,
       required this.counter})
       : super._();
 
-  factory _$_TimeIntervalDto.fromJson(Map<String, dynamic> json) =>
-      _$$_TimeIntervalDtoFromJson(json);
+  factory _$TimeIntervalDtoImpl.fromJson(Map<String, dynamic> json) =>
+      _$$TimeIntervalDtoImplFromJson(json);
 
   @override
   final String id;
@@ -155,10 +155,10 @@ class _$_TimeIntervalDto extends _TimeIntervalDto {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_TimeIntervalDto &&
+            other is _$TimeIntervalDtoImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.label, label) || other.label == label) &&
             (identical(other.timeDuration, timeDuration) ||
@@ -174,12 +174,13 @@ class _$_TimeIntervalDto extends _TimeIntervalDto {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_TimeIntervalDtoCopyWith<_$_TimeIntervalDto> get copyWith =>
-      __$$_TimeIntervalDtoCopyWithImpl<_$_TimeIntervalDto>(this, _$identity);
+  _$$TimeIntervalDtoImplCopyWith<_$TimeIntervalDtoImpl> get copyWith =>
+      __$$TimeIntervalDtoImplCopyWithImpl<_$TimeIntervalDtoImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_TimeIntervalDtoToJson(
+    return _$$TimeIntervalDtoImplToJson(
       this,
     );
   }
@@ -190,11 +191,11 @@ abstract class _TimeIntervalDto extends TimeIntervalDto {
       {required final String id,
       required final String label,
       required final Duration timeDuration,
-      required final int counter}) = _$_TimeIntervalDto;
+      required final int counter}) = _$TimeIntervalDtoImpl;
   const _TimeIntervalDto._() : super._();
 
   factory _TimeIntervalDto.fromJson(Map<String, dynamic> json) =
-      _$_TimeIntervalDto.fromJson;
+      _$TimeIntervalDtoImpl.fromJson;
 
   @override
   String get id;
@@ -206,6 +207,6 @@ abstract class _TimeIntervalDto extends TimeIntervalDto {
   int get counter;
   @override
   @JsonKey(ignore: true)
-  _$$_TimeIntervalDtoCopyWith<_$_TimeIntervalDto> get copyWith =>
+  _$$TimeIntervalDtoImplCopyWith<_$TimeIntervalDtoImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

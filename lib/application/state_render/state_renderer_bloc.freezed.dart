@@ -12,7 +12,7 @@ part of 'state_renderer_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$StateRendererEvent {
@@ -150,10 +150,10 @@ class _$StateRendererEventCopyWithImpl<$Res, $Val extends StateRendererEvent>
 }
 
 /// @nodoc
-abstract class _$$PopUpSuccessCopyWith<$Res> {
-  factory _$$PopUpSuccessCopyWith(
-          _$PopUpSuccess value, $Res Function(_$PopUpSuccess) then) =
-      __$$PopUpSuccessCopyWithImpl<$Res>;
+abstract class _$$PopUpSuccessImplCopyWith<$Res> {
+  factory _$$PopUpSuccessImplCopyWith(
+          _$PopUpSuccessImpl value, $Res Function(_$PopUpSuccessImpl) then) =
+      __$$PopUpSuccessImplCopyWithImpl<$Res>;
   @useResult
   $Res call(
       {String title,
@@ -164,11 +164,11 @@ abstract class _$$PopUpSuccessCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$PopUpSuccessCopyWithImpl<$Res>
-    extends _$StateRendererEventCopyWithImpl<$Res, _$PopUpSuccess>
-    implements _$$PopUpSuccessCopyWith<$Res> {
-  __$$PopUpSuccessCopyWithImpl(
-      _$PopUpSuccess _value, $Res Function(_$PopUpSuccess) _then)
+class __$$PopUpSuccessImplCopyWithImpl<$Res>
+    extends _$StateRendererEventCopyWithImpl<$Res, _$PopUpSuccessImpl>
+    implements _$$PopUpSuccessImplCopyWith<$Res> {
+  __$$PopUpSuccessImplCopyWithImpl(
+      _$PopUpSuccessImpl _value, $Res Function(_$PopUpSuccessImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -180,7 +180,7 @@ class __$$PopUpSuccessCopyWithImpl<$Res>
     Object? width = freezed,
     Object? height = freezed,
   }) {
-    return _then(_$PopUpSuccess(
+    return _then(_$PopUpSuccessImpl(
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -207,8 +207,8 @@ class __$$PopUpSuccessCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$PopUpSuccess implements PopUpSuccess {
-  const _$PopUpSuccess(
+class _$PopUpSuccessImpl implements PopUpSuccess {
+  const _$PopUpSuccessImpl(
       {required this.title,
       required this.message,
       this.until,
@@ -232,10 +232,10 @@ class _$PopUpSuccess implements PopUpSuccess {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PopUpSuccess &&
+            other is _$PopUpSuccessImpl &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.message, message) || other.message == message) &&
             (identical(other.until, until) || other.until == until) &&
@@ -250,8 +250,8 @@ class _$PopUpSuccess implements PopUpSuccess {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$PopUpSuccessCopyWith<_$PopUpSuccess> get copyWith =>
-      __$$PopUpSuccessCopyWithImpl<_$PopUpSuccess>(this, _$identity);
+  _$$PopUpSuccessImplCopyWith<_$PopUpSuccessImpl> get copyWith =>
+      __$$PopUpSuccessImplCopyWithImpl<_$PopUpSuccessImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -397,7 +397,7 @@ abstract class PopUpSuccess implements StateRendererEvent {
       required final String message,
       final String? until,
       final double? width,
-      final double? height}) = _$PopUpSuccess;
+      final double? height}) = _$PopUpSuccessImpl;
 
   String get title;
   String get message;
@@ -405,15 +405,15 @@ abstract class PopUpSuccess implements StateRendererEvent {
   double? get width;
   double? get height;
   @JsonKey(ignore: true)
-  _$$PopUpSuccessCopyWith<_$PopUpSuccess> get copyWith =>
+  _$$PopUpSuccessImplCopyWith<_$PopUpSuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$PopUpErrorCopyWith<$Res> {
-  factory _$$PopUpErrorCopyWith(
-          _$PopUpError value, $Res Function(_$PopUpError) then) =
-      __$$PopUpErrorCopyWithImpl<$Res>;
+abstract class _$$PopUpErrorImplCopyWith<$Res> {
+  factory _$$PopUpErrorImplCopyWith(
+          _$PopUpErrorImpl value, $Res Function(_$PopUpErrorImpl) then) =
+      __$$PopUpErrorImplCopyWithImpl<$Res>;
   @useResult
   $Res call(
       {String title,
@@ -424,11 +424,11 @@ abstract class _$$PopUpErrorCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$PopUpErrorCopyWithImpl<$Res>
-    extends _$StateRendererEventCopyWithImpl<$Res, _$PopUpError>
-    implements _$$PopUpErrorCopyWith<$Res> {
-  __$$PopUpErrorCopyWithImpl(
-      _$PopUpError _value, $Res Function(_$PopUpError) _then)
+class __$$PopUpErrorImplCopyWithImpl<$Res>
+    extends _$StateRendererEventCopyWithImpl<$Res, _$PopUpErrorImpl>
+    implements _$$PopUpErrorImplCopyWith<$Res> {
+  __$$PopUpErrorImplCopyWithImpl(
+      _$PopUpErrorImpl _value, $Res Function(_$PopUpErrorImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -440,7 +440,7 @@ class __$$PopUpErrorCopyWithImpl<$Res>
     Object? width = freezed,
     Object? height = freezed,
   }) {
-    return _then(_$PopUpError(
+    return _then(_$PopUpErrorImpl(
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -467,8 +467,8 @@ class __$$PopUpErrorCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$PopUpError implements PopUpError {
-  const _$PopUpError(
+class _$PopUpErrorImpl implements PopUpError {
+  const _$PopUpErrorImpl(
       {required this.title,
       required this.message,
       this.until,
@@ -492,10 +492,10 @@ class _$PopUpError implements PopUpError {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PopUpError &&
+            other is _$PopUpErrorImpl &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.message, message) || other.message == message) &&
             (identical(other.until, until) || other.until == until) &&
@@ -510,8 +510,8 @@ class _$PopUpError implements PopUpError {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$PopUpErrorCopyWith<_$PopUpError> get copyWith =>
-      __$$PopUpErrorCopyWithImpl<_$PopUpError>(this, _$identity);
+  _$$PopUpErrorImplCopyWith<_$PopUpErrorImpl> get copyWith =>
+      __$$PopUpErrorImplCopyWithImpl<_$PopUpErrorImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -657,7 +657,7 @@ abstract class PopUpError implements StateRendererEvent {
       required final String message,
       final String? until,
       final double? width,
-      final double? height}) = _$PopUpError;
+      final double? height}) = _$PopUpErrorImpl;
 
   String get title;
   String get message;
@@ -665,25 +665,25 @@ abstract class PopUpError implements StateRendererEvent {
   double? get width;
   double? get height;
   @JsonKey(ignore: true)
-  _$$PopUpErrorCopyWith<_$PopUpError> get copyWith =>
+  _$$PopUpErrorImplCopyWith<_$PopUpErrorImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$PopUpServerErrorCopyWith<$Res> {
-  factory _$$PopUpServerErrorCopyWith(
-          _$PopUpServerError value, $Res Function(_$PopUpServerError) then) =
-      __$$PopUpServerErrorCopyWithImpl<$Res>;
+abstract class _$$PopUpServerErrorImplCopyWith<$Res> {
+  factory _$$PopUpServerErrorImplCopyWith(_$PopUpServerErrorImpl value,
+          $Res Function(_$PopUpServerErrorImpl) then) =
+      __$$PopUpServerErrorImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String title, String message});
 }
 
 /// @nodoc
-class __$$PopUpServerErrorCopyWithImpl<$Res>
-    extends _$StateRendererEventCopyWithImpl<$Res, _$PopUpServerError>
-    implements _$$PopUpServerErrorCopyWith<$Res> {
-  __$$PopUpServerErrorCopyWithImpl(
-      _$PopUpServerError _value, $Res Function(_$PopUpServerError) _then)
+class __$$PopUpServerErrorImplCopyWithImpl<$Res>
+    extends _$StateRendererEventCopyWithImpl<$Res, _$PopUpServerErrorImpl>
+    implements _$$PopUpServerErrorImplCopyWith<$Res> {
+  __$$PopUpServerErrorImplCopyWithImpl(_$PopUpServerErrorImpl _value,
+      $Res Function(_$PopUpServerErrorImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -692,7 +692,7 @@ class __$$PopUpServerErrorCopyWithImpl<$Res>
     Object? title = null,
     Object? message = null,
   }) {
-    return _then(_$PopUpServerError(
+    return _then(_$PopUpServerErrorImpl(
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -707,8 +707,8 @@ class __$$PopUpServerErrorCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$PopUpServerError implements PopUpServerError {
-  const _$PopUpServerError({required this.title, required this.message});
+class _$PopUpServerErrorImpl implements PopUpServerError {
+  const _$PopUpServerErrorImpl({required this.title, required this.message});
 
   @override
   final String title;
@@ -721,10 +721,10 @@ class _$PopUpServerError implements PopUpServerError {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PopUpServerError &&
+            other is _$PopUpServerErrorImpl &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.message, message) || other.message == message));
   }
@@ -735,8 +735,9 @@ class _$PopUpServerError implements PopUpServerError {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$PopUpServerErrorCopyWith<_$PopUpServerError> get copyWith =>
-      __$$PopUpServerErrorCopyWithImpl<_$PopUpServerError>(this, _$identity);
+  _$$PopUpServerErrorImplCopyWith<_$PopUpServerErrorImpl> get copyWith =>
+      __$$PopUpServerErrorImplCopyWithImpl<_$PopUpServerErrorImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -879,20 +880,20 @@ class _$PopUpServerError implements PopUpServerError {
 abstract class PopUpServerError implements StateRendererEvent {
   const factory PopUpServerError(
       {required final String title,
-      required final String message}) = _$PopUpServerError;
+      required final String message}) = _$PopUpServerErrorImpl;
 
   String get title;
   String get message;
   @JsonKey(ignore: true)
-  _$$PopUpServerErrorCopyWith<_$PopUpServerError> get copyWith =>
+  _$$PopUpServerErrorImplCopyWith<_$PopUpServerErrorImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$PopUpLoadingCopyWith<$Res> {
-  factory _$$PopUpLoadingCopyWith(
-          _$PopUpLoading value, $Res Function(_$PopUpLoading) then) =
-      __$$PopUpLoadingCopyWithImpl<$Res>;
+abstract class _$$PopUpLoadingImplCopyWith<$Res> {
+  factory _$$PopUpLoadingImplCopyWith(
+          _$PopUpLoadingImpl value, $Res Function(_$PopUpLoadingImpl) then) =
+      __$$PopUpLoadingImplCopyWithImpl<$Res>;
   @useResult
   $Res call(
       {String title,
@@ -903,11 +904,11 @@ abstract class _$$PopUpLoadingCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$PopUpLoadingCopyWithImpl<$Res>
-    extends _$StateRendererEventCopyWithImpl<$Res, _$PopUpLoading>
-    implements _$$PopUpLoadingCopyWith<$Res> {
-  __$$PopUpLoadingCopyWithImpl(
-      _$PopUpLoading _value, $Res Function(_$PopUpLoading) _then)
+class __$$PopUpLoadingImplCopyWithImpl<$Res>
+    extends _$StateRendererEventCopyWithImpl<$Res, _$PopUpLoadingImpl>
+    implements _$$PopUpLoadingImplCopyWith<$Res> {
+  __$$PopUpLoadingImplCopyWithImpl(
+      _$PopUpLoadingImpl _value, $Res Function(_$PopUpLoadingImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -919,7 +920,7 @@ class __$$PopUpLoadingCopyWithImpl<$Res>
     Object? width = freezed,
     Object? height = freezed,
   }) {
-    return _then(_$PopUpLoading(
+    return _then(_$PopUpLoadingImpl(
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -946,8 +947,8 @@ class __$$PopUpLoadingCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$PopUpLoading implements PopUpLoading {
-  const _$PopUpLoading(
+class _$PopUpLoadingImpl implements PopUpLoading {
+  const _$PopUpLoadingImpl(
       {required this.title,
       required this.message,
       this.until,
@@ -971,10 +972,10 @@ class _$PopUpLoading implements PopUpLoading {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PopUpLoading &&
+            other is _$PopUpLoadingImpl &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.message, message) || other.message == message) &&
             (identical(other.until, until) || other.until == until) &&
@@ -989,8 +990,8 @@ class _$PopUpLoading implements PopUpLoading {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$PopUpLoadingCopyWith<_$PopUpLoading> get copyWith =>
-      __$$PopUpLoadingCopyWithImpl<_$PopUpLoading>(this, _$identity);
+  _$$PopUpLoadingImplCopyWith<_$PopUpLoadingImpl> get copyWith =>
+      __$$PopUpLoadingImplCopyWithImpl<_$PopUpLoadingImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1136,7 +1137,7 @@ abstract class PopUpLoading implements StateRendererEvent {
       required final String message,
       final String? until,
       final double? width,
-      final double? height}) = _$PopUpLoading;
+      final double? height}) = _$PopUpLoadingImpl;
 
   String get title;
   String get message;
@@ -1144,15 +1145,15 @@ abstract class PopUpLoading implements StateRendererEvent {
   double? get width;
   double? get height;
   @JsonKey(ignore: true)
-  _$$PopUpLoadingCopyWith<_$PopUpLoading> get copyWith =>
+  _$$PopUpLoadingImplCopyWith<_$PopUpLoadingImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$PopUpFormCopyWith<$Res> {
-  factory _$$PopUpFormCopyWith(
-          _$PopUpForm value, $Res Function(_$PopUpForm) then) =
-      __$$PopUpFormCopyWithImpl<$Res>;
+abstract class _$$PopUpFormImplCopyWith<$Res> {
+  factory _$$PopUpFormImplCopyWith(
+          _$PopUpFormImpl value, $Res Function(_$PopUpFormImpl) then) =
+      __$$PopUpFormImplCopyWithImpl<$Res>;
   @useResult
   $Res call(
       {String title,
@@ -1163,11 +1164,11 @@ abstract class _$$PopUpFormCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$PopUpFormCopyWithImpl<$Res>
-    extends _$StateRendererEventCopyWithImpl<$Res, _$PopUpForm>
-    implements _$$PopUpFormCopyWith<$Res> {
-  __$$PopUpFormCopyWithImpl(
-      _$PopUpForm _value, $Res Function(_$PopUpForm) _then)
+class __$$PopUpFormImplCopyWithImpl<$Res>
+    extends _$StateRendererEventCopyWithImpl<$Res, _$PopUpFormImpl>
+    implements _$$PopUpFormImplCopyWith<$Res> {
+  __$$PopUpFormImplCopyWithImpl(
+      _$PopUpFormImpl _value, $Res Function(_$PopUpFormImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1179,7 +1180,7 @@ class __$$PopUpFormCopyWithImpl<$Res>
     Object? height = freezed,
     Object? until = freezed,
   }) {
-    return _then(_$PopUpForm(
+    return _then(_$PopUpFormImpl(
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -1206,8 +1207,8 @@ class __$$PopUpFormCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$PopUpForm implements PopUpForm {
-  const _$PopUpForm(
+class _$PopUpFormImpl implements PopUpForm {
+  const _$PopUpFormImpl(
       {required this.title,
       required this.bodyWidget,
       this.width,
@@ -1231,10 +1232,10 @@ class _$PopUpForm implements PopUpForm {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PopUpForm &&
+            other is _$PopUpFormImpl &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.bodyWidget, bodyWidget) ||
                 other.bodyWidget == bodyWidget) &&
@@ -1250,8 +1251,8 @@ class _$PopUpForm implements PopUpForm {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$PopUpFormCopyWith<_$PopUpForm> get copyWith =>
-      __$$PopUpFormCopyWithImpl<_$PopUpForm>(this, _$identity);
+  _$$PopUpFormImplCopyWith<_$PopUpFormImpl> get copyWith =>
+      __$$PopUpFormImplCopyWithImpl<_$PopUpFormImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1397,7 +1398,7 @@ abstract class PopUpForm implements StateRendererEvent {
       required final Widget bodyWidget,
       final double? width,
       final double? height,
-      final String? until}) = _$PopUpForm;
+      final String? until}) = _$PopUpFormImpl;
 
   String get title;
   Widget get bodyWidget;
@@ -1405,25 +1406,25 @@ abstract class PopUpForm implements StateRendererEvent {
   double? get height;
   String? get until;
   @JsonKey(ignore: true)
-  _$$PopUpFormCopyWith<_$PopUpForm> get copyWith =>
+  _$$PopUpFormImplCopyWith<_$PopUpFormImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$FullErrorScreenCopyWith<$Res> {
-  factory _$$FullErrorScreenCopyWith(
-          _$FullErrorScreen value, $Res Function(_$FullErrorScreen) then) =
-      __$$FullErrorScreenCopyWithImpl<$Res>;
+abstract class _$$FullErrorScreenImplCopyWith<$Res> {
+  factory _$$FullErrorScreenImplCopyWith(_$FullErrorScreenImpl value,
+          $Res Function(_$FullErrorScreenImpl) then) =
+      __$$FullErrorScreenImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String title, String message, String? until});
 }
 
 /// @nodoc
-class __$$FullErrorScreenCopyWithImpl<$Res>
-    extends _$StateRendererEventCopyWithImpl<$Res, _$FullErrorScreen>
-    implements _$$FullErrorScreenCopyWith<$Res> {
-  __$$FullErrorScreenCopyWithImpl(
-      _$FullErrorScreen _value, $Res Function(_$FullErrorScreen) _then)
+class __$$FullErrorScreenImplCopyWithImpl<$Res>
+    extends _$StateRendererEventCopyWithImpl<$Res, _$FullErrorScreenImpl>
+    implements _$$FullErrorScreenImplCopyWith<$Res> {
+  __$$FullErrorScreenImplCopyWithImpl(
+      _$FullErrorScreenImpl _value, $Res Function(_$FullErrorScreenImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1433,7 +1434,7 @@ class __$$FullErrorScreenCopyWithImpl<$Res>
     Object? message = null,
     Object? until = freezed,
   }) {
-    return _then(_$FullErrorScreen(
+    return _then(_$FullErrorScreenImpl(
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -1452,8 +1453,8 @@ class __$$FullErrorScreenCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$FullErrorScreen implements FullErrorScreen {
-  const _$FullErrorScreen(
+class _$FullErrorScreenImpl implements FullErrorScreen {
+  const _$FullErrorScreenImpl(
       {required this.title, required this.message, this.until});
 
   @override
@@ -1469,10 +1470,10 @@ class _$FullErrorScreen implements FullErrorScreen {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FullErrorScreen &&
+            other is _$FullErrorScreenImpl &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.message, message) || other.message == message) &&
             (identical(other.until, until) || other.until == until));
@@ -1484,8 +1485,9 @@ class _$FullErrorScreen implements FullErrorScreen {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$FullErrorScreenCopyWith<_$FullErrorScreen> get copyWith =>
-      __$$FullErrorScreenCopyWithImpl<_$FullErrorScreen>(this, _$identity);
+  _$$FullErrorScreenImplCopyWith<_$FullErrorScreenImpl> get copyWith =>
+      __$$FullErrorScreenImplCopyWithImpl<_$FullErrorScreenImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1629,31 +1631,31 @@ abstract class FullErrorScreen implements StateRendererEvent {
   const factory FullErrorScreen(
       {required final String title,
       required final String message,
-      final String? until}) = _$FullErrorScreen;
+      final String? until}) = _$FullErrorScreenImpl;
 
   String get title;
   String get message;
   String? get until;
   @JsonKey(ignore: true)
-  _$$FullErrorScreenCopyWith<_$FullErrorScreen> get copyWith =>
+  _$$FullErrorScreenImplCopyWith<_$FullErrorScreenImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$FullScreenFormCopyWith<$Res> {
-  factory _$$FullScreenFormCopyWith(
-          _$FullScreenForm value, $Res Function(_$FullScreenForm) then) =
-      __$$FullScreenFormCopyWithImpl<$Res>;
+abstract class _$$FullScreenFormImplCopyWith<$Res> {
+  factory _$$FullScreenFormImplCopyWith(_$FullScreenFormImpl value,
+          $Res Function(_$FullScreenFormImpl) then) =
+      __$$FullScreenFormImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String title, Widget bodyWidget, String message, String? until});
 }
 
 /// @nodoc
-class __$$FullScreenFormCopyWithImpl<$Res>
-    extends _$StateRendererEventCopyWithImpl<$Res, _$FullScreenForm>
-    implements _$$FullScreenFormCopyWith<$Res> {
-  __$$FullScreenFormCopyWithImpl(
-      _$FullScreenForm _value, $Res Function(_$FullScreenForm) _then)
+class __$$FullScreenFormImplCopyWithImpl<$Res>
+    extends _$StateRendererEventCopyWithImpl<$Res, _$FullScreenFormImpl>
+    implements _$$FullScreenFormImplCopyWith<$Res> {
+  __$$FullScreenFormImplCopyWithImpl(
+      _$FullScreenFormImpl _value, $Res Function(_$FullScreenFormImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1664,7 +1666,7 @@ class __$$FullScreenFormCopyWithImpl<$Res>
     Object? message = null,
     Object? until = freezed,
   }) {
-    return _then(_$FullScreenForm(
+    return _then(_$FullScreenFormImpl(
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -1687,8 +1689,8 @@ class __$$FullScreenFormCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$FullScreenForm implements FullScreenForm {
-  const _$FullScreenForm(
+class _$FullScreenFormImpl implements FullScreenForm {
+  const _$FullScreenFormImpl(
       {required this.title,
       required this.bodyWidget,
       required this.message,
@@ -1709,10 +1711,10 @@ class _$FullScreenForm implements FullScreenForm {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FullScreenForm &&
+            other is _$FullScreenFormImpl &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.bodyWidget, bodyWidget) ||
                 other.bodyWidget == bodyWidget) &&
@@ -1727,8 +1729,9 @@ class _$FullScreenForm implements FullScreenForm {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$FullScreenFormCopyWith<_$FullScreenForm> get copyWith =>
-      __$$FullScreenFormCopyWithImpl<_$FullScreenForm>(this, _$identity);
+  _$$FullScreenFormImplCopyWith<_$FullScreenFormImpl> get copyWith =>
+      __$$FullScreenFormImplCopyWithImpl<_$FullScreenFormImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1873,37 +1876,37 @@ abstract class FullScreenForm implements StateRendererEvent {
       {required final String title,
       required final Widget bodyWidget,
       required final String message,
-      final String? until}) = _$FullScreenForm;
+      final String? until}) = _$FullScreenFormImpl;
 
   String get title;
   Widget get bodyWidget;
   String get message;
   String? get until;
   @JsonKey(ignore: true)
-  _$$FullScreenFormCopyWith<_$FullScreenForm> get copyWith =>
+  _$$FullScreenFormImplCopyWith<_$FullScreenFormImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ContentScreenCopyWith<$Res> {
-  factory _$$ContentScreenCopyWith(
-          _$ContentScreen value, $Res Function(_$ContentScreen) then) =
-      __$$ContentScreenCopyWithImpl<$Res>;
+abstract class _$$ContentScreenImplCopyWith<$Res> {
+  factory _$$ContentScreenImplCopyWith(
+          _$ContentScreenImpl value, $Res Function(_$ContentScreenImpl) then) =
+      __$$ContentScreenImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$ContentScreenCopyWithImpl<$Res>
-    extends _$StateRendererEventCopyWithImpl<$Res, _$ContentScreen>
-    implements _$$ContentScreenCopyWith<$Res> {
-  __$$ContentScreenCopyWithImpl(
-      _$ContentScreen _value, $Res Function(_$ContentScreen) _then)
+class __$$ContentScreenImplCopyWithImpl<$Res>
+    extends _$StateRendererEventCopyWithImpl<$Res, _$ContentScreenImpl>
+    implements _$$ContentScreenImplCopyWith<$Res> {
+  __$$ContentScreenImplCopyWithImpl(
+      _$ContentScreenImpl _value, $Res Function(_$ContentScreenImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$ContentScreen implements ContentScreen {
-  const _$ContentScreen();
+class _$ContentScreenImpl implements ContentScreen {
+  const _$ContentScreenImpl();
 
   @override
   String toString() {
@@ -1911,9 +1914,9 @@ class _$ContentScreen implements ContentScreen {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$ContentScreen);
+        (other.runtimeType == runtimeType && other is _$ContentScreenImpl);
   }
 
   @override
@@ -2058,29 +2061,29 @@ class _$ContentScreen implements ContentScreen {
 }
 
 abstract class ContentScreen implements StateRendererEvent {
-  const factory ContentScreen() = _$ContentScreen;
+  const factory ContentScreen() = _$ContentScreenImpl;
 }
 
 /// @nodoc
-abstract class _$$EmptySreenCopyWith<$Res> {
-  factory _$$EmptySreenCopyWith(
-          _$EmptySreen value, $Res Function(_$EmptySreen) then) =
-      __$$EmptySreenCopyWithImpl<$Res>;
+abstract class _$$EmptySreenImplCopyWith<$Res> {
+  factory _$$EmptySreenImplCopyWith(
+          _$EmptySreenImpl value, $Res Function(_$EmptySreenImpl) then) =
+      __$$EmptySreenImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$EmptySreenCopyWithImpl<$Res>
-    extends _$StateRendererEventCopyWithImpl<$Res, _$EmptySreen>
-    implements _$$EmptySreenCopyWith<$Res> {
-  __$$EmptySreenCopyWithImpl(
-      _$EmptySreen _value, $Res Function(_$EmptySreen) _then)
+class __$$EmptySreenImplCopyWithImpl<$Res>
+    extends _$StateRendererEventCopyWithImpl<$Res, _$EmptySreenImpl>
+    implements _$$EmptySreenImplCopyWith<$Res> {
+  __$$EmptySreenImplCopyWithImpl(
+      _$EmptySreenImpl _value, $Res Function(_$EmptySreenImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$EmptySreen implements EmptySreen {
-  const _$EmptySreen();
+class _$EmptySreenImpl implements EmptySreen {
+  const _$EmptySreenImpl();
 
   @override
   String toString() {
@@ -2088,9 +2091,9 @@ class _$EmptySreen implements EmptySreen {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$EmptySreen);
+        (other.runtimeType == runtimeType && other is _$EmptySreenImpl);
   }
 
   @override
@@ -2235,7 +2238,7 @@ class _$EmptySreen implements EmptySreen {
 }
 
 abstract class EmptySreen implements StateRendererEvent {
-  const factory EmptySreen() = _$EmptySreen;
+  const factory EmptySreen() = _$EmptySreenImpl;
 }
 
 /// @nodoc
@@ -2331,11 +2334,11 @@ class _$StateRendererStateCopyWithImpl<$Res, $Val extends StateRendererState>
 }
 
 /// @nodoc
-abstract class _$$_StateRendererStateCopyWith<$Res>
+abstract class _$$StateRendererStateImplCopyWith<$Res>
     implements $StateRendererStateCopyWith<$Res> {
-  factory _$$_StateRendererStateCopyWith(_$_StateRendererState value,
-          $Res Function(_$_StateRendererState) then) =
-      __$$_StateRendererStateCopyWithImpl<$Res>;
+  factory _$$StateRendererStateImplCopyWith(_$StateRendererStateImpl value,
+          $Res Function(_$StateRendererStateImpl) then) =
+      __$$StateRendererStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -2350,11 +2353,11 @@ abstract class _$$_StateRendererStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_StateRendererStateCopyWithImpl<$Res>
-    extends _$StateRendererStateCopyWithImpl<$Res, _$_StateRendererState>
-    implements _$$_StateRendererStateCopyWith<$Res> {
-  __$$_StateRendererStateCopyWithImpl(
-      _$_StateRendererState _value, $Res Function(_$_StateRendererState) _then)
+class __$$StateRendererStateImplCopyWithImpl<$Res>
+    extends _$StateRendererStateCopyWithImpl<$Res, _$StateRendererStateImpl>
+    implements _$$StateRendererStateImplCopyWith<$Res> {
+  __$$StateRendererStateImplCopyWithImpl(_$StateRendererStateImpl _value,
+      $Res Function(_$StateRendererStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -2369,7 +2372,7 @@ class __$$_StateRendererStateCopyWithImpl<$Res>
     Object? body = freezed,
     Object? stateRender = null,
   }) {
-    return _then(_$_StateRendererState(
+    return _then(_$StateRendererStateImpl(
       message: null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -2408,8 +2411,8 @@ class __$$_StateRendererStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_StateRendererState implements _StateRendererState {
-  const _$_StateRendererState(
+class _$StateRendererStateImpl implements _StateRendererState {
+  const _$StateRendererStateImpl(
       {required this.message,
       required this.retryAction,
       required this.title,
@@ -2442,10 +2445,10 @@ class _$_StateRendererState implements _StateRendererState {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_StateRendererState &&
+            other is _$StateRendererStateImpl &&
             (identical(other.message, message) || other.message == message) &&
             (identical(other.retryAction, retryAction) ||
                 other.retryAction == retryAction) &&
@@ -2465,8 +2468,8 @@ class _$_StateRendererState implements _StateRendererState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_StateRendererStateCopyWith<_$_StateRendererState> get copyWith =>
-      __$$_StateRendererStateCopyWithImpl<_$_StateRendererState>(
+  _$$StateRendererStateImplCopyWith<_$StateRendererStateImpl> get copyWith =>
+      __$$StateRendererStateImplCopyWithImpl<_$StateRendererStateImpl>(
           this, _$identity);
 }
 
@@ -2479,7 +2482,7 @@ abstract class _StateRendererState implements StateRendererState {
       required final double width,
       required final double height,
       final Widget? body,
-      required final StateRendererType stateRender}) = _$_StateRendererState;
+      required final StateRendererType stateRender}) = _$StateRendererStateImpl;
 
   @override
   String get message;
@@ -2499,6 +2502,6 @@ abstract class _StateRendererState implements StateRendererState {
   StateRendererType get stateRender;
   @override
   @JsonKey(ignore: true)
-  _$$_StateRendererStateCopyWith<_$_StateRendererState> get copyWith =>
+  _$$StateRendererStateImplCopyWith<_$StateRendererStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

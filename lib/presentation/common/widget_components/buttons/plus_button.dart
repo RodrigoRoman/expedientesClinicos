@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 
 class PlusButton extends StatelessWidget {
   Function? onPressed;
-  PlusButton({super.key, this.onPressed});
+  bool inactive;
+  PlusButton({super.key, this.onPressed, this.inactive = false});
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +31,8 @@ class PlusButton extends StatelessWidget {
 
 class PlusButtonUp extends StatelessWidget {
   Function onPressed;
-  PlusButtonUp({super.key, required this.onPressed});
+  bool inactive;
+  PlusButtonUp({super.key, required this.onPressed, this.inactive = false});
 
   @override
   Widget build(BuildContext context) {
@@ -41,12 +43,12 @@ class PlusButtonUp extends StatelessWidget {
             : constraints.maxWidth;
         return Center(
           child: GestureDetector(
-            onTap: () => onPressed(),
+            onTap: inactive ? null : () => onPressed?.call(),
             child: Container(
               width: buttonSize,
               height: constraints.maxHeight,
               decoration: BoxDecoration(
-                color: Theme.of(context).primaryColor,
+                color: inactive ? Colors.grey : Theme.of(context).primaryColor,
                 borderRadius: BoderRadiusStyle.plusButton,
               ),
               alignment: Alignment.topCenter,

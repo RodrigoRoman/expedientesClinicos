@@ -12,7 +12,7 @@ part of 'branded_medicine_form_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$BrandedMedicineFormEvent {
@@ -115,24 +115,25 @@ class _$BrandedMedicineFormEventCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_StartedCopyWith<$Res> {
-  factory _$$_StartedCopyWith(
-          _$_Started value, $Res Function(_$_Started) then) =
-      __$$_StartedCopyWithImpl<$Res>;
+abstract class _$$StartedImplCopyWith<$Res> {
+  factory _$$StartedImplCopyWith(
+          _$StartedImpl value, $Res Function(_$StartedImpl) then) =
+      __$$StartedImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_StartedCopyWithImpl<$Res>
-    extends _$BrandedMedicineFormEventCopyWithImpl<$Res, _$_Started>
-    implements _$$_StartedCopyWith<$Res> {
-  __$$_StartedCopyWithImpl(_$_Started _value, $Res Function(_$_Started) _then)
+class __$$StartedImplCopyWithImpl<$Res>
+    extends _$BrandedMedicineFormEventCopyWithImpl<$Res, _$StartedImpl>
+    implements _$$StartedImplCopyWith<$Res> {
+  __$$StartedImplCopyWithImpl(
+      _$StartedImpl _value, $Res Function(_$StartedImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_Started with DiagnosticableTreeMixin implements _Started {
-  const _$_Started();
+class _$StartedImpl with DiagnosticableTreeMixin implements _Started {
+  const _$StartedImpl();
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -147,9 +148,9 @@ class _$_Started with DiagnosticableTreeMixin implements _Started {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Started);
+        (other.runtimeType == runtimeType && other is _$StartedImpl);
   }
 
   @override
@@ -258,24 +259,24 @@ class _$_Started with DiagnosticableTreeMixin implements _Started {
 }
 
 abstract class _Started implements BrandedMedicineFormEvent {
-  const factory _Started() = _$_Started;
+  const factory _Started() = _$StartedImpl;
 }
 
 /// @nodoc
-abstract class _$$_InitializedCopyWith<$Res> {
-  factory _$$_InitializedCopyWith(
-          _$_Initialized value, $Res Function(_$_Initialized) then) =
-      __$$_InitializedCopyWithImpl<$Res>;
+abstract class _$$InitializedImplCopyWith<$Res> {
+  factory _$$InitializedImplCopyWith(
+          _$InitializedImpl value, $Res Function(_$InitializedImpl) then) =
+      __$$InitializedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Option<BrandedMedicine> intialMedicineOption});
 }
 
 /// @nodoc
-class __$$_InitializedCopyWithImpl<$Res>
-    extends _$BrandedMedicineFormEventCopyWithImpl<$Res, _$_Initialized>
-    implements _$$_InitializedCopyWith<$Res> {
-  __$$_InitializedCopyWithImpl(
-      _$_Initialized _value, $Res Function(_$_Initialized) _then)
+class __$$InitializedImplCopyWithImpl<$Res>
+    extends _$BrandedMedicineFormEventCopyWithImpl<$Res, _$InitializedImpl>
+    implements _$$InitializedImplCopyWith<$Res> {
+  __$$InitializedImplCopyWithImpl(
+      _$InitializedImpl _value, $Res Function(_$InitializedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -283,7 +284,7 @@ class __$$_InitializedCopyWithImpl<$Res>
   $Res call({
     Object? intialMedicineOption = null,
   }) {
-    return _then(_$_Initialized(
+    return _then(_$InitializedImpl(
       null == intialMedicineOption
           ? _value.intialMedicineOption
           : intialMedicineOption // ignore: cast_nullable_to_non_nullable
@@ -294,8 +295,8 @@ class __$$_InitializedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Initialized with DiagnosticableTreeMixin implements _Initialized {
-  const _$_Initialized(this.intialMedicineOption);
+class _$InitializedImpl with DiagnosticableTreeMixin implements _Initialized {
+  const _$InitializedImpl(this.intialMedicineOption);
 
   @override
   final Option<BrandedMedicine> intialMedicineOption;
@@ -314,10 +315,10 @@ class _$_Initialized with DiagnosticableTreeMixin implements _Initialized {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Initialized &&
+            other is _$InitializedImpl &&
             (identical(other.intialMedicineOption, intialMedicineOption) ||
                 other.intialMedicineOption == intialMedicineOption));
   }
@@ -328,8 +329,8 @@ class _$_Initialized with DiagnosticableTreeMixin implements _Initialized {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_InitializedCopyWith<_$_Initialized> get copyWith =>
-      __$$_InitializedCopyWithImpl<_$_Initialized>(this, _$identity);
+  _$$InitializedImplCopyWith<_$InitializedImpl> get copyWith =>
+      __$$InitializedImplCopyWithImpl<_$InitializedImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -435,30 +436,30 @@ class _$_Initialized with DiagnosticableTreeMixin implements _Initialized {
 
 abstract class _Initialized implements BrandedMedicineFormEvent {
   const factory _Initialized(
-      final Option<BrandedMedicine> intialMedicineOption) = _$_Initialized;
+      final Option<BrandedMedicine> intialMedicineOption) = _$InitializedImpl;
 
   Option<BrandedMedicine> get intialMedicineOption;
   @JsonKey(ignore: true)
-  _$$_InitializedCopyWith<_$_Initialized> get copyWith =>
+  _$$InitializedImplCopyWith<_$InitializedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_ComercialNameChangedCopyWith<$Res> {
-  factory _$$_ComercialNameChangedCopyWith(_$_ComercialNameChanged value,
-          $Res Function(_$_ComercialNameChanged) then) =
-      __$$_ComercialNameChangedCopyWithImpl<$Res>;
+abstract class _$$ComercialNameChangedImplCopyWith<$Res> {
+  factory _$$ComercialNameChangedImplCopyWith(_$ComercialNameChangedImpl value,
+          $Res Function(_$ComercialNameChangedImpl) then) =
+      __$$ComercialNameChangedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String comercialName});
 }
 
 /// @nodoc
-class __$$_ComercialNameChangedCopyWithImpl<$Res>
+class __$$ComercialNameChangedImplCopyWithImpl<$Res>
     extends _$BrandedMedicineFormEventCopyWithImpl<$Res,
-        _$_ComercialNameChanged>
-    implements _$$_ComercialNameChangedCopyWith<$Res> {
-  __$$_ComercialNameChangedCopyWithImpl(_$_ComercialNameChanged _value,
-      $Res Function(_$_ComercialNameChanged) _then)
+        _$ComercialNameChangedImpl>
+    implements _$$ComercialNameChangedImplCopyWith<$Res> {
+  __$$ComercialNameChangedImplCopyWithImpl(_$ComercialNameChangedImpl _value,
+      $Res Function(_$ComercialNameChangedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -466,7 +467,7 @@ class __$$_ComercialNameChangedCopyWithImpl<$Res>
   $Res call({
     Object? comercialName = null,
   }) {
-    return _then(_$_ComercialNameChanged(
+    return _then(_$ComercialNameChangedImpl(
       null == comercialName
           ? _value.comercialName
           : comercialName // ignore: cast_nullable_to_non_nullable
@@ -477,10 +478,10 @@ class __$$_ComercialNameChangedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ComercialNameChanged
+class _$ComercialNameChangedImpl
     with DiagnosticableTreeMixin
     implements _ComercialNameChanged {
-  const _$_ComercialNameChanged(this.comercialName);
+  const _$ComercialNameChangedImpl(this.comercialName);
 
   @override
   final String comercialName;
@@ -500,10 +501,10 @@ class _$_ComercialNameChanged
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ComercialNameChanged &&
+            other is _$ComercialNameChangedImpl &&
             (identical(other.comercialName, comercialName) ||
                 other.comercialName == comercialName));
   }
@@ -514,9 +515,10 @@ class _$_ComercialNameChanged
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ComercialNameChangedCopyWith<_$_ComercialNameChanged> get copyWith =>
-      __$$_ComercialNameChangedCopyWithImpl<_$_ComercialNameChanged>(
-          this, _$identity);
+  _$$ComercialNameChangedImplCopyWith<_$ComercialNameChangedImpl>
+      get copyWith =>
+          __$$ComercialNameChangedImplCopyWithImpl<_$ComercialNameChangedImpl>(
+              this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -622,29 +624,29 @@ class _$_ComercialNameChanged
 
 abstract class _ComercialNameChanged implements BrandedMedicineFormEvent {
   const factory _ComercialNameChanged(final String comercialName) =
-      _$_ComercialNameChanged;
+      _$ComercialNameChangedImpl;
 
   String get comercialName;
   @JsonKey(ignore: true)
-  _$$_ComercialNameChangedCopyWith<_$_ComercialNameChanged> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$ComercialNameChangedImplCopyWith<_$ComercialNameChangedImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_ExistenceChangedCopyWith<$Res> {
-  factory _$$_ExistenceChangedCopyWith(
-          _$_ExistenceChanged value, $Res Function(_$_ExistenceChanged) then) =
-      __$$_ExistenceChangedCopyWithImpl<$Res>;
+abstract class _$$ExistenceChangedImplCopyWith<$Res> {
+  factory _$$ExistenceChangedImplCopyWith(_$ExistenceChangedImpl value,
+          $Res Function(_$ExistenceChangedImpl) then) =
+      __$$ExistenceChangedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({int existence});
 }
 
 /// @nodoc
-class __$$_ExistenceChangedCopyWithImpl<$Res>
-    extends _$BrandedMedicineFormEventCopyWithImpl<$Res, _$_ExistenceChanged>
-    implements _$$_ExistenceChangedCopyWith<$Res> {
-  __$$_ExistenceChangedCopyWithImpl(
-      _$_ExistenceChanged _value, $Res Function(_$_ExistenceChanged) _then)
+class __$$ExistenceChangedImplCopyWithImpl<$Res>
+    extends _$BrandedMedicineFormEventCopyWithImpl<$Res, _$ExistenceChangedImpl>
+    implements _$$ExistenceChangedImplCopyWith<$Res> {
+  __$$ExistenceChangedImplCopyWithImpl(_$ExistenceChangedImpl _value,
+      $Res Function(_$ExistenceChangedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -652,7 +654,7 @@ class __$$_ExistenceChangedCopyWithImpl<$Res>
   $Res call({
     Object? existence = null,
   }) {
-    return _then(_$_ExistenceChanged(
+    return _then(_$ExistenceChangedImpl(
       null == existence
           ? _value.existence
           : existence // ignore: cast_nullable_to_non_nullable
@@ -663,10 +665,10 @@ class __$$_ExistenceChangedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ExistenceChanged
+class _$ExistenceChangedImpl
     with DiagnosticableTreeMixin
     implements _ExistenceChanged {
-  const _$_ExistenceChanged(this.existence);
+  const _$ExistenceChangedImpl(this.existence);
 
   @override
   final int existence;
@@ -686,10 +688,10 @@ class _$_ExistenceChanged
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ExistenceChanged &&
+            other is _$ExistenceChangedImpl &&
             (identical(other.existence, existence) ||
                 other.existence == existence));
   }
@@ -700,8 +702,9 @@ class _$_ExistenceChanged
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ExistenceChangedCopyWith<_$_ExistenceChanged> get copyWith =>
-      __$$_ExistenceChangedCopyWithImpl<_$_ExistenceChanged>(this, _$identity);
+  _$$ExistenceChangedImplCopyWith<_$ExistenceChangedImpl> get copyWith =>
+      __$$ExistenceChangedImplCopyWithImpl<_$ExistenceChangedImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -806,29 +809,29 @@ class _$_ExistenceChanged
 }
 
 abstract class _ExistenceChanged implements BrandedMedicineFormEvent {
-  const factory _ExistenceChanged(final int existence) = _$_ExistenceChanged;
+  const factory _ExistenceChanged(final int existence) = _$ExistenceChangedImpl;
 
   int get existence;
   @JsonKey(ignore: true)
-  _$$_ExistenceChangedCopyWith<_$_ExistenceChanged> get copyWith =>
+  _$$ExistenceChangedImplCopyWith<_$ExistenceChangedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_OptimumChangedCopyWith<$Res> {
-  factory _$$_OptimumChangedCopyWith(
-          _$_OptimumChanged value, $Res Function(_$_OptimumChanged) then) =
-      __$$_OptimumChangedCopyWithImpl<$Res>;
+abstract class _$$OptimumChangedImplCopyWith<$Res> {
+  factory _$$OptimumChangedImplCopyWith(_$OptimumChangedImpl value,
+          $Res Function(_$OptimumChangedImpl) then) =
+      __$$OptimumChangedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({int optimum});
 }
 
 /// @nodoc
-class __$$_OptimumChangedCopyWithImpl<$Res>
-    extends _$BrandedMedicineFormEventCopyWithImpl<$Res, _$_OptimumChanged>
-    implements _$$_OptimumChangedCopyWith<$Res> {
-  __$$_OptimumChangedCopyWithImpl(
-      _$_OptimumChanged _value, $Res Function(_$_OptimumChanged) _then)
+class __$$OptimumChangedImplCopyWithImpl<$Res>
+    extends _$BrandedMedicineFormEventCopyWithImpl<$Res, _$OptimumChangedImpl>
+    implements _$$OptimumChangedImplCopyWith<$Res> {
+  __$$OptimumChangedImplCopyWithImpl(
+      _$OptimumChangedImpl _value, $Res Function(_$OptimumChangedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -836,7 +839,7 @@ class __$$_OptimumChangedCopyWithImpl<$Res>
   $Res call({
     Object? optimum = null,
   }) {
-    return _then(_$_OptimumChanged(
+    return _then(_$OptimumChangedImpl(
       null == optimum
           ? _value.optimum
           : optimum // ignore: cast_nullable_to_non_nullable
@@ -847,10 +850,10 @@ class __$$_OptimumChangedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_OptimumChanged
+class _$OptimumChangedImpl
     with DiagnosticableTreeMixin
     implements _OptimumChanged {
-  const _$_OptimumChanged(this.optimum);
+  const _$OptimumChangedImpl(this.optimum);
 
   @override
   final int optimum;
@@ -870,10 +873,10 @@ class _$_OptimumChanged
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_OptimumChanged &&
+            other is _$OptimumChangedImpl &&
             (identical(other.optimum, optimum) || other.optimum == optimum));
   }
 
@@ -883,8 +886,9 @@ class _$_OptimumChanged
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_OptimumChangedCopyWith<_$_OptimumChanged> get copyWith =>
-      __$$_OptimumChangedCopyWithImpl<_$_OptimumChanged>(this, _$identity);
+  _$$OptimumChangedImplCopyWith<_$OptimumChangedImpl> get copyWith =>
+      __$$OptimumChangedImplCopyWithImpl<_$OptimumChangedImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -989,29 +993,29 @@ class _$_OptimumChanged
 }
 
 abstract class _OptimumChanged implements BrandedMedicineFormEvent {
-  const factory _OptimumChanged(final int optimum) = _$_OptimumChanged;
+  const factory _OptimumChanged(final int optimum) = _$OptimumChangedImpl;
 
   int get optimum;
   @JsonKey(ignore: true)
-  _$$_OptimumChangedCopyWith<_$_OptimumChanged> get copyWith =>
+  _$$OptimumChangedImplCopyWith<_$OptimumChangedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_ImageUrlChangedCopyWith<$Res> {
-  factory _$$_ImageUrlChangedCopyWith(
-          _$_ImageUrlChanged value, $Res Function(_$_ImageUrlChanged) then) =
-      __$$_ImageUrlChangedCopyWithImpl<$Res>;
+abstract class _$$ImageUrlChangedImplCopyWith<$Res> {
+  factory _$$ImageUrlChangedImplCopyWith(_$ImageUrlChangedImpl value,
+          $Res Function(_$ImageUrlChangedImpl) then) =
+      __$$ImageUrlChangedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String imageURL});
 }
 
 /// @nodoc
-class __$$_ImageUrlChangedCopyWithImpl<$Res>
-    extends _$BrandedMedicineFormEventCopyWithImpl<$Res, _$_ImageUrlChanged>
-    implements _$$_ImageUrlChangedCopyWith<$Res> {
-  __$$_ImageUrlChangedCopyWithImpl(
-      _$_ImageUrlChanged _value, $Res Function(_$_ImageUrlChanged) _then)
+class __$$ImageUrlChangedImplCopyWithImpl<$Res>
+    extends _$BrandedMedicineFormEventCopyWithImpl<$Res, _$ImageUrlChangedImpl>
+    implements _$$ImageUrlChangedImplCopyWith<$Res> {
+  __$$ImageUrlChangedImplCopyWithImpl(
+      _$ImageUrlChangedImpl _value, $Res Function(_$ImageUrlChangedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1019,7 +1023,7 @@ class __$$_ImageUrlChangedCopyWithImpl<$Res>
   $Res call({
     Object? imageURL = null,
   }) {
-    return _then(_$_ImageUrlChanged(
+    return _then(_$ImageUrlChangedImpl(
       null == imageURL
           ? _value.imageURL
           : imageURL // ignore: cast_nullable_to_non_nullable
@@ -1030,10 +1034,10 @@ class __$$_ImageUrlChangedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ImageUrlChanged
+class _$ImageUrlChangedImpl
     with DiagnosticableTreeMixin
     implements _ImageUrlChanged {
-  const _$_ImageUrlChanged(this.imageURL);
+  const _$ImageUrlChangedImpl(this.imageURL);
 
   @override
   final String imageURL;
@@ -1053,10 +1057,10 @@ class _$_ImageUrlChanged
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ImageUrlChanged &&
+            other is _$ImageUrlChangedImpl &&
             (identical(other.imageURL, imageURL) ||
                 other.imageURL == imageURL));
   }
@@ -1067,8 +1071,9 @@ class _$_ImageUrlChanged
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ImageUrlChangedCopyWith<_$_ImageUrlChanged> get copyWith =>
-      __$$_ImageUrlChangedCopyWithImpl<_$_ImageUrlChanged>(this, _$identity);
+  _$$ImageUrlChangedImplCopyWith<_$ImageUrlChangedImpl> get copyWith =>
+      __$$ImageUrlChangedImplCopyWithImpl<_$ImageUrlChangedImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1173,19 +1178,20 @@ class _$_ImageUrlChanged
 }
 
 abstract class _ImageUrlChanged implements BrandedMedicineFormEvent {
-  const factory _ImageUrlChanged(final String imageURL) = _$_ImageUrlChanged;
+  const factory _ImageUrlChanged(final String imageURL) = _$ImageUrlChangedImpl;
 
   String get imageURL;
   @JsonKey(ignore: true)
-  _$$_ImageUrlChangedCopyWith<_$_ImageUrlChanged> get copyWith =>
+  _$$ImageUrlChangedImplCopyWith<_$ImageUrlChangedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_GenericMedicineChangedCopyWith<$Res> {
-  factory _$$_GenericMedicineChangedCopyWith(_$_GenericMedicineChanged value,
-          $Res Function(_$_GenericMedicineChanged) then) =
-      __$$_GenericMedicineChangedCopyWithImpl<$Res>;
+abstract class _$$GenericMedicineChangedImplCopyWith<$Res> {
+  factory _$$GenericMedicineChangedImplCopyWith(
+          _$GenericMedicineChangedImpl value,
+          $Res Function(_$GenericMedicineChangedImpl) then) =
+      __$$GenericMedicineChangedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({GenericMedicine genericMedicine});
 
@@ -1193,12 +1199,13 @@ abstract class _$$_GenericMedicineChangedCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_GenericMedicineChangedCopyWithImpl<$Res>
+class __$$GenericMedicineChangedImplCopyWithImpl<$Res>
     extends _$BrandedMedicineFormEventCopyWithImpl<$Res,
-        _$_GenericMedicineChanged>
-    implements _$$_GenericMedicineChangedCopyWith<$Res> {
-  __$$_GenericMedicineChangedCopyWithImpl(_$_GenericMedicineChanged _value,
-      $Res Function(_$_GenericMedicineChanged) _then)
+        _$GenericMedicineChangedImpl>
+    implements _$$GenericMedicineChangedImplCopyWith<$Res> {
+  __$$GenericMedicineChangedImplCopyWithImpl(
+      _$GenericMedicineChangedImpl _value,
+      $Res Function(_$GenericMedicineChangedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1206,7 +1213,7 @@ class __$$_GenericMedicineChangedCopyWithImpl<$Res>
   $Res call({
     Object? genericMedicine = null,
   }) {
-    return _then(_$_GenericMedicineChanged(
+    return _then(_$GenericMedicineChangedImpl(
       null == genericMedicine
           ? _value.genericMedicine
           : genericMedicine // ignore: cast_nullable_to_non_nullable
@@ -1225,10 +1232,10 @@ class __$$_GenericMedicineChangedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_GenericMedicineChanged
+class _$GenericMedicineChangedImpl
     with DiagnosticableTreeMixin
     implements _GenericMedicineChanged {
-  const _$_GenericMedicineChanged(this.genericMedicine);
+  const _$GenericMedicineChangedImpl(this.genericMedicine);
 
   @override
   final GenericMedicine genericMedicine;
@@ -1248,10 +1255,10 @@ class _$_GenericMedicineChanged
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_GenericMedicineChanged &&
+            other is _$GenericMedicineChangedImpl &&
             (identical(other.genericMedicine, genericMedicine) ||
                 other.genericMedicine == genericMedicine));
   }
@@ -1262,9 +1269,9 @@ class _$_GenericMedicineChanged
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_GenericMedicineChangedCopyWith<_$_GenericMedicineChanged> get copyWith =>
-      __$$_GenericMedicineChangedCopyWithImpl<_$_GenericMedicineChanged>(
-          this, _$identity);
+  _$$GenericMedicineChangedImplCopyWith<_$GenericMedicineChangedImpl>
+      get copyWith => __$$GenericMedicineChangedImplCopyWithImpl<
+          _$GenericMedicineChangedImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1370,32 +1377,34 @@ class _$_GenericMedicineChanged
 
 abstract class _GenericMedicineChanged implements BrandedMedicineFormEvent {
   const factory _GenericMedicineChanged(final GenericMedicine genericMedicine) =
-      _$_GenericMedicineChanged;
+      _$GenericMedicineChangedImpl;
 
   GenericMedicine get genericMedicine;
   @JsonKey(ignore: true)
-  _$$_GenericMedicineChangedCopyWith<_$_GenericMedicineChanged> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$GenericMedicineChangedImplCopyWith<_$GenericMedicineChangedImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_SavedCopyWith<$Res> {
-  factory _$$_SavedCopyWith(_$_Saved value, $Res Function(_$_Saved) then) =
-      __$$_SavedCopyWithImpl<$Res>;
+abstract class _$$SavedImplCopyWith<$Res> {
+  factory _$$SavedImplCopyWith(
+          _$SavedImpl value, $Res Function(_$SavedImpl) then) =
+      __$$SavedImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_SavedCopyWithImpl<$Res>
-    extends _$BrandedMedicineFormEventCopyWithImpl<$Res, _$_Saved>
-    implements _$$_SavedCopyWith<$Res> {
-  __$$_SavedCopyWithImpl(_$_Saved _value, $Res Function(_$_Saved) _then)
+class __$$SavedImplCopyWithImpl<$Res>
+    extends _$BrandedMedicineFormEventCopyWithImpl<$Res, _$SavedImpl>
+    implements _$$SavedImplCopyWith<$Res> {
+  __$$SavedImplCopyWithImpl(
+      _$SavedImpl _value, $Res Function(_$SavedImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_Saved with DiagnosticableTreeMixin implements _Saved {
-  const _$_Saved();
+class _$SavedImpl with DiagnosticableTreeMixin implements _Saved {
+  const _$SavedImpl();
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -1410,9 +1419,9 @@ class _$_Saved with DiagnosticableTreeMixin implements _Saved {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Saved);
+        (other.runtimeType == runtimeType && other is _$SavedImpl);
   }
 
   @override
@@ -1521,7 +1530,7 @@ class _$_Saved with DiagnosticableTreeMixin implements _Saved {
 }
 
 abstract class _Saved implements BrandedMedicineFormEvent {
-  const factory _Saved() = _$_Saved;
+  const factory _Saved() = _$SavedImpl;
 }
 
 /// @nodoc
@@ -1609,12 +1618,12 @@ class _$BrandedMedicineFormStateCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_BrandedMedicineFormStateCopyWith<$Res>
+abstract class _$$BrandedMedicineFormStateImplCopyWith<$Res>
     implements $BrandedMedicineFormStateCopyWith<$Res> {
-  factory _$$_BrandedMedicineFormStateCopyWith(
-          _$_BrandedMedicineFormState value,
-          $Res Function(_$_BrandedMedicineFormState) then) =
-      __$$_BrandedMedicineFormStateCopyWithImpl<$Res>;
+  factory _$$BrandedMedicineFormStateImplCopyWith(
+          _$BrandedMedicineFormStateImpl value,
+          $Res Function(_$BrandedMedicineFormStateImpl) then) =
+      __$$BrandedMedicineFormStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -1630,12 +1639,13 @@ abstract class _$$_BrandedMedicineFormStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_BrandedMedicineFormStateCopyWithImpl<$Res>
+class __$$BrandedMedicineFormStateImplCopyWithImpl<$Res>
     extends _$BrandedMedicineFormStateCopyWithImpl<$Res,
-        _$_BrandedMedicineFormState>
-    implements _$$_BrandedMedicineFormStateCopyWith<$Res> {
-  __$$_BrandedMedicineFormStateCopyWithImpl(_$_BrandedMedicineFormState _value,
-      $Res Function(_$_BrandedMedicineFormState) _then)
+        _$BrandedMedicineFormStateImpl>
+    implements _$$BrandedMedicineFormStateImplCopyWith<$Res> {
+  __$$BrandedMedicineFormStateImplCopyWithImpl(
+      _$BrandedMedicineFormStateImpl _value,
+      $Res Function(_$BrandedMedicineFormStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1647,7 +1657,7 @@ class __$$_BrandedMedicineFormStateCopyWithImpl<$Res>
     Object? isSaving = null,
     Object? saveFailureOrSuccessOption = null,
   }) {
-    return _then(_$_BrandedMedicineFormState(
+    return _then(_$BrandedMedicineFormStateImpl(
       medicine: null == medicine
           ? _value.medicine
           : medicine // ignore: cast_nullable_to_non_nullable
@@ -1674,10 +1684,10 @@ class __$$_BrandedMedicineFormStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_BrandedMedicineFormState
+class _$BrandedMedicineFormStateImpl
     with DiagnosticableTreeMixin
     implements _BrandedMedicineFormState {
-  const _$_BrandedMedicineFormState(
+  const _$BrandedMedicineFormStateImpl(
       {required this.medicine,
       required this.showErrorMessages,
       required this.isUpdating,
@@ -1715,10 +1725,10 @@ class _$_BrandedMedicineFormState
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_BrandedMedicineFormState &&
+            other is _$BrandedMedicineFormStateImpl &&
             (identical(other.medicine, medicine) ||
                 other.medicine == medicine) &&
             (identical(other.showErrorMessages, showErrorMessages) ||
@@ -1740,9 +1750,9 @@ class _$_BrandedMedicineFormState
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_BrandedMedicineFormStateCopyWith<_$_BrandedMedicineFormState>
-      get copyWith => __$$_BrandedMedicineFormStateCopyWithImpl<
-          _$_BrandedMedicineFormState>(this, _$identity);
+  _$$BrandedMedicineFormStateImplCopyWith<_$BrandedMedicineFormStateImpl>
+      get copyWith => __$$BrandedMedicineFormStateImplCopyWithImpl<
+          _$BrandedMedicineFormStateImpl>(this, _$identity);
 }
 
 abstract class _BrandedMedicineFormState implements BrandedMedicineFormState {
@@ -1752,7 +1762,7 @@ abstract class _BrandedMedicineFormState implements BrandedMedicineFormState {
       required final bool isUpdating,
       required final bool isSaving,
       required final Option<Either<BrandedMedicineFailures, BrandedMedicine>>
-          saveFailureOrSuccessOption}) = _$_BrandedMedicineFormState;
+          saveFailureOrSuccessOption}) = _$BrandedMedicineFormStateImpl;
 
   @override
   BrandedMedicine get medicine;
@@ -1767,6 +1777,6 @@ abstract class _BrandedMedicineFormState implements BrandedMedicineFormState {
       get saveFailureOrSuccessOption;
   @override
   @JsonKey(ignore: true)
-  _$$_BrandedMedicineFormStateCopyWith<_$_BrandedMedicineFormState>
+  _$$BrandedMedicineFormStateImplCopyWith<_$BrandedMedicineFormStateImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

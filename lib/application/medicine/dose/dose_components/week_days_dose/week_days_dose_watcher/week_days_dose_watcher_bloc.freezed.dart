@@ -12,7 +12,7 @@ part of 'week_days_dose_watcher_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$WeekDaysDoseWatcherEvent {
@@ -91,25 +91,25 @@ class _$WeekDaysDoseWatcherEventCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_WatchAllStartedCopyWith<$Res> {
-  factory _$$_WatchAllStartedCopyWith(
-          _$_WatchAllStarted value, $Res Function(_$_WatchAllStarted) then) =
-      __$$_WatchAllStartedCopyWithImpl<$Res>;
+abstract class _$$WatchAllStartedImplCopyWith<$Res> {
+  factory _$$WatchAllStartedImplCopyWith(_$WatchAllStartedImpl value,
+          $Res Function(_$WatchAllStartedImpl) then) =
+      __$$WatchAllStartedImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_WatchAllStartedCopyWithImpl<$Res>
-    extends _$WeekDaysDoseWatcherEventCopyWithImpl<$Res, _$_WatchAllStarted>
-    implements _$$_WatchAllStartedCopyWith<$Res> {
-  __$$_WatchAllStartedCopyWithImpl(
-      _$_WatchAllStarted _value, $Res Function(_$_WatchAllStarted) _then)
+class __$$WatchAllStartedImplCopyWithImpl<$Res>
+    extends _$WeekDaysDoseWatcherEventCopyWithImpl<$Res, _$WatchAllStartedImpl>
+    implements _$$WatchAllStartedImplCopyWith<$Res> {
+  __$$WatchAllStartedImplCopyWithImpl(
+      _$WatchAllStartedImpl _value, $Res Function(_$WatchAllStartedImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_WatchAllStarted implements _WatchAllStarted {
-  const _$_WatchAllStarted();
+class _$WatchAllStartedImpl implements _WatchAllStarted {
+  const _$WatchAllStartedImpl();
 
   @override
   String toString() {
@@ -117,9 +117,9 @@ class _$_WatchAllStarted implements _WatchAllStarted {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_WatchAllStarted);
+        (other.runtimeType == runtimeType && other is _$WatchAllStartedImpl);
   }
 
   @override
@@ -204,25 +204,25 @@ class _$_WatchAllStarted implements _WatchAllStarted {
 }
 
 abstract class _WatchAllStarted implements WeekDaysDoseWatcherEvent {
-  const factory _WatchAllStarted() = _$_WatchAllStarted;
+  const factory _WatchAllStarted() = _$WatchAllStartedImpl;
 }
 
 /// @nodoc
-abstract class _$$_WatchFilteredStartedCopyWith<$Res> {
-  factory _$$_WatchFilteredStartedCopyWith(_$_WatchFilteredStarted value,
-          $Res Function(_$_WatchFilteredStarted) then) =
-      __$$_WatchFilteredStartedCopyWithImpl<$Res>;
+abstract class _$$WatchFilteredStartedImplCopyWith<$Res> {
+  factory _$$WatchFilteredStartedImplCopyWith(_$WatchFilteredStartedImpl value,
+          $Res Function(_$WatchFilteredStartedImpl) then) =
+      __$$WatchFilteredStartedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String keyword});
 }
 
 /// @nodoc
-class __$$_WatchFilteredStartedCopyWithImpl<$Res>
+class __$$WatchFilteredStartedImplCopyWithImpl<$Res>
     extends _$WeekDaysDoseWatcherEventCopyWithImpl<$Res,
-        _$_WatchFilteredStarted>
-    implements _$$_WatchFilteredStartedCopyWith<$Res> {
-  __$$_WatchFilteredStartedCopyWithImpl(_$_WatchFilteredStarted _value,
-      $Res Function(_$_WatchFilteredStarted) _then)
+        _$WatchFilteredStartedImpl>
+    implements _$$WatchFilteredStartedImplCopyWith<$Res> {
+  __$$WatchFilteredStartedImplCopyWithImpl(_$WatchFilteredStartedImpl _value,
+      $Res Function(_$WatchFilteredStartedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -230,7 +230,7 @@ class __$$_WatchFilteredStartedCopyWithImpl<$Res>
   $Res call({
     Object? keyword = null,
   }) {
-    return _then(_$_WatchFilteredStarted(
+    return _then(_$WatchFilteredStartedImpl(
       null == keyword
           ? _value.keyword
           : keyword // ignore: cast_nullable_to_non_nullable
@@ -241,8 +241,8 @@ class __$$_WatchFilteredStartedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_WatchFilteredStarted implements _WatchFilteredStarted {
-  const _$_WatchFilteredStarted(this.keyword);
+class _$WatchFilteredStartedImpl implements _WatchFilteredStarted {
+  const _$WatchFilteredStartedImpl(this.keyword);
 
   @override
   final String keyword;
@@ -253,10 +253,10 @@ class _$_WatchFilteredStarted implements _WatchFilteredStarted {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_WatchFilteredStarted &&
+            other is _$WatchFilteredStartedImpl &&
             (identical(other.keyword, keyword) || other.keyword == keyword));
   }
 
@@ -266,9 +266,10 @@ class _$_WatchFilteredStarted implements _WatchFilteredStarted {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_WatchFilteredStartedCopyWith<_$_WatchFilteredStarted> get copyWith =>
-      __$$_WatchFilteredStartedCopyWithImpl<_$_WatchFilteredStarted>(
-          this, _$identity);
+  _$$WatchFilteredStartedImplCopyWith<_$WatchFilteredStartedImpl>
+      get copyWith =>
+          __$$WatchFilteredStartedImplCopyWithImpl<_$WatchFilteredStartedImpl>(
+              this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -350,30 +351,30 @@ class _$_WatchFilteredStarted implements _WatchFilteredStarted {
 
 abstract class _WatchFilteredStarted implements WeekDaysDoseWatcherEvent {
   const factory _WatchFilteredStarted(final String keyword) =
-      _$_WatchFilteredStarted;
+      _$WatchFilteredStartedImpl;
 
   String get keyword;
   @JsonKey(ignore: true)
-  _$$_WatchFilteredStartedCopyWith<_$_WatchFilteredStarted> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$WatchFilteredStartedImplCopyWith<_$WatchFilteredStartedImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_WeekDaysReceivedCopyWith<$Res> {
-  factory _$$_WeekDaysReceivedCopyWith(
-          _$_WeekDaysReceived value, $Res Function(_$_WeekDaysReceived) then) =
-      __$$_WeekDaysReceivedCopyWithImpl<$Res>;
+abstract class _$$WeekDaysReceivedImplCopyWith<$Res> {
+  factory _$$WeekDaysReceivedImplCopyWith(_$WeekDaysReceivedImpl value,
+          $Res Function(_$WeekDaysReceivedImpl) then) =
+      __$$WeekDaysReceivedImplCopyWithImpl<$Res>;
   @useResult
   $Res call(
       {Either<WeekDaysDoseFailures, KtList<WeekDaysDose>> failureOrWeekDays});
 }
 
 /// @nodoc
-class __$$_WeekDaysReceivedCopyWithImpl<$Res>
-    extends _$WeekDaysDoseWatcherEventCopyWithImpl<$Res, _$_WeekDaysReceived>
-    implements _$$_WeekDaysReceivedCopyWith<$Res> {
-  __$$_WeekDaysReceivedCopyWithImpl(
-      _$_WeekDaysReceived _value, $Res Function(_$_WeekDaysReceived) _then)
+class __$$WeekDaysReceivedImplCopyWithImpl<$Res>
+    extends _$WeekDaysDoseWatcherEventCopyWithImpl<$Res, _$WeekDaysReceivedImpl>
+    implements _$$WeekDaysReceivedImplCopyWith<$Res> {
+  __$$WeekDaysReceivedImplCopyWithImpl(_$WeekDaysReceivedImpl _value,
+      $Res Function(_$WeekDaysReceivedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -381,7 +382,7 @@ class __$$_WeekDaysReceivedCopyWithImpl<$Res>
   $Res call({
     Object? failureOrWeekDays = null,
   }) {
-    return _then(_$_WeekDaysReceived(
+    return _then(_$WeekDaysReceivedImpl(
       null == failureOrWeekDays
           ? _value.failureOrWeekDays
           : failureOrWeekDays // ignore: cast_nullable_to_non_nullable
@@ -392,8 +393,8 @@ class __$$_WeekDaysReceivedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_WeekDaysReceived implements _WeekDaysReceived {
-  const _$_WeekDaysReceived(this.failureOrWeekDays);
+class _$WeekDaysReceivedImpl implements _WeekDaysReceived {
+  const _$WeekDaysReceivedImpl(this.failureOrWeekDays);
 
   @override
   final Either<WeekDaysDoseFailures, KtList<WeekDaysDose>> failureOrWeekDays;
@@ -404,10 +405,10 @@ class _$_WeekDaysReceived implements _WeekDaysReceived {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_WeekDaysReceived &&
+            other is _$WeekDaysReceivedImpl &&
             (identical(other.failureOrWeekDays, failureOrWeekDays) ||
                 other.failureOrWeekDays == failureOrWeekDays));
   }
@@ -418,8 +419,9 @@ class _$_WeekDaysReceived implements _WeekDaysReceived {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_WeekDaysReceivedCopyWith<_$_WeekDaysReceived> get copyWith =>
-      __$$_WeekDaysReceivedCopyWithImpl<_$_WeekDaysReceived>(this, _$identity);
+  _$$WeekDaysReceivedImplCopyWith<_$WeekDaysReceivedImpl> get copyWith =>
+      __$$WeekDaysReceivedImplCopyWithImpl<_$WeekDaysReceivedImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -502,11 +504,11 @@ class _$_WeekDaysReceived implements _WeekDaysReceived {
 abstract class _WeekDaysReceived implements WeekDaysDoseWatcherEvent {
   const factory _WeekDaysReceived(
       final Either<WeekDaysDoseFailures, KtList<WeekDaysDose>>
-          failureOrWeekDays) = _$_WeekDaysReceived;
+          failureOrWeekDays) = _$WeekDaysReceivedImpl;
 
   Either<WeekDaysDoseFailures, KtList<WeekDaysDose>> get failureOrWeekDays;
   @JsonKey(ignore: true)
-  _$$_WeekDaysReceivedCopyWith<_$_WeekDaysReceived> get copyWith =>
+  _$$WeekDaysReceivedImplCopyWith<_$WeekDaysReceivedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -585,24 +587,25 @@ class _$WeekDaysDoseWatcherStateCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_InitialCopyWith<$Res> {
-  factory _$$_InitialCopyWith(
-          _$_Initial value, $Res Function(_$_Initial) then) =
-      __$$_InitialCopyWithImpl<$Res>;
+abstract class _$$InitialImplCopyWith<$Res> {
+  factory _$$InitialImplCopyWith(
+          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
+      __$$InitialImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_InitialCopyWithImpl<$Res>
-    extends _$WeekDaysDoseWatcherStateCopyWithImpl<$Res, _$_Initial>
-    implements _$$_InitialCopyWith<$Res> {
-  __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
+class __$$InitialImplCopyWithImpl<$Res>
+    extends _$WeekDaysDoseWatcherStateCopyWithImpl<$Res, _$InitialImpl>
+    implements _$$InitialImplCopyWith<$Res> {
+  __$$InitialImplCopyWithImpl(
+      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_Initial implements _Initial {
-  const _$_Initial();
+class _$InitialImpl implements _Initial {
+  const _$InitialImpl();
 
   @override
   String toString() {
@@ -610,9 +613,9 @@ class _$_Initial implements _Initial {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Initial);
+        (other.runtimeType == runtimeType && other is _$InitialImpl);
   }
 
   @override
@@ -695,29 +698,29 @@ class _$_Initial implements _Initial {
 }
 
 abstract class _Initial implements WeekDaysDoseWatcherState {
-  const factory _Initial() = _$_Initial;
+  const factory _Initial() = _$InitialImpl;
 }
 
 /// @nodoc
-abstract class _$$_LoadInProgressCopyWith<$Res> {
-  factory _$$_LoadInProgressCopyWith(
-          _$_LoadInProgress value, $Res Function(_$_LoadInProgress) then) =
-      __$$_LoadInProgressCopyWithImpl<$Res>;
+abstract class _$$LoadInProgressImplCopyWith<$Res> {
+  factory _$$LoadInProgressImplCopyWith(_$LoadInProgressImpl value,
+          $Res Function(_$LoadInProgressImpl) then) =
+      __$$LoadInProgressImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_LoadInProgressCopyWithImpl<$Res>
-    extends _$WeekDaysDoseWatcherStateCopyWithImpl<$Res, _$_LoadInProgress>
-    implements _$$_LoadInProgressCopyWith<$Res> {
-  __$$_LoadInProgressCopyWithImpl(
-      _$_LoadInProgress _value, $Res Function(_$_LoadInProgress) _then)
+class __$$LoadInProgressImplCopyWithImpl<$Res>
+    extends _$WeekDaysDoseWatcherStateCopyWithImpl<$Res, _$LoadInProgressImpl>
+    implements _$$LoadInProgressImplCopyWith<$Res> {
+  __$$LoadInProgressImplCopyWithImpl(
+      _$LoadInProgressImpl _value, $Res Function(_$LoadInProgressImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_LoadInProgress implements _LoadInProgress {
-  const _$_LoadInProgress();
+class _$LoadInProgressImpl implements _LoadInProgress {
+  const _$LoadInProgressImpl();
 
   @override
   String toString() {
@@ -725,9 +728,9 @@ class _$_LoadInProgress implements _LoadInProgress {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_LoadInProgress);
+        (other.runtimeType == runtimeType && other is _$LoadInProgressImpl);
   }
 
   @override
@@ -810,24 +813,24 @@ class _$_LoadInProgress implements _LoadInProgress {
 }
 
 abstract class _LoadInProgress implements WeekDaysDoseWatcherState {
-  const factory _LoadInProgress() = _$_LoadInProgress;
+  const factory _LoadInProgress() = _$LoadInProgressImpl;
 }
 
 /// @nodoc
-abstract class _$$_LoadSuccessCopyWith<$Res> {
-  factory _$$_LoadSuccessCopyWith(
-          _$_LoadSuccess value, $Res Function(_$_LoadSuccess) then) =
-      __$$_LoadSuccessCopyWithImpl<$Res>;
+abstract class _$$LoadSuccessImplCopyWith<$Res> {
+  factory _$$LoadSuccessImplCopyWith(
+          _$LoadSuccessImpl value, $Res Function(_$LoadSuccessImpl) then) =
+      __$$LoadSuccessImplCopyWithImpl<$Res>;
   @useResult
   $Res call({KtList<WeekDaysDose> weekDaysDose});
 }
 
 /// @nodoc
-class __$$_LoadSuccessCopyWithImpl<$Res>
-    extends _$WeekDaysDoseWatcherStateCopyWithImpl<$Res, _$_LoadSuccess>
-    implements _$$_LoadSuccessCopyWith<$Res> {
-  __$$_LoadSuccessCopyWithImpl(
-      _$_LoadSuccess _value, $Res Function(_$_LoadSuccess) _then)
+class __$$LoadSuccessImplCopyWithImpl<$Res>
+    extends _$WeekDaysDoseWatcherStateCopyWithImpl<$Res, _$LoadSuccessImpl>
+    implements _$$LoadSuccessImplCopyWith<$Res> {
+  __$$LoadSuccessImplCopyWithImpl(
+      _$LoadSuccessImpl _value, $Res Function(_$LoadSuccessImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -835,7 +838,7 @@ class __$$_LoadSuccessCopyWithImpl<$Res>
   $Res call({
     Object? weekDaysDose = null,
   }) {
-    return _then(_$_LoadSuccess(
+    return _then(_$LoadSuccessImpl(
       null == weekDaysDose
           ? _value.weekDaysDose
           : weekDaysDose // ignore: cast_nullable_to_non_nullable
@@ -846,8 +849,8 @@ class __$$_LoadSuccessCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_LoadSuccess implements _LoadSuccess {
-  const _$_LoadSuccess(this.weekDaysDose);
+class _$LoadSuccessImpl implements _LoadSuccess {
+  const _$LoadSuccessImpl(this.weekDaysDose);
 
   @override
   final KtList<WeekDaysDose> weekDaysDose;
@@ -858,10 +861,10 @@ class _$_LoadSuccess implements _LoadSuccess {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LoadSuccess &&
+            other is _$LoadSuccessImpl &&
             (identical(other.weekDaysDose, weekDaysDose) ||
                 other.weekDaysDose == weekDaysDose));
   }
@@ -872,8 +875,8 @@ class _$_LoadSuccess implements _LoadSuccess {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LoadSuccessCopyWith<_$_LoadSuccess> get copyWith =>
-      __$$_LoadSuccessCopyWithImpl<_$_LoadSuccess>(this, _$identity);
+  _$$LoadSuccessImplCopyWith<_$LoadSuccessImpl> get copyWith =>
+      __$$LoadSuccessImplCopyWithImpl<_$LoadSuccessImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -953,19 +956,19 @@ class _$_LoadSuccess implements _LoadSuccess {
 
 abstract class _LoadSuccess implements WeekDaysDoseWatcherState {
   const factory _LoadSuccess(final KtList<WeekDaysDose> weekDaysDose) =
-      _$_LoadSuccess;
+      _$LoadSuccessImpl;
 
   KtList<WeekDaysDose> get weekDaysDose;
   @JsonKey(ignore: true)
-  _$$_LoadSuccessCopyWith<_$_LoadSuccess> get copyWith =>
+  _$$LoadSuccessImplCopyWith<_$LoadSuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_WeekDaysDoseFailureCopyWith<$Res> {
-  factory _$$_WeekDaysDoseFailureCopyWith(_$_WeekDaysDoseFailure value,
-          $Res Function(_$_WeekDaysDoseFailure) then) =
-      __$$_WeekDaysDoseFailureCopyWithImpl<$Res>;
+abstract class _$$WeekDaysDoseFailureImplCopyWith<$Res> {
+  factory _$$WeekDaysDoseFailureImplCopyWith(_$WeekDaysDoseFailureImpl value,
+          $Res Function(_$WeekDaysDoseFailureImpl) then) =
+      __$$WeekDaysDoseFailureImplCopyWithImpl<$Res>;
   @useResult
   $Res call({WeekDaysDoseFailures weekDaysDoseFailure});
 
@@ -973,11 +976,12 @@ abstract class _$$_WeekDaysDoseFailureCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_WeekDaysDoseFailureCopyWithImpl<$Res>
-    extends _$WeekDaysDoseWatcherStateCopyWithImpl<$Res, _$_WeekDaysDoseFailure>
-    implements _$$_WeekDaysDoseFailureCopyWith<$Res> {
-  __$$_WeekDaysDoseFailureCopyWithImpl(_$_WeekDaysDoseFailure _value,
-      $Res Function(_$_WeekDaysDoseFailure) _then)
+class __$$WeekDaysDoseFailureImplCopyWithImpl<$Res>
+    extends _$WeekDaysDoseWatcherStateCopyWithImpl<$Res,
+        _$WeekDaysDoseFailureImpl>
+    implements _$$WeekDaysDoseFailureImplCopyWith<$Res> {
+  __$$WeekDaysDoseFailureImplCopyWithImpl(_$WeekDaysDoseFailureImpl _value,
+      $Res Function(_$WeekDaysDoseFailureImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -985,7 +989,7 @@ class __$$_WeekDaysDoseFailureCopyWithImpl<$Res>
   $Res call({
     Object? weekDaysDoseFailure = null,
   }) {
-    return _then(_$_WeekDaysDoseFailure(
+    return _then(_$WeekDaysDoseFailureImpl(
       null == weekDaysDoseFailure
           ? _value.weekDaysDoseFailure
           : weekDaysDoseFailure // ignore: cast_nullable_to_non_nullable
@@ -1005,8 +1009,8 @@ class __$$_WeekDaysDoseFailureCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_WeekDaysDoseFailure implements _WeekDaysDoseFailure {
-  const _$_WeekDaysDoseFailure(this.weekDaysDoseFailure);
+class _$WeekDaysDoseFailureImpl implements _WeekDaysDoseFailure {
+  const _$WeekDaysDoseFailureImpl(this.weekDaysDoseFailure);
 
   @override
   final WeekDaysDoseFailures weekDaysDoseFailure;
@@ -1017,10 +1021,10 @@ class _$_WeekDaysDoseFailure implements _WeekDaysDoseFailure {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_WeekDaysDoseFailure &&
+            other is _$WeekDaysDoseFailureImpl &&
             (identical(other.weekDaysDoseFailure, weekDaysDoseFailure) ||
                 other.weekDaysDoseFailure == weekDaysDoseFailure));
   }
@@ -1031,8 +1035,8 @@ class _$_WeekDaysDoseFailure implements _WeekDaysDoseFailure {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_WeekDaysDoseFailureCopyWith<_$_WeekDaysDoseFailure> get copyWith =>
-      __$$_WeekDaysDoseFailureCopyWithImpl<_$_WeekDaysDoseFailure>(
+  _$$WeekDaysDoseFailureImplCopyWith<_$WeekDaysDoseFailureImpl> get copyWith =>
+      __$$WeekDaysDoseFailureImplCopyWithImpl<_$WeekDaysDoseFailureImpl>(
           this, _$identity);
 
   @override
@@ -1113,10 +1117,11 @@ class _$_WeekDaysDoseFailure implements _WeekDaysDoseFailure {
 
 abstract class _WeekDaysDoseFailure implements WeekDaysDoseWatcherState {
   const factory _WeekDaysDoseFailure(
-      final WeekDaysDoseFailures weekDaysDoseFailure) = _$_WeekDaysDoseFailure;
+          final WeekDaysDoseFailures weekDaysDoseFailure) =
+      _$WeekDaysDoseFailureImpl;
 
   WeekDaysDoseFailures get weekDaysDoseFailure;
   @JsonKey(ignore: true)
-  _$$_WeekDaysDoseFailureCopyWith<_$_WeekDaysDoseFailure> get copyWith =>
+  _$$WeekDaysDoseFailureImplCopyWith<_$WeekDaysDoseFailureImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

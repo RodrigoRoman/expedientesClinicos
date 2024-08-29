@@ -6,9 +6,9 @@ part of 'generic_medicine_dtos.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_GenericMedicineDto _$$_GenericMedicineDtoFromJson(
+_$GenericMedicineDtoImpl _$$GenericMedicineDtoImplFromJson(
         Map<String, dynamic> json) =>
-    _$_GenericMedicineDto(
+    _$GenericMedicineDtoImpl(
       id: json['id'] as String,
       genericName: json['genericName'] as String,
       measureUnit: NameAbbreviationDto.fromJson(
@@ -24,8 +24,8 @@ _$_GenericMedicineDto _$$_GenericMedicineDtoFromJson(
       controlled: json['controlled'] as bool,
     );
 
-Map<String, dynamic> _$$_GenericMedicineDtoToJson(
-        _$_GenericMedicineDto instance) =>
+Map<String, dynamic> _$$GenericMedicineDtoImplToJson(
+        _$GenericMedicineDtoImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'genericName': instance.genericName,

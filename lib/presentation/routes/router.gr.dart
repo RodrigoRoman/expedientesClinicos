@@ -41,6 +41,12 @@ abstract class _$AppRouter extends RootStackRouter {
         child: GenericMedicineFormPage(onCreated: args.onCreated),
       );
     },
+    PatientSectionPageRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const PatientSectionPage(),
+      );
+    },
     PatientVisitPageRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -155,6 +161,20 @@ class GenericMedicineFormPageRouteArgs {
   String toString() {
     return 'GenericMedicineFormPageRouteArgs{onCreated: $onCreated}';
   }
+}
+
+/// generated route for
+/// [PatientSectionPage]
+class PatientSectionPageRoute extends PageRouteInfo<void> {
+  const PatientSectionPageRoute({List<PageRouteInfo>? children})
+      : super(
+          PatientSectionPageRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'PatientSectionPageRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for

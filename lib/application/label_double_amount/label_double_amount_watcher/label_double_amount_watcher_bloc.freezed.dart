@@ -12,7 +12,7 @@ part of 'label_double_amount_watcher_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$LabelDoubleAmountWatcherEvent {
@@ -96,25 +96,25 @@ class _$LabelDoubleAmountWatcherEventCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_WatchAllStartedCopyWith<$Res> {
-  factory _$$_WatchAllStartedCopyWith(
-          _$_WatchAllStarted value, $Res Function(_$_WatchAllStarted) then) =
-      __$$_WatchAllStartedCopyWithImpl<$Res>;
+abstract class _$$WatchAllStartedImplCopyWith<$Res> {
+  factory _$$WatchAllStartedImplCopyWith(_$WatchAllStartedImpl value,
+          $Res Function(_$WatchAllStartedImpl) then) =
+      __$$WatchAllStartedImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_WatchAllStartedCopyWithImpl<$Res>
+class __$$WatchAllStartedImplCopyWithImpl<$Res>
     extends _$LabelDoubleAmountWatcherEventCopyWithImpl<$Res,
-        _$_WatchAllStarted> implements _$$_WatchAllStartedCopyWith<$Res> {
-  __$$_WatchAllStartedCopyWithImpl(
-      _$_WatchAllStarted _value, $Res Function(_$_WatchAllStarted) _then)
+        _$WatchAllStartedImpl> implements _$$WatchAllStartedImplCopyWith<$Res> {
+  __$$WatchAllStartedImplCopyWithImpl(
+      _$WatchAllStartedImpl _value, $Res Function(_$WatchAllStartedImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_WatchAllStarted implements _WatchAllStarted {
-  const _$_WatchAllStarted();
+class _$WatchAllStartedImpl implements _WatchAllStarted {
+  const _$WatchAllStartedImpl();
 
   @override
   String toString() {
@@ -122,9 +122,9 @@ class _$_WatchAllStarted implements _WatchAllStarted {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_WatchAllStarted);
+        (other.runtimeType == runtimeType && other is _$WatchAllStartedImpl);
   }
 
   @override
@@ -212,25 +212,25 @@ class _$_WatchAllStarted implements _WatchAllStarted {
 }
 
 abstract class _WatchAllStarted implements LabelDoubleAmountWatcherEvent {
-  const factory _WatchAllStarted() = _$_WatchAllStarted;
+  const factory _WatchAllStarted() = _$WatchAllStartedImpl;
 }
 
 /// @nodoc
-abstract class _$$_WatchFilteredStartedCopyWith<$Res> {
-  factory _$$_WatchFilteredStartedCopyWith(_$_WatchFilteredStarted value,
-          $Res Function(_$_WatchFilteredStarted) then) =
-      __$$_WatchFilteredStartedCopyWithImpl<$Res>;
+abstract class _$$WatchFilteredStartedImplCopyWith<$Res> {
+  factory _$$WatchFilteredStartedImplCopyWith(_$WatchFilteredStartedImpl value,
+          $Res Function(_$WatchFilteredStartedImpl) then) =
+      __$$WatchFilteredStartedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String keyword});
 }
 
 /// @nodoc
-class __$$_WatchFilteredStartedCopyWithImpl<$Res>
+class __$$WatchFilteredStartedImplCopyWithImpl<$Res>
     extends _$LabelDoubleAmountWatcherEventCopyWithImpl<$Res,
-        _$_WatchFilteredStarted>
-    implements _$$_WatchFilteredStartedCopyWith<$Res> {
-  __$$_WatchFilteredStartedCopyWithImpl(_$_WatchFilteredStarted _value,
-      $Res Function(_$_WatchFilteredStarted) _then)
+        _$WatchFilteredStartedImpl>
+    implements _$$WatchFilteredStartedImplCopyWith<$Res> {
+  __$$WatchFilteredStartedImplCopyWithImpl(_$WatchFilteredStartedImpl _value,
+      $Res Function(_$WatchFilteredStartedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -238,7 +238,7 @@ class __$$_WatchFilteredStartedCopyWithImpl<$Res>
   $Res call({
     Object? keyword = null,
   }) {
-    return _then(_$_WatchFilteredStarted(
+    return _then(_$WatchFilteredStartedImpl(
       null == keyword
           ? _value.keyword
           : keyword // ignore: cast_nullable_to_non_nullable
@@ -249,8 +249,8 @@ class __$$_WatchFilteredStartedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_WatchFilteredStarted implements _WatchFilteredStarted {
-  const _$_WatchFilteredStarted(this.keyword);
+class _$WatchFilteredStartedImpl implements _WatchFilteredStarted {
+  const _$WatchFilteredStartedImpl(this.keyword);
 
   @override
   final String keyword;
@@ -261,10 +261,10 @@ class _$_WatchFilteredStarted implements _WatchFilteredStarted {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_WatchFilteredStarted &&
+            other is _$WatchFilteredStartedImpl &&
             (identical(other.keyword, keyword) || other.keyword == keyword));
   }
 
@@ -274,9 +274,10 @@ class _$_WatchFilteredStarted implements _WatchFilteredStarted {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_WatchFilteredStartedCopyWith<_$_WatchFilteredStarted> get copyWith =>
-      __$$_WatchFilteredStartedCopyWithImpl<_$_WatchFilteredStarted>(
-          this, _$identity);
+  _$$WatchFilteredStartedImplCopyWith<_$WatchFilteredStartedImpl>
+      get copyWith =>
+          __$$WatchFilteredStartedImplCopyWithImpl<_$WatchFilteredStartedImpl>(
+              this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -361,20 +362,20 @@ class _$_WatchFilteredStarted implements _WatchFilteredStarted {
 
 abstract class _WatchFilteredStarted implements LabelDoubleAmountWatcherEvent {
   const factory _WatchFilteredStarted(final String keyword) =
-      _$_WatchFilteredStarted;
+      _$WatchFilteredStartedImpl;
 
   String get keyword;
   @JsonKey(ignore: true)
-  _$$_WatchFilteredStartedCopyWith<_$_WatchFilteredStarted> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$WatchFilteredStartedImplCopyWith<_$WatchFilteredStartedImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_LabelDoubleAmountReceivedCopyWith<$Res> {
-  factory _$$_LabelDoubleAmountReceivedCopyWith(
-          _$_LabelDoubleAmountReceived value,
-          $Res Function(_$_LabelDoubleAmountReceived) then) =
-      __$$_LabelDoubleAmountReceivedCopyWithImpl<$Res>;
+abstract class _$$LabelDoubleAmountReceivedImplCopyWith<$Res> {
+  factory _$$LabelDoubleAmountReceivedImplCopyWith(
+          _$LabelDoubleAmountReceivedImpl value,
+          $Res Function(_$LabelDoubleAmountReceivedImpl) then) =
+      __$$LabelDoubleAmountReceivedImplCopyWithImpl<$Res>;
   @useResult
   $Res call(
       {Either<LabelDoubleAmountFailure, KtList<LabelDoubleAmount>>
@@ -382,13 +383,13 @@ abstract class _$$_LabelDoubleAmountReceivedCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_LabelDoubleAmountReceivedCopyWithImpl<$Res>
+class __$$LabelDoubleAmountReceivedImplCopyWithImpl<$Res>
     extends _$LabelDoubleAmountWatcherEventCopyWithImpl<$Res,
-        _$_LabelDoubleAmountReceived>
-    implements _$$_LabelDoubleAmountReceivedCopyWith<$Res> {
-  __$$_LabelDoubleAmountReceivedCopyWithImpl(
-      _$_LabelDoubleAmountReceived _value,
-      $Res Function(_$_LabelDoubleAmountReceived) _then)
+        _$LabelDoubleAmountReceivedImpl>
+    implements _$$LabelDoubleAmountReceivedImplCopyWith<$Res> {
+  __$$LabelDoubleAmountReceivedImplCopyWithImpl(
+      _$LabelDoubleAmountReceivedImpl _value,
+      $Res Function(_$LabelDoubleAmountReceivedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -396,7 +397,7 @@ class __$$_LabelDoubleAmountReceivedCopyWithImpl<$Res>
   $Res call({
     Object? failureOrLabelDoubleAmounts = null,
   }) {
-    return _then(_$_LabelDoubleAmountReceived(
+    return _then(_$LabelDoubleAmountReceivedImpl(
       null == failureOrLabelDoubleAmounts
           ? _value.failureOrLabelDoubleAmounts
           : failureOrLabelDoubleAmounts // ignore: cast_nullable_to_non_nullable
@@ -407,8 +408,8 @@ class __$$_LabelDoubleAmountReceivedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_LabelDoubleAmountReceived implements _LabelDoubleAmountReceived {
-  const _$_LabelDoubleAmountReceived(this.failureOrLabelDoubleAmounts);
+class _$LabelDoubleAmountReceivedImpl implements _LabelDoubleAmountReceived {
+  const _$LabelDoubleAmountReceivedImpl(this.failureOrLabelDoubleAmounts);
 
   @override
   final Either<LabelDoubleAmountFailure, KtList<LabelDoubleAmount>>
@@ -420,10 +421,10 @@ class _$_LabelDoubleAmountReceived implements _LabelDoubleAmountReceived {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LabelDoubleAmountReceived &&
+            other is _$LabelDoubleAmountReceivedImpl &&
             (identical(other.failureOrLabelDoubleAmounts,
                     failureOrLabelDoubleAmounts) ||
                 other.failureOrLabelDoubleAmounts ==
@@ -436,9 +437,9 @@ class _$_LabelDoubleAmountReceived implements _LabelDoubleAmountReceived {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LabelDoubleAmountReceivedCopyWith<_$_LabelDoubleAmountReceived>
-      get copyWith => __$$_LabelDoubleAmountReceivedCopyWithImpl<
-          _$_LabelDoubleAmountReceived>(this, _$identity);
+  _$$LabelDoubleAmountReceivedImplCopyWith<_$LabelDoubleAmountReceivedImpl>
+      get copyWith => __$$LabelDoubleAmountReceivedImplCopyWithImpl<
+          _$LabelDoubleAmountReceivedImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -525,12 +526,12 @@ abstract class _LabelDoubleAmountReceived
     implements LabelDoubleAmountWatcherEvent {
   const factory _LabelDoubleAmountReceived(
       final Either<LabelDoubleAmountFailure, KtList<LabelDoubleAmount>>
-          failureOrLabelDoubleAmounts) = _$_LabelDoubleAmountReceived;
+          failureOrLabelDoubleAmounts) = _$LabelDoubleAmountReceivedImpl;
 
   Either<LabelDoubleAmountFailure, KtList<LabelDoubleAmount>>
       get failureOrLabelDoubleAmounts;
   @JsonKey(ignore: true)
-  _$$_LabelDoubleAmountReceivedCopyWith<_$_LabelDoubleAmountReceived>
+  _$$LabelDoubleAmountReceivedImplCopyWith<_$LabelDoubleAmountReceivedImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -614,24 +615,25 @@ class _$LabelDoubleAmountWatcherStateCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_InitialCopyWith<$Res> {
-  factory _$$_InitialCopyWith(
-          _$_Initial value, $Res Function(_$_Initial) then) =
-      __$$_InitialCopyWithImpl<$Res>;
+abstract class _$$InitialImplCopyWith<$Res> {
+  factory _$$InitialImplCopyWith(
+          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
+      __$$InitialImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_InitialCopyWithImpl<$Res>
-    extends _$LabelDoubleAmountWatcherStateCopyWithImpl<$Res, _$_Initial>
-    implements _$$_InitialCopyWith<$Res> {
-  __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
+class __$$InitialImplCopyWithImpl<$Res>
+    extends _$LabelDoubleAmountWatcherStateCopyWithImpl<$Res, _$InitialImpl>
+    implements _$$InitialImplCopyWith<$Res> {
+  __$$InitialImplCopyWithImpl(
+      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_Initial implements _Initial {
-  const _$_Initial();
+class _$InitialImpl implements _Initial {
+  const _$InitialImpl();
 
   @override
   String toString() {
@@ -639,9 +641,9 @@ class _$_Initial implements _Initial {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Initial);
+        (other.runtimeType == runtimeType && other is _$InitialImpl);
   }
 
   @override
@@ -727,29 +729,29 @@ class _$_Initial implements _Initial {
 }
 
 abstract class _Initial implements LabelDoubleAmountWatcherState {
-  const factory _Initial() = _$_Initial;
+  const factory _Initial() = _$InitialImpl;
 }
 
 /// @nodoc
-abstract class _$$_LoadInProgressCopyWith<$Res> {
-  factory _$$_LoadInProgressCopyWith(
-          _$_LoadInProgress value, $Res Function(_$_LoadInProgress) then) =
-      __$$_LoadInProgressCopyWithImpl<$Res>;
+abstract class _$$LoadInProgressImplCopyWith<$Res> {
+  factory _$$LoadInProgressImplCopyWith(_$LoadInProgressImpl value,
+          $Res Function(_$LoadInProgressImpl) then) =
+      __$$LoadInProgressImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_LoadInProgressCopyWithImpl<$Res>
-    extends _$LabelDoubleAmountWatcherStateCopyWithImpl<$Res, _$_LoadInProgress>
-    implements _$$_LoadInProgressCopyWith<$Res> {
-  __$$_LoadInProgressCopyWithImpl(
-      _$_LoadInProgress _value, $Res Function(_$_LoadInProgress) _then)
+class __$$LoadInProgressImplCopyWithImpl<$Res>
+    extends _$LabelDoubleAmountWatcherStateCopyWithImpl<$Res,
+        _$LoadInProgressImpl> implements _$$LoadInProgressImplCopyWith<$Res> {
+  __$$LoadInProgressImplCopyWithImpl(
+      _$LoadInProgressImpl _value, $Res Function(_$LoadInProgressImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_LoadInProgress implements _LoadInProgress {
-  const _$_LoadInProgress();
+class _$LoadInProgressImpl implements _LoadInProgress {
+  const _$LoadInProgressImpl();
 
   @override
   String toString() {
@@ -757,9 +759,9 @@ class _$_LoadInProgress implements _LoadInProgress {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_LoadInProgress);
+        (other.runtimeType == runtimeType && other is _$LoadInProgressImpl);
   }
 
   @override
@@ -845,24 +847,24 @@ class _$_LoadInProgress implements _LoadInProgress {
 }
 
 abstract class _LoadInProgress implements LabelDoubleAmountWatcherState {
-  const factory _LoadInProgress() = _$_LoadInProgress;
+  const factory _LoadInProgress() = _$LoadInProgressImpl;
 }
 
 /// @nodoc
-abstract class _$$_LoadSuccessCopyWith<$Res> {
-  factory _$$_LoadSuccessCopyWith(
-          _$_LoadSuccess value, $Res Function(_$_LoadSuccess) then) =
-      __$$_LoadSuccessCopyWithImpl<$Res>;
+abstract class _$$LoadSuccessImplCopyWith<$Res> {
+  factory _$$LoadSuccessImplCopyWith(
+          _$LoadSuccessImpl value, $Res Function(_$LoadSuccessImpl) then) =
+      __$$LoadSuccessImplCopyWithImpl<$Res>;
   @useResult
   $Res call({KtList<LabelDoubleAmount> labelDoubleAmount});
 }
 
 /// @nodoc
-class __$$_LoadSuccessCopyWithImpl<$Res>
-    extends _$LabelDoubleAmountWatcherStateCopyWithImpl<$Res, _$_LoadSuccess>
-    implements _$$_LoadSuccessCopyWith<$Res> {
-  __$$_LoadSuccessCopyWithImpl(
-      _$_LoadSuccess _value, $Res Function(_$_LoadSuccess) _then)
+class __$$LoadSuccessImplCopyWithImpl<$Res>
+    extends _$LabelDoubleAmountWatcherStateCopyWithImpl<$Res, _$LoadSuccessImpl>
+    implements _$$LoadSuccessImplCopyWith<$Res> {
+  __$$LoadSuccessImplCopyWithImpl(
+      _$LoadSuccessImpl _value, $Res Function(_$LoadSuccessImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -870,7 +872,7 @@ class __$$_LoadSuccessCopyWithImpl<$Res>
   $Res call({
     Object? labelDoubleAmount = null,
   }) {
-    return _then(_$_LoadSuccess(
+    return _then(_$LoadSuccessImpl(
       null == labelDoubleAmount
           ? _value.labelDoubleAmount
           : labelDoubleAmount // ignore: cast_nullable_to_non_nullable
@@ -881,8 +883,8 @@ class __$$_LoadSuccessCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_LoadSuccess implements _LoadSuccess {
-  const _$_LoadSuccess(this.labelDoubleAmount);
+class _$LoadSuccessImpl implements _LoadSuccess {
+  const _$LoadSuccessImpl(this.labelDoubleAmount);
 
   @override
   final KtList<LabelDoubleAmount> labelDoubleAmount;
@@ -893,10 +895,10 @@ class _$_LoadSuccess implements _LoadSuccess {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LoadSuccess &&
+            other is _$LoadSuccessImpl &&
             (identical(other.labelDoubleAmount, labelDoubleAmount) ||
                 other.labelDoubleAmount == labelDoubleAmount));
   }
@@ -907,8 +909,8 @@ class _$_LoadSuccess implements _LoadSuccess {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LoadSuccessCopyWith<_$_LoadSuccess> get copyWith =>
-      __$$_LoadSuccessCopyWithImpl<_$_LoadSuccess>(this, _$identity);
+  _$$LoadSuccessImplCopyWith<_$LoadSuccessImpl> get copyWith =>
+      __$$LoadSuccessImplCopyWithImpl<_$LoadSuccessImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -991,20 +993,20 @@ class _$_LoadSuccess implements _LoadSuccess {
 
 abstract class _LoadSuccess implements LabelDoubleAmountWatcherState {
   const factory _LoadSuccess(
-      final KtList<LabelDoubleAmount> labelDoubleAmount) = _$_LoadSuccess;
+      final KtList<LabelDoubleAmount> labelDoubleAmount) = _$LoadSuccessImpl;
 
   KtList<LabelDoubleAmount> get labelDoubleAmount;
   @JsonKey(ignore: true)
-  _$$_LoadSuccessCopyWith<_$_LoadSuccess> get copyWith =>
+  _$$LoadSuccessImplCopyWith<_$LoadSuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_LabelDoubleAmountFailureCopyWith<$Res> {
-  factory _$$_LabelDoubleAmountFailureCopyWith(
-          _$_LabelDoubleAmountFailure value,
-          $Res Function(_$_LabelDoubleAmountFailure) then) =
-      __$$_LabelDoubleAmountFailureCopyWithImpl<$Res>;
+abstract class _$$LabelDoubleAmountFailureImplCopyWith<$Res> {
+  factory _$$LabelDoubleAmountFailureImplCopyWith(
+          _$LabelDoubleAmountFailureImpl value,
+          $Res Function(_$LabelDoubleAmountFailureImpl) then) =
+      __$$LabelDoubleAmountFailureImplCopyWithImpl<$Res>;
   @useResult
   $Res call({LabelDoubleAmountFailure labelDoubleAmountFailure});
 
@@ -1012,12 +1014,13 @@ abstract class _$$_LabelDoubleAmountFailureCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_LabelDoubleAmountFailureCopyWithImpl<$Res>
+class __$$LabelDoubleAmountFailureImplCopyWithImpl<$Res>
     extends _$LabelDoubleAmountWatcherStateCopyWithImpl<$Res,
-        _$_LabelDoubleAmountFailure>
-    implements _$$_LabelDoubleAmountFailureCopyWith<$Res> {
-  __$$_LabelDoubleAmountFailureCopyWithImpl(_$_LabelDoubleAmountFailure _value,
-      $Res Function(_$_LabelDoubleAmountFailure) _then)
+        _$LabelDoubleAmountFailureImpl>
+    implements _$$LabelDoubleAmountFailureImplCopyWith<$Res> {
+  __$$LabelDoubleAmountFailureImplCopyWithImpl(
+      _$LabelDoubleAmountFailureImpl _value,
+      $Res Function(_$LabelDoubleAmountFailureImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1025,7 +1028,7 @@ class __$$_LabelDoubleAmountFailureCopyWithImpl<$Res>
   $Res call({
     Object? labelDoubleAmountFailure = null,
   }) {
-    return _then(_$_LabelDoubleAmountFailure(
+    return _then(_$LabelDoubleAmountFailureImpl(
       null == labelDoubleAmountFailure
           ? _value.labelDoubleAmountFailure
           : labelDoubleAmountFailure // ignore: cast_nullable_to_non_nullable
@@ -1045,8 +1048,8 @@ class __$$_LabelDoubleAmountFailureCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_LabelDoubleAmountFailure implements _LabelDoubleAmountFailure {
-  const _$_LabelDoubleAmountFailure(this.labelDoubleAmountFailure);
+class _$LabelDoubleAmountFailureImpl implements _LabelDoubleAmountFailure {
+  const _$LabelDoubleAmountFailureImpl(this.labelDoubleAmountFailure);
 
   @override
   final LabelDoubleAmountFailure labelDoubleAmountFailure;
@@ -1057,10 +1060,10 @@ class _$_LabelDoubleAmountFailure implements _LabelDoubleAmountFailure {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LabelDoubleAmountFailure &&
+            other is _$LabelDoubleAmountFailureImpl &&
             (identical(
                     other.labelDoubleAmountFailure, labelDoubleAmountFailure) ||
                 other.labelDoubleAmountFailure == labelDoubleAmountFailure));
@@ -1072,9 +1075,9 @@ class _$_LabelDoubleAmountFailure implements _LabelDoubleAmountFailure {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LabelDoubleAmountFailureCopyWith<_$_LabelDoubleAmountFailure>
-      get copyWith => __$$_LabelDoubleAmountFailureCopyWithImpl<
-          _$_LabelDoubleAmountFailure>(this, _$identity);
+  _$$LabelDoubleAmountFailureImplCopyWith<_$LabelDoubleAmountFailureImpl>
+      get copyWith => __$$LabelDoubleAmountFailureImplCopyWithImpl<
+          _$LabelDoubleAmountFailureImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1159,10 +1162,10 @@ abstract class _LabelDoubleAmountFailure
     implements LabelDoubleAmountWatcherState {
   const factory _LabelDoubleAmountFailure(
           final LabelDoubleAmountFailure labelDoubleAmountFailure) =
-      _$_LabelDoubleAmountFailure;
+      _$LabelDoubleAmountFailureImpl;
 
   LabelDoubleAmountFailure get labelDoubleAmountFailure;
   @JsonKey(ignore: true)
-  _$$_LabelDoubleAmountFailureCopyWith<_$_LabelDoubleAmountFailure>
+  _$$LabelDoubleAmountFailureImplCopyWith<_$LabelDoubleAmountFailureImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

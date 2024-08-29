@@ -6,7 +6,7 @@ import 'package:expedientes_clinicos/presentation/common/widget_elements/buttons
 import 'package:expedientes_clinicos/presentation/common/widget_elements/input_fields/integer_input.dart';
 import 'package:expedientes_clinicos/presentation/common/widget_elements/input_fields/text_input_title.dart';
 import 'package:expedientes_clinicos/presentation/common/widget_elements/title_validated.dart';
-import 'package:expedientes_clinicos/presentation/prescription/dose/day_hours_dose/day_hours_dose_form/widgets/digital_watch.dart';
+import 'package:expedientes_clinicos/presentation/common/widget_elements/date_time_input/digital_watch.dart';
 import 'package:expedientes_clinicos/presentation/resources/string_manager.dart';
 import 'package:expedientes_clinicos/presentation/routes/router.dart';
 import 'package:flutter/material.dart';
@@ -287,7 +287,7 @@ class _DayHoursDoseFormState extends State<DayHoursDoseForm> {
                                               height: constraints.maxHeight,
                                               child: DigitalWatch(
                                                 initialTime: currentList[index],
-                                                onDateSelected:
+                                                onTimeSelected:
                                                     (TimeOfDay newTime) {
                                                   List<HourTime> currentList = context
                                                       .read<

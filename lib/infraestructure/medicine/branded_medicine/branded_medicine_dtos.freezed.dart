@@ -12,7 +12,7 @@ part of 'branded_medicine_dtos.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 BrandedMedicineDto _$BrandedMedicineDtoFromJson(Map<String, dynamic> json) {
   return _BrandedMedicineDto.fromJson(json);
@@ -115,11 +115,11 @@ class _$BrandedMedicineDtoCopyWithImpl<$Res, $Val extends BrandedMedicineDto>
 }
 
 /// @nodoc
-abstract class _$$_BrandedMedicineDtoCopyWith<$Res>
+abstract class _$$BrandedMedicineDtoImplCopyWith<$Res>
     implements $BrandedMedicineDtoCopyWith<$Res> {
-  factory _$$_BrandedMedicineDtoCopyWith(_$_BrandedMedicineDto value,
-          $Res Function(_$_BrandedMedicineDto) then) =
-      __$$_BrandedMedicineDtoCopyWithImpl<$Res>;
+  factory _$$BrandedMedicineDtoImplCopyWith(_$BrandedMedicineDtoImpl value,
+          $Res Function(_$BrandedMedicineDtoImpl) then) =
+      __$$BrandedMedicineDtoImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -136,11 +136,11 @@ abstract class _$$_BrandedMedicineDtoCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_BrandedMedicineDtoCopyWithImpl<$Res>
-    extends _$BrandedMedicineDtoCopyWithImpl<$Res, _$_BrandedMedicineDto>
-    implements _$$_BrandedMedicineDtoCopyWith<$Res> {
-  __$$_BrandedMedicineDtoCopyWithImpl(
-      _$_BrandedMedicineDto _value, $Res Function(_$_BrandedMedicineDto) _then)
+class __$$BrandedMedicineDtoImplCopyWithImpl<$Res>
+    extends _$BrandedMedicineDtoCopyWithImpl<$Res, _$BrandedMedicineDtoImpl>
+    implements _$$BrandedMedicineDtoImplCopyWith<$Res> {
+  __$$BrandedMedicineDtoImplCopyWithImpl(_$BrandedMedicineDtoImpl _value,
+      $Res Function(_$BrandedMedicineDtoImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -154,7 +154,7 @@ class __$$_BrandedMedicineDtoCopyWithImpl<$Res>
     Object? counter = null,
     Object? genericMedicine = null,
   }) {
-    return _then(_$_BrandedMedicineDto(
+    return _then(_$BrandedMedicineDtoImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -189,8 +189,8 @@ class __$$_BrandedMedicineDtoCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_BrandedMedicineDto extends _BrandedMedicineDto {
-  const _$_BrandedMedicineDto(
+class _$BrandedMedicineDtoImpl extends _BrandedMedicineDto {
+  const _$BrandedMedicineDtoImpl(
       {required this.id,
       required this.comercialName,
       required this.existence,
@@ -200,8 +200,8 @@ class _$_BrandedMedicineDto extends _BrandedMedicineDto {
       required this.genericMedicine})
       : super._();
 
-  factory _$_BrandedMedicineDto.fromJson(Map<String, dynamic> json) =>
-      _$$_BrandedMedicineDtoFromJson(json);
+  factory _$BrandedMedicineDtoImpl.fromJson(Map<String, dynamic> json) =>
+      _$$BrandedMedicineDtoImplFromJson(json);
 
   @override
   final String id;
@@ -224,10 +224,10 @@ class _$_BrandedMedicineDto extends _BrandedMedicineDto {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_BrandedMedicineDto &&
+            other is _$BrandedMedicineDtoImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.comercialName, comercialName) ||
                 other.comercialName == comercialName) &&
@@ -249,13 +249,13 @@ class _$_BrandedMedicineDto extends _BrandedMedicineDto {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_BrandedMedicineDtoCopyWith<_$_BrandedMedicineDto> get copyWith =>
-      __$$_BrandedMedicineDtoCopyWithImpl<_$_BrandedMedicineDto>(
+  _$$BrandedMedicineDtoImplCopyWith<_$BrandedMedicineDtoImpl> get copyWith =>
+      __$$BrandedMedicineDtoImplCopyWithImpl<_$BrandedMedicineDtoImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_BrandedMedicineDtoToJson(
+    return _$$BrandedMedicineDtoImplToJson(
       this,
     );
   }
@@ -270,11 +270,11 @@ abstract class _BrandedMedicineDto extends BrandedMedicineDto {
           required final String imageURL,
           required final int counter,
           required final GenericMedicineDto genericMedicine}) =
-      _$_BrandedMedicineDto;
+      _$BrandedMedicineDtoImpl;
   const _BrandedMedicineDto._() : super._();
 
   factory _BrandedMedicineDto.fromJson(Map<String, dynamic> json) =
-      _$_BrandedMedicineDto.fromJson;
+      _$BrandedMedicineDtoImpl.fromJson;
 
   @override
   String get id;
@@ -292,6 +292,6 @@ abstract class _BrandedMedicineDto extends BrandedMedicineDto {
   GenericMedicineDto get genericMedicine;
   @override
   @JsonKey(ignore: true)
-  _$$_BrandedMedicineDtoCopyWith<_$_BrandedMedicineDto> get copyWith =>
+  _$$BrandedMedicineDtoImplCopyWith<_$BrandedMedicineDtoImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

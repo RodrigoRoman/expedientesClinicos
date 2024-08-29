@@ -6,8 +6,9 @@ part of 'week_days_dose_dtos.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_WeekDaysDoseDto _$$_WeekDaysDoseDtoFromJson(Map<String, dynamic> json) =>
-    _$_WeekDaysDoseDto(
+_$WeekDaysDoseDtoImpl _$$WeekDaysDoseDtoImplFromJson(
+        Map<String, dynamic> json) =>
+    _$WeekDaysDoseDtoImpl(
       id: json['id'] as String,
       label: json['label'] as String,
       weekDays:
@@ -15,7 +16,8 @@ _$_WeekDaysDoseDto _$$_WeekDaysDoseDtoFromJson(Map<String, dynamic> json) =>
       counter: json['counter'] as int,
     );
 
-Map<String, dynamic> _$$_WeekDaysDoseDtoToJson(_$_WeekDaysDoseDto instance) =>
+Map<String, dynamic> _$$WeekDaysDoseDtoImplToJson(
+        _$WeekDaysDoseDtoImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'label': instance.label,

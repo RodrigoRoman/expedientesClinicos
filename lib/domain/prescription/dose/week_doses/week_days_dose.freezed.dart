@@ -12,7 +12,7 @@ part of 'week_days_dose.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$WeekDaysDose {
@@ -79,11 +79,11 @@ class _$WeekDaysDoseCopyWithImpl<$Res, $Val extends WeekDaysDose>
 }
 
 /// @nodoc
-abstract class _$$_WeekDaysDoseCopyWith<$Res>
+abstract class _$$WeekDaysDoseImplCopyWith<$Res>
     implements $WeekDaysDoseCopyWith<$Res> {
-  factory _$$_WeekDaysDoseCopyWith(
-          _$_WeekDaysDose value, $Res Function(_$_WeekDaysDose) then) =
-      __$$_WeekDaysDoseCopyWithImpl<$Res>;
+  factory _$$WeekDaysDoseImplCopyWith(
+          _$WeekDaysDoseImpl value, $Res Function(_$WeekDaysDoseImpl) then) =
+      __$$WeekDaysDoseImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -94,11 +94,11 @@ abstract class _$$_WeekDaysDoseCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_WeekDaysDoseCopyWithImpl<$Res>
-    extends _$WeekDaysDoseCopyWithImpl<$Res, _$_WeekDaysDose>
-    implements _$$_WeekDaysDoseCopyWith<$Res> {
-  __$$_WeekDaysDoseCopyWithImpl(
-      _$_WeekDaysDose _value, $Res Function(_$_WeekDaysDose) _then)
+class __$$WeekDaysDoseImplCopyWithImpl<$Res>
+    extends _$WeekDaysDoseCopyWithImpl<$Res, _$WeekDaysDoseImpl>
+    implements _$$WeekDaysDoseImplCopyWith<$Res> {
+  __$$WeekDaysDoseImplCopyWithImpl(
+      _$WeekDaysDoseImpl _value, $Res Function(_$WeekDaysDoseImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -109,7 +109,7 @@ class __$$_WeekDaysDoseCopyWithImpl<$Res>
     Object? weekDays = null,
     Object? counter = null,
   }) {
-    return _then(_$_WeekDaysDose(
+    return _then(_$WeekDaysDoseImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -132,8 +132,8 @@ class __$$_WeekDaysDoseCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_WeekDaysDose extends _WeekDaysDose {
-  const _$_WeekDaysDose(
+class _$WeekDaysDoseImpl extends _WeekDaysDose {
+  const _$WeekDaysDoseImpl(
       {required this.id,
       required this.label,
       required this.weekDays,
@@ -157,8 +157,8 @@ class _$_WeekDaysDose extends _WeekDaysDose {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_WeekDaysDoseCopyWith<_$_WeekDaysDose> get copyWith =>
-      __$$_WeekDaysDoseCopyWithImpl<_$_WeekDaysDose>(this, _$identity);
+  _$$WeekDaysDoseImplCopyWith<_$WeekDaysDoseImpl> get copyWith =>
+      __$$WeekDaysDoseImplCopyWithImpl<_$WeekDaysDoseImpl>(this, _$identity);
 }
 
 abstract class _WeekDaysDose extends WeekDaysDose {
@@ -166,7 +166,7 @@ abstract class _WeekDaysDose extends WeekDaysDose {
       {required final UniqueId id,
       required final FullName label,
       required final List3<NonNegInt> weekDays,
-      required final NonNegInt counter}) = _$_WeekDaysDose;
+      required final NonNegInt counter}) = _$WeekDaysDoseImpl;
   const _WeekDaysDose._() : super._();
 
   @override
@@ -179,6 +179,6 @@ abstract class _WeekDaysDose extends WeekDaysDose {
   NonNegInt get counter;
   @override
   @JsonKey(ignore: true)
-  _$$_WeekDaysDoseCopyWith<_$_WeekDaysDose> get copyWith =>
+  _$$WeekDaysDoseImplCopyWith<_$WeekDaysDoseImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

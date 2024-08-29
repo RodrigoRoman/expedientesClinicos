@@ -12,7 +12,7 @@ part of 'prescription.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$Prescription {
@@ -114,11 +114,11 @@ class _$PrescriptionCopyWithImpl<$Res, $Val extends Prescription>
 }
 
 /// @nodoc
-abstract class _$$_PrescriptionCopyWith<$Res>
+abstract class _$$PrescriptionImplCopyWith<$Res>
     implements $PrescriptionCopyWith<$Res> {
-  factory _$$_PrescriptionCopyWith(
-          _$_Prescription value, $Res Function(_$_Prescription) then) =
-      __$$_PrescriptionCopyWithImpl<$Res>;
+  factory _$$PrescriptionImplCopyWith(
+          _$PrescriptionImpl value, $Res Function(_$PrescriptionImpl) then) =
+      __$$PrescriptionImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -137,11 +137,11 @@ abstract class _$$_PrescriptionCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_PrescriptionCopyWithImpl<$Res>
-    extends _$PrescriptionCopyWithImpl<$Res, _$_Prescription>
-    implements _$$_PrescriptionCopyWith<$Res> {
-  __$$_PrescriptionCopyWithImpl(
-      _$_Prescription _value, $Res Function(_$_Prescription) _then)
+class __$$PrescriptionImplCopyWithImpl<$Res>
+    extends _$PrescriptionCopyWithImpl<$Res, _$PrescriptionImpl>
+    implements _$$PrescriptionImplCopyWith<$Res> {
+  __$$PrescriptionImplCopyWithImpl(
+      _$PrescriptionImpl _value, $Res Function(_$PrescriptionImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -153,7 +153,7 @@ class __$$_PrescriptionCopyWithImpl<$Res>
     Object? dose = null,
     Object? indications = null,
   }) {
-    return _then(_$_Prescription(
+    return _then(_$PrescriptionImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -180,8 +180,8 @@ class __$$_PrescriptionCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Prescription extends _Prescription {
-  const _$_Prescription(
+class _$PrescriptionImpl extends _Prescription {
+  const _$PrescriptionImpl(
       {required this.id,
       required this.medicine,
       required this.doseAmount,
@@ -206,10 +206,10 @@ class _$_Prescription extends _Prescription {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Prescription &&
+            other is _$PrescriptionImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.medicine, medicine) ||
                 other.medicine == medicine) &&
@@ -227,8 +227,8 @@ class _$_Prescription extends _Prescription {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_PrescriptionCopyWith<_$_Prescription> get copyWith =>
-      __$$_PrescriptionCopyWithImpl<_$_Prescription>(this, _$identity);
+  _$$PrescriptionImplCopyWith<_$PrescriptionImpl> get copyWith =>
+      __$$PrescriptionImplCopyWithImpl<_$PrescriptionImpl>(this, _$identity);
 }
 
 abstract class _Prescription extends Prescription {
@@ -237,7 +237,7 @@ abstract class _Prescription extends Prescription {
       required final BrandedMedicine medicine,
       required final LabelDoubleAmount doseAmount,
       required final Dose dose,
-      required final List3<Indication> indications}) = _$_Prescription;
+      required final List3<Indication> indications}) = _$PrescriptionImpl;
   const _Prescription._() : super._();
 
   @override
@@ -252,6 +252,6 @@ abstract class _Prescription extends Prescription {
   List3<Indication> get indications;
   @override
   @JsonKey(ignore: true)
-  _$$_PrescriptionCopyWith<_$_Prescription> get copyWith =>
+  _$$PrescriptionImplCopyWith<_$PrescriptionImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

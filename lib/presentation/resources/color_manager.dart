@@ -20,7 +20,8 @@ extension HexColor on Color {
 class LightThemeColors {
   static Color primary = HexColor.fromHex('#255ED6'); // Most dominant color
   static Color secondary =
-      HexColor.fromHex('#E6EFF9'); // Complement of primary color
+      // HexColor.fromHex('#E6EFF9'); // Complement of primary color
+      HexColor.fromHex('#FF64B5F6');
   static Color tertiary =
       HexColor.fromHex('#6CD8D1'); // Provides variety to the UI
   static Color accent = HexColor.fromHex('#FEA41D'); // Color that stands out

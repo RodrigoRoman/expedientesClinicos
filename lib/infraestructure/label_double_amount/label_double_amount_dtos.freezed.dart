@@ -12,7 +12,7 @@ part of 'label_double_amount_dtos.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 LabelDoubleAmountDto _$LabelDoubleAmountDtoFromJson(Map<String, dynamic> json) {
   return _LabelDoubleAmountDto.fromJson(json);
@@ -81,22 +81,22 @@ class _$LabelDoubleAmountDtoCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_LabelDoubleAmountDtoCopyWith<$Res>
+abstract class _$$LabelDoubleAmountDtoImplCopyWith<$Res>
     implements $LabelDoubleAmountDtoCopyWith<$Res> {
-  factory _$$_LabelDoubleAmountDtoCopyWith(_$_LabelDoubleAmountDto value,
-          $Res Function(_$_LabelDoubleAmountDto) then) =
-      __$$_LabelDoubleAmountDtoCopyWithImpl<$Res>;
+  factory _$$LabelDoubleAmountDtoImplCopyWith(_$LabelDoubleAmountDtoImpl value,
+          $Res Function(_$LabelDoubleAmountDtoImpl) then) =
+      __$$LabelDoubleAmountDtoImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String id, String label, double amount, int counter});
 }
 
 /// @nodoc
-class __$$_LabelDoubleAmountDtoCopyWithImpl<$Res>
-    extends _$LabelDoubleAmountDtoCopyWithImpl<$Res, _$_LabelDoubleAmountDto>
-    implements _$$_LabelDoubleAmountDtoCopyWith<$Res> {
-  __$$_LabelDoubleAmountDtoCopyWithImpl(_$_LabelDoubleAmountDto _value,
-      $Res Function(_$_LabelDoubleAmountDto) _then)
+class __$$LabelDoubleAmountDtoImplCopyWithImpl<$Res>
+    extends _$LabelDoubleAmountDtoCopyWithImpl<$Res, _$LabelDoubleAmountDtoImpl>
+    implements _$$LabelDoubleAmountDtoImplCopyWith<$Res> {
+  __$$LabelDoubleAmountDtoImplCopyWithImpl(_$LabelDoubleAmountDtoImpl _value,
+      $Res Function(_$LabelDoubleAmountDtoImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -107,7 +107,7 @@ class __$$_LabelDoubleAmountDtoCopyWithImpl<$Res>
     Object? amount = null,
     Object? counter = null,
   }) {
-    return _then(_$_LabelDoubleAmountDto(
+    return _then(_$LabelDoubleAmountDtoImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -130,16 +130,16 @@ class __$$_LabelDoubleAmountDtoCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_LabelDoubleAmountDto extends _LabelDoubleAmountDto {
-  const _$_LabelDoubleAmountDto(
+class _$LabelDoubleAmountDtoImpl extends _LabelDoubleAmountDto {
+  const _$LabelDoubleAmountDtoImpl(
       {required this.id,
       required this.label,
       required this.amount,
       required this.counter})
       : super._();
 
-  factory _$_LabelDoubleAmountDto.fromJson(Map<String, dynamic> json) =>
-      _$$_LabelDoubleAmountDtoFromJson(json);
+  factory _$LabelDoubleAmountDtoImpl.fromJson(Map<String, dynamic> json) =>
+      _$$LabelDoubleAmountDtoImplFromJson(json);
 
   @override
   final String id;
@@ -156,10 +156,10 @@ class _$_LabelDoubleAmountDto extends _LabelDoubleAmountDto {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LabelDoubleAmountDto &&
+            other is _$LabelDoubleAmountDtoImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.label, label) || other.label == label) &&
             (identical(other.amount, amount) || other.amount == amount) &&
@@ -173,13 +173,14 @@ class _$_LabelDoubleAmountDto extends _LabelDoubleAmountDto {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LabelDoubleAmountDtoCopyWith<_$_LabelDoubleAmountDto> get copyWith =>
-      __$$_LabelDoubleAmountDtoCopyWithImpl<_$_LabelDoubleAmountDto>(
-          this, _$identity);
+  _$$LabelDoubleAmountDtoImplCopyWith<_$LabelDoubleAmountDtoImpl>
+      get copyWith =>
+          __$$LabelDoubleAmountDtoImplCopyWithImpl<_$LabelDoubleAmountDtoImpl>(
+              this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_LabelDoubleAmountDtoToJson(
+    return _$$LabelDoubleAmountDtoImplToJson(
       this,
     );
   }
@@ -190,11 +191,11 @@ abstract class _LabelDoubleAmountDto extends LabelDoubleAmountDto {
       {required final String id,
       required final String label,
       required final double amount,
-      required final int counter}) = _$_LabelDoubleAmountDto;
+      required final int counter}) = _$LabelDoubleAmountDtoImpl;
   const _LabelDoubleAmountDto._() : super._();
 
   factory _LabelDoubleAmountDto.fromJson(Map<String, dynamic> json) =
-      _$_LabelDoubleAmountDto.fromJson;
+      _$LabelDoubleAmountDtoImpl.fromJson;
 
   @override
   String get id;
@@ -206,6 +207,6 @@ abstract class _LabelDoubleAmountDto extends LabelDoubleAmountDto {
   int get counter;
   @override
   @JsonKey(ignore: true)
-  _$$_LabelDoubleAmountDtoCopyWith<_$_LabelDoubleAmountDto> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$LabelDoubleAmountDtoImplCopyWith<_$LabelDoubleAmountDtoImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

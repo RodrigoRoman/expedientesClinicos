@@ -4,4 +4,5 @@ class EmptyFormValues {
   static const emptyAmount = 0;
   static const emptyAmountMeasureUnit = 100.0;
   static const emptyString = '';
+  static const emptyList = [];
 }

@@ -12,7 +12,7 @@ part of 'dose_amount.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$DoseAmount {
@@ -76,11 +76,11 @@ class _$DoseAmountCopyWithImpl<$Res, $Val extends DoseAmount>
 }
 
 /// @nodoc
-abstract class _$$_DoseAmountCopyWith<$Res>
+abstract class _$$DoseAmountImplCopyWith<$Res>
     implements $DoseAmountCopyWith<$Res> {
-  factory _$$_DoseAmountCopyWith(
-          _$_DoseAmount value, $Res Function(_$_DoseAmount) then) =
-      __$$_DoseAmountCopyWithImpl<$Res>;
+  factory _$$DoseAmountImplCopyWith(
+          _$DoseAmountImpl value, $Res Function(_$DoseAmountImpl) then) =
+      __$$DoseAmountImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -88,11 +88,11 @@ abstract class _$$_DoseAmountCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_DoseAmountCopyWithImpl<$Res>
-    extends _$DoseAmountCopyWithImpl<$Res, _$_DoseAmount>
-    implements _$$_DoseAmountCopyWith<$Res> {
-  __$$_DoseAmountCopyWithImpl(
-      _$_DoseAmount _value, $Res Function(_$_DoseAmount) _then)
+class __$$DoseAmountImplCopyWithImpl<$Res>
+    extends _$DoseAmountCopyWithImpl<$Res, _$DoseAmountImpl>
+    implements _$$DoseAmountImplCopyWith<$Res> {
+  __$$DoseAmountImplCopyWithImpl(
+      _$DoseAmountImpl _value, $Res Function(_$DoseAmountImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -103,7 +103,7 @@ class __$$_DoseAmountCopyWithImpl<$Res>
     Object? amount = null,
     Object? counter = null,
   }) {
-    return _then(_$_DoseAmount(
+    return _then(_$DoseAmountImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -126,8 +126,8 @@ class __$$_DoseAmountCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_DoseAmount extends _DoseAmount {
-  const _$_DoseAmount(
+class _$DoseAmountImpl extends _DoseAmount {
+  const _$DoseAmountImpl(
       {required this.id,
       required this.label,
       required this.amount,
@@ -151,8 +151,8 @@ class _$_DoseAmount extends _DoseAmount {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DoseAmountCopyWith<_$_DoseAmount> get copyWith =>
-      __$$_DoseAmountCopyWithImpl<_$_DoseAmount>(this, _$identity);
+  _$$DoseAmountImplCopyWith<_$DoseAmountImpl> get copyWith =>
+      __$$DoseAmountImplCopyWithImpl<_$DoseAmountImpl>(this, _$identity);
 }
 
 abstract class _DoseAmount extends DoseAmount {
@@ -160,7 +160,7 @@ abstract class _DoseAmount extends DoseAmount {
       {required final UniqueId id,
       required final FullName label,
       required final NonNegDouble amount,
-      required final NonNegInt counter}) = _$_DoseAmount;
+      required final NonNegInt counter}) = _$DoseAmountImpl;
   const _DoseAmount._() : super._();
 
   @override
@@ -173,6 +173,6 @@ abstract class _DoseAmount extends DoseAmount {
   NonNegInt get counter;
   @override
   @JsonKey(ignore: true)
-  _$$_DoseAmountCopyWith<_$_DoseAmount> get copyWith =>
+  _$$DoseAmountImplCopyWith<_$DoseAmountImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

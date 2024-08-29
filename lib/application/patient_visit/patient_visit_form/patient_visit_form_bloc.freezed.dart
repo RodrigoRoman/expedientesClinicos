@@ -12,7 +12,7 @@ part of 'patient_visit_form_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$PatientVisitFormEvent {
@@ -20,6 +20,10 @@ mixin _$PatientVisitFormEvent {
   TResult when<TResult extends Object?>({
     required TResult Function(Option<PatientVisit> patientVisit) initialized,
     required TResult Function(List<Prescription> treatment) onTreatmentChanged,
+    required TResult Function(DateTime dateTime) onDateTimeChanged,
+    required TResult Function(DateTime dateTime) onDateChanged,
+    required TResult Function(TimeOfDay time) onTimeChanged,
+    required TResult Function(Category visitType) onVisitTypeChanged,
     required TResult Function() saved,
   }) =>
       throw _privateConstructorUsedError;
@@ -27,6 +31,10 @@ mixin _$PatientVisitFormEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(Option<PatientVisit> patientVisit)? initialized,
     TResult? Function(List<Prescription> treatment)? onTreatmentChanged,
+    TResult? Function(DateTime dateTime)? onDateTimeChanged,
+    TResult? Function(DateTime dateTime)? onDateChanged,
+    TResult? Function(TimeOfDay time)? onTimeChanged,
+    TResult? Function(Category visitType)? onVisitTypeChanged,
     TResult? Function()? saved,
   }) =>
       throw _privateConstructorUsedError;
@@ -34,6 +42,10 @@ mixin _$PatientVisitFormEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Option<PatientVisit> patientVisit)? initialized,
     TResult Function(List<Prescription> treatment)? onTreatmentChanged,
+    TResult Function(DateTime dateTime)? onDateTimeChanged,
+    TResult Function(DateTime dateTime)? onDateChanged,
+    TResult Function(TimeOfDay time)? onTimeChanged,
+    TResult Function(Category visitType)? onVisitTypeChanged,
     TResult Function()? saved,
     required TResult orElse(),
   }) =>
@@ -42,6 +54,10 @@ mixin _$PatientVisitFormEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initialized value) initialized,
     required TResult Function(_TreatmentChanged value) onTreatmentChanged,
+    required TResult Function(_DateTimeChanged value) onDateTimeChanged,
+    required TResult Function(_DateChanged value) onDateChanged,
+    required TResult Function(_TimeChanged value) onTimeChanged,
+    required TResult Function(_VisitTypeChanged value) onVisitTypeChanged,
     required TResult Function(_Saved value) saved,
   }) =>
       throw _privateConstructorUsedError;
@@ -49,6 +65,10 @@ mixin _$PatientVisitFormEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initialized value)? initialized,
     TResult? Function(_TreatmentChanged value)? onTreatmentChanged,
+    TResult? Function(_DateTimeChanged value)? onDateTimeChanged,
+    TResult? Function(_DateChanged value)? onDateChanged,
+    TResult? Function(_TimeChanged value)? onTimeChanged,
+    TResult? Function(_VisitTypeChanged value)? onVisitTypeChanged,
     TResult? Function(_Saved value)? saved,
   }) =>
       throw _privateConstructorUsedError;
@@ -56,6 +76,10 @@ mixin _$PatientVisitFormEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initialized value)? initialized,
     TResult Function(_TreatmentChanged value)? onTreatmentChanged,
+    TResult Function(_DateTimeChanged value)? onDateTimeChanged,
+    TResult Function(_DateChanged value)? onDateChanged,
+    TResult Function(_TimeChanged value)? onTimeChanged,
+    TResult Function(_VisitTypeChanged value)? onVisitTypeChanged,
     TResult Function(_Saved value)? saved,
     required TResult orElse(),
   }) =>
@@ -82,20 +106,20 @@ class _$PatientVisitFormEventCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_InitializedCopyWith<$Res> {
-  factory _$$_InitializedCopyWith(
-          _$_Initialized value, $Res Function(_$_Initialized) then) =
-      __$$_InitializedCopyWithImpl<$Res>;
+abstract class _$$InitializedImplCopyWith<$Res> {
+  factory _$$InitializedImplCopyWith(
+          _$InitializedImpl value, $Res Function(_$InitializedImpl) then) =
+      __$$InitializedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Option<PatientVisit> patientVisit});
 }
 
 /// @nodoc
-class __$$_InitializedCopyWithImpl<$Res>
-    extends _$PatientVisitFormEventCopyWithImpl<$Res, _$_Initialized>
-    implements _$$_InitializedCopyWith<$Res> {
-  __$$_InitializedCopyWithImpl(
-      _$_Initialized _value, $Res Function(_$_Initialized) _then)
+class __$$InitializedImplCopyWithImpl<$Res>
+    extends _$PatientVisitFormEventCopyWithImpl<$Res, _$InitializedImpl>
+    implements _$$InitializedImplCopyWith<$Res> {
+  __$$InitializedImplCopyWithImpl(
+      _$InitializedImpl _value, $Res Function(_$InitializedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -103,7 +127,7 @@ class __$$_InitializedCopyWithImpl<$Res>
   $Res call({
     Object? patientVisit = null,
   }) {
-    return _then(_$_Initialized(
+    return _then(_$InitializedImpl(
       null == patientVisit
           ? _value.patientVisit
           : patientVisit // ignore: cast_nullable_to_non_nullable
@@ -114,8 +138,8 @@ class __$$_InitializedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Initialized implements _Initialized {
-  const _$_Initialized(this.patientVisit);
+class _$InitializedImpl implements _Initialized {
+  const _$InitializedImpl(this.patientVisit);
 
   @override
   final Option<PatientVisit> patientVisit;
@@ -126,10 +150,10 @@ class _$_Initialized implements _Initialized {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Initialized &&
+            other is _$InitializedImpl &&
             (identical(other.patientVisit, patientVisit) ||
                 other.patientVisit == patientVisit));
   }
@@ -140,14 +164,18 @@ class _$_Initialized implements _Initialized {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_InitializedCopyWith<_$_Initialized> get copyWith =>
-      __$$_InitializedCopyWithImpl<_$_Initialized>(this, _$identity);
+  _$$InitializedImplCopyWith<_$InitializedImpl> get copyWith =>
+      __$$InitializedImplCopyWithImpl<_$InitializedImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(Option<PatientVisit> patientVisit) initialized,
     required TResult Function(List<Prescription> treatment) onTreatmentChanged,
+    required TResult Function(DateTime dateTime) onDateTimeChanged,
+    required TResult Function(DateTime dateTime) onDateChanged,
+    required TResult Function(TimeOfDay time) onTimeChanged,
+    required TResult Function(Category visitType) onVisitTypeChanged,
     required TResult Function() saved,
   }) {
     return initialized(patientVisit);
@@ -158,6 +186,10 @@ class _$_Initialized implements _Initialized {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(Option<PatientVisit> patientVisit)? initialized,
     TResult? Function(List<Prescription> treatment)? onTreatmentChanged,
+    TResult? Function(DateTime dateTime)? onDateTimeChanged,
+    TResult? Function(DateTime dateTime)? onDateChanged,
+    TResult? Function(TimeOfDay time)? onTimeChanged,
+    TResult? Function(Category visitType)? onVisitTypeChanged,
     TResult? Function()? saved,
   }) {
     return initialized?.call(patientVisit);
@@ -168,6 +200,10 @@ class _$_Initialized implements _Initialized {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Option<PatientVisit> patientVisit)? initialized,
     TResult Function(List<Prescription> treatment)? onTreatmentChanged,
+    TResult Function(DateTime dateTime)? onDateTimeChanged,
+    TResult Function(DateTime dateTime)? onDateChanged,
+    TResult Function(TimeOfDay time)? onTimeChanged,
+    TResult Function(Category visitType)? onVisitTypeChanged,
     TResult Function()? saved,
     required TResult orElse(),
   }) {
@@ -182,6 +218,10 @@ class _$_Initialized implements _Initialized {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initialized value) initialized,
     required TResult Function(_TreatmentChanged value) onTreatmentChanged,
+    required TResult Function(_DateTimeChanged value) onDateTimeChanged,
+    required TResult Function(_DateChanged value) onDateChanged,
+    required TResult Function(_TimeChanged value) onTimeChanged,
+    required TResult Function(_VisitTypeChanged value) onVisitTypeChanged,
     required TResult Function(_Saved value) saved,
   }) {
     return initialized(this);
@@ -192,6 +232,10 @@ class _$_Initialized implements _Initialized {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initialized value)? initialized,
     TResult? Function(_TreatmentChanged value)? onTreatmentChanged,
+    TResult? Function(_DateTimeChanged value)? onDateTimeChanged,
+    TResult? Function(_DateChanged value)? onDateChanged,
+    TResult? Function(_TimeChanged value)? onTimeChanged,
+    TResult? Function(_VisitTypeChanged value)? onVisitTypeChanged,
     TResult? Function(_Saved value)? saved,
   }) {
     return initialized?.call(this);
@@ -202,6 +246,10 @@ class _$_Initialized implements _Initialized {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initialized value)? initialized,
     TResult Function(_TreatmentChanged value)? onTreatmentChanged,
+    TResult Function(_DateTimeChanged value)? onDateTimeChanged,
+    TResult Function(_DateChanged value)? onDateChanged,
+    TResult Function(_TimeChanged value)? onTimeChanged,
+    TResult Function(_VisitTypeChanged value)? onVisitTypeChanged,
     TResult Function(_Saved value)? saved,
     required TResult orElse(),
   }) {
@@ -214,29 +262,29 @@ class _$_Initialized implements _Initialized {
 
 abstract class _Initialized implements PatientVisitFormEvent {
   const factory _Initialized(final Option<PatientVisit> patientVisit) =
-      _$_Initialized;
+      _$InitializedImpl;
 
   Option<PatientVisit> get patientVisit;
   @JsonKey(ignore: true)
-  _$$_InitializedCopyWith<_$_Initialized> get copyWith =>
+  _$$InitializedImplCopyWith<_$InitializedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_TreatmentChangedCopyWith<$Res> {
-  factory _$$_TreatmentChangedCopyWith(
-          _$_TreatmentChanged value, $Res Function(_$_TreatmentChanged) then) =
-      __$$_TreatmentChangedCopyWithImpl<$Res>;
+abstract class _$$TreatmentChangedImplCopyWith<$Res> {
+  factory _$$TreatmentChangedImplCopyWith(_$TreatmentChangedImpl value,
+          $Res Function(_$TreatmentChangedImpl) then) =
+      __$$TreatmentChangedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({List<Prescription> treatment});
 }
 
 /// @nodoc
-class __$$_TreatmentChangedCopyWithImpl<$Res>
-    extends _$PatientVisitFormEventCopyWithImpl<$Res, _$_TreatmentChanged>
-    implements _$$_TreatmentChangedCopyWith<$Res> {
-  __$$_TreatmentChangedCopyWithImpl(
-      _$_TreatmentChanged _value, $Res Function(_$_TreatmentChanged) _then)
+class __$$TreatmentChangedImplCopyWithImpl<$Res>
+    extends _$PatientVisitFormEventCopyWithImpl<$Res, _$TreatmentChangedImpl>
+    implements _$$TreatmentChangedImplCopyWith<$Res> {
+  __$$TreatmentChangedImplCopyWithImpl(_$TreatmentChangedImpl _value,
+      $Res Function(_$TreatmentChangedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -244,7 +292,7 @@ class __$$_TreatmentChangedCopyWithImpl<$Res>
   $Res call({
     Object? treatment = null,
   }) {
-    return _then(_$_TreatmentChanged(
+    return _then(_$TreatmentChangedImpl(
       null == treatment
           ? _value._treatment
           : treatment // ignore: cast_nullable_to_non_nullable
@@ -255,8 +303,8 @@ class __$$_TreatmentChangedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_TreatmentChanged implements _TreatmentChanged {
-  const _$_TreatmentChanged(final List<Prescription> treatment)
+class _$TreatmentChangedImpl implements _TreatmentChanged {
+  const _$TreatmentChangedImpl(final List<Prescription> treatment)
       : _treatment = treatment;
 
   final List<Prescription> _treatment;
@@ -273,10 +321,10 @@ class _$_TreatmentChanged implements _TreatmentChanged {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_TreatmentChanged &&
+            other is _$TreatmentChangedImpl &&
             const DeepCollectionEquality()
                 .equals(other._treatment, _treatment));
   }
@@ -288,14 +336,19 @@ class _$_TreatmentChanged implements _TreatmentChanged {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_TreatmentChangedCopyWith<_$_TreatmentChanged> get copyWith =>
-      __$$_TreatmentChangedCopyWithImpl<_$_TreatmentChanged>(this, _$identity);
+  _$$TreatmentChangedImplCopyWith<_$TreatmentChangedImpl> get copyWith =>
+      __$$TreatmentChangedImplCopyWithImpl<_$TreatmentChangedImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(Option<PatientVisit> patientVisit) initialized,
     required TResult Function(List<Prescription> treatment) onTreatmentChanged,
+    required TResult Function(DateTime dateTime) onDateTimeChanged,
+    required TResult Function(DateTime dateTime) onDateChanged,
+    required TResult Function(TimeOfDay time) onTimeChanged,
+    required TResult Function(Category visitType) onVisitTypeChanged,
     required TResult Function() saved,
   }) {
     return onTreatmentChanged(treatment);
@@ -306,6 +359,10 @@ class _$_TreatmentChanged implements _TreatmentChanged {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(Option<PatientVisit> patientVisit)? initialized,
     TResult? Function(List<Prescription> treatment)? onTreatmentChanged,
+    TResult? Function(DateTime dateTime)? onDateTimeChanged,
+    TResult? Function(DateTime dateTime)? onDateChanged,
+    TResult? Function(TimeOfDay time)? onTimeChanged,
+    TResult? Function(Category visitType)? onVisitTypeChanged,
     TResult? Function()? saved,
   }) {
     return onTreatmentChanged?.call(treatment);
@@ -316,6 +373,10 @@ class _$_TreatmentChanged implements _TreatmentChanged {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Option<PatientVisit> patientVisit)? initialized,
     TResult Function(List<Prescription> treatment)? onTreatmentChanged,
+    TResult Function(DateTime dateTime)? onDateTimeChanged,
+    TResult Function(DateTime dateTime)? onDateChanged,
+    TResult Function(TimeOfDay time)? onTimeChanged,
+    TResult Function(Category visitType)? onVisitTypeChanged,
     TResult Function()? saved,
     required TResult orElse(),
   }) {
@@ -330,6 +391,10 @@ class _$_TreatmentChanged implements _TreatmentChanged {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initialized value) initialized,
     required TResult Function(_TreatmentChanged value) onTreatmentChanged,
+    required TResult Function(_DateTimeChanged value) onDateTimeChanged,
+    required TResult Function(_DateChanged value) onDateChanged,
+    required TResult Function(_TimeChanged value) onTimeChanged,
+    required TResult Function(_VisitTypeChanged value) onVisitTypeChanged,
     required TResult Function(_Saved value) saved,
   }) {
     return onTreatmentChanged(this);
@@ -340,6 +405,10 @@ class _$_TreatmentChanged implements _TreatmentChanged {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initialized value)? initialized,
     TResult? Function(_TreatmentChanged value)? onTreatmentChanged,
+    TResult? Function(_DateTimeChanged value)? onDateTimeChanged,
+    TResult? Function(_DateChanged value)? onDateChanged,
+    TResult? Function(_TimeChanged value)? onTimeChanged,
+    TResult? Function(_VisitTypeChanged value)? onVisitTypeChanged,
     TResult? Function(_Saved value)? saved,
   }) {
     return onTreatmentChanged?.call(this);
@@ -350,6 +419,10 @@ class _$_TreatmentChanged implements _TreatmentChanged {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initialized value)? initialized,
     TResult Function(_TreatmentChanged value)? onTreatmentChanged,
+    TResult Function(_DateTimeChanged value)? onDateTimeChanged,
+    TResult Function(_DateChanged value)? onDateChanged,
+    TResult Function(_TimeChanged value)? onTimeChanged,
+    TResult Function(_VisitTypeChanged value)? onVisitTypeChanged,
     TResult Function(_Saved value)? saved,
     required TResult orElse(),
   }) {
@@ -362,32 +435,703 @@ class _$_TreatmentChanged implements _TreatmentChanged {
 
 abstract class _TreatmentChanged implements PatientVisitFormEvent {
   const factory _TreatmentChanged(final List<Prescription> treatment) =
-      _$_TreatmentChanged;
+      _$TreatmentChangedImpl;
 
   List<Prescription> get treatment;
   @JsonKey(ignore: true)
-  _$$_TreatmentChangedCopyWith<_$_TreatmentChanged> get copyWith =>
+  _$$TreatmentChangedImplCopyWith<_$TreatmentChangedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_SavedCopyWith<$Res> {
-  factory _$$_SavedCopyWith(_$_Saved value, $Res Function(_$_Saved) then) =
-      __$$_SavedCopyWithImpl<$Res>;
+abstract class _$$DateTimeChangedImplCopyWith<$Res> {
+  factory _$$DateTimeChangedImplCopyWith(_$DateTimeChangedImpl value,
+          $Res Function(_$DateTimeChangedImpl) then) =
+      __$$DateTimeChangedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({DateTime dateTime});
 }
 
 /// @nodoc
-class __$$_SavedCopyWithImpl<$Res>
-    extends _$PatientVisitFormEventCopyWithImpl<$Res, _$_Saved>
-    implements _$$_SavedCopyWith<$Res> {
-  __$$_SavedCopyWithImpl(_$_Saved _value, $Res Function(_$_Saved) _then)
+class __$$DateTimeChangedImplCopyWithImpl<$Res>
+    extends _$PatientVisitFormEventCopyWithImpl<$Res, _$DateTimeChangedImpl>
+    implements _$$DateTimeChangedImplCopyWith<$Res> {
+  __$$DateTimeChangedImplCopyWithImpl(
+      _$DateTimeChangedImpl _value, $Res Function(_$DateTimeChangedImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? dateTime = null,
+  }) {
+    return _then(_$DateTimeChangedImpl(
+      null == dateTime
+          ? _value.dateTime
+          : dateTime // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$DateTimeChangedImpl implements _DateTimeChanged {
+  const _$DateTimeChangedImpl(this.dateTime);
+
+  @override
+  final DateTime dateTime;
+
+  @override
+  String toString() {
+    return 'PatientVisitFormEvent.onDateTimeChanged(dateTime: $dateTime)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$DateTimeChangedImpl &&
+            (identical(other.dateTime, dateTime) ||
+                other.dateTime == dateTime));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, dateTime);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$DateTimeChangedImplCopyWith<_$DateTimeChangedImpl> get copyWith =>
+      __$$DateTimeChangedImplCopyWithImpl<_$DateTimeChangedImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Option<PatientVisit> patientVisit) initialized,
+    required TResult Function(List<Prescription> treatment) onTreatmentChanged,
+    required TResult Function(DateTime dateTime) onDateTimeChanged,
+    required TResult Function(DateTime dateTime) onDateChanged,
+    required TResult Function(TimeOfDay time) onTimeChanged,
+    required TResult Function(Category visitType) onVisitTypeChanged,
+    required TResult Function() saved,
+  }) {
+    return onDateTimeChanged(dateTime);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(Option<PatientVisit> patientVisit)? initialized,
+    TResult? Function(List<Prescription> treatment)? onTreatmentChanged,
+    TResult? Function(DateTime dateTime)? onDateTimeChanged,
+    TResult? Function(DateTime dateTime)? onDateChanged,
+    TResult? Function(TimeOfDay time)? onTimeChanged,
+    TResult? Function(Category visitType)? onVisitTypeChanged,
+    TResult? Function()? saved,
+  }) {
+    return onDateTimeChanged?.call(dateTime);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Option<PatientVisit> patientVisit)? initialized,
+    TResult Function(List<Prescription> treatment)? onTreatmentChanged,
+    TResult Function(DateTime dateTime)? onDateTimeChanged,
+    TResult Function(DateTime dateTime)? onDateChanged,
+    TResult Function(TimeOfDay time)? onTimeChanged,
+    TResult Function(Category visitType)? onVisitTypeChanged,
+    TResult Function()? saved,
+    required TResult orElse(),
+  }) {
+    if (onDateTimeChanged != null) {
+      return onDateTimeChanged(dateTime);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initialized value) initialized,
+    required TResult Function(_TreatmentChanged value) onTreatmentChanged,
+    required TResult Function(_DateTimeChanged value) onDateTimeChanged,
+    required TResult Function(_DateChanged value) onDateChanged,
+    required TResult Function(_TimeChanged value) onTimeChanged,
+    required TResult Function(_VisitTypeChanged value) onVisitTypeChanged,
+    required TResult Function(_Saved value) saved,
+  }) {
+    return onDateTimeChanged(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initialized value)? initialized,
+    TResult? Function(_TreatmentChanged value)? onTreatmentChanged,
+    TResult? Function(_DateTimeChanged value)? onDateTimeChanged,
+    TResult? Function(_DateChanged value)? onDateChanged,
+    TResult? Function(_TimeChanged value)? onTimeChanged,
+    TResult? Function(_VisitTypeChanged value)? onVisitTypeChanged,
+    TResult? Function(_Saved value)? saved,
+  }) {
+    return onDateTimeChanged?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initialized value)? initialized,
+    TResult Function(_TreatmentChanged value)? onTreatmentChanged,
+    TResult Function(_DateTimeChanged value)? onDateTimeChanged,
+    TResult Function(_DateChanged value)? onDateChanged,
+    TResult Function(_TimeChanged value)? onTimeChanged,
+    TResult Function(_VisitTypeChanged value)? onVisitTypeChanged,
+    TResult Function(_Saved value)? saved,
+    required TResult orElse(),
+  }) {
+    if (onDateTimeChanged != null) {
+      return onDateTimeChanged(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _DateTimeChanged implements PatientVisitFormEvent {
+  const factory _DateTimeChanged(final DateTime dateTime) =
+      _$DateTimeChangedImpl;
+
+  DateTime get dateTime;
+  @JsonKey(ignore: true)
+  _$$DateTimeChangedImplCopyWith<_$DateTimeChangedImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$DateChangedImplCopyWith<$Res> {
+  factory _$$DateChangedImplCopyWith(
+          _$DateChangedImpl value, $Res Function(_$DateChangedImpl) then) =
+      __$$DateChangedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({DateTime dateTime});
+}
+
+/// @nodoc
+class __$$DateChangedImplCopyWithImpl<$Res>
+    extends _$PatientVisitFormEventCopyWithImpl<$Res, _$DateChangedImpl>
+    implements _$$DateChangedImplCopyWith<$Res> {
+  __$$DateChangedImplCopyWithImpl(
+      _$DateChangedImpl _value, $Res Function(_$DateChangedImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? dateTime = null,
+  }) {
+    return _then(_$DateChangedImpl(
+      null == dateTime
+          ? _value.dateTime
+          : dateTime // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$DateChangedImpl implements _DateChanged {
+  const _$DateChangedImpl(this.dateTime);
+
+  @override
+  final DateTime dateTime;
+
+  @override
+  String toString() {
+    return 'PatientVisitFormEvent.onDateChanged(dateTime: $dateTime)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$DateChangedImpl &&
+            (identical(other.dateTime, dateTime) ||
+                other.dateTime == dateTime));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, dateTime);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$DateChangedImplCopyWith<_$DateChangedImpl> get copyWith =>
+      __$$DateChangedImplCopyWithImpl<_$DateChangedImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Option<PatientVisit> patientVisit) initialized,
+    required TResult Function(List<Prescription> treatment) onTreatmentChanged,
+    required TResult Function(DateTime dateTime) onDateTimeChanged,
+    required TResult Function(DateTime dateTime) onDateChanged,
+    required TResult Function(TimeOfDay time) onTimeChanged,
+    required TResult Function(Category visitType) onVisitTypeChanged,
+    required TResult Function() saved,
+  }) {
+    return onDateChanged(dateTime);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(Option<PatientVisit> patientVisit)? initialized,
+    TResult? Function(List<Prescription> treatment)? onTreatmentChanged,
+    TResult? Function(DateTime dateTime)? onDateTimeChanged,
+    TResult? Function(DateTime dateTime)? onDateChanged,
+    TResult? Function(TimeOfDay time)? onTimeChanged,
+    TResult? Function(Category visitType)? onVisitTypeChanged,
+    TResult? Function()? saved,
+  }) {
+    return onDateChanged?.call(dateTime);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Option<PatientVisit> patientVisit)? initialized,
+    TResult Function(List<Prescription> treatment)? onTreatmentChanged,
+    TResult Function(DateTime dateTime)? onDateTimeChanged,
+    TResult Function(DateTime dateTime)? onDateChanged,
+    TResult Function(TimeOfDay time)? onTimeChanged,
+    TResult Function(Category visitType)? onVisitTypeChanged,
+    TResult Function()? saved,
+    required TResult orElse(),
+  }) {
+    if (onDateChanged != null) {
+      return onDateChanged(dateTime);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initialized value) initialized,
+    required TResult Function(_TreatmentChanged value) onTreatmentChanged,
+    required TResult Function(_DateTimeChanged value) onDateTimeChanged,
+    required TResult Function(_DateChanged value) onDateChanged,
+    required TResult Function(_TimeChanged value) onTimeChanged,
+    required TResult Function(_VisitTypeChanged value) onVisitTypeChanged,
+    required TResult Function(_Saved value) saved,
+  }) {
+    return onDateChanged(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initialized value)? initialized,
+    TResult? Function(_TreatmentChanged value)? onTreatmentChanged,
+    TResult? Function(_DateTimeChanged value)? onDateTimeChanged,
+    TResult? Function(_DateChanged value)? onDateChanged,
+    TResult? Function(_TimeChanged value)? onTimeChanged,
+    TResult? Function(_VisitTypeChanged value)? onVisitTypeChanged,
+    TResult? Function(_Saved value)? saved,
+  }) {
+    return onDateChanged?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initialized value)? initialized,
+    TResult Function(_TreatmentChanged value)? onTreatmentChanged,
+    TResult Function(_DateTimeChanged value)? onDateTimeChanged,
+    TResult Function(_DateChanged value)? onDateChanged,
+    TResult Function(_TimeChanged value)? onTimeChanged,
+    TResult Function(_VisitTypeChanged value)? onVisitTypeChanged,
+    TResult Function(_Saved value)? saved,
+    required TResult orElse(),
+  }) {
+    if (onDateChanged != null) {
+      return onDateChanged(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _DateChanged implements PatientVisitFormEvent {
+  const factory _DateChanged(final DateTime dateTime) = _$DateChangedImpl;
+
+  DateTime get dateTime;
+  @JsonKey(ignore: true)
+  _$$DateChangedImplCopyWith<_$DateChangedImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$TimeChangedImplCopyWith<$Res> {
+  factory _$$TimeChangedImplCopyWith(
+          _$TimeChangedImpl value, $Res Function(_$TimeChangedImpl) then) =
+      __$$TimeChangedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({TimeOfDay time});
+}
+
+/// @nodoc
+class __$$TimeChangedImplCopyWithImpl<$Res>
+    extends _$PatientVisitFormEventCopyWithImpl<$Res, _$TimeChangedImpl>
+    implements _$$TimeChangedImplCopyWith<$Res> {
+  __$$TimeChangedImplCopyWithImpl(
+      _$TimeChangedImpl _value, $Res Function(_$TimeChangedImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? time = null,
+  }) {
+    return _then(_$TimeChangedImpl(
+      null == time
+          ? _value.time
+          : time // ignore: cast_nullable_to_non_nullable
+              as TimeOfDay,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$TimeChangedImpl implements _TimeChanged {
+  const _$TimeChangedImpl(this.time);
+
+  @override
+  final TimeOfDay time;
+
+  @override
+  String toString() {
+    return 'PatientVisitFormEvent.onTimeChanged(time: $time)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$TimeChangedImpl &&
+            (identical(other.time, time) || other.time == time));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, time);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$TimeChangedImplCopyWith<_$TimeChangedImpl> get copyWith =>
+      __$$TimeChangedImplCopyWithImpl<_$TimeChangedImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Option<PatientVisit> patientVisit) initialized,
+    required TResult Function(List<Prescription> treatment) onTreatmentChanged,
+    required TResult Function(DateTime dateTime) onDateTimeChanged,
+    required TResult Function(DateTime dateTime) onDateChanged,
+    required TResult Function(TimeOfDay time) onTimeChanged,
+    required TResult Function(Category visitType) onVisitTypeChanged,
+    required TResult Function() saved,
+  }) {
+    return onTimeChanged(time);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(Option<PatientVisit> patientVisit)? initialized,
+    TResult? Function(List<Prescription> treatment)? onTreatmentChanged,
+    TResult? Function(DateTime dateTime)? onDateTimeChanged,
+    TResult? Function(DateTime dateTime)? onDateChanged,
+    TResult? Function(TimeOfDay time)? onTimeChanged,
+    TResult? Function(Category visitType)? onVisitTypeChanged,
+    TResult? Function()? saved,
+  }) {
+    return onTimeChanged?.call(time);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Option<PatientVisit> patientVisit)? initialized,
+    TResult Function(List<Prescription> treatment)? onTreatmentChanged,
+    TResult Function(DateTime dateTime)? onDateTimeChanged,
+    TResult Function(DateTime dateTime)? onDateChanged,
+    TResult Function(TimeOfDay time)? onTimeChanged,
+    TResult Function(Category visitType)? onVisitTypeChanged,
+    TResult Function()? saved,
+    required TResult orElse(),
+  }) {
+    if (onTimeChanged != null) {
+      return onTimeChanged(time);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initialized value) initialized,
+    required TResult Function(_TreatmentChanged value) onTreatmentChanged,
+    required TResult Function(_DateTimeChanged value) onDateTimeChanged,
+    required TResult Function(_DateChanged value) onDateChanged,
+    required TResult Function(_TimeChanged value) onTimeChanged,
+    required TResult Function(_VisitTypeChanged value) onVisitTypeChanged,
+    required TResult Function(_Saved value) saved,
+  }) {
+    return onTimeChanged(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initialized value)? initialized,
+    TResult? Function(_TreatmentChanged value)? onTreatmentChanged,
+    TResult? Function(_DateTimeChanged value)? onDateTimeChanged,
+    TResult? Function(_DateChanged value)? onDateChanged,
+    TResult? Function(_TimeChanged value)? onTimeChanged,
+    TResult? Function(_VisitTypeChanged value)? onVisitTypeChanged,
+    TResult? Function(_Saved value)? saved,
+  }) {
+    return onTimeChanged?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initialized value)? initialized,
+    TResult Function(_TreatmentChanged value)? onTreatmentChanged,
+    TResult Function(_DateTimeChanged value)? onDateTimeChanged,
+    TResult Function(_DateChanged value)? onDateChanged,
+    TResult Function(_TimeChanged value)? onTimeChanged,
+    TResult Function(_VisitTypeChanged value)? onVisitTypeChanged,
+    TResult Function(_Saved value)? saved,
+    required TResult orElse(),
+  }) {
+    if (onTimeChanged != null) {
+      return onTimeChanged(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _TimeChanged implements PatientVisitFormEvent {
+  const factory _TimeChanged(final TimeOfDay time) = _$TimeChangedImpl;
+
+  TimeOfDay get time;
+  @JsonKey(ignore: true)
+  _$$TimeChangedImplCopyWith<_$TimeChangedImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$VisitTypeChangedImplCopyWith<$Res> {
+  factory _$$VisitTypeChangedImplCopyWith(_$VisitTypeChangedImpl value,
+          $Res Function(_$VisitTypeChangedImpl) then) =
+      __$$VisitTypeChangedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Category visitType});
+
+  $CategoryCopyWith<$Res> get visitType;
+}
+
+/// @nodoc
+class __$$VisitTypeChangedImplCopyWithImpl<$Res>
+    extends _$PatientVisitFormEventCopyWithImpl<$Res, _$VisitTypeChangedImpl>
+    implements _$$VisitTypeChangedImplCopyWith<$Res> {
+  __$$VisitTypeChangedImplCopyWithImpl(_$VisitTypeChangedImpl _value,
+      $Res Function(_$VisitTypeChangedImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? visitType = null,
+  }) {
+    return _then(_$VisitTypeChangedImpl(
+      null == visitType
+          ? _value.visitType
+          : visitType // ignore: cast_nullable_to_non_nullable
+              as Category,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $CategoryCopyWith<$Res> get visitType {
+    return $CategoryCopyWith<$Res>(_value.visitType, (value) {
+      return _then(_value.copyWith(visitType: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$VisitTypeChangedImpl implements _VisitTypeChanged {
+  const _$VisitTypeChangedImpl(this.visitType);
+
+  @override
+  final Category visitType;
+
+  @override
+  String toString() {
+    return 'PatientVisitFormEvent.onVisitTypeChanged(visitType: $visitType)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$VisitTypeChangedImpl &&
+            (identical(other.visitType, visitType) ||
+                other.visitType == visitType));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, visitType);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$VisitTypeChangedImplCopyWith<_$VisitTypeChangedImpl> get copyWith =>
+      __$$VisitTypeChangedImplCopyWithImpl<_$VisitTypeChangedImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Option<PatientVisit> patientVisit) initialized,
+    required TResult Function(List<Prescription> treatment) onTreatmentChanged,
+    required TResult Function(DateTime dateTime) onDateTimeChanged,
+    required TResult Function(DateTime dateTime) onDateChanged,
+    required TResult Function(TimeOfDay time) onTimeChanged,
+    required TResult Function(Category visitType) onVisitTypeChanged,
+    required TResult Function() saved,
+  }) {
+    return onVisitTypeChanged(visitType);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(Option<PatientVisit> patientVisit)? initialized,
+    TResult? Function(List<Prescription> treatment)? onTreatmentChanged,
+    TResult? Function(DateTime dateTime)? onDateTimeChanged,
+    TResult? Function(DateTime dateTime)? onDateChanged,
+    TResult? Function(TimeOfDay time)? onTimeChanged,
+    TResult? Function(Category visitType)? onVisitTypeChanged,
+    TResult? Function()? saved,
+  }) {
+    return onVisitTypeChanged?.call(visitType);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Option<PatientVisit> patientVisit)? initialized,
+    TResult Function(List<Prescription> treatment)? onTreatmentChanged,
+    TResult Function(DateTime dateTime)? onDateTimeChanged,
+    TResult Function(DateTime dateTime)? onDateChanged,
+    TResult Function(TimeOfDay time)? onTimeChanged,
+    TResult Function(Category visitType)? onVisitTypeChanged,
+    TResult Function()? saved,
+    required TResult orElse(),
+  }) {
+    if (onVisitTypeChanged != null) {
+      return onVisitTypeChanged(visitType);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initialized value) initialized,
+    required TResult Function(_TreatmentChanged value) onTreatmentChanged,
+    required TResult Function(_DateTimeChanged value) onDateTimeChanged,
+    required TResult Function(_DateChanged value) onDateChanged,
+    required TResult Function(_TimeChanged value) onTimeChanged,
+    required TResult Function(_VisitTypeChanged value) onVisitTypeChanged,
+    required TResult Function(_Saved value) saved,
+  }) {
+    return onVisitTypeChanged(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initialized value)? initialized,
+    TResult? Function(_TreatmentChanged value)? onTreatmentChanged,
+    TResult? Function(_DateTimeChanged value)? onDateTimeChanged,
+    TResult? Function(_DateChanged value)? onDateChanged,
+    TResult? Function(_TimeChanged value)? onTimeChanged,
+    TResult? Function(_VisitTypeChanged value)? onVisitTypeChanged,
+    TResult? Function(_Saved value)? saved,
+  }) {
+    return onVisitTypeChanged?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initialized value)? initialized,
+    TResult Function(_TreatmentChanged value)? onTreatmentChanged,
+    TResult Function(_DateTimeChanged value)? onDateTimeChanged,
+    TResult Function(_DateChanged value)? onDateChanged,
+    TResult Function(_TimeChanged value)? onTimeChanged,
+    TResult Function(_VisitTypeChanged value)? onVisitTypeChanged,
+    TResult Function(_Saved value)? saved,
+    required TResult orElse(),
+  }) {
+    if (onVisitTypeChanged != null) {
+      return onVisitTypeChanged(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _VisitTypeChanged implements PatientVisitFormEvent {
+  const factory _VisitTypeChanged(final Category visitType) =
+      _$VisitTypeChangedImpl;
+
+  Category get visitType;
+  @JsonKey(ignore: true)
+  _$$VisitTypeChangedImplCopyWith<_$VisitTypeChangedImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$SavedImplCopyWith<$Res> {
+  factory _$$SavedImplCopyWith(
+          _$SavedImpl value, $Res Function(_$SavedImpl) then) =
+      __$$SavedImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$SavedImplCopyWithImpl<$Res>
+    extends _$PatientVisitFormEventCopyWithImpl<$Res, _$SavedImpl>
+    implements _$$SavedImplCopyWith<$Res> {
+  __$$SavedImplCopyWithImpl(
+      _$SavedImpl _value, $Res Function(_$SavedImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_Saved implements _Saved {
-  const _$_Saved();
+class _$SavedImpl implements _Saved {
+  const _$SavedImpl();
 
   @override
   String toString() {
@@ -395,9 +1139,9 @@ class _$_Saved implements _Saved {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Saved);
+        (other.runtimeType == runtimeType && other is _$SavedImpl);
   }
 
   @override
@@ -408,6 +1152,10 @@ class _$_Saved implements _Saved {
   TResult when<TResult extends Object?>({
     required TResult Function(Option<PatientVisit> patientVisit) initialized,
     required TResult Function(List<Prescription> treatment) onTreatmentChanged,
+    required TResult Function(DateTime dateTime) onDateTimeChanged,
+    required TResult Function(DateTime dateTime) onDateChanged,
+    required TResult Function(TimeOfDay time) onTimeChanged,
+    required TResult Function(Category visitType) onVisitTypeChanged,
     required TResult Function() saved,
   }) {
     return saved();
@@ -418,6 +1166,10 @@ class _$_Saved implements _Saved {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(Option<PatientVisit> patientVisit)? initialized,
     TResult? Function(List<Prescription> treatment)? onTreatmentChanged,
+    TResult? Function(DateTime dateTime)? onDateTimeChanged,
+    TResult? Function(DateTime dateTime)? onDateChanged,
+    TResult? Function(TimeOfDay time)? onTimeChanged,
+    TResult? Function(Category visitType)? onVisitTypeChanged,
     TResult? Function()? saved,
   }) {
     return saved?.call();
@@ -428,6 +1180,10 @@ class _$_Saved implements _Saved {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Option<PatientVisit> patientVisit)? initialized,
     TResult Function(List<Prescription> treatment)? onTreatmentChanged,
+    TResult Function(DateTime dateTime)? onDateTimeChanged,
+    TResult Function(DateTime dateTime)? onDateChanged,
+    TResult Function(TimeOfDay time)? onTimeChanged,
+    TResult Function(Category visitType)? onVisitTypeChanged,
     TResult Function()? saved,
     required TResult orElse(),
   }) {
@@ -442,6 +1198,10 @@ class _$_Saved implements _Saved {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initialized value) initialized,
     required TResult Function(_TreatmentChanged value) onTreatmentChanged,
+    required TResult Function(_DateTimeChanged value) onDateTimeChanged,
+    required TResult Function(_DateChanged value) onDateChanged,
+    required TResult Function(_TimeChanged value) onTimeChanged,
+    required TResult Function(_VisitTypeChanged value) onVisitTypeChanged,
     required TResult Function(_Saved value) saved,
   }) {
     return saved(this);
@@ -452,6 +1212,10 @@ class _$_Saved implements _Saved {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initialized value)? initialized,
     TResult? Function(_TreatmentChanged value)? onTreatmentChanged,
+    TResult? Function(_DateTimeChanged value)? onDateTimeChanged,
+    TResult? Function(_DateChanged value)? onDateChanged,
+    TResult? Function(_TimeChanged value)? onTimeChanged,
+    TResult? Function(_VisitTypeChanged value)? onVisitTypeChanged,
     TResult? Function(_Saved value)? saved,
   }) {
     return saved?.call(this);
@@ -462,6 +1226,10 @@ class _$_Saved implements _Saved {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initialized value)? initialized,
     TResult Function(_TreatmentChanged value)? onTreatmentChanged,
+    TResult Function(_DateTimeChanged value)? onDateTimeChanged,
+    TResult Function(_DateChanged value)? onDateChanged,
+    TResult Function(_TimeChanged value)? onTimeChanged,
+    TResult Function(_VisitTypeChanged value)? onVisitTypeChanged,
     TResult Function(_Saved value)? saved,
     required TResult orElse(),
   }) {
@@ -473,7 +1241,7 @@ class _$_Saved implements _Saved {
 }
 
 abstract class _Saved implements PatientVisitFormEvent {
-  const factory _Saved() = _$_Saved;
+  const factory _Saved() = _$SavedImpl;
 }
 
 /// @nodoc
@@ -560,11 +1328,12 @@ class _$PatientVisitFormStateCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_PatientVisitFormStateCopyWith<$Res>
+abstract class _$$PatientVisitFormStateImplCopyWith<$Res>
     implements $PatientVisitFormStateCopyWith<$Res> {
-  factory _$$_PatientVisitFormStateCopyWith(_$_PatientVisitFormState value,
-          $Res Function(_$_PatientVisitFormState) then) =
-      __$$_PatientVisitFormStateCopyWithImpl<$Res>;
+  factory _$$PatientVisitFormStateImplCopyWith(
+          _$PatientVisitFormStateImpl value,
+          $Res Function(_$PatientVisitFormStateImpl) then) =
+      __$$PatientVisitFormStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -579,11 +1348,12 @@ abstract class _$$_PatientVisitFormStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_PatientVisitFormStateCopyWithImpl<$Res>
-    extends _$PatientVisitFormStateCopyWithImpl<$Res, _$_PatientVisitFormState>
-    implements _$$_PatientVisitFormStateCopyWith<$Res> {
-  __$$_PatientVisitFormStateCopyWithImpl(_$_PatientVisitFormState _value,
-      $Res Function(_$_PatientVisitFormState) _then)
+class __$$PatientVisitFormStateImplCopyWithImpl<$Res>
+    extends _$PatientVisitFormStateCopyWithImpl<$Res,
+        _$PatientVisitFormStateImpl>
+    implements _$$PatientVisitFormStateImplCopyWith<$Res> {
+  __$$PatientVisitFormStateImplCopyWithImpl(_$PatientVisitFormStateImpl _value,
+      $Res Function(_$PatientVisitFormStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -595,7 +1365,7 @@ class __$$_PatientVisitFormStateCopyWithImpl<$Res>
     Object? isSaving = null,
     Object? saveFailureOrSuccessOption = null,
   }) {
-    return _then(_$_PatientVisitFormState(
+    return _then(_$PatientVisitFormStateImpl(
       patientVisit: null == patientVisit
           ? _value.patientVisit
           : patientVisit // ignore: cast_nullable_to_non_nullable
@@ -622,8 +1392,8 @@ class __$$_PatientVisitFormStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_PatientVisitFormState implements _PatientVisitFormState {
-  const _$_PatientVisitFormState(
+class _$PatientVisitFormStateImpl implements _PatientVisitFormState {
+  const _$PatientVisitFormStateImpl(
       {required this.patientVisit,
       required this.showErrorMessages,
       required this.isUpdating,
@@ -647,10 +1417,10 @@ class _$_PatientVisitFormState implements _PatientVisitFormState {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_PatientVisitFormState &&
+            other is _$PatientVisitFormStateImpl &&
             (identical(other.patientVisit, patientVisit) ||
                 other.patientVisit == patientVisit) &&
             (identical(other.showErrorMessages, showErrorMessages) ||
@@ -672,9 +1442,9 @@ class _$_PatientVisitFormState implements _PatientVisitFormState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_PatientVisitFormStateCopyWith<_$_PatientVisitFormState> get copyWith =>
-      __$$_PatientVisitFormStateCopyWithImpl<_$_PatientVisitFormState>(
-          this, _$identity);
+  _$$PatientVisitFormStateImplCopyWith<_$PatientVisitFormStateImpl>
+      get copyWith => __$$PatientVisitFormStateImplCopyWithImpl<
+          _$PatientVisitFormStateImpl>(this, _$identity);
 }
 
 abstract class _PatientVisitFormState implements PatientVisitFormState {
@@ -684,7 +1454,7 @@ abstract class _PatientVisitFormState implements PatientVisitFormState {
       required final bool isUpdating,
       required final bool isSaving,
       required final Option<Either<PatientVisitFailures, Unit>>
-          saveFailureOrSuccessOption}) = _$_PatientVisitFormState;
+          saveFailureOrSuccessOption}) = _$PatientVisitFormStateImpl;
 
   @override
   PatientVisit get patientVisit;
@@ -698,6 +1468,6 @@ abstract class _PatientVisitFormState implements PatientVisitFormState {
   Option<Either<PatientVisitFailures, Unit>> get saveFailureOrSuccessOption;
   @override
   @JsonKey(ignore: true)
-  _$$_PatientVisitFormStateCopyWith<_$_PatientVisitFormState> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$PatientVisitFormStateImplCopyWith<_$PatientVisitFormStateImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

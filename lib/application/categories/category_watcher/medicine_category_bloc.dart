@@ -7,6 +7,7 @@ import 'package:injectable/injectable.dart';
 class MedicineCategoryWatcherBloc extends CategoryWatcherBloc {
   final ICategoryRepository _medicineCategoryRepository;
   MedicineCategoryWatcherBloc(
-      @Named('categoryMedicine') this._medicineCategoryRepository)
+      @Named(FirebaseCollectionCategories.medicineCategories)
+      this._medicineCategoryRepository)
       : super(_medicineCategoryRepository);
 }

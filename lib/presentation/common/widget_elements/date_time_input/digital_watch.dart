@@ -5,10 +5,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 class DigitalWatch extends StatefulWidget {
-  DigitalWatch(
-      {required this.initialTime, required this.onDateSelected, super.key});
   final HourTime initialTime;
-  final Function onDateSelected;
+  final Function onTimeSelected;
+  final bool inactive;
+
+  DigitalWatch(
+      {required this.initialTime,
+      required this.onTimeSelected,
+      this.inactive = false,
+      super.key});
+
+  static get minWidth => 50;
+  static get minHeight => 50;
 
   @override
   State<DigitalWatch> createState() => _DigitalWatchState();
@@ -21,7 +29,8 @@ class _DigitalWatchState extends State<DigitalWatch> {
       initialTime: initialTime.value.fold((l) => TimeOfDay.now(), (r) => r),
     );
     if (newTime != null) {
-      widget.onDateSelected(newTime);
+      widget.onTimeSelected(newTime);
+      setState(() {});
     }
   }
 
@@ -31,26 +40,43 @@ class _DigitalWatchState extends State<DigitalWatch> {
   ) {
     return LayoutBuilder(builder: (context, constraints) {
       return GestureDetector(
-        onTap: () async {
-          await selectTime(widget.initialTime);
-        },
+        onTap: widget.inactive
+            ? null
+            : () async {
+                await selectTime(widget.initialTime);
+              },
         child: Stack(
           children: [
-            SizedBox(
-              child: Image.asset(AppAssetNames.digitalWatchBackground),
-            ),
             Positioned(
               top: constraints.maxHeight / 3,
-              left: constraints.maxWidth / 5,
-              child: SizedBox(
-                width: constraints.maxWidth,
-                height: constraints.maxHeight,
+              left: constraints.maxWidth / 10,
+              width: constraints.maxWidth / 1.2,
+              height: constraints.maxHeight / 1.3,
+              child: Image.asset(
+                AppAssetNames.digitalWatchBackground,
+                color: widget.inactive
+                    ? Colors.grey[400]
+                    : Theme.of(context).colorScheme.secondary,
+              ),
+            ),
+            Positioned(
+              top: constraints.maxHeight / 5,
+              left: constraints.maxWidth / 10,
+              width: constraints.maxWidth / 1.2,
+              height: constraints.maxHeight,
+              child: Center(
                 child: AutoSizeText(
                   '${widget.initialTime.value.fold((l) {
                     TimeOfDay.now().format(context);
                   }, (r) => r.format(context))}',
-                  minFontSize: 4,
+                  minFontSize: 2,
                   wrapWords: false,
+                  style: TextStyle(
+                      fontSize: constraints.maxHeight / 5,
+                      color: widget.inactive
+                          ? Colors.grey
+                          : Theme.of(context).colorScheme.primary),
+                  maxFontSize: 100,
                 ),
               ),
             ),

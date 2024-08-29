@@ -12,7 +12,7 @@ part of 'label_dose_times_view_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$LabelDoseTimesViewModel {
@@ -140,11 +140,12 @@ class _$LabelDoseTimesViewModelCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_LabelDoseTimesViewModelCopyWith<$Res>
+abstract class _$$LabelDoseTimesViewModelImplCopyWith<$Res>
     implements $LabelDoseTimesViewModelCopyWith<$Res> {
-  factory _$$_LabelDoseTimesViewModelCopyWith(_$_LabelDoseTimesViewModel value,
-          $Res Function(_$_LabelDoseTimesViewModel) then) =
-      __$$_LabelDoseTimesViewModelCopyWithImpl<$Res>;
+  factory _$$LabelDoseTimesViewModelImplCopyWith(
+          _$LabelDoseTimesViewModelImpl value,
+          $Res Function(_$LabelDoseTimesViewModelImpl) then) =
+      __$$LabelDoseTimesViewModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -168,12 +169,13 @@ abstract class _$$_LabelDoseTimesViewModelCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_LabelDoseTimesViewModelCopyWithImpl<$Res>
+class __$$LabelDoseTimesViewModelImplCopyWithImpl<$Res>
     extends _$LabelDoseTimesViewModelCopyWithImpl<$Res,
-        _$_LabelDoseTimesViewModel>
-    implements _$$_LabelDoseTimesViewModelCopyWith<$Res> {
-  __$$_LabelDoseTimesViewModelCopyWithImpl(_$_LabelDoseTimesViewModel _value,
-      $Res Function(_$_LabelDoseTimesViewModel) _then)
+        _$LabelDoseTimesViewModelImpl>
+    implements _$$LabelDoseTimesViewModelImplCopyWith<$Res> {
+  __$$LabelDoseTimesViewModelImplCopyWithImpl(
+      _$LabelDoseTimesViewModelImpl _value,
+      $Res Function(_$LabelDoseTimesViewModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -186,7 +188,7 @@ class __$$_LabelDoseTimesViewModelCopyWithImpl<$Res>
     Object? weekDaysDose = null,
     Object? dose = null,
   }) {
-    return _then(_$_LabelDoseTimesViewModel(
+    return _then(_$LabelDoseTimesViewModelImpl(
       label: null == label
           ? _value.label
           : label // ignore: cast_nullable_to_non_nullable
@@ -217,8 +219,8 @@ class __$$_LabelDoseTimesViewModelCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_LabelDoseTimesViewModel extends _LabelDoseTimesViewModel {
-  const _$_LabelDoseTimesViewModel(
+class _$LabelDoseTimesViewModelImpl extends _LabelDoseTimesViewModel {
+  const _$LabelDoseTimesViewModelImpl(
       {required this.label,
       required this.dayHoursDose,
       required this.doseAmount,
@@ -248,10 +250,9 @@ class _$_LabelDoseTimesViewModel extends _LabelDoseTimesViewModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LabelDoseTimesViewModelCopyWith<_$_LabelDoseTimesViewModel>
-      get copyWith =>
-          __$$_LabelDoseTimesViewModelCopyWithImpl<_$_LabelDoseTimesViewModel>(
-              this, _$identity);
+  _$$LabelDoseTimesViewModelImplCopyWith<_$LabelDoseTimesViewModelImpl>
+      get copyWith => __$$LabelDoseTimesViewModelImplCopyWithImpl<
+          _$LabelDoseTimesViewModelImpl>(this, _$identity);
 }
 
 abstract class _LabelDoseTimesViewModel extends LabelDoseTimesViewModel {
@@ -261,7 +262,7 @@ abstract class _LabelDoseTimesViewModel extends LabelDoseTimesViewModel {
       required final DoseAmount doseAmount,
       required final TimeInterval timeInterval,
       required final WeekDaysDose weekDaysDose,
-      required final Dose dose}) = _$_LabelDoseTimesViewModel;
+      required final Dose dose}) = _$LabelDoseTimesViewModelImpl;
   const _LabelDoseTimesViewModel._() : super._();
 
   @override
@@ -278,6 +279,6 @@ abstract class _LabelDoseTimesViewModel extends LabelDoseTimesViewModel {
   Dose get dose;
   @override
   @JsonKey(ignore: true)
-  _$$_LabelDoseTimesViewModelCopyWith<_$_LabelDoseTimesViewModel>
+  _$$LabelDoseTimesViewModelImplCopyWith<_$LabelDoseTimesViewModelImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

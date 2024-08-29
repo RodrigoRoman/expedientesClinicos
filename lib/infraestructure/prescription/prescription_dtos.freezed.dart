@@ -12,7 +12,7 @@ part of 'prescription_dtos.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 PrescriptionDto _$PrescriptionDtoFromJson(Map<String, dynamic> json) {
   return _PrescriptionDto.fromJson(json);
@@ -119,11 +119,11 @@ class _$PrescriptionDtoCopyWithImpl<$Res, $Val extends PrescriptionDto>
 }
 
 /// @nodoc
-abstract class _$$_PrescriptionDtoCopyWith<$Res>
+abstract class _$$PrescriptionDtoImplCopyWith<$Res>
     implements $PrescriptionDtoCopyWith<$Res> {
-  factory _$$_PrescriptionDtoCopyWith(
-          _$_PrescriptionDto value, $Res Function(_$_PrescriptionDto) then) =
-      __$$_PrescriptionDtoCopyWithImpl<$Res>;
+  factory _$$PrescriptionDtoImplCopyWith(_$PrescriptionDtoImpl value,
+          $Res Function(_$PrescriptionDtoImpl) then) =
+      __$$PrescriptionDtoImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -142,11 +142,11 @@ abstract class _$$_PrescriptionDtoCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_PrescriptionDtoCopyWithImpl<$Res>
-    extends _$PrescriptionDtoCopyWithImpl<$Res, _$_PrescriptionDto>
-    implements _$$_PrescriptionDtoCopyWith<$Res> {
-  __$$_PrescriptionDtoCopyWithImpl(
-      _$_PrescriptionDto _value, $Res Function(_$_PrescriptionDto) _then)
+class __$$PrescriptionDtoImplCopyWithImpl<$Res>
+    extends _$PrescriptionDtoCopyWithImpl<$Res, _$PrescriptionDtoImpl>
+    implements _$$PrescriptionDtoImplCopyWith<$Res> {
+  __$$PrescriptionDtoImplCopyWithImpl(
+      _$PrescriptionDtoImpl _value, $Res Function(_$PrescriptionDtoImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -158,7 +158,7 @@ class __$$_PrescriptionDtoCopyWithImpl<$Res>
     Object? dose = null,
     Object? indications = null,
   }) {
-    return _then(_$_PrescriptionDto(
+    return _then(_$PrescriptionDtoImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -185,8 +185,8 @@ class __$$_PrescriptionDtoCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_PrescriptionDto extends _PrescriptionDto {
-  const _$_PrescriptionDto(
+class _$PrescriptionDtoImpl extends _PrescriptionDto {
+  const _$PrescriptionDtoImpl(
       {required this.id,
       required this.medicine,
       required this.doseAmount,
@@ -195,8 +195,8 @@ class _$_PrescriptionDto extends _PrescriptionDto {
       : _indications = indications,
         super._();
 
-  factory _$_PrescriptionDto.fromJson(Map<String, dynamic> json) =>
-      _$$_PrescriptionDtoFromJson(json);
+  factory _$PrescriptionDtoImpl.fromJson(Map<String, dynamic> json) =>
+      _$$PrescriptionDtoImplFromJson(json);
 
   @override
   final String id;
@@ -220,10 +220,10 @@ class _$_PrescriptionDto extends _PrescriptionDto {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_PrescriptionDto &&
+            other is _$PrescriptionDtoImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.medicine, medicine) ||
                 other.medicine == medicine) &&
@@ -242,12 +242,13 @@ class _$_PrescriptionDto extends _PrescriptionDto {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_PrescriptionDtoCopyWith<_$_PrescriptionDto> get copyWith =>
-      __$$_PrescriptionDtoCopyWithImpl<_$_PrescriptionDto>(this, _$identity);
+  _$$PrescriptionDtoImplCopyWith<_$PrescriptionDtoImpl> get copyWith =>
+      __$$PrescriptionDtoImplCopyWithImpl<_$PrescriptionDtoImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_PrescriptionDtoToJson(
+    return _$$PrescriptionDtoImplToJson(
       this,
     );
   }
@@ -259,11 +260,11 @@ abstract class _PrescriptionDto extends PrescriptionDto {
       required final BrandedMedicineDto medicine,
       required final LabelDoubleAmountDto doseAmount,
       required final DoseDto dose,
-      required final List<IndicationDto> indications}) = _$_PrescriptionDto;
+      required final List<IndicationDto> indications}) = _$PrescriptionDtoImpl;
   const _PrescriptionDto._() : super._();
 
   factory _PrescriptionDto.fromJson(Map<String, dynamic> json) =
-      _$_PrescriptionDto.fromJson;
+      _$PrescriptionDtoImpl.fromJson;
 
   @override
   String get id;
@@ -277,6 +278,6 @@ abstract class _PrescriptionDto extends PrescriptionDto {
   List<IndicationDto> get indications;
   @override
   @JsonKey(ignore: true)
-  _$$_PrescriptionDtoCopyWith<_$_PrescriptionDto> get copyWith =>
+  _$$PrescriptionDtoImplCopyWith<_$PrescriptionDtoImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

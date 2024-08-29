@@ -12,6 +12,7 @@ class CustomTheme {
       //2
       hintColor: LightThemeColors.accent,
       primaryColor: LightThemeColors.primary,
+
       colorScheme: ColorScheme(
           brightness: Brightness.light,
           primary: LightThemeColors.primary,

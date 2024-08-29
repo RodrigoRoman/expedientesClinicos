@@ -30,7 +30,7 @@ class CancelCreateButtonsRow extends StatelessWidget {
                 onCreate();
                 // }
               },
-              child: const Text(AppStrings.create)),
+              child: Text(createText)),
         ),
         const Spacer(),
       ],

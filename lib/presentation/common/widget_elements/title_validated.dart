@@ -6,11 +6,17 @@ class TitleValidated extends StatelessWidget {
   final String title;
   final bool condition;
   final String? errorText;
+  final double minFontSize;
+  final bool inactive;
+  final String? id;
 
   const TitleValidated(
       {super.key,
       required this.title,
       required this.condition,
+      this.minFontSize = 8,
+      this.inactive = false,
+      this.id,
       this.errorText = AppStrings.isEmpty});
 
   @override
@@ -26,10 +32,13 @@ class TitleValidated extends StatelessWidget {
             title,
             wrapWords: false,
             maxLines: 1,
+            minFontSize: minFontSize,
             style: titleTextTheme.copyWith(
-                color: !condition
-                    ? Theme.of(context).colorScheme.error
-                    : titleTextTheme.color),
+                color: inactive
+                    ? Colors.grey
+                    : (!condition
+                        ? Theme.of(context).colorScheme.error
+                        : titleTextTheme.color)),
           ),
         ),
         !condition
@@ -41,10 +50,12 @@ class TitleValidated extends StatelessWidget {
                       child: AutoSizeText(
                         errorText ?? AppStrings.isEmpty,
                         wrapWords: false,
-                        minFontSize: 8,
+                        minFontSize: minFontSize / 2,
                         maxLines: 1,
                         style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                            color: Theme.of(context).colorScheme.error),
+                            color: inactive
+                                ? Colors.grey
+                                : Theme.of(context).colorScheme.error),
                       ),
                     ),
                     Spacer(),

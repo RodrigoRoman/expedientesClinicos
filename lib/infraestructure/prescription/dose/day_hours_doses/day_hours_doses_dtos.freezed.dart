@@ -12,7 +12,7 @@ part of 'day_hours_doses_dtos.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 DayHoursDoseDto _$DayHoursDoseDtoFromJson(Map<String, dynamic> json) {
   return _DayHoursDoseDto.fromJson(json);
@@ -79,11 +79,11 @@ class _$DayHoursDoseDtoCopyWithImpl<$Res, $Val extends DayHoursDoseDto>
 }
 
 /// @nodoc
-abstract class _$$_DayHoursDoseDtoCopyWith<$Res>
+abstract class _$$DayHoursDoseDtoImplCopyWith<$Res>
     implements $DayHoursDoseDtoCopyWith<$Res> {
-  factory _$$_DayHoursDoseDtoCopyWith(
-          _$_DayHoursDoseDto value, $Res Function(_$_DayHoursDoseDto) then) =
-      __$$_DayHoursDoseDtoCopyWithImpl<$Res>;
+  factory _$$DayHoursDoseDtoImplCopyWith(_$DayHoursDoseDtoImpl value,
+          $Res Function(_$DayHoursDoseDtoImpl) then) =
+      __$$DayHoursDoseDtoImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -94,11 +94,11 @@ abstract class _$$_DayHoursDoseDtoCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_DayHoursDoseDtoCopyWithImpl<$Res>
-    extends _$DayHoursDoseDtoCopyWithImpl<$Res, _$_DayHoursDoseDto>
-    implements _$$_DayHoursDoseDtoCopyWith<$Res> {
-  __$$_DayHoursDoseDtoCopyWithImpl(
-      _$_DayHoursDoseDto _value, $Res Function(_$_DayHoursDoseDto) _then)
+class __$$DayHoursDoseDtoImplCopyWithImpl<$Res>
+    extends _$DayHoursDoseDtoCopyWithImpl<$Res, _$DayHoursDoseDtoImpl>
+    implements _$$DayHoursDoseDtoImplCopyWith<$Res> {
+  __$$DayHoursDoseDtoImplCopyWithImpl(
+      _$DayHoursDoseDtoImpl _value, $Res Function(_$DayHoursDoseDtoImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -108,7 +108,7 @@ class __$$_DayHoursDoseDtoCopyWithImpl<$Res>
     Object? label = null,
     Object? doseHours = null,
   }) {
-    return _then(_$_DayHoursDoseDto(
+    return _then(_$DayHoursDoseDtoImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -127,8 +127,8 @@ class __$$_DayHoursDoseDtoCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_DayHoursDoseDto extends _DayHoursDoseDto {
-  const _$_DayHoursDoseDto(
+class _$DayHoursDoseDtoImpl extends _DayHoursDoseDto {
+  const _$DayHoursDoseDtoImpl(
       {required this.id,
       required this.label,
       @JsonKey(fromJson: _timeToJson, toJson: _timeFromJson)
@@ -136,8 +136,8 @@ class _$_DayHoursDoseDto extends _DayHoursDoseDto {
       : _doseHours = doseHours,
         super._();
 
-  factory _$_DayHoursDoseDto.fromJson(Map<String, dynamic> json) =>
-      _$$_DayHoursDoseDtoFromJson(json);
+  factory _$DayHoursDoseDtoImpl.fromJson(Map<String, dynamic> json) =>
+      _$$DayHoursDoseDtoImplFromJson(json);
 
   @override
   final String id;
@@ -158,10 +158,10 @@ class _$_DayHoursDoseDto extends _DayHoursDoseDto {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_DayHoursDoseDto &&
+            other is _$DayHoursDoseDtoImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.label, label) || other.label == label) &&
             const DeepCollectionEquality()
@@ -176,12 +176,13 @@ class _$_DayHoursDoseDto extends _DayHoursDoseDto {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DayHoursDoseDtoCopyWith<_$_DayHoursDoseDto> get copyWith =>
-      __$$_DayHoursDoseDtoCopyWithImpl<_$_DayHoursDoseDto>(this, _$identity);
+  _$$DayHoursDoseDtoImplCopyWith<_$DayHoursDoseDtoImpl> get copyWith =>
+      __$$DayHoursDoseDtoImplCopyWithImpl<_$DayHoursDoseDtoImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_DayHoursDoseDtoToJson(
+    return _$$DayHoursDoseDtoImplToJson(
       this,
     );
   }
@@ -192,11 +193,11 @@ abstract class _DayHoursDoseDto extends DayHoursDoseDto {
       {required final String id,
       required final String label,
       @JsonKey(fromJson: _timeToJson, toJson: _timeFromJson)
-      required final List<Timestamp> doseHours}) = _$_DayHoursDoseDto;
+      required final List<Timestamp> doseHours}) = _$DayHoursDoseDtoImpl;
   const _DayHoursDoseDto._() : super._();
 
   factory _DayHoursDoseDto.fromJson(Map<String, dynamic> json) =
-      _$_DayHoursDoseDto.fromJson;
+      _$DayHoursDoseDtoImpl.fromJson;
 
   @override
   String get id;
@@ -207,6 +208,6 @@ abstract class _DayHoursDoseDto extends DayHoursDoseDto {
   List<Timestamp> get doseHours;
   @override
   @JsonKey(ignore: true)
-  _$$_DayHoursDoseDtoCopyWith<_$_DayHoursDoseDto> get copyWith =>
+  _$$DayHoursDoseDtoImplCopyWith<_$DayHoursDoseDtoImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

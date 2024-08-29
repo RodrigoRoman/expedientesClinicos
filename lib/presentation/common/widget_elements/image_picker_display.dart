@@ -7,19 +7,22 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
 class ImagePickerDisplay extends StatelessWidget {
-  const ImagePickerDisplay({
+  final bool validated;
+  final Function onImageUrlChanged;
+  final ImageURL imageUrl;
+  bool inactive;
+  final bool mounted;
+  ImagePickerDisplay({
     super.key,
     required this.imageUrl,
     required this.onImageUrlChanged,
     this.validated = true,
+    this.inactive = false,
     required this.mounted,
   });
 
-  final bool validated;
-  final Function onImageUrlChanged;
-  final ImageURL imageUrl;
-
-  final bool mounted;
+  double get minWidth => 50;
+  double get minHeight => 50;
 
   Future pickImage() async {
     final image = await ImagePicker().pickImage(
@@ -52,13 +55,14 @@ class ImagePickerDisplay extends StatelessWidget {
     return LayoutBuilder(builder: (context, constraintStack) {
       double diplayHeight = constraintStack.maxHeight / 1.2;
       double diplayWidth = constraintStack.maxWidth / 1.4;
+      double averageRectSize = (diplayWidth + diplayHeight) / 2;
       return Center(
         child: SizedBox(
-          height: diplayHeight,
-          width: diplayWidth,
+          height: 50,
+          width: 50,
           child: Material(
             color: Colors.white60,
-            elevation: 10,
+            elevation: inactive ? 1 : 10,
             borderRadius: const BorderRadius.all(Radius.circular(AppSize.s24)),
             child: AnimatedContainer(
               duration: const Duration(milliseconds: 500),
@@ -77,11 +81,13 @@ class ImagePickerDisplay extends StatelessWidget {
                   borderRadius: BoderRadiusStyle.allCircular),
               child: (imageUrl.value.fold(
                   (l) => GestureDetector(
-                        onTap: () async {
-                          final String img = await pickImage();
-                          if (!mounted) return;
-                          onImageUrlChanged(img);
-                        },
+                        onTap: inactive
+                            ? null
+                            : () async {
+                                final String img = await pickImage();
+                                if (!mounted) return;
+                                onImageUrlChanged(img);
+                              },
                         child: const AnimatedImage(
                           animationName: AppAssetNames.imagePlaceholder,
                         ),
@@ -102,9 +108,11 @@ class ImagePickerDisplay extends StatelessWidget {
                             width: diplayWidth / 1.5,
                             height: diplayHeight / 1.5,
                             child: GestureDetector(
-                              onTap: () {
-                                onImageUrlChanged('');
-                              },
+                              onTap: inactive
+                                  ? null
+                                  : () {
+                                      onImageUrlChanged('');
+                                    },
                               child: const AnimatedImage(
                                 animationName: AppAssetNames.imagePlaceholder,
                               ),

@@ -12,7 +12,7 @@ part of 'time_interval_watcher_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$TimeIntervalWatcherEvent {
@@ -88,25 +88,25 @@ class _$TimeIntervalWatcherEventCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_WatchAllStartedCopyWith<$Res> {
-  factory _$$_WatchAllStartedCopyWith(
-          _$_WatchAllStarted value, $Res Function(_$_WatchAllStarted) then) =
-      __$$_WatchAllStartedCopyWithImpl<$Res>;
+abstract class _$$WatchAllStartedImplCopyWith<$Res> {
+  factory _$$WatchAllStartedImplCopyWith(_$WatchAllStartedImpl value,
+          $Res Function(_$WatchAllStartedImpl) then) =
+      __$$WatchAllStartedImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_WatchAllStartedCopyWithImpl<$Res>
-    extends _$TimeIntervalWatcherEventCopyWithImpl<$Res, _$_WatchAllStarted>
-    implements _$$_WatchAllStartedCopyWith<$Res> {
-  __$$_WatchAllStartedCopyWithImpl(
-      _$_WatchAllStarted _value, $Res Function(_$_WatchAllStarted) _then)
+class __$$WatchAllStartedImplCopyWithImpl<$Res>
+    extends _$TimeIntervalWatcherEventCopyWithImpl<$Res, _$WatchAllStartedImpl>
+    implements _$$WatchAllStartedImplCopyWith<$Res> {
+  __$$WatchAllStartedImplCopyWithImpl(
+      _$WatchAllStartedImpl _value, $Res Function(_$WatchAllStartedImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_WatchAllStarted implements _WatchAllStarted {
-  const _$_WatchAllStarted();
+class _$WatchAllStartedImpl implements _WatchAllStarted {
+  const _$WatchAllStartedImpl();
 
   @override
   String toString() {
@@ -114,9 +114,9 @@ class _$_WatchAllStarted implements _WatchAllStarted {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_WatchAllStarted);
+        (other.runtimeType == runtimeType && other is _$WatchAllStartedImpl);
   }
 
   @override
@@ -198,25 +198,25 @@ class _$_WatchAllStarted implements _WatchAllStarted {
 }
 
 abstract class _WatchAllStarted implements TimeIntervalWatcherEvent {
-  const factory _WatchAllStarted() = _$_WatchAllStarted;
+  const factory _WatchAllStarted() = _$WatchAllStartedImpl;
 }
 
 /// @nodoc
-abstract class _$$_WatchFilteredStartedCopyWith<$Res> {
-  factory _$$_WatchFilteredStartedCopyWith(_$_WatchFilteredStarted value,
-          $Res Function(_$_WatchFilteredStarted) then) =
-      __$$_WatchFilteredStartedCopyWithImpl<$Res>;
+abstract class _$$WatchFilteredStartedImplCopyWith<$Res> {
+  factory _$$WatchFilteredStartedImplCopyWith(_$WatchFilteredStartedImpl value,
+          $Res Function(_$WatchFilteredStartedImpl) then) =
+      __$$WatchFilteredStartedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String keyword});
 }
 
 /// @nodoc
-class __$$_WatchFilteredStartedCopyWithImpl<$Res>
+class __$$WatchFilteredStartedImplCopyWithImpl<$Res>
     extends _$TimeIntervalWatcherEventCopyWithImpl<$Res,
-        _$_WatchFilteredStarted>
-    implements _$$_WatchFilteredStartedCopyWith<$Res> {
-  __$$_WatchFilteredStartedCopyWithImpl(_$_WatchFilteredStarted _value,
-      $Res Function(_$_WatchFilteredStarted) _then)
+        _$WatchFilteredStartedImpl>
+    implements _$$WatchFilteredStartedImplCopyWith<$Res> {
+  __$$WatchFilteredStartedImplCopyWithImpl(_$WatchFilteredStartedImpl _value,
+      $Res Function(_$WatchFilteredStartedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -224,7 +224,7 @@ class __$$_WatchFilteredStartedCopyWithImpl<$Res>
   $Res call({
     Object? keyword = null,
   }) {
-    return _then(_$_WatchFilteredStarted(
+    return _then(_$WatchFilteredStartedImpl(
       null == keyword
           ? _value.keyword
           : keyword // ignore: cast_nullable_to_non_nullable
@@ -235,8 +235,8 @@ class __$$_WatchFilteredStartedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_WatchFilteredStarted implements _WatchFilteredStarted {
-  const _$_WatchFilteredStarted(this.keyword);
+class _$WatchFilteredStartedImpl implements _WatchFilteredStarted {
+  const _$WatchFilteredStartedImpl(this.keyword);
 
   @override
   final String keyword;
@@ -247,10 +247,10 @@ class _$_WatchFilteredStarted implements _WatchFilteredStarted {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_WatchFilteredStarted &&
+            other is _$WatchFilteredStartedImpl &&
             (identical(other.keyword, keyword) || other.keyword == keyword));
   }
 
@@ -260,9 +260,10 @@ class _$_WatchFilteredStarted implements _WatchFilteredStarted {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_WatchFilteredStartedCopyWith<_$_WatchFilteredStarted> get copyWith =>
-      __$$_WatchFilteredStartedCopyWithImpl<_$_WatchFilteredStarted>(
-          this, _$identity);
+  _$$WatchFilteredStartedImplCopyWith<_$WatchFilteredStartedImpl>
+      get copyWith =>
+          __$$WatchFilteredStartedImplCopyWithImpl<_$WatchFilteredStartedImpl>(
+              this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -341,30 +342,30 @@ class _$_WatchFilteredStarted implements _WatchFilteredStarted {
 
 abstract class _WatchFilteredStarted implements TimeIntervalWatcherEvent {
   const factory _WatchFilteredStarted(final String keyword) =
-      _$_WatchFilteredStarted;
+      _$WatchFilteredStartedImpl;
 
   String get keyword;
   @JsonKey(ignore: true)
-  _$$_WatchFilteredStartedCopyWith<_$_WatchFilteredStarted> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$WatchFilteredStartedImplCopyWith<_$WatchFilteredStartedImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_TimeIntervalReceivedCopyWith<$Res> {
-  factory _$$_TimeIntervalReceivedCopyWith(_$_TimeIntervalReceived value,
-          $Res Function(_$_TimeIntervalReceived) then) =
-      __$$_TimeIntervalReceivedCopyWithImpl<$Res>;
+abstract class _$$TimeIntervalReceivedImplCopyWith<$Res> {
+  factory _$$TimeIntervalReceivedImplCopyWith(_$TimeIntervalReceivedImpl value,
+          $Res Function(_$TimeIntervalReceivedImpl) then) =
+      __$$TimeIntervalReceivedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Either<TimeIntervalFailure, KtList<TimeInterval>> failureOrUnit});
 }
 
 /// @nodoc
-class __$$_TimeIntervalReceivedCopyWithImpl<$Res>
+class __$$TimeIntervalReceivedImplCopyWithImpl<$Res>
     extends _$TimeIntervalWatcherEventCopyWithImpl<$Res,
-        _$_TimeIntervalReceived>
-    implements _$$_TimeIntervalReceivedCopyWith<$Res> {
-  __$$_TimeIntervalReceivedCopyWithImpl(_$_TimeIntervalReceived _value,
-      $Res Function(_$_TimeIntervalReceived) _then)
+        _$TimeIntervalReceivedImpl>
+    implements _$$TimeIntervalReceivedImplCopyWith<$Res> {
+  __$$TimeIntervalReceivedImplCopyWithImpl(_$TimeIntervalReceivedImpl _value,
+      $Res Function(_$TimeIntervalReceivedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -372,7 +373,7 @@ class __$$_TimeIntervalReceivedCopyWithImpl<$Res>
   $Res call({
     Object? failureOrUnit = null,
   }) {
-    return _then(_$_TimeIntervalReceived(
+    return _then(_$TimeIntervalReceivedImpl(
       null == failureOrUnit
           ? _value.failureOrUnit
           : failureOrUnit // ignore: cast_nullable_to_non_nullable
@@ -383,8 +384,8 @@ class __$$_TimeIntervalReceivedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_TimeIntervalReceived implements _TimeIntervalReceived {
-  const _$_TimeIntervalReceived(this.failureOrUnit);
+class _$TimeIntervalReceivedImpl implements _TimeIntervalReceived {
+  const _$TimeIntervalReceivedImpl(this.failureOrUnit);
 
   @override
   final Either<TimeIntervalFailure, KtList<TimeInterval>> failureOrUnit;
@@ -395,10 +396,10 @@ class _$_TimeIntervalReceived implements _TimeIntervalReceived {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_TimeIntervalReceived &&
+            other is _$TimeIntervalReceivedImpl &&
             (identical(other.failureOrUnit, failureOrUnit) ||
                 other.failureOrUnit == failureOrUnit));
   }
@@ -409,9 +410,10 @@ class _$_TimeIntervalReceived implements _TimeIntervalReceived {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_TimeIntervalReceivedCopyWith<_$_TimeIntervalReceived> get copyWith =>
-      __$$_TimeIntervalReceivedCopyWithImpl<_$_TimeIntervalReceived>(
-          this, _$identity);
+  _$$TimeIntervalReceivedImplCopyWith<_$TimeIntervalReceivedImpl>
+      get copyWith =>
+          __$$TimeIntervalReceivedImplCopyWithImpl<_$TimeIntervalReceivedImpl>(
+              this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -491,12 +493,12 @@ class _$_TimeIntervalReceived implements _TimeIntervalReceived {
 abstract class _TimeIntervalReceived implements TimeIntervalWatcherEvent {
   const factory _TimeIntervalReceived(
       final Either<TimeIntervalFailure, KtList<TimeInterval>>
-          failureOrUnit) = _$_TimeIntervalReceived;
+          failureOrUnit) = _$TimeIntervalReceivedImpl;
 
   Either<TimeIntervalFailure, KtList<TimeInterval>> get failureOrUnit;
   @JsonKey(ignore: true)
-  _$$_TimeIntervalReceivedCopyWith<_$_TimeIntervalReceived> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$TimeIntervalReceivedImplCopyWith<_$TimeIntervalReceivedImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -574,24 +576,25 @@ class _$TimeIntervalWatcherStateCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_InitialCopyWith<$Res> {
-  factory _$$_InitialCopyWith(
-          _$_Initial value, $Res Function(_$_Initial) then) =
-      __$$_InitialCopyWithImpl<$Res>;
+abstract class _$$InitialImplCopyWith<$Res> {
+  factory _$$InitialImplCopyWith(
+          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
+      __$$InitialImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_InitialCopyWithImpl<$Res>
-    extends _$TimeIntervalWatcherStateCopyWithImpl<$Res, _$_Initial>
-    implements _$$_InitialCopyWith<$Res> {
-  __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
+class __$$InitialImplCopyWithImpl<$Res>
+    extends _$TimeIntervalWatcherStateCopyWithImpl<$Res, _$InitialImpl>
+    implements _$$InitialImplCopyWith<$Res> {
+  __$$InitialImplCopyWithImpl(
+      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_Initial implements _Initial {
-  const _$_Initial();
+class _$InitialImpl implements _Initial {
+  const _$InitialImpl();
 
   @override
   String toString() {
@@ -599,9 +602,9 @@ class _$_Initial implements _Initial {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Initial);
+        (other.runtimeType == runtimeType && other is _$InitialImpl);
   }
 
   @override
@@ -684,29 +687,29 @@ class _$_Initial implements _Initial {
 }
 
 abstract class _Initial implements TimeIntervalWatcherState {
-  const factory _Initial() = _$_Initial;
+  const factory _Initial() = _$InitialImpl;
 }
 
 /// @nodoc
-abstract class _$$_LoadInProgressCopyWith<$Res> {
-  factory _$$_LoadInProgressCopyWith(
-          _$_LoadInProgress value, $Res Function(_$_LoadInProgress) then) =
-      __$$_LoadInProgressCopyWithImpl<$Res>;
+abstract class _$$LoadInProgressImplCopyWith<$Res> {
+  factory _$$LoadInProgressImplCopyWith(_$LoadInProgressImpl value,
+          $Res Function(_$LoadInProgressImpl) then) =
+      __$$LoadInProgressImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_LoadInProgressCopyWithImpl<$Res>
-    extends _$TimeIntervalWatcherStateCopyWithImpl<$Res, _$_LoadInProgress>
-    implements _$$_LoadInProgressCopyWith<$Res> {
-  __$$_LoadInProgressCopyWithImpl(
-      _$_LoadInProgress _value, $Res Function(_$_LoadInProgress) _then)
+class __$$LoadInProgressImplCopyWithImpl<$Res>
+    extends _$TimeIntervalWatcherStateCopyWithImpl<$Res, _$LoadInProgressImpl>
+    implements _$$LoadInProgressImplCopyWith<$Res> {
+  __$$LoadInProgressImplCopyWithImpl(
+      _$LoadInProgressImpl _value, $Res Function(_$LoadInProgressImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_LoadInProgress implements _LoadInProgress {
-  const _$_LoadInProgress();
+class _$LoadInProgressImpl implements _LoadInProgress {
+  const _$LoadInProgressImpl();
 
   @override
   String toString() {
@@ -714,9 +717,9 @@ class _$_LoadInProgress implements _LoadInProgress {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_LoadInProgress);
+        (other.runtimeType == runtimeType && other is _$LoadInProgressImpl);
   }
 
   @override
@@ -799,24 +802,24 @@ class _$_LoadInProgress implements _LoadInProgress {
 }
 
 abstract class _LoadInProgress implements TimeIntervalWatcherState {
-  const factory _LoadInProgress() = _$_LoadInProgress;
+  const factory _LoadInProgress() = _$LoadInProgressImpl;
 }
 
 /// @nodoc
-abstract class _$$_LoadSuccessCopyWith<$Res> {
-  factory _$$_LoadSuccessCopyWith(
-          _$_LoadSuccess value, $Res Function(_$_LoadSuccess) then) =
-      __$$_LoadSuccessCopyWithImpl<$Res>;
+abstract class _$$LoadSuccessImplCopyWith<$Res> {
+  factory _$$LoadSuccessImplCopyWith(
+          _$LoadSuccessImpl value, $Res Function(_$LoadSuccessImpl) then) =
+      __$$LoadSuccessImplCopyWithImpl<$Res>;
   @useResult
   $Res call({KtList<TimeInterval> timeIntervals});
 }
 
 /// @nodoc
-class __$$_LoadSuccessCopyWithImpl<$Res>
-    extends _$TimeIntervalWatcherStateCopyWithImpl<$Res, _$_LoadSuccess>
-    implements _$$_LoadSuccessCopyWith<$Res> {
-  __$$_LoadSuccessCopyWithImpl(
-      _$_LoadSuccess _value, $Res Function(_$_LoadSuccess) _then)
+class __$$LoadSuccessImplCopyWithImpl<$Res>
+    extends _$TimeIntervalWatcherStateCopyWithImpl<$Res, _$LoadSuccessImpl>
+    implements _$$LoadSuccessImplCopyWith<$Res> {
+  __$$LoadSuccessImplCopyWithImpl(
+      _$LoadSuccessImpl _value, $Res Function(_$LoadSuccessImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -824,7 +827,7 @@ class __$$_LoadSuccessCopyWithImpl<$Res>
   $Res call({
     Object? timeIntervals = null,
   }) {
-    return _then(_$_LoadSuccess(
+    return _then(_$LoadSuccessImpl(
       null == timeIntervals
           ? _value.timeIntervals
           : timeIntervals // ignore: cast_nullable_to_non_nullable
@@ -835,8 +838,8 @@ class __$$_LoadSuccessCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_LoadSuccess implements _LoadSuccess {
-  const _$_LoadSuccess(this.timeIntervals);
+class _$LoadSuccessImpl implements _LoadSuccess {
+  const _$LoadSuccessImpl(this.timeIntervals);
 
   @override
   final KtList<TimeInterval> timeIntervals;
@@ -847,10 +850,10 @@ class _$_LoadSuccess implements _LoadSuccess {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LoadSuccess &&
+            other is _$LoadSuccessImpl &&
             (identical(other.timeIntervals, timeIntervals) ||
                 other.timeIntervals == timeIntervals));
   }
@@ -861,8 +864,8 @@ class _$_LoadSuccess implements _LoadSuccess {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LoadSuccessCopyWith<_$_LoadSuccess> get copyWith =>
-      __$$_LoadSuccessCopyWithImpl<_$_LoadSuccess>(this, _$identity);
+  _$$LoadSuccessImplCopyWith<_$LoadSuccessImpl> get copyWith =>
+      __$$LoadSuccessImplCopyWithImpl<_$LoadSuccessImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -942,19 +945,19 @@ class _$_LoadSuccess implements _LoadSuccess {
 
 abstract class _LoadSuccess implements TimeIntervalWatcherState {
   const factory _LoadSuccess(final KtList<TimeInterval> timeIntervals) =
-      _$_LoadSuccess;
+      _$LoadSuccessImpl;
 
   KtList<TimeInterval> get timeIntervals;
   @JsonKey(ignore: true)
-  _$$_LoadSuccessCopyWith<_$_LoadSuccess> get copyWith =>
+  _$$LoadSuccessImplCopyWith<_$LoadSuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_LoadFailureCopyWith<$Res> {
-  factory _$$_LoadFailureCopyWith(
-          _$_LoadFailure value, $Res Function(_$_LoadFailure) then) =
-      __$$_LoadFailureCopyWithImpl<$Res>;
+abstract class _$$LoadFailureImplCopyWith<$Res> {
+  factory _$$LoadFailureImplCopyWith(
+          _$LoadFailureImpl value, $Res Function(_$LoadFailureImpl) then) =
+      __$$LoadFailureImplCopyWithImpl<$Res>;
   @useResult
   $Res call({TimeIntervalFailure timeIntervalFailure});
 
@@ -962,11 +965,11 @@ abstract class _$$_LoadFailureCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_LoadFailureCopyWithImpl<$Res>
-    extends _$TimeIntervalWatcherStateCopyWithImpl<$Res, _$_LoadFailure>
-    implements _$$_LoadFailureCopyWith<$Res> {
-  __$$_LoadFailureCopyWithImpl(
-      _$_LoadFailure _value, $Res Function(_$_LoadFailure) _then)
+class __$$LoadFailureImplCopyWithImpl<$Res>
+    extends _$TimeIntervalWatcherStateCopyWithImpl<$Res, _$LoadFailureImpl>
+    implements _$$LoadFailureImplCopyWith<$Res> {
+  __$$LoadFailureImplCopyWithImpl(
+      _$LoadFailureImpl _value, $Res Function(_$LoadFailureImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -974,7 +977,7 @@ class __$$_LoadFailureCopyWithImpl<$Res>
   $Res call({
     Object? timeIntervalFailure = null,
   }) {
-    return _then(_$_LoadFailure(
+    return _then(_$LoadFailureImpl(
       null == timeIntervalFailure
           ? _value.timeIntervalFailure
           : timeIntervalFailure // ignore: cast_nullable_to_non_nullable
@@ -994,8 +997,8 @@ class __$$_LoadFailureCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_LoadFailure implements _LoadFailure {
-  const _$_LoadFailure(this.timeIntervalFailure);
+class _$LoadFailureImpl implements _LoadFailure {
+  const _$LoadFailureImpl(this.timeIntervalFailure);
 
   @override
   final TimeIntervalFailure timeIntervalFailure;
@@ -1006,10 +1009,10 @@ class _$_LoadFailure implements _LoadFailure {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LoadFailure &&
+            other is _$LoadFailureImpl &&
             (identical(other.timeIntervalFailure, timeIntervalFailure) ||
                 other.timeIntervalFailure == timeIntervalFailure));
   }
@@ -1020,8 +1023,8 @@ class _$_LoadFailure implements _LoadFailure {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LoadFailureCopyWith<_$_LoadFailure> get copyWith =>
-      __$$_LoadFailureCopyWithImpl<_$_LoadFailure>(this, _$identity);
+  _$$LoadFailureImplCopyWith<_$LoadFailureImpl> get copyWith =>
+      __$$LoadFailureImplCopyWithImpl<_$LoadFailureImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1101,10 +1104,10 @@ class _$_LoadFailure implements _LoadFailure {
 
 abstract class _LoadFailure implements TimeIntervalWatcherState {
   const factory _LoadFailure(final TimeIntervalFailure timeIntervalFailure) =
-      _$_LoadFailure;
+      _$LoadFailureImpl;
 
   TimeIntervalFailure get timeIntervalFailure;
   @JsonKey(ignore: true)
-  _$$_LoadFailureCopyWith<_$_LoadFailure> get copyWith =>
+  _$$LoadFailureImplCopyWith<_$LoadFailureImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

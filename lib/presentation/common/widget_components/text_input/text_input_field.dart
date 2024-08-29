@@ -15,6 +15,14 @@ class TextInputField extends StatefulWidget {
   FocusNode focusNode;
   int maxLines;
   String hintText;
+  bool inactive;
+
+  // A way to see the minimum dimensions this widget supports
+  // base on experience (trial and error)
+  // Getter for width
+  static double get minWidth => 100;
+  // Getter for minHeight
+  static double get minHeight => 50;
 
   TextInputField(
       {super.key,
@@ -23,6 +31,7 @@ class TextInputField extends StatefulWidget {
       this.onChange,
       this.validator,
       this.maxLines = 1,
+      this.inactive = false,
       FocusNode? focusNode,
       this.hintText = ''})
       : focusNode = focusNode ?? FocusNode();
@@ -46,7 +55,9 @@ class _TextInputFieldState extends State<TextInputField> {
               decoration: BoxDecoration(
                 borderRadius: BoderRadiusStyle.allRound,
                 border: Border.all(
-                    color: LightThemeColors.callout.withOpacity(0.3),
+                    color: widget.inactive
+                        ? Colors.grey
+                        : LightThemeColors.callout.withOpacity(0.3),
                     width: widget.focusNode.hasFocus
                         ? AppSize.s4
                         : AppSize
@@ -54,6 +65,7 @@ class _TextInputFieldState extends State<TextInputField> {
                     ),
               ),
               child: TextInputFieldBody(
+                  inactive: widget.inactive,
                   textFieldController: widget.textFieldController,
                   hintText: widget.hintText,
                   onCancel: widget.onCancel,
@@ -77,6 +89,7 @@ class TextInputFieldBody extends StatefulWidget {
   int maxLines;
   FocusNode focusNode;
   double fontSize;
+  bool inactive;
 
   TextInputFieldBody(
       {super.key,
@@ -85,6 +98,7 @@ class TextInputFieldBody extends StatefulWidget {
       required this.focusNode,
       required this.fontSize,
       required this.maxLines,
+      this.inactive = false,
       this.onChange,
       this.onCancel,
       this.validator});
@@ -102,11 +116,33 @@ class _TextInputFieldBodyState extends State<TextInputFieldBody> {
         focusNode: widget.focusNode,
         controller: widget.textFieldController,
         textAlign: TextAlign.center,
+        readOnly: widget.inactive,
         maxLines: null,
         expands: true,
         textCapitalization: TextCapitalization.sentences,
         decoration: InputDecoration(
             // errorText: null,
+            enabledBorder: widget.inactive
+                ? OutlineInputBorder(
+                    borderSide: BorderSide(
+                      color: Colors.grey, // Inactive border color
+                      width: AppSize.s2,
+                    ),
+                    borderRadius: BoderRadiusStyle.allCurve,
+                  )
+                : Theme.of(context).inputDecorationTheme.enabledBorder,
+            focusedBorder: widget.inactive
+                ? OutlineInputBorder(
+                    borderSide: BorderSide(
+                      color: Colors.grey, // Inactive focused border color
+                      width: AppSize.s2,
+                    ),
+                    borderRadius: BoderRadiusStyle.allCurve,
+                  )
+                : Theme.of(context).inputDecorationTheme.focusedBorder,
+            errorBorder: Theme.of(context).inputDecorationTheme.errorBorder,
+            focusedErrorBorder:
+                Theme.of(context).inputDecorationTheme.focusedErrorBorder,
             contentPadding: const EdgeInsets.all(AppSize.s10),
             suffix: (widget.textFieldController.text.isNotEmpty)
                 ? Material(
@@ -114,13 +150,18 @@ class _TextInputFieldBodyState extends State<TextInputFieldBody> {
                     shape: const CircleBorder(),
                     clipBehavior: Clip.hardEdge,
                     child: GestureDetector(
-                      onTap: () {
-                        widget.textFieldController.text = AppStrings.empty;
-                        widget.onCancel == null ? null : widget.onCancel!();
-                        widget.onChange == null
-                            ? null
-                            : widget.onChange!(AppStrings.empty);
-                      },
+                      onTap: widget.inactive
+                          ? null
+                          : () {
+                              widget.textFieldController.text =
+                                  AppStrings.empty;
+                              widget.onCancel == null
+                                  ? null
+                                  : widget.onCancel!();
+                              widget.onChange == null
+                                  ? null
+                                  : widget.onChange!(AppStrings.empty);
+                            },
                       child: const Icon(
                         Icons.cancel_rounded,
                         size: AppSize.s18,
@@ -130,26 +171,30 @@ class _TextInputFieldBodyState extends State<TextInputFieldBody> {
                 : const SizedBox.shrink(),
             border: InputBorder.none,
             hintText: widget.hintText,
-            hintStyle: Theme.of(context)
-                .textTheme
-                .displayMedium!
-                .copyWith(fontSize: widget.fontSize / 2)),
+            hintStyle: Theme.of(context).textTheme.displayMedium!.copyWith(
+                fontSize: widget.fontSize / 2,
+                color: widget.inactive
+                    ? Colors.grey
+                    : Theme.of(context).textTheme.displayMedium!.color)),
         style: TextStyle(
           fontSize: widget.fontSize / 2,
         ),
         keyboardType: TextInputType.text,
         textInputAction: TextInputAction.next,
-        onChanged: (value) {
-          widget.textFieldController.value = TextEditingValue(
-              text: value,
-              selection: TextSelection.fromPosition(
-                TextPosition(
-                    offset: widget.textFieldController.selection.extentOffset),
-              ));
-          widget.onChange == null ? null : widget.onChange!(value);
-          //Set state here is needed for updating wether the cancel button shows up or not
-          setState(() {});
-        },
+        onChanged: widget.inactive
+            ? null
+            : (String value) {
+                widget.textFieldController.value = TextEditingValue(
+                    text: value,
+                    selection: TextSelection.fromPosition(
+                      TextPosition(
+                          offset: widget
+                              .textFieldController.selection.extentOffset),
+                    ));
+                widget.onChange == null ? null : widget.onChange!(value);
+                //Set state here is needed for updating wether the cancel button shows up or not
+                setState(() {});
+              },
       ),
     );
   }

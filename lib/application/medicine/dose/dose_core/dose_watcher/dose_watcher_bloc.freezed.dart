@@ -12,7 +12,7 @@ part of 'dose_watcher_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$DoseWatcherEvent {
@@ -84,25 +84,25 @@ class _$DoseWatcherEventCopyWithImpl<$Res, $Val extends DoseWatcherEvent>
 }
 
 /// @nodoc
-abstract class _$$_WatchAllStartedCopyWith<$Res> {
-  factory _$$_WatchAllStartedCopyWith(
-          _$_WatchAllStarted value, $Res Function(_$_WatchAllStarted) then) =
-      __$$_WatchAllStartedCopyWithImpl<$Res>;
+abstract class _$$WatchAllStartedImplCopyWith<$Res> {
+  factory _$$WatchAllStartedImplCopyWith(_$WatchAllStartedImpl value,
+          $Res Function(_$WatchAllStartedImpl) then) =
+      __$$WatchAllStartedImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_WatchAllStartedCopyWithImpl<$Res>
-    extends _$DoseWatcherEventCopyWithImpl<$Res, _$_WatchAllStarted>
-    implements _$$_WatchAllStartedCopyWith<$Res> {
-  __$$_WatchAllStartedCopyWithImpl(
-      _$_WatchAllStarted _value, $Res Function(_$_WatchAllStarted) _then)
+class __$$WatchAllStartedImplCopyWithImpl<$Res>
+    extends _$DoseWatcherEventCopyWithImpl<$Res, _$WatchAllStartedImpl>
+    implements _$$WatchAllStartedImplCopyWith<$Res> {
+  __$$WatchAllStartedImplCopyWithImpl(
+      _$WatchAllStartedImpl _value, $Res Function(_$WatchAllStartedImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_WatchAllStarted implements _WatchAllStarted {
-  const _$_WatchAllStarted();
+class _$WatchAllStartedImpl implements _WatchAllStarted {
+  const _$WatchAllStartedImpl();
 
   @override
   String toString() {
@@ -110,9 +110,9 @@ class _$_WatchAllStarted implements _WatchAllStarted {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_WatchAllStarted);
+        (other.runtimeType == runtimeType && other is _$WatchAllStartedImpl);
   }
 
   @override
@@ -191,24 +191,24 @@ class _$_WatchAllStarted implements _WatchAllStarted {
 }
 
 abstract class _WatchAllStarted implements DoseWatcherEvent {
-  const factory _WatchAllStarted() = _$_WatchAllStarted;
+  const factory _WatchAllStarted() = _$WatchAllStartedImpl;
 }
 
 /// @nodoc
-abstract class _$$_WatchFilteredStartedCopyWith<$Res> {
-  factory _$$_WatchFilteredStartedCopyWith(_$_WatchFilteredStarted value,
-          $Res Function(_$_WatchFilteredStarted) then) =
-      __$$_WatchFilteredStartedCopyWithImpl<$Res>;
+abstract class _$$WatchFilteredStartedImplCopyWith<$Res> {
+  factory _$$WatchFilteredStartedImplCopyWith(_$WatchFilteredStartedImpl value,
+          $Res Function(_$WatchFilteredStartedImpl) then) =
+      __$$WatchFilteredStartedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String keyword});
 }
 
 /// @nodoc
-class __$$_WatchFilteredStartedCopyWithImpl<$Res>
-    extends _$DoseWatcherEventCopyWithImpl<$Res, _$_WatchFilteredStarted>
-    implements _$$_WatchFilteredStartedCopyWith<$Res> {
-  __$$_WatchFilteredStartedCopyWithImpl(_$_WatchFilteredStarted _value,
-      $Res Function(_$_WatchFilteredStarted) _then)
+class __$$WatchFilteredStartedImplCopyWithImpl<$Res>
+    extends _$DoseWatcherEventCopyWithImpl<$Res, _$WatchFilteredStartedImpl>
+    implements _$$WatchFilteredStartedImplCopyWith<$Res> {
+  __$$WatchFilteredStartedImplCopyWithImpl(_$WatchFilteredStartedImpl _value,
+      $Res Function(_$WatchFilteredStartedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -216,7 +216,7 @@ class __$$_WatchFilteredStartedCopyWithImpl<$Res>
   $Res call({
     Object? keyword = null,
   }) {
-    return _then(_$_WatchFilteredStarted(
+    return _then(_$WatchFilteredStartedImpl(
       null == keyword
           ? _value.keyword
           : keyword // ignore: cast_nullable_to_non_nullable
@@ -227,8 +227,8 @@ class __$$_WatchFilteredStartedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_WatchFilteredStarted implements _WatchFilteredStarted {
-  const _$_WatchFilteredStarted(this.keyword);
+class _$WatchFilteredStartedImpl implements _WatchFilteredStarted {
+  const _$WatchFilteredStartedImpl(this.keyword);
 
   @override
   final String keyword;
@@ -239,10 +239,10 @@ class _$_WatchFilteredStarted implements _WatchFilteredStarted {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_WatchFilteredStarted &&
+            other is _$WatchFilteredStartedImpl &&
             (identical(other.keyword, keyword) || other.keyword == keyword));
   }
 
@@ -252,9 +252,10 @@ class _$_WatchFilteredStarted implements _WatchFilteredStarted {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_WatchFilteredStartedCopyWith<_$_WatchFilteredStarted> get copyWith =>
-      __$$_WatchFilteredStartedCopyWithImpl<_$_WatchFilteredStarted>(
-          this, _$identity);
+  _$$WatchFilteredStartedImplCopyWith<_$WatchFilteredStartedImpl>
+      get copyWith =>
+          __$$WatchFilteredStartedImplCopyWithImpl<_$WatchFilteredStartedImpl>(
+              this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -330,29 +331,29 @@ class _$_WatchFilteredStarted implements _WatchFilteredStarted {
 
 abstract class _WatchFilteredStarted implements DoseWatcherEvent {
   const factory _WatchFilteredStarted(final String keyword) =
-      _$_WatchFilteredStarted;
+      _$WatchFilteredStartedImpl;
 
   String get keyword;
   @JsonKey(ignore: true)
-  _$$_WatchFilteredStartedCopyWith<_$_WatchFilteredStarted> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$WatchFilteredStartedImplCopyWith<_$WatchFilteredStartedImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_DosesReceivedCopyWith<$Res> {
-  factory _$$_DosesReceivedCopyWith(
-          _$_DosesReceived value, $Res Function(_$_DosesReceived) then) =
-      __$$_DosesReceivedCopyWithImpl<$Res>;
+abstract class _$$DosesReceivedImplCopyWith<$Res> {
+  factory _$$DosesReceivedImplCopyWith(
+          _$DosesReceivedImpl value, $Res Function(_$DosesReceivedImpl) then) =
+      __$$DosesReceivedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Either<DoseFailures, KtList<Dose>> failureOrDoses});
 }
 
 /// @nodoc
-class __$$_DosesReceivedCopyWithImpl<$Res>
-    extends _$DoseWatcherEventCopyWithImpl<$Res, _$_DosesReceived>
-    implements _$$_DosesReceivedCopyWith<$Res> {
-  __$$_DosesReceivedCopyWithImpl(
-      _$_DosesReceived _value, $Res Function(_$_DosesReceived) _then)
+class __$$DosesReceivedImplCopyWithImpl<$Res>
+    extends _$DoseWatcherEventCopyWithImpl<$Res, _$DosesReceivedImpl>
+    implements _$$DosesReceivedImplCopyWith<$Res> {
+  __$$DosesReceivedImplCopyWithImpl(
+      _$DosesReceivedImpl _value, $Res Function(_$DosesReceivedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -360,7 +361,7 @@ class __$$_DosesReceivedCopyWithImpl<$Res>
   $Res call({
     Object? failureOrDoses = null,
   }) {
-    return _then(_$_DosesReceived(
+    return _then(_$DosesReceivedImpl(
       null == failureOrDoses
           ? _value.failureOrDoses
           : failureOrDoses // ignore: cast_nullable_to_non_nullable
@@ -371,8 +372,8 @@ class __$$_DosesReceivedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_DosesReceived implements _DosesReceived {
-  const _$_DosesReceived(this.failureOrDoses);
+class _$DosesReceivedImpl implements _DosesReceived {
+  const _$DosesReceivedImpl(this.failureOrDoses);
 
   @override
   final Either<DoseFailures, KtList<Dose>> failureOrDoses;
@@ -383,10 +384,10 @@ class _$_DosesReceived implements _DosesReceived {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_DosesReceived &&
+            other is _$DosesReceivedImpl &&
             (identical(other.failureOrDoses, failureOrDoses) ||
                 other.failureOrDoses == failureOrDoses));
   }
@@ -397,8 +398,8 @@ class _$_DosesReceived implements _DosesReceived {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DosesReceivedCopyWith<_$_DosesReceived> get copyWith =>
-      __$$_DosesReceivedCopyWithImpl<_$_DosesReceived>(this, _$identity);
+  _$$DosesReceivedImplCopyWith<_$DosesReceivedImpl> get copyWith =>
+      __$$DosesReceivedImplCopyWithImpl<_$DosesReceivedImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -475,11 +476,11 @@ class _$_DosesReceived implements _DosesReceived {
 abstract class _DosesReceived implements DoseWatcherEvent {
   const factory _DosesReceived(
           final Either<DoseFailures, KtList<Dose>> failureOrDoses) =
-      _$_DosesReceived;
+      _$DosesReceivedImpl;
 
   Either<DoseFailures, KtList<Dose>> get failureOrDoses;
   @JsonKey(ignore: true)
-  _$$_DosesReceivedCopyWith<_$_DosesReceived> get copyWith =>
+  _$$DosesReceivedImplCopyWith<_$DosesReceivedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -556,24 +557,25 @@ class _$DoseWatcherStateCopyWithImpl<$Res, $Val extends DoseWatcherState>
 }
 
 /// @nodoc
-abstract class _$$_InitialCopyWith<$Res> {
-  factory _$$_InitialCopyWith(
-          _$_Initial value, $Res Function(_$_Initial) then) =
-      __$$_InitialCopyWithImpl<$Res>;
+abstract class _$$InitialImplCopyWith<$Res> {
+  factory _$$InitialImplCopyWith(
+          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
+      __$$InitialImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_InitialCopyWithImpl<$Res>
-    extends _$DoseWatcherStateCopyWithImpl<$Res, _$_Initial>
-    implements _$$_InitialCopyWith<$Res> {
-  __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
+class __$$InitialImplCopyWithImpl<$Res>
+    extends _$DoseWatcherStateCopyWithImpl<$Res, _$InitialImpl>
+    implements _$$InitialImplCopyWith<$Res> {
+  __$$InitialImplCopyWithImpl(
+      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_Initial implements _Initial {
-  const _$_Initial();
+class _$InitialImpl implements _Initial {
+  const _$InitialImpl();
 
   @override
   String toString() {
@@ -581,9 +583,9 @@ class _$_Initial implements _Initial {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Initial);
+        (other.runtimeType == runtimeType && other is _$InitialImpl);
   }
 
   @override
@@ -665,29 +667,29 @@ class _$_Initial implements _Initial {
 }
 
 abstract class _Initial implements DoseWatcherState {
-  const factory _Initial() = _$_Initial;
+  const factory _Initial() = _$InitialImpl;
 }
 
 /// @nodoc
-abstract class _$$_LoadInProgressCopyWith<$Res> {
-  factory _$$_LoadInProgressCopyWith(
-          _$_LoadInProgress value, $Res Function(_$_LoadInProgress) then) =
-      __$$_LoadInProgressCopyWithImpl<$Res>;
+abstract class _$$LoadInProgressImplCopyWith<$Res> {
+  factory _$$LoadInProgressImplCopyWith(_$LoadInProgressImpl value,
+          $Res Function(_$LoadInProgressImpl) then) =
+      __$$LoadInProgressImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_LoadInProgressCopyWithImpl<$Res>
-    extends _$DoseWatcherStateCopyWithImpl<$Res, _$_LoadInProgress>
-    implements _$$_LoadInProgressCopyWith<$Res> {
-  __$$_LoadInProgressCopyWithImpl(
-      _$_LoadInProgress _value, $Res Function(_$_LoadInProgress) _then)
+class __$$LoadInProgressImplCopyWithImpl<$Res>
+    extends _$DoseWatcherStateCopyWithImpl<$Res, _$LoadInProgressImpl>
+    implements _$$LoadInProgressImplCopyWith<$Res> {
+  __$$LoadInProgressImplCopyWithImpl(
+      _$LoadInProgressImpl _value, $Res Function(_$LoadInProgressImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_LoadInProgress implements _LoadInProgress {
-  const _$_LoadInProgress();
+class _$LoadInProgressImpl implements _LoadInProgress {
+  const _$LoadInProgressImpl();
 
   @override
   String toString() {
@@ -695,9 +697,9 @@ class _$_LoadInProgress implements _LoadInProgress {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_LoadInProgress);
+        (other.runtimeType == runtimeType && other is _$LoadInProgressImpl);
   }
 
   @override
@@ -779,24 +781,24 @@ class _$_LoadInProgress implements _LoadInProgress {
 }
 
 abstract class _LoadInProgress implements DoseWatcherState {
-  const factory _LoadInProgress() = _$_LoadInProgress;
+  const factory _LoadInProgress() = _$LoadInProgressImpl;
 }
 
 /// @nodoc
-abstract class _$$_LoadSuccessCopyWith<$Res> {
-  factory _$$_LoadSuccessCopyWith(
-          _$_LoadSuccess value, $Res Function(_$_LoadSuccess) then) =
-      __$$_LoadSuccessCopyWithImpl<$Res>;
+abstract class _$$LoadSuccessImplCopyWith<$Res> {
+  factory _$$LoadSuccessImplCopyWith(
+          _$LoadSuccessImpl value, $Res Function(_$LoadSuccessImpl) then) =
+      __$$LoadSuccessImplCopyWithImpl<$Res>;
   @useResult
   $Res call({KtList<Dose> dose});
 }
 
 /// @nodoc
-class __$$_LoadSuccessCopyWithImpl<$Res>
-    extends _$DoseWatcherStateCopyWithImpl<$Res, _$_LoadSuccess>
-    implements _$$_LoadSuccessCopyWith<$Res> {
-  __$$_LoadSuccessCopyWithImpl(
-      _$_LoadSuccess _value, $Res Function(_$_LoadSuccess) _then)
+class __$$LoadSuccessImplCopyWithImpl<$Res>
+    extends _$DoseWatcherStateCopyWithImpl<$Res, _$LoadSuccessImpl>
+    implements _$$LoadSuccessImplCopyWith<$Res> {
+  __$$LoadSuccessImplCopyWithImpl(
+      _$LoadSuccessImpl _value, $Res Function(_$LoadSuccessImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -804,7 +806,7 @@ class __$$_LoadSuccessCopyWithImpl<$Res>
   $Res call({
     Object? dose = null,
   }) {
-    return _then(_$_LoadSuccess(
+    return _then(_$LoadSuccessImpl(
       null == dose
           ? _value.dose
           : dose // ignore: cast_nullable_to_non_nullable
@@ -815,8 +817,8 @@ class __$$_LoadSuccessCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_LoadSuccess implements _LoadSuccess {
-  const _$_LoadSuccess(this.dose);
+class _$LoadSuccessImpl implements _LoadSuccess {
+  const _$LoadSuccessImpl(this.dose);
 
   @override
   final KtList<Dose> dose;
@@ -827,10 +829,10 @@ class _$_LoadSuccess implements _LoadSuccess {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LoadSuccess &&
+            other is _$LoadSuccessImpl &&
             (identical(other.dose, dose) || other.dose == dose));
   }
 
@@ -840,8 +842,8 @@ class _$_LoadSuccess implements _LoadSuccess {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LoadSuccessCopyWith<_$_LoadSuccess> get copyWith =>
-      __$$_LoadSuccessCopyWithImpl<_$_LoadSuccess>(this, _$identity);
+  _$$LoadSuccessImplCopyWith<_$LoadSuccessImpl> get copyWith =>
+      __$$LoadSuccessImplCopyWithImpl<_$LoadSuccessImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -919,19 +921,19 @@ class _$_LoadSuccess implements _LoadSuccess {
 }
 
 abstract class _LoadSuccess implements DoseWatcherState {
-  const factory _LoadSuccess(final KtList<Dose> dose) = _$_LoadSuccess;
+  const factory _LoadSuccess(final KtList<Dose> dose) = _$LoadSuccessImpl;
 
   KtList<Dose> get dose;
   @JsonKey(ignore: true)
-  _$$_LoadSuccessCopyWith<_$_LoadSuccess> get copyWith =>
+  _$$LoadSuccessImplCopyWith<_$LoadSuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_DoseFailureCopyWith<$Res> {
-  factory _$$_DoseFailureCopyWith(
-          _$_DoseFailure value, $Res Function(_$_DoseFailure) then) =
-      __$$_DoseFailureCopyWithImpl<$Res>;
+abstract class _$$DoseFailureImplCopyWith<$Res> {
+  factory _$$DoseFailureImplCopyWith(
+          _$DoseFailureImpl value, $Res Function(_$DoseFailureImpl) then) =
+      __$$DoseFailureImplCopyWithImpl<$Res>;
   @useResult
   $Res call({DoseFailures medicineFailure});
 
@@ -939,11 +941,11 @@ abstract class _$$_DoseFailureCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_DoseFailureCopyWithImpl<$Res>
-    extends _$DoseWatcherStateCopyWithImpl<$Res, _$_DoseFailure>
-    implements _$$_DoseFailureCopyWith<$Res> {
-  __$$_DoseFailureCopyWithImpl(
-      _$_DoseFailure _value, $Res Function(_$_DoseFailure) _then)
+class __$$DoseFailureImplCopyWithImpl<$Res>
+    extends _$DoseWatcherStateCopyWithImpl<$Res, _$DoseFailureImpl>
+    implements _$$DoseFailureImplCopyWith<$Res> {
+  __$$DoseFailureImplCopyWithImpl(
+      _$DoseFailureImpl _value, $Res Function(_$DoseFailureImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -951,7 +953,7 @@ class __$$_DoseFailureCopyWithImpl<$Res>
   $Res call({
     Object? medicineFailure = null,
   }) {
-    return _then(_$_DoseFailure(
+    return _then(_$DoseFailureImpl(
       null == medicineFailure
           ? _value.medicineFailure
           : medicineFailure // ignore: cast_nullable_to_non_nullable
@@ -970,8 +972,8 @@ class __$$_DoseFailureCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_DoseFailure implements _DoseFailure {
-  const _$_DoseFailure(this.medicineFailure);
+class _$DoseFailureImpl implements _DoseFailure {
+  const _$DoseFailureImpl(this.medicineFailure);
 
   @override
   final DoseFailures medicineFailure;
@@ -982,10 +984,10 @@ class _$_DoseFailure implements _DoseFailure {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_DoseFailure &&
+            other is _$DoseFailureImpl &&
             (identical(other.medicineFailure, medicineFailure) ||
                 other.medicineFailure == medicineFailure));
   }
@@ -996,8 +998,8 @@ class _$_DoseFailure implements _DoseFailure {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DoseFailureCopyWith<_$_DoseFailure> get copyWith =>
-      __$$_DoseFailureCopyWithImpl<_$_DoseFailure>(this, _$identity);
+  _$$DoseFailureImplCopyWith<_$DoseFailureImpl> get copyWith =>
+      __$$DoseFailureImplCopyWithImpl<_$DoseFailureImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1076,10 +1078,10 @@ class _$_DoseFailure implements _DoseFailure {
 
 abstract class _DoseFailure implements DoseWatcherState {
   const factory _DoseFailure(final DoseFailures medicineFailure) =
-      _$_DoseFailure;
+      _$DoseFailureImpl;
 
   DoseFailures get medicineFailure;
   @JsonKey(ignore: true)
-  _$$_DoseFailureCopyWith<_$_DoseFailure> get copyWith =>
+  _$$DoseFailureImplCopyWith<_$DoseFailureImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

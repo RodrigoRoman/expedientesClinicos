@@ -7,6 +7,7 @@ import 'package:injectable/injectable.dart';
 class IndicationCategoryActorBloc extends CategoryActorBloc {
   final ICategoryRepository _indicationCategoryRepository;
   IndicationCategoryActorBloc(
-      @Named('categoryIndication') this._indicationCategoryRepository)
+      @Named(FirebaseCollectionCategories.indicationCategories)
+      this._indicationCategoryRepository)
       : super(_indicationCategoryRepository);
 }
