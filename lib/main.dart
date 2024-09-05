@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:expedientes_clinicos/application/abbreviation_name/abbreviation_name_form/administration_route_form_bloc.dart';
 import 'package:expedientes_clinicos/application/abbreviation_name/abbreviation_name_form/measure_unit_form_bloc.dart';
 import 'package:expedientes_clinicos/application/abbreviation_name/abbreviation_name_form/pharmaceutical_form_form_bloc.dart';
+import 'package:expedientes_clinicos/application/categories/category_form/dynamic_category_form_bloc.dart';
 import 'package:expedientes_clinicos/application/categories/category_form/indication_category_form_bloc.dart';
 import 'package:expedientes_clinicos/application/categories/category_form/medicine_category_form_bloc.dart';
 import 'package:expedientes_clinicos/application/categories/category_form/patient_visit_category_form_bloc.dart';
@@ -18,6 +19,8 @@ import 'package:expedientes_clinicos/application/prescription/prescription_form/
 import 'package:expedientes_clinicos/application/state_render/state_renderer_bloc.dart';
 import 'package:expedientes_clinicos/application/time_interval/time_interval_form/duration_interval_form_bloc.dart';
 import 'package:expedientes_clinicos/injection.dart';
+import 'package:expedientes_clinicos/presentation/patient_section/dynamic_form_structure/componenets/drop_down_search_dynamic_category.dart';
+import 'package:expedientes_clinicos/presentation/patient_section/dynamic_form_structure/componenets/pop_up_dynamic_category_form.dart';
 import 'package:expedientes_clinicos/presentation/resources/string_manager.dart';
 import 'package:expedientes_clinicos/presentation/routes/router.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -57,6 +60,8 @@ class AppRoot extends StatelessWidget {
           ),
           BlocProvider<MedicineCategoryFormBloc>(
               create: (context) => getIt<MedicineCategoryFormBloc>()),
+          BlocProvider<DynamicCategoryFormBloc>(
+              create: (context) => getIt<DynamicCategoryFormBloc>()),
           BlocProvider<MeasureUnitFormBloc>(
               create: (context) => getIt<MeasureUnitFormBloc>()),
           BlocProvider<AdministrationRouteFormBloc>(

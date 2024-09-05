@@ -2,9 +2,11 @@ import 'dart:math';
 
 import 'package:bloc/bloc.dart';
 import 'package:expedientes_clinicos/domain/core/value_objects.dart';
+import 'package:expedientes_clinicos/domain/dynamic_forms/form_section/form_components/filed_types/field_types.dart';
 import 'package:expedientes_clinicos/domain/dynamic_forms/form_section/form_components/form_element.dart';
 import 'package:expedientes_clinicos/domain/dynamic_forms/form_section/form_components/form_row.dart';
 import 'package:expedientes_clinicos/domain/dynamic_forms/form_section/form_components/layout_percent.dart';
+import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:kt_dart/kt.dart';
 
@@ -78,31 +80,48 @@ class DynamicFormSectionComponentsBloc extends Bloc<
         listRows: state.listRows.value.fold(
           (ifLeft) => List3(KtList.empty()),
           (ifRow) {
-            // final mutableFormRows = ifRow.toMutableList();
-            // Proceed with the existing logic for non-empty lists
             return List3(KtList.from(ifRow.mapIndexed((idx, element) {
               if (idx == event.rowIndex) {
-                int rowElementNumber = ifRow.size + 1;
-                return element.copyWith(
-                  formElements: element.formElements.value
-                      .fold((ifLeft) => List3(KtList.empty()), (ifFormElement) {
-                    final mutableFormElements = ifFormElement.toMutableList();
-                    final addColIdx = max(event.columnIndex, 0);
-                    print("DIMENSIONS and INdex");
-                    print(mutableFormElements.size);
-                    print("index");
-                    print(addColIdx);
+                int rowElementNumber = element.formElements.value
+                    .fold((ifLeft) => 0, (ifRight) => ifRight.size + 1);
 
-                    if (addColIdx == mutableFormElements.size) {
-                      print("add case");
-                      // Add to the end of the list
-                      mutableFormElements.add(event.formElement);
-                    } else {
-                      // Insert at the specified index
-                      mutableFormElements.addAt(addColIdx, event.formElement);
-                    }
-                    return List3(mutableFormElements.toList());
-                  }),
+                return element.copyWith(
+                  formElements: element.formElements.value.fold(
+                    (ifLeft) => List3(KtList.empty()),
+                    (ifFormElement) {
+                      final mutableFormElements = ifFormElement.toMutableList();
+                      final addColIdx = max(event.columnIndex, 0);
+
+                      if (addColIdx == mutableFormElements.size) {
+                        // Add to the end of the list and set columnNum
+                        mutableFormElements.add(
+                          event.formElement.copyWith(
+                            columnNum: NonNegInt(addColIdx),
+                          ),
+                        );
+                      } else {
+                        // Insert at the specified index and set columnNum
+                        mutableFormElements.addAt(
+                          addColIdx,
+                          event.formElement.copyWith(
+                            columnNum: NonNegInt(addColIdx),
+                          ),
+                        );
+                      }
+
+                      // Update columnNum for all elements in the row
+                      final updatedFormElements =
+                          mutableFormElements.mapIndexed(
+                        (index, formElement) {
+                          return formElement.copyWith(
+                            columnNum: NonNegInt(index),
+                          );
+                        },
+                      ).toList();
+
+                      return List3(updatedFormElements);
+                    },
+                  ),
                   layoutXPercent: List3(KtList.from(
                     List<LayoutPercent>.generate(
                       rowElementNumber,

@@ -23,6 +23,9 @@ mixin _$DynamicFormFormEvent {
     required TResult Function(String sectionName) sectionNameChanged,
     required TResult Function(SectionTypes sectionType) sectionTypeChanged,
     required TResult Function(List<FormRow> formRows) formRowsChanged,
+    required TResult Function(
+            FormElement formElement, dynamic newValue, int rowIndex)
+        changeFormElementValue,
     required TResult Function(List<LayoutPercent> layoutPercent)
         layoutYPercentChanged,
     required TResult Function(Category category) categoryChanged,
@@ -35,6 +38,8 @@ mixin _$DynamicFormFormEvent {
     TResult? Function(String sectionName)? sectionNameChanged,
     TResult? Function(SectionTypes sectionType)? sectionTypeChanged,
     TResult? Function(List<FormRow> formRows)? formRowsChanged,
+    TResult? Function(FormElement formElement, dynamic newValue, int rowIndex)?
+        changeFormElementValue,
     TResult? Function(List<LayoutPercent> layoutPercent)? layoutYPercentChanged,
     TResult? Function(Category category)? categoryChanged,
     TResult? Function()? saved,
@@ -46,6 +51,8 @@ mixin _$DynamicFormFormEvent {
     TResult Function(String sectionName)? sectionNameChanged,
     TResult Function(SectionTypes sectionType)? sectionTypeChanged,
     TResult Function(List<FormRow> formRows)? formRowsChanged,
+    TResult Function(FormElement formElement, dynamic newValue, int rowIndex)?
+        changeFormElementValue,
     TResult Function(List<LayoutPercent> layoutPercent)? layoutYPercentChanged,
     TResult Function(Category category)? categoryChanged,
     TResult Function()? saved,
@@ -58,6 +65,8 @@ mixin _$DynamicFormFormEvent {
     required TResult Function(_SectionNameChanged value) sectionNameChanged,
     required TResult Function(_SectionTypeChanged value) sectionTypeChanged,
     required TResult Function(_FormRowsChanged value) formRowsChanged,
+    required TResult Function(_ValueFormElementChanged value)
+        changeFormElementValue,
     required TResult Function(_LayoutYPercentChanged value)
         layoutYPercentChanged,
     required TResult Function(_CategoryChanged value) categoryChanged,
@@ -70,6 +79,7 @@ mixin _$DynamicFormFormEvent {
     TResult? Function(_SectionNameChanged value)? sectionNameChanged,
     TResult? Function(_SectionTypeChanged value)? sectionTypeChanged,
     TResult? Function(_FormRowsChanged value)? formRowsChanged,
+    TResult? Function(_ValueFormElementChanged value)? changeFormElementValue,
     TResult? Function(_LayoutYPercentChanged value)? layoutYPercentChanged,
     TResult? Function(_CategoryChanged value)? categoryChanged,
     TResult? Function(_Saved value)? saved,
@@ -81,6 +91,7 @@ mixin _$DynamicFormFormEvent {
     TResult Function(_SectionNameChanged value)? sectionNameChanged,
     TResult Function(_SectionTypeChanged value)? sectionTypeChanged,
     TResult Function(_FormRowsChanged value)? formRowsChanged,
+    TResult Function(_ValueFormElementChanged value)? changeFormElementValue,
     TResult Function(_LayoutYPercentChanged value)? layoutYPercentChanged,
     TResult Function(_CategoryChanged value)? categoryChanged,
     TResult Function(_Saved value)? saved,
@@ -188,6 +199,9 @@ class _$InitializedImpl with DiagnosticableTreeMixin implements _Initialized {
     required TResult Function(String sectionName) sectionNameChanged,
     required TResult Function(SectionTypes sectionType) sectionTypeChanged,
     required TResult Function(List<FormRow> formRows) formRowsChanged,
+    required TResult Function(
+            FormElement formElement, dynamic newValue, int rowIndex)
+        changeFormElementValue,
     required TResult Function(List<LayoutPercent> layoutPercent)
         layoutYPercentChanged,
     required TResult Function(Category category) categoryChanged,
@@ -203,6 +217,8 @@ class _$InitializedImpl with DiagnosticableTreeMixin implements _Initialized {
     TResult? Function(String sectionName)? sectionNameChanged,
     TResult? Function(SectionTypes sectionType)? sectionTypeChanged,
     TResult? Function(List<FormRow> formRows)? formRowsChanged,
+    TResult? Function(FormElement formElement, dynamic newValue, int rowIndex)?
+        changeFormElementValue,
     TResult? Function(List<LayoutPercent> layoutPercent)? layoutYPercentChanged,
     TResult? Function(Category category)? categoryChanged,
     TResult? Function()? saved,
@@ -217,6 +233,8 @@ class _$InitializedImpl with DiagnosticableTreeMixin implements _Initialized {
     TResult Function(String sectionName)? sectionNameChanged,
     TResult Function(SectionTypes sectionType)? sectionTypeChanged,
     TResult Function(List<FormRow> formRows)? formRowsChanged,
+    TResult Function(FormElement formElement, dynamic newValue, int rowIndex)?
+        changeFormElementValue,
     TResult Function(List<LayoutPercent> layoutPercent)? layoutYPercentChanged,
     TResult Function(Category category)? categoryChanged,
     TResult Function()? saved,
@@ -235,6 +253,8 @@ class _$InitializedImpl with DiagnosticableTreeMixin implements _Initialized {
     required TResult Function(_SectionNameChanged value) sectionNameChanged,
     required TResult Function(_SectionTypeChanged value) sectionTypeChanged,
     required TResult Function(_FormRowsChanged value) formRowsChanged,
+    required TResult Function(_ValueFormElementChanged value)
+        changeFormElementValue,
     required TResult Function(_LayoutYPercentChanged value)
         layoutYPercentChanged,
     required TResult Function(_CategoryChanged value) categoryChanged,
@@ -250,6 +270,7 @@ class _$InitializedImpl with DiagnosticableTreeMixin implements _Initialized {
     TResult? Function(_SectionNameChanged value)? sectionNameChanged,
     TResult? Function(_SectionTypeChanged value)? sectionTypeChanged,
     TResult? Function(_FormRowsChanged value)? formRowsChanged,
+    TResult? Function(_ValueFormElementChanged value)? changeFormElementValue,
     TResult? Function(_LayoutYPercentChanged value)? layoutYPercentChanged,
     TResult? Function(_CategoryChanged value)? categoryChanged,
     TResult? Function(_Saved value)? saved,
@@ -264,6 +285,7 @@ class _$InitializedImpl with DiagnosticableTreeMixin implements _Initialized {
     TResult Function(_SectionNameChanged value)? sectionNameChanged,
     TResult Function(_SectionTypeChanged value)? sectionTypeChanged,
     TResult Function(_FormRowsChanged value)? formRowsChanged,
+    TResult Function(_ValueFormElementChanged value)? changeFormElementValue,
     TResult Function(_LayoutYPercentChanged value)? layoutYPercentChanged,
     TResult Function(_CategoryChanged value)? categoryChanged,
     TResult Function(_Saved value)? saved,
@@ -368,6 +390,9 @@ class _$SectionNameChangedImpl
     required TResult Function(String sectionName) sectionNameChanged,
     required TResult Function(SectionTypes sectionType) sectionTypeChanged,
     required TResult Function(List<FormRow> formRows) formRowsChanged,
+    required TResult Function(
+            FormElement formElement, dynamic newValue, int rowIndex)
+        changeFormElementValue,
     required TResult Function(List<LayoutPercent> layoutPercent)
         layoutYPercentChanged,
     required TResult Function(Category category) categoryChanged,
@@ -383,6 +408,8 @@ class _$SectionNameChangedImpl
     TResult? Function(String sectionName)? sectionNameChanged,
     TResult? Function(SectionTypes sectionType)? sectionTypeChanged,
     TResult? Function(List<FormRow> formRows)? formRowsChanged,
+    TResult? Function(FormElement formElement, dynamic newValue, int rowIndex)?
+        changeFormElementValue,
     TResult? Function(List<LayoutPercent> layoutPercent)? layoutYPercentChanged,
     TResult? Function(Category category)? categoryChanged,
     TResult? Function()? saved,
@@ -397,6 +424,8 @@ class _$SectionNameChangedImpl
     TResult Function(String sectionName)? sectionNameChanged,
     TResult Function(SectionTypes sectionType)? sectionTypeChanged,
     TResult Function(List<FormRow> formRows)? formRowsChanged,
+    TResult Function(FormElement formElement, dynamic newValue, int rowIndex)?
+        changeFormElementValue,
     TResult Function(List<LayoutPercent> layoutPercent)? layoutYPercentChanged,
     TResult Function(Category category)? categoryChanged,
     TResult Function()? saved,
@@ -415,6 +444,8 @@ class _$SectionNameChangedImpl
     required TResult Function(_SectionNameChanged value) sectionNameChanged,
     required TResult Function(_SectionTypeChanged value) sectionTypeChanged,
     required TResult Function(_FormRowsChanged value) formRowsChanged,
+    required TResult Function(_ValueFormElementChanged value)
+        changeFormElementValue,
     required TResult Function(_LayoutYPercentChanged value)
         layoutYPercentChanged,
     required TResult Function(_CategoryChanged value) categoryChanged,
@@ -430,6 +461,7 @@ class _$SectionNameChangedImpl
     TResult? Function(_SectionNameChanged value)? sectionNameChanged,
     TResult? Function(_SectionTypeChanged value)? sectionTypeChanged,
     TResult? Function(_FormRowsChanged value)? formRowsChanged,
+    TResult? Function(_ValueFormElementChanged value)? changeFormElementValue,
     TResult? Function(_LayoutYPercentChanged value)? layoutYPercentChanged,
     TResult? Function(_CategoryChanged value)? categoryChanged,
     TResult? Function(_Saved value)? saved,
@@ -444,6 +476,7 @@ class _$SectionNameChangedImpl
     TResult Function(_SectionNameChanged value)? sectionNameChanged,
     TResult Function(_SectionTypeChanged value)? sectionTypeChanged,
     TResult Function(_FormRowsChanged value)? formRowsChanged,
+    TResult Function(_ValueFormElementChanged value)? changeFormElementValue,
     TResult Function(_LayoutYPercentChanged value)? layoutYPercentChanged,
     TResult Function(_CategoryChanged value)? categoryChanged,
     TResult Function(_Saved value)? saved,
@@ -548,6 +581,9 @@ class _$SectionTypeChangedImpl
     required TResult Function(String sectionName) sectionNameChanged,
     required TResult Function(SectionTypes sectionType) sectionTypeChanged,
     required TResult Function(List<FormRow> formRows) formRowsChanged,
+    required TResult Function(
+            FormElement formElement, dynamic newValue, int rowIndex)
+        changeFormElementValue,
     required TResult Function(List<LayoutPercent> layoutPercent)
         layoutYPercentChanged,
     required TResult Function(Category category) categoryChanged,
@@ -563,6 +599,8 @@ class _$SectionTypeChangedImpl
     TResult? Function(String sectionName)? sectionNameChanged,
     TResult? Function(SectionTypes sectionType)? sectionTypeChanged,
     TResult? Function(List<FormRow> formRows)? formRowsChanged,
+    TResult? Function(FormElement formElement, dynamic newValue, int rowIndex)?
+        changeFormElementValue,
     TResult? Function(List<LayoutPercent> layoutPercent)? layoutYPercentChanged,
     TResult? Function(Category category)? categoryChanged,
     TResult? Function()? saved,
@@ -577,6 +615,8 @@ class _$SectionTypeChangedImpl
     TResult Function(String sectionName)? sectionNameChanged,
     TResult Function(SectionTypes sectionType)? sectionTypeChanged,
     TResult Function(List<FormRow> formRows)? formRowsChanged,
+    TResult Function(FormElement formElement, dynamic newValue, int rowIndex)?
+        changeFormElementValue,
     TResult Function(List<LayoutPercent> layoutPercent)? layoutYPercentChanged,
     TResult Function(Category category)? categoryChanged,
     TResult Function()? saved,
@@ -595,6 +635,8 @@ class _$SectionTypeChangedImpl
     required TResult Function(_SectionNameChanged value) sectionNameChanged,
     required TResult Function(_SectionTypeChanged value) sectionTypeChanged,
     required TResult Function(_FormRowsChanged value) formRowsChanged,
+    required TResult Function(_ValueFormElementChanged value)
+        changeFormElementValue,
     required TResult Function(_LayoutYPercentChanged value)
         layoutYPercentChanged,
     required TResult Function(_CategoryChanged value) categoryChanged,
@@ -610,6 +652,7 @@ class _$SectionTypeChangedImpl
     TResult? Function(_SectionNameChanged value)? sectionNameChanged,
     TResult? Function(_SectionTypeChanged value)? sectionTypeChanged,
     TResult? Function(_FormRowsChanged value)? formRowsChanged,
+    TResult? Function(_ValueFormElementChanged value)? changeFormElementValue,
     TResult? Function(_LayoutYPercentChanged value)? layoutYPercentChanged,
     TResult? Function(_CategoryChanged value)? categoryChanged,
     TResult? Function(_Saved value)? saved,
@@ -624,6 +667,7 @@ class _$SectionTypeChangedImpl
     TResult Function(_SectionNameChanged value)? sectionNameChanged,
     TResult Function(_SectionTypeChanged value)? sectionTypeChanged,
     TResult Function(_FormRowsChanged value)? formRowsChanged,
+    TResult Function(_ValueFormElementChanged value)? changeFormElementValue,
     TResult Function(_LayoutYPercentChanged value)? layoutYPercentChanged,
     TResult Function(_CategoryChanged value)? categoryChanged,
     TResult Function(_Saved value)? saved,
@@ -733,6 +777,9 @@ class _$FormRowsChangedImpl
     required TResult Function(String sectionName) sectionNameChanged,
     required TResult Function(SectionTypes sectionType) sectionTypeChanged,
     required TResult Function(List<FormRow> formRows) formRowsChanged,
+    required TResult Function(
+            FormElement formElement, dynamic newValue, int rowIndex)
+        changeFormElementValue,
     required TResult Function(List<LayoutPercent> layoutPercent)
         layoutYPercentChanged,
     required TResult Function(Category category) categoryChanged,
@@ -748,6 +795,8 @@ class _$FormRowsChangedImpl
     TResult? Function(String sectionName)? sectionNameChanged,
     TResult? Function(SectionTypes sectionType)? sectionTypeChanged,
     TResult? Function(List<FormRow> formRows)? formRowsChanged,
+    TResult? Function(FormElement formElement, dynamic newValue, int rowIndex)?
+        changeFormElementValue,
     TResult? Function(List<LayoutPercent> layoutPercent)? layoutYPercentChanged,
     TResult? Function(Category category)? categoryChanged,
     TResult? Function()? saved,
@@ -762,6 +811,8 @@ class _$FormRowsChangedImpl
     TResult Function(String sectionName)? sectionNameChanged,
     TResult Function(SectionTypes sectionType)? sectionTypeChanged,
     TResult Function(List<FormRow> formRows)? formRowsChanged,
+    TResult Function(FormElement formElement, dynamic newValue, int rowIndex)?
+        changeFormElementValue,
     TResult Function(List<LayoutPercent> layoutPercent)? layoutYPercentChanged,
     TResult Function(Category category)? categoryChanged,
     TResult Function()? saved,
@@ -780,6 +831,8 @@ class _$FormRowsChangedImpl
     required TResult Function(_SectionNameChanged value) sectionNameChanged,
     required TResult Function(_SectionTypeChanged value) sectionTypeChanged,
     required TResult Function(_FormRowsChanged value) formRowsChanged,
+    required TResult Function(_ValueFormElementChanged value)
+        changeFormElementValue,
     required TResult Function(_LayoutYPercentChanged value)
         layoutYPercentChanged,
     required TResult Function(_CategoryChanged value) categoryChanged,
@@ -795,6 +848,7 @@ class _$FormRowsChangedImpl
     TResult? Function(_SectionNameChanged value)? sectionNameChanged,
     TResult? Function(_SectionTypeChanged value)? sectionTypeChanged,
     TResult? Function(_FormRowsChanged value)? formRowsChanged,
+    TResult? Function(_ValueFormElementChanged value)? changeFormElementValue,
     TResult? Function(_LayoutYPercentChanged value)? layoutYPercentChanged,
     TResult? Function(_CategoryChanged value)? categoryChanged,
     TResult? Function(_Saved value)? saved,
@@ -809,6 +863,7 @@ class _$FormRowsChangedImpl
     TResult Function(_SectionNameChanged value)? sectionNameChanged,
     TResult Function(_SectionTypeChanged value)? sectionTypeChanged,
     TResult Function(_FormRowsChanged value)? formRowsChanged,
+    TResult Function(_ValueFormElementChanged value)? changeFormElementValue,
     TResult Function(_LayoutYPercentChanged value)? layoutYPercentChanged,
     TResult Function(_CategoryChanged value)? categoryChanged,
     TResult Function(_Saved value)? saved,
@@ -829,6 +884,225 @@ abstract class _FormRowsChanged implements DynamicFormFormEvent {
   @JsonKey(ignore: true)
   _$$FormRowsChangedImplCopyWith<_$FormRowsChangedImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ValueFormElementChangedImplCopyWith<$Res> {
+  factory _$$ValueFormElementChangedImplCopyWith(
+          _$ValueFormElementChangedImpl value,
+          $Res Function(_$ValueFormElementChangedImpl) then) =
+      __$$ValueFormElementChangedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({FormElement formElement, dynamic newValue, int rowIndex});
+}
+
+/// @nodoc
+class __$$ValueFormElementChangedImplCopyWithImpl<$Res>
+    extends _$DynamicFormFormEventCopyWithImpl<$Res,
+        _$ValueFormElementChangedImpl>
+    implements _$$ValueFormElementChangedImplCopyWith<$Res> {
+  __$$ValueFormElementChangedImplCopyWithImpl(
+      _$ValueFormElementChangedImpl _value,
+      $Res Function(_$ValueFormElementChangedImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? formElement = null,
+    Object? newValue = freezed,
+    Object? rowIndex = null,
+  }) {
+    return _then(_$ValueFormElementChangedImpl(
+      null == formElement
+          ? _value.formElement
+          : formElement // ignore: cast_nullable_to_non_nullable
+              as FormElement,
+      freezed == newValue
+          ? _value.newValue
+          : newValue // ignore: cast_nullable_to_non_nullable
+              as dynamic,
+      null == rowIndex
+          ? _value.rowIndex
+          : rowIndex // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ValueFormElementChangedImpl
+    with DiagnosticableTreeMixin
+    implements _ValueFormElementChanged {
+  const _$ValueFormElementChangedImpl(
+      this.formElement, this.newValue, this.rowIndex);
+
+  @override
+  final FormElement formElement;
+  @override
+  final dynamic newValue;
+  @override
+  final int rowIndex;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'DynamicFormFormEvent.changeFormElementValue(formElement: $formElement, newValue: $newValue, rowIndex: $rowIndex)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty(
+          'type', 'DynamicFormFormEvent.changeFormElementValue'))
+      ..add(DiagnosticsProperty('formElement', formElement))
+      ..add(DiagnosticsProperty('newValue', newValue))
+      ..add(DiagnosticsProperty('rowIndex', rowIndex));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ValueFormElementChangedImpl &&
+            (identical(other.formElement, formElement) ||
+                other.formElement == formElement) &&
+            const DeepCollectionEquality().equals(other.newValue, newValue) &&
+            (identical(other.rowIndex, rowIndex) ||
+                other.rowIndex == rowIndex));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, formElement,
+      const DeepCollectionEquality().hash(newValue), rowIndex);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ValueFormElementChangedImplCopyWith<_$ValueFormElementChangedImpl>
+      get copyWith => __$$ValueFormElementChangedImplCopyWithImpl<
+          _$ValueFormElementChangedImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Option<FormSection> intialDynamicFormOption)
+        intial,
+    required TResult Function(String sectionName) sectionNameChanged,
+    required TResult Function(SectionTypes sectionType) sectionTypeChanged,
+    required TResult Function(List<FormRow> formRows) formRowsChanged,
+    required TResult Function(
+            FormElement formElement, dynamic newValue, int rowIndex)
+        changeFormElementValue,
+    required TResult Function(List<LayoutPercent> layoutPercent)
+        layoutYPercentChanged,
+    required TResult Function(Category category) categoryChanged,
+    required TResult Function() saved,
+  }) {
+    return changeFormElementValue(formElement, newValue, rowIndex);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(Option<FormSection> intialDynamicFormOption)? intial,
+    TResult? Function(String sectionName)? sectionNameChanged,
+    TResult? Function(SectionTypes sectionType)? sectionTypeChanged,
+    TResult? Function(List<FormRow> formRows)? formRowsChanged,
+    TResult? Function(FormElement formElement, dynamic newValue, int rowIndex)?
+        changeFormElementValue,
+    TResult? Function(List<LayoutPercent> layoutPercent)? layoutYPercentChanged,
+    TResult? Function(Category category)? categoryChanged,
+    TResult? Function()? saved,
+  }) {
+    return changeFormElementValue?.call(formElement, newValue, rowIndex);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Option<FormSection> intialDynamicFormOption)? intial,
+    TResult Function(String sectionName)? sectionNameChanged,
+    TResult Function(SectionTypes sectionType)? sectionTypeChanged,
+    TResult Function(List<FormRow> formRows)? formRowsChanged,
+    TResult Function(FormElement formElement, dynamic newValue, int rowIndex)?
+        changeFormElementValue,
+    TResult Function(List<LayoutPercent> layoutPercent)? layoutYPercentChanged,
+    TResult Function(Category category)? categoryChanged,
+    TResult Function()? saved,
+    required TResult orElse(),
+  }) {
+    if (changeFormElementValue != null) {
+      return changeFormElementValue(formElement, newValue, rowIndex);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initialized value) intial,
+    required TResult Function(_SectionNameChanged value) sectionNameChanged,
+    required TResult Function(_SectionTypeChanged value) sectionTypeChanged,
+    required TResult Function(_FormRowsChanged value) formRowsChanged,
+    required TResult Function(_ValueFormElementChanged value)
+        changeFormElementValue,
+    required TResult Function(_LayoutYPercentChanged value)
+        layoutYPercentChanged,
+    required TResult Function(_CategoryChanged value) categoryChanged,
+    required TResult Function(_Saved value) saved,
+  }) {
+    return changeFormElementValue(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initialized value)? intial,
+    TResult? Function(_SectionNameChanged value)? sectionNameChanged,
+    TResult? Function(_SectionTypeChanged value)? sectionTypeChanged,
+    TResult? Function(_FormRowsChanged value)? formRowsChanged,
+    TResult? Function(_ValueFormElementChanged value)? changeFormElementValue,
+    TResult? Function(_LayoutYPercentChanged value)? layoutYPercentChanged,
+    TResult? Function(_CategoryChanged value)? categoryChanged,
+    TResult? Function(_Saved value)? saved,
+  }) {
+    return changeFormElementValue?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initialized value)? intial,
+    TResult Function(_SectionNameChanged value)? sectionNameChanged,
+    TResult Function(_SectionTypeChanged value)? sectionTypeChanged,
+    TResult Function(_FormRowsChanged value)? formRowsChanged,
+    TResult Function(_ValueFormElementChanged value)? changeFormElementValue,
+    TResult Function(_LayoutYPercentChanged value)? layoutYPercentChanged,
+    TResult Function(_CategoryChanged value)? categoryChanged,
+    TResult Function(_Saved value)? saved,
+    required TResult orElse(),
+  }) {
+    if (changeFormElementValue != null) {
+      return changeFormElementValue(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ValueFormElementChanged implements DynamicFormFormEvent {
+  const factory _ValueFormElementChanged(
+      final FormElement formElement,
+      final dynamic newValue,
+      final int rowIndex) = _$ValueFormElementChangedImpl;
+
+  FormElement get formElement;
+  dynamic get newValue;
+  int get rowIndex;
+  @JsonKey(ignore: true)
+  _$$ValueFormElementChangedImplCopyWith<_$ValueFormElementChangedImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -922,6 +1196,9 @@ class _$LayoutYPercentChangedImpl
     required TResult Function(String sectionName) sectionNameChanged,
     required TResult Function(SectionTypes sectionType) sectionTypeChanged,
     required TResult Function(List<FormRow> formRows) formRowsChanged,
+    required TResult Function(
+            FormElement formElement, dynamic newValue, int rowIndex)
+        changeFormElementValue,
     required TResult Function(List<LayoutPercent> layoutPercent)
         layoutYPercentChanged,
     required TResult Function(Category category) categoryChanged,
@@ -937,6 +1214,8 @@ class _$LayoutYPercentChangedImpl
     TResult? Function(String sectionName)? sectionNameChanged,
     TResult? Function(SectionTypes sectionType)? sectionTypeChanged,
     TResult? Function(List<FormRow> formRows)? formRowsChanged,
+    TResult? Function(FormElement formElement, dynamic newValue, int rowIndex)?
+        changeFormElementValue,
     TResult? Function(List<LayoutPercent> layoutPercent)? layoutYPercentChanged,
     TResult? Function(Category category)? categoryChanged,
     TResult? Function()? saved,
@@ -951,6 +1230,8 @@ class _$LayoutYPercentChangedImpl
     TResult Function(String sectionName)? sectionNameChanged,
     TResult Function(SectionTypes sectionType)? sectionTypeChanged,
     TResult Function(List<FormRow> formRows)? formRowsChanged,
+    TResult Function(FormElement formElement, dynamic newValue, int rowIndex)?
+        changeFormElementValue,
     TResult Function(List<LayoutPercent> layoutPercent)? layoutYPercentChanged,
     TResult Function(Category category)? categoryChanged,
     TResult Function()? saved,
@@ -969,6 +1250,8 @@ class _$LayoutYPercentChangedImpl
     required TResult Function(_SectionNameChanged value) sectionNameChanged,
     required TResult Function(_SectionTypeChanged value) sectionTypeChanged,
     required TResult Function(_FormRowsChanged value) formRowsChanged,
+    required TResult Function(_ValueFormElementChanged value)
+        changeFormElementValue,
     required TResult Function(_LayoutYPercentChanged value)
         layoutYPercentChanged,
     required TResult Function(_CategoryChanged value) categoryChanged,
@@ -984,6 +1267,7 @@ class _$LayoutYPercentChangedImpl
     TResult? Function(_SectionNameChanged value)? sectionNameChanged,
     TResult? Function(_SectionTypeChanged value)? sectionTypeChanged,
     TResult? Function(_FormRowsChanged value)? formRowsChanged,
+    TResult? Function(_ValueFormElementChanged value)? changeFormElementValue,
     TResult? Function(_LayoutYPercentChanged value)? layoutYPercentChanged,
     TResult? Function(_CategoryChanged value)? categoryChanged,
     TResult? Function(_Saved value)? saved,
@@ -998,6 +1282,7 @@ class _$LayoutYPercentChangedImpl
     TResult Function(_SectionNameChanged value)? sectionNameChanged,
     TResult Function(_SectionTypeChanged value)? sectionTypeChanged,
     TResult Function(_FormRowsChanged value)? formRowsChanged,
+    TResult Function(_ValueFormElementChanged value)? changeFormElementValue,
     TResult Function(_LayoutYPercentChanged value)? layoutYPercentChanged,
     TResult Function(_CategoryChanged value)? categoryChanged,
     TResult Function(_Saved value)? saved,
@@ -1111,6 +1396,9 @@ class _$CategoryChangedImpl
     required TResult Function(String sectionName) sectionNameChanged,
     required TResult Function(SectionTypes sectionType) sectionTypeChanged,
     required TResult Function(List<FormRow> formRows) formRowsChanged,
+    required TResult Function(
+            FormElement formElement, dynamic newValue, int rowIndex)
+        changeFormElementValue,
     required TResult Function(List<LayoutPercent> layoutPercent)
         layoutYPercentChanged,
     required TResult Function(Category category) categoryChanged,
@@ -1126,6 +1414,8 @@ class _$CategoryChangedImpl
     TResult? Function(String sectionName)? sectionNameChanged,
     TResult? Function(SectionTypes sectionType)? sectionTypeChanged,
     TResult? Function(List<FormRow> formRows)? formRowsChanged,
+    TResult? Function(FormElement formElement, dynamic newValue, int rowIndex)?
+        changeFormElementValue,
     TResult? Function(List<LayoutPercent> layoutPercent)? layoutYPercentChanged,
     TResult? Function(Category category)? categoryChanged,
     TResult? Function()? saved,
@@ -1140,6 +1430,8 @@ class _$CategoryChangedImpl
     TResult Function(String sectionName)? sectionNameChanged,
     TResult Function(SectionTypes sectionType)? sectionTypeChanged,
     TResult Function(List<FormRow> formRows)? formRowsChanged,
+    TResult Function(FormElement formElement, dynamic newValue, int rowIndex)?
+        changeFormElementValue,
     TResult Function(List<LayoutPercent> layoutPercent)? layoutYPercentChanged,
     TResult Function(Category category)? categoryChanged,
     TResult Function()? saved,
@@ -1158,6 +1450,8 @@ class _$CategoryChangedImpl
     required TResult Function(_SectionNameChanged value) sectionNameChanged,
     required TResult Function(_SectionTypeChanged value) sectionTypeChanged,
     required TResult Function(_FormRowsChanged value) formRowsChanged,
+    required TResult Function(_ValueFormElementChanged value)
+        changeFormElementValue,
     required TResult Function(_LayoutYPercentChanged value)
         layoutYPercentChanged,
     required TResult Function(_CategoryChanged value) categoryChanged,
@@ -1173,6 +1467,7 @@ class _$CategoryChangedImpl
     TResult? Function(_SectionNameChanged value)? sectionNameChanged,
     TResult? Function(_SectionTypeChanged value)? sectionTypeChanged,
     TResult? Function(_FormRowsChanged value)? formRowsChanged,
+    TResult? Function(_ValueFormElementChanged value)? changeFormElementValue,
     TResult? Function(_LayoutYPercentChanged value)? layoutYPercentChanged,
     TResult? Function(_CategoryChanged value)? categoryChanged,
     TResult? Function(_Saved value)? saved,
@@ -1187,6 +1482,7 @@ class _$CategoryChangedImpl
     TResult Function(_SectionNameChanged value)? sectionNameChanged,
     TResult Function(_SectionTypeChanged value)? sectionTypeChanged,
     TResult Function(_FormRowsChanged value)? formRowsChanged,
+    TResult Function(_ValueFormElementChanged value)? changeFormElementValue,
     TResult Function(_LayoutYPercentChanged value)? layoutYPercentChanged,
     TResult Function(_CategoryChanged value)? categoryChanged,
     TResult Function(_Saved value)? saved,
@@ -1258,6 +1554,9 @@ class _$SavedImpl with DiagnosticableTreeMixin implements _Saved {
     required TResult Function(String sectionName) sectionNameChanged,
     required TResult Function(SectionTypes sectionType) sectionTypeChanged,
     required TResult Function(List<FormRow> formRows) formRowsChanged,
+    required TResult Function(
+            FormElement formElement, dynamic newValue, int rowIndex)
+        changeFormElementValue,
     required TResult Function(List<LayoutPercent> layoutPercent)
         layoutYPercentChanged,
     required TResult Function(Category category) categoryChanged,
@@ -1273,6 +1572,8 @@ class _$SavedImpl with DiagnosticableTreeMixin implements _Saved {
     TResult? Function(String sectionName)? sectionNameChanged,
     TResult? Function(SectionTypes sectionType)? sectionTypeChanged,
     TResult? Function(List<FormRow> formRows)? formRowsChanged,
+    TResult? Function(FormElement formElement, dynamic newValue, int rowIndex)?
+        changeFormElementValue,
     TResult? Function(List<LayoutPercent> layoutPercent)? layoutYPercentChanged,
     TResult? Function(Category category)? categoryChanged,
     TResult? Function()? saved,
@@ -1287,6 +1588,8 @@ class _$SavedImpl with DiagnosticableTreeMixin implements _Saved {
     TResult Function(String sectionName)? sectionNameChanged,
     TResult Function(SectionTypes sectionType)? sectionTypeChanged,
     TResult Function(List<FormRow> formRows)? formRowsChanged,
+    TResult Function(FormElement formElement, dynamic newValue, int rowIndex)?
+        changeFormElementValue,
     TResult Function(List<LayoutPercent> layoutPercent)? layoutYPercentChanged,
     TResult Function(Category category)? categoryChanged,
     TResult Function()? saved,
@@ -1305,6 +1608,8 @@ class _$SavedImpl with DiagnosticableTreeMixin implements _Saved {
     required TResult Function(_SectionNameChanged value) sectionNameChanged,
     required TResult Function(_SectionTypeChanged value) sectionTypeChanged,
     required TResult Function(_FormRowsChanged value) formRowsChanged,
+    required TResult Function(_ValueFormElementChanged value)
+        changeFormElementValue,
     required TResult Function(_LayoutYPercentChanged value)
         layoutYPercentChanged,
     required TResult Function(_CategoryChanged value) categoryChanged,
@@ -1320,6 +1625,7 @@ class _$SavedImpl with DiagnosticableTreeMixin implements _Saved {
     TResult? Function(_SectionNameChanged value)? sectionNameChanged,
     TResult? Function(_SectionTypeChanged value)? sectionTypeChanged,
     TResult? Function(_FormRowsChanged value)? formRowsChanged,
+    TResult? Function(_ValueFormElementChanged value)? changeFormElementValue,
     TResult? Function(_LayoutYPercentChanged value)? layoutYPercentChanged,
     TResult? Function(_CategoryChanged value)? categoryChanged,
     TResult? Function(_Saved value)? saved,
@@ -1334,6 +1640,7 @@ class _$SavedImpl with DiagnosticableTreeMixin implements _Saved {
     TResult Function(_SectionNameChanged value)? sectionNameChanged,
     TResult Function(_SectionTypeChanged value)? sectionTypeChanged,
     TResult Function(_FormRowsChanged value)? formRowsChanged,
+    TResult Function(_ValueFormElementChanged value)? changeFormElementValue,
     TResult Function(_LayoutYPercentChanged value)? layoutYPercentChanged,
     TResult Function(_CategoryChanged value)? categoryChanged,
     TResult Function(_Saved value)? saved,

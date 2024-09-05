@@ -13,6 +13,7 @@ class DynamicFormSectionComponentsEvent
   ) = _AddFormRow;
   const factory DynamicFormSectionComponentsEvent.removeFormRow(
       int indexRemoved) = _RemoveFormRow;
+
   const factory DynamicFormSectionComponentsEvent.updateLayoutYpercent(
       List<LayoutPercent> newPercents) = _UpdateYLayout;
   const factory DynamicFormSectionComponentsEvent.addFormElement(

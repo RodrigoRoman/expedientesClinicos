@@ -9,6 +9,7 @@ import 'package:expedientes_clinicos/domain/core/time_interval/time_interval.dar
 import 'package:expedientes_clinicos/domain/core/value_objects.dart';
 import 'package:expedientes_clinicos/domain/dynamic_forms/form_section/form_components/filed_types/field_types.dart';
 import 'package:expedientes_clinicos/domain/dynamic_forms/form_section/form_components/form_element.dart';
+import 'package:expedientes_clinicos/domain/dynamic_forms/form_section/form_section.dart';
 import 'package:expedientes_clinicos/domain/dynamic_forms/section_types.dart';
 import 'package:expedientes_clinicos/domain/medicine/branded_medicine/branded_medicine.dart';
 import 'package:expedientes_clinicos/domain/medicine/generic_medicine/generic_medicine.dart';
@@ -44,6 +45,7 @@ abstract class DropdownItemViewModel implements _$DropdownItemViewModel {
       FormElement? formElement,
       FieldType? fieldType,
       SectionTypes? sectionType,
+      FormSection? formSection,
       Dose? dose,
       Category? category}) = _DropdownItemViewModel;
 
@@ -153,6 +155,17 @@ abstract class DropdownItemViewModel implements _$DropdownItemViewModel {
         id: UniqueId(),
         title: FullName(sectionType.displayName),
         sectionType: sectionType);
+  }
+  factory DropdownItemViewModel.fromFormSection(FormSection formSection) {
+    print("this is the form");
+    print(formSection);
+    return DropdownItemViewModel(
+        id: UniqueId(),
+        title: FullName(formSection.sectionName.value
+            .fold((ifLeft) => ifLeft.toString(), (ifRight) => ifRight)),
+        subtitle: FullName(formSection.sectionType.value.fold(
+            (ifLeft) => ifLeft.toString(), (ifRight) => ifRight.displayName)),
+        formSection: formSection);
   }
 
   factory DropdownItemViewModel.fromTimeInterval(TimeInterval timeInterval) {

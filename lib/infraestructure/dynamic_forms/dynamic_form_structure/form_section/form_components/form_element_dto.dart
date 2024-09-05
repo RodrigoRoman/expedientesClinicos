@@ -9,6 +9,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 class FormElementDto {
   final String? fieldId;
+  final int colNum;
   final String promptName;
   final dynamic value;
   final String fieldType;
@@ -16,16 +17,20 @@ class FormElementDto {
   FormElementDto({
     this.fieldId,
     required this.promptName,
-    required this.value,
+    required this.colNum,
+    this.value,
     required this.fieldType,
   });
 
   factory FormElementDto.fromDomain(FormElement formElement) {
     return FormElementDto(
-      fieldId: formElement.fieldId?.toString(),
-      promptName: formElement.promptName.getOrCrash(),
+      fieldId: formElement.fieldId?.value
+          .fold((ifLeft) => ifLeft.toString(), (ifRight) => ifRight),
+      promptName: formElement.promptName.value
+          .fold((ifLeft) => ifLeft.toString(), (ifRight) => ifRight),
+      colNum: formElement.columnNum.getOrCrash(),
       value: formElement.value,
-      fieldType: formElement.fieldType.toString(),
+      fieldType: formElement.fieldType.getOrCrash().name,
     );
   }
 
@@ -33,6 +38,7 @@ class FormElementDto {
     return FormElement(
       fieldType: NonEmptyFieldType(FieldType.fromString(fieldType)),
       fieldId: fieldId != null ? UniqueId.fromUniqueString(fieldId!) : null,
+      columnNum: NonNegInt(colNum),
       value: value,
       promptName: NonEmptyString(promptName),
     );
@@ -41,6 +47,7 @@ class FormElementDto {
   factory FormElementDto.fromJson(Map<String, dynamic> json) {
     return FormElementDto(
       fieldId: json['fieldId'] as String?,
+      colNum: json['colNum'] as int,
       promptName: json['promptName'] as String,
       value: _fromJson(json['value'], json['fieldType'] as String),
       fieldType: json['fieldType'] as String,
@@ -51,7 +58,9 @@ class FormElementDto {
     return {
       'fieldId': fieldId,
       'promptName': promptName,
-      'value': _toJson(value, fieldType),
+      'value': null,
+      'colNum': colNum,
+      // 'value': _toJson(value, fieldType),
       'fieldType': fieldType,
     };
   }
@@ -62,73 +71,75 @@ class FormElementDto {
 
   static dynamic _fromJson(dynamic json, String fieldType) {
     FieldType fType = FieldType.fromString(fieldType);
-    switch (fType) {
-      case FieldType.date:
-        if (json is Map &&
-            json.containsKey('_seconds') &&
-            json.containsKey('_nanoseconds')) {
-          return DateTime.fromMillisecondsSinceEpoch(
-              json['_seconds'] * 1000 + json['_nanoseconds'] ~/ 1000000);
-        } else {
-          throw Exception("Invalid type for date field");
-        }
-      case FieldType.range:
-        if (json is Map &&
-            json.containsKey('low') &&
-            json.containsKey('high')) {
-          return RangeField(json['low'], json['high']);
-        } else {
-          throw Exception("Invalid type for range field");
-        }
-      case FieldType.time:
-        if (json is Map &&
-            json.containsKey('hour') &&
-            json.containsKey('minute')) {
-          return TimeOfDay(hour: json['hour'], minute: json['minute']);
-        } else {
-          throw Exception("Invalid type for time field");
-        }
-      case FieldType.text:
-      case FieldType.number:
-      case FieldType.bool:
-      case FieldType.image:
-        return json;
-      default:
-        throw Exception("Unsupported field type");
-    }
+    return null;
+    // switch (fType) {
+//       case FieldType.date:
+//         if (json is Map &&
+//             json.containsKey('_seconds') &&
+//             json.containsKey('_nanoseconds')) {
+//           return DateTime.fromMillisecondsSinceEpoch(
+//               json['_seconds'] * 1000 + json['_nanoseconds'] ~/ 1000000);
+//         } else {
+//           throw Exception("Invalid type for date field");
+//         }
+//       case FieldType.range:
+//         if (json is Map &&
+//             json.containsKey('low') &&
+//             json.containsKey('high')) {
+//           return RangeField(json['low'], json['high']);
+//         } else {
+//           throw Exception("Invalid type for range field");
+//         }
+//       case FieldType.time:
+//         if (json is Map &&
+//             json.containsKey('hour') &&
+//             json.containsKey('minute')) {
+//           return TimeOfDay(hour: json['hour'], minute: json['minute']);
+//         } else {
+//           throw Exception("Invalid type for time field");
+//         }
+//       case FieldType.text:
+//       case FieldType.number:
+//       case FieldType.bool:
+//       case FieldType.image:
+//         return json;
+//       default:
+//         throw Exception("Unsupported field type");
+//     }
   }
 
-  static Map<String, dynamic> _toJson(dynamic value, String fieldType) {
-    FieldType fType = FieldType.fromString(fieldType);
-    switch (fType) {
-      case FieldType.date:
-        if (value is DateTime) {
-          return {
-            '_seconds': value.millisecondsSinceEpoch ~/ 1000,
-            '_nanoseconds': (value.millisecondsSinceEpoch % 1000) * 1000000
-          };
-        } else {
-          throw Exception("Invalid type for date field");
-        }
-      case FieldType.range:
-        if (value is RangeField) {
-          return {'low': value.low, 'high': value.high};
-        } else {
-          throw Exception("Invalid type for range field");
-        }
-      case FieldType.time:
-        if (value is TimeOfDay) {
-          return {'hour': value.hour, 'minute': value.minute};
-        } else {
-          throw Exception("Invalid type for time field");
-        }
-      case FieldType.text:
-      case FieldType.number:
-      case FieldType.bool:
-      case FieldType.image:
-        return value;
-      default:
-        throw Exception("Unsupported field type");
-    }
-  }
+  // static Map<String, dynamic> _toJson(dynamic value, String fieldType) {
+  //   FieldType fType = FieldType.fromString(fieldType);
+  //   return {'value': null};
+  // switch (fType) {
+//       case FieldType.date:
+//         if (value is DateTime) {
+//           return {
+//             '_seconds': value.millisecondsSinceEpoch ~/ 1000,
+//             '_nanoseconds': (value.millisecondsSinceEpoch % 1000) * 1000000
+//           };
+//         } else {
+//           throw Exception("Invalid type for date field");
+//         }
+//       case FieldType.range:
+//         if (value is RangeField) {
+//           return {'low': value.low, 'high': value.high};
+//         } else {
+//           throw Exception("Invalid type for range field");
+//         }
+//       case FieldType.time:
+//         if (value is TimeOfDay) {
+//           return {'hour': value.hour, 'minute': value.minute};
+//         } else {
+//           throw Exception("Invalid type for time field");
+//         }
+//       case FieldType.text:
+//       case FieldType.number:
+//       case FieldType.bool:
+//       case FieldType.image:
+//         return value;
+//       default:
+//         throw Exception("Unsupported field type");
+//     }
+  // }
 }

@@ -114,7 +114,7 @@ class _CardViewIItemState extends State<CardViewIItem> {
                                           ),
                                         ));
                                   }))),
-                      ((subtitleWidget != const SizedBox.shrink()) &&
+                      ((subtitleWidget != SizedBox.shrink()) ||
                               widget.cardData.imageURL == null)
                           ? const SizedBox.shrink()
                           : Expanded(flex: 1, child: subtitleWidget)

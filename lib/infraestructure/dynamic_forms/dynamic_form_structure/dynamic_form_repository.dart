@@ -12,7 +12,9 @@ import 'package:expedientes_clinicos/infraestructure/dynamic_forms/dynamic_form_
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/services.dart';
 import 'package:injectable/injectable.dart';
+import 'package:kt_dart/kt.dart';
 import 'package:kt_dart/src/collection/kt_list.dart';
+import 'package:rxdart/rxdart.dart';
 
 @LazySingleton(as: IDynamicFormRepository)
 class DynamicFormRepository implements IDynamicFormRepository {
@@ -23,22 +25,33 @@ class DynamicFormRepository implements IDynamicFormRepository {
   @override
   Future<Either<DynamicFormFailures, FormSection>> create(
       FormSection formSection) async {
+    print("DYNAMIC");
+
     try {
+      print("Inside save Dynmaic");
+      print(formSection.sectionType);
       // Convert the formSection to Data transfer object
       FormSectionDto formSectionDto = FormSectionDto.fromDomain(formSection);
 
       // Access the dynamicForms collection
       final formsCollection = _firestore.collection("dynamicForms");
+      print("1");
+      print("FormSectionDTO");
+      print(formSectionDto);
 
       // modify the formSection object to a format that can be
       // saved to the database JSON format
       Map<String, dynamic> data = formSectionDto.toJson();
+      print("2");
 
       //We keep the id that comes from categoryDto and avoid autogeneration
       await formsCollection.doc(formSectionDto.formId).set(data);
+      print("3");
+
       FormSection newFormSection = FormSectionDto.fromFirestore(
               await formsCollection.doc(formSectionDto.formId).get())
           .toDomain();
+      print("4");
 
       return right(newFormSection);
     } on FirebaseException catch (e) {
@@ -111,9 +124,26 @@ class DynamicFormRepository implements IDynamicFormRepository {
   }
 
   @override
-  Stream<Either<DynamicFormFailures, KtList<FormSection>>> watchAll() {
-    // TODO: implement watchAll
-    throw UnimplementedError();
+  Stream<Either<DynamicFormFailures, KtList<FormSection>>> watchAll() async* {
+    final category = _firestore.collection("dynamicForms");
+    yield* category
+        .snapshots()
+        .map(
+          (snapshot) => right<DynamicFormFailures, KtList<FormSection>>(
+            snapshot.docs
+                .map((doc) => FormSectionDto.fromFirestore(doc).toDomain())
+                .toImmutableList(),
+          ),
+        )
+        .onErrorReturnWith((e, _) {
+      if (e is PlatformException && e.message!.contains('PERMISSION_DENIED')) {
+        print('prob');
+        return left(const DynamicFormFailures.insufficientPermissions());
+      } else {
+        print('problm');
+        return left(const DynamicFormFailures.unexpected());
+      }
+    });
   }
 
   @override

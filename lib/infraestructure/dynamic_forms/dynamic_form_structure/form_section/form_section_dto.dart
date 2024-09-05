@@ -27,9 +27,12 @@ class FormSectionDto with _$FormSectionDto {
 
   factory FormSectionDto.fromDomain(FormSection formSection) {
     return FormSectionDto(
-        formId: formSection.formId.toString(),
+        formId: formSection.formId.value
+            .fold((ifLeft) => ifLeft.toString(), (ifRight) => ifRight),
         sectionName: formSection.sectionName.getOrCrash(),
-        sectionType: formSection.sectionType.toString(),
+        sectionType: formSection.sectionType.value.fold(
+            (ifLeft) => SectionTypes.errorValue.name,
+            (ifRight) => ifRight.name),
         categoryDto: CategoryDto.fromDomain(formSection.category),
         formRows: formSection.formRows
             .getOrCrash()

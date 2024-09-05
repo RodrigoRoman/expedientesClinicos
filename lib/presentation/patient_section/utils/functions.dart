@@ -49,3 +49,48 @@ Widget selectWidgetVisualization(FieldType fieldType) {
       return Spacer(); // Return an empty Container or another default widget
   }
 }
+
+Widget selectFieldWidget(
+  FieldType fieldType,
+  Function(Object) onChanged,
+) {
+  // TextEditingController controller = textController ?? TextEditingController();
+  switch (fieldType) {
+    case FieldType.number:
+      return DoubleInputBox(
+        onChanged: onChanged,
+        initialValue: 0.0,
+      );
+    case FieldType.date:
+      return DatePickerButton(
+        selectedDate: DateTime.now(),
+        onChanged: onChanged,
+      );
+    case FieldType.range:
+      return const RangeNumberInput(inactive: true);
+    case FieldType.time:
+      return DigitalWatch(
+        initialTime: HourTime.now(),
+        onTimeSelected: onChanged,
+      );
+    case FieldType.text:
+      return TextInputField(
+        hintText: AppStrings.textFieldDynamic,
+        // textFieldController: controller,
+        onChange: (String newText) {
+          // controller.text = newText;
+          // controller.selection = TextSelection.fromPosition(
+          //     TextPosition(offset: controller.text.length));
+          onChanged(newText);
+        },
+      );
+    case FieldType.image:
+      return ImagePickerDisplay(
+        imageUrl: ImageURL(AppAssetNames.imagePlaceholder),
+        onImageUrlChanged: onChanged,
+        mounted: true,
+      );
+    default:
+      return Spacer(); // Return an empty Container or another default widget
+  }
+}

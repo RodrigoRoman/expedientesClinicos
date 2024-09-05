@@ -37,6 +37,11 @@ abstract class FirebaseInjectableModule {
   ICategoryRepository get categoryIndicationRepository => CategoryRepository(
       firestore, FirebaseCollectionCategories.indicationCategories);
 
+  @Named(FirebaseCollectionCategories.dynamicCategories)
+  @lazySingleton
+  ICategoryRepository get categoryDynamicRepository => CategoryRepository(
+      firestore, FirebaseCollectionCategories.dynamicCategories);
+
   @Named(FirebaseCollectionCategories.patientVisitCategories)
   @lazySingleton
   ICategoryRepository get categoryPatientVisitRepository => CategoryRepository(

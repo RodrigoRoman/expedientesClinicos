@@ -1,12 +1,19 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:expedientes_clinicos/application/patient_visit/patient_visit_form/patient_visit_form_bloc.dart';
+import 'package:expedientes_clinicos/application/state_render/state_renderer_bloc.dart';
 import 'package:expedientes_clinicos/domain/core/view_models/drop_down_expanded_view_model.dart';
+import 'package:expedientes_clinicos/domain/core/view_models/drop_down_view_model.dart';
+import 'package:expedientes_clinicos/domain/dynamic_forms/form_section/form_section.dart';
 import 'package:expedientes_clinicos/injection.dart';
+import 'package:expedientes_clinicos/presentation/common/widget_elements/buttons.dart';
 import 'package:expedientes_clinicos/presentation/common/widget_elements/label_drop_down/expanded_card_item_drop_down.dart';
+import 'package:expedientes_clinicos/presentation/patient_section/dynamic_form_fillable/dynamic_form_fillable_page.dart';
+import 'package:expedientes_clinicos/presentation/patient_section/dynamic_form_structure/componenets/drop_down_search_dynamic_catalog.dart';
 import 'package:expedientes_clinicos/presentation/patient_visit/visit_information/visit_information_body.dart';
 import 'package:expedientes_clinicos/presentation/prescription/drop_down_prescription.dart';
 import 'package:expedientes_clinicos/presentation/prescription/prescription_list_select.dart';
 import 'package:expedientes_clinicos/presentation/resources/constant_size_values.dart';
+import 'package:expedientes_clinicos/presentation/resources/string_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -21,6 +28,7 @@ class PatientVisitPage extends StatefulWidget {
 class _PatientVisitPageState extends State<PatientVisitPage> {
   int _currentStep = 0;
 
+  FormSection currentSection = FormSection.empty();
   @override
   Widget build(BuildContext context) {
     final double keyboardHeight = MediaQuery.of(context).viewInsets.bottom;
@@ -39,64 +47,118 @@ class _PatientVisitPageState extends State<PatientVisitPage> {
         title: const Text('Visita Medica'),
       ),
       body: BlocProvider(
-        create: (context) => getIt<PatientVisitFormBloc>(),
-        child: Stepper(
-          type: StepperType.vertical,
-          currentStep: _currentStep,
-          onStepContinue: () {
-            if (_currentStep < 2) {
-              setState(() {
-                _currentStep += 1;
-              });
-            }
-          },
-          onStepCancel: () {
-            if (_currentStep > 0) {
-              setState(() {
-                _currentStep -= 1;
-              });
-            }
-          },
-          steps: [
-            Step(
-              title: Text('Informacion de la visita'),
-              content: VisitInformationBody(),
-              isActive: _currentStep >= 0,
-              state:
-                  _currentStep >= 0 ? StepState.complete : StepState.disabled,
+          create: (context) => getIt<PatientVisitFormBloc>(),
+          child: SizedBox(
+            height: 300,
+            width: 500,
+            child: Column(
+              children: [
+                Expanded(
+                    child: Column(children: [
+                  Expanded(
+                    child: Row(
+                      children: [
+                        Expanded(
+                            child: SplashIconButton(
+                                act: () {
+                                  context
+                                      .read<StateRendererBloc>()
+                                      .add(StateRendererEvent.fullScreenForm(
+                                        title: currentSection.sectionName.value
+                                            .fold((ifLeft) => ifLeft.toString(),
+                                                (ifRight) => ifRight),
+                                        bodyWidget: DynamicFormFillablePage(
+                                          incommingFormSection: currentSection,
+                                          // form: FormSection.empty(),
+                                          // onCreated: (FormSection formSection) {
+                                          //   widget.onCreated(formSection);
+                                          //   setState(() {});
+                                          // },
+                                        ),
+                                        message: "",
+                                        // until: AppStrings.,
+                                      ));
+                                },
+                                icon: Icons.add_box_rounded)),
+                        Spacer(
+                          flex: 3,
+                        )
+                      ],
+                    ),
+                  ),
+                  Expanded(
+                    flex: 3,
+                    child: DropDownSearchDynamicCatalog(
+                      onCreated: () {},
+                      onSelected: (DropdownItemViewModel dropItem) {
+                        setState(() {
+                          currentSection = dropItem.formSection!;
+                        });
+                      },
+                      currentFormSection: currentSection,
+                    ),
+                  ),
+                ]))
+              ],
             ),
-            Step(
-              title: Text('Tratamiento'),
-              content: SizedBox(
-                  height: 600, width: 500, child: PrescriptionListSelect()),
-              isActive: _currentStep >= 1,
-              state:
-                  _currentStep >= 1 ? StepState.complete : StepState.disabled,
-            ),
-            Step(
-              title: Text('Procediminetos - Indicaciones'),
-              content: Text('Procedimientos'),
-              isActive: _currentStep >= 2,
-              state:
-                  _currentStep >= 2 ? StepState.complete : StepState.disabled,
-            ),
-            Step(
-              title: Text('Laboratorios'),
-              content: Text('Pedir laboratorios'),
-              isActive: _currentStep >= 3,
-              state:
-                  _currentStep >= 3 ? StepState.complete : StepState.disabled,
-            ),
-            Step(
-              title: Text('Imprimir'),
-              content: Text('Información del Paso 5'),
-              isActive: _currentStep >= 4,
-              state:
-                  _currentStep >= 4 ? StepState.complete : StepState.disabled,
-            ),
-          ],
-        ),
-      ),
+          )
+          // Stepper(
+          //   type: StepperType.vertical,
+          //   currentStep: _currentStep,
+          //   onStepContinue: () {
+          //     if (_currentStep < 2) {
+          //       setState(() {
+          //         _currentStep += 1;
+          //       });
+          //     }
+          //   },
+          //   onStepCancel: () {
+          //     if (_currentStep > 0) {
+          //       setState(() {
+          //         _currentStep -= 1;
+          //       });
+          //     }
+          //   },
+          //   steps: [
+          // Step(
+          //   title: Text('Informacion de la visita'),
+          //   content: VisitInformationBody(),
+          //   isActive: _currentStep >= 0,
+          //   state:
+          //       _currentStep >= 0 ? StepState.complete : StepState.disabled,
+          // ),
+          // Step(
+          //   title: Text('Tratamiento'),
+          //   content: SizedBox(
+          //       height: 600, width: 500, child: PrescriptionListSelect()),
+          //   isActive: _currentStep >= 1,
+          //   state:
+          //       _currentStep >= 1 ? StepState.complete : StepState.disabled,
+          // ),
+          // Step(
+          //   title: Text('Procediminetos - Indicaciones'),
+          //   content: Text('Procedimientos'),
+          //   isActive: _currentStep >= 2,
+          //   state:
+          //       _currentStep >= 2 ? StepState.complete : StepState.disabled,
+          // ),
+          // Step(
+          //   title: Text('Laboratorios'),
+          //   content: Text('Pedir laboratorios'),
+          //   isActive: _currentStep >= 3,
+          //   state:
+          //       _currentStep >= 3 ? StepState.complete : StepState.disabled,
+          // ),
+          // Step(
+          //   title: Text('Imprimir'),
+          //   content: Text('Información del Paso 5'),
+          //   isActive: _currentStep >= 4,
+          //   state:
+          //       _currentStep >= 4 ? StepState.complete : StepState.disabled,
+          // ),
+          //   ],
+          // ),
+          ),
     );
   }
 }

@@ -23,6 +23,22 @@ abstract class _$AppRouter extends RootStackRouter {
         child: BrandedMedicineFormPage(onCreated: args.onCreated),
       );
     },
+    DynamicFormFillablePageRoute.name: (routeData) {
+      final args = routeData.argsAs<DynamicFormFillablePageRouteArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: DynamicFormFillablePage(
+          incommingFormSection: args.incommingFormSection,
+          key: args.key,
+        ),
+      );
+    },
+    DynamicSectionFormStructurePageRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const DynamicSectionFormStructurePage(),
+      );
+    },
     FullScreenStatePageRoute.name: (routeData) {
       final args = routeData.argsAs<FullScreenStatePageRouteArgs>();
       return AutoRoutePage<dynamic>(
@@ -39,12 +55,6 @@ abstract class _$AppRouter extends RootStackRouter {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: GenericMedicineFormPage(onCreated: args.onCreated),
-      );
-    },
-    PatientSectionPageRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const PatientSectionPage(),
       );
     },
     PatientVisitPageRoute.name: (routeData) {
@@ -92,6 +102,59 @@ class BrandedMedicineFormPageRouteArgs {
   String toString() {
     return 'BrandedMedicineFormPageRouteArgs{onCreated: $onCreated}';
   }
+}
+
+/// generated route for
+/// [DynamicFormFillablePage]
+class DynamicFormFillablePageRoute
+    extends PageRouteInfo<DynamicFormFillablePageRouteArgs> {
+  DynamicFormFillablePageRoute({
+    required FormSection incommingFormSection,
+    Key? key,
+    List<PageRouteInfo>? children,
+  }) : super(
+          DynamicFormFillablePageRoute.name,
+          args: DynamicFormFillablePageRouteArgs(
+            incommingFormSection: incommingFormSection,
+            key: key,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'DynamicFormFillablePageRoute';
+
+  static const PageInfo<DynamicFormFillablePageRouteArgs> page =
+      PageInfo<DynamicFormFillablePageRouteArgs>(name);
+}
+
+class DynamicFormFillablePageRouteArgs {
+  const DynamicFormFillablePageRouteArgs({
+    required this.incommingFormSection,
+    this.key,
+  });
+
+  final FormSection incommingFormSection;
+
+  final Key? key;
+
+  @override
+  String toString() {
+    return 'DynamicFormFillablePageRouteArgs{incommingFormSection: $incommingFormSection, key: $key}';
+  }
+}
+
+/// generated route for
+/// [DynamicSectionFormStructurePage]
+class DynamicSectionFormStructurePageRoute extends PageRouteInfo<void> {
+  const DynamicSectionFormStructurePageRoute({List<PageRouteInfo>? children})
+      : super(
+          DynamicSectionFormStructurePageRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'DynamicSectionFormStructurePageRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for
@@ -161,20 +224,6 @@ class GenericMedicineFormPageRouteArgs {
   String toString() {
     return 'GenericMedicineFormPageRouteArgs{onCreated: $onCreated}';
   }
-}
-
-/// generated route for
-/// [PatientSectionPage]
-class PatientSectionPageRoute extends PageRouteInfo<void> {
-  const PatientSectionPageRoute({List<PageRouteInfo>? children})
-      : super(
-          PatientSectionPageRoute.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'PatientSectionPageRoute';
-
-  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for

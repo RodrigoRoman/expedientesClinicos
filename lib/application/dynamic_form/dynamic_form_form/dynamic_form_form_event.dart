@@ -10,6 +10,10 @@ class DynamicFormFormEvent with _$DynamicFormFormEvent {
       SectionTypes sectionType) = _SectionTypeChanged;
   const factory DynamicFormFormEvent.formRowsChanged(List<FormRow> formRows) =
       _FormRowsChanged;
+  const factory DynamicFormFormEvent.changeFormElementValue(
+          FormElement formElement, dynamic newValue, int rowIndex) =
+      _ValueFormElementChanged;
+
   const factory DynamicFormFormEvent.layoutYPercentChanged(
       List<LayoutPercent> layoutPercent) = _LayoutYPercentChanged;
   const factory DynamicFormFormEvent.categoryChanged(Category category) =

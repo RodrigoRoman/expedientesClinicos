@@ -47,6 +47,8 @@ class AppStrings {
   static const String createField = "Definir campo";
   static const String fieldName = "Nombre del campo";
   static const String formFieldType = 'Tipo de campo';
+  static const String defineSection = 'Definir seccion';
+
   static const String formSectionType = 'Tipo de seccion';
 
   static const String measureUnit = 'Unidad de medida';

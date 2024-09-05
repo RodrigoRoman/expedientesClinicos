@@ -34,6 +34,7 @@ mixin _$DropdownItemViewModel {
   FormElement? get formElement => throw _privateConstructorUsedError;
   FieldType? get fieldType => throw _privateConstructorUsedError;
   SectionTypes? get sectionType => throw _privateConstructorUsedError;
+  FormSection? get formSection => throw _privateConstructorUsedError;
   Dose? get dose => throw _privateConstructorUsedError;
   Category? get category => throw _privateConstructorUsedError;
 
@@ -64,6 +65,7 @@ abstract class $DropdownItemViewModelCopyWith<$Res> {
       FormElement? formElement,
       FieldType? fieldType,
       SectionTypes? sectionType,
+      FormSection? formSection,
       Dose? dose,
       Category? category});
 
@@ -75,6 +77,7 @@ abstract class $DropdownItemViewModelCopyWith<$Res> {
   $DayHoursDoseCopyWith<$Res>? get dayHoursDose;
   $WeekDaysDoseCopyWith<$Res>? get weekDaysDose;
   $TimeIntervalCopyWith<$Res>? get timeInterval;
+  $FormSectionCopyWith<$Res>? get formSection;
   $DoseCopyWith<$Res>? get dose;
   $CategoryCopyWith<$Res>? get category;
 }
@@ -108,6 +111,7 @@ class _$DropdownItemViewModelCopyWithImpl<$Res,
     Object? formElement = freezed,
     Object? fieldType = freezed,
     Object? sectionType = freezed,
+    Object? formSection = freezed,
     Object? dose = freezed,
     Object? category = freezed,
   }) {
@@ -172,6 +176,10 @@ class _$DropdownItemViewModelCopyWithImpl<$Res,
           ? _value.sectionType
           : sectionType // ignore: cast_nullable_to_non_nullable
               as SectionTypes?,
+      formSection: freezed == formSection
+          ? _value.formSection
+          : formSection // ignore: cast_nullable_to_non_nullable
+              as FormSection?,
       dose: freezed == dose
           ? _value.dose
           : dose // ignore: cast_nullable_to_non_nullable
@@ -283,6 +291,18 @@ class _$DropdownItemViewModelCopyWithImpl<$Res,
 
   @override
   @pragma('vm:prefer-inline')
+  $FormSectionCopyWith<$Res>? get formSection {
+    if (_value.formSection == null) {
+      return null;
+    }
+
+    return $FormSectionCopyWith<$Res>(_value.formSection!, (value) {
+      return _then(_value.copyWith(formSection: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
   $DoseCopyWith<$Res>? get dose {
     if (_value.dose == null) {
       return null;
@@ -331,6 +351,7 @@ abstract class _$$DropdownItemViewModelImplCopyWith<$Res>
       FormElement? formElement,
       FieldType? fieldType,
       SectionTypes? sectionType,
+      FormSection? formSection,
       Dose? dose,
       Category? category});
 
@@ -350,6 +371,8 @@ abstract class _$$DropdownItemViewModelImplCopyWith<$Res>
   $WeekDaysDoseCopyWith<$Res>? get weekDaysDose;
   @override
   $TimeIntervalCopyWith<$Res>? get timeInterval;
+  @override
+  $FormSectionCopyWith<$Res>? get formSection;
   @override
   $DoseCopyWith<$Res>? get dose;
   @override
@@ -383,6 +406,7 @@ class __$$DropdownItemViewModelImplCopyWithImpl<$Res>
     Object? formElement = freezed,
     Object? fieldType = freezed,
     Object? sectionType = freezed,
+    Object? formSection = freezed,
     Object? dose = freezed,
     Object? category = freezed,
   }) {
@@ -447,6 +471,10 @@ class __$$DropdownItemViewModelImplCopyWithImpl<$Res>
           ? _value.sectionType
           : sectionType // ignore: cast_nullable_to_non_nullable
               as SectionTypes?,
+      formSection: freezed == formSection
+          ? _value.formSection
+          : formSection // ignore: cast_nullable_to_non_nullable
+              as FormSection?,
       dose: freezed == dose
           ? _value.dose
           : dose // ignore: cast_nullable_to_non_nullable
@@ -478,6 +506,7 @@ class _$DropdownItemViewModelImpl extends _DropdownItemViewModel {
       this.formElement,
       this.fieldType,
       this.sectionType,
+      this.formSection,
       this.dose,
       this.category})
       : super._();
@@ -513,13 +542,15 @@ class _$DropdownItemViewModelImpl extends _DropdownItemViewModel {
   @override
   final SectionTypes? sectionType;
   @override
+  final FormSection? formSection;
+  @override
   final Dose? dose;
   @override
   final Category? category;
 
   @override
   String toString() {
-    return 'DropdownItemViewModel(id: $id, title: $title, subtitle: $subtitle, imageURL: $imageURL, originGenericMedicine: $originGenericMedicine, originBrandedMedicine: $originBrandedMedicine, nameAbbreviation: $nameAbbreviation, indication: $indication, labelDoubleAmount: $labelDoubleAmount, dayHoursDose: $dayHoursDose, weekDaysDose: $weekDaysDose, timeInterval: $timeInterval, formElement: $formElement, fieldType: $fieldType, sectionType: $sectionType, dose: $dose, category: $category)';
+    return 'DropdownItemViewModel(id: $id, title: $title, subtitle: $subtitle, imageURL: $imageURL, originGenericMedicine: $originGenericMedicine, originBrandedMedicine: $originBrandedMedicine, nameAbbreviation: $nameAbbreviation, indication: $indication, labelDoubleAmount: $labelDoubleAmount, dayHoursDose: $dayHoursDose, weekDaysDose: $weekDaysDose, timeInterval: $timeInterval, formElement: $formElement, fieldType: $fieldType, sectionType: $sectionType, formSection: $formSection, dose: $dose, category: $category)';
   }
 
   @JsonKey(ignore: true)
@@ -547,6 +578,7 @@ abstract class _DropdownItemViewModel extends DropdownItemViewModel {
       final FormElement? formElement,
       final FieldType? fieldType,
       final SectionTypes? sectionType,
+      final FormSection? formSection,
       final Dose? dose,
       final Category? category}) = _$DropdownItemViewModelImpl;
   const _DropdownItemViewModel._() : super._();
@@ -581,6 +613,8 @@ abstract class _DropdownItemViewModel extends DropdownItemViewModel {
   FieldType? get fieldType;
   @override
   SectionTypes? get sectionType;
+  @override
+  FormSection? get formSection;
   @override
   Dose? get dose;
   @override

@@ -12,7 +12,7 @@ class FormElement {
   //Form id is just for the case where the type is dropDown
   bool required;
   UniqueId? fieldId;
-  NonNegInt? columnNum;
+  NonNegInt columnNum;
 
   //the dynamic type is incredibly flexible. When you declare a variable as dynamic, you’re essentially telling Dart to allow any data type to be assigned to it.
   dynamic value;
@@ -22,12 +22,13 @@ class FormElement {
       this.value,
       this.fieldId,
       this.required = false,
-      this.columnNum});
+      required this.columnNum});
 
   factory FormElement.empty() {
     return FormElement(
         fieldType: NonEmptyFieldType(FieldType.empty),
         promptName: NonEmptyString(AppStrings.empty),
+        columnNum: NonNegInt(0),
         required: false,
         value: null,
         fieldId: UniqueId());
@@ -41,6 +42,26 @@ class FormElement {
         columnNum: columnIdx,
         fieldId: UniqueId());
   }
+
+  // Add the copyWith method here
+  FormElement copyWith({
+    NonEmptyFieldType? fieldType,
+    NonEmptyString? promptName,
+    bool? required,
+    UniqueId? fieldId,
+    NonNegInt? columnNum,
+    dynamic value,
+  }) {
+    return FormElement(
+      fieldType: fieldType ?? this.fieldType,
+      promptName: promptName ?? this.promptName,
+      required: required ?? this.required,
+      fieldId: fieldId ?? this.fieldId,
+      columnNum: columnNum ?? this.columnNum,
+      value: value ?? this.value,
+    );
+  }
+
   Option<ValueFailure<dynamic>> get failureOrOption {
     return fieldType.failureOrUnit
         .andThen(promptName.failureOrUnit)
